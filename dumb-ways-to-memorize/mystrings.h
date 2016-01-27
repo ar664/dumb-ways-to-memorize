@@ -1,7 +1,13 @@
 #ifndef __MYSTRINGS_H
 #define __MYSTRINGS_H
 
-char * FileToString(FILE *file);
+#define	ALLOC_STR(X) ( (char *) malloc(sizeof(char)*X) )
+
+#include <jsmn.h>
+#include "stdio.h"
+//int getFileSize(FILE *file);
+char * FileToString(char *file);
+char * TypeFromJSON(jsmntype_t Type);
 
 
 #endif

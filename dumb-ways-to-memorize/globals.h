@@ -5,13 +5,7 @@
 
 extern int exitRequest;
 
-enum CollisionTypes
-{
-	COLLISION_TYPE_STATIC,
-	COLLISION_TYPE_DYNAMIC,
-	COLLISION_TYPE_SPECIAL
-};
-
+//Prepoccessor defed LINKS and STRICT_MODE
 //JSON Parser
 #include <jsmn.h>
 extern jsmn_parser gParser;

@@ -1,9 +1,16 @@
 {
-	"name" : "Dumb Ways to Memorize"
-	
-
-
-
-
-
+	"Comment": "Cant begin names with n t or f or  use colon due to parser",
+	"Game Name": "Dumb Ways to Memorize",
+	"PowerUps" : [
+		{
+			"name" : "Teleport"
+		
+		
+		},
+		{
+			"name" : "Fireball"
+		
+		}
+		
+	]
 }

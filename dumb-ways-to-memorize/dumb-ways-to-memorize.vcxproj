@@ -39,9 +39,10 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)\External_Libs;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\External_Libs;$(SDL2)\Include;$(SDL2_IMAGE)\Include;$(SDL2_MIXER)\Include;$(SDL2_TTF)\Include;$(IncludePath)</IncludePath>
     <ReferencePath>$(ProjectDir)\External_Libs;$(ReferencePath)</ReferencePath>
     <SourcePath>$(ProjectDir)\External_Libs;$(SourcePath)</SourcePath>
+    <LibraryPath>$(SDL2)\lib\x86;$(SDL2_IMAGE)\lib\x86;$(SDL2_MIXER)\lib\x86;$(SDL2_TTF)\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -52,13 +53,14 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;JSMN_PARENT_LINKS;JSMN_STRICT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>SyncCThrow</ExceptionHandling>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
