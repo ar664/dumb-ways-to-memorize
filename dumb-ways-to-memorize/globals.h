@@ -10,5 +10,6 @@ extern int exitRequest;
 #include <jsmn.h>
 extern jsmn_parser gParser;
 extern jsmntok_t *gTokens;
+extern char *gGameData;
 
 #endif

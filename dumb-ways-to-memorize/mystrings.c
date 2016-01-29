@@ -4,37 +4,18 @@
 #include <sys/types.h>
 #include <sys/stat.h>	
 
-//Old verision using fseek/fset
-/*
-int getFileSize(FILE *file)
+char * JsmnToString(jsmntok_t *token, char *str)
 {
-	int size;
-	fseek(file, 0, SEEK_END);
-	size = ftell(file);
-	fseek(file, 0, SEEK_SET);
-	return size;
-}
-
-char * FileToString(FILE *file)
-{
-	int size, i;
-	char *string, *retString;
-	size = 1;
-	string = (char *) malloc(sizeof(char)*size);
-	retString = string;
-	fscanf(file, "%[^\0]", string);
-	while(!feof(file))
+	int i;
+	int size = token->end - token->start;
+	char *retVal = ALLOC_STR(size);
+	for(i = 0; i < size; i++)
 	{
-		memset(string, fgetc(file), sizeof(char));
-		string++;
+		memcpy( (void*)retVal[i],(void*)str[i+token->start], sizeof(char));
 	}
-	retString[size] = '\0';
-	if(!retString) perror("File to string went wrong");
-	return retString;
+	retVal[size] = 0;
+	return retVal;
 }
-*/
-
-//New Version using sys/stats & fgets
 
 char * TypeFromJSON(jsmntype_t Type)
 {

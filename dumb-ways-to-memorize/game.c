@@ -30,6 +30,7 @@ int LoadGameData()
 	for(i = 0; i < num_tokens; i++)
 	{
 		printf("JSON token %d : %s \n", i, TypeFromJSON(gTokens[i].type));
+		printf("JSON token size %d : %d \n", i, gTokens[i].size);
 	}
 	return 0;
 }

@@ -30,6 +30,9 @@
     <ClCompile Include="mystrings.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="parseobject.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -48,6 +51,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="mystrings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parseobject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

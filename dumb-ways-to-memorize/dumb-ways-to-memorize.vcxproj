@@ -86,6 +86,7 @@
     <ClCompile Include="game.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="mystrings.c" />
+    <ClCompile Include="parseobject.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="entity.h" />
@@ -94,6 +95,8 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="mystrings.h" />
+    <ClInclude Include="parseobject.h" />
+    <ClInclude Include="player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
