@@ -9,8 +9,8 @@
 char * FileToString(char *file);
 char * TypeFromJSON(jsmntype_t Type);
 char * JsmnToString(jsmntok_t *token, char *str);
-char * FindValueFromKey(jsmntok_t *token, char *key);
-char * FindKey(jsmntok_t *token, char *key);
+char * FindValueFromKey(jsmntok_t *token, char *key, char *g_str);
+char * FindKey(jsmntok_t *token, char *key, char *g_str);
 
 
 #endif

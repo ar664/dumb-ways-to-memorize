@@ -7,10 +7,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+//All char ** should be size+1, and ending member = NULL
+
 int exitRequest = 0;
 jsmn_parser gParser;
-char **gLevels = NULL;
-char **gSelectedLevels = NULL;
+char **gLevels = NULL;  /**< The levels */
+char **gSelectedLevels = NULL;  /**< The selected levels to load */
 jsmntok_t *gTokens; /**< Tokens for GameData */
 char *gGameData; /**< Game Data File */
 
@@ -43,8 +45,21 @@ int LoadGameData()
 		printf("JSON token %d : %s \n", i, TypeFromJSON(gTokens[i].type));
 		printf("JSON token size %d : %d \n", i, gTokens[i].size);
 	}
+
+	printf("First Level: %s",FindValueFromKey(gTokens, "Level", gGameData ));
+
+
 	return 0;
 }
+
+/**
+ * Select the levels randomly from the available levels, stores in gSelectedLevels.
+ *
+ * @return	0 on success, -1 on error
+ *
+ * @author	Anthony Rios
+ * @date	1/31/2016
+ */
 
 int SelectLevels()
 {
@@ -66,6 +81,7 @@ int SelectLevels()
 		}
 		gSelectedLevels[i] = gLevels[rand_i];
 	}
+	gSelectedLevels[i+1] = NULL;
 	return 0;
 }
 
@@ -118,7 +134,7 @@ int Run()
 		Update();
 		Draw();
 	}
-	return 0;
+	return Shutdown();
 }
 
 int Shutdown()

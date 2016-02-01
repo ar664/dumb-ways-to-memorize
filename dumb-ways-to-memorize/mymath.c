@@ -23,8 +23,10 @@ int CompareMemToMemArray(void *mem, void *mem_array, int size_type, int size_arr
 	{
 		if(!memcmp(mem, memory, size_type))
 		{
+			memory = NULL;
 			return 0;
 		}
 	}
+	memory = NULL;
 	return -1;
 }

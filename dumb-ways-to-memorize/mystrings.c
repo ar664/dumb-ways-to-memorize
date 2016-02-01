@@ -7,7 +7,7 @@
 
 
 /**
- * Searches for the first key.
+ * Searches for the first key and sets token.
  *
  * @param [in,out]	token	The token.
  * @param [in,out]	key  	The key.
@@ -46,7 +46,7 @@ char * FindKey(jsmntok_t *token, char *key, char *g_str)
  *
  * @param [in,out]	token	If non-null, the token.
  * @param [in,out]	key  	If non-null, the key.
- * @param [in,out]	g_str	If non-null, the string.
+ * @param [in,out]	g_str	If non-null, the global string.
  *
  * @return	null if it fails, else the found value from key.
  *
@@ -58,14 +58,13 @@ char * FindValueFromKey(jsmntok_t *token, char *key, char *g_str)
 {
 	int  i;
 	char *str;
-	for(i = 0; token[i].type; i++)
+	for(i = 0; i < token[0].size; i++)
 	{
 		str = JsmnToString(&token[i], g_str);
 		if(!strcmp(str,key))
 		{
 			return JsmnToString(&token[i+1], g_str);
 		}
-		free(str);
 	}
 	return NULL;
 }
@@ -74,7 +73,7 @@ char * FindValueFromKey(jsmntok_t *token, char *key, char *g_str)
  * Jsmn to string.
  *
  * @param [in,out]	token	If non-null, the token.
- * @param [in,out]	g_str	If non-null, the string.
+ * @param [in,out]	g_str	If non-null, the global string.
  *
  * @return	null if it fails, else a char*.
  *
@@ -87,10 +86,7 @@ char * JsmnToString(jsmntok_t *token, char *g_str)
 	int i;
 	int size = token->end - token->start;
 	char *retVal = ALLOC_STR(size);
-	for(i = 0; i < size; i++)
-	{
-		memcpy( (void*)retVal[i],(void*)g_str[i+token->start], sizeof(char));
-	}
+	strncpy( retVal, &g_str[token->start], size);
 	retVal[size] = 0;
 	return retVal;
 }
