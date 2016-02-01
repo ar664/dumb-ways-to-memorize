@@ -1,5 +1,38 @@
 #include "globals.h"
 #include <string.h>
+#include <stdlib.h>
+
+/**
+ * Allocate memory and copy over src into it.
+ *
+ * @param [in,out]	dst	If non-null, destination for the allocation.
+ * @param [in,out]	src	If non-null, source for the adding.
+ * @param	size_type  	Size of the type.
+ * @param	size	   	The size.
+ *
+ * @return	0 on success, -1 on error.
+ *
+ * @author	Anthony Rios
+ * @date	2/1/2016
+ */
+
+int AllocateDynamic(void *dst, void *src, int size_type, int size)
+{
+	auto destination = RETURN_TYPE(size_type, dst);
+	if(dst)
+	{
+		void* temp = dst;
+		dst = malloc(size_type*(size+1));
+		memcpy(dst, temp, size_type*size);
+	} else
+	{
+		dst = (void**) malloc(size_type*(size+1));
+	}
+	destination = RETURN_TYPE(size_type, dst);
+	(&destination)[size] = src;
+	(&destination)[size+1] = NULL;
+	return 0;
+}
 
 /**
  * Compare memory to memory array.

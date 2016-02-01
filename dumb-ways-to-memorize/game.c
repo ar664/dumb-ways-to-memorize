@@ -1,6 +1,7 @@
 #include "globals.h"
 #include "game.h"
 #include "mystrings.h"
+#include "parseobject.h"
 #include <SDL.h>
 #include <string.h>
 #include <stdio.h>
@@ -42,12 +43,14 @@ int LoadGameData()
 
 	for(i = 0; i < num_tokens; i++)
 	{
-		printf("JSON token %d : %s \n", i, TypeFromJSON(gTokens[i].type));
-		printf("JSON token size %d : %d \n", i, gTokens[i].size);
+		printf("JSON token %d : %s size: %d\n", i, TypeFromJSON(gTokens[i].type), gTokens[i].size);
 	}
 
-	printf("First Level: %s",FindValueFromKey(gTokens, "Level", gGameData ));
-
+	//printf("First Level: %s",FindValueFromKey(gTokens, "Level", gGameData ));
+	printf("Size of char: %d \n", sizeof(char));
+	printf("Size of int: %d \n", sizeof(int));
+	printf("Size of jsmntok_t: %d \n", sizeof(jsmntok_t));
+	printf("Size of object_t: %d \n", sizeof(object_t));
 
 	return 0;
 }
