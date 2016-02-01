@@ -85,6 +85,7 @@
     <ClCompile Include="External_Libs\jsmn.c" />
     <ClCompile Include="game.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="mymath.c" />
     <ClCompile Include="mystrings.c" />
     <ClCompile Include="parseobject.c" />
   </ItemGroup>

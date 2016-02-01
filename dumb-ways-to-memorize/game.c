@@ -9,8 +9,19 @@
 
 int exitRequest = 0;
 jsmn_parser gParser;
+char **gLevels = NULL;
+char **gSelectedLevels = NULL;
 jsmntok_t *gTokens; /**< Tokens for GameData */
 char *gGameData; /**< Game Data File */
+
+/**
+ * Loads game data from GameData.json, stored in gGameData.
+ *
+ * @return	state	0 on success, -1 on error.
+ *
+ * @author	Anthony Rios
+ * @date	1/31/2016
+ */
 
 int LoadGameData()
 {
@@ -35,6 +46,34 @@ int LoadGameData()
 	return 0;
 }
 
+int SelectLevels()
+{
+	int i, rand_i, *no_repeats, type_i;
+	int levels = 0;
+	i = 0;
+	while(gLevels[i])
+	{
+		levels++; i++;
+	}
+	type_i = sizeof(int);
+	no_repeats = (int*) calloc(levels,sizeof(int));
+	for (i = 0; i < LEVELS_PER_GAME; i++)
+	{
+		rand_i = rand()%levels;
+		while(!CompareMemToMemArray(&rand_i, no_repeats, type_i, levels ))
+		{
+			rand_i = rand()%levels;
+		}
+		gSelectedLevels[i] = gLevels[rand_i];
+	}
+	return 0;
+}
+
+int LoadSelectedLevels()
+{
+	return 0;
+}
+
 void Poll()
 {
 	return;
@@ -50,13 +89,24 @@ void Draw()
 	return;
 }
 
+/**
+ * Loads files and images for game.
+ *
+ * @return	state	returns 0 on success, -1 on error
+ *
+ * @author	Anthony Rios
+ * @date	1/31/2016
+ */
+
 int Setup()
 {
+	srand(SDL_GetTicks());
 	if(LoadGameData())
 	{
 		perror("Loading game data went wrong");
 		return -1;
 	}
+	atexit(SDL_Quit);
 	return 0;
 }
 
