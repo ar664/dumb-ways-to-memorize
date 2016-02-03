@@ -1,11 +1,8 @@
 #ifndef __ENTITY__H
 #define __ENTITY__H
 
-typedef struct vec2_s
-{
-	int x;
-	int y;
-}vec2_t;
+#include "globals.h"
+#include "graphics.h"
 
 typedef enum
 {
@@ -27,6 +24,7 @@ struct entity_s
 {
 	collision_type_t mCollisionType;
 	entity_state_t mEntityState;
+	sprite_t *mSprites;
 	vec2_t mAccel;
 	vec2_t mVelocity;
 	vec2_t mPosition;

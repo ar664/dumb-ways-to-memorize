@@ -18,6 +18,13 @@
 						: "Unkown" ) ) ) 
 /**< Returns string of the type of size X*/
 
+typedef struct vec2_s
+{
+	int x;
+	int y;
+}vec2_t;
+
+
 #define	FRAME_DELAY		17
 #define LEVELS_PER_GAME	6
 
