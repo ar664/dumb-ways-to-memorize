@@ -5,6 +5,30 @@
 #include "globals.h"
 #include "mystrings.h"
 
+/**
+ * Byte to binary.
+ *
+ * @param	x	The x coordinate.
+ *
+ * @return	null if it fails, else a char*.
+ *
+ * @author	From StackOverFlow
+ * @date	2/2/2016
+ */
+
+const char *ByteToBinary(int x)
+{
+    static char b[9];
+	int z;
+    b[0] = '\0';
+
+    for (z = 128; z > 0; z >>= 1)
+    {
+        strcat(b, ((x & z) == z) ? "1" : "0");
+    }
+
+    return b;
+}
 
 /**
  * Searches for the first key and sets token.

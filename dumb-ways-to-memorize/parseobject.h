@@ -7,11 +7,11 @@ typedef struct object_s object_t;
 
 struct object_s
 {
-	char *name;
 	object_t *parent;
-	object_t **children;
-	jsmntok_t **keys;
-	jsmntok_t **values;
+	object_t *children;
+	jsmntok_t *keys;
+	jsmntok_t *values;
+	char *name;
 };
 
 

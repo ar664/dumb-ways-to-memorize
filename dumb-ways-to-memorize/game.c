@@ -15,6 +15,7 @@ jsmn_parser gParser;
 char **gLevels = NULL;  /**< The levels */
 char **gSelectedLevels = NULL;  /**< The selected levels to load */
 jsmntok_t *gTokens; /**< Tokens for GameData */
+object_t *gGameObject;
 char *gGameData; /**< Game Data File */
 
 /**
@@ -32,7 +33,7 @@ int LoadGameData()
 	gGameData = FileToString(JSON_FILE);
 	jsmn_init(&gParser);
 	num_tokens = jsmn_parse(&gParser, gGameData, strlen(gGameData), NULL, 0);
-	gTokens = (jsmntok_t*) malloc(sizeof(jsmntok_t)*num_tokens);
+	gTokens = (jsmntok_t*) malloc(sizeof(jsmntok_t)*(num_tokens+1));
 	jsmn_init(&gParser); //Reset parser
 	num_tokens = jsmn_parse(&gParser, gGameData, strlen(gGameData), gTokens, num_tokens);
 	if(!num_tokens)
@@ -40,17 +41,22 @@ int LoadGameData()
 		printf("JSON parse error");
 		return -1;
 	}
-
+	memset(&gTokens[num_tokens+1], 0, SIZE_OF_JSMN_TOK_T); 
 	for(i = 0; i < num_tokens; i++)
 	{
 		printf("JSON token %d : %s size: %d\n", i, TypeFromJSON(gTokens[i].type), gTokens[i].size);
 	}
 
-	//printf("First Level: %s",FindValueFromKey(gTokens, "Level", gGameData ));
+	/*
+	printf("First Level: %s",FindValueFromKey(gTokens, "Level", gGameData ));
 	printf("Size of char: %d \n", sizeof(char));
 	printf("Size of int: %d \n", sizeof(int));
 	printf("Size of jsmntok_t: %d \n", sizeof(jsmntok_t));
 	printf("Size of object_t: %d \n", sizeof(object_t));
+	printf("Size of pointer: %d \n", sizeof(void*));
+	*/
+	gGameObject = ParseToObject(gTokens, gGameData);
+	printf("Size of global tokens: %d", CountMem(gTokens, SIZE_OF_JSMN_TOK_T));
 
 	return 0;
 }
