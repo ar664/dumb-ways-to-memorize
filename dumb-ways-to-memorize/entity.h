@@ -31,7 +31,14 @@ struct entity_s
 	void (*Think)(entity_t *self);
 	void (*Touch)(entity_t *self, entity_t *other, int type);
 	void (*Draw)(entity_t *self);
+	void (*PowerUp)(entity_t *self);
 };
 
+extern entity_t *gEntities;
+extern int gNumEntities;
+
+extern int InitEntitySystem();
+extern entity_t *InitNewEntity();
+extern entity_t *LookForEntity(vec2_t position);
 
 #endif

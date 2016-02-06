@@ -20,7 +20,7 @@ int CountMem(void *src, int size_type)
 	int *source = (int*)src;
 	if(source == NULL)
 		return 0;
-	i = 0; offset = size_type/SIZE_OF_INT;
+	i = 0; offset = size_type/sizeof(int);
 	while( *(source) ) 
 	{
 		source += offset;
@@ -45,7 +45,7 @@ int CountMem(void *src, int size_type)
 
 int AllocateDynamic(void **dst, void *src, int size_type, int size)
 {
-	int offset = size_type/SIZE_OF_INT;
+	int offset = size_type/sizeof(int);
 	*dst = realloc(*dst, size_type*(size+1));
 	memcpy((int*)(*dst)+(size-1)*offset, src, size_type);
 	memset((int*)(*dst)+(size)*offset, 0, size_type);
@@ -70,7 +70,7 @@ int CompareMemToMemArray(void *mem, void *mem_array, int size_type, int size_arr
 {
 	int i, offset;
 	int *memory = (int*) mem_array;
-	offset = size_type/SIZE_OF_INT;
+	offset = size_type/sizeof(int);
 	for(i = 0; i < size_array; i++)
 	{
 		if(!memcmp(mem, memory, size_type))

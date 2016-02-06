@@ -1,0 +1,20 @@
+{
+	"This" : "Is how an entity should be written"
+	"Entity Ex" : 
+	{
+		"collisionType" : "Ex",
+		"entityState" : "Ex",
+		"sprite" : "blank.png",
+		"height" : 32,
+		"width" : 32,
+		"frames" : 1,
+		"accel" : [0,0],
+		"velocity" : [0,0],
+		"position" : [0,0]
+	}
+	
+
+
+
+
+}

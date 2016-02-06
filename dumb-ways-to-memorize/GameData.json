@@ -1,15 +1,44 @@
 {
 	"Comment": "Cant begin names with n t or f or  use colon due to parser",
+	"Input Types" : ["X mouse", "X", "mouse", "none"],
+	"Use Types" : ["infinite", "num", "static"],
+	"Interactions" : ["move", "destroy", "spawn", "edit", "nullify"],
+	"Targets" : ["self", "at-point", "world"],
 	"Game Name": "Dumb Ways to Memorize",
 	"PowerUps" : [
 		{
-			"name" : "Teleport"
-		
+			"name" : "Teleport",
+			"input-type" : "X mouse",
+			"use-type" : "num",
+			"interaction" : "move",
+			"target" : "self",
+			"position" : "at-point"
 		
 		},
 		{
-			"name" : "Fireball"
-		
+			"name" : "Fireball",
+			"input-type" : "X mouse",
+			"use-type" : "num",
+			"interaction" : "spawn",
+			"target" : "self",
+			"position" : "self",
+			"entity" : "Fireball"
+		},
+		{
+			"name" : "Telekenisis",
+			"input-type" : "mouse",
+			"use-type" : "infinite",
+			"interaction" : "move",
+			"target" : "at-point",
+			"position" : "at-point"
+		},
+		{
+			"name" : "Flight",
+			"input-type" : "X",
+			"use-type" : "num",
+			"interaction" : "edit",
+			"target" : "self",
+			"X" : "NULL"
 		}
 		
 	]

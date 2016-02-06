@@ -3,15 +3,15 @@
 
 #define	MENU_ITEM_MAX	20
 
-struct MenuItem
+typedef struct 
 {
 	int		State;
 	char	*FileName;
-};
+}MenuItem;
 
 typedef struct
 {
-	MenuItem[MENU_ITEM_MAX];
+	MenuItem Items[MENU_ITEM_MAX];
 	void (*Update)(int button);
 }Menu;
 

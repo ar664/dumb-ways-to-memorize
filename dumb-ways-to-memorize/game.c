@@ -41,22 +41,14 @@ int LoadGameData()
 		printf("JSON parse error");
 		return -1;
 	}
-	memset(&gTokens[num_tokens+1], 0, SIZE_OF_JSMN_TOK_T); 
+	memset(&gTokens[num_tokens+1], 0, sizeof(jsmntok_t)); 
 	for(i = 0; i < num_tokens; i++)
 	{
 		printf("JSON token %d : %s size: %d\n", i, TypeFromJSON(gTokens[i].type), gTokens[i].size);
 	}
 
-	/*
-	printf("First Level: %s",FindValueFromKey(gTokens, "Level", gGameData ));
-	printf("Size of char: %d \n", sizeof(char));
-	printf("Size of int: %d \n", sizeof(int));
-	printf("Size of jsmntok_t: %d \n", sizeof(jsmntok_t));
-	printf("Size of object_t: %d \n", sizeof(object_t));
-	printf("Size of pointer: %d \n", sizeof(void*));
-	*/
 	gGameObject = ParseToObject(gTokens, gGameData);
-	printf("Size of global tokens: %d", CountMem(gTokens, SIZE_OF_JSMN_TOK_T));
+	printf("Size of global tokens: %d", CountMem(gTokens, sizeof(jsmntok_t)));
 
 	return 0;
 }
