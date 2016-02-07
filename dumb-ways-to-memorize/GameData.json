@@ -40,6 +40,13 @@
 			"target" : "self",
 			"X" : "NULL"
 		}
+		{
+			"name" : "OverPowered",
+			"input-type" : "X",
+			"use-type" : 1,
+			"interaction" : "destroy",
+			"target" : "world",
+		}
 		
 	]
 }

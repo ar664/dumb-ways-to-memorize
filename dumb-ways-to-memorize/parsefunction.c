@@ -2,6 +2,7 @@
 #include "parsefunction.h"
 #include "SDL.h"
 #include <string.h>
+#include <stdio.h>
 
 //Global
 entity_t *targEnt = NULL;
@@ -15,6 +16,24 @@ void *ParseToVariable(const char *name)
 	return NULL;
 }
 
+int GetUseType(const char *var)
+{
+	if(!strcmp("infinite", var))
+	{
+		useType = -1;
+		return 0;
+	} else if(!strcmp("static", var))
+	{
+		useType = useType;
+		return 0;
+	} else if(strpbrk(var, "-0123456789"))
+	{
+		sscanf(var, "%d", &useType);
+		return 0;
+	}
+	return -1;
+}
+
 void (*ParseToFunction(const char *name))(entity_t *self)
 {
 	int i;
@@ -26,7 +45,16 @@ void (*ParseToFunction(const char *name))(entity_t *self)
 			return FunctionSymbols[i];
 		}
 	}
+	if(!GetUseType(name))
+	{
+		return UseTypePlaceHolder;
+	}
 	return NULL;
+}
+
+void UseTypePlaceHolder(entity_t *self)
+{
+	return;
 }
 
 void GetWorld(entity_t *self)
@@ -49,11 +77,6 @@ void GetSelf(entity_t *self)
 	return;
 }
 
-void GetUseType(entity_t *self)
-{
-	self->PowerUp(self);
-	return;
-}
 
 void GetX(entity_t *self)
 {

@@ -91,6 +91,8 @@
     <ClCompile Include="mystrings.c" />
     <ClCompile Include="parsefunction.c" />
     <ClCompile Include="parseobject.c" />
+    <ClCompile Include="parsepowerup.c" />
+    <ClCompile Include="player.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="entity.h" />
@@ -102,6 +104,7 @@
     <ClInclude Include="mystrings.h" />
     <ClInclude Include="parsefunction.h" />
     <ClInclude Include="parseobject.h" />
+    <ClInclude Include="parsepowerup.h" />
     <ClInclude Include="player.h" />
   </ItemGroup>
   <ItemGroup>
