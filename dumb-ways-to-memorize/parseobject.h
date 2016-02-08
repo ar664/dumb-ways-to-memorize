@@ -15,6 +15,7 @@ struct object_s
 };
 
 object_t *ParseToObject(jsmntok_t *token, char *g_str);
+object_t *FindObject(object_t *obj, char *name);
 char *ParseObject();
 
 #endif

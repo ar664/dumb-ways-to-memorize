@@ -3,11 +3,12 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <stdio.h>
+#include <string.h>
 
 SDL_Window *gWindow;
 SDL_Renderer *gRenderer;
 sprite_t *gSprites;
-
+int gSpriteNum = 0;
 
 void InitGraphics()
 {
@@ -38,29 +39,45 @@ void InitGraphics()
 
 }
 
+
+
 sprite_t *LoadSprite(const char *name, int flags)
 {
 	SDL_Surface *temp;
-	int size;
-	size = CountMem(gSprites, sizeof(sprite_t));
-	if(size > MAX_SPRITES)
+	sprite_t *check;
+	if(gSpriteNum > MAX_SPRITES)
 	{
 		return NULL;
 	}
+	if( (check = FindSprite(name)) != NULL)
+	{
+		check->refCount++;
+		return check;
+	}
 	temp = IMG_Load(name);
-	gSprites = (sprite_t*) realloc(gSprites, sizeof(sprite_t)*(size+1));
-	gSprites[size].mSize.x = temp->w;
-	gSprites[size].mSize.y = temp->h;
-	gSprites[size].mTexture = SDL_CreateTextureFromSurface(gRenderer, temp);
+	gSprites = (sprite_t*) realloc(gSprites, sizeof(sprite_t)*(gSpriteNum+1));
+	gSprites[gSpriteNum].mSize.x = temp->w;
+	gSprites[gSpriteNum].mSize.y = temp->h;
+	gSprites[gSpriteNum].mTexture = SDL_CreateTextureFromSurface(gRenderer, temp);
+	gSprites[gSpriteNum].name = strdup(name);
+	gSprites[gSpriteNum].refCount = 1;
 	free(temp);
-	memset(&gSprites[size+1], 0, sizeof(sprite_t));
-
-	return &gSprites[size];
+	memset(&gSprites[gSpriteNum+1], 0, sizeof(sprite_t));
+	gSpriteNum++;
+	return &gSprites[gSpriteNum];
 }
 
 int DrawSprite(sprite_t *sprite, vec2_t *position, SDL_Renderer *renderer)
 {
-	return NULL;
+	SDL_Rect src, dst;
+	SDL_SetRect(&src, sprite->mCurrentFrame->Position.x, sprite->mCurrentFrame->Position.y, sprite->mSize.x, sprite->mSize.y);
+	SDL_SetRect(&dst, position->x, position->y, sprite->mSize.x, sprite->mSize.y);
+
+	if( SDL_RenderCopy(renderer, sprite->mTexture, &src, &dst) )
+	{
+		printf("Could not draw sprite %s : %s", sprite->name, SDL_GetError());
+	}
+	return 0;
 }
 
 Frame *LoadAnimation(int frame_width, int frame_height, int width, int height)
@@ -82,4 +99,49 @@ Frame *LoadAnimation(int frame_width, int frame_height, int width, int height)
 	return retVal;
 }
 
+sprite_t* FindSprite(const char* name)
+{
+	int i;
+	for(i = 0; i < gSpriteNum; i++)
+	{
+		if(!strcmp(gSprites[i].name, name))
+		{
+			return &gSprites[i];
+		}
+	}
+	return NULL;
+}
 
+void FreeSprite(sprite_t *sprite)
+{
+	int position, i;
+	if(sprite == FindSprite(sprite->name))
+	{
+		sprite->refCount--;
+		if(sprite->refCount > 0)
+			return;
+	}
+	position = -1;
+	for(i = 0; i < gSpriteNum; i++)
+	{
+		if(&gSprites[i] == sprite)
+		{
+			position = i;
+			break;
+		}
+	}
+	if(position == -1)
+		return;
+	SDL_DestroyTexture(sprite->mTexture);
+	memmove(&gSprites[position], &gSprites[position+1], sizeof(sprite_t)*abs(position-gSpriteNum));
+	gSpriteNum--;
+
+}
+
+void SDL_SetRect(SDL_Rect* rect, int x, int y, int w, int h)
+{
+	rect->x = x;
+	rect->y = y;
+	rect->w = w;
+	rect->h = h;
+}

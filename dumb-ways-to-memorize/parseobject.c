@@ -2,9 +2,7 @@
 #include "mystrings.h"
 #include "globals.h"
 #include <stdlib.h>
-
-
-
+#include <string.h>
 
 
 /**
@@ -105,3 +103,19 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 	retVal->children = children_array;
 	return retVal;
 	}
+
+object_t *FindObject(object_t *obj, char *name)
+{
+	int i;
+	object_t *retVal, *temp;
+	retVal = NULL;
+	temp = obj->children;
+	for(i = 0; &temp[i] != NULL; i++)
+	{
+		if(!strcmp(temp[i].name, name) )
+		{
+			retVal = &temp[i];
+		}
+	}
+	return retVal;
+}

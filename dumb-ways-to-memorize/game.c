@@ -2,6 +2,7 @@
 #include "game.h"
 #include "mystrings.h"
 #include "parseobject.h"
+#include "graphics.h"
 #include <SDL.h>
 #include <string.h>
 #include <stdio.h>
@@ -123,6 +124,7 @@ int Setup()
 		perror("Loading game data went wrong");
 		return -1;
 	}
+	InitGraphics();
 	atexit(SDL_Quit);
 	return 0;
 }
