@@ -119,13 +119,16 @@ void Draw()
 int Setup()
 {
 	srand(SDL_GetTicks());
+	atexit(Shutdown);
+
 	if(LoadGameData())
 	{
 		perror("Loading game data went wrong");
 		return -1;
 	}
+
 	InitGraphics();
-	atexit(SDL_Quit);
+	
 	return 0;
 }
 
@@ -137,10 +140,16 @@ int Run()
 		Update();
 		Draw();
 	}
-	return Shutdown();
+	return 0;
 }
 
-int Shutdown()
+void Shutdown()
 {
-	return 0;
+	SDL_Quit();
+	while(gSpriteNum)
+	{
+		FreeSprite(&gSprites[gSpriteNum-1]);
+	}
+
+	return;
 }

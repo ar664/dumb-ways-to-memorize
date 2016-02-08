@@ -5,9 +5,10 @@
 	"This" : "Is how an entity should be written",
 	"Entity Ex" : 
 	{
+		"hazard(s)" : "Ex",
 		"collisionType" : "Ex",
 		"entityState" : "Ex",
-		"sprite" : "blank.png",
+		"sprite(s)" : "blank.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,
@@ -18,9 +19,10 @@
 	
 	"Fireball" :
 	{
+		"hazard(s)" : "fire",
 		"collisionType" : "static",
 		"entityState" : "other",
-		"sprite" : "blank.png",
+		"sprite(s)" : "blank.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,

@@ -2,10 +2,14 @@
 #define __PARSE_VARIABLE_H
 
 #include "entity.h"
-#include <jsmn.h>
+#include "parseobject.h"
+
+char *AssignableVariableNames[] = {"hazard(s)" , "collisionType", "entityState", "sprite(s)", "accel", "velocity", "position", 0};
+char *OtherVariableNames[] = { "height", "width", "frames", 0 };
 
 typedef enum
 {
+	HAZARDS,
 	COLLISION_TYPE,
 	ENTITY_STATE,
 	SPRITES,
@@ -15,7 +19,7 @@ typedef enum
 
 }EntityNumbers;
 
-void Variable(jsmntok_t *key, jsmntok_t *value);
+entity_t *ParseToEntity(object_t *object);
 
 
 #endif

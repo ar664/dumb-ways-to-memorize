@@ -6,39 +6,9 @@
 
 //Function Globals
 char *FunctionNames[] = {"X mouse", "X", "mouse", "self", "at-point", "world" , 0};
-void (*FunctionSymbols[])(entity_t *self) = {GetXMouse, GetX, GetMousePos, GetSelf, GetAtPoint, GetWorld, 0 };
+void (*FunctionSymbols[]) = {GetXMouse, GetX, GetMousePos, GetSelf, GetAtPoint, GetWorld, 0 };
 
-//Global
-entity_t *targEnt = NULL;
-vec2_t mousePos = {0,0};
-vec2_t targPos = {0,0};
-SDL_GameControllerButton button;
-int useType = -1;
-
-void *ParseToVariable(const char *name)
-{
-	return NULL;
-}
-
-int GetUseType(const char *var)
-{
-	if(!strcmp("infinite", var))
-	{
-		useType = -1;
-		return 0;
-	} else if(!strcmp("static", var))
-	{
-		useType = useType;
-		return 0;
-	} else if(strpbrk(var, "-0123456789"))
-	{
-		sscanf(var, "%d", &useType);
-		return 0;
-	}
-	return -1;
-}
-
-void (*ParseToFunction(const char *name))(entity_t *self)
+void (*ParseToFunction(const char *name))
 {
 	int i;
 
@@ -49,53 +19,45 @@ void (*ParseToFunction(const char *name))(entity_t *self)
 			return FunctionSymbols[i];
 		}
 	}
-	if(!GetUseType(name))
-	{
-		return UseTypePlaceHolder;
-	}
 	return NULL;
 }
 
-void UseTypePlaceHolder(entity_t *self)
+void GetWorld(entity_t *self, entity_t **targ)
 {
+	*targ = gEntities;
 	return;
 }
 
-void GetWorld(entity_t *self)
+void GetAtPoint(entity_t *self, entity_t **targ)
 {
-	targEnt = gEntities;
+	vec2_t *temp = (vec2_t*) malloc(sizeof(vec2_t));
+	GetMousePos(self, &temp);
+	*targ = LookForEntity(*temp);
+	free(temp);
 	return;
 }
 
-void GetAtPoint(entity_t *self)
+void GetSelf(entity_t *self, entity_t **targ)
 {
-	GetMousePos(self);
-	targEnt = LookForEntity(mousePos);
-	targPos = mousePos;
-	return;
-}
-
-void GetSelf(entity_t *self)
-{
-	targEnt = self;
+	*targ = self;
 	return;
 }
 
 
-void GetX(entity_t *self)
+void GetX(entity_t *self, int *button)
 {
-	button = SDL_GameControllerGetButtonFromString("X");
+	*button = SDL_GetKeyFromName("X");
 	return;
 }
 
-void GetMousePos(entity_t *self)
+void GetMousePos(entity_t *self, vec2_t *pos)
 {
-	SDL_GetRelativeMouseState(&mousePos.x, &mousePos.y );
+	SDL_GetRelativeMouseState( &pos->x, &pos->y);
 	return;
 }
 
-void GetXMouse(entity_t *self)
+void GetXMouse(entity_t *self, int * button, vec2_t *pos)
 {
-	GetX(self);
-	GetMousePos(self);
+	GetX(self, button);
+	GetMousePos(self, pos);
 }

@@ -4,6 +4,9 @@
 #include "globals.h"
 #include "graphics.h"
 
+#define HAZARD_NULL	0x0
+#define HAZARD_MAX	(0x1 >> 31)
+
 typedef enum
 {
 	ENTITY_STATE_DEAD,
@@ -22,8 +25,9 @@ typedef struct entity_s entity_t;
 
 struct entity_s
 {
+	int mHazards;
 	collision_type_t mCollisionType;
-	entity_state_t mEntityState; //TODO add element type
+	entity_state_t mEntityState;
 	sprite_t *mSprites;
 	vec2_t mAccel;
 	vec2_t mVelocity;

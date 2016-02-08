@@ -4,29 +4,18 @@
 #include "entity.h"
 #include "SDL.h"
 
-
-extern char *FunctionNames[];
-
-extern entity_t *targEnt;
-extern vec2_t mousePos;
-extern vec2_t targPos;
-extern SDL_GameControllerButton button;
-extern int useType;
-
-
-void (*ParseToFunction(const char *name))(entity_t *self);
+void (*ParseToFunction(const char *name));
 
 //Functions to Parse to
-void GetWorld(entity_t *self);
-void GetAtPoint(entity_t *self);
-void GetSelf(entity_t *self);
-void GetX(entity_t *self);
-void GetMousePos(entity_t *self);
-void GetXMouse(entity_t *self);
-void UseTypePlaceHolder(entity_t *self);
-int GetUseType(const char *var);
+void GetWorld(entity_t *self, entity_t **targ);
+void GetAtPoint(entity_t *self, entity_t **targ);
+void GetSelf(entity_t *self, entity_t **targ);
+void GetX(entity_t *self, int * button);
+void GetMousePos(entity_t *self, vec2_t *pos);
+void GetXMouse(entity_t *self, int * button, vec2_t *pos);
 
 //Functions array
-extern void (*FunctionSymbols[])(entity_t *self);
+extern char *FunctionNames[];
+extern void (*FunctionSymbols[]);
 
 #endif

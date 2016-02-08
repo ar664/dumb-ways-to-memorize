@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <string.h>
-#include <sys/types.h>
 #include <sys/stat.h>
 #include "globals.h"
 #include "mystrings.h"
@@ -43,7 +42,7 @@ const char *ByteToBinary(int x)
  * @date	1/30/2016
  */
 
-char * FindKey(jsmntok_t *token, char *key, char *g_str)
+jsmntok_t *FindKey(jsmntok_t *token, char *key, char *g_str)
 {
 	char *str;
 	jsmntok_t *local_token = token;
@@ -55,8 +54,7 @@ char * FindKey(jsmntok_t *token, char *key, char *g_str)
 			str = JsmnToString(local_token, g_str);
 			if(!strcmp(str, key))
 			{
-				token = local_token;
-				return key;
+				return local_token;
 			}
 			free(str);
 		}
@@ -82,7 +80,7 @@ char * FindValueFromKey(jsmntok_t *token, char *key, char *g_str)
 {
 	int  i;
 	char *str;
-	for(i = 0; i < token[0].size; i++)
+	for(i = 0; token[i].type; i++)
 	{
 		str = JsmnToString(&token[i], g_str);
 		if(!strcmp(str,key))
@@ -107,7 +105,6 @@ char * FindValueFromKey(jsmntok_t *token, char *key, char *g_str)
 
 char * JsmnToString(jsmntok_t *token, char *g_str)
 {
-	int i;
 	int size = token->end - token->start;
 	char *retVal = ALLOC_STR(size);
 	strncpy( retVal, &g_str[token->start], size);

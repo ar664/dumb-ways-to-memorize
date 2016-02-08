@@ -21,6 +21,9 @@ typedef struct vec2_s
 	int y;
 }vec2_t;
 
+extern vec2_t mousePos;
+extern int keyPower;
+
 extern void *Player;
 extern void *World;
 extern void *Mouse;

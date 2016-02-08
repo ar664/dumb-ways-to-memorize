@@ -9,7 +9,7 @@
 int	mState;
 int	Setup();
 int Run();
-int Shutdown();
+void Shutdown();
 
 extern char **gLevels;
 extern char **gSelectedLevels;
