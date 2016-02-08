@@ -27,7 +27,7 @@ struct sprite_s
 };
 
 void InitGraphics();
-Frame *LoadAnimation(vec2_t *positions);
+Frame *LoadAnimation(int frame_width, int frame_height, int width, int height);
 sprite_t *LoadSprite(const char *name, int flags);
 sprite_t *LoadSpriteWithAnimation();
 int DrawSprite(sprite_t *sprite, vec2_t *position, SDL_Renderer *renderer);

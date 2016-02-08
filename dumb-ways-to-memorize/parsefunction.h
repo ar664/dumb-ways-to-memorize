@@ -5,7 +5,7 @@
 #include "SDL.h"
 
 
-char *FunctionNames[] = {"X mouse", "X", "mouse", "self", "at-point", "world" , 0};
+extern char *FunctionNames[];
 
 extern entity_t *targEnt;
 extern vec2_t mousePos;
@@ -27,6 +27,6 @@ void UseTypePlaceHolder(entity_t *self);
 int GetUseType(const char *var);
 
 //Functions array
-void (*FunctionSymbols[])(entity_t *self) = {GetXMouse, GetX, GetMousePos, GetSelf, GetAtPoint, GetWorld, 0 };
+extern void (*FunctionSymbols[])(entity_t *self);
 
 #endif

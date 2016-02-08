@@ -9,7 +9,7 @@
 		{
 			"name" : "Teleport",
 			"input-type" : "X mouse",
-			"use-type" : "num",
+			"use-type" : 2,
 			"interaction" : "move",
 			"target" : "self",
 			"position" : "at-point"
@@ -18,7 +18,7 @@
 		{
 			"name" : "Fireball",
 			"input-type" : "X mouse",
-			"use-type" : "num",
+			"use-type" : 5,
 			"interaction" : "spawn",
 			"target" : "self",
 			"position" : "self",
@@ -35,17 +35,17 @@
 		{
 			"name" : "Flight",
 			"input-type" : "X",
-			"use-type" : "num",
+			"use-type" : "infinite",
 			"interaction" : "edit",
 			"target" : "self",
-			"X" : "NULL"
-		}
+			"velocity" : [0,5]
+		},
 		{
 			"name" : "OverPowered",
 			"input-type" : "X",
 			"use-type" : 1,
 			"interaction" : "destroy",
-			"target" : "world",
+			"target" : "world"
 		}
 		
 	]

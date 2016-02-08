@@ -4,6 +4,10 @@
 #include <string.h>
 #include <stdio.h>
 
+//Function Globals
+char *FunctionNames[] = {"X mouse", "X", "mouse", "self", "at-point", "world" , 0};
+void (*FunctionSymbols[])(entity_t *self) = {GetXMouse, GetX, GetMousePos, GetSelf, GetAtPoint, GetWorld, 0 };
+
 //Global
 entity_t *targEnt = NULL;
 vec2_t mousePos = {0,0};

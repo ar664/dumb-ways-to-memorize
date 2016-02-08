@@ -27,7 +27,7 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 	object_t *retVal = (object_t*) malloc(sizeof(object_t));
 	retVal->name = NULL;
 	retVal->parent = NULL;
-	size = token->size; i = 0; objects = 0; keys = 0; values = 0;
+	size = token->end; i = 0; objects = 0; keys = 0; values = 0;
 	currentChild = NULL; currentKey = NULL; currentValue = NULL;
 	children_array = NULL; keys_array = NULL; values_array = NULL;
 	do
@@ -66,6 +66,11 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 				currentValue = &token[i];
 				values++;
 			}
+		} else if(token[i].type == JSMN_ARRAY)
+		{
+			if(i == 0)
+				i++;
+				continue;
 		} else
 		{
 			 currentValue = &token[i];
@@ -94,7 +99,7 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 			break;
 		}
 		i++;
-	}while(token[i].type);
+	}while( (size > token[i].start) && token[i].type);
 	retVal->values = values_array;
 	retVal->keys = keys_array;
 	retVal->children = children_array;

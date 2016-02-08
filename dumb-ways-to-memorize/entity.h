@@ -23,7 +23,7 @@ typedef struct entity_s entity_t;
 struct entity_s
 {
 	collision_type_t mCollisionType;
-	entity_state_t mEntityState;
+	entity_state_t mEntityState; //TODO add element type
 	sprite_t *mSprites;
 	vec2_t mAccel;
 	vec2_t mVelocity;

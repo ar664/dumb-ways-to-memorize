@@ -1,5 +1,8 @@
 {
-	"This" : "Is how an entity should be written"
+	"Collision Types" : ["static", "ragdoll", "clip"],
+	"Entity States" : ["alive", "dead", "other"],
+	"Hazards" : ["fire", "water", "cold", "spike"],
+	"This" : "Is how an entity should be written",
 	"Entity Ex" : 
 	{
 		"collisionType" : "Ex",
@@ -11,7 +14,22 @@
 		"accel" : [0,0],
 		"velocity" : [0,0],
 		"position" : [0,0]
-	}
+	},
+	
+	"Fireball" :
+	{
+		"collisionType" : "static",
+		"entityState" : "other",
+		"sprite" : "blank.png",
+		"height" : 32,
+		"width" : 32,
+		"frames" : 1,
+		"accel" : [0,0],
+		"velocity" : "at-point",
+		"position" : [5,0],
+		"comment" : "position is relative to target"
+		"comment" : "so this is 5 pixels in front of target"
+	},
 	
 
 

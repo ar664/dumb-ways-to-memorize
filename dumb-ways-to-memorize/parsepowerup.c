@@ -1,5 +1,9 @@
 #include "parsefunction.h"
 #include "parsepowerup.h"
+#include "parseobject.h"
+#include "entity.h"
+#include "mystrings.h"
+#include <jsmn.h>
 
 
 //Needs math and time
@@ -17,12 +21,18 @@ void Destroy()
 }
 
 //Needs access to parseEntity
-void Spawn()
+void Spawn(object_t *newObj, char *g_str)
 {
 	//Targ->Spawn
+	int i;
 	entity_t *newEnt;
+	jsmntok_t *tempTok;
 	newEnt = InitNewEntity();
-	newEnt->mPosition = targPos;
+	tempTok = newObj->keys;
+	for(i = 0; tempTok->type; i++, tempTok++ )
+	{
+
+	}
 }
 
 //Needs more information
