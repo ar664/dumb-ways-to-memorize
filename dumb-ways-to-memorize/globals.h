@@ -21,6 +21,12 @@ typedef struct vec2_s
 	int y;
 }vec2_t;
 
+#define HAZARD_NULL	0x0
+#define HAZARD_MAX	(0x1 >> 31)
+extern char **Hazards_str;
+extern int StrToHazard(char *str);
+
+//For PowerUps
 extern vec2_t mousePos;
 extern int keyPower;
 

@@ -31,7 +31,7 @@ void GetWorld(entity_t *self, entity_t **targ)
 void GetAtPoint(entity_t *self, entity_t **targ)
 {
 	vec2_t *temp = (vec2_t*) malloc(sizeof(vec2_t));
-	GetMousePos(self, &temp);
+	GetMousePos(self, temp);
 	*targ = LookForEntity(*temp);
 	free(temp);
 	return;

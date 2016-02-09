@@ -17,7 +17,9 @@ char **gLevels = NULL;  /**< The levels */
 char **gSelectedLevels = NULL;  /**< The selected levels to load */
 jsmntok_t *gTokens; /**< Tokens for GameData */
 object_t *gGameObject;
+object_t *gEntityObject;
 char *gGameData; /**< Game Data File */
+char *gEntityData;
 
 /**
  * Loads game data from GameData.json, stored in gGameData.
@@ -153,3 +155,4 @@ void Shutdown()
 
 	return;
 }
+	

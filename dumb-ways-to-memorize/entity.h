@@ -4,9 +4,6 @@
 #include "globals.h"
 #include "graphics.h"
 
-#define HAZARD_NULL	0x0
-#define HAZARD_MAX	(0x1 >> 31)
-
 typedef enum
 {
 	ENTITY_STATE_DEAD,

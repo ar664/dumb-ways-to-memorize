@@ -5,6 +5,7 @@
 #define	SCREEN_RES_Y	720
 
 #define	JSON_FILE		"GameData.json"		
+#define ENTITY_FILE		"Entities.json"
 
 int	mState;
 int	Setup();

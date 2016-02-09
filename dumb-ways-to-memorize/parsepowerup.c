@@ -31,15 +31,7 @@ void Destroy()
 void Spawn(object_t *object, char *g_str)
 {
 	//Targ->Spawn
-	int i;
-	entity_t *newEnt;
-	jsmntok_t *tempTok;
-	newEnt = InitNewEntity();
-	tempTok = object->keys;
-	for(i = 0; tempTok->type; i++, tempTok++ )
-	{
-
-	}
+	
 }
 
 //Needs more information

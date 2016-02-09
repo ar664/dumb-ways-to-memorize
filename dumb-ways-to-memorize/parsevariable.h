@@ -4,8 +4,8 @@
 #include "entity.h"
 #include "parseobject.h"
 
-char *AssignableVariableNames[] = {"hazard(s)" , "collisionType", "entityState", "sprite(s)", "accel", "velocity", "position", 0};
-char *OtherVariableNames[] = { "height", "width", "frames", 0 };
+extern char *AssignableVariableNames[];
+extern char *OtherVariableNames[];
 
 typedef enum
 {
@@ -19,7 +19,10 @@ typedef enum
 
 }EntityNumbers;
 
-entity_t *ParseToEntity(object_t *object);
+void EditEntity(entity_t *ent, EntityNumbers member, void *value);
 
+entity_t *ParseToEntity(object_t *object, char* str);
+vec2_t *ParseToVec2(object_t *object, char* str);
+char **ParseToStringArray(object_t *object, char* str);
 
 #endif

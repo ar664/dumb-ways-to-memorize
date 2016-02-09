@@ -5,6 +5,7 @@
 
 entity_t *gEntities = NULL;
 int gNumEntities = 0;
+char **Hazards_str = NULL;
 
 //Draw Functions
 void DrawGeneric(entity_t *self)
@@ -96,4 +97,18 @@ entity_t *LookForEntity(vec2_t position)
 		}
 	}
 	return NULL;
+}
+
+
+int StrToHazard(char *str)
+{
+	int i;
+	for(i = 0; Hazards_str[i]; i++)
+	{
+		if(!strcmp(str, Hazards_str[i]))
+		{
+			return (1 << i);
+		}
+	}
+	return 0;
 }
