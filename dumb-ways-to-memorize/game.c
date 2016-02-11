@@ -120,6 +120,8 @@ void Draw()
 
 int Setup()
 {
+	sprite_t *test_sprite;
+	vec2_t test_vec = {0,0};
 	srand(SDL_GetTicks());
 	atexit(Shutdown);
 
@@ -130,7 +132,19 @@ int Setup()
 	}
 
 	InitGraphics();
-	
+	test_sprite = LoadSprite("Sprite/UI/NESController.png",0);
+	test_sprite->mCurrentFrame = LoadAnimation(test_sprite->mSize.x, test_sprite->mSize.y, test_sprite->mSize.x, test_sprite->mSize.y);
+	/*
+	while(SDL_GetTicks()>210000)
+	{
+		DrawSprite(test_sprite, &test_vec, gRenderer);
+		SDL_RenderPresent(gRenderer);
+		SDL_Delay(17);
+		SDL_RenderClear(gRenderer);
+	}
+	*/
+	FreeSprite(test_sprite);
+
 	return 0;
 }
 
@@ -148,9 +162,9 @@ int Run()
 void Shutdown()
 {
 	SDL_Quit();
-	while(gSpriteNum)
+	while(gLastSprite)
 	{
-		FreeSprite(&gSprites[gSpriteNum-1]);
+		FreeSprite(&gSprites[gLastSprite-1]);
 	}
 
 	return;

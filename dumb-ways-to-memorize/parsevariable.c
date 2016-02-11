@@ -28,42 +28,59 @@ void EditEntity(entity_t  *ent, EntityNumbers member, void *value)
 
 entity_t* ParseToEntity(object_t* object, char* str)
 {
-	int i, j, checkInt;
+	int i, j, checkInt = 0;
 	entity_t *retVal;
-	jsmntok_t *checkTok;
-	object_t *checkObj;
+	sprite_t *checkSprite = NULL;
+	jsmntok_t *checkTok = NULL;
+	object_t *checkObj = NULL;
 	retVal = (entity_t*) malloc(sizeof(entity_t));
 	for(i = 0; AssignableVariableNames[i]; i++)
 	{
 		if( (checkTok = FindKey(object->keys, AssignableVariableNames[i], str)) != NULL)
 		{
-			checkObj = FindObject(object, AssignableVariableNames[i]);
-			if(CountMem(checkObj->values, sizeof(jsmntok_t)) == 2 && CountMem(checkObj->keys, sizeof(jsmntok_t)) == 0)
-			{
-				EditEntity(retVal, (EntityNumbers)i, ParseToVec2(checkObj, str));
-			} else if(CountMem(checkObj->values, sizeof(jsmntok_t)) > 2)
+			if( (checkObj = FindObject(object, AssignableVariableNames[i])) != NULL)
 			{
 				if(i == HAZARDS)
 				{
 					for(j = 0; j < checkTok->size; j++)
-						checkInt = j;
-				} else
+						checkInt += StrToHazard(JsmnToString(&checkObj->values[i+j], str));
+					EditEntity(retVal, (EntityNumbers)i, (void*)StrToHazard(Hazards_str[i]));
+				} else if(i == SPRITES)
 				{
 					for(j = 0; j < checkTok->size; j++)
-						checkInt = 0;
+					{
+						AllocateDynamic((void**)&checkSprite, LoadSprite(JsmnToString(&object->values[i+j], str), 0), sizeof(sprite_t), j); //TODO Fix
+					}
+					EditEntity(retVal, (EntityNumbers)i, checkSprite);
+				} else if(CountMem(&object->values, sizeof(jsmntok_t)) == 2)
+				{
+					EditEntity(retVal, (EntityNumbers)i, ParseToVec2(checkObj, str));
+				} else
+				{
+					printf("Error with : %s in JSON file", object->name);
 				}
-			} else if(checkTok->type == JSMN_PRIMITIVE || checkTok->type == JSMN_STRING)
+			} else if(checkTok->type == JSMN_STRING)
 			{
-				
+				EditEntity(retVal, (EntityNumbers)i, JsmnToString(object->values, str));
+			} else if(checkTok->type == JSMN_PRIMITIVE)
+			{
+				EditEntity(retVal, (EntityNumbers)i, (void*)StringToInt(JsmnToString(checkTok, str)));
+			}else
+			{
+				printf("Error Unkown var %s", JsmnToString(checkTok, str));
 			}
 		}
 	}
-	return NULL;
+	return retVal;
 }
 
 vec2_t* ParseToVec2(object_t* object, char* str)
 {
-	return NULL;
+	vec2_t *retVal;
+	retVal = (vec2_t*) malloc(sizeof(vec2_t));
+	retVal->x = StringToInt(JsmnToString(&object->values[0], str));
+	retVal->y = StringToInt(JsmnToString(&object->values[1], str));
+	return retVal;
 }
 
 char **ParseToStringArray(object_t* object, char* str)
