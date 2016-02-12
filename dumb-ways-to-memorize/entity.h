@@ -25,7 +25,7 @@ struct entity_s
 	int mHazards;
 	collision_type_t mCollisionType;
 	entity_state_t mEntityState;
-	sprite_t *mSprites;
+	sprite_t **mSprites;
 	vec2_t mAccel;
 	vec2_t mVelocity;
 	vec2_t mPosition;

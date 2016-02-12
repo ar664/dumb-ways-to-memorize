@@ -4,7 +4,6 @@
 #define	ALLOC_STR(X) ( (char *) malloc(sizeof(char)*X) )
 
 #include <jsmn.h>
-#include <stdio.h>
 //int getFileSize(FILE *file);
 const char *ByteToBinary(int x);
 char * FileToString(char *file);

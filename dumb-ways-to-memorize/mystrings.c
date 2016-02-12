@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <stdio.h>
 #include "globals.h"
 #include "mystrings.h"
 

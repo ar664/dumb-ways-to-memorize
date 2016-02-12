@@ -10,12 +10,12 @@ char **Hazards_str = NULL;
 //Draw Functions
 void DrawGeneric(entity_t *self)
 {
-	DrawSprite(self->mSprites, &self->mPosition, gRenderer);
+	//DrawSprite(self->mSprites, &self->mPosition, gRenderer);
 }
 
 void DrawPlayer(entity_t *self)
 {
-	DrawSprite(self->mSprites, &self->mPosition, gRenderer);
+	//DrawSprite(self->mSprites, &self->mPosition, gRenderer);
 }
 
 //Think Functions
@@ -47,6 +47,8 @@ void TouchPlayer(entity_t *self, entity_t *other, int type)
 		break;
 	case COLLISION_TYPE_RAGDOLL:
 		break;
+	default:
+		break;
 	}
 }
 
@@ -57,6 +59,8 @@ void TouchEnemy(entity_t *self, entity_t *other, int type)
 	case COLLISION_TYPE_STATIC:
 		break;
 	case COLLISION_TYPE_RAGDOLL:
+		break;
+	default:
 		break;
 	}
 }
@@ -90,8 +94,8 @@ entity_t *LookForEntity(vec2_t position)
 	int i;
 	for(i = 0; i < gNumEntities; i++)
 	{
-		if( (gEntities[i].mPosition.x > position.x > gEntities[i].mPosition.x + gEntities[i].mSprites->mSize.x)
-			&& (gEntities[i].mPosition.y > position.y > gEntities[i].mPosition.x + gEntities[i].mSprites->mSize.y))
+		if( (gEntities[i].mPosition.x > position.x > gEntities[i].mPosition.x + gEntities[i].mSprites[0]->mSize.x)
+			&& (gEntities[i].mPosition.y > position.y > gEntities[i].mPosition.x + gEntities[i].mSprites[0]->mSize.y))
 		{
 			return &gEntities[i];
 		}

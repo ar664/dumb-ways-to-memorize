@@ -91,16 +91,16 @@ Frame *LoadAnimation(int frame_width, int frame_height, int width, int height)
 	int i,j, rows, cols;
 	cols = width/frame_width;
 	rows = height/frame_height;
-	retVal = (Frame*) calloc(1, sizeof(Frame));
+	retVal = (Frame*) malloc(sizeof(Frame)*(rows*cols+1));
 	for(i = 0; i < rows; i++)
 	{
 		for(j = 0; j < cols; j++)
 		{
-			retVal = (Frame*) realloc(retVal, sizeof(i+1));
 			retVal[i*rows + j].Position.x = j*frame_width;
 			retVal[i*rows + j].Position.y = i*frame_height;
 		}
 	}
+	memset(&retVal[rows*cols+1], 0, sizeof(Frame));
 	return retVal;
 }
 
