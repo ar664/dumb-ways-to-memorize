@@ -19,7 +19,15 @@ typedef enum
 
 }EntityNumbers;
 
+typedef enum
+{
+	HEIGHT,
+	WIDTH,
+	FRAMES
+}OtherNumbers;
+
 void EditEntity(entity_t *ent, EntityNumbers member, void *value);
+void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityNumbers member, int size);
 
 entity_t *ParseToEntity(object_t *object, char* str);
 vec2_t *ParseToVec2(object_t *object, char* str);

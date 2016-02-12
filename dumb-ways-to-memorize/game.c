@@ -1,7 +1,9 @@
 #include "globals.h"
 #include "game.h"
+#include "entity.h"
 #include "mystrings.h"
 #include "parseobject.h"
+#include "parsevariable.h"
 #include "graphics.h"
 #include <SDL.h>
 #include <string.h>
@@ -15,7 +17,8 @@ int exitRequest = 0;
 jsmn_parser gParser;
 char **gLevels = NULL;  /**< The levels */
 char **gSelectedLevels = NULL;  /**< The selected levels to load */
-jsmntok_t *gTokens; /**< Tokens for GameData */
+jsmntok_t *gGameTokens; /**< Tokens for GameData */
+jsmntok_t *gEntityTokens;
 object_t *gGameObject;
 object_t *gEntityObject;
 char *gGameData; /**< Game Data File */
@@ -36,23 +39,45 @@ int LoadGameData()
 	gGameData = FileToString(JSON_FILE);
 	jsmn_init(&gParser);
 	num_tokens = jsmn_parse(&gParser, gGameData, strlen(gGameData), NULL, 0);
-	gTokens = (jsmntok_t*) malloc(sizeof(jsmntok_t)*(num_tokens+1));
+	gGameTokens = (jsmntok_t*) malloc(sizeof(jsmntok_t)*(num_tokens+1));
 	jsmn_init(&gParser); //Reset parser
-	num_tokens = jsmn_parse(&gParser, gGameData, strlen(gGameData), gTokens, num_tokens);
+	num_tokens = jsmn_parse(&gParser, gGameData, strlen(gGameData), gGameTokens, num_tokens);
 	if(!num_tokens)
 	{
 		printf("JSON parse error");
 		return -1;
 	}
-	memset(&gTokens[num_tokens+1], 0, sizeof(jsmntok_t)); 
+	memset(&gGameTokens[num_tokens+1], 0, sizeof(jsmntok_t)); 
 	for(i = 0; i < num_tokens; i++)
 	{
-		printf("JSON token %d : %s size: %d\n", i, TypeFromJSON(gTokens[i].type), gTokens[i].size);
+		printf("JSON token %d : %s size: %d\n", i, TypeFromJSON(gGameTokens[i].type), gGameTokens[i].size);
 	}
 
-	gGameObject = ParseToObject(gTokens, gGameData);
-	printf("Size of global tokens: %d", CountMem(gTokens, sizeof(jsmntok_t)));
+	gGameObject = ParseToObject(gGameTokens, gGameData);
+	printf("Size of global tokens: %d", CountMem(gGameTokens, sizeof(jsmntok_t)));
+	return 0;
+}
 
+int LoadEntityData()
+{
+	int num_tokens;
+	entity_t *ent;
+	gEntityData = FileToString(ENTITY_FILE);
+	jsmn_init(&gParser);
+	num_tokens = jsmn_parse(&gParser, gEntityData, strlen(gEntityData), NULL, 0);
+	gEntityTokens = (jsmntok_t*) malloc(sizeof(jsmntok_t)*(num_tokens+1));
+	jsmn_init(&gParser); //Reset parser
+	num_tokens = jsmn_parse(&gParser, gEntityData, strlen(gEntityData), gEntityTokens, num_tokens);
+	if(!num_tokens)
+	{
+		printf("JSON parse error");
+		return -1;
+	}
+	memset(&gEntityTokens[num_tokens+1], 0, sizeof(jsmntok_t)); 
+	gEntityObject = ParseToObject(gEntityTokens, gEntityData);
+	printf("Size of global tokens: %d", CountMem(gEntityTokens, sizeof(jsmntok_t)));
+	Hazards_str = ParseToStringArray(FindObject(gEntityObject, "Hazards"), gEntityData);
+	ent = ParseToEntity(FindObject(gEntityObject, "Entity Ex"), gEntityData);
 	return 0;
 }
 
@@ -128,6 +153,11 @@ int Setup()
 	if(LoadGameData())
 	{
 		perror("Loading game data went wrong");
+		return -1;
+	}
+	if(LoadEntityData())
+	{
+		perror("Loading entity data went wrong");
 		return -1;
 	}
 

@@ -15,9 +15,9 @@ void EditEntity(entity_t  *ent, EntityNumbers member, void *value)
 {
 	switch(member)
 	{
-	case HAZARDS: ent->mHazards = *((int*) value); break;
-	case COLLISION_TYPE: ent->mCollisionType = *((collision_type_t*) value); break;
-	case ENTITY_STATE: ent->mEntityState = *((entity_state_t*) value); break;
+	case HAZARDS: ent->mHazards = (int) value; break;
+	case COLLISION_TYPE: ent->mCollisionType = (collision_type_t) (int) value; break;
+	case ENTITY_STATE: ent->mEntityState = (entity_state_t) (int) value; break;
 	case SPRITES: ent->mSprites = (sprite_t**) value; break;
 	case ACCEL: ent->mAccel = *((vec2_t*) value); break;
 	case VELOCITY : ent->mVelocity = *((vec2_t*) value); break;
@@ -29,58 +29,47 @@ void EditEntity(entity_t  *ent, EntityNumbers member, void *value)
 
 entity_t* ParseToEntity(object_t* object, char* str)
 {
-	int i, j, checkInt = 0, heights[MAX_ANIMATIONS] = {0}, widths[MAX_ANIMATIONS] = {0}, frames[MAX_ANIMATIONS] = {0};
+	int i, j, checkInt, heights[MAX_ANIMATIONS] = {0}, widths[MAX_ANIMATIONS] = {0}, frames[MAX_ANIMATIONS] = {0};
 	char *temp;
 	entity_t *retVal;
-	sprite_t **checkSprite = NULL;
 	Frame *checkFrame = NULL;
 	jsmntok_t *checkTok = NULL;
 	object_t *checkObj = NULL;
+	if(!object || !str)
+		return NULL;
 	retVal = (entity_t*) malloc(sizeof(entity_t));
 	for(i = 0; AssignableVariableNames[i]; i++)
 	{
 		if( (checkTok = FindKey(object->keys, AssignableVariableNames[i], str)) != NULL)
 		{
-			if( (checkObj = FindObject(object, AssignableVariableNames[i])) != NULL)
+			if(checkTok->type == JSMN_STRING)
 			{
-				if(i == HAZARDS)
+				if(i == HAZARDS || i == SPRITES)
 				{
-					for(j = 0; j < checkTok->size; j++)
-					{
-						temp = JsmnToString(&checkObj->values[j], str);
-						checkInt += StrToHazard(temp);
-						free(temp);
-					}
-					EditEntity(retVal, (EntityNumbers)i, (void*)StrToHazard(Hazards_str[i]));
-				} else if(i == SPRITES)
-				{
-					for(j = 0; j < checkTok->size; j++)
-					{
-						temp = JsmnToString(&object->values[j], str);
-						AllocateDynamic((void**)&checkSprite, LoadSprite(temp, 0), sizeof(sprite_t*), j);
-						free(temp);
-					}
-					EditEntity(retVal, (EntityNumbers)i, checkSprite);
-				} else if(CountMem(&object->values, sizeof(jsmntok_t)) == 2)
-				{
-					EditEntity(retVal, (EntityNumbers)i, ParseToVec2(checkObj, str));
+					checkInt = ((int) object->keys - (int) checkTok)/sizeof(jsmntok_t);
+					MiniParseFunc(retVal, &object->values[checkInt], str, (EntityNumbers)i, 1);
 				} else
 				{
-					printf("Error with : %s in JSON file", object->name);
+					checkInt = ((int) object->keys - (int) checkTok)/sizeof(jsmntok_t);
+					MiniParseFunc(retVal, &object->values[checkInt], str, (EntityNumbers)i, 1);
 				}
-			} else if(checkTok->type == JSMN_STRING)
-			{
-				EditEntity(retVal, (EntityNumbers)i, JsmnToString(checkTok, str));
-			} else if(checkTok->type == JSMN_PRIMITIVE)
-			{
-				temp = JsmnToString(checkTok, str);
-				EditEntity(retVal, (EntityNumbers)i, (void*)StringToInt(temp));
-				free(temp);
 			}else
 			{
 				temp = JsmnToString(checkTok, str);
 				printf("Error Unkown var %s", temp);
 				free(temp);
+			}
+		} else if( (checkObj = FindObject(object, AssignableVariableNames[i])) != NULL)
+		{
+			if(i == HAZARDS || i == SPRITES)
+			{
+				MiniParseFunc(retVal, checkObj->values, str, (EntityNumbers)i, CountMem(checkObj->values, sizeof(jsmntok_t)));
+			} else if(CountMem(&checkObj->values, sizeof(jsmntok_t)) == 2)
+			{
+				EditEntity(retVal, (EntityNumbers)i, ParseToVec2(checkObj, str));
+			} else
+			{
+				printf("Error with : %s in JSON file", object->name);
 			}
 		}
 	}
@@ -92,22 +81,9 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			{
 				switch(i)
 				{
-				case 0: 
-					temp = JsmnToString(&checkObj->values[j], str);
-					heights[j] = StringToInt(temp);
-					free(temp);
-					//retVal->mSprites[j]->mAnimations[j] = LoadAnimation();
-					break;
-				case 1:
-					temp = JsmnToString(&checkObj->values[j], str);
-					widths[j] = StringToInt(temp);
-					free(temp);
-					break;
-				case 2:
-					temp = JsmnToString(&checkObj->values[j], str);
-					frames[j] = StringToInt(temp);
-					free(temp);
-					break;
+				case HEIGHT: JsmnToInt(&checkObj->values[j], str, &heights[j]); break;
+				case WIDTH: JsmnToInt(&checkObj->values[j], str, &widths[j]); break;
+				case FRAMES: JsmnToInt(&checkObj->values[j], str, &frames[j]); break;
 				default:
 					break;
 				}
@@ -124,6 +100,50 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	}
 	
 	return retVal;
+}
+
+void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityNumbers member, int size)
+{
+	int i;
+	char *temp;
+	int checkInt = 0;
+	sprite_t **checkSprite = NULL;
+	if(!ent || !token || !str || !size)
+		return;
+	if(member== HAZARDS)
+	{
+		for(i= 0; i < size; i++)
+		{
+			temp = JsmnToString(token, str);
+			checkInt += StrToHazard(temp);
+			SDL_free(temp);
+		}
+		EditEntity(ent, (EntityNumbers)i, (void*)checkInt);
+	} else if(member== SPRITES)
+	{
+		for(i= 0; i < size; i++)
+		{
+			temp = JsmnToString(token, str);
+			AllocateDynamic((void**)&checkSprite, LoadSprite(temp, 0), sizeof(sprite_t*), i);
+			free(temp);
+		}
+		EditEntity(ent, (EntityNumbers)i, checkSprite);
+	} else if(member == COLLISION_TYPE)
+	{
+		temp = JsmnToString(token, str);
+		EditEntity(ent, (EntityNumbers)i, (void*)StrToCollisionType(temp));
+		free(temp);
+	} else if (member == ENTITY_STATE)
+	{
+		temp = JsmnToString(token, str);
+		EditEntity(ent, (EntityNumbers)i, (void*)StrToEntityState(temp));
+		free(temp);
+	}else
+	{
+		temp = JsmnToString(token, str);
+		EditEntity(ent, (EntityNumbers)i, (void*)StringToInt(temp));
+		free(temp);
+	}
 }
 
 vec2_t* ParseToVec2(object_t* object, char* str)
@@ -144,6 +164,8 @@ char **ParseToStringArray(object_t* object, char* str)
 	int i, size;
 	char *temp;
 	char **retVal;
+	if(!object || !str)
+		return NULL;
 	size = CountMem(object->values, sizeof(jsmntok_t));
 	retVal = (char**) malloc(sizeof(char*)*(size+1));
 	for(i = 0; i < size; i++)
@@ -151,5 +173,6 @@ char **ParseToStringArray(object_t* object, char* str)
 		temp = JsmnToString(&object->values[i], str);
 		retVal[i] = temp;
 	}
+	retVal[size+1] = 0;
 	return retVal;
 }

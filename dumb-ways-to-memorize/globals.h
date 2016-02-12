@@ -21,10 +21,31 @@ typedef struct vec2_s
 	int y;
 }vec2_t;
 
+typedef enum
+{
+	ENTITY_STATE_DEAD,
+	ENTITY_STATE_ALIVE,
+	ENTITY_STATE_OTHER
+}entity_state_t;
+
+typedef enum
+{
+	COLLISION_TYPE_STATIC,
+	COLLISION_TYPE_RAGDOLL,
+	COLLISION_TYPE_CLIP
+}collision_type_t;
+
+//For Hazards
 #define HAZARD_NULL	0x0
 #define HAZARD_MAX	(0x1 >> 31)
 extern char **Hazards_str;
 extern int StrToHazard(char *str);
+
+//For EntParsing
+extern char *Collisions_str[];
+extern char *EntityStates_str[];
+collision_type_t StrToCollisionType(char *str);
+entity_state_t StrToEntityState(char *str);
 
 //For PowerUps
 extern vec2_t mousePos;
@@ -46,7 +67,7 @@ extern int CompareMemToMemArray(void *mem, void *mem_array, int size_type, int s
 //Prepoccessor defed LINKS and STRICT_MODE
 //JSON Parser
 extern jsmn_parser gParser;
-extern jsmntok_t *gTokens;
+extern jsmntok_t *gGameTokens;
 extern char *gGameData;
 
 #endif

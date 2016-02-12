@@ -4,20 +4,6 @@
 #include "globals.h"
 #include "graphics.h"
 
-typedef enum
-{
-	ENTITY_STATE_DEAD,
-	ENTITY_STATE_ALIVE,
-	ENTITY_STATE_OTHER
-}entity_state_t;
-
-typedef enum
-{
-	COLLISION_TYPE_STATIC,
-	COLLISION_TYPE_RAGDOLL,
-	COLLISION_TYPE_CLIP
-}collision_type_t;
-
 typedef struct entity_s entity_t;
 
 struct entity_s

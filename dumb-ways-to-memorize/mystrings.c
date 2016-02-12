@@ -47,7 +47,9 @@ jsmntok_t *FindKey(jsmntok_t *token, char *key, char *g_str)
 {
 	char *str;
 	jsmntok_t *local_token = token;
-	jsmntok_t* endPtr = token + sizeof(token)/sizeof(token[0]);
+	jsmntok_t* endPtr = token + CountMem(token, sizeof(jsmntok_t));
+	if(!local_token)
+		return local_token;
 	while(local_token < endPtr)
 	{
 		if(token->size == 1)
@@ -111,6 +113,14 @@ char * JsmnToString(jsmntok_t *token, char *g_str)
 	strncpy( retVal, &g_str[token->start], size);
 	retVal[size] = 0;
 	return retVal;
+}
+
+void JsmnToInt(jsmntok_t* token, char* str, int* dst)
+{
+	char *temp;
+	temp = JsmnToString(token, str);
+	*dst = StringToInt(temp);
+	free(temp);
 }
 
 int StringToInt(char* str)

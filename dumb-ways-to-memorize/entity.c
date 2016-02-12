@@ -6,6 +6,8 @@
 entity_t *gEntities = NULL;
 int gNumEntities = 0;
 char **Hazards_str = NULL;
+char *Collisions_str[] = {"static", "ragdoll", "clip", 0};
+char *EntityStates_str[] = {"alive", "dead", "other", 0};
 
 //Draw Functions
 void DrawGeneric(entity_t *self)
@@ -106,12 +108,45 @@ entity_t *LookForEntity(vec2_t position)
 
 int StrToHazard(char *str)
 {
-	int i;
-	for(i = 0; Hazards_str[i]; i++)
+	int i, length;
+	if(!str)
+		return 0;
+	length = CountMem(Hazards_str, sizeof(char*));
+	for(i = 0; i < length; i++)
 	{
 		if(!strcmp(str, Hazards_str[i]))
 		{
 			return (1 << i);
+		}
+	}
+	return 0;
+}
+
+collision_type_t StrToCollisionType(char *str)
+{
+	int i;
+	if(!str)
+		return 0;
+	for(i = 0; i <= COLLISION_TYPE_CLIP; i++)
+	{
+		if(!strcmp(Collisions_str[i], str))
+		{
+			return (collision_type_t)i;
+		}
+	}
+	return 0;
+}
+
+entity_state_t StrToEntityState(char *str)
+{
+	int i;
+	if(!str)
+		return 0;
+	for(i = 0; i <= COLLISION_TYPE_CLIP; i++)
+	{
+		if(!strcmp(EntityStates_str[i], str))
+		{
+			return (entity_state_t)i;
 		}
 	}
 	return 0;
