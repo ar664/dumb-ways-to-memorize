@@ -4,41 +4,66 @@
 #include <SDL_image.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-SDL_Window *gWindow;
-SDL_Renderer *gRenderer;
-sprite_t *gSprites;
+SDL_Window *gWindow = NULL;
+SDL_Renderer *gRenderer = NULL;
+sprite_t *gSprites = NULL;
 int gLastSprite = 0;
 
-void InitGraphics()
+int InitGraphics()
 {
 	Uint32 flags = 0;
 	SDL_DisplayMode current;
 	if(SDL_Init(SDL_INIT_EVERYTHING))
 	{
 		printf("SDL can't initialize : %s", SDL_GetError());
-		exit(0);
+		exit(-1);
 	}
 	if(SDL_GetDisplayMode(0,0,&current))
 	{
 		printf("No video mode: %s", SDL_GetError());
-		exit(0);
+		exit(-1);
 	}
 
 	if( (gWindow = SDL_CreateWindow(GAME_NAME, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_RES_W, SCREEN_RES_H, flags )) == NULL )
 	{
 		printf("Can't create window %s", SDL_GetError());
+		exit(-1);
 	}
 
 	if( (gRenderer = SDL_CreateRenderer(gWindow, -1, flags)) == NULL)
 	{
-		printf("Can't create window %s", SDL_GetError());
+		printf("Can't create renderer %s", SDL_GetError());
+		exit(-1);
 	}
 
 	gSprites = (sprite_t*) malloc(sizeof(sprite_t)*MAX_SPRITES);
+	if(!gSprites)
+	{
+		printf("Could not allocate sprites");
+		return -1;
+	}
 	memset(gSprites, 0, sizeof(sprite_t)*MAX_SPRITES);
+	atexit(SDL_Quit);
+	atexit(ShutdownGraphics);
+	return 0;
 }
 
+void ShutdownGraphics()
+{
+	int i;
+	for(i = 0; i < MAX_SPRITES; i++)
+	{
+		if(!gSprites[i].refCount)
+		{
+			continue;
+		}
+		FreeSprite(&gSprites[i]);
+
+	}
+	free(gSprites);
+}
 
 
 sprite_t *LoadSprite(const char *name, int flags)
@@ -46,7 +71,7 @@ sprite_t *LoadSprite(const char *name, int flags)
 	SDL_Surface *temp;
 	sprite_t *check;
 	int position;
-	if(gLastSprite > MAX_SPRITES)
+	if(gLastSprite > MAX_SPRITES || !gSprites)
 	{
 		return NULL;
 	}
@@ -61,6 +86,11 @@ sprite_t *LoadSprite(const char *name, int flags)
 		return NULL;
 	}
 	temp = IMG_Load(name);
+	if(!temp)
+	{
+		printf("Could not load image %s: ", name);
+		return NULL;
+	}
 	check->mSize.x = temp->w;
 	check->mSize.y = temp->h;
 	check->mTexture = SDL_CreateTextureFromSurface(gRenderer, temp);

@@ -32,7 +32,7 @@ void GetAtPoint(entity_t *self, entity_t **targ)
 {
 	vec2_t *temp = (vec2_t*) malloc(sizeof(vec2_t));
 	GetMousePos(self, temp);
-	*targ = LookForEntity(*temp);
+	*targ = LookForEntityAtPos(*temp);
 	free(temp);
 	return;
 }

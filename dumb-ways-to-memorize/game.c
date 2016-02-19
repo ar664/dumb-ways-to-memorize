@@ -60,8 +60,8 @@ int LoadGameData()
 
 int LoadEntityData()
 {
-	int num_tokens;
-	entity_t *ent;
+	int num_tokens, i, objects;
+	entity_t *ent, *temp;
 	gEntityData = FileToString(ENTITY_FILE);
 	jsmn_init(&gParser);
 	num_tokens = jsmn_parse(&gParser, gEntityData, strlen(gEntityData), NULL, 0);
@@ -77,7 +77,20 @@ int LoadEntityData()
 	gEntityObject = ParseToObject(gEntityTokens, gEntityData);
 	printf("Size of global tokens: %d", CountMem(gEntityTokens, sizeof(jsmntok_t)));
 	Hazards_str = ParseToStringArray(FindObject(gEntityObject, "Hazards"), gEntityData);
-	ent = ParseToEntity(FindObject(gEntityObject, "Entity Ex"), gEntityData);
+	//ent = ParseToEntity(FindObject(gEntityObject, "Entity Ex"), gEntityData);
+	objects = CountMem(gEntityObject->children, sizeof(object_t));
+	for(i = 0; i < objects; i++)
+	{
+		if(FindKey(gEntityObject->children[i].keys, "sprite(s)", gEntityData))
+		{
+			ent = InitNewEntity();
+			temp = ParseToEntity(&gEntityObject->children[i], gEntityData);
+			if(!temp) continue;
+			if(!ent) break;
+			memcpy(ent, temp, sizeof(entity_t));
+			if(temp) free(temp);
+		}
+	}
 	return 0;
 }
 
@@ -148,11 +161,21 @@ int Setup()
 	sprite_t *test_sprite;
 	vec2_t test_vec = {0,0};
 	srand(SDL_GetTicks());
-	atexit(Shutdown);
+	//atexit(Shutdown);
 
 	if(LoadGameData())
 	{
 		perror("Loading game data went wrong");
+		return -1;
+	}
+	if(InitGraphics())
+	{
+		perror("Initializing entity system went wrong");
+		return -1;
+	}
+	if(InitEntitySystem())
+	{
+		perror("Initializing entity system went wrong");
 		return -1;
 	}
 	if(LoadEntityData())
@@ -161,7 +184,6 @@ int Setup()
 		return -1;
 	}
 
-	InitGraphics();
 	test_sprite = LoadSprite("Sprite/UI/NESController.png",0);
 	test_sprite->mCurrentFrame = LoadAnimation(test_sprite->mSize.x, test_sprite->mSize.y, test_sprite->mSize.x, test_sprite->mSize.y);
 	/*
@@ -191,11 +213,6 @@ int Run()
 
 void Shutdown()
 {
-	SDL_Quit();
-	while(gLastSprite)
-	{
-		FreeSprite(&gSprites[gLastSprite-1]);
-	}
 
 	return;
 }

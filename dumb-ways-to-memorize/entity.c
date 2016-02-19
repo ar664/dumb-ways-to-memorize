@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 entity_t *gEntities = NULL;
-int gNumEntities = 0;
+int gLastEntity = 0;
 char **Hazards_str = NULL;
 char *Collisions_str[] = {"static", "ragdoll", "clip", 0};
 char *EntityStates_str[] = {"alive", "dead", "other", 0};
@@ -69,33 +69,78 @@ void TouchEnemy(entity_t *self, entity_t *other, int type)
 
 int InitEntitySystem()
 {
-	if( (gEntities = (entity_t*) calloc(1, sizeof(entity_t))) == NULL )
+	if( (gEntities = (entity_t*) malloc(sizeof(entity_t)*MAX_ENTITIES)) == NULL )
 	{
 		printf("Couldn't alloc EntitySys");
 		return -1;
 	}
-	gNumEntities++;
+	memset(gEntities, 0, sizeof(entity_t)*MAX_ENTITIES);
+	gLastEntity = 0;
 	return 0;
 }
 
 entity_t *InitNewEntity()
 {
-	gEntities = (entity_t*) realloc(gEntities,sizeof(entity_t)*(gNumEntities+1));
+	int pos;
+	entity_t *retVal;
 	if(gEntities == NULL)
 	{
-		printf("Too many entities, could not add on more");
+		printf("Entity system unintialiazeed");
 		exit(-1);
 	}
-	gNumEntities++;
-	memset(&gEntities[gNumEntities], 0 ,sizeof(entity_t) );
-	return &gEntities[gNumEntities-1];
+
+	retVal = FindFreeEntity(&pos);
+	gLastEntity = pos;
+	return retVal;
 }
 
-entity_t *LookForEntity(vec2_t position)
+entity_t* FindEntity(const char* name)
 {
 	int i;
-	for(i = 0; i < gNumEntities; i++)
+	for(i = 0; i < MAX_ENTITIES; i++)
 	{
+		if(!gEntities[i].mName)
+			continue;
+		if(!strcmp(name, gEntities[i].mName))
+		{
+			return &gEntities[i];
+		}
+	}
+	return NULL;
+}
+
+entity_t* FindFreeEntity(int* position)
+{
+	int i;
+	for(i = gLastEntity; i < MAX_ENTITIES; i++)
+	{
+		if(!gEntities[i].mName)
+		{
+			if(position)
+				*position = i;
+			return &gEntities[i];
+		}
+	}
+	for(i = 0; i < gLastEntity; i++)
+	{
+		if(!gEntities[i].mName)
+		{
+			if(position)
+				*position = i;
+			return &gEntities[i];
+		}
+	}
+	return NULL;
+}
+
+
+entity_t *LookForEntityAtPos(vec2_t position)
+{
+	int i;
+	for(i = 0; i < MAX_ENTITIES; i++)
+	{
+		if(!gEntities[i].mName)
+			continue;
 		if( (gEntities[i].mPosition.x > position.x > gEntities[i].mPosition.x + gEntities[i].mSprites[0]->mSize.x)
 			&& (gEntities[i].mPosition.y > position.y > gEntities[i].mPosition.x + gEntities[i].mSprites[0]->mSize.y))
 		{
@@ -105,6 +150,42 @@ entity_t *LookForEntity(vec2_t position)
 	return NULL;
 }
 
+void FreeEntity(entity_t *ent)
+{
+	int i;
+	if(!ent)
+		return;
+	i = 0;
+	if(ent->mSprites)
+	{
+		while(ent->mSprites[i])
+		{
+			FreeSprite(ent->mSprites[i]);
+			i++;
+		}
+		free(ent->mSprites);
+	}
+	if(ent->mName)
+	{
+		free(ent->mName);
+	}
+	memset(ent, 0, sizeof(entity_t));
+
+}
+
+void ShutdownEntitySystem()
+{
+	int i;
+	if(!gEntities)
+		return;
+	for(i = 0; i < MAX_ENTITIES; i++)
+	{
+		if(!gEntities[i].mName)
+			continue;
+		FreeEntity(&gEntities[i]);
+	}
+	free(gEntities);
+}
 
 int StrToHazard(char *str)
 {

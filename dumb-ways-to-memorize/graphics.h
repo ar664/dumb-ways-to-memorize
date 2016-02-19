@@ -28,7 +28,8 @@ struct sprite_s
 
 };
 
-void InitGraphics();
+int InitGraphics();
+void ShutdownGraphics();
 Frame *LoadAnimation(int frame_width, int frame_height, int width, int height);
 sprite_t *FindSprite(const char *name, int *position);
 sprite_t *FindFreeSprite(int *position);

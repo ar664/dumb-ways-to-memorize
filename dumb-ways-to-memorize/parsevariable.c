@@ -5,6 +5,7 @@
 
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 //Globals
 char *AssignableVariableNames[] = {"hazard(s)" , "collisionType", "entityState", "sprite(s)", "accel", "velocity", "position", 0};
@@ -46,12 +47,14 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			{
 				if(i == HAZARDS || i == SPRITES)
 				{
-					checkInt = ((int) object->keys - (int) checkTok)/sizeof(jsmntok_t);
+					checkInt = abs((int) object->keys - (int) checkTok)/sizeof(jsmntok_t);
 					MiniParseFunc(retVal, &object->values[checkInt], str, (EntityNumbers)i, 1);
+					checkTok = NULL;
 				} else
 				{
-					checkInt = ((int) object->keys - (int) checkTok)/sizeof(jsmntok_t);
+					checkInt = abs((int) object->keys - (int) checkTok)/sizeof(jsmntok_t);
 					MiniParseFunc(retVal, &object->values[checkInt], str, (EntityNumbers)i, 1);
+					checkTok = NULL;
 				}
 			}else
 			{
@@ -105,10 +108,10 @@ entity_t* ParseToEntity(object_t* object, char* str)
 void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityNumbers member, int size)
 {
 	int i;
-	char *temp;
+	char *temp = NULL;
 	int checkInt = 0;
 	sprite_t **checkSprite = NULL;
-	if(!ent || !token || !str || !size)
+	if(!ent || !token || !str)
 		return;
 	if(member== HAZARDS)
 	{
@@ -116,33 +119,33 @@ void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityNumbers mem
 		{
 			temp = JsmnToString(token, str);
 			checkInt += StrToHazard(temp);
-			SDL_free(temp);
+			if(temp) free(temp);
 		}
-		EditEntity(ent, (EntityNumbers)i, (void*)checkInt);
+		EditEntity(ent, member, (void*)checkInt);
 	} else if(member== SPRITES)
 	{
 		for(i= 0; i < size; i++)
 		{
 			temp = JsmnToString(token, str);
 			AllocateDynamic((void**)&checkSprite, LoadSprite(temp, 0), sizeof(sprite_t*), i);
-			free(temp);
+			if(temp) free(temp);
 		}
-		EditEntity(ent, (EntityNumbers)i, checkSprite);
+		EditEntity(ent, member, checkSprite);
 	} else if(member == COLLISION_TYPE)
 	{
 		temp = JsmnToString(token, str);
-		EditEntity(ent, (EntityNumbers)i, (void*)StrToCollisionType(temp));
-		free(temp);
+		EditEntity(ent, member, (void*)StrToCollisionType(temp));
+		if(temp) free(temp);
 	} else if (member == ENTITY_STATE)
 	{
 		temp = JsmnToString(token, str);
-		EditEntity(ent, (EntityNumbers)i, (void*)StrToEntityState(temp));
-		free(temp);
+		EditEntity(ent, member, (void*)StrToEntityState(temp));
+		if(temp) free(temp);
 	}else
 	{
 		temp = JsmnToString(token, str);
-		EditEntity(ent, (EntityNumbers)i, (void*)StringToInt(temp));
-		free(temp);
+		EditEntity(ent, member, (void*)StringToInt(temp));
+		if(temp) free(temp);
 	}
 }
 

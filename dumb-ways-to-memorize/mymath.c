@@ -47,7 +47,7 @@ int AllocateDynamic(void **dst, void *src, int size_type, int size)
 {
 	int offset = size_type/sizeof(int);
 	*dst = realloc(*dst, size_type*(size+1));
-	memcpy((int*)(*dst)+(size-1)*offset, src, size_type);
+	src ? memcpy((int*)(*dst)+(size-1)*offset, src, size_type) : memset((int*)(*dst)+(size-1)*offset, 0, size_type);
 	memset((int*)(*dst)+(size)*offset, 0, size_type);
 	return 0;
 }

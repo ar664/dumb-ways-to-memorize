@@ -5,6 +5,7 @@
 #include "globals.h"
 #include "mystrings.h"
 
+
 /**
  * Byte to binary.
  *
@@ -48,7 +49,7 @@ jsmntok_t *FindKey(jsmntok_t *token, char *key, char *g_str)
 	char *str;
 	jsmntok_t *local_token = token;
 	jsmntok_t* endPtr = token + CountMem(token, sizeof(jsmntok_t));
-	if(!local_token)
+	if(!local_token || !g_str || !key)
 		return local_token;
 	while(local_token < endPtr)
 	{
@@ -57,9 +58,10 @@ jsmntok_t *FindKey(jsmntok_t *token, char *key, char *g_str)
 			str = JsmnToString(local_token, g_str);
 			if(!strcmp(str, key))
 			{
+				if(str) free(str);
 				return local_token;
 			}
-			free(str);
+			if(str) free(str);
 		}
 		local_token++;
 	}
@@ -109,7 +111,12 @@ char * FindValueFromKey(jsmntok_t *token, char *key, char *g_str)
 char * JsmnToString(jsmntok_t *token, char *g_str)
 {
 	int size = token->end - token->start;
-	char *retVal = ALLOC_STR(size);
+	char *retVal = ALLOC_STR(size+1);
+	if(!retVal)
+	{
+		printf("Could not allocate memory");
+		exit(-1);
+	}
 	strncpy( retVal, &g_str[token->start], size);
 	retVal[size] = 0;
 	return retVal;
@@ -120,7 +127,7 @@ void JsmnToInt(jsmntok_t* token, char* str, int* dst)
 	char *temp;
 	temp = JsmnToString(token, str);
 	*dst = StringToInt(temp);
-	free(temp);
+	if(temp) free(temp);
 }
 
 int StringToInt(char* str)
@@ -213,6 +220,11 @@ char * FileToString(char *fileName)
 	}
 	size = st.st_size;
 	string = ALLOC_STR(size);
+	if(!string)
+	{
+		printf("Could not allocate memory");
+		exit(-1);
+	}
 	size = fread(string, sizeof(unsigned char), size, file);
 	string[size] = '\0';
 	fclose(file);
