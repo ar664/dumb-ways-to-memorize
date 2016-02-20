@@ -5,6 +5,7 @@
 	"Interactions" : ["move", "destroy", "spawn", "edit", "nullify"],
 	"Targets" : ["self", "at-point", "world"],
 	"Game Name": "Dumb Ways to Memorize",
+	"Gravity" : 9.8,
 	"PowerUps" : [
 		{
 			"name" : "Teleport",

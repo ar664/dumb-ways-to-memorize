@@ -6,55 +6,94 @@
 #include "mystrings.h"
 #include <jsmn.h>
 #include <string.h>
+#include <stdio.h>
+#include "parsevariable.h"
 
 char *InteractionNames[] = {"move", "destroy", "spawn", "edit", "nullify", 0};
 void (*InteractionSymbols[]) =  {Move, Destroy, Spawn, Edit, Nullify, 0};
 
-vec2_t mousePos  = {-1,-1};
-int keyPower = 0;
+vec2_t *mousePos  = NULL;
+int *keyPower = NULL;
 
-//Needs math and time
-void Move()
+void Move(entity_t *targ, entity_t *info)
 {
-	//Targ->Move to Pos
-	//targEnt->mVelocity = targPos; //TODO math
+	targ->mPosition = info->mPosition;
 }
 
 
 //No other access necessary
-void Destroy()
+void Destroy(entity_t *targ, entity_t *info)
 {
-	//freeEnt(Targ)
+	if(!targ)
+	{
+		FreeEntity(targ);
+	}
 }
 
 //Needs access to parseEntity
-void Spawn(object_t *object, char *g_str)
+void Spawn(entity_t *targ, entity_t *info)
 {
-	//Targ->Spawn
+	entity_t *spawned;
+	if(!targ || !info)
+	{
+		printf("Spawn given blank targ/info");
+		return;
+	}
+	spawned = InitNewEntity();
+	spawned->mHazards = info->mHazards;
+	spawned->mCollisionType = info->mCollisionType;
+	spawned->mEntityState = info->mEntityState;
+	spawned->mSprites = info->mSprites;
+	spawned->mName = info->mName;
+	spawned->mAccel = info->mAccel;
+	spawned->mVelocity = info->mVelocity;
+	Vec2Add(&targ->mPosition, &info->mPosition, &spawned->mPosition);
+}
+
+void Edit(entity_t *targ, entity_t *info)
+{
+	int i, entity_size;
+	int *dst = (int*) targ;
+	int *value = (int*) info;
+	if(!targ || !info)
+	{
+		printf("Null edit, not doing");
+		return;
+	}
+	entity_size = sizeof(entity_t)/sizeof(int);
+	//iterate through members
+	for(i = 0; i < entity_size; i++)
+	{
+		if(*&value[i])
+		{
+			*&dst[i] = *&value[i];
+		}
+	}
 	
 }
 
-//Needs more information
-void Edit(void *args, ...)
+void Nullify(entity_t *targ, entity_t *info)
 {
-	//Targ->Edit
+	targ->Think = NULL;
 }
-
-//No other access neccesary
-void Nullify()
-{
-	//Targ->Think = NULL;
-	//targEnt->Think = NULL;
-}
-
 
 void UpdateNormal(power_t* power)
 {
+	if(!Player)
+	{
+		printf("Player not set");
+		return;
+	}
+	if(!power)
+	{
+		printf("power not set");
+		return;
+	}
 	power->GetTarg((entity_t*) Player, &power->target);
 	power->uses--;
 	if(power->uses == 0)
 	{
-		free(power);
+		//free(power); Destroy Power
 	}
 }
 
@@ -86,11 +125,11 @@ void CallInfo(info_type_t info)
 	switch (info)
 	{
 	case INFO_BOTH:
-		GetXMouse((entity_t*) Player, &keyPower, &mousePos); break;
+		GetXMouse((entity_t*) Player, keyPower, mousePos); break;
 	case INFO_BUTTON:
-		GetX((entity_t*) Player, &keyPower); break;
+		GetX((entity_t*) Player, keyPower); break;
 	case INFO_MOUSE:
-		GetMousePos((entity_t*) Player, &mousePos); break;
+		GetMousePos((entity_t*) Player, mousePos); break;
 	default:
 		break;
 	}
@@ -110,6 +149,7 @@ power_t* ParseToPowerUp(object_t* power, char* str)
 	{
 		retVal->GetTarg = ParseToFunction(FindValueFromKey(temp, "target", str));
 	}
+	//Use Type
 	if( (temp = FindKey(power->keys, "use-type", str)) != NULL )
 	{
 		GetUseType(FindValueFromKey(temp, "use-type", str), &retVal->uses);
@@ -117,29 +157,47 @@ power_t* ParseToPowerUp(object_t* power, char* str)
 	switch(retVal->uses)
 	{
 	case INFINITE:
-		retVal->Update = UpdateInfinite;
+		retVal->UpdateUse = UpdateInfinite;
 		break;
 	case STATIC:
-		retVal->Update = NULL;
+		retVal->UpdateUse = NULL;
 		break;
 	default:
-		retVal->Update = UpdateNormal;
+		retVal->UpdateUse = UpdateNormal;
 	}
 
-	if( (temp = FindKey(power->keys, "interaction", str)) != NULL )
+	//Input Type
+	if( (temp = FindKey(power->keys, "input-type", str)) != NULL )
 	{
-		for(i = 0; FunctionNames[i]; i++ )
+		for(i = 0; i < INFO_BOTH; i++ )
 		{
-			if(strcmp(FunctionNames[i], FindValueFromKey(temp, "interaction", str)))
+			if(strcmp(InteractionNames[i], FindValueFromKey(temp, "input-type", str)))
 			{
-				retVal->info_type = (info_type_t) (3 - (i)%3); //Horrible macro
+				retVal->info_type = (info_type_t) (INFO_BOTH - i);
+				break;
 			}
+			retVal->info_type = INFO_NONE;
 		}
 	}
 	if(retVal->info_type)
 	{
 		retVal->GetInfo = CallInfo;
 	}
+
+	//Interaction
+	if( (temp = FindKey(power->keys, "target", str)) != NULL )
+	{
+		for(i = 0; *FunctionNames[i]; i++ )
+		{
+			if(strcmp(FunctionNames[i], FindValueFromKey(temp, "target", str)))
+			{
+				retVal->DoPower = (void(*)(entity_t *targ, entity_t *info)) InteractionSymbols[i];
+				break;
+			}
+			retVal->DoPower = NULL;
+		}
+	}
+
 
 
 	return retVal;

@@ -9,15 +9,16 @@ extern char *OtherVariableNames[];
 
 typedef enum
 {
-	HAZARDS,
-	COLLISION_TYPE,
-	ENTITY_STATE,
-	SPRITES,
-	ACCEL,
-	VELOCITY,
-	POSITION
+	ENTITY_MEMBER_HAZARDS,
+	ENTITY_MEMBER_COLLISION_TYPE,
+	ENTITY_MEMBER_ENTITY_STATE,
+	ENTITY_MEMBER_SPRITES,
+	ENTITY_MEMBER_ACCEL,
+	ENTITY_MEMBER_VELOCITY,
+	ENTITY_MEMBER_POSITION,
+	ENTITY_MEMBER_MAX
 
-}EntityNumbers;
+}EntityMembers;
 
 typedef enum
 {
@@ -26,11 +27,11 @@ typedef enum
 	FRAMES
 }OtherNumbers;
 
-void EditEntity(entity_t *ent, EntityNumbers member, void *value);
-void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityNumbers member, int size);
+void EditEntity(entity_t *ent, EntityMembers member, void *value);
+void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityMembers member, int size);
 
-entity_t *ParseToEntity(object_t *object, char* str);
-vec2_t *ParseToVec2(object_t *object, char* str);
-char **ParseToStringArray(object_t *object, char* str);
+extern entity_t *ParseToEntity(object_t *object, char* str);
+extern vec2_t *ParseToVec2(object_t *object, char* str);
+extern char **ParseToStringArray(object_t *object, char* str);
 
 #endif

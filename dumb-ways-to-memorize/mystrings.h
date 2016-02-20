@@ -5,7 +5,6 @@
 
 #include <jsmn.h>
 //int getFileSize(FILE *file);
-const char *ByteToBinary(int x);
 char * FileToString(char *file);
 char * TypeFromJSON(jsmntype_t Type);
 char * JsmnToString(jsmntok_t *token, char *str);

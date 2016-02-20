@@ -27,7 +27,8 @@ struct power_s
 	char *name;
 	void (*GetInfo)(info_type_t info);
 	void (*GetTarg)(entity_t *self, entity_t **targ);
-	void (*Update)(power_t *power);
+	void (*UpdateUse)(power_t *power);
+	void (*DoPower)(entity_t *targ, entity_t *info);
 	int uses;
 	info_type_t info_type;
 
@@ -41,11 +42,11 @@ int GetUseType(const char *var, int *useType);
 power_t *ParseToPowerUp(object_t *power, char *str);
 
 //Interactions
-void Move();
-void Destroy();
-void Spawn(object_t *object, char *g_str);
-void Edit(void *args, ...);
-void Nullify();
+void Move(entity_t *targ, entity_t *info);
+void Destroy(entity_t *targ, entity_t *info);
+void Spawn(entity_t *targ, entity_t *info);
+void Edit(entity_t *targ, entity_t *info);
+void Nullify(entity_t *targ, entity_t *info);
 
 //Interactions Array
 extern char *InteractionNames[];

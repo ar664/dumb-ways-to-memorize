@@ -12,17 +12,21 @@ char *AssignableVariableNames[] = {"hazard(s)" , "collisionType", "entityState",
 char *OtherVariableNames[] = { "height", "width", "frames", 0 };
 
 //BIG ASS SWITCH CASE
-void EditEntity(entity_t  *ent, EntityNumbers member, void *value)
+void EditEntity(entity_t  *ent, EntityMembers member, void *value)
 {
+	if(value == NULL)
+	{
+		return;
+	}
 	switch(member)
 	{
-	case HAZARDS: ent->mHazards = (int) value; break;
-	case COLLISION_TYPE: ent->mCollisionType = (collision_type_t) (int) value; break;
-	case ENTITY_STATE: ent->mEntityState = (entity_state_t) (int) value; break;
-	case SPRITES: ent->mSprites = (sprite_t**) value; break;
-	case ACCEL: ent->mAccel = *((vec2_t*) value); break;
-	case VELOCITY : ent->mVelocity = *((vec2_t*) value); break;
-	case POSITION : ent->mPosition = *((vec2_t*) value); break;
+	case ENTITY_MEMBER_HAZARDS: ent->mHazards = (int) value; break;
+	case ENTITY_MEMBER_COLLISION_TYPE: ent->mCollisionType = (collision_type_t) (int) value; break;
+	case ENTITY_MEMBER_ENTITY_STATE: ent->mEntityState = (entity_state_t) (int) value; break;
+	case ENTITY_MEMBER_SPRITES: ent->mSprites = (sprite_t**) value; break;
+	case ENTITY_MEMBER_ACCEL: ent->mAccel = *((vec2_t*) value); break;
+	case ENTITY_MEMBER_VELOCITY : ent->mVelocity = *((vec2_t*) value); break;
+	case ENTITY_MEMBER_POSITION : ent->mPosition = *((vec2_t*) value); break;
 	default:
 		break;
 	}
@@ -39,21 +43,22 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	if(!object || !str)
 		return NULL;
 	retVal = (entity_t*) malloc(sizeof(entity_t));
+	memset(retVal, 0, sizeof(entity_t));
 	for(i = 0; AssignableVariableNames[i]; i++)
 	{
 		if( (checkTok = FindKey(object->keys, AssignableVariableNames[i], str)) != NULL)
 		{
 			if(checkTok->type == JSMN_STRING)
 			{
-				if(i == HAZARDS || i == SPRITES)
+				if(i == ENTITY_MEMBER_HAZARDS || i == ENTITY_MEMBER_SPRITES)
 				{
 					checkInt = abs((int) object->keys - (int) checkTok)/sizeof(jsmntok_t);
-					MiniParseFunc(retVal, &object->values[checkInt], str, (EntityNumbers)i, 1);
+					MiniParseFunc(retVal, &object->values[checkInt], str, (EntityMembers)i, 1);
 					checkTok = NULL;
 				} else
 				{
 					checkInt = abs((int) object->keys - (int) checkTok)/sizeof(jsmntok_t);
-					MiniParseFunc(retVal, &object->values[checkInt], str, (EntityNumbers)i, 1);
+					MiniParseFunc(retVal, &object->values[checkInt], str, (EntityMembers)i, 1);
 					checkTok = NULL;
 				}
 			}else
@@ -64,12 +69,12 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			}
 		} else if( (checkObj = FindObject(object, AssignableVariableNames[i])) != NULL)
 		{
-			if(i == HAZARDS || i == SPRITES)
+			if(i == ENTITY_MEMBER_HAZARDS || i == ENTITY_MEMBER_SPRITES)
 			{
-				MiniParseFunc(retVal, checkObj->values, str, (EntityNumbers)i, CountMem(checkObj->values, sizeof(jsmntok_t)));
+				MiniParseFunc(retVal, checkObj->values, str, (EntityMembers)i, CountMem(checkObj->values, sizeof(jsmntok_t)));
 			} else if(CountMem(&checkObj->values, sizeof(jsmntok_t)) == 2)
 			{
-				EditEntity(retVal, (EntityNumbers)i, ParseToVec2(checkObj, str));
+				EditEntity(retVal, (EntityMembers)i, ParseToVec2(checkObj, str));
 			} else
 			{
 				printf("Error with : %s in JSON file", object->name);
@@ -105,7 +110,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	return retVal;
 }
 
-void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityNumbers member, int size)
+void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityMembers member, int size)
 {
 	int i;
 	char *temp = NULL;
@@ -113,7 +118,7 @@ void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityNumbers mem
 	sprite_t **checkSprite = NULL;
 	if(!ent || !token || !str)
 		return;
-	if(member== HAZARDS)
+	if(member== ENTITY_MEMBER_HAZARDS)
 	{
 		for(i= 0; i < size; i++)
 		{
@@ -122,7 +127,7 @@ void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityNumbers mem
 			if(temp) free(temp);
 		}
 		EditEntity(ent, member, (void*)checkInt);
-	} else if(member== SPRITES)
+	} else if(member== ENTITY_MEMBER_SPRITES)
 	{
 		for(i= 0; i < size; i++)
 		{
@@ -131,12 +136,12 @@ void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityNumbers mem
 			if(temp) free(temp);
 		}
 		EditEntity(ent, member, checkSprite);
-	} else if(member == COLLISION_TYPE)
+	} else if(member == ENTITY_MEMBER_COLLISION_TYPE)
 	{
 		temp = JsmnToString(token, str);
 		EditEntity(ent, member, (void*)StrToCollisionType(temp));
 		if(temp) free(temp);
-	} else if (member == ENTITY_STATE)
+	} else if (member == ENTITY_MEMBER_ENTITY_STATE)
 	{
 		temp = JsmnToString(token, str);
 		EditEntity(ent, member, (void*)StrToEntityState(temp));

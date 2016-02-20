@@ -14,15 +14,16 @@
 //All char ** should be size+1, and ending member = NULL
 
 int exitRequest = 0;
+int gGravity = 9.8;
 jsmn_parser gParser;
 char **gLevels = NULL;  /**< The levels */
 char **gSelectedLevels = NULL;  /**< The selected levels to load */
 jsmntok_t *gGameTokens; /**< Tokens for GameData */
-jsmntok_t *gEntityTokens;
-object_t *gGameObject;
-object_t *gEntityObject;
+jsmntok_t *gEntityTokens;   /**< The entity tokens */
+object_t *gGameObject;  /**< The game object */
+object_t *gEntityObject;	/**< The entity object */
 char *gGameData; /**< Game Data File */
-char *gEntityData;
+char *gEntityData;  /**<Entity data file */
 
 /**
  * Loads game data from GameData.json, stored in gGameData.
@@ -75,9 +76,9 @@ int LoadEntityData()
 	}
 	memset(&gEntityTokens[num_tokens+1], 0, sizeof(jsmntok_t)); 
 	gEntityObject = ParseToObject(gEntityTokens, gEntityData);
-	printf("Size of global tokens: %d", CountMem(gEntityTokens, sizeof(jsmntok_t)));
+	printf("Size of global tokens: %d \n", CountMem(gEntityTokens, sizeof(jsmntok_t)));
 	Hazards_str = ParseToStringArray(FindObject(gEntityObject, "Hazards"), gEntityData);
-	//ent = ParseToEntity(FindObject(gEntityObject, "Entity Ex"), gEntityData);
+	//ent = ParseToEntity(FindObject(gEntityObject, "Player"), gEntityData);
 	objects = CountMem(gEntityObject->children, sizeof(object_t));
 	for(i = 0; i < objects; i++)
 	{
@@ -113,7 +114,8 @@ int SelectLevels()
 		levels++; i++;
 	}
 	type_i = sizeof(int);
-	no_repeats = (int*) calloc(levels,sizeof(int));
+	no_repeats = (int*) malloc(sizeof(int)*(levels+1));
+	memset(no_repeats, 0, sizeof(int));
 	for (i = 0; i < LEVELS_PER_GAME; i++)
 	{
 		rand_i = rand()%levels;
@@ -121,15 +123,47 @@ int SelectLevels()
 		{
 			rand_i = rand()%levels;
 		}
+		no_repeats[i] = rand_i;
 		gSelectedLevels[i] = gLevels[rand_i];
 	}
 	gSelectedLevels[i+1] = NULL;
+	free(no_repeats);
 	return 0;
 }
 
-int LoadSelectedLevels()
+/**
+ * Randomize selected levels.
+ *
+ * @author	Anthony Rios
+ * @date	2/19/2016
+ */
+
+void RandomizeSelectedLevels()
 {
-	return 0;
+	int i, rand_i, *no_repeats;
+	char **slevel_copy;
+	slevel_copy = (char**) malloc(sizeof(char*)*(LEVELS_PER_GAME+1));
+	memcpy(slevel_copy, gSelectedLevels, sizeof(char*)*LEVELS_PER_GAME);
+	slevel_copy[LEVELS_PER_GAME] = 0;
+	no_repeats = (int*) malloc(sizeof(int)*LEVELS_PER_GAME+1);
+	memset(no_repeats, 0, sizeof(int)*(LEVELS_PER_GAME+1));
+	for(i = 0; gSelectedLevels[i]; i++)
+	{
+		rand_i = rand()%LEVELS_PER_GAME;
+		while(!CompareMemToMemArray(&rand_i, no_repeats, sizeof(int), LEVELS_PER_GAME ))
+		{
+			rand_i = rand()%LEVELS_PER_GAME;
+		}
+		no_repeats[i] = rand_i;
+		gSelectedLevels[i] = slevel_copy[rand_i];
+	}
+	free(no_repeats);
+	free(slevel_copy);
+}
+
+int LoadSelectedLevel(int level)
+{
+
 }
 
 void Poll()

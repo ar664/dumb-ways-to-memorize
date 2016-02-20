@@ -1,20 +1,57 @@
 {
 	"Collision Types" : ["static", "ragdoll", "clip"],
 	"Entity States" : ["alive", "dead", "other"],
-	"Hazards" : ["fire", "water", "cold", "spike"],
+	"Hazards" : [ 0, "fire", "water", "cold", "spike"],
+	"Current Scripts" : ["dumb", "dummy"],
 	"This" : "Is how an entity should be written",
-	"Entity Ex" : 
+	"Player" : 
 	{
-		"hazard(s)" : "Ex",
-		"collisionType" : "Ex",
-		"entityState" : "Ex",
+		"collisionType" : "ragdoll",
+		"entityState" : "alive",
 		"sprite(s)" : "blank.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,
-		"accel" : [0,0],
-		"velocity" : [0,0],
-		"position" : [0,0]
+	},
+	
+	"Flying Enemy" :
+	{
+		"collisionType" : "ragdoll",
+		"entityState" : "alive",
+		"sprite(s)" : "blank.png",
+		"height" : 32,
+		"width" : 32,
+		"frames" : 1,
+	},
+	
+	"Gumba Enemy" :
+	{
+		"collisionType" : "ragdoll",
+		"entityState" : "alive",
+		"sprite(s)" : "blank.png",
+		"height" : 32,
+		"width" : 32,
+		"frames" : 1,
+	},
+	
+	"Thwomp Enemy" :
+	{
+		"collisionType" : "static",
+		"entityState" : "other",
+		"sprite(s)" : "blank.png",
+		"height" : 32,
+		"width" : 32,
+		"frames" : 1,
+	},
+	
+	"Mage Enemy" : 
+	{
+		"collisionType" : "ragdoll",
+		"entityState" : "alive	 ",
+		"sprite(s)" : "blank.png",
+		"height" : 32,
+		"width" : 32,
+		"frames" : 1,
 	},
 	
 	"Fireball" :
@@ -33,8 +70,14 @@
 		"comment" : "so this is 5 pixels in front of target"
 	},
 	
-
-
-
+	"Ground" :
+	{
+		"collisionType" : "static",
+		"entityState" : "other",
+		"sprite(s)" : "blank.png",
+		"height" : 32,
+		"width" : 32,
+		"frames" : 1,
+	}
 
 }

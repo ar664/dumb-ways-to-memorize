@@ -2,6 +2,26 @@
 #include <string.h>
 #include <stdlib.h>
 
+void Vec2Add(vec2_t *A, vec2_t *B, vec2_t *C)
+{
+	if(!A || !B || !C)
+	{
+		return;
+	}
+	C->x = A->x + B->x;
+	C->y = A->y + B->y;
+}
+
+
+void Vec2Subtract(vec2_t *First, vec2_t *Second, vec2_t *C)
+{
+	if(!First || !Second || !C)
+	{
+		return;
+	}
+	C->x = First->x - Second->x;
+	C->y = First->y - Second->y;
+}
 /**
  * Counts the memory of type size_type, given that the final address is null.
  *

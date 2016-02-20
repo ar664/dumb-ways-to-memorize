@@ -112,7 +112,7 @@ object_t *FindObject(object_t *obj, char *name)
 	retVal = NULL;
 	if(obj == NULL || name == NULL)
 		return retVal;
-	temp = obj->children;
+	temp = obj;
 	for(i = 0; temp[i].name != NULL; i++)
 	{
 		if(!temp[i].name)

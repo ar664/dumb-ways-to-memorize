@@ -3,12 +3,6 @@
 
 
 #include <jsmn.h>
-#define RETURN_TYPE(X, Y) (X == sizeof(char) ? (char*)Y  \
-						: (X == sizeof(int) ? (int*)Y  \
-						: (X == sizeof(jsmntok_t) ? (jsmntok_t*)Y \
-						: (int*)Y ) ) ) 
-
-/**< Returns pointer to Y based on X size | default (int*) */
 #define STRING_TYPE(X) (X == sizeof(char) ? "Char"  \
 						: (X == sizeof(int) ? "Int"  \
 						: (X == sizeof(jsmntok_t) ? "Jsmn" \
@@ -20,6 +14,12 @@ typedef struct vec2_s
 	int x;
 	int y;
 }vec2_t;
+
+void Vec2Add(vec2_t *A, vec2_t *B, vec2_t *C);
+void Vec2Subtract(vec2_t *First, vec2_t *Second, vec2_t *C);
+//#define VEC2_ADD(A, B, C) (C[0] = A[0] + B[0], C[1] = A[1] + B[1]) 
+//#define VEC2_SUBTRACT(A, B, C) (C[0] = A[0] - B[0], C[1] = A[1] - B[1])
+
 
 typedef enum
 {
@@ -48,8 +48,8 @@ collision_type_t StrToCollisionType(char *str);
 entity_state_t StrToEntityState(char *str);
 
 //For PowerUps
-extern vec2_t mousePos;
-extern int keyPower;
+extern vec2_t *mousePos;
+extern int *keyPower;
 
 extern void *Player;
 extern void *World;
