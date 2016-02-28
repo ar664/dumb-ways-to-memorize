@@ -13,6 +13,6 @@ int StringToInt(char* str);
 int CharToInt(char c);
 char * FindValueFromKey(jsmntok_t *token, char *key, char *g_str);
 jsmntok_t * FindKey(jsmntok_t *token, char *key, char *g_str);
-
+int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStorage, jsmntok_t **jsmnStorage);
 
 #endif

@@ -50,7 +50,7 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 					currentChild = ParseToObject(&token[i+1], g_str);
 					currentChild->name = JsmnToString(&token[i], g_str);
 					currentChild->parent = retVal;
-					i++;
+					i += token[i].size;
 					objects++;
 				} else
 				{
@@ -142,6 +142,10 @@ object_t *FindObject(object_t *obj, char *name)
 		{
 			return &temp[i];
 		}
+	}
+	if(temp->children)
+	{
+		return FindObject(temp->children, name);
 	}
 	return retVal;
 }

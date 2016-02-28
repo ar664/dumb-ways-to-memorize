@@ -98,6 +98,17 @@ char * JsmnToString(jsmntok_t *token, char *g_str)
 	return retVal;
 }
 
+/**
+ * Jsmn to int.
+ *
+ * @param [in,out]	token	If non-null, the token.
+ * @param [in,out]	str  	If non-null, the string.
+ * @param [in,out]	dst  	If non-null, destination for the value.
+ *
+ * @author	Anthony Rios
+ * @date	2/28/2016
+ */
+
 void JsmnToInt(jsmntok_t* token, char* str, int* dst)
 {
 	char *temp;
@@ -105,6 +116,17 @@ void JsmnToInt(jsmntok_t* token, char* str, int* dst)
 	*dst = StringToInt(temp);
 	if(temp) free(temp);
 }
+
+/**
+ * String to int.
+ *
+ * @param [in,out]	str	If non-null, the string.
+ *
+ * @return	An int.
+ *
+ * @author	Anthony Rios
+ * @date	2/28/2016
+ */
 
 int StringToInt(char* str)
 {
@@ -121,6 +143,17 @@ int StringToInt(char* str)
 	}
 	return retVal;
 }
+
+/**
+ * Character to int. A cheap switch statement.
+ *
+ * @param	c	The character.
+ *
+ * @return	An int.
+ *
+ * @author	Anthony Rios
+ * @date	2/28/2016
+ */
 
 int CharToInt(char c)
 {
@@ -205,4 +238,75 @@ char * FileToString(char *fileName)
 	string[size] = '\0';
 	fclose(file);
 	return string;
+}
+
+
+enum FreeVar
+{
+	PARSER=	0x1,
+	STRING=	0x2,
+	TOKEN=	0x4
+};
+
+int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStorage, jsmntok_t **jsmnStorage)
+{
+	int num_tokens, varsToFree = 0;
+	jsmn_parser *temp;
+	char **tempStr;
+	jsmntok_t **tempJsmn;
+	if(!fileName)
+	{
+		printf("Convert File given NULL filename");
+		return -1;
+	}
+
+	//Init parser, if not given
+	if(!parser)
+	{
+		temp = (jsmn_parser*) malloc(sizeof(parser));
+		if(!parser) return -1;
+		parser = temp;
+		varsToFree |= PARSER;
+	}
+	jsmn_init(parser);
+
+	//Init stringStorage if not given
+	if(!stringStorage)
+	{
+		tempStr = (char**) malloc(sizeof(char*));
+		if(!tempStr) return -1;
+		stringStorage = tempStr;
+		varsToFree |= STRING;
+	}
+	*stringStorage = FileToString(fileName);
+	if(!*stringStorage)
+	{
+		return -1;
+	}
+	//Init jsmnStorage if not given
+	if(!jsmnStorage)
+	{
+		tempJsmn = (jsmntok_t**) malloc(sizeof(jsmntok_t*));
+		if(!tempJsmn) return -1;
+		jsmnStorage = tempJsmn;
+		varsToFree |= TOKEN;
+	}
+
+	//Actual Parsing
+	num_tokens = jsmn_parse(parser, *stringStorage, strlen(*stringStorage), NULL, 0);
+	*jsmnStorage = (jsmntok_t*) malloc(sizeof(jsmntok_t)*(num_tokens+1));
+	if(!*jsmnStorage)
+	{
+		return -1;
+	}
+	jsmn_init(parser); //Reset parser
+	num_tokens = jsmn_parse(parser, *stringStorage, strlen(*stringStorage), *jsmnStorage, num_tokens);
+	memset( &(*jsmnStorage)[num_tokens], 0, sizeof(jsmntok_t));
+
+	//Freeing if necessary
+	if(varsToFree & PARSER) free(parser);
+	if(varsToFree & STRING) free(stringStorage);
+	if(varsToFree & TOKEN) free(jsmnStorage);
+
+	return num_tokens;
 }

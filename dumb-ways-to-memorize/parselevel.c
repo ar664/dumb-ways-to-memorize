@@ -11,9 +11,9 @@ level_t *gCurrentLevel = NULL;
 int LoadLevel(object_t *level, char *g_str)
 {
 	jsmntok_t *tempTok;
-	object_t *tempObj;
+	object_t *tempObj, *enemyObj, *posObj;
 	entity_t *tempEnt;
-	int tempInt, i, enemies;
+	int tempInt, i, j, enemies, positions;
 	vec2_t *spawn;
 	if(!level || !level->keys)
 	{
@@ -65,27 +65,92 @@ int LoadLevel(object_t *level, char *g_str)
 	free(spawn);
 
 	//Spawn Enemies
-	tempObj = FindObject(level->children, "Enemies");
-	if(tempObj && tempObj->children)
+	enemyObj = FindObject(level->children, "Enemies");
+	if(enemyObj && enemyObj->children)
 	{
-		enemies = CountMem(tempObj->children, sizeof(object_t));
+		enemies = CountMem(enemyObj->children, sizeof(object_t));
 		for(i = 0; i < enemies; i++)
 		{
-			tempTok = FindKey(tempObj->children[i].keys, "enemy", g_str);
+			tempTok = FindKey(enemyObj->children[i].keys, "enemy", g_str);
 			if(!tempTok)
 			{
 				continue;
 			}
-			tempInt = (int) tempObj->children[i].keys - (int) tempTok;
-			tempEnt = InitNewEntity();
-			if(!tempEnt)
+			tempInt = (int) enemyObj->children[i].keys - (int) tempTok;
+			posObj = FindObject(enemyObj, "position");
+			if(!posObj)
 			{
 				continue;
 			}
-			memcpy(tempEnt, FindCachedEntity(JsmnToString(&level->values[tempInt], g_str)), sizeof(entity_t));
+			if(posObj->children)
+			{
+				positions = CountMem(posObj->children, sizeof(object_t));
+				for(j = 0; j < positions; j++)
+				{
+					tempEnt = InitNewEntity();
+					if(!tempEnt)
+					{
+						continue;
+					}
+					memcpy(tempEnt, FindCachedEntity(JsmnToString(&level->values[tempInt], g_str)), sizeof(entity_t));
+					tempEnt->mPosition = *ParseToVec2(&posObj->children[j], g_str);
+				}
+			} else
+			{
+				tempEnt = InitNewEntity();
+				if(!tempEnt)
+				{
+					continue;
+				}
+				memcpy(tempEnt, FindCachedEntity(JsmnToString(&level->values[tempInt], g_str)), sizeof(entity_t));
+				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
+			}
 		}
 	}
 	
+	//Spawn Objects - same as enemies for now
+	enemyObj = FindObject(level->children, "Objects");
+	if(enemyObj && enemyObj->children)
+	{
+		enemies = CountMem(enemyObj->children, sizeof(object_t));
+		for(i = 0; i < enemies; i++)
+		{
+			tempTok = FindKey(enemyObj->children[i].keys, "object", g_str);
+			if(!tempTok)
+			{
+				continue;
+			}
+			tempInt = (int) enemyObj->children[i].keys - (int) tempTok;
+			posObj = FindObject(enemyObj, "position");
+			if(!posObj)
+			{
+				continue;
+			}
+			if(posObj->children)
+			{
+				positions = CountMem(posObj->children, sizeof(object_t));
+				for(j = 0; j < positions; j++)
+				{
+					tempEnt = InitNewEntity();
+					if(!tempEnt)
+					{
+						continue;
+					}
+					memcpy(tempEnt, FindCachedEntity(JsmnToString(&level->values[tempInt], g_str)), sizeof(entity_t));
+					tempEnt->mPosition = *ParseToVec2(&posObj->children[j], g_str);
+				}
+			} else
+			{
+				tempEnt = InitNewEntity();
+				if(!tempEnt)
+				{
+					continue;
+				}
+				memcpy(tempEnt, FindCachedEntity(JsmnToString(&level->values[tempInt], g_str)), sizeof(entity_t));
+				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
+			}
+		}
+	}
 
 	return 0;
 }

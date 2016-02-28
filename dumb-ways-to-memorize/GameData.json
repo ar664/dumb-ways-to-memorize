@@ -7,6 +7,7 @@
 	"Game Name": "Dumb Ways to Memorize",
 	"Gravity" : 9.8,
 	"Test-Position" : [ [0,0], [1,1] ],
+	"Levels" : ["Levels/Level 1/level1.json", "blank.json"],
 	"PowerUps" : [
 		{
 			"name" : "Teleport",
