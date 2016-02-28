@@ -31,11 +31,13 @@ struct entity_s
 	void (*PowerUp)(entity_t *self);
 };
 
+extern entity_t *gEntityDictionary;
 extern entity_t *gEntities;
 extern int gLastEntity;
 
 extern int InitEntitySystem();
 extern entity_t *InitNewEntity();
+extern entity_t *FindCachedEntity(const char *name);
 extern entity_t *FindEntity(const char *name);
 extern entity_t *FindFreeEntity(int* position);
 extern entity_t *LookForEntityAtPos(vec2_t position);

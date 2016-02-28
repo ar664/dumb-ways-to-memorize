@@ -24,6 +24,7 @@ object_t *gGameObject;  /**< The game object */
 object_t *gEntityObject;	/**< The entity object */
 char *gGameData; /**< Game Data File */
 char *gEntityData;  /**<Entity data file */
+entity_t *gEntityDictionary; /**< Entities loaded from files AKA cached entities*/
 
 /**
  * Loads game data from GameData.json, stored in gGameData.
@@ -37,6 +38,8 @@ char *gEntityData;  /**<Entity data file */
 int LoadGameData()
 {
 	int num_tokens, i;
+
+	//Init GameData Parse
 	gGameData = FileToString(JSON_FILE);
 	jsmn_init(&gParser);
 	num_tokens = jsmn_parse(&gParser, gGameData, strlen(gGameData), NULL, 0);
@@ -49,12 +52,21 @@ int LoadGameData()
 		return -1;
 	}
 	memset(&gGameTokens[num_tokens+1], 0, sizeof(jsmntok_t)); 
+	
+	//Debug Checks & Object Parse
 	for(i = 0; i < num_tokens; i++)
 	{
 		printf("JSON token %d : %s size: %d\n", i, TypeFromJSON(gGameTokens[i].type), gGameTokens[i].size);
 	}
 
+	printf("Last Token : %s", JsmnToString(&gGameTokens[num_tokens-1], gGameData));
 	gGameObject = ParseToObject(gGameTokens, gGameData);
+	if(!gGameObject)
+	{
+		printf("Object parse error");
+		return -1;
+	}
+	PrintObject(gGameObject, gGameData);
 	printf("Size of global tokens: %d", CountMem(gGameTokens, sizeof(jsmntok_t)));
 	return 0;
 }
@@ -63,6 +75,8 @@ int LoadEntityData()
 {
 	int num_tokens, i, objects;
 	entity_t *ent, *temp;
+
+	//Init Entity Parse
 	gEntityData = FileToString(ENTITY_FILE);
 	jsmn_init(&gParser);
 	num_tokens = jsmn_parse(&gParser, gEntityData, strlen(gEntityData), NULL, 0);
@@ -78,17 +92,25 @@ int LoadEntityData()
 	gEntityObject = ParseToObject(gEntityTokens, gEntityData);
 	printf("Size of global tokens: %d \n", CountMem(gEntityTokens, sizeof(jsmntok_t)));
 	Hazards_str = ParseToStringArray(FindObject(gEntityObject, "Hazards"), gEntityData);
-	//ent = ParseToEntity(FindObject(gEntityObject, "Player"), gEntityData);
+	
+	//Set Entity Dictionary
 	objects = CountMem(gEntityObject->children, sizeof(object_t));
+	gEntityDictionary = (entity_t*) malloc(sizeof(entity_t)*(objects+1));
+	if(!gEntityDictionary)
+	{
+		printf("Alloc error lazy");
+		return -1;
+	}
+	memset(gEntityDictionary, 0,sizeof(entity_t)*(objects+1));
 	for(i = 0; i < objects; i++)
 	{
 		if(FindKey(gEntityObject->children[i].keys, "sprite(s)", gEntityData))
 		{
-			ent = InitNewEntity();
 			temp = ParseToEntity(&gEntityObject->children[i], gEntityData);
 			if(!temp) continue;
-			if(!ent) break;
-			memcpy(ent, temp, sizeof(entity_t));
+
+			memcpy(&gEntityDictionary[i], temp, sizeof(entity_t));
+
 			if(temp) free(temp);
 		}
 	}

@@ -51,6 +51,9 @@
     <ClCompile Include="parsevariable.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="parselevel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -87,6 +90,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="parsevariable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parselevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

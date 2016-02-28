@@ -41,10 +41,6 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 			currentChild = ParseToObject(&token[i], g_str);
 			currentChild->parent = retVal;
 			objects++;
-			i += CountMem(currentChild->keys, sizeof(jsmntok_t*)) +
-				CountMem(currentChild->values,sizeof(jsmntok_t*)) + 
-				CountMem(currentChild->children,sizeof(jsmntok_t*));
-			continue;
 		} else if(token[i].type == JSMN_STRING)
 		{
 			if(token[i].size > 0)
@@ -54,6 +50,7 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 					currentChild = ParseToObject(&token[i+1], g_str);
 					currentChild->name = JsmnToString(&token[i], g_str);
 					currentChild->parent = retVal;
+					i++;
 					objects++;
 				} else
 				{
@@ -68,8 +65,13 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 		} else if(token[i].type == JSMN_ARRAY)
 		{
 			if(i == 0)
+			{
 				i++;
 				continue;
+			}
+			currentChild = ParseToObject(&token[i], g_str);
+			currentChild->parent = retVal;
+			objects++;
 		} else
 		{
 			 currentValue = &token[i];
@@ -79,18 +81,25 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 		//Doing & to pass reference instead of value
 		if(currentChild)
 		{
-			AllocateDynamic(&children_array, currentChild, sizeof(object_t), objects);
-			i += CountMem(currentChild->keys, sizeof(jsmntok_t*)) +
-				CountMem(currentChild->values,sizeof(jsmntok_t*)) + 
-				CountMem(currentChild->children,sizeof(jsmntok_t*));
+			if ( CopyObjectToObjectArray(&children_array, currentChild, objects) == -1 )
+			{
+				printf("Dynam Alloc error : parseobj \n");
+			}
+			i += CountObjectMembers(currentChild, g_str);
 			currentChild = NULL;
 		} else if(currentKey)
 		{
-			AllocateDynamic(&keys_array, currentKey, sizeof(jsmntok_t), keys);
+			if( AllocateDynamic(&keys_array, currentKey, sizeof(jsmntok_t), keys) == -1 )
+			{
+				printf("Dynam Alloc eror : parseobj \n");
+			}
 			currentKey = NULL;
 		} else if (currentValue)
 		{
-			AllocateDynamic(&values_array, currentValue, sizeof(jsmntok_t), values);
+			if (AllocateDynamic(&values_array, currentValue, sizeof(jsmntok_t), values) == -1 )
+			{
+				printf("Dynam Alloc eror : parseobj \n");
+			}
 			currentValue = NULL;
 		} else
 		{
@@ -98,12 +107,24 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 			break;
 		}
 		i++;
-	}while( (size > token[i].start) && token[i].type);
+	}while( (size > token[i].start) && (token[i].type > 0) );
 	retVal->values = values_array;
 	retVal->keys = keys_array;
 	retVal->children = children_array;
 	return retVal;
 	}
+
+/**
+ * Searches for the first object in object list that matches name.
+ *
+ * @param [in,out]	obj 	If non-null, the object.
+ * @param [in,out]	name	If non-null, the name.
+ *
+ * @return	null if it fails, else the found object.
+ *
+ * @author	Anthony Rios
+ * @date	2/27/2016
+ */
 
 object_t *FindObject(object_t *obj, char *name)
 {
@@ -123,4 +144,138 @@ object_t *FindObject(object_t *obj, char *name)
 		}
 	}
 	return retVal;
+}
+
+int CountObjectMembers(object_t* obj, char* g_str)
+{
+	int objects, objCount, retVal, i;
+	if(!obj || !g_str)
+	{
+		return 0;
+	}
+	objects = 1 + CountMem(obj->children, sizeof(object_t));
+	objCount = 0;
+	retVal = 0;
+	while(objCount < objects)
+	{
+		if(objCount == 0)
+		{
+			retVal += CountMem(obj->keys, sizeof(jsmntok_t));
+			retVal += CountMem(obj->values, sizeof(jsmntok_t));
+		} else
+		{
+			retVal += CountObjectMembers(&obj->children[objCount-1], g_str);
+		}
+		objCount++;
+	}
+
+	return retVal;
+}
+
+//Doesn't print key only object
+// Recursive Print
+void PrintObject(object_t* obj, char *g_str)
+{
+	int objects, tempInt, i;
+	if(!obj || !g_str)
+	{
+		return;
+	}
+	objects = 1 + CountMem(obj->children, sizeof(object_t));
+	tempInt = 0;
+	while(tempInt < objects)
+	{
+		if(tempInt == 0)
+		{
+			if(obj->name) 
+			{
+				printf("%s ", obj->name);
+			}
+			printf("{ \n");
+			if(obj->keys && obj->values)
+			{
+				i = 0;
+				while(obj->keys[i].type && obj->values[i].type)
+				{
+					printf("Key : %s \n", JsmnToString(&obj->keys[i], g_str));
+					printf("Value : %s \n", JsmnToString(&obj->values[i], g_str));
+					i++;
+				}
+			} else if(obj->values)
+			{
+				i = 0;
+				while(obj->values[i].type)
+				{
+					printf("Value : %s \n", JsmnToString(&obj->values[i], g_str));
+					i++;
+				}
+			}
+			tempInt++;
+			continue;
+		}
+		if(&obj->children[tempInt-1] < &obj->children[objects])
+		{
+			PrintObject(&obj->children[tempInt-1], g_str);
+		}
+		tempInt++;
+	}
+	printf("} \n\n");
+
+}
+
+//Dynamic
+int CopyObjectToObjectArray(object_t **dst, object_t *src, int size)
+{
+	int count, i;
+	if(!dst || !src)
+	{
+		return -1;
+	}
+	*dst = (object_t*) realloc(*dst, sizeof(object_t)*(size+1));
+	if(!*dst)
+	{
+		return -1;
+	}
+	if(size == 1)
+	{
+		memset(*dst, 0, sizeof(object_t));
+	}
+	((*dst)[size-1]).name = src->name;
+	((*dst)[size-1]).parent = src->parent;
+	if(src->keys)
+	{
+		count = CountMem(src->keys, sizeof(jsmntok_t));
+		for(i = 0; i < count+1; i++)
+		{
+			if( AllocateDynamic( &((*dst)[size-1]).keys, &src->keys[i], sizeof(jsmntok_t), i+1)  == -1)
+			{
+				return -1;
+			}
+		}
+		
+	}
+	if(src->values)
+	{
+		count = CountMem(src->values, sizeof(jsmntok_t));
+		for(i = 0; i < count+1; i++)
+		{
+			if( AllocateDynamic( &((*dst)[size-1]).values, &src->values[i], sizeof(jsmntok_t), i+1)  == -1)
+			{
+				return -1;
+			}
+		}
+	}
+	if(src->children)
+	{
+		count = CountMem(src->children, sizeof(object_t ));
+		for(i = 0; i < count+1; i++)
+		{
+			if( CopyObjectToObjectArray( &((*dst)[size-1]).children, &src->children[i], i+1)  == -1)
+			{
+				return -1;
+			}
+		}
+	}
+	memset(&(*dst)[size], 0, sizeof(object_t));
+	return 0;
 }

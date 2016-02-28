@@ -46,7 +46,7 @@ int CountMem(void *src, int size_type)
 		source += offset;
 		i++;
 	}
-	return i-1;
+	return i;
 }
 
 /**
@@ -66,7 +66,9 @@ int CountMem(void *src, int size_type)
 int AllocateDynamic(void **dst, void *src, int size_type, int size)
 {
 	int offset = size_type/sizeof(int);
+	if(!dst) return -1;
 	*dst = realloc(*dst, size_type*(size+1));
+	if(!*dst) return -1;
 	src ? memcpy((int*)(*dst)+(size-1)*offset, src, size_type) : memset((int*)(*dst)+(size-1)*offset, 0, size_type);
 	memset((int*)(*dst)+(size)*offset, 0, size_type);
 	return 0;

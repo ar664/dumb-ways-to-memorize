@@ -68,6 +68,8 @@ extern int CompareMemToMemArray(void *mem, void *mem_array, int size_type, int s
 //JSON Parser
 extern jsmn_parser gParser;
 extern jsmntok_t *gGameTokens;
+extern jsmntok_t *gEntityTokens;
 extern char *gGameData;
+extern char *gEntityData;
 
 #endif

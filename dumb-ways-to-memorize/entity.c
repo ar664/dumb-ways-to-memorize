@@ -94,6 +94,21 @@ entity_t *InitNewEntity()
 	return retVal;
 }
 
+entity_t* FindCachedEntity(const char* name)
+{
+	int i;
+	for(i = 0; i < MAX_ENTITIES; i++)
+	{
+		if(!gEntityDictionary[i].mName)
+			continue;
+		if(!strcmp(name, gEntityDictionary[i].mName))
+		{
+			return &gEntities[i];
+		}
+	}
+	return NULL;
+}
+
 entity_t* FindEntity(const char* name)
 {
 	int i;

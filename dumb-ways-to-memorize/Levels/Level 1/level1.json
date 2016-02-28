@@ -1,5 +1,7 @@
 {
 	"Name" : "Guns And Roses",
+	"Background" : "Sprite/Level/Background.png",
+	"Hint" : "Testing",
 	"Spawn" : [0, 30],
 	"Enemies" : [
 	{

@@ -6,6 +6,7 @@
 	"Targets" : ["self", "at-point", "world"],
 	"Game Name": "Dumb Ways to Memorize",
 	"Gravity" : 9.8,
+	"Test-Position" : [ [0,0], [1,1] ],
 	"PowerUps" : [
 		{
 			"name" : "Teleport",

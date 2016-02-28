@@ -40,6 +40,11 @@ void Spawn(entity_t *targ, entity_t *info)
 		return;
 	}
 	spawned = InitNewEntity();
+	if (!spawned)
+	{
+		printf("Max entities reached can't spawn any more");
+		return;
+	}
 	spawned->mHazards = info->mHazards;
 	spawned->mCollisionType = info->mCollisionType;
 	spawned->mEntityState = info->mEntityState;
