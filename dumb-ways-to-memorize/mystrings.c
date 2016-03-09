@@ -294,6 +294,11 @@ int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStora
 
 	//Actual Parsing
 	num_tokens = jsmn_parse(parser, *stringStorage, strlen(*stringStorage), NULL, 0);
+	if(num_tokens < 1)
+	{
+		printf("Jsmn Parse Eror: %d", num_tokens);
+		return -1;
+	}
 	*jsmnStorage = (jsmntok_t*) malloc(sizeof(jsmntok_t)*(num_tokens+1));
 	if(!*jsmnStorage)
 	{
@@ -301,6 +306,7 @@ int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStora
 	}
 	jsmn_init(parser); //Reset parser
 	num_tokens = jsmn_parse(parser, *stringStorage, strlen(*stringStorage), *jsmnStorage, num_tokens);
+	
 	memset( &(*jsmnStorage)[num_tokens], 0, sizeof(jsmntok_t));
 
 	//Freeing if necessary

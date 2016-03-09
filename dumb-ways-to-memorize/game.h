@@ -7,6 +7,15 @@
 #define	JSON_FILE		"GameData.json"		
 #define ENTITY_FILE		"Entities.json"
 
+
+ typedef enum
+{
+	SPLASH =	0x1,
+	START =		0x2,
+	GUESS =		0x4,
+	PLAYING =	0x8
+}GameState;
+
 int	mState;
 int	Setup();
 int Run();

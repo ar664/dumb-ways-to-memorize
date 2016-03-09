@@ -15,7 +15,7 @@
 //All char ** should be size+1, and ending member = NULL
 
 int exitRequest = 0;
-int gGravity = 9.8;
+float gGravity = 9.8;
 jsmn_parser gParser;
 char **gLevels = NULL;  /**< The levels */
 char **gSelectedLevels = NULL;  /**< The selected levels to load */
@@ -29,7 +29,10 @@ char *gGameData; /**< Game Data File */
 char *gEntityData;  /**<Entity data file */
 char *gLevelData;
 entity_t *gEntityDictionary; /**< Entities loaded from files AKA cached entities*/
-
+GameState gGameState = SPLASH;
+sprite_t *gSplash = NULL;
+vec2_t ZeroPos = {0,0};
+SDL_Event gEventQ;
 /**
  * Loads game data from GameData.json, stored in gGameData.
  *
@@ -57,8 +60,6 @@ int LoadGameData()
 	}
 
 	PrintObject(gGameObject, gGameData);
-
-	
 
 	return 0;
 }
@@ -240,11 +241,19 @@ int LoadSelectedLevel(int level)
 	}
 	printf("Level %d not found", level);
 	ConvertFileToUseable(gSelectedLevels[level], &gParser, &gLevelData, &gLevelTokens);
+	if(!gLevelData || !gLevelTokens)
+	{
+		printf("Unable to parse level %s", gSelectedLevels[level]);
+	}
 	gLevelObject = ParseToObject(gLevelTokens, gLevelData);
+	if(!gLevelObject)
+	{
+		printf("Unable to parse level %s to object", gSelectedLevels[level]);
+	}
 
 	if(LoadLevel(gLevelObject, gLevelData))
 	{
-		perror("Hello");
+		perror("Unable to Load level");
 		return -1;
 	}
 
@@ -255,13 +264,83 @@ void Poll()
 	return;
 }
 
+void UpdateStart();
+void UpdateGuess();
+void UpdatePlaying();
+
 void Update()
 {
+	jsmntok_t *splash = NULL;
+	switch(gGameState)
+	{
+	case(SPLASH):
+		{
+			if(!gSplash)
+			{
+				splash = FindKey(gGameTokens, "SplashScreen",gGameData);
+				if(!splash)
+				{
+					printf("SplashScreen key not found in gameData \n");
+				} else {
+					gSplash = LoadSprite(FindValueFromKey(splash, "SplashScreen", gGameData), 0);
+					if(!gSplash)
+					{
+						printf("Splash screen could not be loaded \n");
+					}
+				}
+			}
+			if(SDL_PollEvent(&gEventQ))
+			{
+				gGameState = START;
+			}
+			break;
+		}
+	case(START):
+		{
+			break;
+		}
+	case(GUESS):
+		{
+			break;
+		}
+	case(PLAYING):
+		{
+			break;
+		}
+	}
 	return;
 }
 
+void DrawSplash();
+void DrawStart();
+void DrawGuess();
+void DrawPlaying();
+
 void Draw()
 {
+	switch(gGameState)
+	{
+	case(SPLASH):
+		{
+			DrawSplash();
+			break;
+		}
+	case(START):
+		{
+			DrawStart();
+			break;
+		}
+	case(GUESS):
+		{
+			DrawGuess();
+			break;
+		}
+	case(PLAYING):
+		{
+			DrawPlaying();
+			break;
+		}
+	}
 	return;
 }
 
@@ -314,6 +393,7 @@ int Setup()
 	}
 
 	LoadSelectedLevel(0);
+	PrintObject(gLevelObject, gLevelData);
 	test_sprite = LoadSprite("Sprite/UI/NESController.png",0);
 	test_sprite->mCurrentFrame = LoadAnimation(test_sprite->mSize.x, test_sprite->mSize.y, test_sprite->mSize.x, test_sprite->mSize.y);
 	/*
@@ -346,4 +426,31 @@ void Shutdown()
 
 	return;
 }
-	
+
+
+void DrawSplash()
+{
+	if(gSplash)
+	{
+		DrawSprite(gSplash, &ZeroPos, gRenderer);
+	}
+	return;
+}
+
+void DrawStart()
+{
+
+	return;
+}
+
+void DrawGuess()
+{
+
+	return;
+}
+
+void DrawPlaying()
+{
+
+	return;
+}
