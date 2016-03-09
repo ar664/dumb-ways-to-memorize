@@ -8,7 +8,7 @@
 	"Gravity" : 9.8,
 	"Test-Position" : [ [0,0], [1,1] ],
 	"Levels" : ["Level/Level01.json" , "Level/Level01.json"],
-	"SplashScreen" : "blank.png",
+	"SplashScreen" : "Sprite/Level/Ground.png",
 	"PowerUps" : [
 		{
 			"name" : "Teleport",

@@ -105,7 +105,13 @@ int DrawSprite(sprite_t *sprite, vec2_t *position, SDL_Renderer *renderer)
 {
 	SDL_Rect src, dst;
 	SDL_SetRect(&src, sprite->mCurrentFrame->Position.x, sprite->mCurrentFrame->Position.y, sprite->mSize.x, sprite->mSize.y);
-	SDL_SetRect(&dst, position->x, position->y, sprite->mSize.x, sprite->mSize.y);
+	if(!position)
+	{
+		SDL_SetRect(&dst, 0, 0, 0, 0);
+		SDL_GetRendererOutputSize(renderer, &dst.w, &dst.h);
+	} else {
+		SDL_SetRect(&dst, position->x, position->y, sprite->mSize.x, sprite->mSize.y);
+	}
 
 
 	if( SDL_RenderCopy(renderer, sprite->mTexture, &src, &dst) )

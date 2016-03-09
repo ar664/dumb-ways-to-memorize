@@ -178,5 +178,10 @@ int LoadLevel(object_t *level, char *g_str)
 
 void DrawLevel()
 {
-	
+	if(!gCurrentLevel)
+	{
+		printf("Level not loaded, unable to print");
+		return;
+	}
+	DrawSprite(gCurrentLevel->mBackground, NULL , gRenderer);
 }

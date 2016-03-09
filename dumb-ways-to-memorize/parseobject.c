@@ -21,6 +21,7 @@
 object_t *ParseToObject(jsmntok_t *token, char *g_str)
 {
 	int objects, keys, values, size, i;
+	char *tempStr;
 	object_t *currentChild; jsmntok_t *currentKey, *currentValue;
 	object_t *children_array; jsmntok_t *keys_array, *values_array;
 	object_t *retVal = (object_t*) malloc(sizeof(object_t));
@@ -96,6 +97,8 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 			{
 				printf("Dynam Alloc error : parseobj \n");
 			}
+			//tempStr = JsmnToString(&token[i], g_str);
+			//printf("Token %d Size : %d CountObjectMems : %d \n %s \n", i, token[i].size, CountObjectMembers(currentChild, g_str), tempStr);
 			i += CountObjectMembers(currentChild, g_str);
 			currentChild = NULL;
 		} else if(currentKey)
@@ -180,7 +183,7 @@ int CountObjectMembers(object_t* obj, char* g_str)
 			retVal += CountMem(obj->values, sizeof(jsmntok_t));
 		} else
 		{
-			retVal += CountObjectMembers(&obj->children[objCount-1], g_str);
+			retVal += CountObjectMembers(&obj->children[objCount-1], g_str) + 1;
 		}
 		objCount++;
 	}
