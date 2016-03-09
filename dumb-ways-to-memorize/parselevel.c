@@ -12,7 +12,7 @@ int LoadLevel(object_t *level, char *g_str)
 {
 	jsmntok_t *tempTok;
 	object_t *tempObj, *enemyObj, *posObj;
-	entity_t *tempEnt;
+	entity_t *tempEnt, *cachedEnt;
 	int tempInt, i, j, enemies, positions;
 	vec2_t *spawn;
 	if(!level || !level->keys)
@@ -92,7 +92,12 @@ int LoadLevel(object_t *level, char *g_str)
 					{
 						continue;
 					}
-					memcpy(tempEnt, FindCachedEntity(JsmnToString(&level->values[tempInt], g_str)), sizeof(entity_t));
+					cachedEnt = FindCachedEntity(JsmnToString(&level->values[tempInt], g_str));
+					if(!cachedEnt)
+					{
+						continue;
+					}
+					memcpy(tempEnt, cachedEnt , sizeof(entity_t));
 					tempEnt->mPosition = *ParseToVec2(&posObj->children[j], g_str);
 				}
 			} else
@@ -102,7 +107,12 @@ int LoadLevel(object_t *level, char *g_str)
 				{
 					continue;
 				}
-				memcpy(tempEnt, FindCachedEntity(JsmnToString(&level->values[tempInt], g_str)), sizeof(entity_t));
+				cachedEnt = FindCachedEntity(JsmnToString(&level->values[tempInt], g_str));
+				if(!cachedEnt)
+				{
+					continue;
+				}
+				memcpy(tempEnt, cachedEnt, sizeof(entity_t));
 				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
 			}
 		}
@@ -136,7 +146,12 @@ int LoadLevel(object_t *level, char *g_str)
 					{
 						continue;
 					}
-					memcpy(tempEnt, FindCachedEntity(JsmnToString(&level->values[tempInt], g_str)), sizeof(entity_t));
+					cachedEnt = FindCachedEntity(JsmnToString(&level->values[tempInt], g_str));
+					if(!cachedEnt)
+					{
+						continue;
+					}
+					memcpy(tempEnt, cachedEnt, sizeof(entity_t));
 					tempEnt->mPosition = *ParseToVec2(&posObj->children[j], g_str);
 				}
 			} else
@@ -146,7 +161,12 @@ int LoadLevel(object_t *level, char *g_str)
 				{
 					continue;
 				}
-				memcpy(tempEnt, FindCachedEntity(JsmnToString(&level->values[tempInt], g_str)), sizeof(entity_t));
+				cachedEnt = FindCachedEntity(JsmnToString(&level->values[tempInt], g_str));
+				if(!cachedEnt)
+				{
+					continue;
+				}
+				memcpy(tempEnt, cachedEnt, sizeof(entity_t));
 				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
 			}
 		}

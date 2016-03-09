@@ -100,7 +100,7 @@ entity_t* FindCachedEntity(const char* name)
 	for(i = 0; i < MAX_ENTITIES; i++)
 	{
 		if(!gEntityDictionary[i].mName)
-			continue;
+			break;
 		if(!strcmp(name, gEntityDictionary[i].mName))
 		{
 			return &gEntities[i];

@@ -21,10 +21,13 @@ char **gLevels = NULL;  /**< The levels */
 char **gSelectedLevels = NULL;  /**< The selected levels to load */
 jsmntok_t *gGameTokens; /**< Tokens for GameData */
 jsmntok_t *gEntityTokens;   /**< The entity tokens */
+jsmntok_t *gLevelTokens;
 object_t *gGameObject;  /**< The game object */
 object_t *gEntityObject;	/**< The entity object */
+object_t *gLevelObject;
 char *gGameData; /**< Game Data File */
 char *gEntityData;  /**<Entity data file */
+char *gLevelData;
 entity_t *gEntityDictionary; /**< Entities loaded from files AKA cached entities*/
 
 /**
@@ -38,10 +41,6 @@ entity_t *gEntityDictionary; /**< Entities loaded from files AKA cached entities
 
 int LoadGameData()
 {
-	int num_tokens, i, lvlInt;
-	char *lvlTest;
-	jsmntok_t *lvlTokens;
-	object_t *levelObj;
 	//Init GameData Parse
 	if(ConvertFileToUseable(JSON_FILE, &gParser, &gGameData, &gGameTokens) == -1)
 	{
@@ -50,7 +49,6 @@ int LoadGameData()
 	}
 	
 	//Debug Checks & Object Parse
-
 	gGameObject = ParseToObject(gGameTokens, gGameData);
 	if(!gGameObject)
 	{
@@ -60,39 +58,18 @@ int LoadGameData()
 
 	PrintObject(gGameObject, gGameData);
 
-	levelObj = FindObject(gGameObject, "Levels");
-	if(!levelObj)
-	{
-		printf("No levels found in gameObject");
-		return -1;
-	}
-	lvlInt = CountMem(levelObj->values, sizeof(jsmntok_t));
-	gLevels = (char**) malloc(sizeof(char*) * (lvlInt + 1));
-	for(i = 0; i < lvlInt; i++)
-	{
-		gLevels[i] = JsmnToString(&levelObj->values[i], gGameData);
-		if(!gLevels[i])
-		{
-			continue;
-		}
-		if( ConvertFileToUseable(gLevels[i], &gParser, &lvlTest, &lvlTokens) == -1)
-		{
-			printf("Level %s could not be loaded", gLevels[i]);
-		}
-		levelObj = ParseToObject(lvlTokens, lvlTest);
-		PrintObject(levelObj, lvlTest);
-	}
+	
 
 	return 0;
 }
 
 int LoadEntityData()
 {
-	int num_tokens, i, objects;
-	entity_t *ent, *temp;
+	int i, objects;
+	entity_t *temp;
 
 	//Init Entity Parse
-	if( ConvertFileToUseable(JSON_FILE, &gParser, &gEntityData, &gEntityTokens) == -1)
+	if( ConvertFileToUseable(ENTITY_FILE, &gParser, &gEntityData, &gEntityTokens) == -1)
 	{
 		printf("Failure to Parse Entity Data");
 		return -1;
@@ -125,6 +102,38 @@ int LoadEntityData()
 	return 0;
 }
 
+int LoadLevelData()
+{
+	object_t *levelObj;
+	int i, lvlInt;
+
+	//Find Levels
+	levelObj = FindObject(gGameObject, "Levels");
+	if(!levelObj)
+	{
+		printf("No levels found in gameObject");
+		return -1;
+	}
+
+	//Alloc
+	lvlInt = CountMem(levelObj->values, sizeof(jsmntok_t));
+	gLevels = (char**) malloc(sizeof(char*) * (lvlInt + 1));
+
+	//Load
+	for(i = 0; i < lvlInt; i++)
+	{
+		gLevels[i] = JsmnToString(&levelObj->values[i], gGameData);
+		if(!gLevels[i])
+		{
+			continue;
+		}
+		printf("Level : %s \n", gLevels[i]);
+	}
+
+	gLevels[lvlInt] = NULL;
+	return 0;
+}
+
 /**
  * Select the levels randomly from the available levels, stores in gSelectedLevels.
  *
@@ -138,17 +147,29 @@ int SelectLevels()
 {
 	int i, rand_i, *no_repeats, type_i;
 	int levels = 0;
-	i = 0;
-	while(gLevels[i])
+
+	//Count 
+	while(gLevels[levels])
 	{
-		levels++; i++;
+		levels++;
 	}
 	type_i = sizeof(int);
+
+	//Alloc
+	gSelectedLevels = (char**) malloc(sizeof(char*)*levels+1);
 	no_repeats = (int*) malloc(sizeof(int)*(levels+1));
+	if(!gSelectedLevels) return -1;
+	if(!no_repeats) return -1;
+	
+	//Select
 	memset(no_repeats, 0, sizeof(int));
 	for (i = 0; i < LEVELS_PER_GAME; i++)
 	{
 		rand_i = rand()%levels;
+		if(i >= levels)
+		{
+			break;
+		}
 		while(!CompareMemToMemArray(&rand_i, no_repeats, type_i, levels ))
 		{
 			rand_i = rand()%levels;
@@ -156,7 +177,8 @@ int SelectLevels()
 		no_repeats[i] = rand_i;
 		gSelectedLevels[i] = gLevels[rand_i];
 	}
-	gSelectedLevels[i+1] = NULL;
+	gSelectedLevels[i] = NULL;
+
 	free(no_repeats);
 	return 0;
 }
@@ -172,11 +194,23 @@ void RandomizeSelectedLevels()
 {
 	int i, rand_i, *no_repeats;
 	char **slevel_copy;
+
+	if (CountMem(gLevels, sizeof(char*)) < LEVELS_PER_GAME)
+	{
+		printf("Levels less than min, Easy Mode - No Rand");
+		return;
+	}
+
+	//Get a copy of gSelected
 	slevel_copy = (char**) malloc(sizeof(char*)*(LEVELS_PER_GAME+1));
 	memcpy(slevel_copy, gSelectedLevels, sizeof(char*)*LEVELS_PER_GAME);
 	slevel_copy[LEVELS_PER_GAME] = 0;
+
+	//No Repeats
 	no_repeats = (int*) malloc(sizeof(int)*LEVELS_PER_GAME+1);
 	memset(no_repeats, 0, sizeof(int)*(LEVELS_PER_GAME+1));
+
+	//Randomize
 	for(i = 0; gSelectedLevels[i]; i++)
 	{
 		rand_i = rand()%LEVELS_PER_GAME;
@@ -187,12 +221,32 @@ void RandomizeSelectedLevels()
 		no_repeats[i] = rand_i;
 		gSelectedLevels[i] = slevel_copy[rand_i];
 	}
+
 	free(no_repeats);
 	free(slevel_copy);
 }
 
 int LoadSelectedLevel(int level)
 {
+	if(!gSelectedLevels)
+	{
+		printf("Levels not Selected");
+		return -1;
+	}
+	if(!gSelectedLevels[level])
+	{
+		printf("Level %d not found", level);
+		return -1;
+	}
+	printf("Level %d not found", level);
+	ConvertFileToUseable(gSelectedLevels[level], &gParser, &gLevelData, &gLevelTokens);
+	gLevelObject = ParseToObject(gLevelTokens, gLevelData);
+
+	if(LoadLevel(gLevelObject, gLevelData))
+	{
+		perror("Hello");
+		return -1;
+	}
 
 }
 
@@ -247,7 +301,19 @@ int Setup()
 		perror("Loading entity data went wrong");
 		return -1;
 	}
+	if(LoadLevelData())
+	{
+		perror("Loading level data went wrong");
+		return -1;
+	}
 
+	if(SelectLevels())
+	{
+		perror("Selecting levels went wrong");
+		return -1;
+	}
+
+	LoadSelectedLevel(0);
 	test_sprite = LoadSprite("Sprite/UI/NESController.png",0);
 	test_sprite->mCurrentFrame = LoadAnimation(test_sprite->mSize.x, test_sprite->mSize.y, test_sprite->mSize.x, test_sprite->mSize.y);
 	/*

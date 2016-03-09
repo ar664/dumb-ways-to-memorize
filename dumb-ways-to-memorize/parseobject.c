@@ -24,11 +24,22 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 	object_t *currentChild; jsmntok_t *currentKey, *currentValue;
 	object_t *children_array; jsmntok_t *keys_array, *values_array;
 	object_t *retVal = (object_t*) malloc(sizeof(object_t));
+
+	//Err Check
+	if(!g_str || !token)
+	{
+		printf("Parse Obj given NULL token or Str");
+		return NULL;
+	}
+
+	//Init Vars
 	retVal->name = NULL;
 	retVal->parent = NULL;
 	size = token->end; i = 0; objects = 0; keys = 0; values = 0;
 	currentChild = NULL; currentKey = NULL; currentValue = NULL;
 	children_array = NULL; keys_array = NULL; values_array = NULL;
+
+	//Parse
 	do
 	{
 		if(token[i].type == JSMN_OBJECT)
@@ -150,6 +161,7 @@ object_t *FindObject(object_t *obj, char *name)
 	return retVal;
 }
 
+//Recursive Member search
 int CountObjectMembers(object_t* obj, char* g_str)
 {
 	int objects, objCount, retVal, i;
@@ -174,6 +186,25 @@ int CountObjectMembers(object_t* obj, char* g_str)
 	}
 
 	return retVal;
+}
+
+//Recursive children search
+int CountObjectChildren(object_t *obj)
+{
+	int objects, temp, children;
+	objects = CountMem(obj->children, sizeof(object_t));
+	temp = 0;
+	children = 0;
+	while (temp < objects)
+	{
+		if(obj->children[temp].children)
+		{
+			children += CountObjectChildren(obj->children);
+		}
+		children++;
+		temp++;
+	}
+	return children;
 }
 
 //Doesn't print key only object

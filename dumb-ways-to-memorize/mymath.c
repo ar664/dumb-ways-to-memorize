@@ -79,7 +79,7 @@ int AllocateDynamic(void **dst, void *src, int size_type, int size)
  *
  * @param [in,out]	mem		 	If non-null, the memory.
  * @param [in,out]	mem_array	If non-null, array of memories.
- * @param	size_type		 	Size of type.
+ * @param	size_type		 	Size of type, via sizeof() function.
  * @param	size_array		 	Size of Array.
  *
  * @return	0 if equal, -1 if not.
@@ -92,7 +92,7 @@ int CompareMemToMemArray(void *mem, void *mem_array, int size_type, int size_arr
 {
 	int i, offset;
 	int *memory = (int*) mem_array;
-	offset = size_type/sizeof(int);
+	offset = size_type;
 	for(i = 0; i < size_array; i++)
 	{
 		if(!memcmp(mem, memory, size_type))
