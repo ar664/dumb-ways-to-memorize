@@ -397,6 +397,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 		menu->mSelectedItem = menu->mItems;
 	}
 
+	return menu;
 
 }
 

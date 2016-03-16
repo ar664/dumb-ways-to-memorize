@@ -176,6 +176,40 @@ int LoadPowerUpData()
 	return 0;
 }
 
+int LoadMenuData()
+{
+	int i, menuCount;
+	char *menuData, *menuLink;
+	jsmntok_t *menuTok;
+	object_t *menus, *menuObj;
+	if(!gMenus)
+	{
+		InitMenuSystem();
+	}
+	menus = FindObject(gGameObject, "Menus");
+	menuCount = CountMem(menus->values, sizeof(jsmntok_t));
+	for(i = 0; i < menuCount; i++)
+	{
+		ConvertFileToUseable(JsmnToString(&menus->values[i], gGameData), NULL, &menuData, &menuTok);
+		if(!menuData || !menuTok)
+		{
+			continue;
+		}
+		menuObj = ParseToObject(menuTok, gGameData);
+		if(!menuObj)
+		{
+			continue;
+		}
+		menuLink = FindValueFromKey(menuTok, "link", menuData);
+		if(!menuLink)
+		{
+			continue;
+		}
+		LoadMenu(menuObj, menuData, StrToGameState(menuLink), START);
+	}
+	return 0;
+}
+
 /**
  * Select the levels randomly from the available levels, stores in gSelectedLevels.
  *
@@ -425,6 +459,11 @@ int Setup()
 	if(InitMenuSystem())
 	{
 		perror("Initialize Menu system went wrong");
+		return -1;
+	}
+	if(LoadMenuData())
+	{
+		perror("Shit Happens");
 		return -1;
 	}
 	if(LoadEntityData())
