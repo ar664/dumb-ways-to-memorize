@@ -21,6 +21,7 @@ float gGravity = 9.8;
 jsmn_parser gParser;
 char **gLevels = NULL;  /**< The levels */
 char **gSelectedLevels = NULL;  /**< The selected levels to load */
+char **gSelectedPowerUps = NULL; /**< The power ups the player selects */
 jsmntok_t *gGameTokens; /**< Tokens for GameData */
 jsmntok_t *gEntityTokens;   /**< The entity tokens */
 jsmntok_t *gLevelTokens;

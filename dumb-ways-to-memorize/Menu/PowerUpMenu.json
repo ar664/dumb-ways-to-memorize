@@ -1,0 +1,18 @@
+{
+	"Background" : "Sprite/Level/Background",
+	"Type" : "power_select",
+	"link" : "Guess",
+	"Items" : [
+	{
+		"sprite" : "Sprite/Level/Background",
+		"text" : "Done selecting",
+		"link" : "Playing"
+	}
+	
+	
+	]
+
+
+
+
+}

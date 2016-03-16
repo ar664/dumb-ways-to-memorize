@@ -40,7 +40,8 @@ typedef enum
 	MENU_ITEM_STATE_NULL,
 	MENU_ITEM_STATE_SELECTED = 0x1,
 	MENU_ITEM_STATE_NOT_SELECTED = 0x2,
-	MENU_ITEM_STATE_MAX = 0x4
+	MENU_ITEM_STATE_PICKED = 0x4,
+	MENU_ITEM_STATE_MAX = 0x8
 }menu_item_state_t;
 
 typedef enum
@@ -52,7 +53,9 @@ typedef enum
 	END =		0x10,
 }GameState;
 
+extern GameState gGameState;
 extern GameState StrToGameState(char *str);
+extern int StrToMenuType(char *str);
 
 //For Hazards
 #define HAZARD_NULL	0x0
@@ -69,6 +72,7 @@ entity_state_t StrToEntityState(char *str);
 //For PowerUps
 extern vec2_t *mousePos;
 extern int *keyPower;
+extern char **gSelectedPowerUps;
 
 extern void *Player;
 extern void *World;

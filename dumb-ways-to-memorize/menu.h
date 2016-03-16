@@ -12,10 +12,21 @@
 #define MENU_ITEM_TEXT	"text"
 #define MENU_ITEM_LINK	"link"
 #define MENU_TYPE		"Type"
-#define MENU_TYPE_POWER	"power_select"
-#define MENU_TYPE_H		"horizontal"
-#define MENU_TYPE_V		"vertical"
-#define MENU_TYPE_GRID	"grid"
+#define MENU_TYPE_STRING_POWER	"power_select"
+#define MENU_TYPE_STRING_H		"horizontal"
+#define MENU_TYPE_STRING_V		"vertical"
+#define MENU_TYPE_STRING_GRID	"grid"
+
+typedef enum
+{
+	MENU_TYPE_NULL = 0x0,
+	MENU_TYPE_H = 0x1,
+	MENU_TYPE_V = 0x2,
+	MENU_TYPE_GRID = 0x4,
+	MENU_TYPE_POWER = 0x8,
+	MENU_TYPE_MAX = 0x10
+
+}menu_type_t;
 
 
 typedef struct menu_item_s menu_item_t;
@@ -25,6 +36,7 @@ struct menu_item_s
 {
 	menu_item_state_t	State;
 	GameState			NextState;
+	vec2_t				Position;
 	char				*Name;
 	sprite_t			*Image;
 	void				*Info;
