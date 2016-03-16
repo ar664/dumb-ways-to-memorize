@@ -29,7 +29,7 @@ jsmntok_t *FindKey(jsmntok_t *token, char *key, char *g_str)
 		return local_token;
 	while(local_token < endPtr)
 	{
-		if(token->size == 1)
+		if(local_token->size == 1)
 		{
 			str = JsmnToString(local_token, g_str);
 			if(!strcmp(str, key))
@@ -87,7 +87,12 @@ char * FindValueFromKey(jsmntok_t *token, char *key, char *g_str)
 char * JsmnToString(jsmntok_t *token, char *g_str)
 {
 	int size = token->end - token->start;
-	char *retVal = ALLOC_STR(size+1);
+	char *retVal;
+	if(size < 0)
+	{
+		return NULL;
+	}
+	retVal = ALLOC_STR(size+1);
 	if(!retVal)
 	{
 		printf("Could not allocate memory");

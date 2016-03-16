@@ -277,12 +277,12 @@ void Update()
 		{
 			if(!gSplash)
 			{
-				splash = FindKey(gGameTokens, "SplashScreen",gGameData);
+				splash = FindKey(gGameTokens, SPLASH_SCREEN,gGameData);
 				if(!splash)
 				{
 					printf("SplashScreen key not found in gameData \n");
 				} else {
-					gSplash = LoadSprite(FindValueFromKey(splash, "SplashScreen", gGameData), 0);
+					gSplash = LoadSprite(FindValueFromKey(splash, SPLASH_SCREEN, gGameData), 0);
 					if(!gSplash)
 					{
 						printf("Splash screen could not be loaded \n");
@@ -291,7 +291,10 @@ void Update()
 			}
 			if(SDL_PollEvent(&gEventQ))
 			{
-				gGameState = START;
+				if(gEventQ.type == SDL_CONTROLLERBUTTONUP)
+				{
+					gGameState = START;
+				}
 			}
 			break;
 		}
@@ -318,6 +321,7 @@ void DrawPlaying();
 
 void Draw()
 {
+	SDL_RenderClear(gRenderer);
 	switch(gGameState)
 	{
 	case(SPLASH):
@@ -341,6 +345,7 @@ void Draw()
 			break;
 		}
 	}
+	SDL_RenderPresent(gRenderer);
 	return;
 }
 
@@ -417,6 +422,7 @@ int Run()
 		Poll();
 		Update();
 		Draw();
+		SDL_Delay(17);
 	}
 	return 0;
 }
@@ -432,14 +438,23 @@ void DrawSplash()
 {
 	if(gSplash)
 	{
-		DrawSprite(gSplash, &ZeroPos, gRenderer);
+		if(DrawSprite(gSplash, &ZeroPos, gRenderer))
+		{
+			printf("Couldn't draw splash: %s \n", SDL_GetError());
+		}
 	}
 	return;
 }
 
 void DrawStart()
 {
-
+	if(gSplash)
+	{
+		if(DrawSprite(gSplash, &ZeroPos, gRenderer))
+		{
+			printf("Couldn't draw splash: %s \n", SDL_GetError());
+		}
+	}
 	return;
 }
 

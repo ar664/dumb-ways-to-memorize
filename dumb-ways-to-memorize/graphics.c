@@ -45,6 +45,7 @@ int InitGraphics()
 		return -1;
 	}
 	memset(gSprites, 0, sizeof(sprite_t)*MAX_SPRITES);
+	gLastSprite = 0;
 	atexit(SDL_Quit);
 	atexit(ShutdownGraphics);
 	return 0;
@@ -71,8 +72,17 @@ sprite_t *LoadSprite(const char *name, int flags)
 	SDL_Surface *temp;
 	sprite_t *check;
 	int position;
-	if(gLastSprite > MAX_SPRITES || !gSprites)
+	if(!gSprites)
 	{
+		return NULL;
+	}
+	if(abs(gLastSprite) > MAX_SPRITES)
+	{
+		gLastSprite = 0;
+	}
+	if(!name)
+	{
+		printf("No name given to load sprite");
 		return NULL;
 	}
 	if( (check = FindSprite(name, NULL)) != NULL)
@@ -104,7 +114,13 @@ sprite_t *LoadSprite(const char *name, int flags)
 int DrawSprite(sprite_t *sprite, vec2_t *position, SDL_Renderer *renderer)
 {
 	SDL_Rect src, dst;
-	SDL_SetRect(&src, sprite->mCurrentFrame->Position.x, sprite->mCurrentFrame->Position.y, sprite->mSize.x, sprite->mSize.y);
+	if(sprite->mCurrentFrame)
+	{
+		SDL_SetRect(&src, sprite->mCurrentFrame->Position.x, sprite->mCurrentFrame->Position.y, sprite->mSize.x, sprite->mSize.y);
+	} else
+	{
+		SDL_SetRect(&src, 0, 0, sprite->mSize.x, sprite->mSize.y);
+	}
 	if(!position)
 	{
 		SDL_SetRect(&dst, 0, 0, 0, 0);

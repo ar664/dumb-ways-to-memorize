@@ -6,7 +6,7 @@
 
 #define	JSON_FILE		"GameData.json"		
 #define ENTITY_FILE		"Entities.json"
-
+#define SPLASH_SCREEN	"SplashScreen"
 
  typedef enum
 {
