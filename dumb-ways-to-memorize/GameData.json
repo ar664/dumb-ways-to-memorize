@@ -2,13 +2,16 @@
 	"Comment": "Cant begin names with n t or f or  use colon due to parser",
 	"Input Types" : ["X mouse", "X", "mouse", "none"],
 	"Use Types" : ["infinite", "num", "static"],
+	"Menu Types" : ["horizontal", "vertical", "grid", "power_select"],
+	"Game States" : ["Splash", "Start", "Guess", "Playing", "End"],
 	"Interactions" : ["move", "destroy", "spawn", "edit", "nullify"],
 	"Targets" : ["self", "at-point", "world"],
 	"Game Name": "Dumb Ways to Memorize",
 	"Gravity" : 9.8,
 	"Test-Position" : [ [0,0], [1,1] ],
 	"Levels" : ["Level/Level01.json" , "Level/Level01.json"],
-	"SplashScreen" : "Sprite/Level/Ground.png",
+	"Menus" : ["Menu/StartMenu.json", "Menu/PowerUpMenu.json"],
+	"SplashScreen" : "Sprite/Level/Background.png",
 	"PowerUps" : [
 		{
 			"name" : "Teleport",

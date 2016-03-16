@@ -321,3 +321,32 @@ int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStora
 
 	return num_tokens;
 }
+
+GameState StrToGameState(char *str)
+{
+	if(!str)
+	{
+		return SPLASH;
+	}
+	if(!strcmp(str, "Splash"))
+	{
+		return SPLASH;
+	}
+	if(!strcmp(str, "Start"))
+	{
+		return START;
+	}
+	if(!strcmp(str, "Guess"))
+	{
+		return GUESS;
+	}
+	if(!strcmp(str, "Playing"))
+	{
+		return PLAYING;
+	}
+	if(!strcmp(str, "End"))
+	{
+		return END;
+	}
+	return SPLASH;
+}

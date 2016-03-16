@@ -7,14 +7,9 @@
 #define	JSON_FILE		"GameData.json"		
 #define ENTITY_FILE		"Entities.json"
 #define SPLASH_SCREEN	"SplashScreen"
-
- typedef enum
-{
-	SPLASH =	0x1,
-	START =		0x2,
-	GUESS =		0x4,
-	PLAYING =	0x8
-}GameState;
+#define LEVELS_NOT_DEFAULT "LevelsPerGame"
+#define LIVES_DEFAULT	3
+#define LEVELS_DEFAULT	6
 
 int	mState;
 int	Setup();

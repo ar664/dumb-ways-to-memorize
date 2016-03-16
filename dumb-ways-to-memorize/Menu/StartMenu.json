@@ -1,0 +1,26 @@
+{
+	"Background" : "Sprite/Level/Background",
+	"Type" : "vertical"
+	"Items" : [
+	{
+		"sprite" : "Sprite/Level/Background",
+		"text" : "Start",
+		"link" : "Guess"
+	},
+	{
+		"sprite" : "Sprite/Level/Background",
+		"text" : "Options",
+		"link" : "Splash"
+	},
+	{
+		"sprite" : "Sprite/Level/Background",
+		"text" : "End",
+		"link" : "End"
+	}
+	
+	]
+
+
+
+
+}

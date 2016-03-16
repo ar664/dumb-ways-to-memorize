@@ -15,6 +15,8 @@
 //All char ** should be size+1, and ending member = NULL
 
 int exitRequest = 0;
+int gLives = 0;
+int gLevelsPerGame = LEVELS_DEFAULT;
 float gGravity = 9.8;
 jsmn_parser gParser;
 char **gLevels = NULL;  /**< The levels */
@@ -110,6 +112,13 @@ int LoadLevelData()
 
 	//Find Levels
 	levelObj = FindObject(gGameObject, "Levels");
+	gLevelsPerGame = FindKey(gGameTokens, LEVELS_NOT_DEFAULT, gGameData) ? -1 : LEVELS_DEFAULT;
+	if(gLevelsPerGame == -1)
+	{
+		JsmnToInt(FindKey(gGameTokens, LEVELS_NOT_DEFAULT, gGameData)+1, gGameData, &gLevelsPerGame);
+		if(!gLevelsPerGame)
+			gLevelsPerGame = LEVELS_DEFAULT;
+	}
 	if(!levelObj)
 	{
 		printf("No levels found in gameObject");
@@ -164,7 +173,7 @@ int SelectLevels()
 	
 	//Select
 	memset(no_repeats, 0, sizeof(int));
-	for (i = 0; i < LEVELS_PER_GAME; i++)
+	for (i = 0; i < gLevelsPerGame; i++)
 	{
 		rand_i = rand()%levels;
 		if(i >= levels)
@@ -196,28 +205,28 @@ void RandomizeSelectedLevels()
 	int i, rand_i, *no_repeats;
 	char **slevel_copy;
 
-	if (CountMem(gLevels, sizeof(char*)) < LEVELS_PER_GAME)
+	if (CountMem(gLevels, sizeof(char*)) < gLevelsPerGame)
 	{
 		printf("Levels less than min, Easy Mode - No Rand");
 		return;
 	}
 
 	//Get a copy of gSelected
-	slevel_copy = (char**) malloc(sizeof(char*)*(LEVELS_PER_GAME+1));
-	memcpy(slevel_copy, gSelectedLevels, sizeof(char*)*LEVELS_PER_GAME);
-	slevel_copy[LEVELS_PER_GAME] = 0;
+	slevel_copy = (char**) malloc(sizeof(char*)*(gLevelsPerGame+1));
+	memcpy(slevel_copy, gSelectedLevels, sizeof(char*)*gLevelsPerGame);
+	slevel_copy[gLevelsPerGame] = 0;
 
 	//No Repeats
-	no_repeats = (int*) malloc(sizeof(int)*LEVELS_PER_GAME+1);
-	memset(no_repeats, 0, sizeof(int)*(LEVELS_PER_GAME+1));
+	no_repeats = (int*) malloc(sizeof(int)*gLevelsPerGame+1);
+	memset(no_repeats, 0, sizeof(int)*(gLevelsPerGame+1));
 
 	//Randomize
 	for(i = 0; gSelectedLevels[i]; i++)
 	{
-		rand_i = rand()%LEVELS_PER_GAME;
-		while(!CompareMemToMemArray(&rand_i, no_repeats, sizeof(int), LEVELS_PER_GAME ))
+		rand_i = rand()%gLevelsPerGame;
+		while(!CompareMemToMemArray(&rand_i, no_repeats, sizeof(int), gLevelsPerGame ))
 		{
-			rand_i = rand()%LEVELS_PER_GAME;
+			rand_i = rand()%gLevelsPerGame;
 		}
 		no_repeats[i] = rand_i;
 		gSelectedLevels[i] = slevel_copy[rand_i];
@@ -293,6 +302,7 @@ void Update()
 			{
 				if(gEventQ.type == SDL_CONTROLLERBUTTONUP)
 				{
+					gLives = LIVES_DEFAULT;
 					gGameState = START;
 				}
 			}
@@ -401,15 +411,6 @@ int Setup()
 	PrintObject(gLevelObject, gLevelData);
 	test_sprite = LoadSprite("Sprite/UI/NESController.png",0);
 	test_sprite->mCurrentFrame = LoadAnimation(test_sprite->mSize.x, test_sprite->mSize.y, test_sprite->mSize.x, test_sprite->mSize.y);
-	/*
-	while(SDL_GetTicks()>210000)
-	{
-		DrawSprite(test_sprite, &test_vec, gRenderer);
-		SDL_RenderPresent(gRenderer);
-		SDL_Delay(17);
-		SDL_RenderClear(gRenderer);
-	}
-	*/
 	FreeSprite(test_sprite);
 
 	return 0;

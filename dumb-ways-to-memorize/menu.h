@@ -1,19 +1,49 @@
 #ifndef __MENU_H
 #define __MENU_H
 
+#include "globals.h"
+#include "graphics.h"
+#include "parseobject.h"
+
 #define	MENU_ITEM_MAX	20
+#define MAX_MENUS		10
+#define MENU_ITEMS		"Items"
+#define MENU_ITEM_SPRITE "sprite"
+#define MENU_ITEM_TEXT	"text"
+#define MENU_ITEM_LINK	"link"
+#define MENU_TYPE		"Type"
+#define MENU_TYPE_POWER	"power_select"
+#define MENU_TYPE_H		"horizontal"
+#define MENU_TYPE_V		"vertical"
+#define MENU_TYPE_GRID	"grid"
 
-typedef struct 
-{
-	int		State;
-	char	*FileName;
-}MenuItem;
 
-typedef struct
+typedef struct menu_item_s menu_item_t;
+typedef struct menu_s menu_t;
+
+struct menu_item_s
 {
-	MenuItem Items[MENU_ITEM_MAX];
+	menu_item_state_t	State;
+	GameState			NextState;
+	char				*Name;
+	sprite_t			*Image;
+	void				*Info;
+};
+
+struct menu_s
+{
+	menu_item_t mItems[MENU_ITEM_MAX];
+	menu_item_t *mSelectedItem;
+	GameState mCurrentState;
+	GameState mPreviousState;
 	void (*Update)(int button);
-}Menu;
+};
 
+extern menu_t *gMenus;
+
+void InitMenuSystem();
+menu_t *LoadMenu(object_t *object, char *g_str, GameState curr_state, GameState previous_state );
+menu_t *FindMenuFromGameState(GameState curr_state);
+menu_t *FindFreeMenu();
 
 #endif

@@ -35,6 +35,25 @@ typedef enum
 	COLLISION_TYPE_CLIP
 }collision_type_t;
 
+typedef enum
+{
+	MENU_ITEM_STATE_NULL,
+	MENU_ITEM_STATE_SELECTED = 0x1,
+	MENU_ITEM_STATE_NOT_SELECTED = 0x2,
+	MENU_ITEM_STATE_MAX = 0x4
+}menu_item_state_t;
+
+typedef enum
+{
+	SPLASH =	0x1,
+	START =		0x2,
+	GUESS =		0x4,
+	PLAYING =	0x8,
+	END =		0x10,
+}GameState;
+
+extern GameState StrToGameState(char *str);
+
 //For Hazards
 #define HAZARD_NULL	0x0
 #define HAZARD_MAX	(0x1 >> 31)
@@ -56,7 +75,8 @@ extern void *World;
 extern void *Mouse;
 
 #define	FRAME_DELAY		17
-#define LEVELS_PER_GAME	6
+extern int gLives;
+extern int gLevelsPerGame;
 
 extern int exitRequest;
 

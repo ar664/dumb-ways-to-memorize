@@ -89,6 +89,7 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="mymath.c" />
     <ClCompile Include="mystrings.c" />
+    <ClCompile Include="menu.c" />
     <ClCompile Include="parsefunction.c" />
     <ClCompile Include="parselevel.c" />
     <ClCompile Include="parseobject.c" />
