@@ -150,18 +150,52 @@ int InitMenuSystem()
 	if(gMenus)
 	{
 		printf("gMenus already initialized");
-		return;
+		return -1;
 	}
 	gMenus = (menu_t*) malloc(sizeof(menu_t)*MAX_MENUS);
 	if(!gMenus)
 	{
 		printf("Allocate menu error");
-		exitRequest = -1;
-		return;
+		return -1;
 	}
 	memset(gMenus, 0, sizeof(gMenus)*MAX_MENUS);
+	return 0;
 }
 
+//Draw Function through gCurrentSelectedItm
+void DrawMenuByNum(menu_t *self)
+{
+	int i, itemCount;
+	SDL_Rect selection_rect = {0,0,10,10};
+
+	if(!self)
+	{
+		printf("Null menu tried to be drawn \n");
+		return;
+	}
+
+	if(self->mBackground)
+	{
+		DrawSprite(self->mBackground, NULL, gRenderer);
+	}
+
+	itemCount = CountMem(self->mItems, sizeof(menu_item_t));
+	for(i = 0; i < itemCount; i++)
+	{
+		if(i == gCurrentSelectedItem)
+		{
+			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);
+			selection_rect.x = self->mItems[i].Position.x;
+			selection_rect.y = self->mItems[i].Position.y;
+			SDL_RenderDrawRect(gRenderer, &selection_rect);
+		} else {
+			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);
+		}
+	}
+
+}
+
+//Draw Function through mItem State
 void DrawMenuByState(menu_t *self)
 {
 	int i, itemCount;

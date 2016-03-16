@@ -4,6 +4,7 @@
 #include "mystrings.h"
 #include "parseobject.h"
 #include "parsevariable.h"
+#include "parsepowerup.h"
 #include "parselevel.h"
 #include "graphics.h"
 #include <SDL.h>
@@ -33,6 +34,7 @@ char *gGameData; /**< Game Data File */
 char *gEntityData;  /**<Entity data file */
 char *gLevelData;
 entity_t *gEntityDictionary; /**< Entities loaded from files AKA cached entities*/
+power_t *gPowerUps;
 GameState gGameState = SPLASH;
 sprite_t *gSplash = NULL;
 vec2_t ZeroPos = {0,0};
@@ -143,6 +145,34 @@ int LoadLevelData()
 	}
 
 	gLevels[lvlInt] = NULL;
+	return 0;
+}
+
+//After Load GameData, Before Menu
+int LoadPowerUpData()
+{
+	object_t *powers;
+	int powerCount, i;
+
+	powers = FindObject(gGameObject, "PowerUps");
+	if(!powers)
+	{
+		printf("Could not find powerups in GameData");
+		return -1;
+	}
+
+	powerCount = CountMem(powers->children, sizeof(object_t*));
+	gPowerUps = (power_t*) malloc(sizeof(power_t)*( powerCount+1 ));
+	if(!gPowerUps)
+	{
+		printf("Could not allocate power ups");
+		return -1;
+	}
+
+	for(i = 0; i < powerCount; i++)
+	{
+		gPowerUps[i] = *ParseToPowerUp(&powers->children[i], gGameData);
+	}
 	return 0;
 }
 

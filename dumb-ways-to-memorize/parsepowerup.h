@@ -33,6 +33,8 @@ struct power_s
 	info_type_t info_type;
 
 };
+extern power_t *gPowerUps;
+
 //Power Specific
 void CallInfo(info_type_t info);
 void UpdateNormal(power_t *power);
