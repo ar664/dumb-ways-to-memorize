@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "menu.h"
 
 //All char ** should be size+1, and ending member = NULL
 
@@ -389,6 +390,11 @@ int Setup()
 	if(InitEntitySystem())
 	{
 		perror("Initializing entity system went wrong");
+		return -1;
+	}
+	if(InitMenuSystem())
+	{
+		perror("Initialize Menu system went wrong");
 		return -1;
 	}
 	if(LoadEntityData())

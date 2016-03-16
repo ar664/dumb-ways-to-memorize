@@ -46,14 +46,16 @@ struct menu_s
 {
 	menu_item_t mItems[MENU_ITEM_MAX];
 	menu_item_t *mSelectedItem;
+	sprite_t *mBackground;
 	GameState mCurrentState;
 	GameState mPreviousState;
 	void (*Update)(int button);
+	void (*Draw)(menu_t *self);
 };
 
 extern menu_t *gMenus;
 
-void InitMenuSystem();
+int InitMenuSystem();
 menu_t *LoadMenu(object_t *object, char *g_str, GameState curr_state, GameState previous_state );
 menu_t *FindMenuFromGameState(GameState curr_state);
 menu_t *FindFreeMenu();

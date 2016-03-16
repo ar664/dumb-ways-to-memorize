@@ -145,7 +145,7 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
  * @date	3/16/2016
  */
 
-void InitMenuSystem()
+int InitMenuSystem()
 {
 	if(gMenus)
 	{
@@ -162,6 +162,38 @@ void InitMenuSystem()
 	memset(gMenus, 0, sizeof(gMenus)*MAX_MENUS);
 }
 
+void DrawMenuByState(menu_t *self)
+{
+	int i, itemCount;
+	SDL_Rect selection_rect = {0,0,10,10};
+
+	if(!self)
+	{
+		printf("Null menu tried to be drawn \n");
+		return;
+	}
+
+	if(self->mBackground)
+	{
+		DrawSprite(self->mBackground, NULL, gRenderer);
+	}
+
+	itemCount = CountMem(self->mItems, sizeof(menu_item_t));
+	for(i = 0; i < itemCount; i++)
+	{
+		if(self->mItems[i].State & (MENU_ITEM_STATE_SELECTED | MENU_ITEM_STATE_PICKED))
+		{
+			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);
+			selection_rect.x = self->mItems[i].Position.x;
+			selection_rect.y = self->mItems[i].Position.y;
+			SDL_RenderDrawRect(gRenderer, &selection_rect);
+		} else
+		{
+			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);
+		}
+	}
+
+}
 /**
  * Sets the positions of the menu items based on the type of layout.
  *
@@ -325,7 +357,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 		type_str = FindValueFromKey(object->keys, MENU_TYPE, g_str);
 		if(!type_str)
 		{
-			printf("Not found menu layout type for %s. Switching to default vertical layout");
+			printf("Not found menu layout type for %s. Switching to default vertical layout", object->name);
 		}
 		ProcessMenuItemsByType(menu->mItems, (menu_type_t) StrToMenuType(type_str));
 		menu->mSelectedItem = menu->mItems;
