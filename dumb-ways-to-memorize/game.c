@@ -39,6 +39,8 @@ GameState gGameState = SPLASH;
 sprite_t *gSplash = NULL;
 vec2_t ZeroPos = {0,0};
 SDL_Event gEventQ;
+SDL_GameController *gController = NULL;
+SDL_GameControllerButton gButtonQ;
 /**
  * Loads game data from GameData.json, stored in gGameData.
  *
@@ -66,6 +68,8 @@ int LoadGameData()
 	}
 
 	PrintObject(gGameObject, gGameData);
+
+	gController = SDL_GameControllerOpen(0);
 
 	return 0;
 }
@@ -195,16 +199,18 @@ int LoadMenuData()
 		{
 			continue;
 		}
-		menuObj = ParseToObject(menuTok, gGameData);
+		menuObj = ParseToObject(menuTok, menuData);
 		if(!menuObj)
 		{
 			continue;
 		}
+		PrintObject(menuObj, menuData);
 		menuLink = FindValueFromKey(menuTok, "link", menuData);
 		if(!menuLink)
 		{
 			continue;
 		}
+		
 		LoadMenu(menuObj, menuData, StrToGameState(menuLink), START);
 	}
 	return 0;
@@ -336,8 +342,19 @@ int LoadSelectedLevel(int level)
 
 void Poll()
 {
+	int i;
+	for(i = 0; i < SDL_CONTROLLER_BUTTON_MAX; i++)
+	{
+		if(SDL_GameControllerGetButton(&gController, (SDL_GameControllerButton) i))
+		{
+			gButtonQ = (SDL_GameControllerButton) i;
+			return;
+		}
+	}
+	gButtonQ = (SDL_GameControllerButton) -1;
 	return;
 }
+
 
 void UpdateStart();
 void UpdateGuess();
@@ -376,10 +393,24 @@ void Update()
 		}
 	case(START):
 		{
+			if(!gMenus)
+			{
+				printf("No menus loaded");
+				exitRequest = 1;
+				return;
+			}
+			gMenus[0].Update(&gMenus[0], gButtonQ);
 			break;
 		}
 	case(GUESS):
 		{
+			if(!gMenus)
+			{
+				printf("No menus loaded");
+				exitRequest = 1;
+				return;
+			}
+			gMenus[1].Update(&gMenus[1], gButtonQ);
 			break;
 		}
 	case(PLAYING):
@@ -525,19 +556,25 @@ void DrawSplash()
 
 void DrawStart()
 {
-	if(gSplash)
+	if(!gMenus)
 	{
-		if(DrawSprite(gSplash, &ZeroPos, gRenderer))
-		{
-			printf("Couldn't draw splash: %s \n", SDL_GetError());
-		}
+		printf("No menus loaded");
+		exitRequest = 1;
+		return;
 	}
+	gMenus[0].Draw(&gMenus[0]);
 	return;
 }
 
 void DrawGuess()
 {
-
+	if(!gMenus)
+	{
+		printf("No menus loaded");
+		exitRequest = 1;
+		return;
+	}
+	gMenus[1].Draw(&gMenus[1]);
 	return;
 }
 

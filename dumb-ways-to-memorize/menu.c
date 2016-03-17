@@ -158,7 +158,7 @@ int InitMenuSystem()
 		printf("Allocate menu error");
 		return -1;
 	}
-	memset(gMenus, 0, sizeof(gMenus)*MAX_MENUS);
+	memset(gMenus, 0, sizeof(menu_t)*MAX_MENUS);
 	return 0;
 }
 
@@ -312,7 +312,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	jsmntok_t *temp_tok;
 	object_t *temp_obj;
 	char *temp_str, *type_str;
-	int i, temp_i;
+	int i, temp_i, value_pos;
 
 	//Check Vars given
 	if(!object || !g_str)
@@ -340,61 +340,75 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	menu->mPreviousState = previous_state;
 	menu->mCurrentState = curr_state;
 
-	//Load via Menu Type
-	if(!strcmp(temp_str, "power_select"))
+
+	temp_obj = FindObject(object, MENU_ITEMS);
+	if(!temp_obj)
 	{
-		//Do power stuff here
+		printf("No items in menu %s \n", object->name);
+		return NULL;
+	}
+
+	//Load Items
+	temp_i = CountObjectChildren(temp_obj);
+	if(temp_i >= MENU_ITEM_MAX)
+	{
+		printf("Max menu items for menu %s \n", object->name);
+		temp_i = MENU_ITEM_MAX -1;
+	}
+	for(i = 0; i < temp_i; i++)
+	{
+		temp_tok = FindKey(temp_obj->children[i].keys, MENU_ITEM_SPRITE, g_str);
+		if(temp_tok)
+		{
+			value_pos = (temp_tok - temp_obj->children[i].keys)/sizeof(jsmntok_t);
+			temp_str = JsmnToString(&temp_obj->children[i].values[value_pos], g_str);
+			menu->mItems[i].Image = LoadSprite(temp_str, 0);
+		}
+		temp_tok = FindKey(temp_obj->children[i].keys, MENU_ITEM_TEXT, g_str);
+		if(temp_tok)
+		{
+			value_pos = (temp_tok - temp_obj->children[i].keys)/sizeof(jsmntok_t);
+			temp_str = JsmnToString(&temp_obj->children[i].values[value_pos], g_str);
+			menu->mItems[i].Name = temp_str;
+		}
+		menu->mItems[i].State = MENU_ITEM_STATE_NOT_SELECTED;
+		temp_tok = FindKey(temp_obj->children[i].keys, MENU_ITEM_LINK, g_str);
+		if(temp_tok)
+		{
+			value_pos = (temp_tok - temp_obj->children[i].keys)/sizeof(jsmntok_t);
+			temp_str = JsmnToString(&temp_obj->children[i].values[value_pos], g_str);
+			menu->mItems[i].NextState = StrToGameState(temp_str);
+		} else
+		{
+			menu->mItems[i].NextState = SPLASH;
+		}
+		menu->mItems[i].Info = NULL;
+			
+	}
 		
+	//Calculate Menu Item Positions
+	type_str = FindValueFromKey(object->keys, MENU_TYPE, g_str);
+	if(!type_str)
+	{
+		printf("Not found menu layout type for %s. Switching to default vertical layout", object->name);
+		type_str = strdup(MENU_TYPE_STRING_V);
+	}
+	ProcessMenuItemsByType(menu->mItems, (menu_type_t) StrToMenuType(type_str));
+	menu->mSelectedItem = menu->mItems;
+	gCurrentSelectedItem = 0;
+
+	if(!strcmp(type_str, MENU_TYPE_STRING_V))
+	{
+		menu->Update = UpdateVerticalMenu;
+		menu->Draw = DrawMenuByNum;
+	} else if(!strcmp(type_str, MENU_TYPE_STRING_POWER))
+	{
+		menu->Update = UpdatePowerUpMenu;
+		menu->Draw = DrawMenuByState;
 	} else
 	{
-		temp_obj = FindObject(object, MENU_ITEMS);
-		if(!temp_obj)
-		{
-			printf("No items in menu %s \n", object->name);
-			return NULL;
-		}
-
-		//Load Items
-		temp_i = CountObjectChildren(temp_obj);
-		if(temp_i >= MENU_ITEM_MAX)
-		{
-			printf("Max menu items for menu %s \n", object->name);
-			temp_i = MENU_ITEM_MAX -1;
-		}
-		for(i = 0; i < temp_i; i++)
-		{
-			temp_str = FindValueFromKey(temp_obj[i].keys, MENU_ITEM_SPRITE, g_str);
-			if(temp_str)
-			{
-				menu->mItems[i].Image = LoadSprite(temp_str , 0);
-			}
-			temp_str = FindValueFromKey(temp_obj[i].keys, MENU_ITEM_TEXT, g_str);
-			if(temp_str)
-			{
-				menu->mItems[i].Name = temp_str;
-			}
-			menu->mItems[i].State = MENU_ITEM_STATE_NOT_SELECTED;
-			temp_str = FindValueFromKey(temp_obj[i].keys, MENU_ITEM_LINK, g_str);
-			if(temp_str)
-			{
-				menu->mItems[i].NextState = StrToGameState(temp_str);
-				free(temp_str);
-			} else
-			{
-				menu->mItems[i].NextState = SPLASH;
-			}
-			menu->mItems[i].Info = NULL;
-			
-		}
-		
-		//Calculate Menu Item Positions
-		type_str = FindValueFromKey(object->keys, MENU_TYPE, g_str);
-		if(!type_str)
-		{
-			printf("Not found menu layout type for %s. Switching to default vertical layout", object->name);
-		}
-		ProcessMenuItemsByType(menu->mItems, (menu_type_t) StrToMenuType(type_str));
-		menu->mSelectedItem = menu->mItems;
+		menu->Update = UpdateVerticalMenu;
+		menu->Draw = DrawMenuByNum;
 	}
 
 	return menu;
@@ -435,16 +449,17 @@ menu_t* FindMenuFromGameState(GameState curr_state)
 
 menu_t* FindFreeMenu()
 {
-	int i;
+	int i, *menuCmp;
 	if(!gMenus)
 	{
 		printf("Menu System not initialized");
 		return NULL;
 	}
-
+	menuCmp = (int*) malloc(sizeof(menu_t));
+	memset(menuCmp, 0, sizeof(menu_t));
 	for(i = 0; i < MAX_MENUS; i++)
 	{
-		if(!gMenus[i].Update)
+		if(!memcmp(menuCmp, &gMenus[i], sizeof(menu_t)))
 		{
 			return &gMenus[i];
 		}

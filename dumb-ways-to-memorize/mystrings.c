@@ -61,6 +61,11 @@ char * FindValueFromKey(jsmntok_t *token, char *key, char *g_str)
 {
 	int  i;
 	char *str;
+	if(!token || !key || !g_str)
+	{
+		printf("Find Value From Key given a null param \n");
+		return NULL;
+	}
 	for(i = 0; token[i].type; i++)
 	{
 		str = JsmnToString(&token[i], g_str);
@@ -256,7 +261,7 @@ enum FreeVar
 int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStorage, jsmntok_t **jsmnStorage)
 {
 	int num_tokens, varsToFree = 0;
-	jsmn_parser *temp;
+	jsmn_parser *tempPars;
 	char **tempStr;
 	jsmntok_t **tempJsmn;
 	if(!fileName)
@@ -268,9 +273,9 @@ int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStora
 	//Init parser, if not given
 	if(!parser)
 	{
-		temp = (jsmn_parser*) malloc(sizeof(parser));
-		if(!parser) return -1;
-		parser = temp;
+		tempPars = (jsmn_parser*) malloc(sizeof(parser));
+		if(!tempPars) return -1;
+		parser = tempPars;
 		varsToFree |= PARSER;
 	}
 	jsmn_init(parser);
@@ -288,6 +293,7 @@ int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStora
 	{
 		return -1;
 	}
+
 	//Init jsmnStorage if not given
 	if(!jsmnStorage)
 	{
@@ -311,13 +317,14 @@ int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStora
 	}
 	jsmn_init(parser); //Reset parser
 	num_tokens = jsmn_parse(parser, *stringStorage, strlen(*stringStorage), *jsmnStorage, num_tokens);
+	printf("Jsmn returned : %d\n", num_tokens);
 	
 	memset( &(*jsmnStorage)[num_tokens], 0, sizeof(jsmntok_t));
 
 	//Freeing if necessary
-	if(varsToFree & PARSER) free(parser);
-	if(varsToFree & STRING) free(stringStorage);
-	if(varsToFree & TOKEN) free(jsmnStorage);
+	if(varsToFree & PARSER) ;
+	if(varsToFree & STRING) free(*stringStorage);
+	if(varsToFree & TOKEN) free(*jsmnStorage);
 
 	return num_tokens;
 }

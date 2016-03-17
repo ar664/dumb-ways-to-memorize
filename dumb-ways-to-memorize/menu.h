@@ -49,7 +49,7 @@ struct menu_s
 	sprite_t *mBackground;
 	GameState mCurrentState;
 	GameState mPreviousState;
-	void (*Update)(int button);
+	void (*Update)(menu_t *self, SDL_GameControllerButton button);
 	void (*Draw)(menu_t *self);
 };
 
