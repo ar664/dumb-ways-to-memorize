@@ -45,6 +45,11 @@ void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 				break;
 			}
 			DeselectItemByNum(self, gCurrentSelectedItem);
+			if(gCurrentSelectedItem-1 < 0)
+			{
+				SelectItemByNum(self, gCurrentSelectedItem);
+				break;
+			}
 			gCurrentSelectedItem--;
 			SelectItemByNum(self, gCurrentSelectedItem);
 			break;
@@ -52,6 +57,11 @@ void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 	case(SDL_CONTROLLER_BUTTON_DPAD_DOWN):
 		{
 			DeselectItemByNum(self, gCurrentSelectedItem);
+			if(gCurrentSelectedItem+1 > CountMem(self->mItems, sizeof(menu_item_t)))
+			{
+				SelectItemByNum(self, gCurrentSelectedItem);
+				break;
+			}
 			gCurrentSelectedItem++;
 			SelectItemByNum(self, gCurrentSelectedItem);
 			break;
@@ -81,9 +91,8 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 	{
 	case(SDL_CONTROLLER_BUTTON_DPAD_UP):
 		{
-			if(!self->mSelectedItem)
+			if(self->mSelectedItem+1 < self->mItems+CountMem(self->mItems, sizeof(menu_item_t)))
 			{
-				self->mSelectedItem = self->mItems;
 				break;
 			}
 			self->mSelectedItem--;
@@ -241,20 +250,23 @@ void DrawMenuByState(menu_t *self)
 void ProcessMenuItemsByType(menu_item_t *items,menu_type_t type)
 {
 	SDL_Rect format;
-	int itemCount, i;
+	int itemCount, i, width, height;
 	itemCount = CountMem(items, sizeof(menu_item_t));
 
-	//Doesn't work SDL_Rect is int
+	width = gScreenWidth ? gScreenWidth : SCREEN_RES_W;
+	height = gScreenHeight ? gScreenHeight : SCREEN_RES_H;
+
+
 	switch(type)
 	{
 	case(MENU_TYPE_H):
 		{
-			SDL_SetRect(&format, 0, .33, 0, 0);
+			SDL_SetRect(&format, 0, height*.33, 0, 0);
 			break;
 		}
 	case(MENU_TYPE_V) : 
 		{
-			SDL_SetRect(&format, .33, 0, 0, 0);
+			SDL_SetRect(&format, width*.33, 0, 0, 0);
 			break;
 		}
 	case(MENU_TYPE_GRID):
@@ -264,19 +276,24 @@ void ProcessMenuItemsByType(menu_item_t *items,menu_type_t type)
 		}
 	case(MENU_TYPE_POWER):
 		{
-			SDL_SetRect(&format, .1, .1, 0, 0);
+			SDL_SetRect(&format, width*.1, height*.1, 0, 0);
 			break;
 		}
 	default:
 		{
-			SDL_SetRect(&format, 0, .33, 0, 0);
+			SDL_SetRect(&format, 0, height*.33, 0, 0);
 			break;
 		}
 	}
 	
 	for(i = 0; i < itemCount; i++)
 	{
-		if(type & (MENU_TYPE_H | MENU_TYPE_V | MENU_TYPE_GRID))
+		if(type & (MENU_TYPE_H | MENU_TYPE_V))
+		{
+			items[i].Position.x = format.x * i;
+			items[i].Position.y = format.y * i;
+		}
+		if(type & MENU_TYPE_GRID)
 		{
 			items[i].Position.x = format.x * i;
 			items[i].Position.y = format.y * i;
@@ -309,7 +326,7 @@ void ProcessMenuItemsByType(menu_item_t *items,menu_type_t type)
 menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState previous_state)
 {
 	menu_t *menu;
-	jsmntok_t *temp_tok;
+	jsmntok_t *temp_tok, *type_tok;
 	object_t *temp_obj;
 	char *temp_str, *type_str;
 	int i, temp_i, value_pos;
@@ -340,12 +357,23 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	menu->mPreviousState = previous_state;
 	menu->mCurrentState = curr_state;
 
-
 	temp_obj = FindObject(object, MENU_ITEMS);
 	if(!temp_obj)
 	{
 		printf("No items in menu %s \n", object->name);
 		return NULL;
+	}
+
+	//Load Background
+	temp_tok = FindKey(object->keys, MENU_BACKGROUND, g_str);
+	if(!temp_tok)
+	{
+		printf("No background loaded for menu %s \n", object->name);
+	} else 
+	{
+		temp_i = (temp_tok - object->keys);
+		temp_str = JsmnToString(&object->values[temp_i], g_str);
+		menu->mBackground = LoadSprite(temp_str, 0);
 	}
 
 	//Load Items
@@ -360,14 +388,14 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 		temp_tok = FindKey(temp_obj->children[i].keys, MENU_ITEM_SPRITE, g_str);
 		if(temp_tok)
 		{
-			value_pos = (temp_tok - temp_obj->children[i].keys)/sizeof(jsmntok_t);
+			value_pos = (temp_tok - temp_obj->children[i].keys);
 			temp_str = JsmnToString(&temp_obj->children[i].values[value_pos], g_str);
 			menu->mItems[i].Image = LoadSprite(temp_str, 0);
 		}
 		temp_tok = FindKey(temp_obj->children[i].keys, MENU_ITEM_TEXT, g_str);
 		if(temp_tok)
 		{
-			value_pos = (temp_tok - temp_obj->children[i].keys)/sizeof(jsmntok_t);
+			value_pos = (temp_tok - temp_obj->children[i].keys);
 			temp_str = JsmnToString(&temp_obj->children[i].values[value_pos], g_str);
 			menu->mItems[i].Name = temp_str;
 		}
@@ -375,9 +403,10 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 		temp_tok = FindKey(temp_obj->children[i].keys, MENU_ITEM_LINK, g_str);
 		if(temp_tok)
 		{
-			value_pos = (temp_tok - temp_obj->children[i].keys)/sizeof(jsmntok_t);
+			value_pos = (temp_tok - temp_obj->children[i].keys);
 			temp_str = JsmnToString(&temp_obj->children[i].values[value_pos], g_str);
 			menu->mItems[i].NextState = StrToGameState(temp_str);
+			free(temp_str);
 		} else
 		{
 			menu->mItems[i].NextState = SPLASH;
@@ -387,16 +416,19 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	}
 		
 	//Calculate Menu Item Positions
-	type_str = FindValueFromKey(object->keys, MENU_TYPE, g_str);
-	if(!type_str)
+	type_tok = FindKey(object->keys, MENU_TYPE, g_str);
+	if(!type_tok)
 	{
 		printf("Not found menu layout type for %s. Switching to default vertical layout", object->name);
 		type_str = strdup(MENU_TYPE_STRING_V);
 	}
+	value_pos = (type_tok - object->keys);
+	type_str = JsmnToString(&object->values[value_pos], g_str);
 	ProcessMenuItemsByType(menu->mItems, (menu_type_t) StrToMenuType(type_str));
 	menu->mSelectedItem = menu->mItems;
 	gCurrentSelectedItem = 0;
 
+	//Set Up Different Menu Types
 	if(!strcmp(type_str, MENU_TYPE_STRING_V))
 	{
 		menu->Update = UpdateVerticalMenu;

@@ -8,7 +8,7 @@
 	{
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
-		"sprite(s)" : "blank.png",
+		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,
@@ -18,7 +18,7 @@
 	{
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
-		"sprite(s)" : "blank.png",
+		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,
@@ -28,7 +28,7 @@
 	{
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
-		"sprite(s)" : "blank.png",
+		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,
@@ -38,7 +38,7 @@
 	{
 		"collisionType" : "static",
 		"entityState" : "other",
-		"sprite(s)" : "blank.png",
+		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,
@@ -48,7 +48,7 @@
 	{
 		"collisionType" : "ragdoll",
 		"entityState" : "alive	 ",
-		"sprite(s)" : "blank.png",
+		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,
@@ -74,7 +74,7 @@
 	{
 		"collisionType" : "static",
 		"entityState" : "other",
-		"sprite(s)" : "blank.png",
+		"sprite(s)" : "Sprite/Level/Ground.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,

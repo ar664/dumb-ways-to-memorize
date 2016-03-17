@@ -7,6 +7,7 @@
 	"Interactions" : ["move", "destroy", "spawn", "edit", "nullify"],
 	"Targets" : ["self", "at-point", "world"],
 	"Game Name": "Dumb Ways to Memorize",
+	"Screen Dimensions" : [1280, 720],
 	"Gravity" : 9.8,
 	"Test-Position" : [ [0,0], [1,1] ],
 	"Levels" : ["Level/Level01.json" , "Level/Level01.json"],

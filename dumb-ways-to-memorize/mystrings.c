@@ -2,9 +2,9 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <stdio.h>
+#include <math.h>
 #include "globals.h"
 #include "mystrings.h"
-
 
 
 /**
@@ -149,7 +149,7 @@ int StringToInt(char* str)
 	retVal = 0;
 	for(i = 0; i < length; i++)
 	{
-		retVal += CharToInt(str[i])*(10^(length-i-1));
+		retVal += CharToInt(str[i])*(powf( 10, (length-i-1) ) );
 	}
 	return retVal;
 }

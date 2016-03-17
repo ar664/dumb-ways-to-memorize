@@ -78,9 +78,12 @@ extern void *Player;
 extern void *World;
 extern void *Mouse;
 
+//Game Globals
 #define	FRAME_DELAY		17
 extern int gLives;
 extern int gLevelsPerGame;
+extern int gScreenWidth;
+extern int gScreenHeight;
 
 extern int exitRequest;
 

@@ -7,6 +7,7 @@
 
 #define	MENU_ITEM_MAX	20
 #define MAX_MENUS		10
+#define MENU_BACKGROUND "Background"
 #define MENU_ITEMS		"Items"
 #define MENU_ITEM_SPRITE "sprite"
 #define MENU_ITEM_TEXT	"text"

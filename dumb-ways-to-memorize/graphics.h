@@ -5,6 +5,7 @@
 #include "globals.h"
 
 #define GAME_NAME "Dumb Ways to Memorize"
+#define SCREEN_STRING "Screen Dimensions"
 #define SCREEN_RES_W 1280
 #define SCREEN_RES_H 720
 #define MAX_SPRITES 500

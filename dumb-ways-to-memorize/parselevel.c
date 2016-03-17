@@ -34,12 +34,12 @@ int LoadLevel(object_t *level, char *g_str)
 		printf("Level %s has no Name", level->name);
 		return -1;
 	}
-	tempInt = abs((int) level->keys - (int) tempTok);
+	tempInt = tempTok - level->keys;
 	gCurrentLevel->mName = JsmnToString(&level->values[tempInt], g_str);
 
 	if( (tempTok = FindKey(level->keys, "Hint", g_str)) != NULL)
 	{
-		tempInt = abs((int) level->keys - (int) tempTok);
+		tempInt = tempTok - level->keys;
 		gCurrentLevel->mHint = JsmnToString(&level->values[tempInt], g_str);
 	}
 	
@@ -50,7 +50,7 @@ int LoadLevel(object_t *level, char *g_str)
 		printf("Level %s has no Background", level->name);
 		return -1;
 	}
-	tempInt = abs((int) level->keys - (int) tempTok);
+	tempInt = tempTok - level->keys;
 	gCurrentLevel->mBackground = LoadSprite(JsmnToString(&level->values[tempInt], g_str), 0);
 
 	//Assign Spawn Point
@@ -76,7 +76,7 @@ int LoadLevel(object_t *level, char *g_str)
 			{
 				continue;
 			}
-			tempInt = (int) enemyObj->children[i].keys - (int) tempTok;
+			tempInt = tempTok - enemyObj->children[i].keys;
 			posObj = FindObject(enemyObj, "position");
 			if(!posObj)
 			{
@@ -130,7 +130,7 @@ int LoadLevel(object_t *level, char *g_str)
 			{
 				continue;
 			}
-			tempInt = (int) enemyObj->children[i].keys - (int) tempTok;
+			tempInt = tempTok - enemyObj->children[i].keys ;
 			posObj = FindObject(enemyObj, "position");
 			if(!posObj)
 			{

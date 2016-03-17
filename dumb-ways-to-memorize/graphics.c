@@ -10,7 +10,8 @@ SDL_Window *gWindow = NULL;
 SDL_Renderer *gRenderer = NULL;
 sprite_t *gSprites = NULL;
 int gLastSprite = 0;
-
+int gScreenWidth = 0;
+int gScreenHeight = 0;
 /**
  * Init graphics.
  *
@@ -35,11 +36,22 @@ int InitGraphics()
 		exit(-1);
 	}
 
-	if( (gWindow = SDL_CreateWindow(GAME_NAME, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_RES_W, SCREEN_RES_H, flags )) == NULL )
+	if(gScreenHeight && gScreenWidth)
 	{
-		printf("Can't create window %s", SDL_GetError());
-		exit(-1);
+		if( (gWindow = SDL_CreateWindow(GAME_NAME, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, gScreenWidth, gScreenHeight, flags )) == NULL )
+		{
+			printf("Can't create window %s", SDL_GetError());
+			exit(-1);
+		}
+	} else {
+		if( (gWindow = SDL_CreateWindow(GAME_NAME, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_RES_W, SCREEN_RES_H, flags )) == NULL )
+		{
+			printf("Can't create window %s", SDL_GetError());
+			exit(-1);
+		}
 	}
+
+	
 	SDL_SetWindowTitle(gWindow, "Dumb Ways to Memorize");
 
 	if( (gRenderer = SDL_CreateRenderer(gWindow, -1, flags)) == NULL)
@@ -119,7 +131,7 @@ sprite_t *LoadSprite(const char *name, int flags)
 	temp = IMG_Load(name);
 	if(!temp)
 	{
-		printf("Could not load image %s: ", name);
+		printf("Could not load image : %s \n", name);
 		return NULL;
 	}
 	check->mSize.x = temp->w;

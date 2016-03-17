@@ -52,6 +52,9 @@ SDL_GameControllerButton gButtonQ;
 
 int LoadGameData()
 {
+	vec2_t *screen;
+	object_t *temp_obj;
+	int value_pos;
 	//Init GameData Parse
 	if(ConvertFileToUseable(JSON_FILE, &gParser, &gGameData, &gGameTokens) == -1)
 	{
@@ -66,10 +69,19 @@ int LoadGameData()
 		printf("Object parse error");
 		return -1;
 	}
-
+	
+	//Set Screen Dims
+	temp_obj = FindObject(gGameObject, SCREEN_STRING);
+	if(temp_obj)
+	{
+		screen = ParseToVec2(temp_obj, gGameData);
+		gScreenWidth = screen->x;
+		gScreenHeight = screen->y;
+		printf("New Screen resolution : %d %d \n", gScreenWidth, gScreenHeight);
+		free(screen);
+	}
 	PrintObject(gGameObject, gGameData);
 
-	gController = SDL_GameControllerOpen(0);
 
 	return 0;
 }
@@ -183,7 +195,7 @@ int LoadPowerUpData()
 int LoadMenuData()
 {
 	int i, menuCount;
-	char *menuData, *menuLink;
+	char *menuData, *menuLink, *temp_str;
 	jsmntok_t *menuTok;
 	object_t *menus, *menuObj;
 	if(!gMenus)
@@ -194,7 +206,8 @@ int LoadMenuData()
 	menuCount = CountMem(menus->values, sizeof(jsmntok_t));
 	for(i = 0; i < menuCount; i++)
 	{
-		ConvertFileToUseable(JsmnToString(&menus->values[i], gGameData), NULL, &menuData, &menuTok);
+		temp_str = JsmnToString(&menus->values[i], gGameData);
+		ConvertFileToUseable(temp_str, NULL, &menuData, &menuTok);
 		if(!menuData || !menuTok)
 		{
 			continue;
@@ -202,9 +215,11 @@ int LoadMenuData()
 		menuObj = ParseToObject(menuTok, menuData);
 		if(!menuObj)
 		{
+			free(temp_str);
 			continue;
 		}
 		PrintObject(menuObj, menuData);
+		menuObj->name = temp_str;
 		menuLink = FindValueFromKey(menuTok, "link", menuData);
 		if(!menuLink)
 		{
@@ -312,29 +327,28 @@ int LoadSelectedLevel(int level)
 {
 	if(!gSelectedLevels)
 	{
-		printf("Levels not Selected");
+		printf("Levels not Selected \n");
 		return -1;
 	}
 	if(!gSelectedLevels[level])
 	{
-		printf("Level %d not found", level);
+		printf("Level %d not found \n", level);
 		return -1;
 	}
-	printf("Level %d not found", level);
 	ConvertFileToUseable(gSelectedLevels[level], &gParser, &gLevelData, &gLevelTokens);
 	if(!gLevelData || !gLevelTokens)
 	{
-		printf("Unable to parse level %s", gSelectedLevels[level]);
+		printf("Unable to parse level %s \n", gSelectedLevels[level]);
 	}
 	gLevelObject = ParseToObject(gLevelTokens, gLevelData);
 	if(!gLevelObject)
 	{
-		printf("Unable to parse level %s to object", gSelectedLevels[level]);
+		printf("Unable to parse level %s to object \n", gSelectedLevels[level]);
 	}
 
 	if(LoadLevel(gLevelObject, gLevelData))
 	{
-		perror("Unable to Load level");
+		perror("Unable to Load level \n");
 		return -1;
 	}
 
@@ -343,15 +357,26 @@ int LoadSelectedLevel(int level)
 void Poll()
 {
 	int i;
-	for(i = 0; i < SDL_CONTROLLER_BUTTON_MAX; i++)
+	if( SDL_PollEvent(&gEventQ) )
 	{
-		if(SDL_GameControllerGetButton(&gController, (SDL_GameControllerButton) i))
+		if(gEventQ.type == SDL_CONTROLLERBUTTONDOWN)
 		{
-			gButtonQ = (SDL_GameControllerButton) i;
+			gButtonQ = (SDL_GameControllerButton) gEventQ.cbutton.button;
+			printf("Button Pressed : %d \n", gButtonQ);
+		} else 
+		{
+			gButtonQ = (SDL_GameControllerButton) -1;
+		}
+
+		if( gEventQ.type == SDL_QUIT)
+		{
+			exitRequest = 1;
 			return;
 		}
+
 	}
-	gButtonQ = (SDL_GameControllerButton) -1;
+
+	
 	return;
 }
 
@@ -381,13 +406,10 @@ void Update()
 					}
 				}
 			}
-			if(SDL_PollEvent(&gEventQ))
+			//If you pressed a button
+			if(gButtonQ != -1)
 			{
-				if(gEventQ.type == SDL_CONTROLLERBUTTONUP)
-				{
-					gLives = LIVES_DEFAULT;
-					gGameState = START;
-				}
+				gGameState = START;
 			}
 			break;
 		}
@@ -513,7 +535,7 @@ int Setup()
 		perror("Selecting levels went wrong");
 		return -1;
 	}
-
+	gController = SDL_GameControllerOpen(0);
 	LoadSelectedLevel(0);
 	PrintObject(gLevelObject, gLevelData);
 	test_sprite = LoadSprite("Sprite/UI/NESController.png",0);

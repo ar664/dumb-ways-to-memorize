@@ -77,7 +77,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 				EditEntity(retVal, (EntityMembers)i, ParseToVec2(checkObj, str));
 			} else
 			{
-				printf("Error with : %s in JSON file", object->name);
+				printf("Error with : %s in JSON file \n", object->name);
 			}
 		}
 	}
