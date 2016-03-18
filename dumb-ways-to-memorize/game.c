@@ -16,31 +16,31 @@
 
 //All char ** should be size+1, and ending member = NULL
 
-int exitRequest = 0;
+int exitRequest = 0;				/**< The integer to be changed to exit */
 int gLives = 0;
 int gLevelsPerGame = LEVELS_DEFAULT;
 float gGravity = 9.8;
-jsmn_parser gParser;
-char **gLevels = NULL;  /**< The levels */
-char **gSelectedLevels = NULL;  /**< The selected levels to load */
-char **gSelectedPowerUps = NULL; /**< The power ups the player selects */
-jsmntok_t *gGameTokens; /**< Tokens for GameData */
-jsmntok_t *gEntityTokens;   /**< The entity tokens */
-jsmntok_t *gLevelTokens;
-object_t *gGameObject;  /**< The game object */
-object_t *gEntityObject;	/**< The entity object */
-object_t *gLevelObject;
-char *gGameData; /**< Game Data File */
-char *gEntityData;  /**<Entity data file */
-char *gLevelData;
-entity_t *gEntityDictionary; /**< Entities loaded from files AKA cached entities*/
-power_t *gPowerUps;
-GameState gGameState = SPLASH;
-sprite_t *gSplash = NULL;
+jsmn_parser gParser;				/**< The global jsmn parser */
+char **gLevels = NULL;				/**< The level names */
+char **gSelectedLevels = NULL;		/**< The selected levels to load */
+char **gSelectedPowerUps = NULL;	/**< The power ups the player selects */
+jsmntok_t *gGameTokens;				/**< Tokens for GameData */
+jsmntok_t *gEntityTokens;			/**< The entity jsmn tokens */
+jsmntok_t *gLevelTokens;			/**< The level jsmn tokens */
+object_t *gGameObject;				/**< The game object */
+object_t *gEntityObject;			/**< The entity object */
+object_t *gLevelObject;				/**< The level object */
+char *gGameData;					/**< Game Data File - holding the contents of file via string*/
+char *gEntityData;					/**< Entity data file */
+char *gLevelData;					/**< Information describing the current level */
+entity_t *gEntityDictionary;		/**< Entities loaded from files AKA cached entities*/
+power_t *gPowerUps;					/**< The loaded power ups */
+GameState gGameState = SPLASH;		/**< State of the game */
+sprite_t *gSplash = NULL;			/**< The splash screen sprite*/
 vec2_t ZeroPos = {0,0};
-SDL_Event gEventQ;
-SDL_GameController *gController = NULL;
-SDL_GameControllerButton gButtonQ;
+SDL_Event gEventQ;					/**< The event qeueu update with all SDL_Events */
+SDL_GameController *gController = NULL; /**< The controller */
+SDL_GameControllerButton gButtonQ;  /**< The button qeueu updated with the current button pressed*/
 /**
  * Loads game data from GameData.json, stored in gGameData.
  *
@@ -475,6 +475,7 @@ void Draw()
 		}
 	}
 	SDL_RenderPresent(gRenderer);
+	SDL_RenderPresent(gRedRenderer);
 	return;
 }
 

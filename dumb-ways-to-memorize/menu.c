@@ -196,7 +196,7 @@ void DrawMenuByNum(menu_t *self)
 			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);
 			selection_rect.x = self->mItems[i].Position.x;
 			selection_rect.y = self->mItems[i].Position.y;
-			SDL_RenderDrawRect(gRenderer, &selection_rect);
+			SDL_RenderDrawRect(gRedRenderer, &selection_rect);
 		} else {
 			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);
 		}
@@ -229,7 +229,7 @@ void DrawMenuByState(menu_t *self)
 			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);
 			selection_rect.x = self->mItems[i].Position.x;
 			selection_rect.y = self->mItems[i].Position.y;
-			SDL_RenderDrawRect(gRenderer, &selection_rect);
+			SDL_RenderDrawRect(gRedRenderer, &selection_rect);
 		} else
 		{
 			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);

@@ -8,6 +8,7 @@
 
 SDL_Window *gWindow = NULL;
 SDL_Renderer *gRenderer = NULL;
+SDL_Renderer *gRedRenderer = NULL;
 sprite_t *gSprites = NULL;
 int gLastSprite = 0;
 int gScreenWidth = 0;
@@ -58,6 +59,11 @@ int InitGraphics()
 	{
 		printf("Can't create renderer %s", SDL_GetError());
 		exit(-1);
+	}
+
+	if( (gRedRenderer = SDL_CreateSoftwareRenderer(SDL_CreateRGBSurface(0,1,1,8,0xFFFF,0,0,0))) == NULL)
+	{
+		printf("Can't create red renderer %s", SDL_GetError());
 	}
 
 	gSprites = (sprite_t*) malloc(sizeof(sprite_t)*MAX_SPRITES);

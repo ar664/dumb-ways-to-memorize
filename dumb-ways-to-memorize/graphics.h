@@ -44,5 +44,6 @@ extern sprite_t *gSprites;
 extern int gLastSprite;
 extern SDL_Window *gWindow;
 extern SDL_Renderer *gRenderer;
+extern SDL_Renderer *gRedRenderer;
 
 #endif
