@@ -8,6 +8,7 @@
 
 SDL_Window *gWindow = NULL;
 SDL_Renderer *gRenderer = NULL;
+SDL_Surface *gRedSurface = NULL;
 SDL_Renderer *gRedRenderer = NULL;
 sprite_t *gSprites = NULL;
 int gLastSprite = 0;
@@ -37,6 +38,7 @@ int InitGraphics()
 		exit(-1);
 	}
 
+	//Create Window based on either default or set screenWidth / Height
 	if(gScreenHeight && gScreenWidth)
 	{
 		if( (gWindow = SDL_CreateWindow(GAME_NAME, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, gScreenWidth, gScreenHeight, flags )) == NULL )
@@ -50,20 +52,31 @@ int InitGraphics()
 			printf("Can't create window %s", SDL_GetError());
 			exit(-1);
 		}
+		gScreenHeight = SCREEN_RES_H;
+		gScreenWidth = SCREEN_RES_W;
 	}
 
-	
+	//Main Rendering Context
 	SDL_SetWindowTitle(gWindow, "Dumb Ways to Memorize");
 
 	if( (gRenderer = SDL_CreateRenderer(gWindow, -1, flags)) == NULL)
 	{
-		printf("Can't create renderer %s", SDL_GetError());
+		printf("Can't create renderer %s ", SDL_GetError());
 		exit(-1);
 	}
 
-	if( (gRedRenderer = SDL_CreateSoftwareRenderer(SDL_CreateRGBSurface(0,1,1,8,0xFFFF,0,0,0))) == NULL)
+	//Red Renderer
+	if ( (gRedSurface = SDL_CreateRGBSurface(0,gScreenWidth,gScreenHeight,32,0,0,0,0)) == NULL)
 	{
-		printf("Can't create red renderer %s", SDL_GetError());
+		printf("Can't create red surface : %s \n", SDL_GetError());
+	}
+	if( (gRedRenderer = SDL_CreateSoftwareRenderer(gRedSurface)) == NULL)
+	{
+		printf("Can't create red renderer : %s \n", SDL_GetError());
+	}
+	if( SDL_SetRenderDrawColor(gRedRenderer, 0xFF, 0, 0, 0xFF) )
+	{
+		printf("Can't set red renderer : %s \n", SDL_GetError());
 	}
 
 	gSprites = (sprite_t*) malloc(sizeof(sprite_t)*MAX_SPRITES);
@@ -167,6 +180,11 @@ sprite_t *LoadSprite(const char *name, int flags)
 int DrawSprite(sprite_t *sprite, vec2_t *position, SDL_Renderer *renderer)
 {
 	SDL_Rect src, dst;
+	if(!sprite)
+	{
+		printf("Null sprite given \n");
+		return -1;
+	}
 	if(sprite->mCurrentFrame)
 	{
 		SDL_SetRect(&src, sprite->mCurrentFrame->Position.x, sprite->mCurrentFrame->Position.y, sprite->mSize.x, sprite->mSize.y);

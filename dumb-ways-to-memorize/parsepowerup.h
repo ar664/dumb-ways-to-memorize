@@ -24,8 +24,9 @@ typedef struct power_s power_t;
 struct power_s
 {
 	entity_t *target;
+	entity_t *info;
 	char *name;
-	void (*GetInfo)(info_type_t info);
+	void (*UpdateInput)(power_t *self);
 	void (*GetTarg)(entity_t *self, entity_t **targ);
 	void (*UpdateUse)(power_t *power);
 	void (*DoPower)(entity_t *targ, entity_t *info);
@@ -36,12 +37,13 @@ struct power_s
 extern power_t *gPowerUps;
 
 //Power Specific
-void CallInfo(info_type_t info);
+void CallInfo(power_t *self);
 void UpdateNormal(power_t *power);
 void UpdateInfinite(power_t *power);
 int GetUseType(const char *var, int *useType);
 
 power_t *ParseToPowerUp(object_t *power, char *str);
+void UsePower(power_t *power);
 
 //Interactions
 void Move(entity_t *targ, entity_t *info);

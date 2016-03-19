@@ -168,6 +168,7 @@ int LoadLevelData()
 int LoadPowerUpData()
 {
 	object_t *powers;
+	power_t *temp_power;
 	int powerCount, i;
 
 	powers = FindObject(gGameObject, "PowerUps");
@@ -177,7 +178,7 @@ int LoadPowerUpData()
 		return -1;
 	}
 
-	powerCount = CountMem(powers->children, sizeof(object_t*));
+	powerCount = CountMem(powers->children, sizeof(object_t));
 	gPowerUps = (power_t*) malloc(sizeof(power_t)*( powerCount+1 ));
 	if(!gPowerUps)
 	{
@@ -187,7 +188,14 @@ int LoadPowerUpData()
 
 	for(i = 0; i < powerCount; i++)
 	{
-		gPowerUps[i] = *ParseToPowerUp(&powers->children[i], gGameData);
+		temp_power = ParseToPowerUp(&powers->children[i], gGameData);
+		if(!temp_power)
+		{
+			printf("Power up %d could not be loaded \n", i);
+			continue;
+		}
+		gPowerUps[i] = *temp_power;
+		if(temp_power) free(temp_power);
 	}
 	return 0;
 }
@@ -451,6 +459,8 @@ void DrawPlaying();
 void Draw()
 {
 	SDL_RenderClear(gRenderer);
+	SDL_RenderClear(gRedRenderer);
+	SDL_SetRenderDrawColor(gRedRenderer, 0xFF, 0, 0, 0xFF);
 	switch(gGameState)
 	{
 	case(SPLASH):
@@ -474,8 +484,8 @@ void Draw()
 			break;
 		}
 	}
-	SDL_RenderPresent(gRenderer);
 	SDL_RenderPresent(gRedRenderer);
+	SDL_RenderPresent(gRenderer);
 	return;
 }
 
@@ -530,7 +540,11 @@ int Setup()
 		perror("Loading level data went wrong");
 		return -1;
 	}
-
+	if(LoadPowerUpData())
+	{
+		perror("Loading entity data went wrong");
+		return -1;
+	}
 	if(SelectLevels())
 	{
 		perror("Selecting levels went wrong");
@@ -553,7 +567,7 @@ int Run()
 		Poll();
 		Update();
 		Draw();
-		SDL_Delay(17);
+		SDL_Delay(FRAME_DELAY);
 	}
 	return 0;
 }

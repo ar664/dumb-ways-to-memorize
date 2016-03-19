@@ -17,6 +17,7 @@ typedef struct vec2_s
 
 void Vec2Add(vec2_t *A, vec2_t *B, vec2_t *C);
 void Vec2Subtract(vec2_t *First, vec2_t *Second, vec2_t *C);
+extern int LargestDivisor(int num);
 //#define VEC2_ADD(A, B, C) (C[0] = A[0] + B[0], C[1] = A[1] + B[1]) 
 //#define VEC2_SUBTRACT(A, B, C) (C[0] = A[0] - B[0], C[1] = A[1] - B[1])
 
@@ -79,14 +80,16 @@ extern void *World;
 extern void *Mouse;
 
 //Game Globals
-#define	FRAME_DELAY		17
+#define	FRAME_DELAY		13
 extern int gLives;
 extern int gLevelsPerGame;
 extern int gScreenWidth;
 extern int gScreenHeight;
+extern int gCurrentTime;
 
 extern int exitRequest;
 
+//Memory Functions
 extern int CountMem(void *src, int size_type);
 extern int AllocateDynamic(void **dst, void *src, int size_type, int size);
 extern int CompareMemToMemArray(void *mem, void *mem_array, int size_type, int size_array);

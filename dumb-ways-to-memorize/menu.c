@@ -3,6 +3,8 @@
 #include "menu.h"
 #include "mystrings.h"
 #include <stdio.h>
+#include <math.h>
+#include <string.h>
 
 menu_t *gMenus = NULL;
 int gCurrentSelectedItem = 0;
@@ -57,7 +59,7 @@ void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 	case(SDL_CONTROLLER_BUTTON_DPAD_DOWN):
 		{
 			DeselectItemByNum(self, gCurrentSelectedItem);
-			if(gCurrentSelectedItem+1 > CountMem(self->mItems, sizeof(menu_item_t)))
+			if(gCurrentSelectedItem+1 >= CountMem(self->mItems, sizeof(menu_item_t)))
 			{
 				SelectItemByNum(self, gCurrentSelectedItem);
 				break;
@@ -91,7 +93,7 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 	{
 	case(SDL_CONTROLLER_BUTTON_DPAD_UP):
 		{
-			if(self->mSelectedItem+1 < self->mItems+CountMem(self->mItems, sizeof(menu_item_t)))
+			if(self->mSelectedItem-1 < self->mItems)
 			{
 				break;
 			}
@@ -185,20 +187,36 @@ void DrawMenuByNum(menu_t *self)
 
 	if(self->mBackground)
 	{
-		DrawSprite(self->mBackground, NULL, gRenderer);
+		if(DrawSprite(self->mBackground, NULL, gRenderer))
+		{
+			printf("Failed to draw Background \n");
+			return;
+		}
 	}
 
 	itemCount = CountMem(self->mItems, sizeof(menu_item_t));
 	for(i = 0; i < itemCount; i++)
 	{
-		if(i == gCurrentSelectedItem)
+		if( i == gCurrentSelectedItem )
 		{
-			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);
+			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
+			{
+				printf("Failed to draw Menu Item : %d \n", i);
+				return;
+			}
 			selection_rect.x = self->mItems[i].Position.x;
 			selection_rect.y = self->mItems[i].Position.y;
-			SDL_RenderDrawRect(gRedRenderer, &selection_rect);
+			if(SDL_RenderFillRect(gRedRenderer, &selection_rect))
+			{
+				printf("Failed to draw Rect \nSDL Error: %s", SDL_GetError());
+			}
+			SDL_RenderCopy(gRenderer, SDL_CreateTextureFromSurface(gRenderer, gRedSurface), &selection_rect,&selection_rect);
 		} else {
-			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);
+			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
+			{
+				printf("Failed to draw Menu Item : %d \n", i);
+				return;
+			}
 		}
 	}
 
@@ -226,13 +244,25 @@ void DrawMenuByState(menu_t *self)
 	{
 		if(self->mItems[i].State & (MENU_ITEM_STATE_SELECTED | MENU_ITEM_STATE_PICKED))
 		{
-			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);
+			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
+			{
+				printf("Failed to draw Menu Item : %d \n", i);
+				return;
+			}
 			selection_rect.x = self->mItems[i].Position.x;
 			selection_rect.y = self->mItems[i].Position.y;
-			SDL_RenderDrawRect(gRedRenderer, &selection_rect);
+			if(SDL_RenderFillRect(gRedRenderer, &selection_rect))
+			{
+				printf("Failed to draw Rect \nSDL Error: %s", SDL_GetError());
+			}
+			SDL_RenderCopy(gRenderer, SDL_CreateTextureFromSurface(gRenderer, gRedSurface), &selection_rect,&selection_rect);
 		} else
 		{
-			DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer);
+			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
+			{
+				printf("Failed to draw Menu Item : %d \n", i);
+				return;
+			}
 		}
 	}
 
@@ -250,9 +280,9 @@ void DrawMenuByState(menu_t *self)
 void ProcessMenuItemsByType(menu_item_t *items,menu_type_t type)
 {
 	SDL_Rect format;
-	int itemCount, i, width, height;
+	int itemCount, i, width, height, divisor, radius;
 	itemCount = CountMem(items, sizeof(menu_item_t));
-
+	divisor = 0; radius = 0;
 	width = gScreenWidth ? gScreenWidth : SCREEN_RES_W;
 	height = gScreenHeight ? gScreenHeight : SCREEN_RES_H;
 
@@ -261,27 +291,30 @@ void ProcessMenuItemsByType(menu_item_t *items,menu_type_t type)
 	{
 	case(MENU_TYPE_H):
 		{
-			SDL_SetRect(&format, 0, height*.33, 0, 0);
+			SDL_SetRect(&format, 0, height/(itemCount+1), 0, 0);
 			break;
 		}
 	case(MENU_TYPE_V) : 
 		{
-			SDL_SetRect(&format, width*.33, 0, 0, 0);
+			SDL_SetRect(&format, width/(itemCount+1), 0, 0, 0);
 			break;
 		}
 	case(MENU_TYPE_GRID):
 		{
-			SDL_SetRect(&format, 0, 0, 0, 0);
+			SDL_SetRect(&format, width/(itemCount+1), height/(itemCount+1), 0, 0);
+			divisor = LargestDivisor(itemCount);
 			break;
 		}
 	case(MENU_TYPE_POWER):
 		{
-			SDL_SetRect(&format, width*.1, height*.1, 0, 0);
+			//Center of Screen
+			SDL_SetRect(&format, width/2, height/2, 0, 0);
+			radius = height/3;
 			break;
 		}
 	default:
 		{
-			SDL_SetRect(&format, 0, height*.33, 0, 0);
+			SDL_SetRect(&format, 0, height/(itemCount+1), 0, 0);
 			break;
 		}
 	}
@@ -295,13 +328,13 @@ void ProcessMenuItemsByType(menu_item_t *items,menu_type_t type)
 		}
 		if(type & MENU_TYPE_GRID)
 		{
-			items[i].Position.x = format.x * i;
-			items[i].Position.y = format.y * i;
+			items[i].Position.x = format.x * i%divisor;
+			items[i].Position.y = format.y * i/divisor;
 		}
 		if(type & MENU_TYPE_POWER)
 		{
-			items[i].Position.x = format.x * i * 3.14;
-			items[i].Position.y = format.y * i * 3.14;
+			items[i].Position.x = format.x - (float) radius*sinf( (float) i/(itemCount+1));
+			items[i].Position.y = format.y - (float) radius*cosf( (float) i/(itemCount+1));
 		}
 	}
 
@@ -414,7 +447,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 		menu->mItems[i].Info = NULL;
 			
 	}
-		
+
 	//Calculate Menu Item Positions
 	type_tok = FindKey(object->keys, MENU_TYPE, g_str);
 	if(!type_tok)
@@ -426,6 +459,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	type_str = JsmnToString(&object->values[value_pos], g_str);
 	ProcessMenuItemsByType(menu->mItems, (menu_type_t) StrToMenuType(type_str));
 	menu->mSelectedItem = menu->mItems;
+	menu->mSelectedItem->State = MENU_ITEM_STATE_SELECTED;
 	gCurrentSelectedItem = 0;
 
 	//Set Up Different Menu Types
@@ -502,19 +536,19 @@ menu_t* FindFreeMenu()
 
 int StrToMenuType(char *str)
 {
-	if(strcmp(str, MENU_TYPE_STRING_H))
+	if(!strcmp(str, MENU_TYPE_STRING_H))
 	{
 		return MENU_TYPE_H;
 	}
-	if(strcmp(str, MENU_TYPE_STRING_V))
+	if(!strcmp(str, MENU_TYPE_STRING_V))
 	{
 		return MENU_TYPE_V;
 	}
-	if(strcmp(str, MENU_TYPE_STRING_GRID))
+	if(!strcmp(str, MENU_TYPE_STRING_GRID))
 	{
 		return MENU_TYPE_GRID;
 	}
-	if(strcmp(str, MENU_TYPE_STRING_POWER))
+	if(!strcmp(str, MENU_TYPE_STRING_POWER))
 	{
 		return MENU_TYPE_POWER;
 	}

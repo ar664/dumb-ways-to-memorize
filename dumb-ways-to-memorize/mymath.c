@@ -2,6 +2,21 @@
 #include <string.h>
 #include <stdlib.h>
 
+int LargestDivisor(int num)
+{
+	int i, root, hit;
+	hit = 0;
+	root = num>>1;
+	for(i = 0; i < root; i++)
+	{
+		if(!num%i)
+		{
+			hit = i;
+		}
+	}
+	return hit;
+}
+
 void Vec2Add(vec2_t *A, vec2_t *B, vec2_t *C)
 {
 	if(!A || !B || !C)

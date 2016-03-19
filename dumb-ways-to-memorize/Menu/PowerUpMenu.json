@@ -1,6 +1,7 @@
 {
 	"Background" : "Sprite/Level/Background.png",
 	"Type" : "power_select",
+	"Comment" : "_Names for powerups have to match",
 	"link" : "Guess",
 	"Items" : [
 	{

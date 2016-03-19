@@ -69,7 +69,7 @@ void Edit(entity_t *targ, entity_t *info)
 	//iterate through members
 	for(i = 0; i < entity_size; i++)
 	{
-		if(*&value[i])
+		if(*&value[i] && (*&dst[i] != *&value[i]))
 		{
 			*&dst[i] = *&value[i];
 		}
@@ -125,9 +125,9 @@ int GetUseType(const char *var, int *useType)
 	return -1;
 }
 
-void CallInfo(info_type_t info)
+void CallInfo(power_t *self)
 {
-	switch (info)
+	switch (self->info_type)
 	{
 	case INFO_BOTH:
 		GetXMouse((entity_t*) Player, keyPower, mousePos); break;
@@ -146,6 +146,11 @@ power_t* ParseToPowerUp(object_t* power, char* str)
 	power_t *retVal;
 	jsmntok_t *temp;
 	retVal = (power_t*) malloc(sizeof(power_t));
+	if(!retVal)
+	{
+		printf("Power up malloc error \n");
+		return NULL;
+	}
 	if( (temp = FindKey(power->keys, "name", str)) != NULL )
 	{
 		retVal->name = FindValueFromKey(temp, "name", str);
@@ -186,7 +191,7 @@ power_t* ParseToPowerUp(object_t* power, char* str)
 	}
 	if(retVal->info_type)
 	{
-		retVal->GetInfo = CallInfo;
+		retVal->UpdateInput = CallInfo;
 	}
 
 	//Interaction
@@ -202,9 +207,15 @@ power_t* ParseToPowerUp(object_t* power, char* str)
 			retVal->DoPower = NULL;
 		}
 	}
-
+	retVal->info = ParseToEntity(power, str);
 
 
 	return retVal;
 }
 
+void UsePower(power_t* power)
+{
+	power->UpdateInput(power);
+	power->UpdateUse(power);
+	power->DoPower(power->target, power->info);
+}
