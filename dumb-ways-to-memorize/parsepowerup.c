@@ -17,6 +17,11 @@ int *keyPower = NULL;
 
 void Move(entity_t *targ, entity_t *info)
 {
+	if(!targ || !info)
+	{
+		printf("Failed to do move , invalid target/info \n");
+		return;
+	}
 	targ->mPosition = info->mPosition;
 }
 
@@ -24,7 +29,7 @@ void Move(entity_t *targ, entity_t *info)
 //No other access necessary
 void Destroy(entity_t *targ, entity_t *info)
 {
-	if(!targ)
+	if(targ)
 	{
 		FreeEntity(targ);
 	}
@@ -36,13 +41,13 @@ void Spawn(entity_t *targ, entity_t *info)
 	entity_t *spawned;
 	if(!targ || !info)
 	{
-		printf("Spawn given blank targ/info");
+		printf("Spawn given blank targ/info \n");
 		return;
 	}
 	spawned = InitNewEntity();
 	if (!spawned)
 	{
-		printf("Max entities reached can't spawn any more");
+		printf("Max entities reached can't spawn any more \n");
 		return;
 	}
 	spawned->mHazards = info->mHazards;
@@ -62,7 +67,7 @@ void Edit(entity_t *targ, entity_t *info)
 	int *value = (int*) info;
 	if(!targ || !info)
 	{
-		printf("Null edit, not doing");
+		printf("Null edit, not doing \n");
 		return;
 	}
 	entity_size = sizeof(entity_t)/sizeof(int);
@@ -79,6 +84,10 @@ void Edit(entity_t *targ, entity_t *info)
 
 void Nullify(entity_t *targ, entity_t *info)
 {
+	if(!targ)
+	{
+		printf("Null given null target \n");
+	}
 	targ->Think = NULL;
 }
 
@@ -86,12 +95,12 @@ void UpdateNormal(power_t* power)
 {
 	if(!Player)
 	{
-		printf("Player not set");
+		printf("Player not set \n");
 		return;
 	}
 	if(!power)
 	{
-		printf("power not set");
+		printf("power not set \n");
 		return;
 	}
 	power->GetTarg((entity_t*) Player, &power->target);
@@ -119,7 +128,7 @@ int GetUseType(const char *var, int *useType)
 		return 0;
 	} else if(strpbrk(var, "-0123456789"))
 	{
-		sscanf(var, "%d", *useType);
+		sscanf(var, "%d", useType);
 		return 0;
 	}
 	return -1;
@@ -140,29 +149,36 @@ void CallInfo(power_t *self)
 	}
 }
 
-power_t* ParseToPowerUp(object_t* power, char* str)
+power_t* ParseToPowerUp(object_t* power, char* g_str)
 {
 	int i;
+	char *temp_str;
+	jsmntok_t *temp_tok;
+	entity_t *temp_ent;
 	power_t *retVal;
-	jsmntok_t *temp;
 	retVal = (power_t*) malloc(sizeof(power_t));
 	if(!retVal)
 	{
 		printf("Power up malloc error \n");
 		return NULL;
 	}
-	if( (temp = FindKey(power->keys, "name", str)) != NULL )
+	if( (temp_tok = FindKey(power->keys, "name", g_str)) != NULL )
 	{
-		retVal->name = FindValueFromKey(temp, "name", str);
+		temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
+		retVal->name = temp_str;
 	}
-	if( (temp = FindKey(power->keys, "target", str)) != NULL )
+	if( (temp_tok = FindKey(power->keys, "target", g_str)) != NULL )
 	{
-		retVal->GetTarg = ParseToFunction(FindValueFromKey(temp, "target", str));
+		temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
+		retVal->GetTarg = ParseToFunction(temp_str);
+		if(temp_str) free(temp_str);
 	}
 	//Use Type
-	if( (temp = FindKey(power->keys, "use-type", str)) != NULL )
+	if( (temp_tok = FindKey(power->keys, "use-type", g_str)) != NULL )
 	{
-		GetUseType(FindValueFromKey(temp, "use-type", str), &retVal->uses);
+		temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
+		GetUseType(temp_str, &retVal->uses);
+		if(temp_str) free(temp_str);
 	}
 	switch(retVal->uses)
 	{
@@ -177,38 +193,66 @@ power_t* ParseToPowerUp(object_t* power, char* str)
 	}
 
 	//Input Type
-	if( (temp = FindKey(power->keys, "input-type", str)) != NULL )
+	if( (temp_tok = FindKey(power->keys, "input-type", g_str)) != NULL )
 	{
 		for(i = 0; i < INFO_BOTH; i++ )
 		{
-			if(strcmp(InteractionNames[i], FindValueFromKey(temp, "input-type", str)))
+			temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
+			if(!strcmp(FunctionNames[i], temp_str))
 			{
 				retVal->info_type = (info_type_t) (INFO_BOTH - i);
 				break;
 			}
 			retVal->info_type = INFO_NONE;
+			if(temp_str) free(temp_str);
+			temp_str = NULL;
 		}
+		if(temp_str) free(temp_str);
 	}
 	if(retVal->info_type)
 	{
 		retVal->UpdateInput = CallInfo;
+		keyPower = (int*) malloc(sizeof(int));
+		memset(keyPower,0, sizeof(int));
+		mousePos = (vec2_t*) malloc(sizeof(vec2_t));
+		memset(mousePos,0, sizeof(vec2_t));
 	}
 
 	//Interaction
-	if( (temp = FindKey(power->keys, "target", str)) != NULL )
+	if( (temp_tok = FindKey(power->keys, "target", g_str)) != NULL )
 	{
 		for(i = 0; *FunctionNames[i]; i++ )
 		{
-			if(strcmp(FunctionNames[i], FindValueFromKey(temp, "target", str)))
+			temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
+			if(!strcmp(FunctionNames[i], temp_str))
 			{
 				retVal->DoPower = (void(*)(entity_t *targ, entity_t *info)) InteractionSymbols[i];
 				break;
 			}
 			retVal->DoPower = NULL;
+			if(temp_str) free(temp_str);
+			temp_str = NULL;
 		}
+		if(temp_str) free(temp_str);
 	}
-	retVal->info = ParseToEntity(power, str);
-
+	
+	//Info
+	if( (temp_tok = FindKey(power->keys, "entity", g_str)) != NULL )
+	{
+		temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
+		if( (temp_ent = FindCachedEntity( temp_str )) != NULL )
+		{
+			retVal->info = ParseToEntity(power, g_str);
+		} else
+		{
+			printf("Failed to identify/find entity in power : %s \n", power->name);
+			retVal->info = NULL;
+		}
+		if(temp_str) free(temp_str);
+	} else
+	{
+		retVal->info = ParseToEntity(power, g_str);
+	}
 
 	return retVal;
 }

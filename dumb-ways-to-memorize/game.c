@@ -6,6 +6,7 @@
 #include "parsevariable.h"
 #include "parsepowerup.h"
 #include "parselevel.h"
+#include "player.h"
 #include "graphics.h"
 #include <SDL.h>
 #include <string.h>
@@ -197,6 +198,7 @@ int LoadPowerUpData()
 		gPowerUps[i] = *temp_power;
 		if(temp_power) free(temp_power);
 	}
+	memset(&gPowerUps[powerCount], 0, sizeof(powerCount));
 	return 0;
 }
 
