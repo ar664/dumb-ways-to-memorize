@@ -3,6 +3,7 @@
 
 #include "globals.h"
 #include "graphics.h"
+#include "ai_interpret.h"
 
 #define MAX_ENTITIES 750
 
@@ -18,9 +19,14 @@ typedef struct entity_s entity_t;
 struct entity_s
 {
 	int mHazards;
+	int mNextThink;
+	int mHealth;
+	int mDamage;
+	int mWeight;
 	collision_type_t mCollisionType;
 	entity_state_t mEntityState;
 	sprite_t **mSprites;
+	ai_function_t *data;
 	char *mName;
 	vec2_t mAccel;
 	vec2_t mVelocity;
@@ -43,6 +49,7 @@ extern entity_t *FindFreeEntity(int* position);
 extern entity_t *LookForEntityAtPos(vec2_t position);
 
 void FreeEntity(entity_t *ent);
+void FreeNonPlayerEntities();
 void ShutdownEntitySystem();
 
 #endif

@@ -15,6 +15,13 @@ typedef struct vec2_s
 	int y;
 }vec2_t;
 
+typedef unsigned int address_t;
+typedef struct KV_Pair_s
+{
+	char *key;
+	address_t value;
+}KV_Pair_t;
+
 void Vec2Add(vec2_t *A, vec2_t *B, vec2_t *C);
 void Vec2Subtract(vec2_t *First, vec2_t *Second, vec2_t *C);
 extern int LargestDivisor(int num);
@@ -75,9 +82,9 @@ extern vec2_t *mousePos;
 extern int *keyPower;
 extern char **gSelectedPowerUps;
 
-extern void *Player;
-extern void *World;
-extern void *Mouse;
+extern void *gPlayer;
+extern void *gWorld;
+extern void *gMouse;
 
 //Game Globals
 #define	FRAME_DELAY		13

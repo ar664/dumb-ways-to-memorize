@@ -453,7 +453,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	if(!type_tok)
 	{
 		printf("Not found menu layout type for %s. Switching to default vertical layout", object->name);
-		type_str = strdup(MENU_TYPE_STRING_V);
+		type_str = strdup(MENU_TYPE_STR_V);
 	}
 	value_pos = (type_tok - object->keys);
 	type_str = JsmnToString(&object->values[value_pos], g_str);
@@ -463,11 +463,11 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	gCurrentSelectedItem = 0;
 
 	//Set Up Different Menu Types
-	if(!strcmp(type_str, MENU_TYPE_STRING_V))
+	if(!strcmp(type_str, MENU_TYPE_STR_V))
 	{
 		menu->Update = UpdateVerticalMenu;
 		menu->Draw = DrawMenuByNum;
-	} else if(!strcmp(type_str, MENU_TYPE_STRING_POWER))
+	} else if(!strcmp(type_str, MENU_TYPE_STR_POWER))
 	{
 		menu->Update = UpdatePowerUpMenu;
 		menu->Draw = DrawMenuByState;
@@ -536,19 +536,19 @@ menu_t* FindFreeMenu()
 
 int StrToMenuType(char *str)
 {
-	if(!strcmp(str, MENU_TYPE_STRING_H))
+	if(!strcmp(str, MENU_TYPE_STR_H))
 	{
 		return MENU_TYPE_H;
 	}
-	if(!strcmp(str, MENU_TYPE_STRING_V))
+	if(!strcmp(str, MENU_TYPE_STR_V))
 	{
 		return MENU_TYPE_V;
 	}
-	if(!strcmp(str, MENU_TYPE_STRING_GRID))
+	if(!strcmp(str, MENU_TYPE_STR_GRID))
 	{
 		return MENU_TYPE_GRID;
 	}
-	if(!strcmp(str, MENU_TYPE_STRING_POWER))
+	if(!strcmp(str, MENU_TYPE_STR_POWER))
 	{
 		return MENU_TYPE_POWER;
 	}

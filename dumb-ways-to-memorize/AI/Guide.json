@@ -1,0 +1,71 @@
+{
+	"AI_Types" : ["preset", "variable"],
+	"preset" : "Values are preset, good for simple actions like jumping",
+	"variable" : "Values must be given on spawn / link",
+	
+	"Comment" : "variables are set in entity definitions",
+	"Comment 2" : "Ex: variables = 1,2,3,4 ; 0 is reserved for no value",
+	"Comment 3" : "Those variables get assigned to placements defined in the ai script",
+	"Comment 4" : "Setting AI is an array of objects",
+	"Comment 5" : "Ex:",
+	"Ex_AI" :
+	[
+	{
+		"name" : "Advanced",
+		"variables" : [1, "Fireball", "Dumb"]
+	},
+	{
+		"name" : "Dumb",
+	}
+	]
+	"Comment 6" : "@see The link is defined in variable",
+	"Comment 7" : "This is to connect the ai's assigned",
+	
+	
+	"Actions" : ["nothing","move", "walk", "jump", "attack"],
+	"move" : "Move to position - clip",
+	"walk" : "Move to position - no clip",
+	"jump" : "Jump or Change Velocity in [x,y] Direction",
+	"attack" : "Do and spawn attack : x",
+	"nothing" : "Do nothing",
+	
+	"Variables" : ["frames", "time",".."],
+	"frames" : "The number of frames to wait for animation / action to finish, default: NULL",
+	"time" : "The number of times to do action, default: 1",
+	"damage" : "The damage of the attack, default: 0",
+	"speed" : "The speed of the movement, default : 1",
+	
+	"Flags": ["gravity_off"],
+	"gravity_off" : "Turn off gravity for this ai",
+	
+	"Conditions" : ["distance_player", "distance_object", "touching_player", "touching_object"],
+	"distance_player" : "The number of tiles from player",
+	"distance_object" : "The number of tiles from specified object",
+	"object" : "The name of the object to specify",
+	"link_action" : "The action number to do in current action list",
+	"link_ai" : "The ai to switch to",
+	
+	"Comment 8" : "actions are done sequentially, until multiple \
+	actions are implemented",
+
+
+	"Experimental" : ["AI_Recursive"],
+	"AI_Recursive" : "The variables to recurse defined as: ",
+	"Comment 9" : " 0-9* = predefined, n = max elements used "
+	"Ai_Rec_Ex" : 
+	{
+		"Name" : "meh",
+		"AI_Recursive" : [1, 2, "n+1"],
+		"Think" :
+		[
+		{
+			"action" : 1,
+			"frames" : 2,
+			"variable" : 3,
+		}
+		]
+	}
+	"Comment 10" : "n here would be 3, so n+1 would  be 4,5,...",
+	"Comment 11" : "Recursion stops when no extra variables left"
+	
+}

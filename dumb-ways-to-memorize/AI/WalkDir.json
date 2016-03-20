@@ -1,0 +1,12 @@
+{
+	"Name" : "WalkDir",
+	"AI_Type" : "variable",
+	"Comment" : "Walks towards dir, but doesn't override gravity",
+	"Think" : 
+	[
+	{
+		"walk" : [1,0],
+	}
+	]
+
+}

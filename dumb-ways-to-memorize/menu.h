@@ -13,10 +13,10 @@
 #define MENU_ITEM_TEXT	"text"
 #define MENU_ITEM_LINK	"link"
 #define MENU_TYPE		"Type"
-#define MENU_TYPE_STRING_POWER	"power_select"
-#define MENU_TYPE_STRING_H		"horizontal"
-#define MENU_TYPE_STRING_V		"vertical"
-#define MENU_TYPE_STRING_GRID	"grid"
+#define MENU_TYPE_STR_POWER	"power_select"
+#define MENU_TYPE_STR_H		"horizontal"
+#define MENU_TYPE_STR_V		"vertical"
+#define MENU_TYPE_STR_GRID	"grid"
 
 typedef enum
 {

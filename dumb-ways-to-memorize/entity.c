@@ -188,6 +188,24 @@ void FreeEntity(entity_t *ent)
 
 }
 
+void FreeNonPlayerEntities()
+{
+	int i , entities;
+	if(!gEntities)
+	{
+		return;
+	}
+	entities = CountMem(gEntities, sizeof(entity_t));
+	for(i = 0; i < entities; i++)
+	{
+		if(&gEntities[i] == (entity_t*) gPlayer)
+		{
+			continue;
+		}
+		FreeEntity(&gEntities[i]);
+	}
+}
+
 void ShutdownEntitySystem()
 {
 	int i;

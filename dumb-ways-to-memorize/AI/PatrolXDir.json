@@ -1,0 +1,14 @@
+{
+	"Name" : "PatrolXDir",
+	"AI_Type" : "variable",
+	"AI_Recursive" : [1, n+1, n+2],
+	"Comment" : "Patrols series of x,y points",
+	"Think" :
+	[
+	{
+		"frames" : 1,
+		"walk" : [2,3],
+	}
+	]
+
+}

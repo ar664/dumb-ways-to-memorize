@@ -1,0 +1,15 @@
+{
+	"Name" : "FlyDir"
+	"AI_Type" : "variable",
+	"Comment" : "This guy moves in direction given, but doesn't clip",
+	"Comment2" : "Gravity is overrided",
+	"Variables" : ["gravity_off"],
+	"Think" : 
+	[
+	{
+		"walk" : [1,2],
+	
+	}
+	]
+
+}

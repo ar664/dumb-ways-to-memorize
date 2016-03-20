@@ -93,7 +93,7 @@ void Nullify(entity_t *targ, entity_t *info)
 
 void UpdateNormal(power_t* power)
 {
-	if(!Player)
+	if(!gPlayer)
 	{
 		printf("Player not set \n");
 		return;
@@ -103,7 +103,7 @@ void UpdateNormal(power_t* power)
 		printf("power not set \n");
 		return;
 	}
-	power->GetTarg((entity_t*) Player, &power->target);
+	power->GetTarg((entity_t*) gPlayer, &power->target);
 	power->uses--;
 	if(power->uses == 0)
 	{
@@ -113,7 +113,7 @@ void UpdateNormal(power_t* power)
 
 void UpdateInfinite(power_t* power)
 {
-	power->GetTarg( (entity_t*) Player, &power->target);
+	power->GetTarg( (entity_t*) gPlayer, &power->target);
 }
 
 int GetUseType(const char *var, int *useType)
@@ -139,11 +139,11 @@ void CallInfo(power_t *self)
 	switch (self->info_type)
 	{
 	case INFO_BOTH:
-		GetXMouse((entity_t*) Player, keyPower, mousePos); break;
+		GetXMouse((entity_t*) gPlayer, keyPower, mousePos); break;
 	case INFO_BUTTON:
-		GetX((entity_t*) Player, keyPower); break;
+		GetX((entity_t*) gPlayer, keyPower); break;
 	case INFO_MOUSE:
-		GetMousePos((entity_t*) Player, mousePos); break;
+		GetMousePos((entity_t*) gPlayer, mousePos); break;
 	default:
 		break;
 	}

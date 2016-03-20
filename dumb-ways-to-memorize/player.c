@@ -3,18 +3,18 @@
 #include "player.h"
 
 char *name = PLAYER_NAME;
-void *Player = NULL;
+void *gPlayer = NULL;
 int PlayerLives = 0;
 
 void InitPlayer()
 {
-	Player = (void*) InitNewEntity();
+	gPlayer = (void*) InitNewEntity();
 	PlayerLives = PLAYER_LIVES;
 }
 
 entity_t *GetPlayer()
 {
-	return (entity_t*) Player;
+	return (entity_t*) gPlayer;
 }
 
 void DecrementPlayerLives()

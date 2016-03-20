@@ -82,6 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ai_interpret.c" />
     <ClCompile Include="entity.c" />
     <ClCompile Include="External_Libs\jsmn.c" />
     <ClCompile Include="game.c" />
@@ -98,6 +99,7 @@
     <ClCompile Include="player.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ai_interpret.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="globals.h" />

@@ -14,6 +14,7 @@ int LoadLevel(object_t *level, char *g_str)
 	object_t *tempObj, *enemyObj, *posObj;
 	entity_t *tempEnt, *cachedEnt;
 	int tempInt, i, j, enemies, positions;
+	char *temp_str  = NULL;
 	vec2_t *spawn;
 	if(!level || !level->keys)
 	{
@@ -92,7 +93,8 @@ int LoadLevel(object_t *level, char *g_str)
 					{
 						continue;
 					}
-					cachedEnt = FindCachedEntity(JsmnToString(&level->values[tempInt], g_str));
+					temp_str = JsmnToString(&level->values[tempInt], g_str);
+					cachedEnt = FindCachedEntity(temp_str);
 					if(!cachedEnt)
 					{
 						continue;
@@ -107,7 +109,8 @@ int LoadLevel(object_t *level, char *g_str)
 				{
 					continue;
 				}
-				cachedEnt = FindCachedEntity(JsmnToString(&level->values[tempInt], g_str));
+				temp_str = JsmnToString(&level->values[tempInt], g_str);
+				cachedEnt = FindCachedEntity(temp_str);
 				if(!cachedEnt)
 				{
 					continue;
@@ -115,6 +118,8 @@ int LoadLevel(object_t *level, char *g_str)
 				memcpy(tempEnt, cachedEnt, sizeof(entity_t));
 				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
 			}
+			if(temp_str) free(temp_str);
+			temp_str = NULL;
 		}
 	}
 	
@@ -146,7 +151,8 @@ int LoadLevel(object_t *level, char *g_str)
 					{
 						continue;
 					}
-					cachedEnt = FindCachedEntity(JsmnToString(&level->values[tempInt], g_str));
+					temp_str = JsmnToString(&level->values[tempInt], g_str);
+					cachedEnt = FindCachedEntity(temp_str);
 					if(!cachedEnt)
 					{
 						continue;
@@ -161,7 +167,8 @@ int LoadLevel(object_t *level, char *g_str)
 				{
 					continue;
 				}
-				cachedEnt = FindCachedEntity(JsmnToString(&level->values[tempInt], g_str));
+				temp_str = JsmnToString(&level->values[tempInt], g_str);
+				cachedEnt = FindCachedEntity(temp_str);
 				if(!cachedEnt)
 				{
 					continue;
@@ -169,6 +176,8 @@ int LoadLevel(object_t *level, char *g_str)
 				memcpy(tempEnt, cachedEnt, sizeof(entity_t));
 				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
 			}
+			if(temp_str) free(temp_str);
+			temp_str = NULL;
 		}
 	}
 

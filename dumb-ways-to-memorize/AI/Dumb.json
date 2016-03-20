@@ -1,0 +1,18 @@
+{
+	"Name" : "Dumb",
+	"AI_Type" : "preset",
+	"Comment" : "This guy just jumps",
+	"Think" :
+	[
+	{
+		"nothing" : 1,
+		"frames" : 5
+	},
+	{
+		"jump" : 1,
+		"time" : 1,
+	}
+	]
+
+
+}
