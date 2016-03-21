@@ -6,6 +6,8 @@
 #include "ai_interpret.h"
 
 #define MAX_ENTITIES 750
+#define ENTITY_DIR_LEFT 0
+#define ENTITY_DIR_RIGHT 1
 
 typedef struct entity_s entity_t;
 
@@ -23,10 +25,12 @@ struct entity_s
 	int mHealth;
 	int mDamage;
 	int mWeight;
+	int mDirection:1;				/**< The direction entity is facing*/
 	collision_type_t mCollisionType;
 	entity_state_t mEntityState;
 	sprite_t **mSprites;
-	ai_function_t *data;
+	sprite_t *mAnimation;			/**< The animation */
+	ai_function_t *mData;
 	char *mName;
 	vec2_t mAccel;
 	vec2_t mVelocity;
@@ -47,6 +51,12 @@ extern entity_t *FindCachedEntity(const char *name);
 extern entity_t *FindEntity(const char *name);
 extern entity_t *FindFreeEntity(int* position);
 extern entity_t *LookForEntityAtPos(vec2_t position);
+
+extern int Distance2Entity(entity_t *self, entity_t *other);
+extern void (*GetFunctionAI(ai_function_t *data))(entity_t *);
+
+void RunEntities();
+void DrawEntities();
 
 void FreeEntity(entity_t *ent);
 void FreeNonPlayerEntities();

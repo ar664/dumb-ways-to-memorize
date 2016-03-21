@@ -37,6 +37,17 @@ void Vec2Subtract(vec2_t *First, vec2_t *Second, vec2_t *C)
 	C->x = First->x - Second->x;
 	C->y = First->y - Second->y;
 }
+
+void Vec2MultiplyScalar(vec2_t* A, int B, vec2_t* C)
+{
+	if(!A || !C)
+	{
+		return;
+	}
+	(*C).x = A->x * B;
+	(*C).y = A->y * B;
+}
+
 /**
  * Counts the memory of type size_type, given that the final address is null.
  *

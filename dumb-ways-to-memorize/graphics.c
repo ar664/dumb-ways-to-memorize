@@ -325,6 +325,27 @@ void FreeSprite(sprite_t *sprite)
 
 }
 
+void IncrementFrame(sprite_t* sprite)
+{
+	int frames;
+	if(!sprite)
+	{
+		return;
+	}
+	frames = CountMem(sprite->mAnimations, sizeof(vec2_t));
+	if(!frames)
+	{
+		return;
+	}
+	if(!sprite->mCurrentFrame || (sprite->mCurrentFrame - sprite->mAnimations >= frames) )
+	{
+		sprite->mCurrentFrame = sprite->mAnimations;
+	} else
+	{
+		sprite->mCurrentFrame++;
+	}
+}
+
 void SDL_SetRect(SDL_Rect* rect, int x, int y, int w, int h)
 {
 	rect->x = x;

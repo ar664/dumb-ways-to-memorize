@@ -2,7 +2,8 @@
 	"Collision Types" : ["static", "ragdoll", "clip"],
 	"Entity States" : ["alive", "dead", "other"],
 	"Hazards" : [ 0, "fire", "water", "cold", "spike"],
-	"Current Scripts" : ["dumb", "dummy"],
+	"Current Scripts" : ["Dumb", "FlyDir", "Guide", "PatrolXDir", "WalkDir"],
+	"Animation Order" : ["Idle", "Walk", "Jump", "Attack", "Hit", "extra animations up to 20"],
 	"This" : "Is how an entity should be written",
 	"Player" : 
 	{

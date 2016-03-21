@@ -83,6 +83,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ai_interpret.c" />
+    <ClCompile Include="dumb_physics.cpp" />
     <ClCompile Include="entity.c" />
     <ClCompile Include="External_Libs\jsmn.c" />
     <ClCompile Include="game.c" />
@@ -97,9 +98,11 @@
     <ClCompile Include="parsepowerup.c" />
     <ClCompile Include="parsevariable.c" />
     <ClCompile Include="player.c" />
+    <ClCompile Include="quick_controller.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ai_interpret.h" />
+    <ClInclude Include="dumb_physics.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="globals.h" />
@@ -113,6 +116,7 @@
     <ClInclude Include="parsepowerup.h" />
     <ClInclude Include="parsevariable.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="quick_controller.h" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

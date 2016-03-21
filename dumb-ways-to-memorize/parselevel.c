@@ -2,6 +2,7 @@
 #include "parselevel.h"
 #include "parseobject.h"
 #include "parsevariable.h"
+#include "ai_interpret.h"
 #include "mystrings.h"
 #include <stdio.h>
 
@@ -10,11 +11,12 @@ level_t *gCurrentLevel = NULL;
 //Occurs after entity loads entity list
 int LoadLevel(object_t *level, char *g_str)
 {
-	jsmntok_t *tempTok;
+	jsmntok_t *tempTok, *aiTok;
 	object_t *tempObj, *enemyObj, *posObj;
 	entity_t *tempEnt, *cachedEnt;
+	ai_function_t *enemyAI;
 	int tempInt, i, j, enemies, positions;
-	char *temp_str  = NULL;
+	char *temp_str  = NULL, *aiStr;
 	vec2_t *spawn;
 	if(!level || !level->keys)
 	{
@@ -78,6 +80,17 @@ int LoadLevel(object_t *level, char *g_str)
 				continue;
 			}
 			tempInt = tempTok - enemyObj->children[i].keys;
+			tempTok = FindKey(enemyObj->children[i].keys, "ai", g_str);
+			if(!tempTok)
+			{
+				enemyAI = NULL;
+			} else
+			{
+				
+				ConvertFileToUseable(JsmnToString(tempTok, g_str), NULL, &aiStr,&aiTok );
+				tempObj = ParseToObject(aiTok, aiStr);
+				enemyAI = ParsePresetAI(tempObj, aiStr);
+			}
 			posObj = FindObject(enemyObj, "position");
 			if(!posObj)
 			{
@@ -101,6 +114,7 @@ int LoadLevel(object_t *level, char *g_str)
 					}
 					memcpy(tempEnt, cachedEnt , sizeof(entity_t));
 					tempEnt->mPosition = *ParseToVec2(&posObj->children[j], g_str);
+					tempEnt->mData = enemyAI;
 				}
 			} else
 			{
@@ -117,6 +131,7 @@ int LoadLevel(object_t *level, char *g_str)
 				}
 				memcpy(tempEnt, cachedEnt, sizeof(entity_t));
 				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
+				tempEnt->mData = enemyAI;
 			}
 			if(temp_str) free(temp_str);
 			temp_str = NULL;

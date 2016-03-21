@@ -1,7 +1,9 @@
 #include "globals.h"
 #include "entity.h"
 #include "graphics.h"
+#include "quick_controller.h"
 #include <stdio.h>
+#include <math.h>
 
 entity_t *gEntities = NULL;
 int gLastEntity = 0;
@@ -12,7 +14,16 @@ char *EntityStates_str[] = {"alive", "dead", "other", 0};
 //Draw Functions
 void DrawGeneric(entity_t *self)
 {
-	//DrawSprite(self->mSprites, &self->mPosition, gRenderer);
+	if(self->mAnimation)
+	{
+		IncrementFrame(self->mAnimation);
+		DrawSprite(self->mAnimation, &self->mPosition, gRenderer);
+	} else
+	{
+		IncrementFrame(self->mSprites[ANIMATION_IDLE]);
+		DrawSprite(self->mSprites[ANIMATION_IDLE], &self->mPosition, gRenderer);
+	}
+	
 }
 
 void DrawPlayer(entity_t *self)
@@ -23,34 +34,88 @@ void DrawPlayer(entity_t *self)
 //Think Functions
 void ThinkGeneric(entity_t *self)
 {
-	//Do physics
-	self->Draw(self);
+	//Do nothing
 }
 
 void ThinkPlayer(entity_t *self)
 {
-	//Do input control + physics
-	self->Draw(self);
+	//Do input control
+	if(gButtonQ != BUTTON_NO_INPUT)
+	{
+		DoPlayerThink(self, gButtonQ);
+	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_DPAD_LEFT))
+	{
+		DoPlayerThink(self, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
+	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_DPAD_LEFT))
+	{
+		DoPlayerThink(self, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
+	}
 }
 
 void ThinkEnemy(entity_t *self)
 {
-	//Do ai-simple, and physics
-	self->Draw(self);
+	if(!self) return;
+	if(!self->mData) return;
+	if(self->mData->mFlags & AI_FLAG_CHECK_OBJECT)
+	{
+		if(!self->mData->mObjectCheck)
+		{
+			self->mData = self->mData->mLink;
+			return;
+		}
+		if( Distance2Entity(self, FindEntity(self->mData->mObjectCheck)) < self->mData->mVariables[AI_VAR_CHECK])
+		{
+			if(GetFunctionAI(self->mData))
+			{
+				GetFunctionAI(self->mData)(self);
+			}
+		}
+	} else if (self->mData->mFlags & AI_FLAG_CHECK_PLAYER)
+	{
+		if(Distance2Entity(self, (entity_t*)gPlayer) < self->mData->mVariables[AI_VAR_CHECK])
+		{
+			if(GetFunctionAI(self->mData))
+			{
+				GetFunctionAI(self->mData)(self);
+			}
+		}
+	} else
+	{
+		if(GetFunctionAI(self->mData))
+		{
+			GetFunctionAI(self->mData)(self);
+		}
+	}
+
 }
 
 
 //Touch Functions
 void TouchPlayer(entity_t *self, entity_t *other, int type)
 {
-	switch(other->mCollisionType)
+	switch(type)
 	{
-	case COLLISION_TYPE_STATIC:
-		break;
-	case COLLISION_TYPE_RAGDOLL:
-		break;
-	default:
-		break;
+	case(COLLISION_TYPE_STATIC):
+		{
+			if(! (other->mHazards & self->mHazards) )
+			{
+				self->mHealth -= HAZARD_DAMAGE;
+				self->mAnimation = self->mSprites[ANIMATION_HIT];
+				self->mNextThink += HAZARD_STUN_FRAMES*FRAME_DELAY;
+			}
+			break;
+		}
+	case(COLLISION_TYPE_RAGDOLL):
+		{
+			if(! (other->mHazards & self->mHazards) )
+			{
+				self->mHealth -= HAZARD_DAMAGE;
+				self->mAnimation = self->mSprites[ANIMATION_HIT];
+				self->mNextThink += HAZARD_STUN_FRAMES*FRAME_DELAY;
+			}
+			break;
+		}
+		
 	}
 }
 
@@ -92,6 +157,44 @@ entity_t *InitNewEntity()
 	retVal = FindFreeEntity(&pos);
 	gLastEntity = pos;
 	return retVal;
+}
+
+void DrawEntities()
+{
+	int i;
+	if(!gEntities)
+	{
+		return;
+	}
+	for(i = 0; i < MAX_ENTITIES; i++)
+	{
+		if(!gEntities[i].Draw)
+		{
+			continue;
+		}
+		gEntities[i].Draw(&gEntities[i]);
+	}
+}
+
+void RunEntities()
+{
+	int i;
+	if(!gEntities)
+	{
+		return;
+	}
+	for(i = 0; i < MAX_ENTITIES; i++)
+	{
+		if(!gEntities[i].Think)
+		{
+			continue;
+		}
+		if(gCurrentTime > gEntities[i].mNextThink)
+		{
+			gEntities[i].mNextThink = 0;
+			gEntities[i].Think(&gEntities[i]);
+		}
+	}
 }
 
 entity_t* FindCachedEntity(const char* name)
@@ -165,6 +268,14 @@ entity_t *LookForEntityAtPos(vec2_t position)
 	return NULL;
 }
 
+int Distance2Entity(entity_t* self, entity_t* other)
+{
+	int x, y;
+	x = self->mPosition.x - other->mPosition.x;
+	y = self->mPosition.y - self->mPosition.y;
+	return powf(powf(x, 2) + powf(y, 2), (float) 1/2);
+}
+
 void FreeEntity(entity_t *ent)
 {
 	int i;
@@ -180,10 +291,6 @@ void FreeEntity(entity_t *ent)
 		}
 		free(ent->mSprites);
 	}
-	if(ent->mName)
-	{
-		free(ent->mName);
-	}
 	memset(ent, 0, sizeof(entity_t));
 
 }
@@ -195,8 +302,8 @@ void FreeNonPlayerEntities()
 	{
 		return;
 	}
-	entities = CountMem(gEntities, sizeof(entity_t));
-	for(i = 0; i < entities; i++)
+
+	for(i = 0; i < MAX_ENTITIES; i++)
 	{
 		if(&gEntities[i] == (entity_t*) gPlayer)
 		{

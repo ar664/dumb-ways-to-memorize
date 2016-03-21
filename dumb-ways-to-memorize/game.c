@@ -1,4 +1,5 @@
 #include "globals.h"
+#include "quick_controller.h"
 #include "game.h"
 #include "entity.h"
 #include "mystrings.h"
@@ -6,6 +7,7 @@
 #include "parsevariable.h"
 #include "parsepowerup.h"
 #include "parselevel.h"
+#include "dumb_physics.h"
 #include "player.h"
 #include "graphics.h"
 #include <SDL.h>
@@ -42,6 +44,7 @@ vec2_t ZeroPos = {0,0};
 SDL_Event gEventQ;					/**< The event qeueu update with all SDL_Events */
 SDL_GameController *gController = NULL; /**< The controller */
 SDL_GameControllerButton gButtonQ;  /**< The button qeueu updated with the current button pressed*/
+unsigned int gCurrentTime = 0;
 /**
  * Loads game data from GameData.json, stored in gGameData.
  *
@@ -375,7 +378,7 @@ void Poll()
 			printf("Button Pressed : %d \n", gButtonQ);
 		} else 
 		{
-			gButtonQ = (SDL_GameControllerButton) -1;
+			gButtonQ = (SDL_GameControllerButton) BUTTON_NO_INPUT;
 		}
 
 		if( gEventQ.type == SDL_QUIT)
@@ -391,8 +394,6 @@ void Poll()
 }
 
 
-void UpdateStart();
-void UpdateGuess();
 void UpdatePlaying();
 
 void Update()
@@ -447,6 +448,7 @@ void Update()
 		}
 	case(PLAYING):
 		{
+			UpdatePlaying();
 			break;
 		}
 	}
@@ -619,6 +621,14 @@ void DrawGuess()
 
 void DrawPlaying()
 {
-
+	DrawLevel();
+	DrawEntities();
 	return;
+}
+
+void UpdatePlaying()
+{
+	gCurrentTime = SDL_GetTicks();
+	RunEntities();
+	RunPhysics();
 }

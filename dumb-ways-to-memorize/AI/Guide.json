@@ -26,7 +26,7 @@
 	"move" : "Move to position - clip",
 	"walk" : "Move to position - no clip",
 	"jump" : "Jump or Change Velocity in [x,y] Direction",
-	"attack" : "Do and spawn attack : x",
+	"attack" : "Do / spawn attack in [x,y] Direction",
 	"nothing" : "Do nothing",
 	
 	"Variables" : ["frames", "time",".."],
@@ -41,7 +41,7 @@
 	"Conditions" : ["distance_player", "distance_object", "touching_player", "touching_object"],
 	"distance_player" : "The number of tiles from player",
 	"distance_object" : "The number of tiles from specified object",
-	"object" : "The name of the object to specify",
+	"object_check" : "The name of the object to specify",
 	"link_action" : "The action number to do in current action list",
 	"link_ai" : "The ai to switch to",
 	

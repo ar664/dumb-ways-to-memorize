@@ -6,14 +6,25 @@
 	"Enemies" : [
 	{
 		"enemy" : "Flying Enemy",
-		"script" : "dumb",
+		"ai" : "AI/Dumb.json",
 		"position" : [30, 50]
 	},
 	
 	{
-		"enemy" : "Thwomp Enemy",
-		"script" : "dumb",
+		"enemy" : "Gumba Enemy",
+		"ai" : "AI/Dumb.json",
 		"position" : [60, 70]
+	},
+	
+	{
+		"enemy" : "Thwomp Enemy",
+		"ai" : "AI/Dumb.json",
+		"position" : [80, 20]
+	},
+	{
+		"enemy" : "Thwomp Enemy",
+		"ai" : "AI/Dumb.json",
+		"position" : [40, 100]
 	}
 	],
 	

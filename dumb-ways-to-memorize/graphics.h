@@ -38,6 +38,7 @@ sprite_t *LoadSprite(const char *name, int flags);
 sprite_t *LoadSpriteWithAnimation();
 int DrawSprite(sprite_t *sprite, vec2_t *position, SDL_Renderer *renderer);
 void FreeSprite(sprite_t *sprite);
+void IncrementFrame(sprite_t *sprite);
 void SDL_SetRect(SDL_Rect *rect, int x, int y, int w, int h);
 
 extern sprite_t *gSprites;

@@ -9,6 +9,7 @@
 						: "Unkown" ) ) ) 
 /**< Returns string of the type of size X*/
 
+
 typedef struct vec2_s
 {
 	int x;
@@ -24,6 +25,7 @@ typedef struct KV_Pair_s
 
 void Vec2Add(vec2_t *A, vec2_t *B, vec2_t *C);
 void Vec2Subtract(vec2_t *First, vec2_t *Second, vec2_t *C);
+void Vec2MultiplyScalar(vec2_t *A, int B, vec2_t *C);
 extern int LargestDivisor(int num);
 //#define VEC2_ADD(A, B, C) (C[0] = A[0] + B[0], C[1] = A[1] + B[1]) 
 //#define VEC2_SUBTRACT(A, B, C) (C[0] = A[0] - B[0], C[1] = A[1] - B[1])
@@ -54,6 +56,17 @@ typedef enum
 
 typedef enum
 {
+	ANIMATION_IDLE,
+	ANIMATION_WALK,
+	ANIMATION_JUMP,
+	ANIMATION_ATTACK,
+	ANIMATION_HIT,
+	ANIMATION_MAX = 20
+
+}animation_state_t;
+
+typedef enum
+{
 	SPLASH =	0x1,
 	START =		0x2,
 	GUESS =		0x4,
@@ -68,6 +81,8 @@ extern int StrToMenuType(char *str);
 //For Hazards
 #define HAZARD_NULL	0x0
 #define HAZARD_MAX	(0x1 >> 31)
+#define HAZARD_DAMAGE 10
+#define HAZARD_STUN_FRAMES 10
 extern char **Hazards_str;
 extern int StrToHazard(char *str);
 
@@ -92,7 +107,7 @@ extern int gLives;
 extern int gLevelsPerGame;
 extern int gScreenWidth;
 extern int gScreenHeight;
-extern int gCurrentTime;
+extern unsigned int gCurrentTime;
 
 extern int exitRequest;
 
