@@ -27,6 +27,7 @@
 	"walk" : "Move to position - no clip",
 	"jump" : "Jump or Change Velocity in [x,y] Direction",
 	"attack" : "Do / spawn attack in [x,y] Direction",
+	"Comment 19" : "Physical Attacks not supported Yet",
 	"nothing" : "Do nothing",
 	
 	"Variables" : ["frames", "time",".."],

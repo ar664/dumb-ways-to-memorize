@@ -1,6 +1,7 @@
 #include "ai_interpret.h"
 #include "entity.h"
 #include "parsevariable.h"
+#include "parsepowerup.h"
 #include "mystrings.h"
 #include <stdio.h>
 
@@ -90,11 +91,14 @@ void JumpAI(entity_t *ent)
 	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
 
 	//Move
-	temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
-	temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
-	//TODO: normalize temp_vec2
-	Vec2MultiplyScalar(&temp_vec2,ent->mData->mVariables[AI_VAR_SPEED],&temp_vec2);
-	Vec2Add(&temp_vec2, &ent->mVelocity, &ent->mVelocity);
+	if(ent->mPosition.y == (gScreenHeight + ent->mSprites[0]->mSize.y))
+	{
+		temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
+		temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
+		//TODO: normalize temp_vec2
+		Vec2MultiplyScalar(&temp_vec2,ent->mData->mVariables[AI_VAR_SPEED],&temp_vec2);
+		Vec2Add(&temp_vec2, &ent->mVelocity, &ent->mVelocity);
+	}
 
 	//Check Data
 	ent->mData = ent->mData->mVariables[4]-- ? ent->mData : ent->mData->mLink;
@@ -118,7 +122,17 @@ void AttackAI(entity_t *ent)
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
 
-
+	if(ent->mData->mObject)
+	{
+		temp_ent = FindCachedEntity(ent->mData->mObject);
+		if(temp_ent)
+		{
+			temp_ent->mVelocity.x = ent->mData->mVariables[AI_VAR_DIR_X];
+			temp_ent->mVelocity.y = ent->mData->mVariables[AI_VAR_DIR_Y];
+			Spawn(ent, temp_ent);
+		}
+		
+	}
 
 	//Check Data
 	ent->mData = ent->mData->mVariables[4]-- ? ent->mData : ent->mData->mLink;
@@ -149,14 +163,131 @@ void (*GetFunctionAI(ai_function_t *data))(entity_t *)
 
 ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 {
-	return NULL;
+	int i, j, k,children, position, variables_i, gravity;
+	ai_function_t *retVal;
+	jsmntok_t *temp_tok, *action_tok;
+	object_t *temp_obj, *action_obj, *variables_obj;
+	char *temp_str, **variables_str;
+	if(!obj || !g_str)
+	{
+		return NULL;
+	}
+	
+	if(FindObject(obj, AI_VAR_STR))
+	{
+		gravity = 1;
+	} else
+	{
+		gravity = 0;
+	}
+	temp_obj = FindObject(obj, AI_FUNCTION_OBJECT);
+	if(!temp_obj)
+	{
+		return NULL;
+	}
+	
+	children = CountMem(temp_obj->children, sizeof(object_t));
+	retVal = (ai_function_t*) malloc(sizeof(ai_function_t)*(children+1));
+	memset(retVal, 0, sizeof(ai_function_t)*(children+1));
+	for(i = 0; i < children; i++)
+	{
+		for(j = 0; gAI_Variables[j]; j++ )
+		{
+
+			temp_tok = FindKey(temp_obj->children[i].keys,gAI_Variables[j], g_str);
+			position = temp_tok - temp_obj->children[i].keys ;
+			if(position < 0)
+			{
+				temp_str = NULL;
+			} else
+			{
+				temp_str = JsmnToString(&temp_obj->children[i].values[position], g_str);
+			}
+			
+			SetAI_Var(&retVal[i], variables[StringToInt(temp_str)], gAI_Variables[j]);
+			if(temp_str) free(temp_str);
+			temp_str = NULL;
+		}
+		for(j = 0; gAI_Actions[j]; j++ )
+		{	
+			action_obj = FindObject(&temp_obj->children[i], gAI_Actions[j]);
+			action_tok = FindKey(temp_obj->children[i].keys, gAI_Actions[j], g_str);
+			if(!action_obj && !action_tok)
+			{
+				continue;
+			}
+			position = action_tok - temp_obj->children[i].keys;
+			position = position < 0 ? 0 : position;
+			temp_str = JsmnToString(&temp_obj->children[i].values[position], g_str);
+			if(StringToInt(temp_str))
+			{
+				SetAI_Action(&retVal[i], NULL, NULL, g_str, gAI_Actions[AI_ACTION_NOTHING] );
+			}
+			SetAI_Action(&retVal[i],action_obj, action_tok, g_str, gAI_Actions[j]);
+		}
+		for(j = 0; gAI_Conditions[j]; j++)
+		{
+			temp_tok = FindKey(temp_obj->children[i].keys, gAI_Conditions[j], g_str);
+			if(!temp_tok)
+			{
+				continue;
+			}
+			variables_obj = FindObject(&temp_obj->children[i], AI_VAR_STR);
+			if(!variables_obj)
+			{
+				variables_str = NULL;
+			} else
+			{
+				variables_i = CountObjectMembers(variables_obj, g_str);
+				variables_str = (char**) malloc(sizeof(char*)*(variables_i+1));
+				variables_str[variables_i] = NULL;
+				for(k = 0; k < variables_i; k++)
+				{
+					temp_str = JsmnToString(&variables_obj->values[k], g_str);
+					variables_str[k] = temp_str ? variables[StringToInt(temp_str)] : NULL;
+					if(temp_str) free(temp_str);
+					temp_str = NULL;
+				}
+			}
+			position = temp_tok - temp_obj->children[i].keys;
+			temp_str = JsmnToString(&temp_obj->children[i].values[position], g_str);
+
+			SetAI_Check(&retVal[i], variables_str, variables[StringToInt(temp_str)], gAI_Conditions[j]);
+			if(temp_str) free(temp_str);
+			temp_str = NULL;
+		}
+		retVal->mFlags |= gravity ? AI_FLAG_GRAVITY : 0;
+	}
+
+	//Linking and conditionals
+	for(i = 0; i < children; i++)
+	{
+		if(retVal[i].mLink)
+		{
+			continue;
+		} else
+		{
+			retVal[i].mLink = (i+1 == children) ? retVal: &retVal[i+1];
+		}
+		if(retVal[i].mFlags & AI_FLAG_CHECK_OBJECT)
+		{
+			temp_tok = FindKey(temp_obj->children[i].keys, AI_SPECIFY_OBJ_STR, g_str);
+			if(!temp_tok)
+			{
+				continue;
+			}
+			position = temp_tok - temp_obj->children[i].keys;
+			retVal[i].mObjectCheck = JsmnToString(&temp_obj->children[i].values[position], g_str);
+		}
+	}
+	return retVal;
 }
 
 ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 {
 	int i, j, k,children, position, variables, gravity;
 	ai_function_t *retVal;
-	jsmntok_t *temp_tok;
+	jsmntok_t *temp_tok, *action_tok;
 	object_t *temp_obj, *action_obj, *variables_obj;
 	char *temp_str, **variables_str;
 	if(!obj || !g_str)
@@ -202,11 +333,12 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 		for(j = 0; gAI_Actions[j]; j++ )
 		{	
 			action_obj = FindObject(&temp_obj->children[i], gAI_Actions[j]);
-			if(!action_obj)
+			action_tok = FindKey(temp_obj->children[i].keys, gAI_Actions[j], g_str);
+			if(!action_obj && !action_tok)
 			{
 				continue;
 			}
-			SetAI_Action(&retVal[i],action_obj, g_str, gAI_Actions[j]);
+			SetAI_Action(&retVal[i],action_obj, action_tok, g_str, gAI_Actions[j]);
 		}
 		for(j = 0; gAI_Conditions[j]; j++)
 		{
@@ -242,10 +374,7 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 	//Linking and conditionals
 	for(i = 0; i < children; i++)
 	{
-		if(retVal[i].mLink)
-		{
-			continue;
-		} else
+		if(!retVal[i].mLink)
 		{
 			retVal[i].mLink = (i+1 == children) ? retVal: &retVal[i+1];
 		}
@@ -260,6 +389,7 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 			retVal[i].mObjectCheck = JsmnToString(&temp_obj->children[i].values[position], g_str);
 		}
 	}
+	return retVal;
 }
 
 void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
@@ -310,7 +440,7 @@ void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 	}
 }
 
-void SetAI_Action(ai_function_t* function, object_t* obj, char* g_str, char* action_str)
+void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* g_str, char* action_str)
 {
 	vec2_t *temp_vec2;
 	if(!action_str || !function)
@@ -381,9 +511,10 @@ void SetAI_Action(ai_function_t* function, object_t* obj, char* g_str, char* act
 
 		function->mAction = AI_ACTION_JUMP;
 	}
-	else if(!strcmp(AI_ACTION_MOVE_STR, action_str))
+	else if(!strcmp(AI_ACTION_ATTACK_STR, action_str))
 	{
 		function->mAction = AI_ACTION_ATTACK;
+		function->mObject = JsmnToString(tok, g_str);
 	}
 }
 

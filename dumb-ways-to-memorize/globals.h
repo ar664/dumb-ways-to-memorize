@@ -9,6 +9,7 @@
 						: "Unkown" ) ) ) 
 /**< Returns string of the type of size X*/
 
+#define SIGN_BIT 0xF000
 
 typedef struct vec2_s
 {
@@ -87,12 +88,16 @@ extern char **Hazards_str;
 extern int StrToHazard(char *str);
 
 //For EntParsing
+#define ENTITIES_FILE_STR	"Entities"
+extern char *gEntitiesFile;
 extern char *Collisions_str[];
 extern char *EntityStates_str[];
 collision_type_t StrToCollisionType(char *str);
 entity_state_t StrToEntityState(char *str);
 
 //For PowerUps
+#define POWER_UPS_STR	"PowerUps"
+extern char *gPowerUpsFile;
 extern vec2_t *mousePos;
 extern int *keyPower;
 extern char **gSelectedPowerUps;
@@ -102,6 +107,8 @@ extern void *gWorld;
 extern void *gMouse;
 
 //Game Globals
+#define G_NAME_STR		"Name"
+#define LOC_NAME_STR	"name"
 #define	FRAME_DELAY		13
 extern int gLives;
 extern int gLevelsPerGame;
@@ -121,7 +128,9 @@ extern int CompareMemToMemArray(void *mem, void *mem_array, int size_type, int s
 extern jsmn_parser gParser;
 extern jsmntok_t *gGameTokens;
 extern jsmntok_t *gEntityTokens;
+extern jsmntok_t *gLevelTokens;
 extern char *gGameData;
 extern char *gEntityData;
+extern char *gLevelData;
 
 #endif

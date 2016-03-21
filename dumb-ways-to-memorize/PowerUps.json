@@ -1,0 +1,49 @@
+{
+	"Teleport" :
+	{
+		"input-type" : "X mouse",
+		"use-type" : 2,
+		"interaction" : "move",
+		"target" : "self",
+		"position" : "at-point"
+
+	},
+	
+	"Fireball" : 
+	{
+		"input-type" : "X mouse",
+		"use-type" : 5,
+		"interaction" : "spawn",
+		"target" : "self",
+		"position" : "self",
+		"entity" : "Fireball"
+	},
+	
+	"Telekenisis" : 
+	{
+		"input-type" : "mouse",
+		"use-type" : "infinite",
+		"interaction" : "move",
+		"target" : "at-point",
+		"position" : "at-point"
+	},
+	
+	"Flight" :
+	{
+		"input-type" : "X",
+		"use-type" : "infinite",
+		"interaction" : "edit",
+		"target" : "self",
+		"velocity" : [0,5]
+	},
+	
+	"OverPowered" :
+	{
+		"input-type" : "X",
+		"use-type" : 1,
+		"interaction" : "destroy",
+		"target" : "world"
+	}
+
+
+}

@@ -14,21 +14,33 @@ void RunPhysics()
 	int i, j;
 	vec2_t gravity, friction;
 	gravity.x = 0; gravity.y = 9;
-	friction.x = 0; friction.y = 1;
-	for(i = 0; gEntities[i].mName; i++)
+	//friction.x = 0; friction.y = 1;
+	for(i = 0; i < MAX_ENTITIES; i++)
 	{
+		if(!gEntities[i].mName)
+		{
+			continue;
+		}
 		Vec2Add(&gEntities[i].mVelocity,&gEntities[i].mPosition,&gEntities[i].mPosition);
 		Vec2Add(&gEntities[i].mAccel,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
-		Vec2Add(&gravity,&gEntities[i].mAccel,&gEntities[i].mAccel);
-		Vec2Add(&friction,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
+		if(gEntities[i].mWeight)
+		{
+			Vec2Add(&gravity,&gEntities[i].mAccel,&gEntities[i].mAccel);
+		}
+		ApplySpeedLimit(&gEntities[i].mVelocity);
+		//Vec2Add(&friction,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
 		
 	}
 	//Collision Check
-	for(i = 0; gEntities[i].mName; i++)
+	for(i = 0; i < MAX_ENTITIES; i++)
 	{
-		for(j = i; gEntities[j].mName; j++)
+		if(!gEntities[i].mName)
 		{
-			if(i == j)
+			continue;
+		}
+		for(j = i; MAX_ENTITIES; j++)
+		{
+			if(i == j || !gEntities[j].mName)
 			{
 				continue;
 			}
@@ -108,4 +120,10 @@ void DoCollision(entity_t *self, entity_t *other)
 	}
 	self->mPosition = position_self;
 	other->mPosition = position_other;
+}
+
+void ApplySpeedLimit(vec2_t* a)
+{
+	a->x = abs(a->x) > PHYSICS_MAX_SPEED ? (a->x < 0 ? -PHYSICS_MAX_SPEED : PHYSICS_MAX_SPEED): a->x;
+	a->x = abs(a->y) > PHYSICS_MAX_SPEED ? (a->y < 0 ? -PHYSICS_MAX_SPEED : PHYSICS_MAX_SPEED): a->y;
 }

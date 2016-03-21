@@ -20,6 +20,7 @@ struct physics_s
 
 void RunPhysics(); //Double For Loop Time
 int CheckCollision(entity_t *self, entity_t *other);
+void ApplySpeedLimit(vec2_t *a);
 void DoCollision(entity_t *self, entity_t *other);
 
 #endif

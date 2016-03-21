@@ -8,7 +8,7 @@
 #include <stdlib.h>
 
 //Globals
-char *AssignableVariableNames[] = {"hazard(s)" , "collisionType", "entityState", "sprite(s)", "accel", "velocity", "position", 0};
+char *AssignableVariableNames[] = {"hazard(s)" , "health", "collisionType", "entityState", "sprite(s)", "accel", "velocity", "position", 0};
 char *OtherVariableNames[] = { "height", "width", "frames", 0 };
 
 //BIG ASS SWITCH CASE
@@ -21,6 +21,7 @@ void EditEntity(entity_t  *ent, EntityMembers member, void *value)
 	switch(member)
 	{
 	case ENTITY_MEMBER_HAZARDS: ent->mHazards = (int) value; break;
+	case ENTITY_MEMBER_HEALTH: ent->mHealth = (int) value; break;
 	case ENTITY_MEMBER_COLLISION_TYPE: ent->mCollisionType = (collision_type_t) (int) value; break;
 	case ENTITY_MEMBER_ENTITY_STATE: ent->mEntityState = (entity_state_t) (int) value; break;
 	case ENTITY_MEMBER_SPRITES: ent->mSprites = (sprite_t**) value; break;
@@ -31,6 +32,19 @@ void EditEntity(entity_t  *ent, EntityMembers member, void *value)
 		break;
 	}
 }
+
+/**
+ * Parse to entity.
+ * Assigns everything , but the entity function pointers
+ *
+ * @param [in,out]	object	If non-null, the object.
+ * @param [in,out]	str   	If non-null, the string.
+ *
+ * @return	null if it fails, else a pointer to an entity_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/21/2016
+ */
 
 entity_t* ParseToEntity(object_t* object, char* str)
 {
@@ -44,6 +58,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 		return NULL;
 	retVal = (entity_t*) malloc(sizeof(entity_t));
 	memset(retVal, 0, sizeof(entity_t));
+	retVal->mName = object->name;
 	for(i = 0; AssignableVariableNames[i]; i++)
 	{
 		if( (checkTok = FindKey(object->keys, AssignableVariableNames[i], str)) != NULL)
@@ -96,17 +111,33 @@ entity_t* ParseToEntity(object_t* object, char* str)
 					break;
 				}
 			}
+		} else if ( (checkTok = FindKey(object->keys, OtherVariableNames[i], str)) != NULL)
+		{
+			switch(i)
+				{
+				case HEIGHT: JsmnToInt(checkTok, str, &heights[0]); break;
+				case WIDTH: JsmnToInt(checkTok, str, &widths[0]); break;
+				case FRAMES: JsmnToInt(checkTok, str, &frames[0]); break;
+				default:
+					break;
+				}
 		}
 	}
-	for(i = 0; heights[i]; i++)
+	//retVal->mSprites = (sprite_t**) malloc(sizeof(sprite_t*)*(j+1));
+	//retVal->mSprites[j] = NULL;
+	if(retVal->mSprites)
 	{
-		checkFrame = LoadAnimation(widths[i], heights[i], retVal->mSprites[i]->mSize.x, retVal->mSprites[i]->mSize.y);
-		if(!retVal->mSprites[i])
-			break;
-		memcpy(&retVal->mSprites[i]->mAnimations, checkFrame, sizeof(Frame)*CountMem(checkFrame, sizeof(Frame)) );
-		free(checkFrame);
+		for(i = 0; retVal->mSprites[i]; i++)
+		{
+			if(!retVal->mSprites[i])
+				break;
+			checkFrame = LoadAnimation(widths[i], heights[i], retVal->mSprites[i]->mSize.x, retVal->mSprites[i]->mSize.y);
+			retVal->mSprites[i]->mFrames = frames[i] ? frames[i] : 1;
+			memcpy(&retVal->mSprites[i]->mAnimations, checkFrame, sizeof(Frame)*retVal->mSprites[i]->mFrames );
+		}
 	}
-	
+	retVal->mNextThink = 1;
+	PrintEntity(retVal);
 	return retVal;
 }
 
@@ -122,19 +153,25 @@ void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityMembers mem
 	{
 		for(i= 0; i < size; i++)
 		{
-			temp = JsmnToString(token, str);
+			temp = JsmnToString(&token[i], str);
 			checkInt += StrToHazard(temp);
 			if(temp) free(temp);
 		}
 		EditEntity(ent, member, (void*)checkInt);
 	} else if(member== ENTITY_MEMBER_SPRITES)
 	{
-		for(i= 0; i < size; i++)
+		checkSprite = (sprite_t**) malloc(sizeof(sprite_t*)*(size+1));
+		if(!checkSprite)
 		{
-			temp = JsmnToString(token, str);
-			AllocateDynamic((void**)&checkSprite, LoadSprite(temp, 0), sizeof(sprite_t*), i);
+			return;
+		}
+		for(i = 0; i < size; i++)
+		{
+			temp = JsmnToString(&token[i], str);
+			checkSprite[i] = LoadSprite(temp, 0);
 			if(temp) free(temp);
 		}
+		memset(&checkSprite[size], 0, sizeof(sprite_t*));
 		EditEntity(ent, member, checkSprite);
 	} else if(member == ENTITY_MEMBER_COLLISION_TYPE)
 	{
@@ -183,4 +220,40 @@ char **ParseToStringArray(object_t* object, char* str)
 	}
 	retVal[size+1] = 0;
 	return retVal;
+}
+
+void PrintEntity(entity_t *ent)
+{
+	int i;
+	if(!ent)
+	{
+		printf("Print Entity given NULL Entity \n");
+		return;
+	}
+	if(!ent->mName)
+	{
+		printf("Print Entity given NULL Entity Name");
+		return;
+	}
+	printf("< Entity \n");
+	printf("Entity Name : %s \n", ent->mName);
+	printf("Entity CollisionType : %d \n", ent->mCollisionType);
+	printf("Enity State : %d \n", ent->mEntityState);
+	if(!ent->mSprites)
+	{
+		printf("No Sprites loaded \n");
+		return;
+	}
+	if(!ent->mSprites[0])
+	{
+		printf("No Sprites loaded \n");
+		return;
+	}
+	printf("Entity Sprites : %s \n", ent->mSprites[0]->name);
+	for(i = 1; ent->mSprites[i]; i++)
+	{
+		printf(" %s ", ent->mSprites[i]->name);
+	}
+	printf(" Entity > \n");
+
 }

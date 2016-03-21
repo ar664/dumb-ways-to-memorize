@@ -158,6 +158,7 @@ sprite_t *LoadSprite(const char *name, int flags)
 	check->mTexture = SDL_CreateTextureFromSurface(gRenderer, temp);
 	check->name = strdup(name);
 	check->refCount = 1;
+	check->mFrames = 0;
 	SDL_FreeSurface(temp);
 	gLastSprite = position;
 	return check;
@@ -180,18 +181,25 @@ sprite_t *LoadSprite(const char *name, int flags)
 int DrawSprite(sprite_t *sprite, vec2_t *position, SDL_Renderer *renderer)
 {
 	SDL_Rect src, dst;
+	int frame;
 	if(!sprite)
 	{
 		printf("Null sprite given \n");
 		return -1;
 	}
-	if(sprite->mCurrentFrame)
+	if(!sprite->mCurrentFrame)
 	{
-		SDL_SetRect(&src, sprite->mCurrentFrame->Position.x, sprite->mCurrentFrame->Position.y, sprite->mSize.x, sprite->mSize.y);
-	} else
-	{
-		SDL_SetRect(&src, 0, 0, sprite->mSize.x, sprite->mSize.y);
+		sprite->mCurrentFrame = &sprite->mAnimations[0];
 	}
+
+	if(sprite->mCurrentFrame > &sprite->mAnimations[MAX_ANIMATIONS])
+	{
+		sprite->mCurrentFrame = &sprite->mAnimations[0];
+	}
+	SDL_SetRect(&src, sprite->mCurrentFrame->Position.x, sprite->mCurrentFrame->Position.y, sprite->mSize.x, sprite->mSize.y);
+	frame = sprite->mCurrentFrame - sprite->mAnimations;
+	sprite->mCurrentFrame = frame < CountMem(&sprite->mAnimations[0], sizeof(vec2_t)) ? sprite->mCurrentFrame+1 : 0;
+	
 	if(!position)
 	{
 		SDL_SetRect(&dst, 0, 0, 0, 0);
@@ -226,8 +234,8 @@ Frame *LoadAnimation(int frame_width, int frame_height, int width, int height)
 {
 	Frame *retVal;
 	int i,j, rows, cols;
-	cols = width/frame_width;
-	rows = height/frame_height;
+	cols = frame_width ? width/frame_width : 1;
+	rows = frame_height ? height/frame_height : 1;
 	retVal = (Frame*) malloc(sizeof(Frame)*(rows*cols+1));
 	for(i = 0; i < rows; i++)
 	{

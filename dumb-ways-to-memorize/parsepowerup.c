@@ -162,11 +162,18 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 		printf("Power up malloc error \n");
 		return NULL;
 	}
-	if( (temp_tok = FindKey(power->keys, "name", g_str)) != NULL )
+	if(!power || !g_str)
 	{
-		temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
-		retVal->name = temp_str;
+		printf("Power Up tried to parse NULL \n");
+		return NULL;
 	}
+	if (!power->name)
+	{
+		printf("Tried to parse Power Up with No Name");
+		return NULL;
+	}
+	retVal->name = power->name;
+
 	if( (temp_tok = FindKey(power->keys, "target", g_str)) != NULL )
 	{
 		temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);

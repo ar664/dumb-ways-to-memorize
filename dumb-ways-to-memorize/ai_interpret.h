@@ -108,7 +108,7 @@ extern ai_function_t *gPresetAIs;
 ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables);
 ai_function_t *ParsePresetAI(object_t *obj, char *g_str);
 void SetAI_Var(ai_function_t* function, char * data_str, char * var_str);
-void SetAI_Action(ai_function_t* function, object_t * obj, char* g_str, char * action_str);
+void SetAI_Action(ai_function_t* function, object_t * obj, jsmntok_t* tok, char* g_str, char * action_str);
 void SetAI_Check(ai_function_t* function, char** variables_str, char * data_str, char * check_str);
 //void *GetFunctionAI(ai_function_t *data);
 int InitAISystem();

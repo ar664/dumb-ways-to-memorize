@@ -77,7 +77,8 @@ int CountMem(void *src, int size_type)
 
 /**
  * Allocate memory and copy over src into it. Adds Null to end.
- *
+ * Returns NULL on size 0
+ * 
  * @param [in,out]	dst	If non-null, destination for the allocation.
  * @param [in,out]	src	If non-null, source for the adding.
  * @param	size_type  	Size of the type.

@@ -12,7 +12,7 @@ level_t *gCurrentLevel = NULL;
 int LoadLevel(object_t *level, char *g_str)
 {
 	jsmntok_t *tempTok, *aiTok;
-	object_t *tempObj, *enemyObj, *posObj;
+	object_t *tempObj, *enemyObj, *posObj, *itemObj, *aiObj;
 	entity_t *tempEnt, *cachedEnt;
 	ai_function_t *enemyAI;
 	int tempInt, i, j, enemies, positions;
@@ -31,7 +31,7 @@ int LoadLevel(object_t *level, char *g_str)
 	}
 	
 	//Assign Name & Hint
-	tempTok = FindKey(level->keys, "Name", g_str);
+	tempTok = FindKey(level->keys, G_NAME_STR, g_str);
 	if(!tempTok)
 	{
 		printf("Level %s has no Name", level->name);
@@ -47,7 +47,7 @@ int LoadLevel(object_t *level, char *g_str)
 	}
 	
 	//Assign Background
-	tempTok = FindKey(level->keys, "Background", g_str);
+	tempTok = FindKey(level->keys, LEVEL_BACKGROUND_STR, g_str);
 	if(!tempTok)
 	{
 		printf("Level %s has no Background", level->name);
@@ -57,7 +57,7 @@ int LoadLevel(object_t *level, char *g_str)
 	gCurrentLevel->mBackground = LoadSprite(JsmnToString(&level->values[tempInt], g_str), 0);
 
 	//Assign Spawn Point
-	tempObj = FindObject(level->children, "Spawn");
+	tempObj = FindObject(level->children, LEVEL_SPAWN_STR);
 	if(!tempObj)
 	{
 		printf("Level %s has no Spawn", level->name);
@@ -68,30 +68,37 @@ int LoadLevel(object_t *level, char *g_str)
 	free(spawn);
 
 	//Spawn Enemies
-	enemyObj = FindObject(level->children, "Enemies");
+	enemyObj = FindObject(level->children, LEVEL_ENEMY_OBJ_STR);
 	if(enemyObj && enemyObj->children)
 	{
 		enemies = CountMem(enemyObj->children, sizeof(object_t));
 		for(i = 0; i < enemies; i++)
 		{
-			tempTok = FindKey(enemyObj->children[i].keys, "enemy", g_str);
+			tempTok = FindKey(enemyObj->children[i].keys, LEVEL_ENEMY_NAME_STR, g_str);
 			if(!tempTok)
 			{
 				continue;
 			}
 			tempInt = tempTok - enemyObj->children[i].keys;
-			tempTok = FindKey(enemyObj->children[i].keys, "ai", g_str);
+			tempTok = FindKey(enemyObj->children[i].keys, LEVEL_AI_STR, g_str);
 			if(!tempTok)
 			{
 				enemyAI = NULL;
 			} else
 			{
-				
+				//Find and parse AI
 				ConvertFileToUseable(JsmnToString(tempTok, g_str), NULL, &aiStr,&aiTok );
-				tempObj = ParseToObject(aiTok, aiStr);
-				enemyAI = ParsePresetAI(tempObj, aiStr);
+				aiObj = ParseToObject(aiTok, aiStr);
+				if( (tempObj = FindObject(aiObj, LEVEL_VARIABLES_STR)) != NULL )
+				{
+					enemyAI = ParseAI(aiObj, aiStr, ParseToStringArray(tempObj, aiStr));
+				} else
+				{
+					enemyAI = ParsePresetAI(aiObj, aiStr);
+				}
+				
 			}
-			posObj = FindObject(enemyObj, "position");
+			posObj = FindObject(enemyObj, LEVEL_POSITION_STR);
 			if(!posObj)
 			{
 				continue;
@@ -115,6 +122,9 @@ int LoadLevel(object_t *level, char *g_str)
 					memcpy(tempEnt, cachedEnt , sizeof(entity_t));
 					tempEnt->mPosition = *ParseToVec2(&posObj->children[j], g_str);
 					tempEnt->mData = enemyAI;
+					tempEnt->Think = ThinkEnemy;
+					tempEnt->Draw = DrawGeneric;
+					tempEnt->Touch = TouchEnemy;
 				}
 			} else
 			{
@@ -132,26 +142,29 @@ int LoadLevel(object_t *level, char *g_str)
 				memcpy(tempEnt, cachedEnt, sizeof(entity_t));
 				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
 				tempEnt->mData = enemyAI;
+				tempEnt->Think = ThinkEnemy;
+				tempEnt->Draw = DrawGeneric;
+				tempEnt->Touch = TouchEnemy;
 			}
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
 		}
 	}
 	
-	//Spawn Objects - same as enemies for now
-	enemyObj = FindObject(level->children, "Objects");
-	if(enemyObj && enemyObj->children)
+	//Spawn Objects
+	itemObj = FindObject(level->children, LEVEL_ITEM_OBJ_STR);
+	if(itemObj && itemObj->children)
 	{
-		enemies = CountMem(enemyObj->children, sizeof(object_t));
+		enemies = CountMem(itemObj->children, sizeof(object_t));
 		for(i = 0; i < enemies; i++)
 		{
-			tempTok = FindKey(enemyObj->children[i].keys, "object", g_str);
+			tempTok = FindKey(itemObj->children[i].keys, LEVEL_ITEM_NAME_STR, g_str);
 			if(!tempTok)
 			{
 				continue;
 			}
-			tempInt = tempTok - enemyObj->children[i].keys ;
-			posObj = FindObject(enemyObj, "position");
+			tempInt = tempTok - itemObj->children[i].keys ;
+			posObj = FindObject(itemObj, LEVEL_POSITION_STR);
 			if(!posObj)
 			{
 				continue;

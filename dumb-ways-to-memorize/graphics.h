@@ -24,6 +24,7 @@ struct sprite_s
 	Frame *mCurrentFrame;
 	SDL_Texture *mTexture;
 	vec2_t mSize;
+	int mFrames;
 	int refCount;
 	char *name;
 

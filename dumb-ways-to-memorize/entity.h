@@ -5,7 +5,7 @@
 #include "graphics.h"
 #include "ai_interpret.h"
 
-#define MAX_ENTITIES 750
+#define MAX_ENTITIES 250
 #define ENTITY_DIR_LEFT 0
 #define ENTITY_DIR_RIGHT 1
 
@@ -61,5 +61,15 @@ void DrawEntities();
 void FreeEntity(entity_t *ent);
 void FreeNonPlayerEntities();
 void ShutdownEntitySystem();
+
+//Think & Draw Functions
+void DrawGeneric(entity_t *self);
+void DrawPlayer(entity_t *self);
+void ThinkGeneric(entity_t *self);
+void ThinkPlayer(entity_t *self);
+void ThinkEnemy(entity_t *self);
+void TouchPlayer(entity_t *self, entity_t *other, int type);
+void TouchEnemy(entity_t *self, entity_t *other, int type);
+
 
 #endif

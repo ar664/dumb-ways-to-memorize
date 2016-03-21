@@ -36,6 +36,8 @@ object_t *gLevelObject;				/**< The level object */
 char *gGameData;					/**< Game Data File - holding the contents of file via string*/
 char *gEntityData;					/**< Entity data file */
 char *gLevelData;					/**< Information describing the current level */
+char *gEntitiesFile = NULL;
+char *gPowerUpsFile = NULL;
 entity_t *gEntityDictionary;		/**< Entities loaded from files AKA cached entities*/
 power_t *gPowerUps;					/**< The loaded power ups */
 GameState gGameState = SPLASH;		/**< State of the game */
@@ -85,7 +87,8 @@ int LoadGameData()
 		free(screen);
 	}
 	PrintObject(gGameObject, gGameData);
-
+	gEntitiesFile = JsmnToString(FindObject(gGameObject, ENTITIES_FILE_STR)->values, gGameData );
+	gPowerUpsFile = JsmnToString(FindObject(gGameObject, POWER_UPS_STR)->values, gGameData);
 
 	return 0;
 }
@@ -94,16 +97,18 @@ int LoadEntityData()
 {
 	int i, objects;
 	entity_t *temp;
+	object_t *tempObj;
 
 	//Init Entity Parse
-	if( ConvertFileToUseable(ENTITY_FILE, &gParser, &gEntityData, &gEntityTokens) == -1)
+	if( ConvertFileToUseable(gEntitiesFile, &gParser, &gEntityData, &gEntityTokens) == -1)
 	{
-		printf("Failure to Parse Entity Data");
+		printf("Failure to Parse Entity Data \n");
 		return -1;
 	}
 	gEntityObject = ParseToObject(gEntityTokens, gEntityData);
-	printf("Size of global tokens: %d \n", CountMem(gEntityTokens, sizeof(jsmntok_t)));
-	Hazards_str = ParseToStringArray(FindObject(gEntityObject, "Hazards"), gEntityData);
+	printf("Size of Entity tokens: %d \n", CountMem(gEntityTokens, sizeof(jsmntok_t)));
+	PrintObject(gEntityObject, gEntityData);
+	Hazards_str = ParseToStringArray(FindObject(gGameObject, "Hazards"), gGameData);
 	
 	//Set Entity Dictionary
 	objects = CountMem(gEntityObject->children, sizeof(object_t));
@@ -116,7 +121,16 @@ int LoadEntityData()
 	memset(gEntityDictionary, 0,sizeof(entity_t)*(objects+1));
 	for(i = 0; i < objects; i++)
 	{
+		//Set  sprites for each object
 		if(FindKey(gEntityObject->children[i].keys, "sprite(s)", gEntityData))
+		{
+			temp = ParseToEntity(&gEntityObject->children[i], gEntityData);
+			if(!temp) continue;
+
+			memcpy(&gEntityDictionary[i], temp, sizeof(entity_t));
+
+			if(temp) free(temp);
+		} else if ( (tempObj = FindObject(&gEntityObject->children[i], "sprite(s)")) != NULL)
 		{
 			temp = ParseToEntity(&gEntityObject->children[i], gEntityData);
 			if(!temp) continue;
@@ -171,17 +185,27 @@ int LoadLevelData()
 //After Load GameData, Before Menu
 int LoadPowerUpData()
 {
-	object_t *powers;
+	jsmntok_t *power_tok;
+	object_t *powers, *temp_obj;
 	power_t *temp_power;
+	char *power_str;
 	int powerCount, i;
 
-	powers = FindObject(gGameObject, "PowerUps");
-	if(!powers)
+	temp_obj = FindObject(gGameObject, "PowerUps");
+	if(!temp_obj)
 	{
 		printf("Could not find powerups in GameData");
 		return -1;
 	}
 
+	gPowerUpsFile = JsmnToString(temp_obj->values, gGameData);
+	ConvertFileToUseable(gPowerUpsFile, NULL, &power_str, &power_tok);
+	if(!power_str || !power_tok)
+	{
+		printf("Could not load power ups file : %s \n", gPowerUpsFile );
+	}
+
+	powers = ParseToObject(power_tok, power_str);
 	powerCount = CountMem(powers->children, sizeof(object_t));
 	gPowerUps = (power_t*) malloc(sizeof(power_t)*( powerCount+1 ));
 	if(!gPowerUps)
@@ -192,7 +216,7 @@ int LoadPowerUpData()
 
 	for(i = 0; i < powerCount; i++)
 	{
-		temp_power = ParseToPowerUp(&powers->children[i], gGameData);
+		temp_power = ParseToPowerUp(&powers->children[i], power_str);
 		if(!temp_power)
 		{
 			printf("Power up %d could not be loaded \n", i);
@@ -201,7 +225,7 @@ int LoadPowerUpData()
 		gPowerUps[i] = *temp_power;
 		if(temp_power) free(temp_power);
 	}
-	memset(&gPowerUps[powerCount], 0, sizeof(powerCount));
+	memset(&gPowerUps[powerCount], 0, sizeof(power_t));
 	return 0;
 }
 

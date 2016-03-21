@@ -9,7 +9,7 @@ void InitPlayer();
 entity_t *GetPlayer();
 void DecrementPlayerLives();
 
-extern int PlayerLives;
+extern int gPlayerLives;
 extern char *name;
 
 #endif

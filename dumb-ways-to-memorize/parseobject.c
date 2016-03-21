@@ -24,7 +24,7 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 	char *tempStr;
 	object_t *currentChild; jsmntok_t *currentKey, *currentValue;
 	object_t *children_array; jsmntok_t *keys_array, *values_array;
-	object_t *retVal = (object_t*) malloc(sizeof(object_t));
+	object_t *retVal = (object_t*) malloc(sizeof(object_t)*2);
 
 	//Err Check
 	if(!g_str || !token)
@@ -125,6 +125,7 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 	retVal->values = values_array;
 	retVal->keys = keys_array;
 	retVal->children = children_array;
+	memset(&retVal[1], 0, sizeof(object_t));
 	return retVal;
 	}
 

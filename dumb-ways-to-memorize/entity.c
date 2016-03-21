@@ -40,6 +40,7 @@ void ThinkGeneric(entity_t *self)
 void ThinkPlayer(entity_t *self)
 {
 	//Do input control
+	if(!self) return;
 	if(gButtonQ != BUTTON_NO_INPUT)
 	{
 		DoPlayerThink(self, gButtonQ);
