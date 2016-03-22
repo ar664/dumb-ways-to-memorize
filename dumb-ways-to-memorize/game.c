@@ -393,7 +393,6 @@ int LoadSelectedLevel(int level)
 
 void Poll()
 {
-	int i;
 	if( SDL_PollEvent(&gEventQ) )
 	{
 		if(gEventQ.type == SDL_CONTROLLERBUTTONDOWN)
@@ -413,7 +412,6 @@ void Poll()
 
 	}
 
-	
 	return;
 }
 
@@ -456,7 +454,11 @@ void Update()
 				exitRequest = 1;
 				return;
 			}
-			gMenus[0].Update(&gMenus[0], gButtonQ);
+			if(gButtonQ != -1)
+			{
+				gMenus[0].Update(&gMenus[0], gButtonQ);
+			}
+			
 			break;
 		}
 	case(GUESS):
@@ -467,7 +469,10 @@ void Update()
 				exitRequest = 1;
 				return;
 			}
-			gMenus[1].Update(&gMenus[1], gButtonQ);
+			if(gButtonQ != -1)
+			{
+				gMenus[1].Update(&gMenus[1], gButtonQ);
+			}
 			break;
 		}
 	case(PLAYING):
@@ -581,9 +586,9 @@ int Setup()
 	gController = SDL_GameControllerOpen(0);
 	LoadSelectedLevel(0);
 	PrintObject(gLevelObject, gLevelData);
-	test_sprite = LoadSprite("Sprite/UI/NESController.png",0);
-	test_sprite->mCurrentFrame = LoadAnimation(test_sprite->mSize.x, test_sprite->mSize.y, test_sprite->mSize.x, test_sprite->mSize.y);
-	FreeSprite(test_sprite);
+	//test_sprite = LoadSprite("Sprite/UI/NESController.png",0);
+	//test_sprite->mCurrentFrame = LoadAnimation(test_sprite->mSize.x, test_sprite->mSize.y, test_sprite->mSize.x, test_sprite->mSize.y);
+	//FreeSprite(test_sprite);
 
 	return 0;
 }
@@ -595,7 +600,7 @@ int Run()
 		Poll();
 		Update();
 		Draw();
-		SDL_Delay(FRAME_DELAY);
+		SDL_Delay(1);
 	}
 	return 0;
 }

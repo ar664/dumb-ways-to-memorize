@@ -2,14 +2,40 @@
 	"Background" : "Sprite/Level/Background.png",
 	"Type" : "power_select",
 	"Comment" : "_Names for powerups have to match",
+	"Comment 2" : "Extra variables defined as extra"
 	"link" : "Guess",
 	"Items" : [
 	{
-		"sprite" : "Sprite/Level/Background.png",
+		"extra" : "Teleport",
+		"sprite" : "Sprite/Level/Background.png"
+	},
+	
+	{
+		"extra" : "Fireball",
+		"sprite" : "Sprite/Level/Background.png"
+	},
+	
+	{
+		"extra" : "Telekenisis",
+		"sprite" : "Sprite/Level/Background.png"
+	},
+	
+	{
+		"extra" : "Flight",
+		"sprite" : "Sprite/Level/Background.png"
+	},
+	
+	{
+		"extra" : "OverPowered",
+		"sprite" : "Sprite/Level/Background.png"
+	},
+	
+	{
 		"text" : "Done selecting",
+		"sprite" : "Sprite/Level/Background.png",
 		"link" : "Playing"
 	}
-	
+		
 	
 	]
 

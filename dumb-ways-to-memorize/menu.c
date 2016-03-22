@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#include "parsepowerup.h"
 
 menu_t *gMenus = NULL;
 int gCurrentSelectedItem = 0;
@@ -59,7 +60,7 @@ void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 	case(SDL_CONTROLLER_BUTTON_DPAD_DOWN):
 		{
 			DeselectItemByNum(self, gCurrentSelectedItem);
-			if(gCurrentSelectedItem+1 >= CountMem(self->mItems, sizeof(menu_item_t)))
+			if(gCurrentSelectedItem+1 == CountMem(self->mItems, sizeof(menu_item_t)))
 			{
 				SelectItemByNum(self, gCurrentSelectedItem);
 				break;
@@ -102,7 +103,7 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 		}
 	case(SDL_CONTROLLER_BUTTON_DPAD_DOWN):
 		{
-			if(self->mSelectedItem+1 > self->mItems+CountMem(self->mItems, sizeof(menu_item_t)))
+			if(self->mSelectedItem+1 == self->mItems+self->mItemCount)
 			{
 				break;
 			}
@@ -120,21 +121,25 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 				self->mSelectedItem->State = MENU_ITEM_STATE_PICKED;
 			} else
 			{
-				powerUps = CountMem(self->mItems, sizeof(menu_item_t));
-				gSelectedPowerUps = (char**) malloc(sizeof(char*)*powerUps);
+				powerUps = CountMem(gPowerUps, sizeof(power_t));
+				gSelectedPowerUps = (char**) malloc(sizeof(char*)*(powerUps+1));
 				selected_power_ups = 0;
 				for(i = 0; i < powerUps; i++)
 				{
 					if(self->mItems[i].State & MENU_ITEM_STATE_PICKED)
 					{
-						gSelectedPowerUps[selected_power_ups] = self->mItems[i].Name;
+						gSelectedPowerUps[selected_power_ups] = gPowerUps[i].name;
 						selected_power_ups++;
 					}
 				}
 				if(selected_power_ups != gLevelsPerGame)
 				{
 					printf("Too many or not enough power_ups selected");
-					free(gSelectedPowerUps);
+					for(i = 0; i < selected_power_ups; i++)
+					{
+						gSelectedPowerUps[i] = NULL;
+					}
+					if(gSelectedPowerUps) free(gSelectedPowerUps);
 					break;
 				}
 				gSelectedPowerUps[selected_power_ups] = NULL;
@@ -176,7 +181,8 @@ int InitMenuSystem()
 //Draw Function through gCurrentSelectedItm
 void DrawMenuByNum(menu_t *self)
 {
-	int i, itemCount;
+	int i;
+	SDL_Texture *temp_texture;
 	SDL_Rect selection_rect = {0,0,10,10};
 
 	if(!self)
@@ -194,8 +200,7 @@ void DrawMenuByNum(menu_t *self)
 		}
 	}
 
-	itemCount = CountMem(self->mItems, sizeof(menu_item_t));
-	for(i = 0; i < itemCount; i++)
+	for(i = 0; i < self->mItemCount; i++)
 	{
 		if( i == gCurrentSelectedItem )
 		{
@@ -210,7 +215,9 @@ void DrawMenuByNum(menu_t *self)
 			{
 				printf("Failed to draw Rect \nSDL Error: %s", SDL_GetError());
 			}
-			SDL_RenderCopy(gRenderer, SDL_CreateTextureFromSurface(gRenderer, gRedSurface), &selection_rect,&selection_rect);
+			temp_texture = SDL_CreateTextureFromSurface(gRenderer, gRedSurface);
+			SDL_RenderCopy(gRenderer, temp_texture, &selection_rect,&selection_rect);
+			if(temp_texture) SDL_free(temp_texture);
 		} else {
 			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
 			{
@@ -225,7 +232,8 @@ void DrawMenuByNum(menu_t *self)
 //Draw Function through mItem State
 void DrawMenuByState(menu_t *self)
 {
-	int i, itemCount;
+	int i;
+	SDL_Texture *temp_texture;
 	SDL_Rect selection_rect = {0,0,10,10};
 
 	if(!self)
@@ -239,8 +247,7 @@ void DrawMenuByState(menu_t *self)
 		DrawSprite(self->mBackground, NULL, gRenderer);
 	}
 
-	itemCount = CountMem(self->mItems, sizeof(menu_item_t));
-	for(i = 0; i < itemCount; i++)
+	for(i = 0; i < self->mItemCount; i++)
 	{
 		if(self->mItems[i].State & (MENU_ITEM_STATE_SELECTED | MENU_ITEM_STATE_PICKED))
 		{
@@ -255,9 +262,28 @@ void DrawMenuByState(menu_t *self)
 			{
 				printf("Failed to draw Rect \nSDL Error: %s", SDL_GetError());
 			}
-			SDL_RenderCopy(gRenderer, SDL_CreateTextureFromSurface(gRenderer, gRedSurface), &selection_rect,&selection_rect);
+			temp_texture = SDL_CreateTextureFromSurface(gRenderer, gRedSurface);
+			SDL_RenderCopy(gRenderer, temp_texture, &selection_rect,&selection_rect);
+			if(temp_texture) SDL_free(temp_texture);
+		} else if (&self->mItems[i] == self->mSelectedItem)
+		{
+			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
+			{
+				printf("Failed to draw Menu Item : %d \n", i);
+				return;
+			}
+			selection_rect.x = self->mItems[i].Position.x;
+			selection_rect.y = self->mItems[i].Position.y;
+			if(SDL_RenderFillRect(gRedRenderer, &selection_rect))
+			{
+				printf("Failed to draw Rect \nSDL Error: %s", SDL_GetError());
+			}
+			temp_texture = SDL_CreateTextureFromSurface(gRenderer, gRedSurface);
+			SDL_RenderCopy(gRenderer, temp_texture, &selection_rect,&selection_rect);
+			if(temp_texture) SDL_free(temp_texture);
 		} else
 		{
+
 			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
 			{
 				printf("Failed to draw Menu Item : %d \n", i);
@@ -280,7 +306,8 @@ void DrawMenuByState(menu_t *self)
 void ProcessMenuItemsByType(menu_item_t *items,menu_type_t type)
 {
 	SDL_Rect format;
-	int itemCount, i, width, height, divisor, radius;
+	int itemCount, i, width, height, divisor;
+	float radius;
 	itemCount = CountMem(items, sizeof(menu_item_t));
 	divisor = 0; radius = 0;
 	width = gScreenWidth ? gScreenWidth : SCREEN_RES_W;
@@ -309,7 +336,7 @@ void ProcessMenuItemsByType(menu_item_t *items,menu_type_t type)
 		{
 			//Center of Screen
 			SDL_SetRect(&format, width/2, height/2, 0, 0);
-			radius = height/3;
+			radius = (float) height/3;
 			break;
 		}
 	default:
@@ -371,6 +398,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 		return NULL;
 	}
 
+	type_str = NULL;
 	//Check menu type
 	temp_str = FindValueFromKey(object->keys, MENU_TYPE, g_str);
 	if(!temp_str)
@@ -416,8 +444,12 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 		printf("Max menu items for menu %s \n", object->name);
 		temp_i = MENU_ITEM_MAX -1;
 	}
+
+	menu->mItemCount = temp_i;
 	for(i = 0; i < temp_i; i++)
 	{
+		menu->mItems[i].State = MENU_ITEM_STATE_NOT_SELECTED;
+		menu->mItems[i].Info = NULL;
 		temp_tok = FindKey(temp_obj->children[i].keys, MENU_ITEM_SPRITE, g_str);
 		if(temp_tok)
 		{
@@ -432,19 +464,28 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 			temp_str = JsmnToString(&temp_obj->children[i].values[value_pos], g_str);
 			menu->mItems[i].Name = temp_str;
 		}
-		menu->mItems[i].State = MENU_ITEM_STATE_NOT_SELECTED;
+		
 		temp_tok = FindKey(temp_obj->children[i].keys, MENU_ITEM_LINK, g_str);
 		if(temp_tok)
 		{
 			value_pos = (temp_tok - temp_obj->children[i].keys);
 			temp_str = JsmnToString(&temp_obj->children[i].values[value_pos], g_str);
 			menu->mItems[i].NextState = StrToGameState(temp_str);
-			free(temp_str);
+			if(temp_str) free(temp_str);
 		} else
 		{
 			menu->mItems[i].NextState = SPLASH;
 		}
-		menu->mItems[i].Info = NULL;
+		
+		temp_tok = FindKey(temp_obj->children[i].keys, MENU_ITEM_EXTRA, g_str);
+		if(temp_tok)
+		{
+			value_pos = (temp_tok - temp_obj->children[i].keys);
+			temp_str = JsmnToString(&temp_obj->children[i].values[value_pos], g_str);
+			menu->mItems[i].Info = temp_str;
+			if(temp_str) free(temp_str);
+		}
+		
 			
 	}
 
@@ -456,7 +497,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 		type_str = strdup(MENU_TYPE_STR_V);
 	}
 	value_pos = (type_tok - object->keys);
-	type_str = JsmnToString(&object->values[value_pos], g_str);
+	type_str = type_tok ? JsmnToString(&object->values[value_pos], g_str) : type_str;
 	ProcessMenuItemsByType(menu->mItems, (menu_type_t) StrToMenuType(type_str));
 	menu->mSelectedItem = menu->mItems;
 	menu->mSelectedItem->State = MENU_ITEM_STATE_SELECTED;
@@ -511,6 +552,7 @@ menu_t* FindMenuFromGameState(GameState curr_state)
 			return &gMenus[i];
 		}
 	}
+	return NULL;
 }
 
 menu_t* FindFreeMenu()

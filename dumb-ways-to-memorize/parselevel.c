@@ -34,7 +34,7 @@ int LoadLevel(object_t *level, char *g_str)
 	tempTok = FindKey(level->keys, G_NAME_STR, g_str);
 	if(!tempTok)
 	{
-		printf("Level %s has no Name", level->name);
+		printf("Level %s has no Name \n", level->name);
 		return -1;
 	}
 	tempInt = tempTok - level->keys;
@@ -50,7 +50,7 @@ int LoadLevel(object_t *level, char *g_str)
 	tempTok = FindKey(level->keys, LEVEL_BACKGROUND_STR, g_str);
 	if(!tempTok)
 	{
-		printf("Level %s has no Background", level->name);
+		printf("Level %s has no Background \n", gCurrentLevel->mName);
 		return -1;
 	}
 	tempInt = tempTok - level->keys;
@@ -60,10 +60,15 @@ int LoadLevel(object_t *level, char *g_str)
 	tempObj = FindObject(level->children, LEVEL_SPAWN_STR);
 	if(!tempObj)
 	{
-		printf("Level %s has no Spawn", level->name);
+		printf("Level %s has no Spawn \n", gCurrentLevel->mName);
 		return -1;
 	}
 	spawn = ParseToVec2(tempObj, g_str);
+	if(!spawn)
+	{
+		printf("Level %s spawn parse error \n", gCurrentLevel->mName);
+		return -1;
+	}
 	gCurrentLevel->mSpawnPoint = *spawn;
 	free(spawn);
 

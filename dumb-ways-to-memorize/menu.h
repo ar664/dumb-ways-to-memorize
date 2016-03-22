@@ -12,6 +12,7 @@
 #define MENU_ITEM_SPRITE "sprite"
 #define MENU_ITEM_TEXT	"text"
 #define MENU_ITEM_LINK	"link"
+#define MENU_ITEM_EXTRA "extra"
 #define MENU_TYPE		"Type"
 #define MENU_TYPE_STR_POWER	"power_select"
 #define MENU_TYPE_STR_H		"horizontal"
@@ -50,6 +51,7 @@ struct menu_s
 	sprite_t *mBackground;
 	GameState mCurrentState;
 	GameState mPreviousState;
+	int mItemCount;
 	void (*Update)(menu_t *self, SDL_GameControllerButton button);
 	void (*Draw)(menu_t *self);
 };
