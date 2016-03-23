@@ -26,11 +26,11 @@ void DrawGeneric(entity_t *self)
 	if(self->mAnimation)
 	{
 		//IncrementFrame(self->mAnimation);
-		DrawSprite(self->mAnimation, &self->mPosition, gRenderer);
+		DrawSprite(self->mAnimation, &self->mCurrentFrame, &self->mPosition, gRenderer);
 	} else
 	{
 		//IncrementFrame(self->mSprites[ANIMATION_IDLE]);
-		DrawSprite(self->mSprites[ANIMATION_IDLE], &self->mPosition, gRenderer);
+		DrawSprite(self->mSprites[ANIMATION_IDLE], &self->mCurrentFrame, &self->mPosition, gRenderer);
 	}
 	
 }
@@ -56,10 +56,11 @@ void ThinkPlayer(entity_t *self)
 	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_DPAD_LEFT))
 	{
 		DoPlayerThink(self, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
-	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_DPAD_LEFT))
+	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_DPAD_RIGHT))
 	{
 		DoPlayerThink(self, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
 	}
+	self->mNextThink = gCurrentTime + 1*FRAME_DELAY;
 }
 
 void ThinkEnemy(entity_t *self)
@@ -110,7 +111,7 @@ void TouchPlayer(entity_t *self, entity_t *other, int type)
 			if(! (other->mHazards & self->mHazards) )
 			{
 				self->mHealth -= HAZARD_DAMAGE;
-				self->mAnimation = self->mSprites[ANIMATION_HIT];
+				self->mAnimation = ANIMATION_HIT >= CountMem(self->mSprites, sizeof(sprite_t*)) ? NULL : self->mSprites[ANIMATION_HIT];
 				self->mNextThink += HAZARD_STUN_FRAMES*FRAME_DELAY;
 			}
 			break;
@@ -120,7 +121,7 @@ void TouchPlayer(entity_t *self, entity_t *other, int type)
 			if(! (other->mHazards & self->mHazards) )
 			{
 				self->mHealth -= HAZARD_DAMAGE;
-				self->mAnimation = self->mSprites[ANIMATION_HIT];
+				self->mAnimation = ANIMATION_HIT >= CountMem(self->mSprites, sizeof(sprite_t*)) ? NULL : self->mSprites[ANIMATION_HIT];
 				self->mNextThink += HAZARD_STUN_FRAMES*FRAME_DELAY;
 			}
 			break;

@@ -27,7 +27,7 @@ void RunPhysics()
 			Vec2Add(&gEntities[i].mAccel,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
 			if(gEntities[i].mWeight)
 			{
-				Vec2Add(&gravity,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
+				Vec2Add(&gravity,&gEntities[i].mPosition,&gEntities[i].mPosition);
 			}
 			ApplySpeedLimit(&gEntities[i].mVelocity);
 			ApplyBounds(&gEntities[i].mPosition);

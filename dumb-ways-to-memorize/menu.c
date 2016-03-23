@@ -192,7 +192,7 @@ void DrawMenuByNum(menu_t *self)
 
 	if(self->mBackground)
 	{
-		if(DrawSprite(self->mBackground, NULL, gRenderer))
+		if(DrawSprite(self->mBackground, NULL , NULL, gRenderer))
 		{
 			printf("Failed to draw Background \n");
 			return;
@@ -203,7 +203,7 @@ void DrawMenuByNum(menu_t *self)
 	{
 		if( i == gCurrentSelectedItem )
 		{
-			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
+			if(DrawSprite(self->mItems[i].Image, NULL , &self->mItems[i].Position, gRenderer))
 			{
 				printf("Failed to draw Menu Item : %d \n", i);
 				return;
@@ -212,7 +212,7 @@ void DrawMenuByNum(menu_t *self)
 			selection_rect.y = self->mItems[i].Position.y;
 			SDL_RenderCopy(gRenderer, gRedTexture, &selection_rect,&selection_rect);
 		} else {
-			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
+			if(DrawSprite(self->mItems[i].Image, NULL, &self->mItems[i].Position, gRenderer))
 			{
 				printf("Failed to draw Menu Item : %d \n", i);
 				return;
@@ -236,14 +236,14 @@ void DrawMenuByState(menu_t *self)
 
 	if(self->mBackground)
 	{
-		DrawSprite(self->mBackground, NULL, gRenderer);
+		DrawSprite(self->mBackground, NULL , NULL, gRenderer);
 	}
 
 	for(i = 0; i < self->mItemCount; i++)
 	{
 		if(self->mItems[i].State & MENU_ITEM_STATE_PICKED)
 		{
-			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
+			if(DrawSprite(self->mItems[i].Image, NULL , &self->mItems[i].Position, gRenderer))
 			{
 				printf("Failed to draw Menu Item : %d \n", i);
 				return;
@@ -253,7 +253,7 @@ void DrawMenuByState(menu_t *self)
 			SDL_RenderCopy(gRenderer, gRedTexture, &selection_rect,&selection_rect);
 		} else if (&self->mItems[i] == self->mSelectedItem)
 		{
-			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
+			if(DrawSprite(self->mItems[i].Image, NULL , &self->mItems[i].Position, gRenderer))
 			{
 				printf("Failed to draw Menu Item : %d \n", i);
 				return;
@@ -264,7 +264,7 @@ void DrawMenuByState(menu_t *self)
 		} else
 		{
 
-			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
+			if(DrawSprite(self->mItems[i].Image, NULL , &self->mItems[i].Position, gRenderer))
 			{
 				printf("Failed to draw Menu Item : %d \n", i);
 				return;

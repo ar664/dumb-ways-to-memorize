@@ -21,7 +21,6 @@ typedef struct sprite_s sprite_t;
 struct sprite_s
 {
 	Frame mAnimations[MAX_ANIMATIONS];
-	Frame *mCurrentFrame;
 	SDL_Texture *mTexture;
 	vec2_t mSize;
 	int mFrames;
@@ -37,7 +36,7 @@ sprite_t *FindSprite(const char *name, int *position);
 sprite_t *FindFreeSprite(int *position);
 sprite_t *LoadSprite(const char *name, int flags);
 sprite_t *LoadSpriteWithAnimation();
-int DrawSprite(sprite_t *sprite, vec2_t *position, SDL_Renderer *renderer);
+int DrawSprite(sprite_t *sprite, int* frame, vec2_t * position, SDL_Renderer * renderer);
 void FreeSprite(sprite_t *sprite);
 void IncrementFrame(sprite_t *sprite);
 void SDL_SetRect(SDL_Rect *rect, int x, int y, int w, int h);

@@ -12,7 +12,7 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 			if(ent->mPosition.y == (gScreenHeight + ent->mSprites[0]->mSize.y))
 			{
 				ent->mVelocity.y += 5;
-				ent->mAnimation = ent->mSprites[ANIMATION_JUMP];
+				ent->mAnimation = ANIMATION_JUMP >= CountMem(ent->mSprites, sizeof(sprite_t*)) ? NULL : ent->mSprites[ANIMATION_JUMP];
 			}
 			
 			break;
@@ -25,14 +25,14 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 	case(SDL_CONTROLLER_BUTTON_DPAD_LEFT):
 		{
 			ent->mVelocity.x -= 5;
-			ent->mAnimation = ent->mSprites[ANIMATION_WALK];
+			ent->mAnimation = ANIMATION_WALK >= CountMem(ent->mSprites, sizeof(sprite_t*)) ? NULL : ent->mSprites[ANIMATION_WALK];
 			ent->mDirection = ENTITY_DIR_LEFT;
 			break;
 		}
 	case(SDL_CONTROLLER_BUTTON_DPAD_RIGHT):
 		{
 			ent->mVelocity.x += 5;
-			ent->mAnimation = ent->mSprites[ANIMATION_WALK];
+			ent->mAnimation = ANIMATION_WALK >= CountMem(ent->mSprites, sizeof(sprite_t*)) ? NULL : ent->mSprites[ANIMATION_WALK];;
 			ent->mDirection = ENTITY_DIR_RIGHT;
 			break;
 		}

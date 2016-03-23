@@ -259,5 +259,5 @@ void DrawLevel()
 		printf("Level not loaded, unable to print");
 		return;
 	}
-	DrawSprite(gCurrentLevel->mBackground, NULL , gRenderer);
+	DrawSprite(gCurrentLevel->mBackground, NULL , NULL, gRenderer);
 }

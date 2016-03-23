@@ -25,6 +25,7 @@ struct entity_s
 	int mHealth;
 	int mDamage;
 	int mWeight;
+	int mCurrentFrame;
 	int mDirection:1;				/**< The direction entity is facing*/
 	collision_type_t mCollisionType;
 	entity_state_t mEntityState;

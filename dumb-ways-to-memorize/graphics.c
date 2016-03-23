@@ -183,28 +183,28 @@ sprite_t *LoadSprite(const char *name, int flags)
  * @date	3/16/2016
  */
 
-int DrawSprite(sprite_t *sprite, vec2_t *position, SDL_Renderer *renderer)
+int DrawSprite(sprite_t *sprite, int* frame, vec2_t * position, SDL_Renderer * renderer)
 {
 	SDL_Rect src, dst;
-	int frame;
+	int zero = 0;
 	if(!sprite)
 	{
 		printf("Null sprite given \n");
 		return -1;
 	}
-	if(!sprite->mCurrentFrame)
+	if(!frame)
 	{
-		sprite->mCurrentFrame = &sprite->mAnimations[0];
+		frame = &zero;
 	}
-
-	if(sprite->mCurrentFrame > &sprite->mAnimations[MAX_ANIMATIONS])
+	if( *frame >= sprite->mFrames )
 	{
-		sprite->mCurrentFrame = &sprite->mAnimations[0];
+		*frame = 0;
 	}
-	SDL_SetRect(&src, sprite->mCurrentFrame->Position.x, sprite->mCurrentFrame->Position.y, sprite->mSize.x, sprite->mSize.y);
-	frame = sprite->mCurrentFrame - sprite->mAnimations;
-	sprite->mCurrentFrame = frame < CountMem(&sprite->mAnimations[0], sizeof(vec2_t)) ? sprite->mCurrentFrame+1 : 0;
 	
+	SDL_SetRect(&src, sprite->mAnimations[*frame].Position.x, sprite->mAnimations[*frame].Position.y, sprite->mSize.x, sprite->mSize.y);
+	
+	*frame = *frame+1;
+
 	if(!position)
 	{
 		SDL_SetRect(&dst, 0, 0, 0, 0);
@@ -350,13 +350,7 @@ void IncrementFrame(sprite_t* sprite)
 	{
 		return;
 	}
-	if(!sprite->mCurrentFrame || (sprite->mCurrentFrame - sprite->mAnimations >= frames) )
-	{
-		sprite->mCurrentFrame = sprite->mAnimations;
-	} else
-	{
-		sprite->mCurrentFrame++;
-	}
+
 }
 
 void SDL_SetRect(SDL_Rect* rect, int x, int y, int w, int h)

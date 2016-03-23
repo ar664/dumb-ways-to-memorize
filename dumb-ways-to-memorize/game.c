@@ -616,7 +616,7 @@ void DrawSplash()
 {
 	if(gSplash)
 	{
-		if(DrawSprite(gSplash, &gZeroPos, gRenderer))
+		if(DrawSprite(gSplash, NULL, &gZeroPos, gRenderer))
 		{
 			printf("Couldn't draw splash: %s \n", SDL_GetError());
 		}

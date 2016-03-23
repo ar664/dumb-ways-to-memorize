@@ -35,7 +35,8 @@ void EditEntity(entity_t  *ent, EntityMembers member, void *value)
 
 /**
  * Parse to entity.
- * Assigns everything , but the entity function pointers
+ * Tries to Assign everything , but the entity function pointers.
+ * Current Frame = 0, Weight = 1
  *
  * @param [in,out]	object	If non-null, the object.
  * @param [in,out]	str   	If non-null, the string.
@@ -137,6 +138,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 		}
 	}
 	retVal->mNextThink = 1;
+	retVal->mCurrentFrame = 0;
 	PrintEntity(retVal);
 	return retVal;
 }
