@@ -1,5 +1,8 @@
 {
 	"Comment": "Cant begin names with n t or f or  use colon due to parser",
+	"Screen Dimensions" : [1280, 720],
+	"Gravity" : 9.8,
+	"LevelsPerGame" : 4,
 	"Input Types" : ["X mouse", "X", "mouse", "none"],
 	"Use Types" : ["infinite", "num", "static"],
 	"Menu Types" : ["horizontal", "vertical", "grid", "power_select"],
@@ -7,8 +10,6 @@
 	"Interactions" : ["move", "destroy", "spawn", "edit", "nullify"],
 	"Targets" : ["self", "at-point", "world"],
 	"Game Name": "Dumb Ways to Memorize",
-	"Screen Dimensions" : [1280, 720],
-	"Gravity" : 9.8,
 	"Test-Position" : [ [0,0], [1,1] ],
 	"Entities" : ["Entities.json"],
 	"Collision Types" : ["static", "ragdoll", "clip"],

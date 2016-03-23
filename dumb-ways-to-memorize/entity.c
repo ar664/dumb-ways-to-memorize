@@ -14,6 +14,14 @@ char *EntityStates_str[] = {"alive", "dead", "other", 0};
 //Draw Functions
 void DrawGeneric(entity_t *self)
 {
+	if(!self)
+	{
+		return;
+	}
+	if(!self->mSprites)
+	{
+		return;
+	}
 	if(self->mAnimation)
 	{
 		IncrementFrame(self->mAnimation);

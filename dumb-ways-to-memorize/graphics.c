@@ -9,6 +9,7 @@
 SDL_Window *gWindow = NULL;
 SDL_Renderer *gRenderer = NULL;
 SDL_Surface *gRedSurface = NULL;
+SDL_Texture *gRedTexture = NULL;
 SDL_Renderer *gRedRenderer = NULL;
 sprite_t *gSprites = NULL;
 int gLastSprite = 0;
@@ -78,7 +79,11 @@ int InitGraphics()
 	{
 		printf("Can't set red renderer : %s \n", SDL_GetError());
 	}
-
+	SDL_RenderClear(gRedRenderer);
+	if( (gRedTexture = SDL_CreateTextureFromSurface(gRenderer, gRedSurface)) == NULL)
+	{
+		printf("Can't create red texture : %s \n", SDL_GetError());
+	}
 	gSprites = (sprite_t*) malloc(sizeof(sprite_t)*MAX_SPRITES);
 	if(!gSprites)
 	{

@@ -182,7 +182,6 @@ int InitMenuSystem()
 void DrawMenuByNum(menu_t *self)
 {
 	int i;
-	SDL_Texture *temp_texture;
 	SDL_Rect selection_rect = {0,0,10,10};
 
 	if(!self)
@@ -211,13 +210,7 @@ void DrawMenuByNum(menu_t *self)
 			}
 			selection_rect.x = self->mItems[i].Position.x;
 			selection_rect.y = self->mItems[i].Position.y;
-			if(SDL_RenderFillRect(gRedRenderer, &selection_rect))
-			{
-				printf("Failed to draw Rect \nSDL Error: %s", SDL_GetError());
-			}
-			temp_texture = SDL_CreateTextureFromSurface(gRenderer, gRedSurface);
-			SDL_RenderCopy(gRenderer, temp_texture, &selection_rect,&selection_rect);
-			if(temp_texture) SDL_free(temp_texture);
+			SDL_RenderCopy(gRenderer, gRedTexture, &selection_rect,&selection_rect);
 		} else {
 			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
 			{
@@ -233,7 +226,6 @@ void DrawMenuByNum(menu_t *self)
 void DrawMenuByState(menu_t *self)
 {
 	int i;
-	SDL_Texture *temp_texture;
 	SDL_Rect selection_rect = {0,0,10,10};
 
 	if(!self)
@@ -249,7 +241,7 @@ void DrawMenuByState(menu_t *self)
 
 	for(i = 0; i < self->mItemCount; i++)
 	{
-		if(self->mItems[i].State & (MENU_ITEM_STATE_SELECTED | MENU_ITEM_STATE_PICKED))
+		if(self->mItems[i].State & MENU_ITEM_STATE_PICKED)
 		{
 			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
 			{
@@ -258,13 +250,7 @@ void DrawMenuByState(menu_t *self)
 			}
 			selection_rect.x = self->mItems[i].Position.x;
 			selection_rect.y = self->mItems[i].Position.y;
-			if(SDL_RenderFillRect(gRedRenderer, &selection_rect))
-			{
-				printf("Failed to draw Rect \nSDL Error: %s", SDL_GetError());
-			}
-			temp_texture = SDL_CreateTextureFromSurface(gRenderer, gRedSurface);
-			SDL_RenderCopy(gRenderer, temp_texture, &selection_rect,&selection_rect);
-			if(temp_texture) SDL_free(temp_texture);
+			SDL_RenderCopy(gRenderer, gRedTexture, &selection_rect,&selection_rect);
 		} else if (&self->mItems[i] == self->mSelectedItem)
 		{
 			if(DrawSprite(self->mItems[i].Image, &self->mItems[i].Position, gRenderer))
@@ -274,13 +260,7 @@ void DrawMenuByState(menu_t *self)
 			}
 			selection_rect.x = self->mItems[i].Position.x;
 			selection_rect.y = self->mItems[i].Position.y;
-			if(SDL_RenderFillRect(gRedRenderer, &selection_rect))
-			{
-				printf("Failed to draw Rect \nSDL Error: %s", SDL_GetError());
-			}
-			temp_texture = SDL_CreateTextureFromSurface(gRenderer, gRedSurface);
-			SDL_RenderCopy(gRenderer, temp_texture, &selection_rect,&selection_rect);
-			if(temp_texture) SDL_free(temp_texture);
+			SDL_RenderCopy(gRenderer, gRedTexture, &selection_rect,&selection_rect);
 		} else
 		{
 
@@ -360,8 +340,8 @@ void ProcessMenuItemsByType(menu_item_t *items,menu_type_t type)
 		}
 		if(type & MENU_TYPE_POWER)
 		{
-			items[i].Position.x = format.x - (float) radius*sinf( (float) i/(itemCount+1));
-			items[i].Position.y = format.y - (float) radius*cosf( (float) i/(itemCount+1));
+			items[i].Position.x = format.x - (float) radius*sinf( 3.14 * (float) i/(itemCount+1));
+			items[i].Position.y = format.y - (float) radius*cosf( 3.14 * (float) i/(itemCount+1));
 		}
 	}
 

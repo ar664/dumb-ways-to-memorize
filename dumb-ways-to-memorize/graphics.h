@@ -47,6 +47,7 @@ extern int gLastSprite;
 extern SDL_Window *gWindow;
 extern SDL_Renderer *gRenderer;
 extern SDL_Surface *gRedSurface;
+extern SDL_Texture *gRedTexture;
 extern SDL_Renderer *gRedRenderer;
 
 #endif

@@ -60,7 +60,6 @@ int LoadGameData()
 {
 	vec2_t *screen;
 	object_t *temp_obj;
-	int value_pos;
 	//Init GameData Parse
 	if(ConvertFileToUseable(JSON_FILE, &gParser, &gGameData, &gGameTokens) == -1)
 	{
@@ -97,7 +96,6 @@ int LoadEntityData()
 {
 	int i, objects;
 	entity_t *temp;
-	object_t *tempObj;
 
 	//Init Entity Parse
 	if( ConvertFileToUseable(gEntitiesFile, &gParser, &gEntityData, &gEntityTokens) == -1)
@@ -130,7 +128,7 @@ int LoadEntityData()
 			memcpy(&gEntityDictionary[i], temp, sizeof(entity_t));
 
 			if(temp) free(temp);
-		} else if ( (tempObj = FindObject(&gEntityObject->children[i], "sprite(s)")) != NULL)
+		} else if ( FindObject(&gEntityObject->children[i], "sprite(s)") )
 		{
 			temp = ParseToEntity(&gEntityObject->children[i], gEntityData);
 			if(!temp) continue;
@@ -388,7 +386,7 @@ int LoadSelectedLevel(int level)
 		perror("Unable to Load level \n");
 		return -1;
 	}
-
+	return 0;
 }
 
 void Poll()
@@ -420,7 +418,7 @@ void UpdatePlaying();
 
 void Update()
 {
-	jsmntok_t *splash = NULL;
+	jsmntok_t *splash;
 	switch(gGameState)
 	{
 	case(SPLASH):
@@ -480,8 +478,10 @@ void Update()
 			UpdatePlaying();
 			break;
 		}
+	default:
+		break;
 	}
-	return;
+	
 }
 
 void DrawSplash();
@@ -492,8 +492,6 @@ void DrawPlaying();
 void Draw()
 {
 	SDL_RenderClear(gRenderer);
-	SDL_RenderClear(gRedRenderer);
-	SDL_SetRenderDrawColor(gRedRenderer, 0xFF, 0, 0, 0xFF);
 	switch(gGameState)
 	{
 	case(SPLASH):
@@ -516,8 +514,9 @@ void Draw()
 			DrawPlaying();
 			break;
 		}
+	default:
+		break;
 	}
-	SDL_RenderPresent(gRedRenderer);
 	SDL_RenderPresent(gRenderer);
 	return;
 }
@@ -533,8 +532,8 @@ void Draw()
 
 int Setup()
 {
-	sprite_t *test_sprite;
-	vec2_t test_vec = {0,0};
+	//sprite_t *test_sprite;
+	//vec2_t test_vec = {0,0};
 	srand(SDL_GetTicks());
 	//atexit(Shutdown);
 
@@ -584,6 +583,7 @@ int Setup()
 		return -1;
 	}
 	gController = SDL_GameControllerOpen(0);
+	InitPlayer();
 	LoadSelectedLevel(0);
 	PrintObject(gLevelObject, gLevelData);
 	//test_sprite = LoadSprite("Sprite/UI/NESController.png",0);
