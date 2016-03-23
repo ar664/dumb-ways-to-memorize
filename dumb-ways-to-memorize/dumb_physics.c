@@ -21,13 +21,19 @@ void RunPhysics()
 		{
 			continue;
 		}
-		Vec2Add(&gEntities[i].mVelocity,&gEntities[i].mPosition,&gEntities[i].mPosition);
-		Vec2Add(&gEntities[i].mAccel,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
-		if(gEntities[i].mWeight)
+		if(!gEntities[i].mCollisionType == COLLISION_TYPE_STATIC)
 		{
-			Vec2Add(&gravity,&gEntities[i].mAccel,&gEntities[i].mAccel);
+			Vec2Add(&gEntities[i].mVelocity,&gEntities[i].mPosition,&gEntities[i].mPosition);
+			Vec2Add(&gEntities[i].mAccel,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
+			if(gEntities[i].mWeight)
+			{
+				Vec2Add(&gravity,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
+			}
+			ApplySpeedLimit(&gEntities[i].mVelocity);
+			ApplyBounds(&gEntities[i].mPosition);
+			ApplyFriction(&gEntities[i].mVelocity);
 		}
-		ApplySpeedLimit(&gEntities[i].mVelocity);
+		
 		//Vec2Add(&friction,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
 		
 	}
@@ -38,7 +44,7 @@ void RunPhysics()
 		{
 			continue;
 		}
-		for(j = i; MAX_ENTITIES; j++)
+		for(j = i; j < MAX_ENTITIES; j++)
 		{
 			if(i == j || !gEntities[j].mName)
 			{
@@ -58,7 +64,7 @@ void RunPhysics()
  * @param [in,out]	self 	If non-null, the class instance that this method operates on.
  * @param [in,out]	other	If non-null, the other.
  *
- * @return	An int.
+ * @return	An int 1 if colliding, 0 if not.
  *
  * @author	Anthony Rios
  * @date	3/20/2016
@@ -70,7 +76,10 @@ int CheckCollision(entity_t *self, entity_t *other)
 	{
 		return 0;
 	}
-
+	if(!self->mSprites || !self->mSprites)
+	{
+		return 0;
+	}
 	if(self->mPosition.x + self->mSprites[0]->mSize.x >= other->mPosition.x && self->mPosition.x <= other->mPosition.x + other->mSprites[0]->mSize.x)
 	{
 		if(self->mPosition.y + self->mSprites[0]->mSize.y >= other->mPosition.y && self->mPosition.y <= other->mPosition.y + other->mSprites[0]->mSize.y)
@@ -124,6 +133,36 @@ void DoCollision(entity_t *self, entity_t *other)
 
 void ApplySpeedLimit(vec2_t* a)
 {
-	a->x = abs(a->x) > PHYSICS_MAX_SPEED ? (a->x < 0 ? -PHYSICS_MAX_SPEED : PHYSICS_MAX_SPEED): a->x;
-	a->x = abs(a->y) > PHYSICS_MAX_SPEED ? (a->y < 0 ? -PHYSICS_MAX_SPEED : PHYSICS_MAX_SPEED): a->y;
+	a->x = abs(a->x) > PHYSICS_MAX_SPEED ? (a->x < 0 ? -PHYSICS_MAX_SPEED : PHYSICS_MAX_SPEED) : a->x;
+	a->y = abs(a->y) > PHYSICS_MAX_SPEED ? (a->y < 0 ? -PHYSICS_MAX_SPEED : PHYSICS_MAX_SPEED) : a->y;
+}
+
+void ApplyBounds(vec2_t* a)
+{
+	if(a->x < 0)
+	{
+		a->x = 0;
+	} else if (a->x > gScreenWidth)
+	{
+		a->x = gScreenWidth - PHYSICS_MAX_SPEED;
+	}
+	if(a->y < 0)
+	{
+		a->y = 0;
+	} else if (a->y > gScreenHeight)
+	{
+		a->y = gScreenHeight - PHYSICS_MAX_SPEED;
+	}
+}
+
+void ApplyFriction(vec2_t* a)
+{
+	if(abs(a->x))
+	{
+		a->x += a->x < 0 ? PHYSICS_BASE_FRICTION : -PHYSICS_BASE_FRICTION;
+	}
+	if(abs(a->y))
+	{
+		a->y += a->y < 0 ? PHYSICS_BASE_FRICTION : -PHYSICS_BASE_FRICTION;
+	}
 }

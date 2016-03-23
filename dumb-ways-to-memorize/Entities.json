@@ -57,12 +57,12 @@
 		"hazard(s)" : "fire",
 		"collisionType" : "static",
 		"entityState" : "other",
-		"sprite(s)" : "blank.png",
+		"sprite(s)" : "Sprite/Level/Ground.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,
 		"accel" : [0,0],
-		"velocity" : "at-point",
+		"velocity" : [0,0],
 		"position" : [5,0],
 		"comment" : "position is relative to target"
 		"comment" : "so this is 5 pixels in front of target"

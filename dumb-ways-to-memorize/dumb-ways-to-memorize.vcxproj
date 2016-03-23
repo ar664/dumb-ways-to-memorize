@@ -83,7 +83,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ai_interpret.c" />
-    <ClCompile Include="dumb_physics.cpp" />
+    <ClCompile Include="dumb_physics.c" />
     <ClCompile Include="entity.c" />
     <ClCompile Include="External_Libs\jsmn.c" />
     <ClCompile Include="game.c" />

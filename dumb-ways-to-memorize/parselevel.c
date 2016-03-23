@@ -11,12 +11,12 @@ level_t *gCurrentLevel = NULL;
 //Occurs after entity loads entity list
 int LoadLevel(object_t *level, char *g_str)
 {
-	jsmntok_t *tempTok, *aiTok;
+	jsmntok_t *tempTok, *aiTok, *enemyTok;
 	object_t *tempObj, *enemyObj, *posObj, *itemObj, *aiObj;
 	entity_t *tempEnt, *cachedEnt;
 	ai_function_t *enemyAI;
 	int tempInt, i, j, enemies, positions;
-	char *temp_str  = NULL, *aiStr;
+	char *temp_str  = NULL, *aiStr, *enemyName, *objectName;
 	vec2_t *spawn;
 	if(!level || !level->keys)
 	{
@@ -73,26 +73,34 @@ int LoadLevel(object_t *level, char *g_str)
 	free(spawn);
 
 	//Spawn Enemies
-	enemyObj = FindObject(level->children, LEVEL_ENEMY_OBJ_STR);
+	enemyObj = FindObject(level, LEVEL_ENEMY_OBJ_STR);
+	if(!enemyObj)
+	{
+		printf("Level failed to find enemies in level : %s \n", level->name);
+		return -1;
+	}
 	if(enemyObj && enemyObj->children)
 	{
 		enemies = CountMem(enemyObj->children, sizeof(object_t));
 		for(i = 0; i < enemies; i++)
 		{
-			tempTok = FindKey(enemyObj->children[i].keys, LEVEL_ENEMY_NAME_STR, g_str);
-			if(!tempTok)
+			enemyTok = FindKey(enemyObj->children[i].keys, LEVEL_ENEMY_NAME_STR, g_str);
+			tempInt = enemyTok - enemyObj->children[i].keys;
+			enemyName = JsmnToString(&enemyObj->children[i].values[tempInt], g_str);
+			if(!enemyTok)
 			{
 				continue;
 			}
-			tempInt = tempTok - enemyObj->children[i].keys;
+			
 			tempTok = FindKey(enemyObj->children[i].keys, LEVEL_AI_STR, g_str);
+			tempInt = tempTok - enemyObj->children[i].keys;
 			if(!tempTok)
 			{
 				enemyAI = NULL;
 			} else
 			{
 				//Find and parse AI
-				ConvertFileToUseable(JsmnToString(tempTok, g_str), NULL, &aiStr,&aiTok );
+				ConvertFileToUseable(JsmnToString(&enemyObj->children[i].values[tempInt], g_str), NULL, &aiStr,&aiTok );
 				aiObj = ParseToObject(aiTok, aiStr);
 				if( (tempObj = FindObject(aiObj, LEVEL_VARIABLES_STR)) != NULL )
 				{
@@ -116,12 +124,13 @@ int LoadLevel(object_t *level, char *g_str)
 					tempEnt = InitNewEntity();
 					if(!tempEnt)
 					{
+						FreeEntity(tempEnt);
 						continue;
 					}
-					temp_str = JsmnToString(&level->values[tempInt], g_str);
-					cachedEnt = FindCachedEntity(temp_str);
+					cachedEnt = FindCachedEntity(enemyName);
 					if(!cachedEnt)
 					{
+						FreeEntity(tempEnt);
 						continue;
 					}
 					memcpy(tempEnt, cachedEnt , sizeof(entity_t));
@@ -130,18 +139,22 @@ int LoadLevel(object_t *level, char *g_str)
 					tempEnt->Think = ThinkEnemy;
 					tempEnt->Draw = DrawGeneric;
 					tempEnt->Touch = TouchEnemy;
+					tempEnt->mWeight = 1;
+					tempEnt->mNextThink = SDL_GetTicks() + 10;
 				}
 			} else
 			{
 				tempEnt = InitNewEntity();
 				if(!tempEnt)
 				{
+					FreeEntity(tempEnt);
 					continue;
 				}
-				temp_str = JsmnToString(&level->values[tempInt], g_str);
-				cachedEnt = FindCachedEntity(temp_str);
+
+				cachedEnt = FindCachedEntity(enemyName);
 				if(!cachedEnt)
 				{
+					FreeEntity(tempEnt);
 					continue;
 				}
 				memcpy(tempEnt, cachedEnt, sizeof(entity_t));
@@ -150,6 +163,8 @@ int LoadLevel(object_t *level, char *g_str)
 				tempEnt->Think = ThinkEnemy;
 				tempEnt->Draw = DrawGeneric;
 				tempEnt->Touch = TouchEnemy;
+				tempEnt->mWeight = 1;
+				tempEnt->mNextThink = SDL_GetTicks() + 10;
 			}
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
@@ -157,7 +172,12 @@ int LoadLevel(object_t *level, char *g_str)
 	}
 	
 	//Spawn Objects
-	itemObj = FindObject(level->children, LEVEL_ITEM_OBJ_STR);
+	itemObj = FindObject(level, LEVEL_ITEM_OBJ_STR);
+	if(!itemObj)
+	{
+		printf("Level failed to find objects in level : %s \n", level->name);
+		return -1;
+	}
 	if(itemObj && itemObj->children)
 	{
 		enemies = CountMem(itemObj->children, sizeof(object_t));
@@ -169,6 +189,8 @@ int LoadLevel(object_t *level, char *g_str)
 				continue;
 			}
 			tempInt = tempTok - itemObj->children[i].keys ;
+			objectName = JsmnToString(&itemObj->children[i].values[tempInt], g_str);
+
 			posObj = FindObject(itemObj, LEVEL_POSITION_STR);
 			if(!posObj)
 			{
@@ -182,12 +204,14 @@ int LoadLevel(object_t *level, char *g_str)
 					tempEnt = InitNewEntity();
 					if(!tempEnt)
 					{
+						FreeEntity(tempEnt);
 						continue;
 					}
-					temp_str = JsmnToString(&level->values[tempInt], g_str);
-					cachedEnt = FindCachedEntity(temp_str);
+
+					cachedEnt = FindCachedEntity(objectName);
 					if(!cachedEnt)
 					{
+						FreeEntity(tempEnt);
 						continue;
 					}
 					memcpy(tempEnt, cachedEnt, sizeof(entity_t));
@@ -202,12 +226,14 @@ int LoadLevel(object_t *level, char *g_str)
 				tempEnt = InitNewEntity();
 				if(!tempEnt)
 				{
+					FreeEntity(tempEnt);
 					continue;
 				}
-				temp_str = JsmnToString(&level->values[tempInt], g_str);
-				cachedEnt = FindCachedEntity(temp_str);
+
+				cachedEnt = FindCachedEntity(objectName);
 				if(!cachedEnt)
 				{
+					FreeEntity(tempEnt);
 					continue;
 				}
 				memcpy(tempEnt, cachedEnt, sizeof(entity_t));

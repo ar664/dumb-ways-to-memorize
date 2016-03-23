@@ -167,7 +167,7 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 	ai_function_t *retVal;
 	jsmntok_t *temp_tok, *action_tok;
 	object_t *temp_obj, *action_obj, *variables_obj;
-	char *temp_str, **variables_str;
+	char *temp_str, *type_str, **variables_str;
 	if(!obj || !g_str)
 	{
 		return NULL;
@@ -183,9 +183,18 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 	temp_obj = FindObject(obj, AI_FUNCTION_OBJECT);
 	if(!temp_obj)
 	{
+		printf("No thinks in ai : %s \n", obj->name);
 		return NULL;
 	}
-	
+	temp_tok = FindKey(obj->keys, AI_TYPE_STR, g_str);
+	if(!temp_tok)
+	{
+		printf("No types in ai : %s \n", obj->name);
+		return NULL;
+	}
+	position = temp_tok - obj->keys;
+	type_str = JsmnToString(&obj->values[position], g_str);
+
 	children = CountMem(temp_obj->children, sizeof(object_t));
 	retVal = (ai_function_t*) malloc(sizeof(ai_function_t)*(children+1));
 	memset(retVal, 0, sizeof(ai_function_t)*(children+1));
@@ -256,7 +265,8 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
 		}
-		retVal->mFlags |= gravity ? AI_FLAG_GRAVITY : 0;
+		retVal[i].mFlags |= gravity ? AI_FLAG_GRAVITY : 0;
+		retVal[i].mType = StrToAI_Type(type_str);
 	}
 
 	//Linking and conditionals
@@ -289,7 +299,7 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 	ai_function_t *retVal;
 	jsmntok_t *temp_tok, *action_tok;
 	object_t *temp_obj, *action_obj, *variables_obj;
-	char *temp_str, **variables_str;
+	char *temp_str, *type_str, **variables_str;
 	if(!obj || !g_str)
 	{
 		return NULL;
@@ -305,8 +315,17 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 	temp_obj = FindObject(obj, AI_FUNCTION_OBJECT);
 	if(!temp_obj)
 	{
+		printf("No thinks in ai : %s \n", obj->name);
 		return NULL;
 	}
+	temp_tok = FindKey(obj->keys, AI_TYPE_STR, g_str);
+	if(!temp_tok)
+	{
+		printf("No types in ai : %s \n", obj->name);
+		return NULL;
+	}
+	position = temp_tok - obj->keys;
+	type_str = JsmnToString(&obj->values[position], g_str);
 	
 	children = CountMem(temp_obj->children, sizeof(object_t));
 	retVal = (ai_function_t*) malloc(sizeof(ai_function_t)*(children+1));
@@ -368,7 +387,8 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
 		}
-		retVal->mFlags |= gravity ? AI_FLAG_GRAVITY : 0;
+		retVal[i].mFlags |= gravity ? AI_FLAG_GRAVITY : 0;
+		retVal[i].mType = StrToAI_Type(type_str);
 	}
 
 	//Linking and conditionals
@@ -575,4 +595,16 @@ int InitAISystem()
 	memset(gPresetAIs, 0, sizeof(ai_function_t)*(MAX_AI+1));
 
 	return 0;
+}
+
+ai_type_t StrToAI_Type(const char *str)
+{
+	if(!strcmp(str, AI_TYPE_PRESET_STR))
+	{
+		return AI_TYPE_PRESET;
+	} else if(!strcmp(str, AI_TYPE_VARIABLE_STR))
+	{
+		return AI_TYPE_VARIABLE;
+	}
+	return AI_TYPE_NULL;
 }

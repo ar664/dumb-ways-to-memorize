@@ -42,7 +42,7 @@ entity_t *gEntityDictionary;		/**< Entities loaded from files AKA cached entitie
 power_t *gPowerUps;					/**< The loaded power ups */
 GameState gGameState = SPLASH;		/**< State of the game */
 sprite_t *gSplash = NULL;			/**< The splash screen sprite*/
-vec2_t ZeroPos = {0,0};
+vec2_t gZeroPos = {0,0};
 SDL_Event gEventQ;					/**< The event qeueu update with all SDL_Events */
 SDL_GameController *gController = NULL; /**< The controller */
 SDL_GameControllerButton gButtonQ;  /**< The button qeueu updated with the current button pressed*/
@@ -95,7 +95,7 @@ int LoadGameData()
 int LoadEntityData()
 {
 	int i, objects;
-	entity_t *temp;
+	entity_t *temp_ent, *pos_ent;
 
 	//Init Entity Parse
 	if( ConvertFileToUseable(gEntitiesFile, &gParser, &gEntityData, &gEntityTokens) == -1)
@@ -110,32 +110,27 @@ int LoadEntityData()
 	
 	//Set Entity Dictionary
 	objects = CountMem(gEntityObject->children, sizeof(object_t));
-	gEntityDictionary = (entity_t*) malloc(sizeof(entity_t)*(objects+1));
-	if(!gEntityDictionary)
-	{
-		printf("Alloc error lazy");
-		return -1;
-	}
-	memset(gEntityDictionary, 0,sizeof(entity_t)*(objects+1));
+
 	for(i = 0; i < objects; i++)
 	{
 		//Set  sprites for each object
 		if(FindKey(gEntityObject->children[i].keys, "sprite(s)", gEntityData))
 		{
-			temp = ParseToEntity(&gEntityObject->children[i], gEntityData);
-			if(!temp) continue;
+			temp_ent = ParseToEntity(&gEntityObject->children[i], gEntityData);
+			if(!temp_ent) continue;
 
-			memcpy(&gEntityDictionary[i], temp, sizeof(entity_t));
+			pos_ent = FindNextFreeCachePos();
+			memcpy(pos_ent, temp_ent, sizeof(entity_t));
 
-			if(temp) free(temp);
+			//if(temp) free(temp);
 		} else if ( FindObject(&gEntityObject->children[i], "sprite(s)") )
 		{
-			temp = ParseToEntity(&gEntityObject->children[i], gEntityData);
-			if(!temp) continue;
+			temp_ent = ParseToEntity(&gEntityObject->children[i], gEntityData);
+			if(!temp_ent) continue;
 
-			memcpy(&gEntityDictionary[i], temp, sizeof(entity_t));
-
-			if(temp) free(temp);
+			pos_ent = FindNextFreeCachePos();
+			memcpy(pos_ent, temp_ent, sizeof(entity_t));
+			//if(temp) free(temp);
 		}
 	}
 	return 0;
@@ -557,14 +552,19 @@ int Setup()
 		perror("Initialize Menu system went wrong");
 		return -1;
 	}
-	if(LoadMenuData())
+	if(InitAISystem())
 	{
-		perror("Shit Happens");
+		perror("Initialize AI system went wrong");
 		return -1;
 	}
 	if(LoadEntityData())
 	{
 		perror("Loading entity data went wrong");
+		return -1;
+	}
+	if(LoadMenuData())
+	{
+		perror("Shit Happens");
 		return -1;
 	}
 	if(LoadLevelData())
@@ -616,7 +616,7 @@ void DrawSplash()
 {
 	if(gSplash)
 	{
-		if(DrawSprite(gSplash, &ZeroPos, gRenderer))
+		if(DrawSprite(gSplash, &gZeroPos, gRenderer))
 		{
 			printf("Couldn't draw splash: %s \n", SDL_GetError());
 		}

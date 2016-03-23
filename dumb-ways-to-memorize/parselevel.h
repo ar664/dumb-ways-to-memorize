@@ -7,7 +7,7 @@
 #define LEVEL_BACKGROUND_STR	"Background"
 #define LEVEL_HINT_STR			"Hint"
 #define LEVEL_SPAWN_STR			"Spawn"
-#define LEVEL_ENEMY_OBJ_STR		"Enemy"
+#define LEVEL_ENEMY_OBJ_STR		"Enemies"
 #define LEVEL_ENEMY_NAME_STR	"enemy"
 #define LEVEL_ITEM_OBJ_STR		"Objects"
 #define LEVEL_ITEM_NAME_STR		"object"

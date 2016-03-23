@@ -29,7 +29,7 @@ struct entity_s
 	collision_type_t mCollisionType;
 	entity_state_t mEntityState;
 	sprite_t **mSprites;
-	sprite_t *mAnimation;			/**< The animation */
+	sprite_t *mAnimation;			/**< The current animation */
 	ai_function_t *mData;
 	char *mName;
 	vec2_t mAccel;
@@ -47,6 +47,7 @@ extern int gLastEntity;
 
 extern int InitEntitySystem();
 extern entity_t *InitNewEntity();
+extern entity_t *FindNextFreeCachePos();
 extern entity_t *FindCachedEntity(const char *name);
 extern entity_t *FindEntity(const char *name);
 extern entity_t *FindFreeEntity(int* position);

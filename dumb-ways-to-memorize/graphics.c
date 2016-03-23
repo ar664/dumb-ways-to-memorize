@@ -345,7 +345,7 @@ void IncrementFrame(sprite_t* sprite)
 	{
 		return;
 	}
-	frames = CountMem(sprite->mAnimations, sizeof(vec2_t));
+	frames = CountMem(&sprite->mAnimations[0], sizeof(Frame));
 	if(!frames)
 	{
 		return;

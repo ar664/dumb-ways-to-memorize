@@ -17,6 +17,8 @@ typedef struct vec2_s
 	int y;
 }vec2_t;
 
+extern vec2_t gZeroPos;
+
 typedef unsigned int address_t;
 typedef struct KV_Pair_s
 {

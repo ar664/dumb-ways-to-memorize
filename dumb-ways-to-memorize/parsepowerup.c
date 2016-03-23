@@ -259,7 +259,7 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 		if(temp_str) free(temp_str);
 	} else
 	{
-		retVal->info = ParseToEntity(power, g_str);
+		retVal->info = NULL;//ParseToEntity(power, g_str);
 	}
 
 	return retVal;
@@ -267,6 +267,10 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 
 void UsePower(power_t* power)
 {
+	if(!power)
+	{
+		return;
+	}
 	power->UpdateInput(power);
 	power->UpdateUse(power);
 	power->DoPower(power->target, power->info);

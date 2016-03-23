@@ -63,7 +63,7 @@
     <ClCompile Include="quick_controller.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dumb_physics.cpp">
+    <ClCompile Include="dumb_physics.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

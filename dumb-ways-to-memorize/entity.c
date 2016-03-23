@@ -25,11 +25,11 @@ void DrawGeneric(entity_t *self)
 	}
 	if(self->mAnimation)
 	{
-		IncrementFrame(self->mAnimation);
+		//IncrementFrame(self->mAnimation);
 		DrawSprite(self->mAnimation, &self->mPosition, gRenderer);
 	} else
 	{
-		IncrementFrame(self->mSprites[ANIMATION_IDLE]);
+		//IncrementFrame(self->mSprites[ANIMATION_IDLE]);
 		DrawSprite(self->mSprites[ANIMATION_IDLE], &self->mPosition, gRenderer);
 	}
 	
@@ -149,7 +149,13 @@ int InitEntitySystem()
 		printf("Couldn't alloc EntitySys");
 		return -1;
 	}
+	if( (gEntityDictionary = (entity_t*) malloc(sizeof(entity_t)*MAX_ENTITIES)) == NULL )
+	{
+		printf("Couldn't alloc EntitySys");
+		return -1;
+	}
 	memset(gEntities, 0, sizeof(entity_t)*MAX_ENTITIES);
+	memset(gEntityDictionary, 0, sizeof(entity_t)*MAX_ENTITIES);
 	gLastEntity = 0;
 	return 0;
 }
@@ -167,6 +173,20 @@ entity_t *InitNewEntity()
 	retVal = FindFreeEntity(&pos);
 	gLastEntity = pos;
 	return retVal;
+}
+
+entity_t* FindNextFreeCachePos()
+{
+	int i;
+	for(i = 0; gEntityDictionary[i].mName; i++)
+	{
+		;
+	}
+	if(&gEntityDictionary[i] > &gEntityDictionary[MAX_ENTITIES])
+	{
+		return NULL;
+	}
+	return &gEntityDictionary[i];
 }
 
 void DrawEntities()
@@ -195,11 +215,11 @@ void RunEntities()
 	}
 	for(i = 0; i < MAX_ENTITIES; i++)
 	{
-		if(!gEntities[i].Think)
+		if(!gEntities[i].Think || !gEntities[i].mName)
 		{
-			continue;
+			continue;  
 		}
-		if(gCurrentTime > gEntities[i].mNextThink)
+		if( (gCurrentTime - gEntities[i].mNextThink) > 0)
 		{
 			gEntities[i].mNextThink = 0;
 			gEntities[i].Think(&gEntities[i]);
@@ -288,20 +308,31 @@ int Distance2Entity(entity_t* self, entity_t* other)
 
 void FreeEntity(entity_t *ent)
 {
-	int i;
+	int i, isGlobal = 0;
 	if(!ent)
 		return;
 	i = 0;
-	if(ent->mSprites)
+	//if(ent->mSprites)
+	//{
+		//while(ent->mSprites[i])
+		//{
+			//FreeSprite(ent->mSprites[i]);
+			//i++;
+		//}
+		//free(ent->mSprites);
+	//}
+	for(i = 0; i < MAX_ENTITIES; i++)
 	{
-		while(ent->mSprites[i])
+		if(ent == &gEntities[i])
 		{
-			FreeSprite(ent->mSprites[i]);
-			i++;
+			isGlobal = 1;
+			memset(ent, 0, sizeof(entity_t));
 		}
-		free(ent->mSprites);
 	}
-	memset(ent, 0, sizeof(entity_t));
+	if(!isGlobal)
+	{
+		free(ent);
+	}
 
 }
 

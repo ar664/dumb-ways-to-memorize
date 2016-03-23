@@ -114,4 +114,6 @@ void SetAI_Check(ai_function_t* function, char** variables_str, char * data_str,
 int InitAISystem();
 void ShutdownAISystem();
 
+ai_type_t StrToAI_Type(const char *str);
+
 #endif
