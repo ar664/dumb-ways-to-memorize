@@ -191,6 +191,10 @@ int LoadLevel(object_t *level, char *g_str)
 						continue;
 					}
 					memcpy(tempEnt, cachedEnt, sizeof(entity_t));
+					tempEnt->Draw = DrawGeneric;
+					tempEnt->Think = NULL;
+					tempEnt->Touch = NULL;
+					tempEnt->mCollisionType = COLLISION_TYPE_STATIC;
 					tempEnt->mPosition = *ParseToVec2(&posObj->children[j], g_str);
 				}
 			} else
@@ -208,6 +212,10 @@ int LoadLevel(object_t *level, char *g_str)
 				}
 				memcpy(tempEnt, cachedEnt, sizeof(entity_t));
 				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
+				tempEnt->Draw = DrawGeneric;
+				tempEnt->Think = NULL;
+				tempEnt->Touch = NULL;
+				tempEnt->mCollisionType = COLLISION_TYPE_STATIC;
 			}
 			if(temp_str) free(temp_str);
 			temp_str = NULL;

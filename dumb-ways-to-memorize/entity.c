@@ -4,6 +4,7 @@
 #include "quick_controller.h"
 #include <stdio.h>
 #include <math.h>
+#include "player.h"
 
 entity_t *gEntities = NULL;
 int gLastEntity = 0;
@@ -215,7 +216,7 @@ entity_t* FindCachedEntity(const char* name)
 			break;
 		if(!strcmp(name, gEntityDictionary[i].mName))
 		{
-			return &gEntities[i];
+			return &gEntityDictionary[i];
 		}
 	}
 	return NULL;

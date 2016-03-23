@@ -8,6 +8,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "parsevariable.h"
+#include "player.h"
 
 char *InteractionNames[] = {"move", "destroy", "spawn", "edit", "nullify", 0};
 void (*InteractionSymbols[]) =  {Move, Destroy, Spawn, Edit, Nullify, 0};

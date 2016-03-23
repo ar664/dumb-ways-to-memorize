@@ -10,7 +10,7 @@
 #define ENTITY_DIR_RIGHT 1
 
 typedef struct entity_s entity_t;
-
+struct power_s;
 /**
  * The core structure of our our entity system.
  *
@@ -38,7 +38,7 @@ struct entity_s
 	void (*Think)(entity_t *self);
 	void (*Touch)(entity_t *self, entity_t *other, int type);
 	void (*Draw)(entity_t *self);
-	void (*PowerUp)(entity_t *self);
+	void (*PowerUp)(struct power_s *info);
 };
 
 extern entity_t *gEntityDictionary;

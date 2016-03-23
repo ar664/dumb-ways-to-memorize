@@ -102,7 +102,6 @@ extern vec2_t *mousePos;
 extern int *keyPower;
 extern char **gSelectedPowerUps;
 
-extern void *gPlayer;
 extern void *gWorld;
 extern void *gMouse;
 
