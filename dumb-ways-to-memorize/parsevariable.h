@@ -34,6 +34,6 @@ void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityMembers mem
 extern entity_t *ParseToEntity(object_t *object, char* str);
 extern vec2_t *ParseToVec2(object_t *object, char* str);
 extern char **ParseToStringArray(object_t *object, char* str);
-extern void PrintEntity(entity_t *ent);
+
 
 #endif

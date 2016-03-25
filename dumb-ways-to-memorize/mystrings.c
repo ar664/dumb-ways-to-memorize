@@ -5,6 +5,7 @@
 #include <math.h>
 #include "globals.h"
 #include "mystrings.h"
+#include "parseobject.h"
 
 
 /**
@@ -107,6 +108,49 @@ char * JsmnToString(jsmntok_t *token, char *g_str)
 	retVal[size] = 0;
 	return retVal;
 }
+
+/**
+ * Searches for the a value in the object that matches the key string given.
+ * Recursive.
+ *
+ * @param [in,out]	obj  	If non-null, the object.
+ * @param [in,out]	key  	If non-null, the key.
+ * @param [in,out]	g_str	If non-null, the string.
+ *
+ * @return	null if it fails, else the found value.
+ *
+ * @author	Anthony Rios
+ * @date	3/25/2016
+ */
+
+char* FindValue(struct object_s* obj, char* key, char* g_str)
+{
+	int i, keys, objects;
+	char *temp_str;
+	keys = CountMem(obj->keys, sizeof(jsmntok_t));
+	objects = CountMem(obj->children, sizeof(object_t));
+	//Iterate through keys
+	for(i = 0; i < keys; i++)
+	{
+		temp_str = JsmnToString(&obj->keys[i], g_str);
+		if(!strcmp(temp_str, key))
+		{
+			return JsmnToString(&obj->values[i], g_str);
+		}
+		if(temp_str) free(temp_str);
+	}
+	//Iterate through children
+	for(i = 0; i < objects; i++)
+	{
+		if( (temp_str = FindValue(&obj->children[i], key, g_str)) != NULL)
+		{
+			return temp_str;
+		}
+		if(temp_str) free(temp_str);
+	}
+	return NULL;
+}
+
 
 /**
  * Jsmn to int.
@@ -335,25 +379,75 @@ GameState StrToGameState(char *str)
 	{
 		return SPLASH;
 	}
-	if(!strcmp(str, "Splash"))
+	else if(!strcmp(str, GAME_STATE_SPLASH_STR))
 	{
 		return SPLASH;
 	}
-	if(!strcmp(str, "Start"))
+	else if(!strcmp(str, GAME_STATE_START_STR))
 	{
 		return START;
 	}
-	if(!strcmp(str, "Guess"))
+	else if(!strcmp(str, GAME_STATE_GUESS_STR))
 	{
 		return GUESS;
+	} else if(!strcmp(str, GAME_STATE_CHOOSE_STR))
+	{
+		return CHOOSE;
 	}
-	if(!strcmp(str, "Playing"))
+	else if(!strcmp(str, GAME_STATE_PLAYING_STR))
 	{
 		return PLAYING;
 	}
-	if(!strcmp(str, "End"))
+	if(!strcmp(str, GAME_STATE_END_STR))
 	{
 		return END;
 	}
 	return SPLASH;
+}
+
+
+int StrToHazard(char *str)
+{
+	int i, length;
+	if(!str)
+		return 0;
+	length = CountMem(Hazards_str, sizeof(char*));
+	for(i = 0; i < length; i++)
+	{
+		if(!strcmp(str, Hazards_str[i]))
+		{
+			return (1 << i);
+		}
+	}
+	return 0;
+}
+
+collision_type_t StrToCollisionType(char *str)
+{
+	int i;
+	if(!str)
+		return 0;
+	for(i = 0; i <= COLLISION_TYPE_CLIP; i++)
+	{
+		if(!strcmp(Collisions_str[i], str))
+		{
+			return (collision_type_t)i;
+		}
+	}
+	return 0;
+}
+
+entity_state_t StrToEntityState(char *str)
+{
+	int i;
+	if(!str)
+		return 0;
+	for(i = 0; i <= COLLISION_TYPE_CLIP; i++)
+	{
+		if(!strcmp(EntityStates_str[i], str))
+		{
+			return (entity_state_t)i;
+		}
+	}
+	return 0;
 }

@@ -54,11 +54,13 @@ extern entity_t *FindEntity(const char *name);
 extern entity_t *FindFreeEntity(int* position);
 extern entity_t *LookForEntityAtPos(vec2_t position);
 
+
 extern int Distance2Entity(entity_t *self, entity_t *other);
 extern void (*GetFunctionAI(ai_function_t *data))(entity_t *);
 
 void RunEntities();
 void DrawEntities();
+extern void PrintEntity(entity_t *ent);
 
 void FreeEntity(entity_t *ent);
 void FreeNonPlayerEntities();

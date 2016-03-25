@@ -250,7 +250,7 @@ int LoadMenuData()
 		}
 		PrintObject(menuObj, menuData);
 		menuObj->name = temp_str;
-		menuLink = FindValueFromKey(menuTok, "link", menuData);
+		menuLink = FindValue(menuObj, "link", menuData);
 		if(!menuLink)
 		{
 			continue;
@@ -425,7 +425,7 @@ void Update()
 				{
 					printf("SplashScreen key not found in gameData \n");
 				} else {
-					gSplash = LoadSprite(FindValueFromKey(splash, SPLASH_SCREEN, gGameData), 0);
+					gSplash = LoadSprite(FindValue(gGameObject, SPLASH_SCREEN, gGameData), 0);
 					if(!gSplash)
 					{
 						printf("Splash screen could not be loaded \n");
@@ -465,6 +465,20 @@ void Update()
 			if(gButtonQ != -1)
 			{
 				gMenus[1].Update(&gMenus[1], gButtonQ);
+			}
+			break;
+		}
+	case(CHOOSE):
+		{
+			if(!gMenus)
+			{
+				printf("No menus loaded");
+				exitRequest = 1;
+				return;
+			}
+			if(gButtonQ != -1)
+			{
+				gMenus[2].Update(&gMenus[1], gButtonQ);
 			}
 			break;
 		}

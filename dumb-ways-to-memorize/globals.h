@@ -73,8 +73,9 @@ typedef enum
 	SPLASH =	0x1,
 	START =		0x2,
 	GUESS =		0x4,
-	PLAYING =	0x8,
-	END =		0x10,
+	CHOOSE =	0x8,
+	PLAYING =	0x10,
+	END =		0x20,
 }GameState;
 
 extern GameState gGameState;

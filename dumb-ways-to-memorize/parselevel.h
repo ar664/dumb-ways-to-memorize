@@ -13,6 +13,8 @@
 #define LEVEL_ITEM_NAME_STR		"object"
 #define LEVEL_AI_STR			"ai"
 #define LEVEL_POSITION_STR		"position"
+#define LEVEL_FLAG_TILE_X_STR	"tile-to-pos-x"
+#define LEVEL_FLAG_TILE_Y_STR	"tile-to-pos-y"
 #define LEVEL_VARIABLES_STR		"variables"
 
 typedef struct level_s level_t;
