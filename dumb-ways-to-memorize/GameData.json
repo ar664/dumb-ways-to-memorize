@@ -20,50 +20,6 @@
 	"PowerUps" : ["PowerUps.json"],
 	"AI_Enemies" : ["AI/Dumb.json", "AI/WalkDir.json", "AI/FlyDir.json", "AI/PatrolXPoints.json"],
 	"Levels" : ["Level/Level01.json" , "Level/Level01.json"],
-	"Menus" : ["Menu/StartMenu.json", "Menu/PowerUpMenu.json"],
+	"Menus" : ["Menu/StartMenu.json", "Menu/PowerUpMenu.json", "Menu/ChoosePowerForLevel.json"],
 	"SplashScreen" : "Sprite/Level/Background.png",
-	"PowerUps" : [
-		{
-			"name" : "Teleport",
-			"input-type" : "X mouse",
-			"use-type" : 2,
-			"interaction" : "move",
-			"target" : "self",
-			"position" : "at-point"
-		
-		},
-		{
-			"name" : "Fireball",
-			"input-type" : "X mouse",
-			"use-type" : 5,
-			"interaction" : "spawn",
-			"target" : "self",
-			"position" : "self",
-			"entity" : "Fireball"
-		},
-		{
-			"name" : "Telekenisis",
-			"input-type" : "mouse",
-			"use-type" : "infinite",
-			"interaction" : "move",
-			"target" : "at-point",
-			"position" : "at-point"
-		},
-		{
-			"name" : "Flight",
-			"input-type" : "X",
-			"use-type" : "infinite",
-			"interaction" : "edit",
-			"target" : "self",
-			"velocity" : [0,5]
-		},
-		{
-			"name" : "OverPowered",
-			"input-type" : "X",
-			"use-type" : 1,
-			"interaction" : "destroy",
-			"target" : "world"
-		}
-		
-	]
 }

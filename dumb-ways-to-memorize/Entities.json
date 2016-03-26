@@ -6,7 +6,7 @@
 	{
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
-		"sprite(s)" : "Sprite/Entities/BadGuy.png",
+		"sprite(s)" : "Sprite/Entities/Hero.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,
@@ -45,7 +45,7 @@
 	"Mage Enemy" : 
 	{
 		"collisionType" : "ragdoll",
-		"entityState" : "alive	 ",
+		"entityState" : "alive",
 		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
@@ -63,7 +63,6 @@
 		"frames" : 1,
 		"accel" : [0,0],
 		"velocity" : [0,0],
-		"position" : [5,0],
 		"comment" : "position is relative to target"
 		"comment" : "so this is 5 pixels in front of target"
 	},

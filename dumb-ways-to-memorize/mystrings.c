@@ -133,8 +133,11 @@ char* FindValue(struct object_s* obj, char* key, char* g_str)
 	for(i = 0; i < keys; i++)
 	{
 		temp_str = JsmnToString(&obj->keys[i], g_str);
+		if(!temp_str)
+			continue;
 		if(!strcmp(temp_str, key))
 		{
+			if(temp_str) free(temp_str);
 			return JsmnToString(&obj->values[i], g_str);
 		}
 		if(temp_str) free(temp_str);

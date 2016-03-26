@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "player.h"
+#include "parselevel.h"
 
 entity_t *gEntities = NULL;
 int gLastEntity = 0;
@@ -61,6 +62,25 @@ void ThinkPlayer(entity_t *self)
 		DoPlayerThink(self, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
 	}
 	self->mNextThink = gCurrentTime + 1*FRAME_DELAY;
+	if(self->mHealth < 0)
+	{
+		if(gPlayerLives < 0)
+		{
+			
+			FreeEntity(gPlayer);
+			InitPlayer();
+			gPlayerLives = PLAYER_LIVES;
+			FreeNonPlayerEntities();
+			gGameState = START;
+		} else
+		{
+			FreeEntity(gPlayer);
+			InitPlayer();
+			gPlayer->mPosition = gCurrentLevel->mSpawnPoint;
+			gPlayerLives--;
+			gGameState = GUESS;
+		}
+	}
 }
 
 void ThinkEnemy(entity_t *self)
@@ -140,6 +160,14 @@ void TouchEnemy(entity_t *self, entity_t *other, int type)
 		break;
 	default:
 		break;
+	}
+}
+
+void TouchGoal(entity_t* self, entity_t* other, int type)
+{
+	if(other == gPlayer)
+	{
+		gGameState = CountMem(gUsedPowerUps, sizeof(char*)) >= CountMem(gSelectedPowerUps, sizeof(char*)) ? START : CHOOSE;
 	}
 }
 

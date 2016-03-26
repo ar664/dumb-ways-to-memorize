@@ -163,6 +163,7 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 		printf("Power up malloc error \n");
 		return NULL;
 	}
+	memset(retVal, 0, sizeof(power_t));
 	if(!power || !g_str)
 	{
 		printf("Power Up tried to parse NULL \n");
@@ -175,16 +176,14 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 	}
 	retVal->name = power->name;
 
-	if( (temp_tok = FindKey(power->keys, "target", g_str)) != NULL )
+	if( (temp_str = FindValue(power, POWER_TARGET_STR, g_str)) != NULL )
 	{
-		temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
 		retVal->GetTarg = ParseToFunction(temp_str);
 		if(temp_str) free(temp_str);
 	}
 	//Use Type
-	if( (temp_tok = FindKey(power->keys, "use-type", g_str)) != NULL )
+	if( (temp_str = FindValue(power, POWER_USE_TYPE_STR, g_str)) != NULL )
 	{
-		temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
 		GetUseType(temp_str, &retVal->uses);
 		if(temp_str) free(temp_str);
 	}
@@ -201,22 +200,20 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 	}
 
 	//Input Type
-	if( (temp_tok = FindKey(power->keys, "input-type", g_str)) != NULL )
+	if( (temp_str = FindValue(power, POWER_INPUT_TYPE_STR, g_str)) != NULL )
 	{
 		for(i = 0; i < INFO_BOTH; i++ )
 		{
-			temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
 			if(!strcmp(FunctionNames[i], temp_str))
 			{
 				retVal->info_type = (info_type_t) (INFO_BOTH - i);
 				break;
 			}
 			retVal->info_type = INFO_NONE;
-			if(temp_str) free(temp_str);
-			temp_str = NULL;
 		}
 		if(temp_str) free(temp_str);
 	}
+
 	if(retVal->info_type)
 	{
 		retVal->UpdateInput = CallInfo;
@@ -227,27 +224,23 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 	}
 
 	//Interaction
-	if( (temp_tok = FindKey(power->keys, "target", g_str)) != NULL )
+	if( (temp_str = FindValue(power, POWER_TARGET_STR, g_str)) != NULL )
 	{
-		for(i = 0; *FunctionNames[i]; i++ )
+		for(i = 0; FunctionNames[i]; i++ )
 		{
-			temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
 			if(!strcmp(FunctionNames[i], temp_str))
 			{
 				retVal->DoPower = (void(*)(entity_t *targ, entity_t *info)) InteractionSymbols[i];
 				break;
 			}
 			retVal->DoPower = NULL;
-			if(temp_str) free(temp_str);
-			temp_str = NULL;
 		}
 		if(temp_str) free(temp_str);
 	}
 	
 	//Info
-	if( (temp_tok = FindKey(power->keys, "entity", g_str)) != NULL )
+	if( (temp_str = FindValue(power, POWER_ENTITY_STR, g_str)) != NULL )
 	{
-		temp_str = JsmnToString(&power->values[temp_tok-power->keys], g_str);
 		if( (temp_ent = FindCachedEntity( temp_str )) != NULL )
 		{
 			retVal->info = ParseToEntity(power, g_str);
@@ -256,7 +249,6 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 			printf("Failed to identify/find entity in power : %s \n", power->name);
 			retVal->info = NULL;
 		}
-		if(temp_str) free(temp_str);
 	} else
 	{
 		retVal->info = NULL;//ParseToEntity(power, g_str);

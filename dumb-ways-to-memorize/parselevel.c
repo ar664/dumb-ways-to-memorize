@@ -15,7 +15,7 @@ int LoadLevel(object_t *level, char *g_str)
 	object_t *tempObj, *enemyObj, *posObj, *itemObj, *aiObj;
 	entity_t *tempEnt, *cachedEnt;
 	ai_function_t *enemyAI;
-	int tempInt, i, j, enemies, positions;
+	int tempInt, i, j, enemies, objects, positions;
 	char *temp_str  = NULL, *aiStr, *enemyName, *objectName, *aiFile;
 	vec2_t *spawn;
 	if(!level || !level->keys)
@@ -27,6 +27,7 @@ int LoadLevel(object_t *level, char *g_str)
 	{
 		gCurrentLevel = (level_t*) malloc(sizeof(level_t));
 	} else {
+		FreeNonPlayerEntities();
 		memset(gCurrentLevel, 0, sizeof(level_t));
 	}
 	
@@ -178,10 +179,10 @@ int LoadLevel(object_t *level, char *g_str)
 	}
 	if(itemObj && itemObj->children)
 	{
-		enemies = CountMem(itemObj->children, sizeof(object_t));
-		for(i = 0; i < enemies; i++)
+		objects = CountMem(itemObj->children, sizeof(object_t));
+		for(i = 0; i < objects; i++)
 		{
-			objectName = FindValue(&enemyObj->children[i], LEVEL_ENEMY_NAME_STR, g_str);
+			objectName = FindValue(&itemObj->children[i], LEVEL_ITEM_NAME_STR, g_str);
 			if(!objectName)
 			{
 				continue;
@@ -213,7 +214,7 @@ int LoadLevel(object_t *level, char *g_str)
 					memcpy(tempEnt, cachedEnt, sizeof(entity_t));
 					tempEnt->Draw = DrawGeneric;
 					tempEnt->Think = NULL;
-					tempEnt->Touch = NULL;
+					tempEnt->Touch = FindValue(&itemObj->children[i], LEVEL_ITEM_XTRA_STR, g_str) ? TouchGoal : NULL;
 					tempEnt->mCollisionType = COLLISION_TYPE_STATIC;
 					tempEnt->mPosition = *ParseToVec2(&posObj->children[j], g_str);
 				}
@@ -236,7 +237,7 @@ int LoadLevel(object_t *level, char *g_str)
 				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
 				tempEnt->Draw = DrawGeneric;
 				tempEnt->Think = NULL;
-				tempEnt->Touch = NULL;
+				tempEnt->Touch = FindValue(&itemObj->children[i], LEVEL_ITEM_XTRA_STR, g_str) ? TouchGoal : NULL;;
 				tempEnt->mCollisionType = COLLISION_TYPE_STATIC;
 			}
 			if(temp_str) free(temp_str);

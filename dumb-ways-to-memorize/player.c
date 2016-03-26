@@ -25,6 +25,7 @@ void InitPlayer()
 	gPlayer->Touch = TouchPlayer;
 	gPlayer->PowerUp = gPowerUps ? UsePower : NULL;
 	gPlayer->mPosition = gCurrentLevel ? gCurrentLevel->mSpawnPoint : gZeroPos;
+	gPlayer->mHealth = 10000000;
 	gPlayer->mWeight = 1;
 }
 

@@ -11,6 +11,7 @@
 #define LEVEL_ENEMY_NAME_STR	"enemy"
 #define LEVEL_ITEM_OBJ_STR		"Objects"
 #define LEVEL_ITEM_NAME_STR		"object"
+#define LEVEL_ITEM_XTRA_STR		"extra"
 #define LEVEL_AI_STR			"ai"
 #define LEVEL_POSITION_STR		"position"
 #define LEVEL_FLAG_TILE_X_STR	"tile-to-pos-x"

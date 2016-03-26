@@ -104,6 +104,15 @@ extern char *gPowerUpsFile;
 extern vec2_t *mousePos;
 extern int *keyPower;
 extern char **gSelectedPowerUps;
+extern char **gUsedPowerUps;
+extern char *gCurrentPowerUp;
+
+//For Levels
+extern char **gLevels;
+extern char **gSelectedLevels;
+int SelectLevels();
+int LoadSelectedLevel(int level);
+void RandomizeSelectedLevels();
 
 extern void *gWorld;
 extern void *gMouse;
@@ -125,12 +134,16 @@ extern int CountMem(void *src, int size_type);
 extern int AllocateDynamic(void **dst, void *src, int size_type, int size);
 extern int CompareMemToMemArray(void *mem, void *mem_array, int size_type, int size_array);
 
+struct object_s;
 //Prepoccessor defed LINKS and STRICT_MODE
 //JSON Parser
 extern jsmn_parser gParser;
 extern jsmntok_t *gGameTokens;
+extern struct object_s *gGameObject;
 extern jsmntok_t *gEntityTokens;
+extern struct object_s *gEntityObject;
 extern jsmntok_t *gLevelTokens;
+extern struct object_s *gLevelObject;
 extern char *gGameData;
 extern char *gEntityData;
 extern char *gLevelData;

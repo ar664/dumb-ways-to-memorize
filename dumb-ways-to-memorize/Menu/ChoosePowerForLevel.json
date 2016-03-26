@@ -1,6 +1,6 @@
 {
 	"Background" : "Sprite/Level/Background.png",
-	"Type" : "power_select",
+	"Type" : "choose_power",
 	"Comment" : "_Names for powerups have to match",
 	"Comment 2" : "Extra variables defined as extra"
 	"link" : "Choose",
@@ -8,7 +8,6 @@
 	{
 		"text" : "Done selecting",
 		"sprite" : "Sprite/Level/Background.png",
-		"link" : "Playing"
 	}
 	]
 

@@ -29,9 +29,9 @@ void RunPhysics()
 			{
 				Vec2Add(&gravity,&gEntities[i].mPosition,&gEntities[i].mPosition);
 			}
-			ApplySpeedLimit(&gEntities[i].mVelocity);
+			//ApplySpeedLimit(&gEntities[i].mVelocity);
 			ApplyBounds(&gEntities[i].mPosition);
-			ApplyFriction(&gEntities[i].mVelocity);
+			//ApplyFriction(&gEntities[i].mVelocity);
 		}
 		
 		//Vec2Add(&friction,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
@@ -106,29 +106,30 @@ void DoCollision(entity_t *self, entity_t *other)
 	if(self->Touch)
 	{
 		self->Touch(self, other, other->mCollisionType);
-	} else if(other->Touch)
+	}
+	if(other->Touch)
 	{
 		other->Touch(other, self, self->mCollisionType);
 	}
 	
 	if(self->mCollisionType == COLLISION_TYPE_RAGDOLL)
 	{
-		position_self.x = self->mPosition.x < (other->mPosition.x + other->mSprites[0]->mSize.x) ? other->mPosition.x + other->mSprites[0]->mSize.x : other->mPosition.x;
-		position_self.y = self->mPosition.y > (other->mPosition.y + other->mSprites[0]->mSize.y) ? other->mPosition.y + other->mSprites[0]->mSize.y : other->mPosition.y;
+		position_self.x = self->mPosition.x < (other->mPosition.x + other->mSprites[0]->mSize.x) ? self->mPosition.x - other->mPosition.x  : 0;
+		position_self.y = self->mPosition.y < (other->mPosition.y + other->mSprites[0]->mSize.y) ? self->mPosition.y - other->mPosition.y : 0;
 	} else
 	{
-		position_self = self->mPosition;
+		position_self = gZeroPos;
 	}
 	if(other->mCollisionType == COLLISION_TYPE_RAGDOLL)
 	{
-		position_other.x = other->mPosition.x < (self->mPosition.x + self->mSprites[0]->mSize.x) ? self->mPosition.x + self->mSprites[0]->mSize.x : self->mPosition.x;
-		position_other.y = other->mPosition.y > (self->mPosition.y + self->mSprites[0]->mSize.y) ? self->mPosition.y + self->mSprites[0]->mSize.y : self->mPosition.y;	
+		position_other.x = other->mPosition.x < (self->mPosition.x + self->mSprites[0]->mSize.x) ? other->mPosition.x - self->mPosition.x  : 0;
+		position_other.y = other->mPosition.y < (self->mPosition.y + self->mSprites[0]->mSize.y) ? other->mPosition.y - self->mPosition.y : 0;	
 	} else
 	{
-		position_other = other->mPosition;
+		position_other = gZeroPos;
 	}
-	self->mPosition = position_self;
-	other->mPosition = position_other;
+	(position_self.x > position_self.y) ? (self->mPosition.x += position_self.x) : (self->mPosition.y += position_self.y) ;
+	(position_other.x > position_other.y) ? (other->mPosition.x += position_other.x) : (other->mPosition.y += position_other.y) ;
 }
 
 void ApplySpeedLimit(vec2_t* a)

@@ -4,6 +4,11 @@
 #include "parseobject.h"
 #include "entity.h"
 
+#define POWER_TARGET_STR "target"
+#define POWER_USE_TYPE_STR "use-type"
+#define POWER_INPUT_TYPE_STR "input-type"
+#define POWER_ENTITY_STR "entity"
+
 enum use_type_t
 {
 	INFINITE = -2,
@@ -22,9 +27,7 @@ typedef enum
 typedef struct power_s power_t;
 
 struct power_s
-{
-	entity_t *target;
-	entity_t *info;
+{	
 	char *name;
 	void (*UpdateInput)(power_t *self);
 	void (*GetTarg)(entity_t *self, entity_t **targ);
@@ -32,6 +35,8 @@ struct power_s
 	void (*DoPower)(entity_t *targ, entity_t *info);
 	int uses;
 	info_type_t info_type;
+	entity_t *target;
+	entity_t *info;
 
 };
 extern power_t *gPowerUps;

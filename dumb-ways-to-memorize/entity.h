@@ -74,6 +74,7 @@ void ThinkPlayer(entity_t *self);
 void ThinkEnemy(entity_t *self);
 void TouchPlayer(entity_t *self, entity_t *other, int type);
 void TouchEnemy(entity_t *self, entity_t *other, int type);
+void TouchGoal(entity_t *self, entity_t *other, int type);
 
 
 #endif

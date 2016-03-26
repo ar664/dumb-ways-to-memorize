@@ -15,6 +15,7 @@
 #define MENU_ITEM_EXTRA "extra"
 #define MENU_TYPE		"Type"
 #define MENU_TYPE_STR_POWER	"power_select"
+#define MENU_TYPE_STR_CHOOSE "choose_power"
 #define MENU_TYPE_STR_H		"horizontal"
 #define MENU_TYPE_STR_V		"vertical"
 #define MENU_TYPE_STR_GRID	"grid"
@@ -26,7 +27,8 @@ typedef enum
 	MENU_TYPE_V = 0x2,
 	MENU_TYPE_GRID = 0x4,
 	MENU_TYPE_POWER = 0x8,
-	MENU_TYPE_MAX = 0x10
+	MENU_TYPE_CHOOSE = 0x10,
+	MENU_TYPE_MAX = 0x20
 
 }menu_type_t;
 
@@ -62,5 +64,7 @@ int InitMenuSystem();
 menu_t *LoadMenu(object_t *object, char *g_str, GameState curr_state, GameState previous_state );
 menu_t *FindMenuFromGameState(GameState curr_state);
 menu_t *FindFreeMenu();
+
+menu_item_t *FindMenuItem(menu_t *menu, char *item);
 
 #endif

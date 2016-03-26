@@ -12,6 +12,28 @@ char *gAI_Variables[] = {"speed", "frames", "time", "damage", 0};
 char *gAI_Actions[] = {"nothing", "move", "walk", "jump","attack",0};
 char *gAI_Conditions[] = {"distance_player", "distance_object", "link_ai", "link_action", 0};
 
+
+void NothingAI(entity_t *ent)
+{
+	int flags;
+	vec2_t temp_vec2;
+	if(!ent->mData || !ent)
+	{
+		printf("MoveAI given a null paramerter \n");
+		return;
+	}
+	flags = ent->mData->mFlags;
+
+	//Standard Vars
+	ent->mCollisionType = COLLISION_TYPE_CLIP;
+	ent->mNextThink = SDL_GetTicks() + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
+	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
+	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
+
+	//Check Data
+	ent->mData = ent->mData->mVariables[4]-- ? ent->mData : ent->mData->mLink;
+}
+
 //Check Data Flag checks before calling functions
 //TODO: Lerp
 void MoveAI(entity_t *ent)
@@ -97,7 +119,14 @@ void JumpAI(entity_t *ent)
 		temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
 		//TODO: normalize temp_vec2
 		Vec2MultiplyScalar(&temp_vec2,ent->mData->mVariables[AI_VAR_SPEED],&temp_vec2);
-		Vec2Add(&temp_vec2, &ent->mVelocity, &ent->mVelocity);
+		if( (ent->mVelocity.x == temp_vec2.x) & (ent->mVelocity.y == temp_vec2.y) )
+		{
+			;
+		} else
+		{
+			Vec2Add(&temp_vec2, &ent->mVelocity, &ent->mVelocity);
+		}
+		
 	}
 
 	//Check Data
@@ -147,7 +176,7 @@ void (*GetFunctionAI(ai_function_t *data))(entity_t *)
 	switch(data->mAction)
 	{
 	case(AI_ACTION_NOTHING) : 
-		return NULL;
+		return NothingAI;
 	case(AI_ACTION_MOVE):
 		return MoveAI;
 	case(AI_ACTION_WALK): 
@@ -334,16 +363,7 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 	{
 		for(j = 0; gAI_Variables[j]; j++ )
 		{
-
-			temp_tok = FindKey(temp_obj->children[i].keys,gAI_Variables[j], g_str);
-			position = temp_tok - temp_obj->children[i].keys ;
-			if(position < 0)
-			{
-				temp_str = NULL;
-			} else
-			{
-				temp_str = JsmnToString(&temp_obj->children[i].values[position], g_str);
-			}
+			temp_str = FindValue(&temp_obj->children[i], gAI_Variables[j] ,g_str);
 			
 			SetAI_Var(&retVal[i], temp_str, gAI_Variables[j]);
 			if(temp_str) free(temp_str);
@@ -361,8 +381,8 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 		}
 		for(j = 0; gAI_Conditions[j]; j++)
 		{
-			temp_tok = FindKey(temp_obj->children[i].keys, gAI_Conditions[j], g_str);
-			if(!temp_tok)
+			temp_str = FindValue(&temp_obj->children[i], gAI_Conditions[j] ,g_str);
+			if(!temp_str)
 			{
 				continue;
 			}
@@ -380,8 +400,6 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 					variables_str[k] = JsmnToString(&variables_obj->values[k],g_str);
 				}
 			}
-			position = temp_tok - temp_obj->children[i].keys;
-			temp_str = JsmnToString(&temp_obj->children[i].values[position], g_str);
 
 			SetAI_Check(&retVal[i], variables_str, temp_str, gAI_Conditions[j]);
 			if(temp_str) free(temp_str);

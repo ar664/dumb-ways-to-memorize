@@ -27,6 +27,7 @@ jsmn_parser gParser;				/**< The global jsmn parser */
 char **gLevels = NULL;				/**< The level names */
 char **gSelectedLevels = NULL;		/**< The selected levels to load */
 char **gSelectedPowerUps = NULL;	/**< The power ups the player selects */
+char **gUsedPowerUps = NULL;
 jsmntok_t *gGameTokens;				/**< Tokens for GameData */
 jsmntok_t *gEntityTokens;			/**< The entity jsmn tokens */
 jsmntok_t *gLevelTokens;			/**< The level jsmn tokens */
@@ -40,6 +41,7 @@ char *gEntitiesFile = NULL;
 char *gPowerUpsFile = NULL;
 entity_t *gEntityDictionary;		/**< Entities loaded from files AKA cached entities*/
 power_t *gPowerUps;					/**< The loaded power ups */
+char *gCurrentPowerUp = NULL;
 GameState gGameState = SPLASH;		/**< State of the game */
 sprite_t *gSplash = NULL;			/**< The splash screen sprite*/
 vec2_t gZeroPos = {0,0};
@@ -233,7 +235,7 @@ int LoadMenuData()
 		InitMenuSystem();
 	}
 	menus = FindObject(gGameObject, "Menus");
-	menuCount = CountMem(menus->values, sizeof(jsmntok_t));
+	menuCount = CountMem(menus->values, sizeof(jsmntok_t)) - 1;
 	for(i = 0; i < menuCount; i++)
 	{
 		temp_str = JsmnToString(&menus->values[i], gGameData);
@@ -413,19 +415,19 @@ void UpdatePlaying();
 
 void Update()
 {
-	jsmntok_t *splash;
+	char *splash;
 	switch(gGameState)
 	{
 	case(SPLASH):
 		{
 			if(!gSplash)
 			{
-				splash = FindKey(gGameTokens, SPLASH_SCREEN,gGameData);
+				splash = FindValue(gGameObject, SPLASH_SCREEN, gGameData);
 				if(!splash)
 				{
 					printf("SplashScreen key not found in gameData \n");
 				} else {
-					gSplash = LoadSprite(FindValue(gGameObject, SPLASH_SCREEN, gGameData), 0);
+					gSplash = LoadSprite(splash, 0);
 					if(!gSplash)
 					{
 						printf("Splash screen could not be loaded \n");
@@ -478,7 +480,7 @@ void Update()
 			}
 			if(gButtonQ != -1)
 			{
-				gMenus[2].Update(&gMenus[1], gButtonQ);
+				gMenus[2].Update(&gMenus[2], gButtonQ);
 			}
 			break;
 		}
@@ -496,6 +498,7 @@ void Update()
 void DrawSplash();
 void DrawStart();
 void DrawGuess();
+void DrawChoose();
 void DrawPlaying();
 
 void Draw()
@@ -511,6 +514,11 @@ void Draw()
 	case(START):
 		{
 			DrawStart();
+			break;
+		}
+	case(CHOOSE):
+		{
+			DrawChoose();
 			break;
 		}
 	case(GUESS):
@@ -614,7 +622,7 @@ int Run()
 		Poll();
 		Update();
 		Draw();
-		SDL_Delay(1);
+		SDL_Delay(gGameState == PLAYING ? FRAME_DELAY : 0);
 	}
 	return 0;
 }
@@ -660,6 +668,18 @@ void DrawGuess()
 	}
 	gMenus[1].Draw(&gMenus[1]);
 	return;
+}
+
+void DrawChoose()
+{
+	if(!gMenus)
+	{
+		printf("No menus loaded");
+		exitRequest = 1;
+		return;
+	}
+	gMenus[2].Draw(&gMenus[2]);
+
 }
 
 void DrawPlaying()

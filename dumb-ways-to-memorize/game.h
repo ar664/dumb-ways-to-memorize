@@ -16,7 +16,4 @@ int	Setup();
 int Run();
 void Shutdown();
 
-extern char **gLevels;
-extern char **gSelectedLevels;
-
 #endif
