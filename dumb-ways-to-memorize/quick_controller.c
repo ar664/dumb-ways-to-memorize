@@ -9,7 +9,7 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 	{
 	case(SDL_CONTROLLER_BUTTON_A):
 		{
-			if(ent->mPosition.y == (gScreenHeight + ent->mSprites[0]->mSize.y))
+			if(ent->mVelocity.y == 0)
 			{
 				ent->mVelocity.y += 5;
 				ent->mAnimation = ANIMATION_JUMP >= CountMem(ent->mSprites, sizeof(sprite_t*)) ? NULL : ent->mSprites[ANIMATION_JUMP];

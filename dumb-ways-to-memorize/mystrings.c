@@ -170,7 +170,7 @@ void JsmnToInt(jsmntok_t* token, char* str, int* dst)
 {
 	char *temp;
 	temp = JsmnToString(token, str);
-	*dst = StringToInt(temp);
+	*dst = StrToInt(temp);
 	if(temp) free(temp);
 }
 
@@ -185,7 +185,7 @@ void JsmnToInt(jsmntok_t* token, char* str, int* dst)
  * @date	2/28/2016
  */
 
-int StringToInt(char* str)
+int StrToInt(char* str)
 {
 	int i, retVal, length;
 	if(str == NULL)

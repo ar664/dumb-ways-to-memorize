@@ -126,6 +126,7 @@ extern int gLevelsPerGame;
 extern int gScreenWidth;
 extern int gScreenHeight;
 extern unsigned int gCurrentTime;
+extern vec2_t gGravity;
 
 extern int exitRequest;
 

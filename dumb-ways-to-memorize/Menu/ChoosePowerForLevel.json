@@ -8,6 +8,7 @@
 	{
 		"text" : "Done selecting",
 		"sprite" : "Sprite/Level/Background.png",
+		"link" : "Start"
 	}
 	]
 

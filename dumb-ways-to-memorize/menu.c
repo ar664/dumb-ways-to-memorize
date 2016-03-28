@@ -130,7 +130,7 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 			}
 			if(self->mSelectedItem->NextState == SPLASH)
 			{
-				self->mSelectedItem->State = MENU_ITEM_STATE_PICKED;
+				self->mSelectedItem->State = (menu_item_state_t) (~self->mSelectedItem->State & MENU_ITEM_STATE_PICKED);
 			} else
 			{
 				powerUps = CountMem(gPowerUps, sizeof(power_t));

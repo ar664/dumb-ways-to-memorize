@@ -242,7 +242,7 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 				temp_str = JsmnToString(&temp_obj->children[i].values[position], g_str);
 			}
 			
-			SetAI_Var(&retVal[i], variables[StringToInt(temp_str)], gAI_Variables[j]);
+			SetAI_Var(&retVal[i], variables[StrToInt(temp_str)], gAI_Variables[j]);
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
 		}
@@ -257,7 +257,7 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 			position = action_tok - temp_obj->children[i].keys;
 			position = position < 0 ? 0 : position;
 			temp_str = JsmnToString(&temp_obj->children[i].values[position], g_str);
-			if(StringToInt(temp_str))
+			if(StrToInt(temp_str))
 			{
 				SetAI_Action(&retVal[i], NULL, NULL, g_str, gAI_Actions[AI_ACTION_NOTHING] );
 			}
@@ -282,7 +282,7 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 				for(k = 0; k < variables_i; k++)
 				{
 					temp_str = JsmnToString(&variables_obj->values[k], g_str);
-					variables_str[k] = temp_str ? variables[StringToInt(temp_str)] : NULL;
+					variables_str[k] = temp_str ? variables[StrToInt(temp_str)] : NULL;
 					if(temp_str) free(temp_str);
 					temp_str = NULL;
 				}
@@ -290,7 +290,7 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 			position = temp_tok - temp_obj->children[i].keys;
 			temp_str = JsmnToString(&temp_obj->children[i].values[position], g_str);
 
-			SetAI_Check(&retVal[i], variables_str, variables[StringToInt(temp_str)], gAI_Conditions[j]);
+			SetAI_Check(&retVal[i], variables_str, variables[StrToInt(temp_str)], gAI_Conditions[j]);
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
 		}
@@ -443,7 +443,7 @@ void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 			function->mVariables[AI_VAR_SPEED] = 1;
 		} else
 		{
-			function->mVariables[AI_VAR_SPEED] = StringToInt(data_str);
+			function->mVariables[AI_VAR_SPEED] = StrToInt(data_str);
 		}
 	}
 	else if(!strcmp(AI_VAR_FRAMES_STR, var_str))
@@ -453,7 +453,7 @@ void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 			function->mVariables[AI_VAR_FRAMES] = 1;
 		} else
 		{
-			function->mVariables[AI_VAR_FRAMES] = StringToInt(data_str);
+			function->mVariables[AI_VAR_FRAMES] = StrToInt(data_str);
 		}
 	}
 	else if(!strcmp(AI_VAR_TIME_STR, var_str))
@@ -463,7 +463,7 @@ void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 			function->mVariables[AI_VAR_TIME] = 1;
 		} else
 		{
-			function->mVariables[AI_VAR_TIME] = StringToInt(data_str);
+			function->mVariables[AI_VAR_TIME] = StrToInt(data_str);
 		}
 	}
 	else if(!strcmp(AI_VAR_DAMAGE_STR, var_str))
@@ -473,7 +473,7 @@ void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 			function->mVariables[AI_VAR_DAMAGE] = 1;
 		} else
 		{
-			function->mVariables[AI_VAR_DAMAGE] = StringToInt(data_str);
+			function->mVariables[AI_VAR_DAMAGE] = StrToInt(data_str);
 		}
 	}
 }
@@ -568,16 +568,16 @@ void SetAI_Check(ai_function_t* function, char** variables_str, char* data_str, 
 	}
 	if(!strcmp(AI_LINK_ACTION, check_str) )
 	{
-		function->mVariables[AI_VAR_CHECK] = StringToInt(data_str);
+		function->mVariables[AI_VAR_CHECK] = StrToInt(data_str);
 	} 
 	else if(!strcmp(AI_CHECK_PLAYER_STR, check_str))
 	{
-		function->mVariables[AI_VAR_CHECK] = StringToInt(data_str);
+		function->mVariables[AI_VAR_CHECK] = StrToInt(data_str);
 		function->mFlags |= AI_FLAG_CHECK_PLAYER;
 	} 
 	else if(!strcmp(AI_CHECK_OBJECT_STR, check_str))
 	{
-		function->mVariables[AI_VAR_CHECK] = StringToInt(data_str);
+		function->mVariables[AI_VAR_CHECK] = StrToInt(data_str);
 		function->mFlags |= AI_FLAG_CHECK_OBJECT;
 	} 
 	else if(!strcmp(AI_LINK_AI, check_str))

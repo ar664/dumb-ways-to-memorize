@@ -15,9 +15,9 @@ int LoadLevel(object_t *level, char *g_str)
 	object_t *tempObj, *enemyObj, *posObj, *itemObj, *aiObj;
 	entity_t *tempEnt, *cachedEnt;
 	ai_function_t *enemyAI;
-	int tempInt, i, j, enemies, objects, positions;
-	char *temp_str  = NULL, *aiStr, *enemyName, *objectName, *aiFile;
-	vec2_t *spawn;
+	int tempInt, i, j, x, y, enemies, objects, positions, tileX, tileY;
+	char *temp_str  = NULL, *aiStr, *enemyName, *objectName, *aiFile, *tileX_str, *tileY_str;
+	vec2_t *spawn, *temp_pos, obj_pos, tile_pos;
 	if(!level || !level->keys)
 	{
 		printf("Could not load NULL lvl");
@@ -91,7 +91,13 @@ int LoadLevel(object_t *level, char *g_str)
 			{
 				continue;
 			}
-			
+			cachedEnt = FindCachedEntity(enemyName);
+			if(!cachedEnt)
+			{
+				FreeEntity(cachedEnt);
+				continue;
+			}
+
 			aiFile = FindValue(&enemyObj->children[i], LEVEL_AI_STR, g_str);
 			if(!aiFile)
 			{
@@ -111,60 +117,52 @@ int LoadLevel(object_t *level, char *g_str)
 				
 			}
 			posObj = FindObject(enemyObj, LEVEL_POSITION_STR);
+			tileX_str = FindValue(&enemyObj->children[i], LEVEL_TILE_X_STR, g_str);
+			tileY_str = FindValue(&enemyObj->children[i], LEVEL_TILE_Y_STR, g_str);
+			tileX = StrToInt(tileX_str);
+			tileY = StrToInt(tileY_str);
 			if(!posObj)
 			{
 				continue;
 			}
-			if(posObj->children)
-			{
-				positions = CountMem(posObj->children, sizeof(object_t));
-				for(j = 0; j < positions; j++)
-				{
-					tempEnt = InitNewEntity();
-					if(!tempEnt)
-					{
-						FreeEntity(tempEnt);
-						continue;
-					}
-					cachedEnt = FindCachedEntity(enemyName);
-					if(!cachedEnt)
-					{
-						FreeEntity(tempEnt);
-						continue;
-					}
-					memcpy(tempEnt, cachedEnt , sizeof(entity_t));
-					tempEnt->mPosition = *ParseToVec2(&posObj->children[j], g_str);
-					tempEnt->mData = enemyAI;
-					tempEnt->Think = ThinkEnemy;
-					tempEnt->Draw = DrawGeneric;
-					tempEnt->Touch = TouchEnemy;
-					tempEnt->mWeight = 1;
-					tempEnt->mNextThink = SDL_GetTicks() + 10;
-				}
-			} else
-			{
-				tempEnt = InitNewEntity();
-				if(!tempEnt)
-				{
-					FreeEntity(tempEnt);
-					continue;
-				}
+			
 
-				cachedEnt = FindCachedEntity(enemyName);
-				if(!cachedEnt)
-				{
-					FreeEntity(tempEnt);
+			positions = posObj->children ? CountMem(posObj->children, sizeof(object_t)) : 1;
+
+			for(j = 0; j < positions; j++)
+			{
+				temp_pos = ParseToVec2(posObj->children ? &posObj->children[j] : posObj, g_str);
+				if(!temp_pos) 
 					continue;
+				obj_pos.x = tileX ? (tileX - temp_pos->x)/cachedEnt->mSprites[0]->mSize.x : 1;
+				obj_pos.y = tileY ? (tileY - temp_pos->y)/cachedEnt->mSprites[0]->mSize.y : 1;
+				for(x = 0; x < obj_pos.x; x++)
+				{
+					for(y = 0; y < obj_pos.y; y++)
+					{
+						tempEnt = InitNewEntity();
+						if(!tempEnt)
+						{
+							printf("Max Entities reached for level %s", level->name);
+							continue;
+						}
+						
+						memcpy(tempEnt, cachedEnt , sizeof(entity_t));
+						
+						tile_pos.x = tileX ? temp_pos->x + x*cachedEnt->mSprites[0]->mSize.x: temp_pos->x;
+						tile_pos.y = tileY ? temp_pos->y + y*cachedEnt->mSprites[0]->mSize.x: temp_pos->y;
+						tempEnt->mPosition = tile_pos;
+						tempEnt->mData = enemyAI;
+						tempEnt->Think = ThinkEnemy;
+						tempEnt->Draw = DrawGeneric;
+						tempEnt->Touch = TouchEnemy;
+						tempEnt->mWeight = 1;
+						tempEnt->mNextThink = SDL_GetTicks() + 10;
+						tile_pos.x = 0; tile_pos.y = 0;
+					}
 				}
-				memcpy(tempEnt, cachedEnt, sizeof(entity_t));
-				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
-				tempEnt->mData = enemyAI;
-				tempEnt->Think = ThinkEnemy;
-				tempEnt->Draw = DrawGeneric;
-				tempEnt->Touch = TouchEnemy;
-				tempEnt->mWeight = 1;
-				tempEnt->mNextThink = SDL_GetTicks() + 10;
 			}
+			
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
 		}
@@ -188,65 +186,64 @@ int LoadLevel(object_t *level, char *g_str)
 				continue;
 			}
 
+			cachedEnt = FindCachedEntity(objectName);
+			if(!cachedEnt)
+			{
+				FreeEntity(cachedEnt);
+				continue;
+			}
+
 			posObj = FindObject(itemObj, LEVEL_POSITION_STR);
+			tileX_str = FindValue(itemObj, LEVEL_TILE_X_STR, g_str);
+			tileY_str = FindValue(itemObj, LEVEL_TILE_Y_STR, g_str);
+			tileX = StrToInt(tileX_str);
+			tileY = StrToInt(tileY_str);
 			if(!posObj)
 			{
 				continue;
 			}
-			if(posObj->children)
-			{
-				positions = CountMem(posObj->children, sizeof(object_t));
-				for(j = 0; j < positions; j++)
-				{
-					tempEnt = InitNewEntity();
-					if(!tempEnt)
-					{
-						FreeEntity(tempEnt);
-						continue;
-					}
+			obj_pos.x = tileX ? (tileX - 0)/cachedEnt->mSprites[0]->mSize.x : 1;
+			obj_pos.y = tileY ? (tileY - 0)/cachedEnt->mSprites[0]->mSize.y : 1;
+			
+			positions = posObj->children ? CountMem(posObj->children, sizeof(object_t)) : 1;
 
-					cachedEnt = FindCachedEntity(objectName);
-					if(!cachedEnt)
-					{
-						FreeEntity(tempEnt);
-						continue;
-					}
-					memcpy(tempEnt, cachedEnt, sizeof(entity_t));
-					tempEnt->Draw = DrawGeneric;
-					tempEnt->Think = NULL;
-					tempEnt->Touch = FindValue(&itemObj->children[i], LEVEL_ITEM_XTRA_STR, g_str) ? TouchGoal : NULL;
-					tempEnt->mCollisionType = COLLISION_TYPE_STATIC;
-					tempEnt->mPosition = *ParseToVec2(&posObj->children[j], g_str);
-				}
-			} else
+			for(j = 0; j < positions; j++)
 			{
-				tempEnt = InitNewEntity();
-				if(!tempEnt)
-				{
-					FreeEntity(tempEnt);
+				temp_pos = ParseToVec2(posObj->children ? &posObj->children[j] : posObj, g_str);
+				if(!temp_pos) 
 					continue;
-				}
-
-				cachedEnt = FindCachedEntity(objectName);
-				if(!cachedEnt)
+				obj_pos.x = tileX ? (tileX - temp_pos->x)/cachedEnt->mSprites[0]->mSize.x : 1;
+				obj_pos.y = tileY ? (tileY - temp_pos->y)/cachedEnt->mSprites[0]->mSize.y : 1;
+				for(x = 0; x < obj_pos.x; x++)
 				{
-					FreeEntity(tempEnt);
-					continue;
+					for(y = 0; y < obj_pos.y; y++)
+					{
+						tempEnt = InitNewEntity();
+						if(!tempEnt)
+						{
+							printf("Max Entities reached in level : %s \n", level->name);
+							continue;
+						}
+						
+						memcpy(tempEnt, cachedEnt, sizeof(entity_t));
+						tempEnt->Draw = DrawGeneric;
+						tempEnt->Think = NULL;
+						tempEnt->Touch = FindValue(&itemObj->children[i], LEVEL_ITEM_XTRA_STR, g_str) ? TouchGoal : NULL;
+						tempEnt->mCollisionType = COLLISION_TYPE_STATIC;
+						tile_pos.x = tileX ? temp_pos->x + x*cachedEnt->mSprites[0]->mSize.x: temp_pos->x;
+						tile_pos.y = tileY ? temp_pos->y + y*cachedEnt->mSprites[0]->mSize.y: temp_pos->y;
+						tempEnt->mPosition = tile_pos;
+						tile_pos.x = 0; tile_pos.y = 0;
+					}
 				}
-				memcpy(tempEnt, cachedEnt, sizeof(entity_t));
-				tempEnt->mPosition = *ParseToVec2(posObj, g_str);
-				tempEnt->Draw = DrawGeneric;
-				tempEnt->Think = NULL;
-				tempEnt->Touch = FindValue(&itemObj->children[i], LEVEL_ITEM_XTRA_STR, g_str) ? TouchGoal : NULL;;
-				tempEnt->mCollisionType = COLLISION_TYPE_STATIC;
 			}
-			if(temp_str) free(temp_str);
-			temp_str = NULL;
 		}
 	}
 
 	return 0;
 }
+
+void SpawnInLevel();
 
 
 void DrawLevel()

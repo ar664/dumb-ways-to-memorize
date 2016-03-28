@@ -22,7 +22,6 @@
 int exitRequest = 0;				/**< The integer to be changed to exit */
 int gLives = 0;
 int gLevelsPerGame = LEVELS_DEFAULT;
-float gGravity = 9.8;
 jsmn_parser gParser;				/**< The global jsmn parser */
 char **gLevels = NULL;				/**< The level names */
 char **gSelectedLevels = NULL;		/**< The selected levels to load */
@@ -390,6 +389,10 @@ void Poll()
 {
 	if( SDL_PollEvent(&gEventQ) )
 	{
+		if(gEventQ.type == SDL_CONTROLLERDEVICEADDED || gEventQ.type == SDL_CONTROLLERDEVICEREMOVED)
+		{
+			gController = SDL_GameControllerOpen(0);
+		}
 		if(gEventQ.type == SDL_CONTROLLERBUTTONDOWN)
 		{
 			gButtonQ = (SDL_GameControllerButton) gEventQ.cbutton.button;

@@ -2,7 +2,8 @@
 	"Name" : "Guns And Roses",
 	"Background" : "Sprite/Level/Background.png",
 	"Hint" : "Testing",
-	"Comment" : "Positions are based on pixels, lol"
+	"Comment" : "Positions are based on pixels, lol",
+	"Comment 2" : "tile-to-x Doesn't work with negative tiling",
 	"Spawn" : [0, 30],
 	"Enemies" : [
 	{
@@ -32,13 +33,13 @@
 	"Objects" : [
 	{
 		"object" : "Ground",
-		"position" : [[0,690], [32,690], [64, 690], [96, 690], [128, 690], [160, 690], [192, 690], [224, 690], [256, 690], [288, 690], [320, 690],[352, 690], [384, 690], [416, 690], [448, 690], [480, 690], [512, 690], [544, 690], [576, 690], [608, 690], [640, 690], [704, 690], [720, 690]],
+		"tile-to-x" : 1280,
+		"position" : [0,680],
 		"comment" : "testing"
 	},
 	{
 		"object" : "Ground",
 		"position" : [1200, 500],
-		"extra" : "win"
 	}
 	]
 	

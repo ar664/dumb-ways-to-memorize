@@ -19,7 +19,7 @@ char * TypeFromJSON(jsmntype_t Type);
 char * JsmnToString(jsmntok_t *token, char *g_str);
 char * FindValue(struct object_s * obj, char *key, char *g_str);
 void JsmnToInt(jsmntok_t *token, char *str, int *dst);
-int StringToInt(char* str);
+int StrToInt(char* str);
 int CharToInt(char c);
 //char * FindValueFromKey(jsmntok_t *token, char *key, char *g_str);
 jsmntok_t * FindKey(jsmntok_t *token, char *key, char *g_str);

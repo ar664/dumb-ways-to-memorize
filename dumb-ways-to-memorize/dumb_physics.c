@@ -1,5 +1,9 @@
 #include "dumb_physics.h"
 #include "entity.h"
+#include "globals.h"
+#include "player.h"
+
+vec2_t gGravity = {0, 9};
 
 /**
  * Executes physics.
@@ -12,9 +16,6 @@
 void RunPhysics()
 {
 	int i, j;
-	vec2_t gravity, friction;
-	gravity.x = 0; gravity.y = 9;
-	//friction.x = 0; friction.y = 1;
 	for(i = 0; i < MAX_ENTITIES; i++)
 	{
 		if(!gEntities[i].mName)
@@ -27,11 +28,12 @@ void RunPhysics()
 			Vec2Add(&gEntities[i].mAccel,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
 			if(gEntities[i].mWeight)
 			{
-				Vec2Add(&gravity,&gEntities[i].mPosition,&gEntities[i].mPosition);
+				Vec2Add(&gGravity,&gEntities[i].mAccel,&gEntities[i].mAccel);
 			}
-			//ApplySpeedLimit(&gEntities[i].mVelocity);
+			ApplySpeedLimit(&gEntities[i].mVelocity);
+			ApplySpeedLimit(&gEntities[i].mAccel);
 			ApplyBounds(&gEntities[i].mPosition);
-			//ApplyFriction(&gEntities[i].mVelocity);
+			ApplyFriction(&gEntities[i].mVelocity);
 		}
 		
 		//Vec2Add(&friction,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
@@ -102,7 +104,7 @@ int CheckCollision(entity_t *self, entity_t *other)
 
 void DoCollision(entity_t *self, entity_t *other)
 {
-	vec2_t position_self, position_other;
+	vec2_t position_self, position_other, knockback_self = {0}, knockback_other = {0};
 	if(self->Touch)
 	{
 		self->Touch(self, other, other->mCollisionType);
@@ -128,8 +130,23 @@ void DoCollision(entity_t *self, entity_t *other)
 	{
 		position_other = gZeroPos;
 	}
-	(position_self.x > position_self.y) ? (self->mPosition.x += position_self.x) : (self->mPosition.y += position_self.y) ;
-	(position_other.x > position_other.y) ? (other->mPosition.x += position_other.x) : (other->mPosition.y += position_other.y) ;
+	(position_self.x > position_self.y) ? (knockback_self.y = 0 ): (knockback_self.x = 0 );
+	(position_other.x > position_other.y) ? (knockback_other.y = 0 ): (knockback_other.x = 0 );
+
+	if(self->mCollisionType == COLLISION_TYPE_RAGDOLL)
+	{
+		Vec2Add(&position_self, &self->mPosition, &self->mPosition);
+		Vec2Add(&knockback_self, &self->mVelocity, &self->mVelocity);
+		self->mAccel.x = 0;
+		self->mAccel.y = 0;
+	}
+	if(other->mCollisionType == COLLISION_TYPE_RAGDOLL)
+	{
+		Vec2Add(&position_other, &other->mPosition, &other->mPosition);
+		Vec2Add(&knockback_other, &other->mVelocity, &other->mVelocity);
+		self->mAccel.x = 0;
+		self->mAccel.y = 0;
+	}
 }
 
 void ApplySpeedLimit(vec2_t* a)

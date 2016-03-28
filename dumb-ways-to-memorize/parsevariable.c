@@ -188,7 +188,7 @@ void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityMembers mem
 	}else
 	{
 		temp = JsmnToString(token, str);
-		EditEntity(ent, member, (void*)StringToInt(temp));
+		EditEntity(ent, member, (void*)StrToInt(temp));
 		if(temp) free(temp);
 	}
 }
@@ -200,8 +200,8 @@ vec2_t* ParseToVec2(object_t* object, char* str)
 	retVal = (vec2_t*) malloc(sizeof(vec2_t));
 	temp1 = JsmnToString(&object->values[0], str);
 	temp2 = JsmnToString(&object->values[1], str);
-	retVal->x = StringToInt(temp1);
-	retVal->y = StringToInt(temp2);
+	retVal->x = StrToInt(temp1);
+	retVal->y = StrToInt(temp2);
 	free(temp1); free(temp2);
 	return retVal;
 }
