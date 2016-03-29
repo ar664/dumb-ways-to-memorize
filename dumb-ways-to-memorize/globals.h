@@ -120,7 +120,8 @@ extern void *gMouse;
 //Game Globals
 #define G_NAME_STR		"Name"
 #define LOC_NAME_STR	"name"
-#define	FRAME_DELAY		16
+#define	FRAME_DELAY		13
+#define PHYSICS_LIMITER 2
 extern int gLives;
 extern int gLevelsPerGame;
 extern int gScreenWidth;

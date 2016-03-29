@@ -25,7 +25,8 @@ void RunPhysics()
 		}
 		if(!gEntities[i].mCollisionType == COLLISION_TYPE_STATIC)
 		{
-			Vec2Add(&gEntities[i].mVelocity,&gEntities[i].mPosition,&gEntities[i].mPosition);
+			gEntities[i].mPosition.x += gEntities[i].mVelocity.x/PHYSICS_LIMITER;
+			gEntities[i].mPosition.y += gEntities[i].mVelocity.y/PHYSICS_LIMITER;
 			Vec2Add(&gEntities[i].mAccel,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
 			if(gEntities[i].mWeight)
 			{
@@ -124,8 +125,8 @@ void DoCollision(entity_t *self, entity_t *other)
 
 	left = other_min.x - self_max.x;
 	right = other_max.x - self_min.x;
-	top = other_min.y - other_max.y;
-	bottom = other_max.y - self_max.y;
+	top = other_min.y - self_max.y;
+	bottom = other_max.y - self_min.y;
 	if(abs(left) < right)
 	{
 		self_res.x = left;
@@ -164,24 +165,24 @@ void DoCollision(entity_t *self, entity_t *other)
 
 	if(self->mCollisionType == COLLISION_TYPE_RAGDOLL)
 	{
-		Vec2Add(&self->mPosition, &other_res, &self->mPosition);
-		if(other_res.y)
-		{
-			self->mVelocity.y = -self->mVelocity.y/2;
-		} else
+		Vec2Add(&self->mPosition, &self_res, &self->mPosition);
+		if(self_res.x)
 		{
 			self->mVelocity.x = -self->mVelocity.x/2;
+		} else
+		{
+			self->mVelocity.y = -self->mVelocity.y/2;
 		}
 	}
 	if(other->mCollisionType == COLLISION_TYPE_RAGDOLL)
 	{
-		Vec2Add(&other->mPosition, &self_res, &other->mPosition);
-		if(self_res.y)
-		{
-			other->mVelocity.y = -self->mVelocity.y/2;
-		} else
+		Vec2Add(&other->mPosition, &other_res, &other->mPosition);
+		if(other_res.x)
 		{
 			other->mVelocity.x = -self->mVelocity.x/2;
+		} else
+		{
+			other->mVelocity.y = -self->mVelocity.y/2;
 		}
 
 	}
