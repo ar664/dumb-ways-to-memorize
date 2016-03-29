@@ -1,6 +1,7 @@
 #include "globals.h"
 #include "quick_controller.h"
 #include "entity.h"
+#include "parsepowerup.h"
 
 void DoPlayerThink(void *player, SDL_GameControllerButton button)
 {
@@ -11,7 +12,7 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 		{
 			if(ent->mVelocity.y == 0)
 			{
-				ent->mVelocity.y += 5;
+				ent->mVelocity.y += -5;
 				ent->mAnimation = ANIMATION_JUMP >= CountMem(ent->mSprites, sizeof(sprite_t*)) ? NULL : ent->mSprites[ANIMATION_JUMP];
 			}
 			
@@ -19,7 +20,7 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 		}
 	case(SDL_CONTROLLER_BUTTON_B):
 		{
-			ent->PowerUp(ent);
+			ent->PowerUp(gCurrentPowerUp);
 			break;
 		}
 	case(SDL_CONTROLLER_BUTTON_DPAD_LEFT):

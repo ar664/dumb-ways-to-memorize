@@ -13,6 +13,7 @@
 char *InteractionNames[] = {"move", "destroy", "spawn", "edit", "nullify", 0};
 void (*InteractionSymbols[]) =  {Move, Destroy, Spawn, Edit, Nullify, 0};
 
+power_t *gCurrentPowerUp = NULL;
 vec2_t *mousePos  = NULL;
 int *keyPower = NULL;
 
@@ -51,14 +52,8 @@ void Spawn(entity_t *targ, entity_t *info)
 		printf("Max entities reached can't spawn any more \n");
 		return;
 	}
-	spawned->mHazards = info->mHazards;
-	spawned->mCollisionType = info->mCollisionType;
-	spawned->mEntityState = info->mEntityState;
-	spawned->mSprites = info->mSprites;
-	spawned->mName = info->mName;
-	spawned->mAccel = info->mAccel;
-	spawned->mVelocity = info->mVelocity;
-	Vec2Add(&targ->mPosition, &info->mPosition, &spawned->mPosition);
+	memcpy(spawned, info, sizeof(entity_t));
+	Vec2Add(&targ->mPosition, &spawned->mPosition, &spawned->mPosition);
 }
 
 void Edit(entity_t *targ, entity_t *info)
@@ -224,11 +219,11 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 	}
 
 	//Interaction
-	if( (temp_str = FindValue(power, POWER_TARGET_STR, g_str)) != NULL )
+	if( (temp_str = FindValue(power, POWER_INTERACTION_STR, g_str)) != NULL )
 	{
-		for(i = 0; FunctionNames[i]; i++ )
+		for(i = 0; InteractionNames[i]; i++ )
 		{
-			if(!strcmp(FunctionNames[i], temp_str))
+			if(!strcmp(InteractionNames[i], temp_str))
 			{
 				retVal->DoPower = (void(*)(entity_t *targ, entity_t *info)) InteractionSymbols[i];
 				break;
@@ -243,7 +238,7 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 	{
 		if( (temp_ent = FindCachedEntity( temp_str )) != NULL )
 		{
-			retVal->info = ParseToEntity(power, g_str);
+			retVal->info = temp_ent;
 		} else
 		{
 			printf("Failed to identify/find entity in power : %s \n", power->name);
@@ -255,6 +250,27 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 	}
 
 	return retVal;
+}
+
+power_t* FindPower(char* str)
+{
+	int i, count;
+	if(!gPowerUps)
+	{
+		printf("No PowerUps Loaded");
+		return NULL;
+	}
+	count = CountMem(gPowerUps, sizeof(power_t));
+	for(i = 0; i < count; i++)
+	{
+		if(!gPowerUps[i].name)
+			continue;
+		if(!strcmp(gPowerUps[i].name, str))
+		{
+			return &gPowerUps[i];
+		}
+	}
+	return NULL;
 }
 
 void UsePower(power_t* power)

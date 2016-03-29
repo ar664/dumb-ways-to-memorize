@@ -116,7 +116,7 @@ int LoadLevel(object_t *level, char *g_str)
 				}
 				
 			}
-			posObj = FindObject(enemyObj, LEVEL_POSITION_STR);
+			posObj = FindObject(&enemyObj->children[i], LEVEL_POSITION_STR);
 			tileX_str = FindValue(&enemyObj->children[i], LEVEL_TILE_X_STR, g_str);
 			tileY_str = FindValue(&enemyObj->children[i], LEVEL_TILE_Y_STR, g_str);
 			tileX = StrToInt(tileX_str);
@@ -150,7 +150,7 @@ int LoadLevel(object_t *level, char *g_str)
 						memcpy(tempEnt, cachedEnt , sizeof(entity_t));
 						
 						tile_pos.x = tileX ? temp_pos->x + x*cachedEnt->mSprites[0]->mSize.x: temp_pos->x;
-						tile_pos.y = tileY ? temp_pos->y + y*cachedEnt->mSprites[0]->mSize.x: temp_pos->y;
+						tile_pos.y = tileY ? temp_pos->y + y*cachedEnt->mSprites[0]->mSize.y: temp_pos->y;
 						tempEnt->mPosition = tile_pos;
 						tempEnt->mData = enemyAI;
 						tempEnt->Think = ThinkEnemy;
@@ -193,7 +193,7 @@ int LoadLevel(object_t *level, char *g_str)
 				continue;
 			}
 
-			posObj = FindObject(itemObj, LEVEL_POSITION_STR);
+			posObj = FindObject(&itemObj->children[i], LEVEL_POSITION_STR);
 			tileX_str = FindValue(itemObj, LEVEL_TILE_X_STR, g_str);
 			tileY_str = FindValue(itemObj, LEVEL_TILE_Y_STR, g_str);
 			tileX = StrToInt(tileX_str);

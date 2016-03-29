@@ -40,7 +40,7 @@ char *gEntitiesFile = NULL;
 char *gPowerUpsFile = NULL;
 entity_t *gEntityDictionary;		/**< Entities loaded from files AKA cached entities*/
 power_t *gPowerUps;					/**< The loaded power ups */
-char *gCurrentPowerUp = NULL;
+char *gCurrentPowerUpName = NULL;
 GameState gGameState = SPLASH;		/**< State of the game */
 sprite_t *gSplash = NULL;			/**< The splash screen sprite*/
 vec2_t gZeroPos = {0,0};

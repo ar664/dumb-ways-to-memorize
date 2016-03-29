@@ -2,8 +2,9 @@
 #include "entity.h"
 #include "globals.h"
 #include "player.h"
+#include <stdio.h>
 
-vec2_t gGravity = {0, 9};
+vec2_t gGravity = {0, 2};
 
 /**
  * Executes physics.
@@ -28,11 +29,11 @@ void RunPhysics()
 			Vec2Add(&gEntities[i].mAccel,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
 			if(gEntities[i].mWeight)
 			{
-				Vec2Add(&gGravity,&gEntities[i].mAccel,&gEntities[i].mAccel);
+				gEntities[i].mAccel.y = gGravity.y;
 			}
 			ApplySpeedLimit(&gEntities[i].mVelocity);
 			ApplySpeedLimit(&gEntities[i].mAccel);
-			ApplyBounds(&gEntities[i].mPosition);
+			ApplyBounds(&gEntities[i]);
 			ApplyFriction(&gEntities[i].mVelocity);
 		}
 		
@@ -82,14 +83,12 @@ int CheckCollision(entity_t *self, entity_t *other)
 	{
 		return 0;
 	}
-	if(self->mPosition.x + self->mSprites[0]->mSize.x >= other->mPosition.x && self->mPosition.x <= other->mPosition.x + other->mSprites[0]->mSize.x)
+	if(self->mPosition.x + self->mSprites[0]->mSize.x < other->mPosition.x || self->mPosition.y + self->mSprites[0]->mSize.y < other->mPosition.y
+		|| self->mPosition.x > other->mPosition.x + other->mSprites[0]->mSize.x || self->mPosition.y > other->mPosition.y + other->mSprites[0]->mSize.y)
 	{
-		if(self->mPosition.y + self->mSprites[0]->mSize.y >= other->mPosition.y && self->mPosition.y <= other->mPosition.y + other->mSprites[0]->mSize.y)
-		{
-			return 1;
-		}
+		return 0;
 	}
-	return 0;
+	return 1;
 }
 
 /**
@@ -104,7 +103,8 @@ int CheckCollision(entity_t *self, entity_t *other)
 
 void DoCollision(entity_t *self, entity_t *other)
 {
-	vec2_t position_self, position_other, knockback_self = {0}, knockback_other = {0};
+	vec2_t self_min, self_max, self_res, other_min, other_max, other_res;
+	int left, right, bottom, top;
 	if(self->Touch)
 	{
 		self->Touch(self, other, other->mCollisionType);
@@ -113,40 +113,79 @@ void DoCollision(entity_t *self, entity_t *other)
 	{
 		other->Touch(other, self, self->mCollisionType);
 	}
+	if(strcmp(self->mName, other->mName))
+	{
+		printf("%s collided with %s \n", self->mName, other->mName);
+	}
+	self_min = self->mPosition;
+	Vec2Add(&self->mPosition, &self->mSprites[0]->mSize, &self_max);
+	other_min = other->mPosition;
+	Vec2Add(&other->mPosition, &other->mSprites[0]->mSize, &other_max);
+
+	left = other_min.x - self_max.x;
+	right = other_max.x - self_min.x;
+	top = other_min.y - other_max.y;
+	bottom = other_max.y - self_max.y;
+	if(abs(left) < right)
+	{
+		self_res.x = left;
+		other_res.x = right;
+	} else
+	{
+		self_res.x = right;
+		other_res.x = left;
+	}
+
+	if(abs(top) < bottom)
+	{
+		self_res.y = top;
+		other_res.y = bottom;
+	} else
+	{
+		self_res.y = bottom;
+		other_res.y = top;
+	}
 	
-	if(self->mCollisionType == COLLISION_TYPE_RAGDOLL)
+	if(abs(self_res.x) < abs(self_res.y))
 	{
-		position_self.x = self->mPosition.x < (other->mPosition.x + other->mSprites[0]->mSize.x) ? self->mPosition.x - other->mPosition.x  : 0;
-		position_self.y = self->mPosition.y < (other->mPosition.y + other->mSprites[0]->mSize.y) ? self->mPosition.y - other->mPosition.y : 0;
+		self_res.y = 0;
 	} else
 	{
-		position_self = gZeroPos;
+		self_res.x = 0;
 	}
-	if(other->mCollisionType == COLLISION_TYPE_RAGDOLL)
+
+	if(abs(other_res.x) < abs(other_res.y))
 	{
-		position_other.x = other->mPosition.x < (self->mPosition.x + self->mSprites[0]->mSize.x) ? other->mPosition.x - self->mPosition.x  : 0;
-		position_other.y = other->mPosition.y < (self->mPosition.y + self->mSprites[0]->mSize.y) ? other->mPosition.y - self->mPosition.y : 0;	
+		other_res.y = 0;
 	} else
 	{
-		position_other = gZeroPos;
+		other_res.x = 0;
 	}
-	(position_self.x > position_self.y) ? (knockback_self.y = 0 ): (knockback_self.x = 0 );
-	(position_other.x > position_other.y) ? (knockback_other.y = 0 ): (knockback_other.x = 0 );
 
 	if(self->mCollisionType == COLLISION_TYPE_RAGDOLL)
 	{
-		Vec2Add(&position_self, &self->mPosition, &self->mPosition);
-		Vec2Add(&knockback_self, &self->mVelocity, &self->mVelocity);
-		self->mAccel.x = 0;
-		self->mAccel.y = 0;
+		Vec2Add(&self->mPosition, &other_res, &self->mPosition);
+		if(other_res.y)
+		{
+			self->mVelocity.y = -self->mVelocity.y/2;
+		} else
+		{
+			self->mVelocity.x = -self->mVelocity.x/2;
+		}
 	}
 	if(other->mCollisionType == COLLISION_TYPE_RAGDOLL)
 	{
-		Vec2Add(&position_other, &other->mPosition, &other->mPosition);
-		Vec2Add(&knockback_other, &other->mVelocity, &other->mVelocity);
-		self->mAccel.x = 0;
-		self->mAccel.y = 0;
+		Vec2Add(&other->mPosition, &self_res, &other->mPosition);
+		if(self_res.y)
+		{
+			other->mVelocity.y = -self->mVelocity.y/2;
+		} else
+		{
+			other->mVelocity.x = -self->mVelocity.x/2;
+		}
+
 	}
+
 }
 
 void ApplySpeedLimit(vec2_t* a)
@@ -155,21 +194,29 @@ void ApplySpeedLimit(vec2_t* a)
 	a->y = abs(a->y) > PHYSICS_MAX_SPEED ? (a->y < 0 ? -PHYSICS_MAX_SPEED : PHYSICS_MAX_SPEED) : a->y;
 }
 
-void ApplyBounds(vec2_t* a)
+void ApplyBounds(entity_t* ent)
 {
-	if(a->x < 0)
+	if(ent->mPosition.x < 0)
 	{
-		a->x = 0;
-	} else if (a->x > gScreenWidth)
+		ent->mPosition.x = 0;
+		ent->mVelocity.x = 0;
+		ent->mAccel.x = 0;
+	} else if (ent->mPosition.x > gScreenWidth)
 	{
-		a->x = gScreenWidth - PHYSICS_MAX_SPEED;
+		ent->mPosition.x = gScreenWidth - PHYSICS_MAX_SPEED;
+		ent->mVelocity.x = 0;
+		ent->mAccel.x = 0;
 	}
-	if(a->y < 0)
+	if(ent->mPosition.y < 0)
 	{
-		a->y = 0;
-	} else if (a->y > gScreenHeight)
+		ent->mPosition.y = 0;
+		ent->mVelocity.y = 0;
+		ent->mAccel.y = 0;
+	} else if (ent->mPosition.y > gScreenHeight)
 	{
-		a->y = gScreenHeight - PHYSICS_MAX_SPEED;
+		ent->mPosition.y = gScreenHeight - PHYSICS_MAX_SPEED;
+		ent->mVelocity.y = 0;
+		ent->mAccel.y = 0;
 	}
 }
 

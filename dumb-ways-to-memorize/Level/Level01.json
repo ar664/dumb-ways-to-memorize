@@ -4,29 +4,29 @@
 	"Hint" : "Testing",
 	"Comment" : "Positions are based on pixels, lol",
 	"Comment 2" : "tile-to-x Doesn't work with negative tiling",
-	"Spawn" : [0, 30],
+	"Spawn" : [32, 500],
 	"Enemies" : [
 	{
 		"enemy" : "Flying Enemy",
 		"ai" : "AI/Dumb.json",
-		"position" : [100, 50]
+		"position" : [100, 500]
 	},
 	
 	{
 		"enemy" : "Gumba Enemy",
 		"ai" : "AI/Dumb.json",
-		"position" : [200, 70]
+		"position" : [200, 500]
 	},
 	
 	{
-		"enemy" : "Thwomp Enemy",
+		"enemy" : "Gumba Enemy",
 		"ai" : "AI/Dumb.json",
-		"position" : [300, 20]
+		"position" : [300, 500]
 	},
 	{
 		"enemy" : "Thwomp Enemy",
 		"ai" : "AI/Dumb.json",
-		"position" : [400, 100]
+		"position" : [400, 500]
 	}
 	],
 	
@@ -34,7 +34,7 @@
 	{
 		"object" : "Ground",
 		"tile-to-x" : 1280,
-		"position" : [0,680],
+		"position" : [0,688],
 		"comment" : "testing"
 	},
 	{

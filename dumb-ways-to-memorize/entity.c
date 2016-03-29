@@ -44,7 +44,16 @@ void DrawPlayer(entity_t *self)
 //Think Functions
 void ThinkGeneric(entity_t *self)
 {
-	//Do nothing
+	if(!self)
+	{
+		return;
+	}
+	if(!self->mHealth)
+	{
+		self->Think = FreeEntity;
+	}
+
+	self->mNextThink = gCurrentTime + 1*FRAME_DELAY;
 }
 
 void ThinkPlayer(entity_t *self)
@@ -120,6 +129,33 @@ void ThinkEnemy(entity_t *self)
 
 }
 
+void TouchGeneric(entity_t *self, entity_t *other, int type)
+{
+	switch(type)
+	{
+	case(COLLISION_TYPE_STATIC):
+		{
+			if(! (other->mHazards & self->mHazards) )
+			{
+				self->mHealth -= HAZARD_DAMAGE;
+				self->mAnimation = ANIMATION_HIT >= CountMem(self->mSprites, sizeof(sprite_t*)) ? NULL : self->mSprites[ANIMATION_HIT];
+				self->mNextThink += HAZARD_STUN_FRAMES*FRAME_DELAY;
+			}
+			break;
+		}
+	case(COLLISION_TYPE_RAGDOLL):
+		{
+			if(! (other->mHazards & self->mHazards) )
+			{
+				self->mHealth -= HAZARD_DAMAGE;
+				other->mHealth -= HAZARD_DAMAGE;
+				self->mAnimation = ANIMATION_HIT >= CountMem(self->mSprites, sizeof(sprite_t*)) ? NULL : self->mSprites[ANIMATION_HIT];
+			}
+		}
+	default:
+		break;
+	}
+}
 
 //Touch Functions
 void TouchPlayer(entity_t *self, entity_t *other, int type)

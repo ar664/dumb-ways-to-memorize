@@ -16,7 +16,8 @@
 		"interaction" : "spawn",
 		"target" : "self",
 		"position" : "self",
-		"entity" : "Fireball"
+		"entity" : "Fireball",
+		"damage" : 10
 	},
 	
 	"Telekenisis" : 

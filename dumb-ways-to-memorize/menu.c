@@ -228,7 +228,8 @@ void UpdatePowerSelectMenu(menu_t* self, SDL_GameControllerButton button)
 				}
 				if(!usedPower)
 				{
-					gCurrentPowerUp = self->mSelectedItem[i].Name;
+					gCurrentPowerUpName = self->mSelectedItem[i].Name;
+					gCurrentPowerUp = FindPower(gCurrentPowerUpName);
 					LoadSelectedLevel(i);
 					gGameState = self->mSelectedItem[i].NextState;
 				}

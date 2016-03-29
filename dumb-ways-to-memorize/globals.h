@@ -105,7 +105,7 @@ extern vec2_t *mousePos;
 extern int *keyPower;
 extern char **gSelectedPowerUps;
 extern char **gUsedPowerUps;
-extern char *gCurrentPowerUp;
+extern char *gCurrentPowerUpName;
 
 //For Levels
 extern char **gLevels;

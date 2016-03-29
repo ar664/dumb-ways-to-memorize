@@ -139,6 +139,9 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	}
 	retVal->mNextThink = 1;
 	retVal->mCurrentFrame = 0;
+	retVal->Think = ThinkGeneric;
+	retVal->Draw = DrawGeneric;
+	retVal->Touch = TouchGeneric;
 	PrintEntity(retVal);
 	return retVal;
 }

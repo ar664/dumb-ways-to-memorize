@@ -5,6 +5,7 @@
 	"Player" : 
 	{
 		"collisionType" : "ragdoll",
+		"hazard(s)" : "0",
 		"entityState" : "alive",
 		"sprite(s)" : "Sprite/Entities/Hero.png",
 		"height" : 32,
@@ -55,7 +56,7 @@
 	"Fireball" :
 	{
 		"hazard(s)" : "fire",
-		"collisionType" : "static",
+		"collisionType" : "ragdoll",
 		"entityState" : "other",
 		"sprite(s)" : "Sprite/Level/Ground.png",
 		"height" : 32,
@@ -70,6 +71,7 @@
 	"Ground" :
 	{
 		"collisionType" : "static",
+		"hazard(s)" : "0",
 		"entityState" : "other",
 		"sprite(s)" : "Sprite/Level/Ground.png",
 		"height" : 32,

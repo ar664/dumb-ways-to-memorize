@@ -31,7 +31,7 @@ void NothingAI(entity_t *ent)
 	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
 
 	//Check Data
-	ent->mData = ent->mData->mVariables[4]-- ? ent->mData : ent->mData->mLink;
+	ent->mData = ent->mData->mVariables[AI_VAR_TIME]-- ? ent->mData : ent->mData->mLink;
 }
 
 //Check Data Flag checks before calling functions
@@ -61,7 +61,7 @@ void MoveAI(entity_t *ent)
 	Vec2Add(&temp_vec2, &ent->mVelocity, &ent->mVelocity);
 
 	//Check Data
-	ent->mData = ent->mData->mVariables[4]-- ? ent->mData : ent->mData->mLink;
+	ent->mData = ent->mData->mVariables[AI_VAR_TIME]-- ? ent->mData : ent->mData->mLink;
 
 }
 
@@ -91,7 +91,7 @@ void WalkAI(entity_t *ent)
 	Vec2Add(&temp_vec2, &ent->mVelocity, &ent->mVelocity);
 
 	//Check Data
-	ent->mData = ent->mData->mVariables[4]-- ? ent->mData : ent->mData->mLink;
+	ent->mData = ent->mData->mVariables[AI_VAR_TIME]-- ? ent->mData : ent->mData->mLink;
 
 }
 
@@ -130,7 +130,7 @@ void JumpAI(entity_t *ent)
 	}
 
 	//Check Data
-	ent->mData = ent->mData->mVariables[4]-- ? ent->mData : ent->mData->mLink;
+	ent->mData = ent->mData->mVariables[AI_VAR_TIME]-- ? ent->mData : ent->mData->mLink;
 }
 
 void AttackAI(entity_t *ent)
@@ -164,7 +164,7 @@ void AttackAI(entity_t *ent)
 	}
 
 	//Check Data
-	ent->mData = ent->mData->mVariables[4]-- ? ent->mData : ent->mData->mLink;
+	ent->mData = ent->mData->mVariables[AI_VAR_TIME]-- ? ent->mData : ent->mData->mLink;
 }
 
 void (*GetFunctionAI(ai_function_t *data))(entity_t *)
@@ -544,7 +544,7 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 		} else
 		{
 			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = 10;
+			function->mVariables[AI_VAR_DIR_Y] = -10;
 		}
 
 		function->mAction = AI_ACTION_JUMP;

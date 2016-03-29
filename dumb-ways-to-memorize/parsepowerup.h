@@ -6,6 +6,7 @@
 
 #define POWER_TARGET_STR "target"
 #define POWER_USE_TYPE_STR "use-type"
+#define POWER_INTERACTION_STR "interaction"
 #define POWER_INPUT_TYPE_STR "input-type"
 #define POWER_ENTITY_STR "entity"
 
@@ -40,6 +41,7 @@ struct power_s
 
 };
 extern power_t *gPowerUps;
+extern power_t *gCurrentPowerUp;
 
 //Power Specific
 void CallInfo(power_t *self);
@@ -48,6 +50,7 @@ void UpdateInfinite(power_t *power);
 int GetUseType(const char *var, int *useType);
 
 power_t *ParseToPowerUp(object_t *power, char *str);
+power_t *FindPower(char *str);
 void UsePower(power_t *power);
 
 //Interactions
