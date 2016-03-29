@@ -11,6 +11,15 @@
 menu_t *gMenus = NULL;
 int gCurrentSelectedItem = 0;
 
+/**
+ * Deselect item by number.
+ *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
+ * @param	item			The item number to deselect.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void DeselectItemByNum(menu_t *self, int item)
 {
@@ -22,6 +31,16 @@ void DeselectItemByNum(menu_t *self, int item)
 	self->mItems[item].State = MENU_ITEM_STATE_NOT_SELECTED;
 }
 
+/**
+ * Select item by number.
+ *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
+ * @param	item			The item number to select.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void SelectItemByNum(menu_t *self, int item)
 {
 	if(!self)
@@ -32,7 +51,16 @@ void SelectItemByNum(menu_t *self, int item)
 	self->mItems[item].State = MENU_ITEM_STATE_SELECTED;
 }
 
-//Uses gSelectedItem
+/**
+ * Uses gSelectedItem. Updates input and state of menu items.
+ *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
+ * @param	button			The button.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 {
 	if(!self)
@@ -82,7 +110,17 @@ void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 	}
 }
 
-//Uses mSelectedItem
+/**
+ * Uses mSelectedItem. Updates the menu's selected item, and checks for number of power ups selected, to
+ * determine whether to switch game states.
+ *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
+ * @param	button			The button.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 {
 	int i, powerUps, selected_power_ups;

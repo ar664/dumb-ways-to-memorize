@@ -3,6 +3,16 @@
 #include "entity.h"
 #include "parsepowerup.h"
 
+/**
+ * Executes the player think operation for player input.
+ *
+ * @param [in,out]	player	If non-null, the player.
+ * @param	button		  	The button.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void DoPlayerThink(void *player, SDL_GameControllerButton button)
 {
 	entity_t *ent = (entity_t*) player;

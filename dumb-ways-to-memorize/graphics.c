@@ -338,6 +338,7 @@ void FreeSprite(sprite_t *sprite)
 
 }
 
+//Unused for now
 void IncrementFrame(sprite_t* sprite)
 {
 	int frames;
@@ -352,6 +353,19 @@ void IncrementFrame(sprite_t* sprite)
 	}
 
 }
+
+/**
+ * Sdl set rectangle dimensions.
+ *
+ * @param [in,out]	rect	If non-null, the rectangle.
+ * @param	x				The x coordinate.
+ * @param	y				The y coordinate.
+ * @param	w				The width.
+ * @param	h				The height.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void SDL_SetRect(SDL_Rect* rect, int x, int y, int w, int h)
 {

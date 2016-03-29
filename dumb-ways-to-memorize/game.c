@@ -138,6 +138,15 @@ int LoadEntityData()
 	return 0;
 }
 
+/**
+ * Loads level file names, and how many levels per game.
+ *
+ * @return	The level data.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 int LoadLevelData()
 {
 	object_t *levelObj;
@@ -177,7 +186,16 @@ int LoadLevelData()
 	return 0;
 }
 
-//After Load GameData, Before Menu
+/**
+ * After Load GameData, Before Menu.
+ * Loads the power_ups in the file given.
+ *
+ * @return	The power up data.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 int LoadPowerUpData()
 {
 	jsmntok_t *power_tok;
@@ -223,6 +241,15 @@ int LoadPowerUpData()
 	memset(&gPowerUps[powerCount], 0, sizeof(power_t));
 	return 0;
 }
+
+/**
+ * Loads menu data, from files given, which are put in gMenus
+ *
+ * @return	The menu data.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 int LoadMenuData()
 {
@@ -355,6 +382,18 @@ void RandomizeSelectedLevels()
 	free(slevel_copy);
 }
 
+/**
+ * Loads selected level.
+ *
+ * @param	level	The level.
+ *
+ * @return	The selected level.
+ *
+ * @see		LoadLevel , in parselevel.c
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 int LoadSelectedLevel(int level)
 {
 	if(!gSelectedLevels)
@@ -385,6 +424,13 @@ int LoadSelectedLevel(int level)
 	}
 	return 0;
 }
+
+/**
+ * Polls for all events and handles them.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void Poll()
 {
@@ -620,6 +666,15 @@ int Setup()
 	return 0;
 }
 
+/**
+ * Runs the main game loop.
+ *
+ * @return	An int.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 int Run()
 {
 	while(!exitRequest)
@@ -639,6 +694,12 @@ void Shutdown()
 	return;
 }
 
+/**
+ * Draws the splash screen.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void DrawSplash()
 {
@@ -652,6 +713,13 @@ void DrawSplash()
 	return;
 }
 
+/**
+ * Draws the start screen.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void DrawStart()
 {
 	if(!gMenus)
@@ -663,6 +731,13 @@ void DrawStart()
 	gMenus[0].Draw(&gMenus[0]);
 	return;
 }
+
+/**
+ * Draws the screen to player for powers to choose for this run.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void DrawGuess()
 {
@@ -676,6 +751,13 @@ void DrawGuess()
 	return;
 }
 
+/**
+ * Draws the screen for the player to choose which powerUp he wants for this level.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void DrawChoose()
 {
 	if(!gMenus)
@@ -688,12 +770,26 @@ void DrawChoose()
 
 }
 
+/**
+ * Draws the main game state, which is playing the game.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void DrawPlaying()
 {
 	DrawLevel();
 	DrawEntities();
 	return;
 }
+
+/**
+ * Updates the playing game state.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void UpdatePlaying()
 {

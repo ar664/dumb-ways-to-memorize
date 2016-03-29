@@ -147,6 +147,19 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	return retVal;
 }
 
+/**
+ * Mini parse function, handles entering / converting the data into the entity given.
+ *
+ * @param [in,out]	ent  	If non-null, the ent.
+ * @param [in,out]	token	If non-null, the token.
+ * @param [in,out]	str  	If non-null, the string.
+ * @param	member		 	The member.
+ * @param	size		 	The size.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityMembers member, int size)
 {
 	int i;
@@ -197,11 +210,27 @@ void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityMembers mem
 	}
 }
 
+/**
+ * Parse given obj/str to vector 2.
+ *
+ * @param [in,out]	object	If non-null, the object.
+ * @param [in,out]	str   	If non-null, the string.
+ *
+ * @return	null if it fails, else a pointer to a vec2_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 vec2_t* ParseToVec2(object_t* object, char* str)
 {
 	vec2_t *retVal;
 	char *temp1, *temp2;
 	retVal = (vec2_t*) malloc(sizeof(vec2_t));
+	if(!retVal || !object || !str)
+	{
+		return NULL;
+	}
 	temp1 = JsmnToString(&object->values[0], str);
 	temp2 = JsmnToString(&object->values[1], str);
 	retVal->x = StrToInt(temp1);
@@ -209,6 +238,18 @@ vec2_t* ParseToVec2(object_t* object, char* str)
 	free(temp1); free(temp2);
 	return retVal;
 }
+
+/**
+ * Parse obj/data to string array.
+ *
+ * @param [in,out]	object	If non-null, the object.
+ * @param [in,out]	str   	If non-null, the string.
+ *
+ * @return	null if it fails, else a handle to a char.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 char **ParseToStringArray(object_t* object, char* str)
 {
@@ -227,6 +268,15 @@ char **ParseToStringArray(object_t* object, char* str)
 	retVal[size+1] = 0;
 	return retVal;
 }
+
+/**
+ * Prints the entities data, used for debug.
+ *
+ * @param [in,out]	ent	If non-null, the ent.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void PrintEntity(entity_t *ent)
 {

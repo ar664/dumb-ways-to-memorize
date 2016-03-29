@@ -305,6 +305,20 @@ enum FreeVar
 	TOKEN=	0x4
 };
 
+/**
+ * Convert file to useable, by setting the storage for string and jsmntokens, give a filename.
+ *
+ * @param [in,out]	fileName	 	If non-null, filename of the file.
+ * @param [in,out]	parser		 	If non-null, the parser.
+ * @param [in,out]	stringStorage	If non-null, the string storage.
+ * @param [in,out]	jsmnStorage  	If non-null, the jsmn storage.
+ *
+ * @return	The file converted to useable.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStorage, jsmntok_t **jsmnStorage)
 {
 	int num_tokens, varsToFree = 0;
@@ -376,6 +390,17 @@ int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStora
 	return num_tokens;
 }
 
+/**
+ * Converts a str to a game state.
+ *
+ * @param [in,out]	str	If non-null, the string.
+ *
+ * @return	str as a GameState.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 GameState StrToGameState(char *str)
 {
 	if(!str)
@@ -408,6 +433,16 @@ GameState StrToGameState(char *str)
 	return SPLASH;
 }
 
+/**
+ * Converts a str to a hazard.
+ *
+ * @param [in,out]	str	If non-null, the string.
+ *
+ * @return	str as an int.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 int StrToHazard(char *str)
 {
@@ -425,6 +460,17 @@ int StrToHazard(char *str)
 	return 0;
 }
 
+/**
+ * Converts a str to a collision type.
+ *
+ * @param [in,out]	str	If non-null, the string.
+ *
+ * @return	str as a collision_type_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 collision_type_t StrToCollisionType(char *str)
 {
 	int i;
@@ -439,6 +485,17 @@ collision_type_t StrToCollisionType(char *str)
 	}
 	return 0;
 }
+
+/**
+ * Converts a str to an entity state.
+ *
+ * @param [in,out]	str	If non-null, the string.
+ *
+ * @return	str as an entity_state_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 entity_state_t StrToEntityState(char *str)
 {

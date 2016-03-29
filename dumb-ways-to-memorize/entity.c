@@ -13,7 +13,15 @@ char **Hazards_str = NULL;
 char *Collisions_str[] = {"static", "ragdoll", "clip", 0};
 char *EntityStates_str[] = {"alive", "dead", "other", 0};
 
-//Draw Functions
+/**
+ * Draws the entity via self->mAnimation if set, or the first sprite which is idle.
+ *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void DrawGeneric(entity_t *self)
 {
 	if(!self)
@@ -36,25 +44,43 @@ void DrawGeneric(entity_t *self)
 	
 }
 
+//Unused for now
 void DrawPlayer(entity_t *self)
 {
 	//DrawSprite(self->mSprites, &self->mPosition, gRenderer);
 }
 
-//Think Functions
+/**
+ * Generic think function, checks health and dies when health <= 0
+ *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void ThinkGeneric(entity_t *self)
 {
 	if(!self)
 	{
 		return;
 	}
-	if(!self->mHealth)
+	if(self->mHealth <= 0)
 	{
 		self->Think = FreeEntity;
 	}
 
 	self->mNextThink = gCurrentTime + 1*FRAME_DELAY;
 }
+
+/**
+ * The player think function, handles lives ,gamestate switching , and input.
+ *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void ThinkPlayer(entity_t *self)
 {
@@ -92,6 +118,15 @@ void ThinkPlayer(entity_t *self)
 	}
 }
 
+/**
+ * The modular think function for enemy entities with an AI.
+ *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void ThinkEnemy(entity_t *self)
 {
 	if(!self) return;
@@ -128,6 +163,18 @@ void ThinkEnemy(entity_t *self)
 	}
 
 }
+
+/**
+ * Generic touch function,
+ * Receives pain from touch and inflict pain on touch depending on hazard types.
+ *
+ * @param [in,out]	self 	If non-null, the class instance that this method operates on.
+ * @param [in,out]	other	If non-null, the other.
+ * @param	type		 	The type.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void TouchGeneric(entity_t *self, entity_t *other, int type)
 {
@@ -199,6 +246,18 @@ void TouchEnemy(entity_t *self, entity_t *other, int type)
 	}
 }
 
+/**
+ * The touch function for the goal entity / flag.
+ * Switches gamestate based on if you won or should go to the next level.
+ *
+ * @param [in,out]	self 	If non-null, the class instance that this method operates on.
+ * @param [in,out]	other	If non-null, the other entity it touched.
+ * @param	type		 	The type.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void TouchGoal(entity_t* self, entity_t* other, int type)
 {
 	if(other == gPlayer)
@@ -206,6 +265,15 @@ void TouchGoal(entity_t* self, entity_t* other, int type)
 		gGameState = CountMem(gUsedPowerUps, sizeof(char*)) >= CountMem(gSelectedPowerUps, sizeof(char*)) ? START : CHOOSE;
 	}
 }
+
+/**
+ * Init entity system.
+ *
+ * @return	An int of failure state. 0 if good, -1 if error.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 int InitEntitySystem()
 {
@@ -225,6 +293,15 @@ int InitEntitySystem()
 	return 0;
 }
 
+/**
+ * Init new entity.
+ *
+ * @return	null if it fails, else a pointer to an entity_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 entity_t *InitNewEntity()
 {
 	int pos;
@@ -240,6 +317,15 @@ entity_t *InitNewEntity()
 	return retVal;
 }
 
+/**
+ * Searches for the next free cache position in gEntitiesDictionary.
+ *
+ * @return	null if it fails, else the found free cache position.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 entity_t* FindNextFreeCachePos()
 {
 	int i;
@@ -253,6 +339,13 @@ entity_t* FindNextFreeCachePos()
 	}
 	return &gEntityDictionary[i];
 }
+
+/**
+ * Draw entities, if they have draw functions.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void DrawEntities()
 {
@@ -270,6 +363,14 @@ void DrawEntities()
 		gEntities[i].Draw(&gEntities[i]);
 	}
 }
+
+/**
+ * Executes the entities think functions.
+ *
+ * @note	I think I have the logic wrong..
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void RunEntities()
 {
@@ -292,6 +393,17 @@ void RunEntities()
 	}
 }
 
+/**
+ * Searches for the cached entity whose name matches given str.
+ *
+ * @param	name	The name.
+ *
+ * @return	null if it fails, else the found cached entity.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 entity_t* FindCachedEntity(const char* name)
 {
 	int i;
@@ -307,6 +419,17 @@ entity_t* FindCachedEntity(const char* name)
 	return NULL;
 }
 
+/**
+ * Searches for the first entity with the name of given str.
+ *
+ * @param	name	The name.
+ *
+ * @return	null if it fails, else the found entity.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 entity_t* FindEntity(const char* name)
 {
 	int i;
@@ -321,6 +444,17 @@ entity_t* FindEntity(const char* name)
 	}
 	return NULL;
 }
+
+/**
+ * Searches for the first free entity.
+ *
+ * @param [in,out]	position	If non-null, the position.
+ *
+ * @return	null if it fails, else the found free entity.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 entity_t* FindFreeEntity(int* position)
 {
@@ -346,6 +480,16 @@ entity_t* FindFreeEntity(int* position)
 	return NULL;
 }
 
+/**
+ * Look for entity at position.
+ *
+ * @param	position	The position.
+ *
+ * @return	null if it fails, else a pointer to an entity_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 entity_t *LookForEntityAtPos(vec2_t position)
 {
@@ -363,6 +507,18 @@ entity_t *LookForEntityAtPos(vec2_t position)
 	return NULL;
 }
 
+/**
+ * Distance 2 entity other from entity self.
+ *
+ * @param [in,out]	self 	If non-null, the class instance that this method operates on.
+ * @param [in,out]	other	If non-null, the other entity.
+ *
+ * @return	An int.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 int Distance2Entity(entity_t* self, entity_t* other)
 {
 	int x, y;
@@ -370,6 +526,18 @@ int Distance2Entity(entity_t* self, entity_t* other)
 	y = self->mPosition.y - self->mPosition.y;
 	return powf(powf(x, 2) + powf(y, 2), (float) 1/2);
 }
+
+/**
+ * Free entity.
+ * 
+ * @note	right now it just acts like memset(0) on entities in the global Entities scope.
+ * 			But it free's any other data that isn't globally set.
+ *
+ * @param [in,out]	ent	If non-null, the ent.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void FreeEntity(entity_t *ent)
 {
@@ -401,6 +569,13 @@ void FreeEntity(entity_t *ent)
 
 }
 
+/**
+ * Frees the non player entities, use for Destroy World.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void FreeNonPlayerEntities()
 {
 	int i , entities;
@@ -418,6 +593,13 @@ void FreeNonPlayerEntities()
 		FreeEntity(&gEntities[i]);
 	}
 }
+
+/**
+ * Shutdown entity system, frees all the entities.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void ShutdownEntitySystem()
 {

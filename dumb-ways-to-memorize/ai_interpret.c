@@ -12,6 +12,14 @@ char *gAI_Variables[] = {"speed", "frames", "time", "damage", 0};
 char *gAI_Actions[] = {"nothing", "move", "walk", "jump","attack",0};
 char *gAI_Conditions[] = {"distance_player", "distance_object", "link_ai", "link_action", 0};
 
+/**
+ * AI that does nothing for its think, except make sure values are set.
+ *
+ * @param [in,out]	ent	If non-null, the ent.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void NothingAI(entity_t *ent)
 {
@@ -38,8 +46,17 @@ void NothingAI(entity_t *ent)
 	}
 }
 
-//Check Data Flag checks before calling functions
-//TODO: Lerp
+/**
+ * AI to Move ent from point A to B w/o collisions.
+ *
+ * @param [in,out]	ent	If non-null, the ent.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ * 
+ * @Todo	Learn how to lerp.
+ */
+
 void MoveAI(entity_t *ent)
 {
 	int flags;
@@ -74,7 +91,17 @@ void MoveAI(entity_t *ent)
 
 }
 
-//TODO: Lerp
+/**
+ * AI to "walk" entity from point A to B w/ collisions.
+ *
+ * @param [in,out]	ent	If non-null, the ent.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ * 
+ * @todo	Lerp
+ */
+
 void WalkAI(entity_t *ent)
 {
 	int flags;
@@ -106,6 +133,15 @@ void WalkAI(entity_t *ent)
 		ent->mData = ent->mData->mLink;
 	}
 }
+
+/**
+ * AI to change velocity of the entity, defaults to a jumping movement.
+ *
+ * @param [in,out]	ent	If non-null, the ent.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void JumpAI(entity_t *ent)
 {
@@ -149,6 +185,17 @@ void JumpAI(entity_t *ent)
 	}
 }
 
+/**
+ * AI for entity attacks, "spawns" a hit box / entity in front of Entity
+ * 
+ * @note	Currently Untested
+ *
+ * @param [in,out]	ent	If non-null, the ent.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void AttackAI(entity_t *ent)
 {
 	int flags;
@@ -187,6 +234,17 @@ void AttackAI(entity_t *ent)
 	}
 }
 
+/**
+ * Returns a function pointer to the think function, given ai_function data.
+ *
+ * @param [in,out]	parameter1	If non-null, the first parameter.
+ *
+ * @return	null if it fails, else a GetFunctionAI(ai_function_t *data.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void (*GetFunctionAI(ai_function_t *data))(entity_t *)
 {
 	if(!data)
@@ -209,6 +267,19 @@ void (*GetFunctionAI(ai_function_t *data))(entity_t *)
 		return NULL;
 	}
 }
+
+/**
+ * Parses AI behavior using the variables given and the AI obj/file specified.
+ *
+ * @param [in,out]	obj		 	If non-null, the object.
+ * @param [in,out]	g_str	 	If non-null, the string.
+ * @param [in,out]	variables	If non-null, the variables.
+ *
+ * @return	null if it fails, else a pointer to an ai_function_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 {
@@ -342,6 +413,18 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 	return retVal;
 }
 
+/**
+ * Parse a preset AI, with values determined by whats in the file.
+ *
+ * @param [in,out]	obj  	If non-null, the object.
+ * @param [in,out]	g_str	If non-null, the string.
+ *
+ * @return	null if it fails, else a pointer to an ai_function_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 {
 	int i, j, k,children, position, variables, gravity;
@@ -450,6 +533,17 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 	return retVal;
 }
 
+/**
+ * Sets AI variables in ai_function->mVariables.
+ *
+ * @param [in,out]	function	If non-null, the function.
+ * @param [in,out]	data_str	If non-null, the data string.
+ * @param [in,out]	var_str 	If non-null, the variable string.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 {
 	if(!var_str)
@@ -497,6 +591,19 @@ void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 		}
 	}
 }
+
+/**
+ * Sets AI action defined in ai_actions to the ai_function
+ *
+ * @param [in,out]	function  	If non-null, the function.
+ * @param [in,out]	obj		  	If non-null, the object.
+ * @param [in,out]	tok		  	If non-null, the tok.
+ * @param [in,out]	g_str	  	If non-null, the string.
+ * @param [in,out]	action_str	If non-null, the action string.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* g_str, char* action_str)
 {
@@ -555,7 +662,7 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 		if(!obj)
 		{
 			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = -2;
+			function->mVariables[AI_VAR_DIR_Y] = -3;
 			
 		} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
 		{
@@ -564,7 +671,7 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 		} else
 		{
 			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = -2;
+			function->mVariables[AI_VAR_DIR_Y] = -3;
 		}
 
 		function->mAction = AI_ACTION_JUMP;
@@ -575,6 +682,18 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 		function->mObject = JsmnToString(tok, g_str);
 	}
 }
+
+/**
+ * Sets checks that need to occur for the ai_function to be called.
+ *
+ * @param [in,out]	function	 	If non-null, the function.
+ * @param [in,out]	variables_str	If non-null, the variables string.
+ * @param [in,out]	data_str	 	If non-null, the data string.
+ * @param [in,out]	check_str	 	If non-null, the check string.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 void SetAI_Check(ai_function_t* function, char** variables_str, char* data_str, char* check_str)
 {
@@ -613,6 +732,15 @@ void SetAI_Check(ai_function_t* function, char** variables_str, char* data_str, 
 	}
 }
 
+/**
+ * Init AI system, similar to Entity init, for now....
+ *
+ * @return	An int.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 int InitAISystem()
 {
 	if(gVariableAIs)
@@ -634,6 +762,17 @@ int InitAISystem()
 
 	return 0;
 }
+
+/**
+ * Converts a str to an AI type.
+ *
+ * @param	str	The string.
+ *
+ * @return	str as an ai_type_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 
 ai_type_t StrToAI_Type(const char *str)
 {
