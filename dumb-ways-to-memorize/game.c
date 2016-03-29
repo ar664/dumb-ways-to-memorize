@@ -20,6 +20,7 @@
 //All char ** should be size+1, and ending member = NULL
 
 int exitRequest = 0;				/**< The integer to be changed to exit */
+int gDelay = 0;
 int gLives = 0;
 int gLevelsPerGame = LEVELS_DEFAULT;
 jsmn_parser gParser;				/**< The global jsmn parser */
@@ -419,6 +420,7 @@ void UpdatePlaying();
 void Update()
 {
 	char *splash;
+	gCurrentTime = SDL_GetTicks();
 	switch(gGameState)
 	{
 	case(SPLASH):
@@ -625,7 +627,8 @@ int Run()
 		Poll();
 		Update();
 		Draw();
-		SDL_Delay(gGameState == PLAYING ? FRAME_DELAY : 0);
+		gDelay = SDL_GetTicks() - gCurrentTime;
+		SDL_Delay(gDelay > FRAME_DELAY ? 0 : gDelay);
 	}
 	return 0;
 }
@@ -694,7 +697,6 @@ void DrawPlaying()
 
 void UpdatePlaying()
 {
-	gCurrentTime = SDL_GetTicks();
 	RunEntities();
 	RunPhysics();
 }
