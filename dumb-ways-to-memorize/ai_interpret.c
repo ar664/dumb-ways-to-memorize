@@ -25,13 +25,17 @@ void NothingAI(entity_t *ent)
 	flags = ent->mData->mFlags;
 
 	//Standard Vars
-	ent->mCollisionType = COLLISION_TYPE_CLIP;
-	ent->mNextThink = SDL_GetTicks() + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
+	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
+	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
 
 	//Check Data
-	ent->mData = ent->mData->mVariables[AI_VAR_TIME]-- ? ent->mData : ent->mData->mLink;
+	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
+	{
+		ent->mData->mVariables[AI_VAR_TIME] = 1;
+		ent->mData = ent->mData->mLink;
+	}
 }
 
 //Check Data Flag checks before calling functions
@@ -49,7 +53,7 @@ void MoveAI(entity_t *ent)
 
 	//Standard Vars
 	ent->mCollisionType = COLLISION_TYPE_CLIP;
-	ent->mNextThink = SDL_GetTicks() + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
+	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
 	
@@ -61,7 +65,12 @@ void MoveAI(entity_t *ent)
 	Vec2Add(&temp_vec2, &ent->mVelocity, &ent->mVelocity);
 
 	//Check Data
-	ent->mData = ent->mData->mVariables[AI_VAR_TIME]-- ? ent->mData : ent->mData->mLink;
+	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
+	{
+		ent->mData->mVariables[AI_VAR_TIME] = 1;
+		ent->mData = ent->mData->mLink;
+	}
+	
 
 }
 
@@ -79,7 +88,7 @@ void WalkAI(entity_t *ent)
 
 	//Standard Vars
 	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
-	ent->mNextThink = SDL_GetTicks() + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
+	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
 
@@ -91,8 +100,11 @@ void WalkAI(entity_t *ent)
 	Vec2Add(&temp_vec2, &ent->mVelocity, &ent->mVelocity);
 
 	//Check Data
-	ent->mData = ent->mData->mVariables[AI_VAR_TIME]-- ? ent->mData : ent->mData->mLink;
-
+	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
+	{
+		ent->mData->mVariables[AI_VAR_TIME] = 1;
+		ent->mData = ent->mData->mLink;
+	}
 }
 
 void JumpAI(entity_t *ent)
@@ -108,12 +120,12 @@ void JumpAI(entity_t *ent)
 
 	//Standard Vars
 	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
-	ent->mNextThink = SDL_GetTicks() + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
+	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
 
 	//Move
-	if(ent->mPosition.y == (gScreenHeight + ent->mSprites[0]->mSize.y))
+	if(ent->mVelocity.y == 0)
 	{
 		temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 		temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
@@ -130,7 +142,11 @@ void JumpAI(entity_t *ent)
 	}
 
 	//Check Data
-	ent->mData = ent->mData->mVariables[AI_VAR_TIME]-- ? ent->mData : ent->mData->mLink;
+	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
+	{
+		ent->mData->mVariables[AI_VAR_TIME] = 1;
+		ent->mData = ent->mData->mLink;
+	}
 }
 
 void AttackAI(entity_t *ent)
@@ -164,7 +180,11 @@ void AttackAI(entity_t *ent)
 	}
 
 	//Check Data
-	ent->mData = ent->mData->mVariables[AI_VAR_TIME]-- ? ent->mData : ent->mData->mLink;
+	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
+	{
+		ent->mData->mVariables[AI_VAR_TIME] = 1;
+		ent->mData = ent->mData->mLink;
+	}
 }
 
 void (*GetFunctionAI(ai_function_t *data))(entity_t *)
@@ -535,7 +555,7 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 		if(!obj)
 		{
 			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = 0;
+			function->mVariables[AI_VAR_DIR_Y] = -2;
 			
 		} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
 		{
@@ -544,7 +564,7 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 		} else
 		{
 			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = -10;
+			function->mVariables[AI_VAR_DIR_Y] = -2;
 		}
 
 		function->mAction = AI_ACTION_JUMP;
