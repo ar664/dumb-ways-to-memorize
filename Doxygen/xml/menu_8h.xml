@@ -1,0 +1,559 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="menu_8h" kind="file" language="C++">
+    <compoundname>menu.h</compoundname>
+    <includes refid="globals_8h" local="yes">globals.h</includes>
+    <includes refid="graphics_8h" local="yes">graphics.h</includes>
+    <includes refid="parseobject_8h" local="yes">parseobject.h</includes>
+    <includedby refid="game_8c" local="yes">dumb-ways-to-memorize/game.c</includedby>
+    <includedby refid="menu_8c" local="yes">dumb-ways-to-memorize/menu.c</includedby>
+    <incdepgraph>
+      <node id="273">
+        <label>globals.h</label>
+        <link refid="globals_8h"/>
+        <childnode refid="274" relation="include">
+        </childnode>
+      </node>
+      <node id="277">
+        <label>SDL.h</label>
+      </node>
+      <node id="274">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="275" relation="include">
+        </childnode>
+      </node>
+      <node id="272">
+        <label>dumb-ways-to-memorize/menu.h</label>
+        <link refid="menu.h"/>
+        <childnode refid="273" relation="include">
+        </childnode>
+        <childnode refid="276" relation="include">
+        </childnode>
+        <childnode refid="278" relation="include">
+        </childnode>
+      </node>
+      <node id="278">
+        <label>parseobject.h</label>
+        <link refid="parseobject_8h"/>
+        <childnode refid="274" relation="include">
+        </childnode>
+      </node>
+      <node id="275">
+        <label>stddef.h</label>
+      </node>
+      <node id="276">
+        <label>graphics.h</label>
+        <link refid="graphics_8h"/>
+        <childnode refid="277" relation="include">
+        </childnode>
+        <childnode refid="273" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="280">
+        <label>dumb-ways-to-memorize/game.c</label>
+        <link refid="game_8c"/>
+      </node>
+      <node id="281">
+        <label>dumb-ways-to-memorize/menu.c</label>
+        <link refid="menu_8c"/>
+      </node>
+      <node id="279">
+        <label>dumb-ways-to-memorize/menu.h</label>
+        <link refid="menu.h"/>
+        <childnode refid="280" relation="include">
+        </childnode>
+        <childnode refid="281" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structmenu__item__s" prot="public">menu_item_s</innerclass>
+    <innerclass refid="structmenu__s" prot="public">menu_s</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="menu_8h_1ab4ca22b3abeffba22f56886bbb39c0f9" prot="public" static="no">
+        <name>MENU_ITEM_MAX</name>
+        <initializer>20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="8" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1ab2b40834d297a20af015b5c3b13e31e4" prot="public" static="no">
+        <name>MAX_MENUS</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="9" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1a61e9cfe2e8569082ec57ba6a7c3e7cbe" prot="public" static="no">
+        <name>MENU_BACKGROUND</name>
+        <initializer>&quot;Background&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="10" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1a9d4a2080871448b284a8449cd899898f" prot="public" static="no">
+        <name>MENU_ITEMS</name>
+        <initializer>&quot;Items&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="11" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1aa9ede24621a515a557d60a374f4dff6a" prot="public" static="no">
+        <name>MENU_ITEM_SPRITE</name>
+        <initializer>&quot;sprite&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="12" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1a4b6cafdbf81fcaff2646bea1c99cdc33" prot="public" static="no">
+        <name>MENU_ITEM_TEXT</name>
+        <initializer>&quot;text&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="13" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1aa17ff70e4da81270ffeab1dcb19cacb6" prot="public" static="no">
+        <name>MENU_ITEM_LINK</name>
+        <initializer>&quot;link&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="14" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1a31141b0e1ee4f4ab9f3f64e7ed63a6e9" prot="public" static="no">
+        <name>MENU_ITEM_EXTRA</name>
+        <initializer>&quot;extra&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="15" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1a7608eabfc6ac732a60c62ec331346032" prot="public" static="no">
+        <name>MENU_TYPE</name>
+        <initializer>&quot;Type&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="16" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1a184f67b2269e942df91f4cc4ef314b77" prot="public" static="no">
+        <name>MENU_TYPE_STR_POWER</name>
+        <initializer>&quot;power_select&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="17" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1a14d7adc2f2315acd3a25c75f0df1b00a" prot="public" static="no">
+        <name>MENU_TYPE_STR_CHOOSE</name>
+        <initializer>&quot;choose_power&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="18" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1ad93a7e08ccb25a8e9d9ff257c6d00d7f" prot="public" static="no">
+        <name>MENU_TYPE_STR_H</name>
+        <initializer>&quot;horizontal&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="19" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1a6e3272cde8626b4dbe6fb12af2a4fec8" prot="public" static="no">
+        <name>MENU_TYPE_STR_V</name>
+        <initializer>&quot;vertical&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="20" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="menu_8h_1af1d21de0fd729ce50359d39fc89b84bf" prot="public" static="no">
+        <name>MENU_TYPE_STR_GRID</name>
+        <initializer>&quot;grid&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="21" column="9" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="menu_8h_1ae04d0184eeca6be261090a6cfc49b92e" prot="public" static="no">
+        <name>menu_type_t</name>
+        <enumvalue id="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea40eba317709e6fb74680ab0be4506ff5" prot="public">
+          <name>MENU_TYPE_NULL</name>
+          <initializer>= 0x0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea44093eb84c021250710c21d7040742c9" prot="public">
+          <name>MENU_TYPE_H</name>
+          <initializer>= 0x1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>An enum constant representing the menu type - horizontal </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eae51e962ec8beccece27215c15adcead4" prot="public">
+          <name>MENU_TYPE_V</name>
+          <initializer>= 0x2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>An enum constant representing the menu type - vertical </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eadf5c230f1c0e9ba8cb94248e675e520c" prot="public">
+          <name>MENU_TYPE_GRID</name>
+          <initializer>= 0x4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>An enum constant representing the menu type - grid </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaed4cdae7debfa0f072aed36802897c8d" prot="public">
+          <name>MENU_TYPE_POWER</name>
+          <initializer>= 0x8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>An enum constant representing the menu type - half circle for power selection </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaf382d35204a24dfcc899f49a21d6180a" prot="public">
+          <name>MENU_TYPE_CHOOSE</name>
+          <initializer>= 0x10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>An enum constant representing the menu - same as power, but used to differ the menu operations </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea029b59e4df4e951f090850a0f1e6800b" prot="public">
+          <name>MENU_TYPE_MAX</name>
+          <initializer>= 0x20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines the enum for what type of menu it is </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="25" column="1" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="24" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="menu_8h_1affefd3de0ee32201a1e405b126d4a8dd" prot="public" static="no">
+        <type>struct <ref refid="structmenu__item__s" kindref="compound">menu_item_s</ref></type>
+        <definition>typedef struct menu_item_s menu_item_t</definition>
+        <argsstring></argsstring>
+        <name>menu_item_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="730" column="1" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="menu_8h_1aed08c6d5d5b5d87ad2368f169239217c" prot="public" static="no">
+        <type>struct <ref refid="structmenu__s" kindref="compound">menu_s</ref></type>
+        <definition>typedef struct menu_s menu_t</definition>
+        <argsstring></argsstring>
+        <name>menu_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="730" column="1" bodyfile="dumb-ways-to-memorize/menu.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="menu_8h_1ac9844c472d09220d402c191e16f6474e" prot="public" static="no" mutable="no">
+        <type><ref refid="menu_8h_1aed08c6d5d5b5d87ad2368f169239217c" kindref="member">menu_t</ref> *</type>
+        <definition>menu_t* gMenus</definition>
+        <argsstring></argsstring>
+        <name>gMenus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="76" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="menu_8h_1a1c427a4122a85bc392880fdcf2a843ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int InitMenuSystem</definition>
+        <argsstring>()</argsstring>
+        <name>InitMenuSystem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocate memor for menu system, gMenus is the menu list.</para><para><simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/16/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="78" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="306" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1a6f4a9eb4cd081c5b7a3e5e0475ed8437" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="menu_8h_1aed08c6d5d5b5d87ad2368f169239217c" kindref="member">menu_t</ref> *</type>
+        <definition>menu_t* LoadMenu</definition>
+        <argsstring>(object_t *object, char *g_str, GameState curr_state, GameState previous_state)</argsstring>
+        <name>LoadMenu</name>
+        <param>
+          <type><ref refid="parseobject_8h_1a965db53884ff9e4e077dd5e2e2d6a5e2" kindref="member">object_t</ref> *</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>g_str</declname>
+        </param>
+        <param>
+          <type><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref></type>
+          <declname>curr_state</declname>
+        </param>
+        <param>
+          <type><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref></type>
+          <declname>previous_state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads a menu.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">object</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the object menu was parsed to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">g_str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the string. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>currState</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State to assign the menu. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>previous_state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State before this menu.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if loads correctly, -1 if it doesn&apos;t.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/16/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="79" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="500" bodyend="657"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1a9cd9b0277a6a4e88c4c065e0efeb6192" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="menu_8h_1aed08c6d5d5b5d87ad2368f169239217c" kindref="member">menu_t</ref> *</type>
+        <definition>menu_t* FindMenuFromGameState</definition>
+        <argsstring>(GameState curr_state)</argsstring>
+        <name>FindMenuFromGameState</name>
+        <param>
+          <type><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref></type>
+          <declname>curr_state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Searches for the first menu from game state in gMenus.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>curr_state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State of the curr.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>null if it fails, else the found menu from game state.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/16/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="80" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="670" bodyend="690"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1a7cb8c357e2b15b9a01f236ff19382427" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="menu_8h_1aed08c6d5d5b5d87ad2368f169239217c" kindref="member">menu_t</ref> *</type>
+        <definition>menu_t* FindFreeMenu</definition>
+        <argsstring>()</argsstring>
+        <name>FindFreeMenu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="81" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="692" bodyend="710"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1af50d4e67c36ed63b1b84befc82d8ac8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="menu_8h_1affefd3de0ee32201a1e405b126d4a8dd" kindref="member">menu_item_t</ref> *</type>
+        <definition>menu_item_t* FindMenuItem</definition>
+        <argsstring>(menu_t *menu, char *item)</argsstring>
+        <name>FindMenuItem</name>
+        <param>
+          <type><ref refid="menu_8h_1aed08c6d5d5b5d87ad2368f169239217c" kindref="member">menu_t</ref> *</type>
+          <declname>menu</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/menu.h" line="83" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="712" bodyend="728"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__MENU_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__MENU_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="globals_8h" kindref="compound">globals.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="graphics_8h" kindref="compound">graphics.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parseobject_8h" kindref="compound">parseobject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="menu_8h_1ab4ca22b3abeffba22f56886bbb39c0f9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_ITEM_MAX<sp/><sp/><sp/>20</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="menu_8h_1ab2b40834d297a20af015b5c3b13e31e4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_MENUS<sp/><sp/><sp/><sp/><sp/><sp/><sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="menu_8h_1a61e9cfe2e8569082ec57ba6a7c3e7cbe" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_BACKGROUND<sp/>&quot;Background&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="menu_8h_1a9d4a2080871448b284a8449cd899898f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_ITEMS<sp/><sp/><sp/><sp/><sp/><sp/>&quot;Items&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="menu_8h_1aa9ede24621a515a557d60a374f4dff6a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_ITEM_SPRITE<sp/>&quot;sprite&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="menu_8h_1a4b6cafdbf81fcaff2646bea1c99cdc33" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_ITEM_TEXT<sp/><sp/>&quot;text&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="menu_8h_1aa17ff70e4da81270ffeab1dcb19cacb6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_ITEM_LINK<sp/><sp/>&quot;link&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="menu_8h_1a31141b0e1ee4f4ab9f3f64e7ed63a6e9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_ITEM_EXTRA<sp/>&quot;extra&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="menu_8h_1a7608eabfc6ac732a60c62ec331346032" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_TYPE<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Type&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="menu_8h_1a184f67b2269e942df91f4cc4ef314b77" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_TYPE_STR_POWER<sp/>&quot;power_select&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="menu_8h_1a14d7adc2f2315acd3a25c75f0df1b00a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_TYPE_STR_CHOOSE<sp/>&quot;choose_power&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="menu_8h_1ad93a7e08ccb25a8e9d9ff257c6d00d7f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_TYPE_STR_H<sp/><sp/><sp/><sp/><sp/>&quot;horizontal&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="menu_8h_1a6e3272cde8626b4dbe6fb12af2a4fec8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_TYPE_STR_V<sp/><sp/><sp/><sp/><sp/>&quot;vertical&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="menu_8h_1af1d21de0fd729ce50359d39fc89b84bf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MENU_TYPE_STR_GRID<sp/><sp/>&quot;grid&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92e" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26" refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea40eba317709e6fb74680ab0be4506ff5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea40eba317709e6fb74680ab0be4506ff5" kindref="member">MENU_TYPE_NULL</ref><sp/>=<sp/>0x0,</highlight></codeline>
+<codeline lineno="27" refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea44093eb84c021250710c21d7040742c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea44093eb84c021250710c21d7040742c9" kindref="member">MENU_TYPE_H</ref><sp/>=<sp/>0x1,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28" refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eae51e962ec8beccece27215c15adcead4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eae51e962ec8beccece27215c15adcead4" kindref="member">MENU_TYPE_V</ref><sp/>=<sp/>0x2,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29" refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eadf5c230f1c0e9ba8cb94248e675e520c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eadf5c230f1c0e9ba8cb94248e675e520c" kindref="member">MENU_TYPE_GRID</ref><sp/>=<sp/>0x4,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30" refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaed4cdae7debfa0f072aed36802897c8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaed4cdae7debfa0f072aed36802897c8d" kindref="member">MENU_TYPE_POWER</ref><sp/>=<sp/>0x8,<sp/><sp/></highlight></codeline>
+<codeline lineno="31" refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaf382d35204a24dfcc899f49a21d6180a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaf382d35204a24dfcc899f49a21d6180a" kindref="member">MENU_TYPE_CHOOSE</ref><sp/>=<sp/>0x10,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32" refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea029b59e4df4e951f090850a0f1e6800b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea029b59e4df4e951f090850a0f1e6800b" kindref="member">MENU_TYPE_MAX</ref><sp/>=<sp/>0x20</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}<ref refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92e" kindref="member">menu_type_t</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="menu_8h_1affefd3de0ee32201a1e405b126d4a8dd" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structmenu__item__s" kindref="compound">menu_item_s</ref><sp/><ref refid="structmenu__item__s" kindref="compound">menu_item_t</ref>;</highlight></codeline>
+<codeline lineno="38" refid="menu_8h_1aed08c6d5d5b5d87ad2368f169239217c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_s</ref><sp/><ref refid="structmenu__s" kindref="compound">menu_t</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="structmenu__item__s" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structmenu__item__s" kindref="compound">menu_item_s</ref></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49" refid="structmenu__item__s_1a549a5400c9f9b61bb66d0239bd21fe53" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="globals_8h_1a82d3a17b01eab2136e9f3ee50640b89f" kindref="member">menu_item_state_t</ref><sp/><sp/><sp/><ref refid="structmenu__item__s_1a549a5400c9f9b61bb66d0239bd21fe53" kindref="member">State</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50" refid="structmenu__item__s_1ab0377c6660ff457af3498a0e121e42f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmenu__item__s_1ab0377c6660ff457af3498a0e121e42f0" kindref="member">NextState</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="51" refid="structmenu__item__s_1ae69b5c22d5cd3911965dc992d40ba4fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmenu__item__s_1ae69b5c22d5cd3911965dc992d40ba4fc" kindref="member">Position</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52" refid="structmenu__item__s_1a5e6182c030324511dd82e9fa1a0ab071" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="structmenu__item__s_1a5e6182c030324511dd82e9fa1a0ab071" kindref="member">Name</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53" refid="structmenu__item__s_1a25fe573e4bbeefb06bccb0c0c9acf35f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="structmenu__item__s_1a25fe573e4bbeefb06bccb0c0c9acf35f" kindref="member">Image</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54" refid="structmenu__item__s_1a2459e5f05ca13ac8dff1f7b9abda4534" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="structmenu__item__s_1a2459e5f05ca13ac8dff1f7b9abda4534" kindref="member">Info</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="structmenu__s" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_s</ref></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66" refid="structmenu__s_1a0cc653a44ba5b3f6fc46b8c43131c18b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structmenu__item__s" kindref="compound">menu_item_t</ref><sp/>mItems[<ref refid="menu_8h_1ab4ca22b3abeffba22f56886bbb39c0f9" kindref="member">MENU_ITEM_MAX</ref>];<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67" refid="structmenu__s_1a02f9bbc347b039857ac927bfa84b66cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structmenu__item__s" kindref="compound">menu_item_t</ref><sp/>*<ref refid="structmenu__s_1a02f9bbc347b039857ac927bfa84b66cf" kindref="member">mSelectedItem</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68" refid="structmenu__s_1ab2cdfd66047e062b1da2948d07f9f90d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="structmenu__s_1ab2cdfd66047e062b1da2948d07f9f90d" kindref="member">mBackground</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69" refid="structmenu__s_1a0f4930e7bfb881141c55f2ff6532343c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/><ref refid="structmenu__s_1a0f4930e7bfb881141c55f2ff6532343c" kindref="member">mCurrentState</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70" refid="structmenu__s_1a5caad79c0b16c966cdace805942e2592" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/><ref refid="structmenu__s_1a5caad79c0b16c966cdace805942e2592" kindref="member">mPreviousState</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71" refid="structmenu__s_1a20f9c9276293cccf509c5102dad0698a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structmenu__s_1a20f9c9276293cccf509c5102dad0698a" kindref="member">mItemCount</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72" refid="structmenu__s_1afdc00f47a596fec9f5362aeab002e868" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*<ref refid="game_8c_1aec0783b5a136e042adcc47bae4fe5291" kindref="member">Update</ref>)(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>SDL_GameControllerButton<sp/>button);<sp/><sp/></highlight></codeline>
+<codeline lineno="73" refid="structmenu__s_1ab0d1e3b40626060280d7a069ef441961" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*<ref refid="game_8c_1a3d5cf0d8d37b6b17224867eb397c9a16" kindref="member">Draw</ref>)(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*<ref refid="menu_8h_1ac9844c472d09220d402c191e16f6474e" kindref="member">gMenus</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="menu_8h_1a1c427a4122a85bc392880fdcf2a843ce" kindref="member">InitMenuSystem</ref>();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*<ref refid="menu_8h_1a6f4a9eb4cd081c5b7a3e5e0475ed8437" kindref="member">LoadMenu</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*</highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str,<sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/>curr_state,<sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/>previous_state<sp/>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*<ref refid="menu_8h_1a9cd9b0277a6a4e88c4c065e0efeb6192" kindref="member">FindMenuFromGameState</ref>(<ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/>curr_state);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*<ref refid="menu_8h_1a7cb8c357e2b15b9a01f236ff19382427" kindref="member">FindFreeMenu</ref>();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><ref refid="structmenu__item__s" kindref="compound">menu_item_t</ref><sp/>*<ref refid="menu_8h_1af50d4e67c36ed63b1b84befc82d8ac8a" kindref="member">FindMenuItem</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*menu,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*item);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/menu.h"/>
+  </compounddef>
+</doxygen>

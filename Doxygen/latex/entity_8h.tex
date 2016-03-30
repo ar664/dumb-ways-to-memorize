@@ -1,0 +1,695 @@
+\hypertarget{entity_8h}{}\section{dumb-\/ways-\/to-\/memorize/entity.h File Reference}
+\label{entity_8h}\index{dumb-\/ways-\/to-\/memorize/entity.\+h@{dumb-\/ways-\/to-\/memorize/entity.\+h}}
+{\ttfamily \#include \char`\"{}globals.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}graphics.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ai\+\_\+interpret.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structentity__s}{entity\+\_\+s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{entity_8h_a0b7e155f796ed5e7b49b0f44867135ee}{M\+A\+X\+\_\+\+E\+N\+T\+I\+T\+I\+ES}~250
+\item 
+\#define \hyperlink{entity_8h_a06fc171388523b3731c50218617d64b1}{E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+L\+E\+FT}~0
+\item 
+\#define \hyperlink{entity_8h_a500b112c5fef7d3144b377ab85307075}{E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+R\+I\+G\+HT}~1
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structentity__s}{entity\+\_\+s} \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{entity_8h_a9aa4a5f113750202be9f45db34908955}{Init\+Entity\+System} ()
+\item 
+\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ \hyperlink{entity_8h_ad5cd21060189ddd8246414069ee01676}{Init\+New\+Entity} ()
+\item 
+\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ \hyperlink{entity_8h_a373409dde746bc4935afd92aa8975f4c}{Find\+Next\+Free\+Cache\+Pos} ()
+\item 
+\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ \hyperlink{entity_8h_a018dc9e984dbb58b293f263775b528c6}{Find\+Cached\+Entity} (const char $\ast$\hyperlink{player_8h_a5ac083a645d964373f022d03df4849c8}{name})
+\item 
+\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ \hyperlink{entity_8h_aa4c00fea364c35f0a56dd90b9c38efb0}{Find\+Entity} (const char $\ast$\hyperlink{player_8h_a5ac083a645d964373f022d03df4849c8}{name})
+\item 
+\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ \hyperlink{entity_8h_ace2c9f2a6fee203dab937c5e716ad7dd}{Find\+Free\+Entity} (int $\ast$position)
+\item 
+\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ \hyperlink{entity_8h_a69811b56fbaa2dfc61154fb027632ea8}{Look\+For\+Entity\+At\+Pos} (\hyperlink{globals_8h_a773f2054819bb6014f1e50baa39cb5e3}{vec2\+\_\+t} position)
+\item 
+int \hyperlink{entity_8h_a1c8f7981791b1935beab73c3faab96a5}{Distance2\+Entity} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$other)
+\item 
+void \hyperlink{entity_8h_a4804d845517ee1430fc40dfdc3d333df}{Run\+Entities} ()
+\item 
+void \hyperlink{entity_8h_a7406ec610d0755cd8022ceea378f83a6}{Draw\+Entities} ()
+\item 
+void \hyperlink{entity_8h_a9a3d7af463607a209c8f52caf9e15c70}{Print\+Entity} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ent)
+\item 
+void \hyperlink{entity_8h_ae27dad323fa0f26748bd2485f5d019e3}{Free\+Entity} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ent)
+\item 
+void \hyperlink{entity_8h_aec8aad072a0215184b68b9815194950c}{Free\+Non\+Player\+Entities} ()
+\item 
+void \hyperlink{entity_8h_a8aebaea1606f89c449d67b1f1afb7cdb}{Shutdown\+Entity\+System} ()
+\item 
+void \hyperlink{entity_8h_a8572f94d16405fa3b42dd584893852bd}{Draw\+Generic} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self)
+\item 
+void \hyperlink{entity_8h_af5e7ffbf279b65e179e3f89caad2ec45}{Draw\+Player} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self)
+\item 
+void \hyperlink{entity_8h_adb84b9e6a5a5c18dc147a1c0de60fd85}{Think\+Generic} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self)
+\item 
+void \hyperlink{entity_8h_ae11597dd27ad4ab341e8c1ebf07c15f8}{Think\+Player} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self)
+\item 
+void \hyperlink{entity_8h_a6c8f8a4a732c4324caca6ba22521e5a7}{Think\+Enemy} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self)
+\item 
+void \hyperlink{entity_8h_a2eb4fef990cd3eb845b5a99fbd22e0fc}{Touch\+Generic} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$other, int type)
+\item 
+void \hyperlink{entity_8h_a0090f3a150bf7833709c04eba953c6e2}{Touch\+Player} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$other, int type)
+\item 
+void \hyperlink{entity_8h_a8460f228ddd46eb74cf3693274191365}{Touch\+Enemy} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$other, int type)
+\item 
+void \hyperlink{entity_8h_a4929b147240092a570d720f74ce10617}{Touch\+Goal} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$other, int type)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ \hyperlink{entity_8h_af8475c9d8ef741632cc7461fec5c0fad}{g\+Entity\+Dictionary}
+\item 
+\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ \hyperlink{entity_8h_a725e495de3797c12610995f701dd8a6a}{g\+Entities}
+\item 
+int \hyperlink{entity_8h_a7c67a8b083cb98b1c3eaf871bc4dd4cd}{g\+Last\+Entity}
+\item 
+void($\ast$)(\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$) \hyperlink{entity_8h_a5ad36cd8551508ec69032e3dc782a1ba}{Get\+Function\+AI} (\hyperlink{ai__interpret_8h_a93e23f66130135adeb83b13c29f36fca}{ai\+\_\+function\+\_\+t} $\ast$data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{entity.\+h@{entity.\+h}!E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+L\+E\+FT@{E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+L\+E\+FT}}
+\index{E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+L\+E\+FT@{E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+L\+E\+FT}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+L\+E\+FT}{ENTITY_DIR_LEFT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+L\+E\+FT~0}\hypertarget{entity_8h_a06fc171388523b3731c50218617d64b1}{}\label{entity_8h_a06fc171388523b3731c50218617d64b1}
+
+
+Definition at line 9 of file entity.\+h.
+
+\index{entity.\+h@{entity.\+h}!E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+R\+I\+G\+HT@{E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+R\+I\+G\+HT}}
+\index{E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+R\+I\+G\+HT@{E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+R\+I\+G\+HT}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+R\+I\+G\+HT}{ENTITY_DIR_RIGHT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+T\+I\+T\+Y\+\_\+\+D\+I\+R\+\_\+\+R\+I\+G\+HT~1}\hypertarget{entity_8h_a500b112c5fef7d3144b377ab85307075}{}\label{entity_8h_a500b112c5fef7d3144b377ab85307075}
+
+
+Definition at line 10 of file entity.\+h.
+
+\index{entity.\+h@{entity.\+h}!M\+A\+X\+\_\+\+E\+N\+T\+I\+T\+I\+ES@{M\+A\+X\+\_\+\+E\+N\+T\+I\+T\+I\+ES}}
+\index{M\+A\+X\+\_\+\+E\+N\+T\+I\+T\+I\+ES@{M\+A\+X\+\_\+\+E\+N\+T\+I\+T\+I\+ES}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+E\+N\+T\+I\+T\+I\+ES}{MAX_ENTITIES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+E\+N\+T\+I\+T\+I\+ES~250}\hypertarget{entity_8h_a0b7e155f796ed5e7b49b0f44867135ee}{}\label{entity_8h_a0b7e155f796ed5e7b49b0f44867135ee}
+
+
+Definition at line 8 of file entity.\+h.
+
+
+
+\subsection{Typedef Documentation}
+\index{entity.\+h@{entity.\+h}!entity\+\_\+t@{entity\+\_\+t}}
+\index{entity\+\_\+t@{entity\+\_\+t}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{entity\+\_\+t}{entity_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf entity\+\_\+s} {\bf entity\+\_\+t}}\hypertarget{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{}\label{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}
+
+
+Definition at line 12 of file entity.\+h.
+
+
+
+\subsection{Function Documentation}
+\index{entity.\+h@{entity.\+h}!Distance2\+Entity@{Distance2\+Entity}}
+\index{Distance2\+Entity@{Distance2\+Entity}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Distance2\+Entity(entity\+\_\+t $\ast$self, entity\+\_\+t $\ast$other)}{Distance2Entity(entity_t *self, entity_t *other)}}]{\setlength{\rightskip}{0pt plus 5cm}int Distance2\+Entity (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{other}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a1c8f7981791b1935beab73c3faab96a5}{}\label{entity_8h_a1c8f7981791b1935beab73c3faab96a5}
+Distance 2 entity other from entity self.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em self} & If non-\/null, the class instance that this method operates on. \\
+\hline
+\mbox{\tt in,out}  & {\em other} & If non-\/null, the other entity.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 529 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Draw\+Entities@{Draw\+Entities}}
+\index{Draw\+Entities@{Draw\+Entities}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Draw\+Entities()}{DrawEntities()}}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\+Entities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a7406ec610d0755cd8022ceea378f83a6}{}\label{entity_8h_a7406ec610d0755cd8022ceea378f83a6}
+Draw entities, if they have draw functions.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 358 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Draw\+Generic@{Draw\+Generic}}
+\index{Draw\+Generic@{Draw\+Generic}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Draw\+Generic(entity\+\_\+t $\ast$self)}{DrawGeneric(entity_t *self)}}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\+Generic (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a8572f94d16405fa3b42dd584893852bd}{}\label{entity_8h_a8572f94d16405fa3b42dd584893852bd}
+Draws the entity via self-\/$>$m\+Animation if set, or the first sprite which is idle.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em self} & If non-\/null, the class instance that this method operates on.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 26 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Draw\+Player@{Draw\+Player}}
+\index{Draw\+Player@{Draw\+Player}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Draw\+Player(entity\+\_\+t $\ast$self)}{DrawPlayer(entity_t *self)}}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\+Player (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_af5e7ffbf279b65e179e3f89caad2ec45}{}\label{entity_8h_af5e7ffbf279b65e179e3f89caad2ec45}
+
+
+Definition at line 49 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Find\+Cached\+Entity@{Find\+Cached\+Entity}}
+\index{Find\+Cached\+Entity@{Find\+Cached\+Entity}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Cached\+Entity(const char $\ast$name)}{FindCachedEntity(const char *name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+t}$\ast$ Find\+Cached\+Entity (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a018dc9e984dbb58b293f263775b528c6}{}\label{entity_8h_a018dc9e984dbb58b293f263775b528c6}
+Searches for the cached entity whose name matches given str.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found cached entity.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 414 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Find\+Entity@{Find\+Entity}}
+\index{Find\+Entity@{Find\+Entity}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Entity(const char $\ast$name)}{FindEntity(const char *name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+t}$\ast$ Find\+Entity (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_aa4c00fea364c35f0a56dd90b9c38efb0}{}\label{entity_8h_aa4c00fea364c35f0a56dd90b9c38efb0}
+Searches for the first entity with the name of given str.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found entity.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 440 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Find\+Free\+Entity@{Find\+Free\+Entity}}
+\index{Find\+Free\+Entity@{Find\+Free\+Entity}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Free\+Entity(int $\ast$position)}{FindFreeEntity(int *position)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+t}$\ast$ Find\+Free\+Entity (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{position}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_ace2c9f2a6fee203dab937c5e716ad7dd}{}\label{entity_8h_ace2c9f2a6fee203dab937c5e716ad7dd}
+Searches for the first free entity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em position} & If non-\/null, the position.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found free entity.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 466 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Find\+Next\+Free\+Cache\+Pos@{Find\+Next\+Free\+Cache\+Pos}}
+\index{Find\+Next\+Free\+Cache\+Pos@{Find\+Next\+Free\+Cache\+Pos}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Next\+Free\+Cache\+Pos()}{FindNextFreeCachePos()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+t}$\ast$ Find\+Next\+Free\+Cache\+Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a373409dde746bc4935afd92aa8975f4c}{}\label{entity_8h_a373409dde746bc4935afd92aa8975f4c}
+Searches for the next free cache position in g\+Entities\+Dictionary.
+
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found free cache position.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 337 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Free\+Entity@{Free\+Entity}}
+\index{Free\+Entity@{Free\+Entity}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Free\+Entity(entity\+\_\+t $\ast$ent)}{FreeEntity(entity_t *ent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Free\+Entity (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{ent}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_ae27dad323fa0f26748bd2485f5d019e3}{}\label{entity_8h_ae27dad323fa0f26748bd2485f5d019e3}
+Free entity.
+
+\begin{DoxyNote}{Note}
+right now it just acts like memset(0) on entities in the global Entities scope. But it free\textquotesingle{}s any other data that isn\textquotesingle{}t globally set.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em ent} & If non-\/null, the ent.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 549 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Free\+Non\+Player\+Entities@{Free\+Non\+Player\+Entities}}
+\index{Free\+Non\+Player\+Entities@{Free\+Non\+Player\+Entities}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Free\+Non\+Player\+Entities()}{FreeNonPlayerEntities()}}]{\setlength{\rightskip}{0pt plus 5cm}void Free\+Non\+Player\+Entities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_aec8aad072a0215184b68b9815194950c}{}\label{entity_8h_aec8aad072a0215184b68b9815194950c}
+Frees the non player entities, use for Destroy World.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 586 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Init\+Entity\+System@{Init\+Entity\+System}}
+\index{Init\+Entity\+System@{Init\+Entity\+System}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Init\+Entity\+System()}{InitEntitySystem()}}]{\setlength{\rightskip}{0pt plus 5cm}int Init\+Entity\+System (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a9aa4a5f113750202be9f45db34908955}{}\label{entity_8h_a9aa4a5f113750202be9f45db34908955}
+Init entity system.
+
+\begin{DoxyReturn}{Returns}
+An int of failure state. 0 if good, -\/1 if error.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 286 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Init\+New\+Entity@{Init\+New\+Entity}}
+\index{Init\+New\+Entity@{Init\+New\+Entity}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Init\+New\+Entity()}{InitNewEntity()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+t}$\ast$ Init\+New\+Entity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_ad5cd21060189ddd8246414069ee01676}{}\label{entity_8h_ad5cd21060189ddd8246414069ee01676}
+Init new entity.
+
+\begin{DoxyReturn}{Returns}
+null if it fails, else a pointer to an entity\+\_\+t.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 313 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Look\+For\+Entity\+At\+Pos@{Look\+For\+Entity\+At\+Pos}}
+\index{Look\+For\+Entity\+At\+Pos@{Look\+For\+Entity\+At\+Pos}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Look\+For\+Entity\+At\+Pos(vec2\+\_\+t position)}{LookForEntityAtPos(vec2_t position)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+t}$\ast$ Look\+For\+Entity\+At\+Pos (
+\begin{DoxyParamCaption}
+\item[{{\bf vec2\+\_\+t}}]{position}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a69811b56fbaa2dfc61154fb027632ea8}{}\label{entity_8h_a69811b56fbaa2dfc61154fb027632ea8}
+Look for entity at position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a pointer to an entity\+\_\+t.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 501 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Print\+Entity@{Print\+Entity}}
+\index{Print\+Entity@{Print\+Entity}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Print\+Entity(entity\+\_\+t $\ast$ent)}{PrintEntity(entity_t *ent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+Entity (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{ent}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a9a3d7af463607a209c8f52caf9e15c70}{}\label{entity_8h_a9a3d7af463607a209c8f52caf9e15c70}
+Prints the entities data, used for debug.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em ent} & If non-\/null, the ent.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 281 of file parsevariable.\+c.
+
+\index{entity.\+h@{entity.\+h}!Run\+Entities@{Run\+Entities}}
+\index{Run\+Entities@{Run\+Entities}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Run\+Entities()}{RunEntities()}}]{\setlength{\rightskip}{0pt plus 5cm}void Run\+Entities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a4804d845517ee1430fc40dfdc3d333df}{}\label{entity_8h_a4804d845517ee1430fc40dfdc3d333df}
+Executes the entities think functions.
+
+\begin{DoxyNote}{Note}
+I think I have the logic wrong.. 
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 383 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Shutdown\+Entity\+System@{Shutdown\+Entity\+System}}
+\index{Shutdown\+Entity\+System@{Shutdown\+Entity\+System}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Shutdown\+Entity\+System()}{ShutdownEntitySystem()}}]{\setlength{\rightskip}{0pt plus 5cm}void Shutdown\+Entity\+System (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a8aebaea1606f89c449d67b1f1afb7cdb}{}\label{entity_8h_a8aebaea1606f89c449d67b1f1afb7cdb}
+Shutdown entity system, frees all the entities.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 611 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Think\+Enemy@{Think\+Enemy}}
+\index{Think\+Enemy@{Think\+Enemy}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Think\+Enemy(entity\+\_\+t $\ast$self)}{ThinkEnemy(entity_t *self)}}]{\setlength{\rightskip}{0pt plus 5cm}void Think\+Enemy (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a6c8f8a4a732c4324caca6ba22521e5a7}{}\label{entity_8h_a6c8f8a4a732c4324caca6ba22521e5a7}
+The modular think function for enemy entities with an AI.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em self} & If non-\/null, the class instance that this method operates on.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 138 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Think\+Generic@{Think\+Generic}}
+\index{Think\+Generic@{Think\+Generic}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Think\+Generic(entity\+\_\+t $\ast$self)}{ThinkGeneric(entity_t *self)}}]{\setlength{\rightskip}{0pt plus 5cm}void Think\+Generic (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_adb84b9e6a5a5c18dc147a1c0de60fd85}{}\label{entity_8h_adb84b9e6a5a5c18dc147a1c0de60fd85}
+Generic think function, checks health and dies when health $<$= 0
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em self} & If non-\/null, the class instance that this method operates on.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 63 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Think\+Player@{Think\+Player}}
+\index{Think\+Player@{Think\+Player}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Think\+Player(entity\+\_\+t $\ast$self)}{ThinkPlayer(entity_t *self)}}]{\setlength{\rightskip}{0pt plus 5cm}void Think\+Player (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_ae11597dd27ad4ab341e8c1ebf07c15f8}{}\label{entity_8h_ae11597dd27ad4ab341e8c1ebf07c15f8}
+The player think function, handles lives ,gamestate switching , and input.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em self} & If non-\/null, the class instance that this method operates on.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 86 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Touch\+Enemy@{Touch\+Enemy}}
+\index{Touch\+Enemy@{Touch\+Enemy}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Touch\+Enemy(entity\+\_\+t $\ast$self, entity\+\_\+t $\ast$other, int type)}{TouchEnemy(entity_t *self, entity_t *other, int type)}}]{\setlength{\rightskip}{0pt plus 5cm}void Touch\+Enemy (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{other, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a8460f228ddd46eb74cf3693274191365}{}\label{entity_8h_a8460f228ddd46eb74cf3693274191365}
+
+
+Definition at line 244 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Touch\+Generic@{Touch\+Generic}}
+\index{Touch\+Generic@{Touch\+Generic}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Touch\+Generic(entity\+\_\+t $\ast$self, entity\+\_\+t $\ast$other, int type)}{TouchGeneric(entity_t *self, entity_t *other, int type)}}]{\setlength{\rightskip}{0pt plus 5cm}void Touch\+Generic (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{other, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a2eb4fef990cd3eb845b5a99fbd22e0fc}{}\label{entity_8h_a2eb4fef990cd3eb845b5a99fbd22e0fc}
+Generic touch function, Receives pain from touch and inflict pain on touch depending on hazard types.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em self} & If non-\/null, the class instance that this method operates on. \\
+\hline
+\mbox{\tt in,out}  & {\em other} & If non-\/null, the other. \\
+\hline
+ & {\em type} & The type.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 187 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Touch\+Goal@{Touch\+Goal}}
+\index{Touch\+Goal@{Touch\+Goal}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Touch\+Goal(entity\+\_\+t $\ast$self, entity\+\_\+t $\ast$other, int type)}{TouchGoal(entity_t *self, entity_t *other, int type)}}]{\setlength{\rightskip}{0pt plus 5cm}void Touch\+Goal (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{other, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a4929b147240092a570d720f74ce10617}{}\label{entity_8h_a4929b147240092a570d720f74ce10617}
+The touch function for the goal entity / flag. Switches gamestate based on if you won or should go to the next level.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em self} & If non-\/null, the class instance that this method operates on. \\
+\hline
+\mbox{\tt in,out}  & {\em other} & If non-\/null, the other entity it touched. \\
+\hline
+ & {\em type} & The type.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 269 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!Touch\+Player@{Touch\+Player}}
+\index{Touch\+Player@{Touch\+Player}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Touch\+Player(entity\+\_\+t $\ast$self, entity\+\_\+t $\ast$other, int type)}{TouchPlayer(entity_t *self, entity_t *other, int type)}}]{\setlength{\rightskip}{0pt plus 5cm}void Touch\+Player (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{other, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{entity_8h_a0090f3a150bf7833709c04eba953c6e2}{}\label{entity_8h_a0090f3a150bf7833709c04eba953c6e2}
+
+
+Definition at line 216 of file entity.\+c.
+
+
+
+\subsection{Variable Documentation}
+\index{entity.\+h@{entity.\+h}!g\+Entities@{g\+Entities}}
+\index{g\+Entities@{g\+Entities}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{g\+Entities}{gEntities}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+t}$\ast$ g\+Entities}\hypertarget{entity_8h_a725e495de3797c12610995f701dd8a6a}{}\label{entity_8h_a725e495de3797c12610995f701dd8a6a}
+
+
+Definition at line 11 of file entity.\+c.
+
+\index{entity.\+h@{entity.\+h}!g\+Entity\+Dictionary@{g\+Entity\+Dictionary}}
+\index{g\+Entity\+Dictionary@{g\+Entity\+Dictionary}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{g\+Entity\+Dictionary}{gEntityDictionary}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+t}$\ast$ g\+Entity\+Dictionary}\hypertarget{entity_8h_af8475c9d8ef741632cc7461fec5c0fad}{}\label{entity_8h_af8475c9d8ef741632cc7461fec5c0fad}
+Entities loaded from files A\+KA cached entities 
+
+Definition at line 42 of file game.\+c.
+
+\index{entity.\+h@{entity.\+h}!Get\+Function\+AI@{Get\+Function\+AI}}
+\index{Get\+Function\+AI@{Get\+Function\+AI}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{Get\+Function\+AI}{GetFunctionAI}}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$)({\bf entity\+\_\+t} $\ast$) Get\+Function\+AI({\bf ai\+\_\+function\+\_\+t} $\ast$data)}\hypertarget{entity_8h_a5ad36cd8551508ec69032e3dc782a1ba}{}\label{entity_8h_a5ad36cd8551508ec69032e3dc782a1ba}
+Returns a function pointer to the think function, given ai\+\_\+function data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em parameter1} & If non-\/null, the first parameter.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a Get\+Function\+AI(ai\+\_\+function\+\_\+t $\ast$data.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 248 of file ai\+\_\+interpret.\+c.
+
+\index{entity.\+h@{entity.\+h}!g\+Last\+Entity@{g\+Last\+Entity}}
+\index{g\+Last\+Entity@{g\+Last\+Entity}!entity.\+h@{entity.\+h}}
+\subsubsection[{\texorpdfstring{g\+Last\+Entity}{gLastEntity}}]{\setlength{\rightskip}{0pt plus 5cm}int g\+Last\+Entity}\hypertarget{entity_8h_a7c67a8b083cb98b1c3eaf871bc4dd4cd}{}\label{entity_8h_a7c67a8b083cb98b1c3eaf871bc4dd4cd}
+
+
+Definition at line 12 of file entity.\+c.
+

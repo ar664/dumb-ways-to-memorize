@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="simple__logger_8h" kind="file" language="C++">
+    <compoundname>simple_logger.h</compoundname>
+    <includedby refid="simple__logger_8c" local="yes">dumb-ways-to-memorize/External_Libs/simple_logger.c</includedby>
+    <invincdepgraph>
+      <node id="152">
+        <label>dumb-ways-to-memorize/External_Libs/simple_logger.c</label>
+        <link refid="simple__logger_8c"/>
+      </node>
+      <node id="151">
+        <label>dumb-ways-to-memorize/External_Libs/simple_logger.h</label>
+        <link refid="simple_logger.h"/>
+        <childnode refid="152" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="simple__logger_8h_1a25f0677308ee574b6660aef61af6b591" prot="public" static="no">
+        <name>slog</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="simple__logger_8h_1a94aefe2ae91b60d1f0e9f604ba85f701" kindref="member">_slog</ref>(__FILE__,__LINE__,__VA_ARGS__)</initializer>
+        <briefdescription>
+<para>logs a message to stdout and to the configured log file </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a string with tokens </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>variables to be put into the tokens. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/External_Libs/simple_logger.h" line="36" column="9" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="simple__logger_8h_1a7559e5b69b98077997f625eb5d4200ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void init_logger</definition>
+        <argsstring>(const char *log_file_path)</argsstring>
+        <name>init_logger</name>
+        <param>
+          <type>const char *</type>
+          <declname>log_file_path</declname>
+        </param>
+        <briefdescription>
+<para>initializes the simple logger. Will automatically cleanup at program exit. </para>        </briefdescription>
+        <detaileddescription>
+<para>simple_logger  The MIT License (MIT) <simplesect kind="copyright"><para>Copyright (c) 2015 EngineerOfLies Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>log_file_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file to log to </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/External_Libs/simple_logger.h" line="29" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.c" bodystart="17" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="simple__logger_8h_1a94aefe2ae91b60d1f0e9f604ba85f701" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void _slog</definition>
+        <argsstring>(char *f, int l, char *msg,...)</argsstring>
+        <name>_slog</name>
+        <param>
+          <type>char *</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/External_Libs/simple_logger.h" line="37" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.c" bodystart="30" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__SIMPLE_LOGGER__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__SIMPLE_LOGGER__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="simple__logger_8h_1a7559e5b69b98077997f625eb5d4200ab" kindref="member">init_logger</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*log_file_path);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="simple__logger_8h_1a25f0677308ee574b6660aef61af6b591" refkind="member"><highlight class="preprocessor">#define<sp/>slog(...)<sp/>_slog(__FILE__,__LINE__,__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="simple__logger_8h_1a94aefe2ae91b60d1f0e9f604ba85f701" kindref="member">_slog</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*f,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*msg,...);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/External_Libs/simple_logger.h"/>
+  </compounddef>
+</doxygen>

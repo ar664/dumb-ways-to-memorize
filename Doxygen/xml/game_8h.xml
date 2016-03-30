@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="game_8h" kind="file" language="C++">
+    <compoundname>game.h</compoundname>
+    <includedby refid="game_8c" local="yes">dumb-ways-to-memorize/game.c</includedby>
+    <includedby refid="main_8h" local="yes">dumb-ways-to-memorize/main.h</includedby>
+    <invincdepgraph>
+      <node id="177">
+        <label>dumb-ways-to-memorize/game.c</label>
+        <link refid="game_8c"/>
+      </node>
+      <node id="176">
+        <label>dumb-ways-to-memorize/game.h</label>
+        <link refid="game.h"/>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+      </node>
+      <node id="179">
+        <label>dumb-ways-to-memorize/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="178">
+        <label>dumb-ways-to-memorize/main.h</label>
+        <link refid="main_8h"/>
+        <childnode refid="179" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="game_8h_1a34ab434d791c91656751bb62800e5218" prot="public" static="no">
+        <name>SCREEN_RES_X</name>
+        <initializer>1280</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="4" column="9" bodyfile="dumb-ways-to-memorize/game.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="game_8h_1a37acfcd6d0042c8cde42b0fe4051c72b" prot="public" static="no">
+        <name>SCREEN_RES_Y</name>
+        <initializer>720</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="5" column="9" bodyfile="dumb-ways-to-memorize/game.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="game_8h_1aae6948b99853ea69a786492d3bb3453c" prot="public" static="no">
+        <name>JSON_FILE</name>
+        <initializer>&quot;GameData.json&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="7" column="9" bodyfile="dumb-ways-to-memorize/game.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="game_8h_1ac1d0d9869e6ce15be2a789ffc82d1aa1" prot="public" static="no">
+        <name>ENTITY_FILE</name>
+        <initializer>&quot;Entities.json&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="8" column="9" bodyfile="dumb-ways-to-memorize/game.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="game_8h_1a8e1907a18d4e5313d8fca7fbdec694e0" prot="public" static="no">
+        <name>SPLASH_SCREEN</name>
+        <initializer>&quot;SplashScreen&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="9" column="9" bodyfile="dumb-ways-to-memorize/game.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="game_8h_1a28d12f0e56f63ba5aebe17c819d95526" prot="public" static="no">
+        <name>LEVELS_NOT_DEFAULT</name>
+        <initializer>&quot;LevelsPerGame&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="10" column="9" bodyfile="dumb-ways-to-memorize/game.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="game_8h_1acb27f7d0941d87ef9aba997a78b7f8e2" prot="public" static="no">
+        <name>LIVES_DEFAULT</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="11" column="9" bodyfile="dumb-ways-to-memorize/game.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="game_8h_1a603aab592ed467dac063a1cf44a55c49" prot="public" static="no">
+        <name>LEVELS_DEFAULT</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="12" column="9" bodyfile="dumb-ways-to-memorize/game.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="game_8h_1a9170ea7c3cb727e1c86da45a7ed88a54" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mState</definition>
+        <argsstring></argsstring>
+        <name>mState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="14" column="1" bodyfile="dumb-ways-to-memorize/game.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="game_8h_1a50ac2197010a8cf188eafc647122f1a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Setup</definition>
+        <argsstring>()</argsstring>
+        <name>Setup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads files and images for game.</para><para><simplesect kind="return"><para>state returns 0 on success, -1 on error</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>1/31/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="15" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="601" bodyend="665"/>
+      </memberdef>
+      <memberdef kind="function" id="game_8h_1aac704aea738c1edc384a97e51d60662b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Run</definition>
+        <argsstring>()</argsstring>
+        <name>Run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs the main game loop.</para><para><simplesect kind="return"><para>An int.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/29/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="16" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="676" bodyend="687"/>
+      </memberdef>
+      <memberdef kind="function" id="game_8h_1ac5f038c2b480cf9ef5e19e3eba8dbaf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Shutdown</definition>
+        <argsstring>()</argsstring>
+        <name>Shutdown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/game.h" line="17" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="689" bodyend="693"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__GAME_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__GAME_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="game_8h_1a34ab434d791c91656751bb62800e5218" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCREEN_RES_X<sp/><sp/><sp/><sp/>1280</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="game_8h_1a37acfcd6d0042c8cde42b0fe4051c72b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCREEN_RES_Y<sp/><sp/><sp/><sp/>720</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="game_8h_1aae6948b99853ea69a786492d3bb3453c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>JSON_FILE<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;GameData.json&quot;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="game_8h_1ac1d0d9869e6ce15be2a789ffc82d1aa1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ENTITY_FILE<sp/><sp/><sp/><sp/><sp/>&quot;Entities.json&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="game_8h_1a8e1907a18d4e5313d8fca7fbdec694e0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SPLASH_SCREEN<sp/><sp/><sp/>&quot;SplashScreen&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="game_8h_1a28d12f0e56f63ba5aebe17c819d95526" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LEVELS_NOT_DEFAULT<sp/>&quot;LevelsPerGame&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="game_8h_1acb27f7d0941d87ef9aba997a78b7f8e2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LIVES_DEFAULT<sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="game_8h_1a603aab592ed467dac063a1cf44a55c49" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LEVELS_DEFAULT<sp/><sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="game_8h_1a9170ea7c3cb727e1c86da45a7ed88a54" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8h_1a9170ea7c3cb727e1c86da45a7ed88a54" kindref="member">mState</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8h_1a50ac2197010a8cf188eafc647122f1a3" kindref="member">Setup</ref>();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8h_1aac704aea738c1edc384a97e51d60662b" kindref="member">Run</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8h_1ac5f038c2b480cf9ef5e19e3eba8dbaf9" kindref="member">Shutdown</ref>();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/game.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_540ab20f337648f210f09089a548c9e0" kind="dir">
+    <compoundname>dumb-ways-to-memorize</compoundname>
+    <innerdir refid="dir_1c07fc99bd3a11e592c77cc7f1f05bb7">dumb-ways-to-memorize/External_Libs</innerdir>
+    <innerfile refid="ai__interpret_8c">ai_interpret.c</innerfile>
+    <innerfile refid="ai__interpret_8h">ai_interpret.h</innerfile>
+    <innerfile refid="audio_8h">audio.h</innerfile>
+    <innerfile refid="dumb__physics_8c">dumb_physics.c</innerfile>
+    <innerfile refid="dumb__physics_8h">dumb_physics.h</innerfile>
+    <innerfile refid="entity_8c">entity.c</innerfile>
+    <innerfile refid="entity_8h">entity.h</innerfile>
+    <innerfile refid="game_8c">game.c</innerfile>
+    <innerfile refid="game_8h">game.h</innerfile>
+    <innerfile refid="globals_8h">globals.h</innerfile>
+    <innerfile refid="graphics_8c">graphics.c</innerfile>
+    <innerfile refid="graphics_8h">graphics.h</innerfile>
+    <innerfile refid="main_8c">main.c</innerfile>
+    <innerfile refid="main_8h">main.h</innerfile>
+    <innerfile refid="menu_8c">menu.c</innerfile>
+    <innerfile refid="menu_8h">menu.h</innerfile>
+    <innerfile refid="mymath_8c">mymath.c</innerfile>
+    <innerfile refid="mystrings_8c">mystrings.c</innerfile>
+    <innerfile refid="mystrings_8h">mystrings.h</innerfile>
+    <innerfile refid="parsefunction_8c">parsefunction.c</innerfile>
+    <innerfile refid="parsefunction_8h">parsefunction.h</innerfile>
+    <innerfile refid="parselevel_8c">parselevel.c</innerfile>
+    <innerfile refid="parselevel_8h">parselevel.h</innerfile>
+    <innerfile refid="parseobject_8c">parseobject.c</innerfile>
+    <innerfile refid="parseobject_8h">parseobject.h</innerfile>
+    <innerfile refid="parsepowerup_8c">parsepowerup.c</innerfile>
+    <innerfile refid="parsepowerup_8h">parsepowerup.h</innerfile>
+    <innerfile refid="parsevariable_8c">parsevariable.c</innerfile>
+    <innerfile refid="parsevariable_8h">parsevariable.h</innerfile>
+    <innerfile refid="player_8c">player.c</innerfile>
+    <innerfile refid="player_8h">player.h</innerfile>
+    <innerfile refid="quick__controller_8c">quick_controller.c</innerfile>
+    <innerfile refid="quick__controller_8h">quick_controller.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="dumb-ways-to-memorize/"/>
+  </compounddef>
+</doxygen>

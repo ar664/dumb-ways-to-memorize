@@ -39,28 +39,31 @@ extern char *gAI_Conditions[];
 #define AI_BASE_THINK_FRAMES	1
 #define AI_BASE_DAMAGE			5
 
+/** Defines the enum for ai_types*/
 typedef enum
 {
 	AI_TYPE_NULL,
-	AI_TYPE_PRESET = 0x1,
-	AI_TYPE_VARIABLE,
-	AI_TYPE_RECURSIVE
+	AI_TYPE_PRESET = 0x1,   /**< An enum constant representing the ai type preset option */
+	AI_TYPE_VARIABLE,   /**< An enum constant representing the ai type variable , which states there needs to be more values given */
+	AI_TYPE_RECURSIVE   /**< An enum constant representing the ai type recursive option, which values turn into more functions */
 }ai_type_t;
 
+/** Defines the enum for the variables in mVariables */
 typedef enum
 {
 	
-	AI_VAR_SPEED,
-	AI_VAR_DIR_X,
-	AI_VAR_DIR_Y,
-	AI_VAR_FRAMES,
-	AI_VAR_TIME,
-	AI_VAR_DAMAGE,
-	AI_VAR_CHECK,
+	AI_VAR_SPEED,   /**< An enum constant representing the ai variable speed option */
+	AI_VAR_DIR_X,   /**< An enum constant representing the ai variable for the x direction */
+	AI_VAR_DIR_Y,   /**< An enum constant representing the ai variable for the y direction */
+	AI_VAR_FRAMES,  /**< An enum constant representing the ai variable for the amount of frames this action happens*/
+	AI_VAR_TIME,	/**< An enum constant representing the ai variable for the amount of times to repeat this action */
+	AI_VAR_DAMAGE,  /**< An enum constant representing the ai variable for the damage this action should be */
+	AI_VAR_CHECK,   /**< An enum constant representing the ai variable for whether there is a condition that needs to be met b4 the action can be done */
 	AI_VAR_MAX
 
 }ai_variables_t;
 
+/** Defines the enum for what flags are set on the ai */
 typedef enum
 {
 	AI_FLAG_CHECK_PLAYER = 0x1,
@@ -69,6 +72,7 @@ typedef enum
 
 }ai_flags_t;
 
+/** Defines the enum for action types */
 typedef enum
 {
 	AI_ACTION_NOTHING,
@@ -82,27 +86,31 @@ typedef enum
 
 typedef struct ai_function_s ai_function_t;
 
-//mVariables
-// 1 - speed
-// [2 , 3] - direction
-// 4 - frames
-// 5 - time
-// 6 - damage
-// 7 - check
+/**
+ * The structure for ai, pointer to this is declared in each entity.
+ * FighterThink is the only think that uses this structure.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
 
 struct ai_function_s
 {
-	ai_type_t mType;
-	ai_actions_t mAction;
-	int mFlags;
+	ai_type_t mType;		/**< The type of ai (preset, variable, recursive)*/
+	ai_actions_t mAction;   /**< The action type of this function, to get the action think function for entity */
+	int mFlags;				/**< The flags defined in ai_flags_t */
 	int mVariables[7];
-	char *mObject;
-	char *mObjectCheck;
-	ai_function_t *mLink;
+	//mVariables
+	// 1 - speed
+	// [2 , 3] - direction
+	// 4 - frames
+	// 5 - time
+	// 6 - damage
+	// 7 - check
 
-
-	//void (*function) (ai_function_t *self,entity_t *ent);
-	//void *((*function_list) (ai_function_t *self, entity_t *ent));
+	char *mObject;			/**< Optional - The object/entity to spawn during an action */
+	char *mObjectCheck;		/**< Optional - The object/entity that you need to find, in order for condition to be valid */
+	ai_function_t *mLink;   /**< The link to the next ai_function to set */
 
 };
 

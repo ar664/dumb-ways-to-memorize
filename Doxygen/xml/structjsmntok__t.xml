@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="structjsmntok__t" kind="struct" language="C++" prot="public">
+    <compoundname>jsmntok_t</compoundname>
+    <includes refid="jsmn_8h" local="no">jsmn.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structjsmntok__t_1a7def41ebc3980f6e4526819b42c2721f" prot="public" static="no" mutable="no">
+        <type><ref refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802f" kindref="member">jsmntype_t</ref></type>
+        <definition>jsmntype_t type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/External_Libs/jsmn.h" line="41" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/jsmn.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjsmntok__t_1a37722a150250e2a5a98e5e0d11e53449" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/External_Libs/jsmn.h" line="42" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/jsmn.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjsmntok__t_1abce9f5dc9c83f2639b72024fdee5d388" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/External_Libs/jsmn.h" line="43" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/jsmn.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjsmntok__t_1a439227feff9d7f55384e8780cfc2eb82" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/External_Libs/jsmn.h" line="44" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/jsmn.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>JSON token description. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type (object, array, string etc.) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>start position in JSON data string </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>end position in JSON data string </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>    </detaileddescription>
+    <location file="dumb-ways-to-memorize/External_Libs/jsmn.h" line="40" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/jsmn.h" bodystart="40" bodyend="48"/>
+    <listofallmembers>
+      <member refid="structjsmntok__t_1abce9f5dc9c83f2639b72024fdee5d388" prot="public" virt="non-virtual"><scope>jsmntok_t</scope><name>end</name></member>
+      <member refid="structjsmntok__t_1a439227feff9d7f55384e8780cfc2eb82" prot="public" virt="non-virtual"><scope>jsmntok_t</scope><name>size</name></member>
+      <member refid="structjsmntok__t_1a37722a150250e2a5a98e5e0d11e53449" prot="public" virt="non-virtual"><scope>jsmntok_t</scope><name>start</name></member>
+      <member refid="structjsmntok__t_1a7def41ebc3980f6e4526819b42c2721f" prot="public" virt="non-virtual"><scope>jsmntok_t</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

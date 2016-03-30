@@ -1,0 +1,450 @@
+\hypertarget{ai__interpret_8c}{}\section{dumb-\/ways-\/to-\/memorize/ai\+\_\+interpret.c File Reference}
+\label{ai__interpret_8c}\index{dumb-\/ways-\/to-\/memorize/ai\+\_\+interpret.\+c@{dumb-\/ways-\/to-\/memorize/ai\+\_\+interpret.\+c}}
+{\ttfamily \#include \char`\"{}ai\+\_\+interpret.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}entity.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parsevariable.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parsepowerup.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mystrings.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ai__interpret_8c_a899aebed78e696979cefcf070b027cad}{Nothing\+AI} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ent)
+\item 
+void \hyperlink{ai__interpret_8c_a10ee1734c344fd6bed742812af740c88}{Move\+AI} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ent)
+\item 
+void \hyperlink{ai__interpret_8c_a187e8425c18dfb7aca0508d0a7057f44}{Walk\+AI} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ent)
+\item 
+void \hyperlink{ai__interpret_8c_a9ca66c7d5e6e94ce7118ff064d84b086}{Jump\+AI} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ent)
+\item 
+void \hyperlink{ai__interpret_8c_ae87f37befef63c363d791c175cbac93e}{Attack\+AI} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ent)
+\item 
+\hyperlink{ai__interpret_8h_a93e23f66130135adeb83b13c29f36fca}{ai\+\_\+function\+\_\+t} $\ast$ \hyperlink{ai__interpret_8c_a487d35ce74f749b0bfb024a900699f37}{Parse\+AI} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$obj, char $\ast$g\+\_\+str, char $\ast$$\ast$variables)
+\item 
+\hyperlink{ai__interpret_8h_a93e23f66130135adeb83b13c29f36fca}{ai\+\_\+function\+\_\+t} $\ast$ \hyperlink{ai__interpret_8c_a325c62634a19a96fcd9117b5f59968d6}{Parse\+Preset\+AI} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$obj, char $\ast$g\+\_\+str)
+\item 
+void \hyperlink{ai__interpret_8c_a38a992ac4f024da776101ad1a2957ac4}{Set\+A\+I\+\_\+\+Var} (\hyperlink{ai__interpret_8h_a93e23f66130135adeb83b13c29f36fca}{ai\+\_\+function\+\_\+t} $\ast$function, char $\ast$data\+\_\+str, char $\ast$var\+\_\+str)
+\item 
+void \hyperlink{ai__interpret_8c_a5d87dca860c5320136e684cbe422ca21}{Set\+A\+I\+\_\+\+Action} (\hyperlink{ai__interpret_8h_a93e23f66130135adeb83b13c29f36fca}{ai\+\_\+function\+\_\+t} $\ast$function, \hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$obj, \hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$tok, char $\ast$g\+\_\+str, char $\ast$action\+\_\+str)
+\item 
+void \hyperlink{ai__interpret_8c_a16e24cd82a74fa54781c203aaccec738}{Set\+A\+I\+\_\+\+Check} (\hyperlink{ai__interpret_8h_a93e23f66130135adeb83b13c29f36fca}{ai\+\_\+function\+\_\+t} $\ast$function, char $\ast$$\ast$variables\+\_\+str, char $\ast$data\+\_\+str, char $\ast$check\+\_\+str)
+\item 
+int \hyperlink{ai__interpret_8c_a766fc5dc0fd99733613cc7a396f6efdf}{Init\+A\+I\+System} ()
+\item 
+\hyperlink{ai__interpret_8h_a9fc7d2b2756bda7167434e15ddd43159}{ai\+\_\+type\+\_\+t} \hyperlink{ai__interpret_8c_a38d0ac016fd6a956b4fcdd5eefdff0c1}{Str\+To\+A\+I\+\_\+\+Type} (const char $\ast$str)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ai__interpret_8h_a93e23f66130135adeb83b13c29f36fca}{ai\+\_\+function\+\_\+t} $\ast$ \hyperlink{ai__interpret_8c_a449e08cb7867c0c42e9ad59904dcb947}{g\+Variable\+A\+Is} = N\+U\+LL
+\item 
+\hyperlink{ai__interpret_8h_a93e23f66130135adeb83b13c29f36fca}{ai\+\_\+function\+\_\+t} $\ast$ \hyperlink{ai__interpret_8c_a86b6f52e393a91915168567c0c60709c}{g\+Preset\+A\+Is} = N\+U\+LL
+\item 
+char $\ast$ \hyperlink{ai__interpret_8c_a4d72b855449c33319a1ad798a9fc3fc7}{g\+A\+I\+\_\+\+Variables} \mbox{[}$\,$\mbox{]} = \{\char`\"{}speed\char`\"{}, \char`\"{}frames\char`\"{}, \char`\"{}time\char`\"{}, \char`\"{}damage\char`\"{}, 0\}
+\item 
+char $\ast$ \hyperlink{ai__interpret_8c_ad51a73747c32e703010066d34b299de2}{g\+A\+I\+\_\+\+Actions} \mbox{[}$\,$\mbox{]} = \{\char`\"{}nothing\char`\"{}, \char`\"{}move\char`\"{}, \char`\"{}walk\char`\"{}, \char`\"{}jump\char`\"{},\char`\"{}attack\char`\"{},0\}
+\item 
+char $\ast$ \hyperlink{ai__interpret_8c_ab5cd8fb380975357a1de5deae48bf85f}{g\+A\+I\+\_\+\+Conditions} \mbox{[}$\,$\mbox{]} = \{\char`\"{}distance\+\_\+player\char`\"{}, \char`\"{}distance\+\_\+object\char`\"{}, \char`\"{}link\+\_\+ai\char`\"{}, \char`\"{}link\+\_\+action\char`\"{}, 0\}
+\item 
+void($\ast$)(\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$) \hyperlink{ai__interpret_8c_a5ad36cd8551508ec69032e3dc782a1ba}{Get\+Function\+AI} (\hyperlink{ai__interpret_8h_a93e23f66130135adeb83b13c29f36fca}{ai\+\_\+function\+\_\+t} $\ast$data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Attack\+AI@{Attack\+AI}}
+\index{Attack\+AI@{Attack\+AI}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Attack\+A\+I(entity\+\_\+t $\ast$ent)}{AttackAI(entity_t *ent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Attack\+AI (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{ent}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_ae87f37befef63c363d791c175cbac93e}{}\label{ai__interpret_8c_ae87f37befef63c363d791c175cbac93e}
+AI for entity attacks, \char`\"{}spawns\char`\"{} a hit box / entity in front of Entity
+
+\begin{DoxyNote}{Note}
+Currently Untested
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em ent} & If non-\/null, the ent.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 199 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Init\+A\+I\+System@{Init\+A\+I\+System}}
+\index{Init\+A\+I\+System@{Init\+A\+I\+System}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Init\+A\+I\+System()}{InitAISystem()}}]{\setlength{\rightskip}{0pt plus 5cm}int Init\+A\+I\+System (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_a766fc5dc0fd99733613cc7a396f6efdf}{}\label{ai__interpret_8c_a766fc5dc0fd99733613cc7a396f6efdf}
+Init AI system, similar to Entity init, for now....
+
+\begin{DoxyReturn}{Returns}
+An int.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 744 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Jump\+AI@{Jump\+AI}}
+\index{Jump\+AI@{Jump\+AI}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Jump\+A\+I(entity\+\_\+t $\ast$ent)}{JumpAI(entity_t *ent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Jump\+AI (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{ent}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_a9ca66c7d5e6e94ce7118ff064d84b086}{}\label{ai__interpret_8c_a9ca66c7d5e6e94ce7118ff064d84b086}
+AI to change velocity of the entity, defaults to a jumping movement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em ent} & If non-\/null, the ent.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 146 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Move\+AI@{Move\+AI}}
+\index{Move\+AI@{Move\+AI}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Move\+A\+I(entity\+\_\+t $\ast$ent)}{MoveAI(entity_t *ent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Move\+AI (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{ent}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_a10ee1734c344fd6bed742812af740c88}{}\label{ai__interpret_8c_a10ee1734c344fd6bed742812af740c88}
+AI to Move ent from point A to B w/o collisions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em ent} & If non-\/null, the ent.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016
+\end{DoxyDate}
+Learn how to lerp. 
+
+Definition at line 60 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Nothing\+AI@{Nothing\+AI}}
+\index{Nothing\+AI@{Nothing\+AI}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Nothing\+A\+I(entity\+\_\+t $\ast$ent)}{NothingAI(entity_t *ent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Nothing\+AI (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{ent}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_a899aebed78e696979cefcf070b027cad}{}\label{ai__interpret_8c_a899aebed78e696979cefcf070b027cad}
+AI that does nothing for its think, except make sure values are set.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em ent} & If non-\/null, the ent.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 24 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Parse\+AI@{Parse\+AI}}
+\index{Parse\+AI@{Parse\+AI}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Parse\+A\+I(object\+\_\+t $\ast$obj, char $\ast$g\+\_\+str, char $\ast$$\ast$variables)}{ParseAI(object_t *obj, char *g_str, char **variables)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ai\+\_\+function\+\_\+t}$\ast$ Parse\+AI (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$}]{obj, }
+\item[{char $\ast$}]{g\+\_\+str, }
+\item[{char $\ast$$\ast$}]{variables}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_a487d35ce74f749b0bfb024a900699f37}{}\label{ai__interpret_8c_a487d35ce74f749b0bfb024a900699f37}
+Parses AI behavior using the variables given and the AI obj/file specified.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em obj} & If non-\/null, the object. \\
+\hline
+\mbox{\tt in,out}  & {\em g\+\_\+str} & If non-\/null, the string. \\
+\hline
+\mbox{\tt in,out}  & {\em variables} & If non-\/null, the variables.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a pointer to an ai\+\_\+function\+\_\+t.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 284 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Parse\+Preset\+AI@{Parse\+Preset\+AI}}
+\index{Parse\+Preset\+AI@{Parse\+Preset\+AI}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Parse\+Preset\+A\+I(object\+\_\+t $\ast$obj, char $\ast$g\+\_\+str)}{ParsePresetAI(object_t *obj, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ai\+\_\+function\+\_\+t}$\ast$ Parse\+Preset\+AI (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$}]{obj, }
+\item[{char $\ast$}]{g\+\_\+str}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_a325c62634a19a96fcd9117b5f59968d6}{}\label{ai__interpret_8c_a325c62634a19a96fcd9117b5f59968d6}
+Parse a preset AI, with values determined by whats in the file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em obj} & If non-\/null, the object. \\
+\hline
+\mbox{\tt in,out}  & {\em g\+\_\+str} & If non-\/null, the string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a pointer to an ai\+\_\+function\+\_\+t.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 428 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Set\+A\+I\+\_\+\+Action@{Set\+A\+I\+\_\+\+Action}}
+\index{Set\+A\+I\+\_\+\+Action@{Set\+A\+I\+\_\+\+Action}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Set\+A\+I\+\_\+\+Action(ai\+\_\+function\+\_\+t $\ast$function, object\+\_\+t $\ast$obj, jsmntok\+\_\+t $\ast$tok, char $\ast$g\+\_\+str, char $\ast$action\+\_\+str)}{SetAI_Action(ai_function_t *function, object_t *obj, jsmntok_t *tok, char *g_str, char *action_str)}}]{\setlength{\rightskip}{0pt plus 5cm}void Set\+A\+I\+\_\+\+Action (
+\begin{DoxyParamCaption}
+\item[{{\bf ai\+\_\+function\+\_\+t} $\ast$}]{function, }
+\item[{{\bf object\+\_\+t} $\ast$}]{obj, }
+\item[{{\bf jsmntok\+\_\+t} $\ast$}]{tok, }
+\item[{char $\ast$}]{g\+\_\+str, }
+\item[{char $\ast$}]{action\+\_\+str}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_a5d87dca860c5320136e684cbe422ca21}{}\label{ai__interpret_8c_a5d87dca860c5320136e684cbe422ca21}
+Sets AI action defined in ai\+\_\+actions to the ai\+\_\+function
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em function} & If non-\/null, the function. \\
+\hline
+\mbox{\tt in,out}  & {\em obj} & If non-\/null, the object. \\
+\hline
+\mbox{\tt in,out}  & {\em tok} & If non-\/null, the tok. \\
+\hline
+\mbox{\tt in,out}  & {\em g\+\_\+str} & If non-\/null, the string. \\
+\hline
+\mbox{\tt in,out}  & {\em action\+\_\+str} & If non-\/null, the action string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 608 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Set\+A\+I\+\_\+\+Check@{Set\+A\+I\+\_\+\+Check}}
+\index{Set\+A\+I\+\_\+\+Check@{Set\+A\+I\+\_\+\+Check}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Set\+A\+I\+\_\+\+Check(ai\+\_\+function\+\_\+t $\ast$function, char $\ast$$\ast$variables\+\_\+str, char $\ast$data\+\_\+str, char $\ast$check\+\_\+str)}{SetAI_Check(ai_function_t *function, char **variables_str, char *data_str, char *check_str)}}]{\setlength{\rightskip}{0pt plus 5cm}void Set\+A\+I\+\_\+\+Check (
+\begin{DoxyParamCaption}
+\item[{{\bf ai\+\_\+function\+\_\+t} $\ast$}]{function, }
+\item[{char $\ast$$\ast$}]{variables\+\_\+str, }
+\item[{char $\ast$}]{data\+\_\+str, }
+\item[{char $\ast$}]{check\+\_\+str}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_a16e24cd82a74fa54781c203aaccec738}{}\label{ai__interpret_8c_a16e24cd82a74fa54781c203aaccec738}
+Sets checks that need to occur for the ai\+\_\+function to be called.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em function} & If non-\/null, the function. \\
+\hline
+\mbox{\tt in,out}  & {\em variables\+\_\+str} & If non-\/null, the variables string. \\
+\hline
+\mbox{\tt in,out}  & {\em data\+\_\+str} & If non-\/null, the data string. \\
+\hline
+\mbox{\tt in,out}  & {\em check\+\_\+str} & If non-\/null, the check string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 698 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Set\+A\+I\+\_\+\+Var@{Set\+A\+I\+\_\+\+Var}}
+\index{Set\+A\+I\+\_\+\+Var@{Set\+A\+I\+\_\+\+Var}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Set\+A\+I\+\_\+\+Var(ai\+\_\+function\+\_\+t $\ast$function, char $\ast$data\+\_\+str, char $\ast$var\+\_\+str)}{SetAI_Var(ai_function_t *function, char *data_str, char *var_str)}}]{\setlength{\rightskip}{0pt plus 5cm}void Set\+A\+I\+\_\+\+Var (
+\begin{DoxyParamCaption}
+\item[{{\bf ai\+\_\+function\+\_\+t} $\ast$}]{function, }
+\item[{char $\ast$}]{data\+\_\+str, }
+\item[{char $\ast$}]{var\+\_\+str}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_a38a992ac4f024da776101ad1a2957ac4}{}\label{ai__interpret_8c_a38a992ac4f024da776101ad1a2957ac4}
+Sets AI variables in ai\+\_\+function-\/$>$m\+Variables.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em function} & If non-\/null, the function. \\
+\hline
+\mbox{\tt in,out}  & {\em data\+\_\+str} & If non-\/null, the data string. \\
+\hline
+\mbox{\tt in,out}  & {\em var\+\_\+str} & If non-\/null, the variable string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 547 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Str\+To\+A\+I\+\_\+\+Type@{Str\+To\+A\+I\+\_\+\+Type}}
+\index{Str\+To\+A\+I\+\_\+\+Type@{Str\+To\+A\+I\+\_\+\+Type}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Str\+To\+A\+I\+\_\+\+Type(const char $\ast$str)}{StrToAI_Type(const char *str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ai\+\_\+type\+\_\+t} Str\+To\+A\+I\+\_\+\+Type (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_a38d0ac016fd6a956b4fcdd5eefdff0c1}{}\label{ai__interpret_8c_a38d0ac016fd6a956b4fcdd5eefdff0c1}
+Converts a str to an AI type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str as an ai\+\_\+type\+\_\+t.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 777 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Walk\+AI@{Walk\+AI}}
+\index{Walk\+AI@{Walk\+AI}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Walk\+A\+I(entity\+\_\+t $\ast$ent)}{WalkAI(entity_t *ent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Walk\+AI (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{ent}
+\end{DoxyParamCaption}
+)}\hypertarget{ai__interpret_8c_a187e8425c18dfb7aca0508d0a7057f44}{}\label{ai__interpret_8c_a187e8425c18dfb7aca0508d0a7057f44}
+AI to \char`\"{}walk\char`\"{} entity from point A to B w/ collisions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em ent} & If non-\/null, the ent.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]Lerp \end{DoxyRefDesc}
+
+
+Definition at line 105 of file ai\+\_\+interpret.\+c.
+
+
+
+\subsection{Variable Documentation}
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!g\+A\+I\+\_\+\+Actions@{g\+A\+I\+\_\+\+Actions}}
+\index{g\+A\+I\+\_\+\+Actions@{g\+A\+I\+\_\+\+Actions}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{g\+A\+I\+\_\+\+Actions}{gAI_Actions}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ g\+A\+I\+\_\+\+Actions\mbox{[}$\,$\mbox{]} = \{\char`\"{}nothing\char`\"{}, \char`\"{}move\char`\"{}, \char`\"{}walk\char`\"{}, \char`\"{}jump\char`\"{},\char`\"{}attack\char`\"{},0\}}\hypertarget{ai__interpret_8c_ad51a73747c32e703010066d34b299de2}{}\label{ai__interpret_8c_ad51a73747c32e703010066d34b299de2}
+
+
+Definition at line 12 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!g\+A\+I\+\_\+\+Conditions@{g\+A\+I\+\_\+\+Conditions}}
+\index{g\+A\+I\+\_\+\+Conditions@{g\+A\+I\+\_\+\+Conditions}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{g\+A\+I\+\_\+\+Conditions}{gAI_Conditions}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ g\+A\+I\+\_\+\+Conditions\mbox{[}$\,$\mbox{]} = \{\char`\"{}distance\+\_\+player\char`\"{}, \char`\"{}distance\+\_\+object\char`\"{}, \char`\"{}link\+\_\+ai\char`\"{}, \char`\"{}link\+\_\+action\char`\"{}, 0\}}\hypertarget{ai__interpret_8c_ab5cd8fb380975357a1de5deae48bf85f}{}\label{ai__interpret_8c_ab5cd8fb380975357a1de5deae48bf85f}
+
+
+Definition at line 13 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!g\+A\+I\+\_\+\+Variables@{g\+A\+I\+\_\+\+Variables}}
+\index{g\+A\+I\+\_\+\+Variables@{g\+A\+I\+\_\+\+Variables}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{g\+A\+I\+\_\+\+Variables}{gAI_Variables}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ g\+A\+I\+\_\+\+Variables\mbox{[}$\,$\mbox{]} = \{\char`\"{}speed\char`\"{}, \char`\"{}frames\char`\"{}, \char`\"{}time\char`\"{}, \char`\"{}damage\char`\"{}, 0\}}\hypertarget{ai__interpret_8c_a4d72b855449c33319a1ad798a9fc3fc7}{}\label{ai__interpret_8c_a4d72b855449c33319a1ad798a9fc3fc7}
+
+
+Definition at line 11 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!Get\+Function\+AI@{Get\+Function\+AI}}
+\index{Get\+Function\+AI@{Get\+Function\+AI}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{Get\+Function\+AI}{GetFunctionAI}}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$)({\bf entity\+\_\+t} $\ast$) Get\+Function\+AI({\bf ai\+\_\+function\+\_\+t} $\ast$data)}\hypertarget{ai__interpret_8c_a5ad36cd8551508ec69032e3dc782a1ba}{}\label{ai__interpret_8c_a5ad36cd8551508ec69032e3dc782a1ba}
+Returns a function pointer to the think function, given ai\+\_\+function data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em parameter1} & If non-\/null, the first parameter.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a Get\+Function\+AI(ai\+\_\+function\+\_\+t $\ast$data.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 248 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!g\+Preset\+A\+Is@{g\+Preset\+A\+Is}}
+\index{g\+Preset\+A\+Is@{g\+Preset\+A\+Is}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{g\+Preset\+A\+Is}{gPresetAIs}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ai\+\_\+function\+\_\+t}$\ast$ g\+Preset\+A\+Is = N\+U\+LL}\hypertarget{ai__interpret_8c_a86b6f52e393a91915168567c0c60709c}{}\label{ai__interpret_8c_a86b6f52e393a91915168567c0c60709c}
+
+
+Definition at line 9 of file ai\+\_\+interpret.\+c.
+
+\index{ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}!g\+Variable\+A\+Is@{g\+Variable\+A\+Is}}
+\index{g\+Variable\+A\+Is@{g\+Variable\+A\+Is}!ai\+\_\+interpret.\+c@{ai\+\_\+interpret.\+c}}
+\subsubsection[{\texorpdfstring{g\+Variable\+A\+Is}{gVariableAIs}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ai\+\_\+function\+\_\+t}$\ast$ g\+Variable\+A\+Is = N\+U\+LL}\hypertarget{ai__interpret_8c_a449e08cb7867c0c42e9ad59904dcb947}{}\label{ai__interpret_8c_a449e08cb7867c0c42e9ad59904dcb947}
+
+
+Definition at line 8 of file ai\+\_\+interpret.\+c.
+

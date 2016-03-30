@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="main_8h" kind="file" language="C++">
+    <compoundname>main.h</compoundname>
+    <includes refid="game_8h" local="yes">game.h</includes>
+    <includedby refid="main_8c" local="yes">dumb-ways-to-memorize/main.c</includedby>
+    <incdepgraph>
+      <node id="251">
+        <label>game.h</label>
+        <link refid="game_8h"/>
+      </node>
+      <node id="250">
+        <label>dumb-ways-to-memorize/main.h</label>
+        <link refid="main.h"/>
+        <childnode refid="251" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="253">
+        <label>dumb-ways-to-memorize/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="252">
+        <label>dumb-ways-to-memorize/main.h</label>
+        <link refid="main.h"/>
+        <childnode refid="253" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__MAIN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__MAIN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="game_8h" kindref="compound">game.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/main.h"/>
+  </compounddef>
+</doxygen>

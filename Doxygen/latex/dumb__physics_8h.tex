@@ -1,0 +1,209 @@
+\hypertarget{dumb__physics_8h}{}\section{dumb-\/ways-\/to-\/memorize/dumb\+\_\+physics.h File Reference}
+\label{dumb__physics_8h}\index{dumb-\/ways-\/to-\/memorize/dumb\+\_\+physics.\+h@{dumb-\/ways-\/to-\/memorize/dumb\+\_\+physics.\+h}}
+{\ttfamily \#include \char`\"{}entity.\+h\char`\"{}}\\*
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09c}{physics\+\_\+laws\+\_\+t} \{ \\*
+\hyperlink{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09caaf0ba684f808817efe2a9f619fa3e135}{P\+H\+Y\+S\+I\+C\+S\+\_\+\+N\+U\+LL} = 0, 
+\hyperlink{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09cadba46d443195d2b8b7100dc6cea0385d}{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+F\+R\+I\+C\+T\+I\+ON} = 1, 
+\hyperlink{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09ca4e8c0a7e071da8325b356ced17474cf5}{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+X} = 5, 
+\hyperlink{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09cafd3fa3c618743a3b2092dea0874751ea}{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+Y} = 10, 
+\\*
+\hyperlink{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c}{P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED} = 16, 
+\hyperlink{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09ca2e61b2ff5df60b2418d1b96722fbe06f}{P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+AX}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{dumb__physics_8h_ae354ed0629e54a219f0a00be20f6e2f0}{Run\+Physics} ()
+\item 
+int \hyperlink{dumb__physics_8h_ac2d2a3c3841dcc0533751a2421d21b58}{Check\+Collision} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$other)
+\item 
+void \hyperlink{dumb__physics_8h_a1605813c3093dd564cd63719073ce122}{Apply\+Speed\+Limit} (\hyperlink{globals_8h_a773f2054819bb6014f1e50baa39cb5e3}{vec2\+\_\+t} $\ast$a)
+\item 
+void \hyperlink{dumb__physics_8h_aac1300a97cdd2b37a4ddfa316dc92ece}{Apply\+Bounds} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ent)
+\item 
+void \hyperlink{dumb__physics_8h_a04c93e0b3d3d778e28fc804fc52bf88b}{Apply\+Friction} (\hyperlink{globals_8h_a773f2054819bb6014f1e50baa39cb5e3}{vec2\+\_\+t} $\ast$a)
+\item 
+void \hyperlink{dumb__physics_8h_a9e6b8c74bb414eeffcbd423e4a40e542}{Do\+Collision} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$other)
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!physics\+\_\+laws\+\_\+t@{physics\+\_\+laws\+\_\+t}}
+\index{physics\+\_\+laws\+\_\+t@{physics\+\_\+laws\+\_\+t}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}
+\subsubsection[{\texorpdfstring{physics\+\_\+laws\+\_\+t}{physics_laws_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf physics\+\_\+laws\+\_\+t}}\hypertarget{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09c}{}\label{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09c}
+Defines the Preset Physics values \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{P\+H\+Y\+S\+I\+C\+S\+\_\+\+N\+U\+LL@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+N\+U\+LL}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!P\+H\+Y\+S\+I\+C\+S\+\_\+\+N\+U\+LL@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+N\+U\+LL}}\item[{\em 
+P\+H\+Y\+S\+I\+C\+S\+\_\+\+N\+U\+LL\hypertarget{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09caaf0ba684f808817efe2a9f619fa3e135}{}\label{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09caaf0ba684f808817efe2a9f619fa3e135}
+}]\index{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+F\+R\+I\+C\+T\+I\+ON@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+F\+R\+I\+C\+T\+I\+ON}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+F\+R\+I\+C\+T\+I\+ON@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+F\+R\+I\+C\+T\+I\+ON}}\item[{\em 
+P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+F\+R\+I\+C\+T\+I\+ON\hypertarget{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09cadba46d443195d2b8b7100dc6cea0385d}{}\label{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09cadba46d443195d2b8b7100dc6cea0385d}
+}]An enum constant representing the physics base friction option \index{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+X@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+X}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+X@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+X}}\item[{\em 
+P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+X\hypertarget{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09ca4e8c0a7e071da8325b356ced17474cf5}{}\label{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09ca4e8c0a7e071da8325b356ced17474cf5}
+}]An enum constant representing the physics base speed in x direction \index{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+Y@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+Y}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+Y@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+Y}}\item[{\em 
+P\+H\+Y\+S\+I\+C\+S\+\_\+\+B\+A\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+Y\hypertarget{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09cafd3fa3c618743a3b2092dea0874751ea}{}\label{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09cafd3fa3c618743a3b2092dea0874751ea}
+}]An enum constant representing the physics base speed in y direction \index{P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED}}\item[{\em 
+P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED\hypertarget{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c}{}\label{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c}
+}]An enum constant representing the physics maximum speed \index{P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+AX@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+AX}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+AX@{P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+AX}}\item[{\em 
+P\+H\+Y\+S\+I\+C\+S\+\_\+\+M\+AX\hypertarget{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09ca2e61b2ff5df60b2418d1b96722fbe06f}{}\label{dumb__physics_8h_a8a3549fa7a1515ef10a78d6f382fe09ca2e61b2ff5df60b2418d1b96722fbe06f}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 7 of file dumb\+\_\+physics.\+h.
+
+
+
+\subsection{Function Documentation}
+\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!Apply\+Bounds@{Apply\+Bounds}}
+\index{Apply\+Bounds@{Apply\+Bounds}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}
+\subsubsection[{\texorpdfstring{Apply\+Bounds(entity\+\_\+t $\ast$ent)}{ApplyBounds(entity_t *ent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Apply\+Bounds (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{ent}
+\end{DoxyParamCaption}
+)}\hypertarget{dumb__physics_8h_aac1300a97cdd2b37a4ddfa316dc92ece}{}\label{dumb__physics_8h_aac1300a97cdd2b37a4ddfa316dc92ece}
+Applies the bounds to specified ent.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em ent} & If non-\/null, the ent.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 220 of file dumb\+\_\+physics.\+c.
+
+\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!Apply\+Friction@{Apply\+Friction}}
+\index{Apply\+Friction@{Apply\+Friction}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}
+\subsubsection[{\texorpdfstring{Apply\+Friction(vec2\+\_\+t $\ast$a)}{ApplyFriction(vec2_t *a)}}]{\setlength{\rightskip}{0pt plus 5cm}void Apply\+Friction (
+\begin{DoxyParamCaption}
+\item[{{\bf vec2\+\_\+t} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{dumb__physics_8h_a04c93e0b3d3d778e28fc804fc52bf88b}{}\label{dumb__physics_8h_a04c93e0b3d3d778e28fc804fc52bf88b}
+Applies the friction to vector a.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em a} & If non-\/null, the vec2\+\_\+t to process.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 255 of file dumb\+\_\+physics.\+c.
+
+\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!Apply\+Speed\+Limit@{Apply\+Speed\+Limit}}
+\index{Apply\+Speed\+Limit@{Apply\+Speed\+Limit}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}
+\subsubsection[{\texorpdfstring{Apply\+Speed\+Limit(vec2\+\_\+t $\ast$a)}{ApplySpeedLimit(vec2_t *a)}}]{\setlength{\rightskip}{0pt plus 5cm}void Apply\+Speed\+Limit (
+\begin{DoxyParamCaption}
+\item[{{\bf vec2\+\_\+t} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{dumb__physics_8h_a1605813c3093dd564cd63719073ce122}{}\label{dumb__physics_8h_a1605813c3093dd564cd63719073ce122}
+Applies the speed limit to vector a.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em a} & If non-\/null, the vec2\+\_\+t to process.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 205 of file dumb\+\_\+physics.\+c.
+
+\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!Check\+Collision@{Check\+Collision}}
+\index{Check\+Collision@{Check\+Collision}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}
+\subsubsection[{\texorpdfstring{Check\+Collision(entity\+\_\+t $\ast$self, entity\+\_\+t $\ast$other)}{CheckCollision(entity_t *self, entity_t *other)}}]{\setlength{\rightskip}{0pt plus 5cm}int Check\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{other}
+\end{DoxyParamCaption}
+)}\hypertarget{dumb__physics_8h_ac2d2a3c3841dcc0533751a2421d21b58}{}\label{dumb__physics_8h_ac2d2a3c3841dcc0533751a2421d21b58}
+Check collision between entities. (A\+A\+BB)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em self} & If non-\/null, the class instance that this method operates on. \\
+\hline
+\mbox{\tt in,out}  & {\em other} & If non-\/null, the other.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int 1 if colliding, 0 if not.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/20/2016 
+\end{DoxyDate}
+
+
+Definition at line 79 of file dumb\+\_\+physics.\+c.
+
+\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!Do\+Collision@{Do\+Collision}}
+\index{Do\+Collision@{Do\+Collision}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}
+\subsubsection[{\texorpdfstring{Do\+Collision(entity\+\_\+t $\ast$self, entity\+\_\+t $\ast$other)}{DoCollision(entity_t *self, entity_t *other)}}]{\setlength{\rightskip}{0pt plus 5cm}void Do\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{self, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{other}
+\end{DoxyParamCaption}
+)}\hypertarget{dumb__physics_8h_a9e6b8c74bb414eeffcbd423e4a40e542}{}\label{dumb__physics_8h_a9e6b8c74bb414eeffcbd423e4a40e542}
+Executes the collision operation. Place self farthest x or y away from other, vice versa. And negative the velocity to half of orginal collision vel, for bounce back.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em self} & If non-\/null, the class instance that this method operates on. \\
+\hline
+\mbox{\tt in,out}  & {\em other} & If non-\/null, the other.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/20/2016 
+\end{DoxyDate}
+
+
+Definition at line 109 of file dumb\+\_\+physics.\+c.
+
+\index{dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}!Run\+Physics@{Run\+Physics}}
+\index{Run\+Physics@{Run\+Physics}!dumb\+\_\+physics.\+h@{dumb\+\_\+physics.\+h}}
+\subsubsection[{\texorpdfstring{Run\+Physics()}{RunPhysics()}}]{\setlength{\rightskip}{0pt plus 5cm}void Run\+Physics (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{dumb__physics_8h_ae354ed0629e54a219f0a00be20f6e2f0}{}\label{dumb__physics_8h_ae354ed0629e54a219f0a00be20f6e2f0}
+Executes physics. Run\+Time O( n(n+1)/2 ) Applies velocity, acceleration, gravity, and friction. Limits velocity, acceleration, and sets bounds.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/20/2016 
+\end{DoxyDate}
+
+
+Definition at line 19 of file dumb\+\_\+physics.\+c.
+

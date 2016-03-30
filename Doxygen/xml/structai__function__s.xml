@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="structai__function__s" kind="struct" language="C++" prot="public">
+    <compoundname>ai_function_s</compoundname>
+    <includes refid="ai__interpret_8h" local="no">ai_interpret.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structai__function__s_1af4cc7fbcaa3a1268cb1a174203486a8c" prot="public" static="no" mutable="no">
+        <type><ref refid="ai__interpret_8h_1a9fc7d2b2756bda7167434e15ddd43159" kindref="member">ai_type_t</ref></type>
+        <definition>ai_type_t mType</definition>
+        <argsstring></argsstring>
+        <name>mType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The type of ai (preset, variable, recursive) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/ai_interpret.h" line="99" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structai__function__s_1a99f128ebf8f9bb2be7e2ffaee33c5554" prot="public" static="no" mutable="no">
+        <type><ref refid="ai__interpret_8h_1a42492ef6b9956883af49be159eb55dff" kindref="member">ai_actions_t</ref></type>
+        <definition>ai_actions_t mAction</definition>
+        <argsstring></argsstring>
+        <name>mAction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The action type of this function, to get the action think function for entity </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/ai_interpret.h" line="100" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structai__function__s_1ab64996ddf8cd7006232fcb79bc296b03" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mFlags</definition>
+        <argsstring></argsstring>
+        <name>mFlags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The flags defined in ai_flags_t </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/ai_interpret.h" line="101" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structai__function__s_1a889d5923f6b7628af2fe824149b5a942" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mVariables[7]</definition>
+        <argsstring>[7]</argsstring>
+        <name>mVariables</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/ai_interpret.h" line="102" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structai__function__s_1ad290bc1093389f523421449cfcab6a9c" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* mObject</definition>
+        <argsstring></argsstring>
+        <name>mObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Optional - The object/entity to spawn during an action </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/ai_interpret.h" line="111" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structai__function__s_1ae9037e9c23c85312470746c5c4379814" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* mObjectCheck</definition>
+        <argsstring></argsstring>
+        <name>mObjectCheck</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Optional - The object/entity that you need to find, in order for condition to be valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/ai_interpret.h" line="112" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structai__function__s_1a7965c244eab12a7cdc29c447b8c76dbc" prot="public" static="no" mutable="no">
+        <type><ref refid="ai__interpret_8h_1a93e23f66130135adeb83b13c29f36fca" kindref="member">ai_function_t</ref> *</type>
+        <definition>ai_function_t* mLink</definition>
+        <argsstring></argsstring>
+        <name>mLink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The link to the next ai_function to set </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/ai_interpret.h" line="113" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The structure for ai, pointer to this is declared in each entity. FighterThink is the only think that uses this structure.</para><para><simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>ai_function_s</label>
+        <link refid="structai__function__s"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>mLink</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="dumb-ways-to-memorize/ai_interpret.h" line="98" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="97" bodyend="115"/>
+    <listofallmembers>
+      <member refid="structai__function__s_1a99f128ebf8f9bb2be7e2ffaee33c5554" prot="public" virt="non-virtual"><scope>ai_function_s</scope><name>mAction</name></member>
+      <member refid="structai__function__s_1ab64996ddf8cd7006232fcb79bc296b03" prot="public" virt="non-virtual"><scope>ai_function_s</scope><name>mFlags</name></member>
+      <member refid="structai__function__s_1a7965c244eab12a7cdc29c447b8c76dbc" prot="public" virt="non-virtual"><scope>ai_function_s</scope><name>mLink</name></member>
+      <member refid="structai__function__s_1ad290bc1093389f523421449cfcab6a9c" prot="public" virt="non-virtual"><scope>ai_function_s</scope><name>mObject</name></member>
+      <member refid="structai__function__s_1ae9037e9c23c85312470746c5c4379814" prot="public" virt="non-virtual"><scope>ai_function_s</scope><name>mObjectCheck</name></member>
+      <member refid="structai__function__s_1af4cc7fbcaa3a1268cb1a174203486a8c" prot="public" virt="non-virtual"><scope>ai_function_s</scope><name>mType</name></member>
+      <member refid="structai__function__s_1a889d5923f6b7628af2fe824149b5a942" prot="public" virt="non-virtual"><scope>ai_function_s</scope><name>mVariables</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

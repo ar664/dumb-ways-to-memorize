@@ -1,0 +1,451 @@
+\hypertarget{graphics_8h}{}\section{dumb-\/ways-\/to-\/memorize/graphics.h File Reference}
+\label{graphics_8h}\index{dumb-\/ways-\/to-\/memorize/graphics.\+h@{dumb-\/ways-\/to-\/memorize/graphics.\+h}}
+{\ttfamily \#include $<$S\+D\+L.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}globals.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_frame}{Frame}
+\item 
+struct \hyperlink{structsprite__s}{sprite\+\_\+s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{graphics_8h_aed7818555b2da57314243d796315e4e9}{G\+A\+M\+E\+\_\+\+N\+A\+ME}~\char`\"{}Dumb Ways to Memorize\char`\"{}
+\item 
+\#define \hyperlink{graphics_8h_aa7c5e8a32eb1645ee26fda856b4ca41a}{S\+C\+R\+E\+E\+N\+\_\+\+S\+T\+R\+I\+NG}~\char`\"{}Screen Dimensions\char`\"{}
+\item 
+\#define \hyperlink{graphics_8h_ab4f60dcfaf8e1c328b2862723508d851}{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+W}~1280
+\item 
+\#define \hyperlink{graphics_8h_a7a7d00e9da31c5ddbab5d35adab314f6}{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+H}~720
+\item 
+\#define \hyperlink{graphics_8h_aeb21c7ac080eea985b7701df626d9cf4}{M\+A\+X\+\_\+\+S\+P\+R\+I\+T\+ES}~500
+\item 
+\#define \hyperlink{graphics_8h_a99f9cfd68ef4237b568bda6e3e63312f}{M\+A\+X\+\_\+\+A\+N\+I\+M\+A\+T\+I\+O\+NS}~20
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structsprite__s}{sprite\+\_\+s} \hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{graphics_8h_a5a91ce2f20cdb3efdd3a10f8bcd79fe2}{Init\+Graphics} ()
+\item 
+void \hyperlink{graphics_8h_a57deac6adc760a6c690d7c05b1b32b3d}{Shutdown\+Graphics} ()
+\item 
+\hyperlink{struct_frame}{Frame} $\ast$ \hyperlink{graphics_8h_a9cf2216f8c9099f0767277b29b0b8044}{Load\+Animation} (int frame\+\_\+width, int frame\+\_\+height, int width, int height)
+\item 
+\hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t} $\ast$ \hyperlink{graphics_8h_af4c49239d2f0e5306964c66be9553832}{Find\+Sprite} (const char $\ast$\hyperlink{player_8h_a5ac083a645d964373f022d03df4849c8}{name}, int $\ast$position)
+\item 
+\hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t} $\ast$ \hyperlink{graphics_8h_a88a59e4cda72f43e47b635ed6c6a9f95}{Find\+Free\+Sprite} (int $\ast$position)
+\item 
+\hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t} $\ast$ \hyperlink{graphics_8h_a9ef47fe758affb875f01b07e551513c7}{Load\+Sprite} (const char $\ast$\hyperlink{player_8h_a5ac083a645d964373f022d03df4849c8}{name}, int flags)
+\item 
+\hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t} $\ast$ \hyperlink{graphics_8h_a837200eb3b2724ab70d5accf0b3bcd48}{Load\+Sprite\+With\+Animation} ()
+\item 
+int \hyperlink{graphics_8h_a17fde33b1d856d825920d633285aec6e}{Draw\+Sprite} (\hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t} $\ast$sprite, int $\ast$frame, \hyperlink{globals_8h_a773f2054819bb6014f1e50baa39cb5e3}{vec2\+\_\+t} $\ast$position, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+void \hyperlink{graphics_8h_a5668bec74dc06834b3141ac6da4063a2}{Free\+Sprite} (\hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t} $\ast$sprite)
+\item 
+void \hyperlink{graphics_8h_aa804be8d810666078d9915033a3d4317}{Increment\+Frame} (\hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t} $\ast$sprite)
+\item 
+void \hyperlink{graphics_8h_af04a9f3481d89afc13d2e2e0a621fad6}{S\+D\+L\+\_\+\+Set\+Rect} (S\+D\+L\+\_\+\+Rect $\ast$rect, int x, int y, int w, int h)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t} $\ast$ \hyperlink{graphics_8h_a7e583fa4ad1a7137e056e5dece1ed6c4}{g\+Sprites}
+\item 
+int \hyperlink{graphics_8h_a3555fbac07f5c5a609c2e9b8c1b81731}{g\+Last\+Sprite}
+\item 
+S\+D\+L\+\_\+\+Window $\ast$ \hyperlink{graphics_8h_a222f53a6a442d8f716dffd665e83528a}{g\+Window}
+\item 
+S\+D\+L\+\_\+\+Renderer $\ast$ \hyperlink{graphics_8h_a4735638969a524c4ac90a88f23c59a1f}{g\+Renderer}
+\item 
+S\+D\+L\+\_\+\+Surface $\ast$ \hyperlink{graphics_8h_aec8ecf79cbfef975bd1751e8eac92e0a}{g\+Red\+Surface}
+\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \hyperlink{graphics_8h_a3b5a0de489d49963cac9fd22f187d813}{g\+Red\+Texture}
+\item 
+S\+D\+L\+\_\+\+Renderer $\ast$ \hyperlink{graphics_8h_a324d0637f44d796996709bb187909c0c}{g\+Red\+Renderer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{graphics.\+h@{graphics.\+h}!G\+A\+M\+E\+\_\+\+N\+A\+ME@{G\+A\+M\+E\+\_\+\+N\+A\+ME}}
+\index{G\+A\+M\+E\+\_\+\+N\+A\+ME@{G\+A\+M\+E\+\_\+\+N\+A\+ME}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{G\+A\+M\+E\+\_\+\+N\+A\+ME}{GAME_NAME}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+A\+M\+E\+\_\+\+N\+A\+ME~\char`\"{}Dumb Ways to Memorize\char`\"{}}\hypertarget{graphics_8h_aed7818555b2da57314243d796315e4e9}{}\label{graphics_8h_aed7818555b2da57314243d796315e4e9}
+
+
+Definition at line 7 of file graphics.\+h.
+
+\index{graphics.\+h@{graphics.\+h}!M\+A\+X\+\_\+\+A\+N\+I\+M\+A\+T\+I\+O\+NS@{M\+A\+X\+\_\+\+A\+N\+I\+M\+A\+T\+I\+O\+NS}}
+\index{M\+A\+X\+\_\+\+A\+N\+I\+M\+A\+T\+I\+O\+NS@{M\+A\+X\+\_\+\+A\+N\+I\+M\+A\+T\+I\+O\+NS}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+A\+N\+I\+M\+A\+T\+I\+O\+NS}{MAX_ANIMATIONS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+A\+N\+I\+M\+A\+T\+I\+O\+NS~20}\hypertarget{graphics_8h_a99f9cfd68ef4237b568bda6e3e63312f}{}\label{graphics_8h_a99f9cfd68ef4237b568bda6e3e63312f}
+
+
+Definition at line 12 of file graphics.\+h.
+
+\index{graphics.\+h@{graphics.\+h}!M\+A\+X\+\_\+\+S\+P\+R\+I\+T\+ES@{M\+A\+X\+\_\+\+S\+P\+R\+I\+T\+ES}}
+\index{M\+A\+X\+\_\+\+S\+P\+R\+I\+T\+ES@{M\+A\+X\+\_\+\+S\+P\+R\+I\+T\+ES}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+S\+P\+R\+I\+T\+ES}{MAX_SPRITES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+S\+P\+R\+I\+T\+ES~500}\hypertarget{graphics_8h_aeb21c7ac080eea985b7701df626d9cf4}{}\label{graphics_8h_aeb21c7ac080eea985b7701df626d9cf4}
+
+
+Definition at line 11 of file graphics.\+h.
+
+\index{graphics.\+h@{graphics.\+h}!S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+H@{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+H}}
+\index{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+H@{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+H}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+H}{SCREEN_RES_H}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+H~720}\hypertarget{graphics_8h_a7a7d00e9da31c5ddbab5d35adab314f6}{}\label{graphics_8h_a7a7d00e9da31c5ddbab5d35adab314f6}
+
+
+Definition at line 10 of file graphics.\+h.
+
+\index{graphics.\+h@{graphics.\+h}!S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+W@{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+W}}
+\index{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+W@{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+W}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+W}{SCREEN_RES_W}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+S\+\_\+W~1280}\hypertarget{graphics_8h_ab4f60dcfaf8e1c328b2862723508d851}{}\label{graphics_8h_ab4f60dcfaf8e1c328b2862723508d851}
+
+
+Definition at line 9 of file graphics.\+h.
+
+\index{graphics.\+h@{graphics.\+h}!S\+C\+R\+E\+E\+N\+\_\+\+S\+T\+R\+I\+NG@{S\+C\+R\+E\+E\+N\+\_\+\+S\+T\+R\+I\+NG}}
+\index{S\+C\+R\+E\+E\+N\+\_\+\+S\+T\+R\+I\+NG@{S\+C\+R\+E\+E\+N\+\_\+\+S\+T\+R\+I\+NG}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{S\+C\+R\+E\+E\+N\+\_\+\+S\+T\+R\+I\+NG}{SCREEN_STRING}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+R\+E\+E\+N\+\_\+\+S\+T\+R\+I\+NG~\char`\"{}Screen Dimensions\char`\"{}}\hypertarget{graphics_8h_aa7c5e8a32eb1645ee26fda856b4ca41a}{}\label{graphics_8h_aa7c5e8a32eb1645ee26fda856b4ca41a}
+
+
+Definition at line 8 of file graphics.\+h.
+
+
+
+\subsection{Typedef Documentation}
+\index{graphics.\+h@{graphics.\+h}!sprite\+\_\+t@{sprite\+\_\+t}}
+\index{sprite\+\_\+t@{sprite\+\_\+t}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{sprite\+\_\+t}{sprite_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf sprite\+\_\+s} {\bf sprite\+\_\+t}}\hypertarget{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{}\label{graphics_8h_a5371414b10358aeda7c6bcec8196342f}
+
+
+Definition at line 20 of file graphics.\+h.
+
+
+
+\subsection{Function Documentation}
+\index{graphics.\+h@{graphics.\+h}!Draw\+Sprite@{Draw\+Sprite}}
+\index{Draw\+Sprite@{Draw\+Sprite}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{Draw\+Sprite(sprite\+\_\+t $\ast$sprite, int $\ast$frame, vec2\+\_\+t $\ast$position, S\+D\+L\+\_\+\+Renderer $\ast$renderer)}{DrawSprite(sprite_t *sprite, int *frame, vec2_t *position, SDL_Renderer *renderer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Draw\+Sprite (
+\begin{DoxyParamCaption}
+\item[{{\bf sprite\+\_\+t} $\ast$}]{sprite, }
+\item[{int $\ast$}]{frame, }
+\item[{{\bf vec2\+\_\+t} $\ast$}]{position, }
+\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer}
+\end{DoxyParamCaption}
+)}\hypertarget{graphics_8h_a17fde33b1d856d825920d633285aec6e}{}\label{graphics_8h_a17fde33b1d856d825920d633285aec6e}
+Draw the sprite. If m\+Current\+Frame not set, draws the first frame (0,0). If no position given, will draw as if was background.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em sprite} & If non-\/null, the sprite. \\
+\hline
+\mbox{\tt in,out}  & {\em position} & If non-\/null, the position. \\
+\hline
+\mbox{\tt in,out}  & {\em renderer} & If non-\/null, the renderer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if good, -\/1 if failure
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/16/2016 
+\end{DoxyDate}
+
+
+Definition at line 186 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!Find\+Free\+Sprite@{Find\+Free\+Sprite}}
+\index{Find\+Free\+Sprite@{Find\+Free\+Sprite}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Free\+Sprite(int $\ast$position)}{FindFreeSprite(int *position)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sprite\+\_\+t}$\ast$ Find\+Free\+Sprite (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{position}
+\end{DoxyParamCaption}
+)}\hypertarget{graphics_8h_a88a59e4cda72f43e47b635ed6c6a9f95}{}\label{graphics_8h_a88a59e4cda72f43e47b635ed6c6a9f95}
+Searches for the first free sprite.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em position} & If non-\/null, the position.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found free sprite.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/16/2016 
+\end{DoxyDate}
+
+
+Definition at line 297 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!Find\+Sprite@{Find\+Sprite}}
+\index{Find\+Sprite@{Find\+Sprite}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Sprite(const char $\ast$name, int $\ast$position)}{FindSprite(const char *name, int *position)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sprite\+\_\+t}$\ast$ Find\+Sprite (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name, }
+\item[{int $\ast$}]{position}
+\end{DoxyParamCaption}
+)}\hypertarget{graphics_8h_af4c49239d2f0e5306964c66be9553832}{}\label{graphics_8h_af4c49239d2f0e5306964c66be9553832}
+Searches for the first sprite.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em name} & The name. \\
+\hline
+\mbox{\tt in,out}  & {\em position} & If non-\/null, the position.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found sprite.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/16/2016 
+\end{DoxyDate}
+
+
+Definition at line 269 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!Free\+Sprite@{Free\+Sprite}}
+\index{Free\+Sprite@{Free\+Sprite}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{Free\+Sprite(sprite\+\_\+t $\ast$sprite)}{FreeSprite(sprite_t *sprite)}}]{\setlength{\rightskip}{0pt plus 5cm}void Free\+Sprite (
+\begin{DoxyParamCaption}
+\item[{{\bf sprite\+\_\+t} $\ast$}]{sprite}
+\end{DoxyParamCaption}
+)}\hypertarget{graphics_8h_a5668bec74dc06834b3141ac6da4063a2}{}\label{graphics_8h_a5668bec74dc06834b3141ac6da4063a2}
+Free the sprite memory, if recfcount -\/ 1 $>$ 0 nothing happens.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em sprite} & If non-\/null, the sprite.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/16/2016 
+\end{DoxyDate}
+
+
+Definition at line 326 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!Increment\+Frame@{Increment\+Frame}}
+\index{Increment\+Frame@{Increment\+Frame}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{Increment\+Frame(sprite\+\_\+t $\ast$sprite)}{IncrementFrame(sprite_t *sprite)}}]{\setlength{\rightskip}{0pt plus 5cm}void Increment\+Frame (
+\begin{DoxyParamCaption}
+\item[{{\bf sprite\+\_\+t} $\ast$}]{sprite}
+\end{DoxyParamCaption}
+)}\hypertarget{graphics_8h_aa804be8d810666078d9915033a3d4317}{}\label{graphics_8h_aa804be8d810666078d9915033a3d4317}
+
+
+Definition at line 342 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!Init\+Graphics@{Init\+Graphics}}
+\index{Init\+Graphics@{Init\+Graphics}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{Init\+Graphics()}{InitGraphics()}}]{\setlength{\rightskip}{0pt plus 5cm}int Init\+Graphics (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{graphics_8h_a5a91ce2f20cdb3efdd3a10f8bcd79fe2}{}\label{graphics_8h_a5a91ce2f20cdb3efdd3a10f8bcd79fe2}
+Init graphics.
+
+\begin{DoxyReturn}{Returns}
+0 if good, -\/1 if failure.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/16/2016 
+\end{DoxyDate}
+
+
+Definition at line 27 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!Load\+Animation@{Load\+Animation}}
+\index{Load\+Animation@{Load\+Animation}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{Load\+Animation(int frame\+\_\+width, int frame\+\_\+height, int width, int height)}{LoadAnimation(int frame_width, int frame_height, int width, int height)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Frame}$\ast$ Load\+Animation (
+\begin{DoxyParamCaption}
+\item[{int}]{frame\+\_\+width, }
+\item[{int}]{frame\+\_\+height, }
+\item[{int}]{width, }
+\item[{int}]{height}
+\end{DoxyParamCaption}
+)}\hypertarget{graphics_8h_a9cf2216f8c9099f0767277b29b0b8044}{}\label{graphics_8h_a9cf2216f8c9099f0767277b29b0b8044}
+Loads an animation based on frame\+\_\+width \& frame\+\_\+height.
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\+\_\+width} & Width of the frame. \\
+\hline
+{\em frame\+\_\+height} & Height of the frame. \\
+\hline
+{\em width} & The width. \\
+\hline
+{\em height} & The height.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the animation.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/16/2016 
+\end{DoxyDate}
+
+
+Definition at line 238 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!Load\+Sprite@{Load\+Sprite}}
+\index{Load\+Sprite@{Load\+Sprite}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{Load\+Sprite(const char $\ast$name, int flags)}{LoadSprite(const char *name, int flags)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sprite\+\_\+t}$\ast$ Load\+Sprite (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\hypertarget{graphics_8h_a9ef47fe758affb875f01b07e551513c7}{}\label{graphics_8h_a9ef47fe758affb875f01b07e551513c7}
+Loads a sprite.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name. \\
+\hline
+{\em flags} & The flags.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the sprite.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/16/2016 
+\end{DoxyDate}
+
+
+Definition at line 127 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!Load\+Sprite\+With\+Animation@{Load\+Sprite\+With\+Animation}}
+\index{Load\+Sprite\+With\+Animation@{Load\+Sprite\+With\+Animation}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{Load\+Sprite\+With\+Animation()}{LoadSpriteWithAnimation()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sprite\+\_\+t}$\ast$ Load\+Sprite\+With\+Animation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{graphics_8h_a837200eb3b2724ab70d5accf0b3bcd48}{}\label{graphics_8h_a837200eb3b2724ab70d5accf0b3bcd48}
+\index{graphics.\+h@{graphics.\+h}!S\+D\+L\+\_\+\+Set\+Rect@{S\+D\+L\+\_\+\+Set\+Rect}}
+\index{S\+D\+L\+\_\+\+Set\+Rect@{S\+D\+L\+\_\+\+Set\+Rect}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{S\+D\+L\+\_\+\+Set\+Rect(\+S\+D\+L\+\_\+\+Rect $\ast$rect, int x, int y, int w, int h)}{SDL_SetRect(SDL_Rect *rect, int x, int y, int w, int h)}}]{\setlength{\rightskip}{0pt plus 5cm}void S\+D\+L\+\_\+\+Set\+Rect (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{rect, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{w, }
+\item[{int}]{h}
+\end{DoxyParamCaption}
+)}\hypertarget{graphics_8h_af04a9f3481d89afc13d2e2e0a621fad6}{}\label{graphics_8h_af04a9f3481d89afc13d2e2e0a621fad6}
+Sdl set rectangle dimensions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em rect} & If non-\/null, the rectangle. \\
+\hline
+ & {\em x} & The x coordinate. \\
+\hline
+ & {\em y} & The y coordinate. \\
+\hline
+ & {\em w} & The width. \\
+\hline
+ & {\em h} & The height.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 370 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!Shutdown\+Graphics@{Shutdown\+Graphics}}
+\index{Shutdown\+Graphics@{Shutdown\+Graphics}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{Shutdown\+Graphics()}{ShutdownGraphics()}}]{\setlength{\rightskip}{0pt plus 5cm}void Shutdown\+Graphics (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{graphics_8h_a57deac6adc760a6c690d7c05b1b32b3d}{}\label{graphics_8h_a57deac6adc760a6c690d7c05b1b32b3d}
+
+
+Definition at line 100 of file graphics.\+c.
+
+
+
+\subsection{Variable Documentation}
+\index{graphics.\+h@{graphics.\+h}!g\+Last\+Sprite@{g\+Last\+Sprite}}
+\index{g\+Last\+Sprite@{g\+Last\+Sprite}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{g\+Last\+Sprite}{gLastSprite}}]{\setlength{\rightskip}{0pt plus 5cm}int g\+Last\+Sprite}\hypertarget{graphics_8h_a3555fbac07f5c5a609c2e9b8c1b81731}{}\label{graphics_8h_a3555fbac07f5c5a609c2e9b8c1b81731}
+
+
+Definition at line 15 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!g\+Red\+Renderer@{g\+Red\+Renderer}}
+\index{g\+Red\+Renderer@{g\+Red\+Renderer}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{g\+Red\+Renderer}{gRedRenderer}}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Renderer$\ast$ g\+Red\+Renderer}\hypertarget{graphics_8h_a324d0637f44d796996709bb187909c0c}{}\label{graphics_8h_a324d0637f44d796996709bb187909c0c}
+
+
+Definition at line 13 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!g\+Red\+Surface@{g\+Red\+Surface}}
+\index{g\+Red\+Surface@{g\+Red\+Surface}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{g\+Red\+Surface}{gRedSurface}}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Surface$\ast$ g\+Red\+Surface}\hypertarget{graphics_8h_aec8ecf79cbfef975bd1751e8eac92e0a}{}\label{graphics_8h_aec8ecf79cbfef975bd1751e8eac92e0a}
+
+
+Definition at line 11 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!g\+Red\+Texture@{g\+Red\+Texture}}
+\index{g\+Red\+Texture@{g\+Red\+Texture}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{g\+Red\+Texture}{gRedTexture}}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Texture$\ast$ g\+Red\+Texture}\hypertarget{graphics_8h_a3b5a0de489d49963cac9fd22f187d813}{}\label{graphics_8h_a3b5a0de489d49963cac9fd22f187d813}
+
+
+Definition at line 12 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!g\+Renderer@{g\+Renderer}}
+\index{g\+Renderer@{g\+Renderer}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{g\+Renderer}{gRenderer}}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Renderer$\ast$ g\+Renderer}\hypertarget{graphics_8h_a4735638969a524c4ac90a88f23c59a1f}{}\label{graphics_8h_a4735638969a524c4ac90a88f23c59a1f}
+
+
+Definition at line 10 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!g\+Sprites@{g\+Sprites}}
+\index{g\+Sprites@{g\+Sprites}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{g\+Sprites}{gSprites}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sprite\+\_\+t}$\ast$ g\+Sprites}\hypertarget{graphics_8h_a7e583fa4ad1a7137e056e5dece1ed6c4}{}\label{graphics_8h_a7e583fa4ad1a7137e056e5dece1ed6c4}
+
+
+Definition at line 14 of file graphics.\+c.
+
+\index{graphics.\+h@{graphics.\+h}!g\+Window@{g\+Window}}
+\index{g\+Window@{g\+Window}!graphics.\+h@{graphics.\+h}}
+\subsubsection[{\texorpdfstring{g\+Window}{gWindow}}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Window$\ast$ g\+Window}\hypertarget{graphics_8h_a222f53a6a442d8f716dffd665e83528a}{}\label{graphics_8h_a222f53a6a442d8f716dffd665e83528a}
+
+
+Definition at line 9 of file graphics.\+c.
+

@@ -22,12 +22,19 @@
 
 typedef struct level_s level_t;
 
+/**
+ * The structure for the levels.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+
 struct level_s
 {
-	char *mName;
-	char *mHint;
-	sprite_t *mBackground;
-	vec2_t mSpawnPoint;
+	char *mName;			/**< The name of the level */
+	char *mHint;			/**< The hint to be given to player if they need it */
+	sprite_t *mBackground;  /**< The background image for the level */
+	vec2_t mSpawnPoint;		/**< The spawn point of the player during init load */
 	// Later implement Size
 };
 

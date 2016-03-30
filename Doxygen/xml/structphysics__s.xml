@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="structphysics__s" kind="struct" language="C++" prot="public">
+    <compoundname>physics_s</compoundname>
+    <includes refid="dumb__physics_8h" local="no">dumb_physics.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structphysics__s_1add3cd733345f925ee08431ef2eac23b4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dummy_var</definition>
+        <argsstring></argsstring>
+        <name>dummy_var</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/dumb_physics.h" line="20" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="dumb-ways-to-memorize/dumb_physics.h" line="19" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.h" bodystart="18" bodyend="21"/>
+    <listofallmembers>
+      <member refid="structphysics__s_1add3cd733345f925ee08431ef2eac23b4" prot="public" virt="non-virtual"><scope>physics_s</scope><name>dummy_var</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

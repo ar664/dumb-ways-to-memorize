@@ -11,6 +11,7 @@
 #define MAX_SPRITES 500
 #define MAX_ANIMATIONS 20
 
+/** Defines Frame , which is an alias for Position of the start of the sprite */
 typedef struct 
 {
 	vec2_t Position;
@@ -18,14 +19,21 @@ typedef struct
 
 typedef struct sprite_s sprite_t;
 
+/**
+ * The structure of our sprites.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+
 struct sprite_s
 {
-	Frame mAnimations[MAX_ANIMATIONS];
-	SDL_Texture *mTexture;
-	vec2_t mSize;
-	int mFrames;
-	int refCount;
-	char *name;
+	Frame mAnimations[MAX_ANIMATIONS];  /**< The animation positions of the given sprite*/
+	SDL_Texture *mTexture;				/**< The texture of the sprite */
+	vec2_t mSize;						/**< The size of the sprite width + height */
+	int mFrames;						/**< The number of frames in this sprite */
+	int refCount;						/**< Number of references, in the engine */
+	char *name;							/**< The name of the sprite's location */
 
 };
 

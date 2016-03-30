@@ -1,0 +1,745 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="parsepowerup_8c" kind="file" language="C++">
+    <compoundname>parsepowerup.c</compoundname>
+    <includes refid="globals_8h" local="yes">globals.h</includes>
+    <includes refid="parsefunction_8h" local="yes">parsefunction.h</includes>
+    <includes refid="parsepowerup_8h" local="yes">parsepowerup.h</includes>
+    <includes refid="parseobject_8h" local="yes">parseobject.h</includes>
+    <includes refid="entity_8h" local="yes">entity.h</includes>
+    <includes refid="mystrings_8h" local="yes">mystrings.h</includes>
+    <includes refid="jsmn_8h" local="no">jsmn.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes refid="parsevariable_8h" local="yes">parsevariable.h</includes>
+    <includes refid="player_8h" local="yes">player.h</includes>
+    <incdepgraph>
+      <node id="404">
+        <label>globals.h</label>
+        <link refid="globals_8h"/>
+        <childnode refid="405" relation="include">
+        </childnode>
+      </node>
+      <node id="414">
+        <label>mystrings.h</label>
+        <link refid="mystrings_8h"/>
+        <childnode refid="405" relation="include">
+        </childnode>
+      </node>
+      <node id="403">
+        <label>dumb-ways-to-memorize/parsepowerup.c</label>
+        <link refid="parsepowerup.c"/>
+        <childnode refid="404" relation="include">
+        </childnode>
+        <childnode refid="407" relation="include">
+        </childnode>
+        <childnode refid="413" relation="include">
+        </childnode>
+        <childnode refid="412" relation="include">
+        </childnode>
+        <childnode refid="408" relation="include">
+        </childnode>
+        <childnode refid="414" relation="include">
+        </childnode>
+        <childnode refid="405" relation="include">
+        </childnode>
+        <childnode refid="415" relation="include">
+        </childnode>
+        <childnode refid="416" relation="include">
+        </childnode>
+        <childnode refid="417" relation="include">
+        </childnode>
+        <childnode refid="418" relation="include">
+        </childnode>
+      </node>
+      <node id="413">
+        <label>parsepowerup.h</label>
+        <link refid="parsepowerup_8h"/>
+        <childnode refid="412" relation="include">
+        </childnode>
+        <childnode refid="408" relation="include">
+        </childnode>
+      </node>
+      <node id="407">
+        <label>parsefunction.h</label>
+        <link refid="parsefunction_8h"/>
+        <childnode refid="408" relation="include">
+        </childnode>
+        <childnode refid="410" relation="include">
+        </childnode>
+      </node>
+      <node id="410">
+        <label>SDL.h</label>
+      </node>
+      <node id="405">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="406" relation="include">
+        </childnode>
+      </node>
+      <node id="412">
+        <label>parseobject.h</label>
+        <link refid="parseobject_8h"/>
+        <childnode refid="405" relation="include">
+        </childnode>
+      </node>
+      <node id="406">
+        <label>stddef.h</label>
+      </node>
+      <node id="418">
+        <label>player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="408" relation="include">
+        </childnode>
+      </node>
+      <node id="417">
+        <label>parsevariable.h</label>
+        <link refid="parsevariable_8h"/>
+        <childnode refid="408" relation="include">
+        </childnode>
+        <childnode refid="412" relation="include">
+        </childnode>
+      </node>
+      <node id="415">
+        <label>string.h</label>
+      </node>
+      <node id="408">
+        <label>entity.h</label>
+        <link refid="entity_8h"/>
+        <childnode refid="404" relation="include">
+        </childnode>
+        <childnode refid="409" relation="include">
+        </childnode>
+        <childnode refid="411" relation="include">
+        </childnode>
+      </node>
+      <node id="409">
+        <label>graphics.h</label>
+        <link refid="graphics_8h"/>
+        <childnode refid="410" relation="include">
+        </childnode>
+        <childnode refid="404" relation="include">
+        </childnode>
+      </node>
+      <node id="416">
+        <label>stdio.h</label>
+      </node>
+      <node id="411">
+        <label>ai_interpret.h</label>
+        <link refid="ai__interpret_8h"/>
+        <childnode refid="404" relation="include">
+        </childnode>
+        <childnode refid="412" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="parsepowerup_8c_1a4df04830c86d6dcbd3ef4557df82d9bd" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* InteractionNames[]</definition>
+        <argsstring>[]</argsstring>
+        <name>InteractionNames</name>
+        <initializer>= {&quot;move&quot;, &quot;destroy&quot;, &quot;spawn&quot;, &quot;edit&quot;, &quot;nullify&quot;, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="13" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="parsepowerup_8c_1ae5fb8c4f4ec5d863b1344f069b50d8c6" prot="public" static="no" mutable="no">
+        <type>void</type>
+        <definition>void InteractionSymbols</definition>
+        <argsstring></argsstring>
+        <name>InteractionSymbols</name>
+        <initializer>=  {<ref refid="parsepowerup_8h_1a289b46202a6f305acde1afc2d821207e" kindref="member">Move</ref>, <ref refid="parsepowerup_8h_1a6b34755eb80b623ca36505219d6e1012" kindref="member">Destroy</ref>, <ref refid="parsepowerup_8h_1a050ba84fee976778201dc7aff3e6ff41" kindref="member">Spawn</ref>, <ref refid="parsepowerup_8h_1a288e67be7e4235a802f8f0a779dfa68a" kindref="member">Edit</ref>, <ref refid="parsepowerup_8h_1abbf1dd6779e0cb88bade4a2dcbc06671" kindref="member">Nullify</ref>, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="14" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="parsepowerup_8c_1a90fefa2dda0184e13839a0b67950fc88" prot="public" static="no" mutable="no">
+        <type><ref refid="parsepowerup_8h_1a5b6034e874b6462f78a13c5202a4d2eb" kindref="member">power_t</ref> *</type>
+        <definition>power_t* gCurrentPowerUp</definition>
+        <argsstring></argsstring>
+        <name>gCurrentPowerUp</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="16" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="parsepowerup_8c_1adfb61c9280504c470a83ce9da1384ae2" prot="public" static="no" mutable="no">
+        <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+        <definition>vec2_t* mousePos</definition>
+        <argsstring></argsstring>
+        <name>mousePos</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="17" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="parsepowerup_8c_1abf3c4f267001e0e0f3e5b748b3b1c5e5" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* keyPower</definition>
+        <argsstring></argsstring>
+        <name>keyPower</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="18" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="parsepowerup_8c_1a289b46202a6f305acde1afc2d821207e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Move</definition>
+        <argsstring>(entity_t *targ, entity_t *info)</argsstring>
+        <name>Move</name>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>targ</declname>
+        </param>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="20" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="20" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="parsepowerup_8c_1a6b34755eb80b623ca36505219d6e1012" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Destroy</definition>
+        <argsstring>(entity_t *targ, entity_t *info)</argsstring>
+        <name>Destroy</name>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>targ</declname>
+        </param>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="32" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="32" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="parsepowerup_8c_1a050ba84fee976778201dc7aff3e6ff41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Spawn</definition>
+        <argsstring>(entity_t *targ, entity_t *info)</argsstring>
+        <name>Spawn</name>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>targ</declname>
+        </param>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="41" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="41" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="parsepowerup_8c_1a288e67be7e4235a802f8f0a779dfa68a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Edit</definition>
+        <argsstring>(entity_t *targ, entity_t *info)</argsstring>
+        <name>Edit</name>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>targ</declname>
+        </param>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="59" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="59" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="parsepowerup_8c_1abbf1dd6779e0cb88bade4a2dcbc06671" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Nullify</definition>
+        <argsstring>(entity_t *targ, entity_t *info)</argsstring>
+        <name>Nullify</name>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>targ</declname>
+        </param>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="81" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="81" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="parsepowerup_8c_1abfc420da26ddb1f9d592bf432644c94c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UpdateNormal</definition>
+        <argsstring>(power_t *power)</argsstring>
+        <name>UpdateNormal</name>
+        <param>
+          <type><ref refid="parsepowerup_8h_1a5b6034e874b6462f78a13c5202a4d2eb" kindref="member">power_t</ref> *</type>
+          <declname>power</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="90" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="90" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="parsepowerup_8c_1a7ae6cede71041d57a4863372b0f2a43a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UpdateInfinite</definition>
+        <argsstring>(power_t *power)</argsstring>
+        <name>UpdateInfinite</name>
+        <param>
+          <type><ref refid="parsepowerup_8h_1a5b6034e874b6462f78a13c5202a4d2eb" kindref="member">power_t</ref> *</type>
+          <declname>power</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="110" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="parsepowerup_8c_1a5eacfd4521f47eb6ce756416ed91ffb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GetUseType</definition>
+        <argsstring>(const char *var, int *useType)</argsstring>
+        <name>GetUseType</name>
+        <param>
+          <type>const char *</type>
+          <declname>var</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>useType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="115" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="115" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="parsepowerup_8c_1a4e4cd8f4b3499de1268fd7cf1ed0a790" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CallInfo</definition>
+        <argsstring>(power_t *self)</argsstring>
+        <name>CallInfo</name>
+        <param>
+          <type><ref refid="parsepowerup_8h_1a5b6034e874b6462f78a13c5202a4d2eb" kindref="member">power_t</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="133" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="133" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="parsepowerup_8c_1a8d842ada05e7a3a934447d48af492f7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="parsepowerup_8h_1a5b6034e874b6462f78a13c5202a4d2eb" kindref="member">power_t</ref> *</type>
+        <definition>power_t* ParseToPowerUp</definition>
+        <argsstring>(object_t *power, char *g_str)</argsstring>
+        <name>ParseToPowerUp</name>
+        <param>
+          <type><ref refid="parseobject_8h_1a965db53884ff9e4e077dd5e2e2d6a5e2" kindref="member">object_t</ref> *</type>
+          <declname>power</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>g_str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="148" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="148" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="parsepowerup_8c_1a94356a5fdd8b29d6a5fa2b730266275e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="parsepowerup_8h_1a5b6034e874b6462f78a13c5202a4d2eb" kindref="member">power_t</ref> *</type>
+        <definition>power_t* FindPower</definition>
+        <argsstring>(char *str)</argsstring>
+        <name>FindPower</name>
+        <param>
+          <type>char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="255" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="255" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="parsepowerup_8c_1a283d180401ea1bf0ee68755d094b275a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UsePower</definition>
+        <argsstring>(power_t *power)</argsstring>
+        <name>UsePower</name>
+        <param>
+          <type><ref refid="parsepowerup_8h_1a5b6034e874b6462f78a13c5202a4d2eb" kindref="member">power_t</ref> *</type>
+          <declname>power</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsepowerup.c" line="276" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="276" bodyend="295"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="globals_8h" kindref="compound">globals.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parsefunction_8h" kindref="compound">parsefunction.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parsepowerup_8h" kindref="compound">parsepowerup.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parseobject_8h" kindref="compound">parseobject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="entity_8h" kindref="compound">entity.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mystrings_8h" kindref="compound">mystrings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="jsmn_8h" kindref="compound">jsmn.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parsevariable_8h" kindref="compound">parsevariable.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="player_8h" kindref="compound">player.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="parsepowerup_8h_1a4df04830c86d6dcbd3ef4557df82d9bd" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="parsepowerup_8c_1a4df04830c86d6dcbd3ef4557df82d9bd" kindref="member">InteractionNames</ref>[]<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;move&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;destroy&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;spawn&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;edit&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;nullify&quot;</highlight><highlight class="normal">,<sp/>0};</highlight></codeline>
+<codeline lineno="14" refid="parsepowerup_8h_1a8a8a842e8d72c67addd165fbe8c293ed" refkind="member"><highlight class="normal">void<sp/>(*<ref refid="parsepowerup_8c_1ae5fb8c4f4ec5d863b1344f069b50d8c6" kindref="member">InteractionSymbols</ref>[])<sp/>=<sp/><sp/>{<ref refid="parsepowerup_8c_1a289b46202a6f305acde1afc2d821207e" kindref="member">Move</ref>,<sp/><ref refid="parsepowerup_8c_1a6b34755eb80b623ca36505219d6e1012" kindref="member">Destroy</ref>,<sp/><ref refid="parsepowerup_8c_1a050ba84fee976778201dc7aff3e6ff41" kindref="member">Spawn</ref>,<sp/><ref refid="parsepowerup_8c_1a288e67be7e4235a802f8f0a779dfa68a" kindref="member">Edit</ref>,<sp/><ref refid="parsepowerup_8c_1abbf1dd6779e0cb88bade4a2dcbc06671" kindref="member">Nullify</ref>,<sp/>0};</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="parsepowerup_8h_1a90fefa2dda0184e13839a0b67950fc88" refkind="member"><highlight class="normal"><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*<ref refid="parsepowerup_8c_1a90fefa2dda0184e13839a0b67950fc88" kindref="member">gCurrentPowerUp</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="17" refid="parsepowerup_8c_1adfb61c9280504c470a83ce9da1384ae2" refkind="member"><highlight class="normal"><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*<ref refid="parsepowerup_8c_1adfb61c9280504c470a83ce9da1384ae2" kindref="member">mousePos</ref><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="18" refid="parsepowerup_8c_1abf3c4f267001e0e0f3e5b748b3b1c5e5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="parsepowerup_8c_1abf3c4f267001e0e0f3e5b748b3b1c5e5" kindref="member">keyPower</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="parsepowerup_8h_1a289b46202a6f305acde1afc2d821207e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8c_1a289b46202a6f305acde1afc2d821207e" kindref="member">Move</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*info)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!targ<sp/>||<sp/>!info)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>do<sp/>move<sp/>,<sp/>invalid<sp/>target/info<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>targ-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref><sp/>=<sp/>info-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//No<sp/>other<sp/>access<sp/>necessary</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="parsepowerup_8h_1a6b34755eb80b623ca36505219d6e1012" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8c_1a6b34755eb80b623ca36505219d6e1012" kindref="member">Destroy</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*info)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(targ)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" kindref="member">FreeEntity</ref>(targ);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//Needs<sp/>access<sp/>to<sp/>parseEntity</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="parsepowerup_8h_1a050ba84fee976778201dc7aff3e6ff41" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8c_1a050ba84fee976778201dc7aff3e6ff41" kindref="member">Spawn</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*info)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*spawned;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!targ<sp/>||<sp/>!info)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Spawn<sp/>given<sp/>blank<sp/>targ/info<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>spawned<sp/>=<sp/><ref refid="entity_8c_1ad5cd21060189ddd8246414069ee01676" kindref="member">InitNewEntity</ref>();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!spawned)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Max<sp/>entities<sp/>reached<sp/>can&apos;t<sp/>spawn<sp/>any<sp/>more<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(spawned,<sp/>info,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structentity__s" kindref="compound">entity_t</ref>));</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="globals_8h_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" kindref="member">Vec2Add</ref>(&amp;targ-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>,<sp/>&amp;spawned-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>,<sp/>&amp;spawned-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="parsepowerup_8h_1a288e67be7e4235a802f8f0a779dfa68a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8c_1a288e67be7e4235a802f8f0a779dfa68a" kindref="member">Edit</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*info)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>entity_size;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*dst<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)<sp/>targ;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*value<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)<sp/>info;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!targ<sp/>||<sp/>!info)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Null<sp/>edit,<sp/>not<sp/>doing<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>entity_size<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref>)/</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//iterate<sp/>through<sp/>members</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>entity_size;<sp/>i++)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(*&amp;value[i]<sp/>&amp;&amp;<sp/>(*&amp;dst[i]<sp/>!=<sp/>*&amp;value[i]))</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&amp;dst[i]<sp/>=<sp/>*&amp;value[i];</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="parsepowerup_8h_1abbf1dd6779e0cb88bade4a2dcbc06671" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8c_1abbf1dd6779e0cb88bade4a2dcbc06671" kindref="member">Nullify</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*info)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!targ)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Null<sp/>given<sp/>null<sp/>target<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>targ-&gt;<ref refid="structentity__s_1ae045b7ba608e955e791f8af8507b78a4" kindref="member">Think</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="parsepowerup_8h_1abfc420da26ddb1f9d592bf432644c94c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8c_1abfc420da26ddb1f9d592bf432644c94c" kindref="member">UpdateNormal</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref>*<sp/>power)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="player_8c_1a39b4143c78f14357b34548d43450c880" kindref="member">gPlayer</ref>)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Player<sp/>not<sp/>set<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!power)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;power<sp/>not<sp/>set<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>power-&gt;<ref refid="structpower__s_1a8e7faa42ca042b4df438d3c82427d2ee" kindref="member">GetTarg</ref>((<ref refid="structentity__s" kindref="compound">entity_t</ref>*)<sp/><ref refid="player_8c_1a39b4143c78f14357b34548d43450c880" kindref="member">gPlayer</ref>,<sp/>&amp;power-&gt;<ref refid="structpower__s_1a6729e2052b01af694ccadb9c401b57a0" kindref="member">target</ref>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>power-&gt;<ref refid="structpower__s_1ab8646ebc46bf478ca09510b7a01c7223" kindref="member">uses</ref>--;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(power-&gt;<ref refid="structpower__s_1ab8646ebc46bf478ca09510b7a01c7223" kindref="member">uses</ref><sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//free(power);<sp/>Destroy<sp/>Power</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="parsepowerup_8h_1a7ae6cede71041d57a4863372b0f2a43a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8c_1a7ae6cede71041d57a4863372b0f2a43a" kindref="member">UpdateInfinite</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref>*<sp/>power)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>power-&gt;<ref refid="structpower__s_1a8e7faa42ca042b4df438d3c82427d2ee" kindref="member">GetTarg</ref>(<sp/>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*)<sp/><ref refid="player_8c_1a39b4143c78f14357b34548d43450c880" kindref="member">gPlayer</ref>,<sp/>&amp;power-&gt;<ref refid="structpower__s_1a6729e2052b01af694ccadb9c401b57a0" kindref="member">target</ref>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="parsepowerup_8h_1a5eacfd4521f47eb6ce756416ed91ffb4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8c_1a5eacfd4521f47eb6ce756416ed91ffb4" kindref="member">GetUseType</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*var,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*useType)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(</highlight><highlight class="stringliteral">&quot;infinite&quot;</highlight><highlight class="normal">,<sp/>var))</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*useType<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(</highlight><highlight class="stringliteral">&quot;static&quot;</highlight><highlight class="normal">,<sp/>var))</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*useType<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strpbrk(var,<sp/></highlight><highlight class="stringliteral">&quot;-0123456789&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sscanf(var,<sp/></highlight><highlight class="stringliteral">&quot;%d&quot;</highlight><highlight class="normal">,<sp/>useType);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="parsepowerup_8h_1a4e4cd8f4b3499de1268fd7cf1ed0a790" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8c_1a4e4cd8f4b3499de1268fd7cf1ed0a790" kindref="member">CallInfo</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(self-&gt;info_type)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a424e7ac8424cb2b5f8ad421ce7049960" kindref="member">INFO_BOTH</ref>:</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsefunction_8c_1a0f50ddf2c031233309190bfe8e3f8701" kindref="member">GetXMouse</ref>((<ref refid="structentity__s" kindref="compound">entity_t</ref>*)<sp/><ref refid="player_8c_1a39b4143c78f14357b34548d43450c880" kindref="member">gPlayer</ref>,<sp/><ref refid="parsepowerup_8c_1abf3c4f267001e0e0f3e5b748b3b1c5e5" kindref="member">keyPower</ref>,<sp/>mousePos);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5af4924e029416352949b8726ad12153e1" kindref="member">INFO_BUTTON</ref>:</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsefunction_8c_1a2f1ce1fc3533578da89e9d9e566769af" kindref="member">GetX</ref>((<ref refid="structentity__s" kindref="compound">entity_t</ref>*)<sp/><ref refid="player_8c_1a39b4143c78f14357b34548d43450c880" kindref="member">gPlayer</ref>,<sp/><ref refid="parsepowerup_8c_1abf3c4f267001e0e0f3e5b748b3b1c5e5" kindref="member">keyPower</ref>);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a415d1df754c472023341c16ab6343b4b" kindref="member">INFO_MOUSE</ref>:</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsefunction_8c_1a9f48ba431a0a1cfb77ac410398303773" kindref="member">GetMousePos</ref>((<ref refid="structentity__s" kindref="compound">entity_t</ref>*)<sp/><ref refid="player_8c_1a39b4143c78f14357b34548d43450c880" kindref="member">gPlayer</ref>,<sp/>mousePos);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="parsepowerup_8h_1aac472c2c38ac3fd8b451c7aaf31b8bdf" refkind="member"><highlight class="normal"><ref refid="structpower__s" kindref="compound">power_t</ref>*<sp/><ref refid="parsepowerup_8c_1a8d842ada05e7a3a934447d48af492f7f" kindref="member">ParseToPowerUp</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/>power,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>g_str)</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*temp_str;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*temp_tok;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*temp_ent;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*retVal;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal<sp/>=<sp/>(<ref refid="structpower__s" kindref="compound">power_t</ref>*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structpower__s" kindref="compound">power_t</ref>));</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!retVal)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Power<sp/>up<sp/>malloc<sp/>error<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(retVal,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structpower__s" kindref="compound">power_t</ref>));</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!power<sp/>||<sp/>!g_str)</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Power<sp/>Up<sp/>tried<sp/>to<sp/>parse<sp/>NULL<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!power-&gt;<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Tried<sp/>to<sp/>parse<sp/>Power<sp/>Up<sp/>with<sp/>No<sp/>Name&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref><sp/>=<sp/>power-&gt;<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(temp_str<sp/>=<sp/><ref refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" kindref="member">FindValue</ref>(power,<sp/><ref refid="parsepowerup_8h_1ae4ff7ab7b5ce057c9af5622a291cc4d1" kindref="member">POWER_TARGET_STR</ref>,<sp/>g_str))<sp/>!=<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1a8e7faa42ca042b4df438d3c82427d2ee" kindref="member">GetTarg</ref><sp/>=<sp/><ref refid="parsefunction_8c_1a3364b018786a8ca3a643e80ee703807f" kindref="member">ParseToFunction</ref>(temp_str);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(temp_str)<sp/>free(temp_str);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Use<sp/>Type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(temp_str<sp/>=<sp/><ref refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" kindref="member">FindValue</ref>(power,<sp/><ref refid="parsepowerup_8h_1a2939e5dcdb99093d66f2dcf2a9cdcefc" kindref="member">POWER_USE_TYPE_STR</ref>,<sp/>g_str))<sp/>!=<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsepowerup_8c_1a5eacfd4521f47eb6ce756416ed91ffb4" kindref="member">GetUseType</ref>(temp_str,<sp/>&amp;retVal-&gt;<ref refid="structpower__s_1ab8646ebc46bf478ca09510b7a01c7223" kindref="member">uses</ref>);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(temp_str)<sp/>free(temp_str);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(retVal-&gt;<ref refid="structpower__s_1ab8646ebc46bf478ca09510b7a01c7223" kindref="member">uses</ref>)</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4a6a1459101774b7f68e084098fa8bacbb" kindref="member">INFINITE</ref>:</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1a3cad653c3718314662c4a98659778999" kindref="member">UpdateUse</ref><sp/>=<sp/><ref refid="parsepowerup_8c_1a7ae6cede71041d57a4863372b0f2a43a" kindref="member">UpdateInfinite</ref>;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4ae55a36a850c67d46b3b3325de7fce0b8" kindref="member">STATIC</ref>:</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1a3cad653c3718314662c4a98659778999" kindref="member">UpdateUse</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1a3cad653c3718314662c4a98659778999" kindref="member">UpdateUse</ref><sp/>=<sp/><ref refid="parsepowerup_8c_1abfc420da26ddb1f9d592bf432644c94c" kindref="member">UpdateNormal</ref>;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Input<sp/>Type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(temp_str<sp/>=<sp/><ref refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" kindref="member">FindValue</ref>(power,<sp/><ref refid="parsepowerup_8h_1a334dcc2970f95cee54b9ffe8d95b117e" kindref="member">POWER_INPUT_TYPE_STR</ref>,<sp/>g_str))<sp/>!=<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a424e7ac8424cb2b5f8ad421ce7049960" kindref="member">INFO_BOTH</ref>;<sp/>i++<sp/>)</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(<ref refid="parsefunction_8c_1a77aa3443e1cc11d1389a851b108f3328" kindref="member">FunctionNames</ref>[i],<sp/>temp_str))</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1a92e471ab75337ebde8ffbddf14890542" kindref="member">info_type</ref><sp/>=<sp/>(<ref refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5" kindref="member">info_type_t</ref>)<sp/>(INFO_BOTH<sp/>-<sp/>i);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1a92e471ab75337ebde8ffbddf14890542" kindref="member">info_type</ref><sp/>=<sp/><ref refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a4b7dcb53be065c6db542a2de0f0231ca" kindref="member">INFO_NONE</ref>;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(temp_str)<sp/>free(temp_str);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(retVal-&gt;<ref refid="structpower__s_1a92e471ab75337ebde8ffbddf14890542" kindref="member">info_type</ref>)</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1a99fd6ee1c03eaf0de0f3e2c71237db69" kindref="member">UpdateInput</ref><sp/>=<sp/><ref refid="parsepowerup_8c_1a4e4cd8f4b3499de1268fd7cf1ed0a790" kindref="member">CallInfo</ref>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsepowerup_8c_1abf3c4f267001e0e0f3e5b748b3b1c5e5" kindref="member">keyPower</ref><sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memset(<ref refid="parsepowerup_8c_1abf3c4f267001e0e0f3e5b748b3b1c5e5" kindref="member">keyPower</ref>,0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mousePos<sp/>=<sp/>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>));</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memset(mousePos,0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>));</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Interaction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(temp_str<sp/>=<sp/><ref refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" kindref="member">FindValue</ref>(power,<sp/><ref refid="parsepowerup_8h_1a452f9650ebca3a4bdf7e47196426070b" kindref="member">POWER_INTERACTION_STR</ref>,<sp/>g_str))<sp/>!=<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/><ref refid="parsepowerup_8c_1a4df04830c86d6dcbd3ef4557df82d9bd" kindref="member">InteractionNames</ref>[i];<sp/>i++<sp/>)</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(<ref refid="parsepowerup_8c_1a4df04830c86d6dcbd3ef4557df82d9bd" kindref="member">InteractionNames</ref>[i],<sp/>temp_str))</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1a0547996a48a142c5c5006ce1dd3020a5" kindref="member">DoPower</ref><sp/>=<sp/>(void(*)(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*info))<sp/><ref refid="parsepowerup_8c_1ae5fb8c4f4ec5d863b1344f069b50d8c6" kindref="member">InteractionSymbols</ref>[i];</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1a0547996a48a142c5c5006ce1dd3020a5" kindref="member">DoPower</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(temp_str)<sp/>free(temp_str);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Info</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(temp_str<sp/>=<sp/><ref refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" kindref="member">FindValue</ref>(power,<sp/><ref refid="parsepowerup_8h_1ab2ae8695bdfb17d6bb3a797a6416cc13" kindref="member">POWER_ENTITY_STR</ref>,<sp/>g_str))<sp/>!=<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(temp_ent<sp/>=<sp/><ref refid="entity_8c_1a018dc9e984dbb58b293f263775b528c6" kindref="member">FindCachedEntity</ref>(<sp/>temp_str<sp/>))<sp/>!=<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref><sp/>=<sp/>temp_ent;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>identify/find<sp/>entity<sp/>in<sp/>power<sp/>:<sp/>%s<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>power-&gt;<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref><sp/>=<sp/>NULL;</highlight><highlight class="comment">//ParseToEntity(power,<sp/>g_str);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255" refid="parsepowerup_8h_1a94356a5fdd8b29d6a5fa2b730266275e" refkind="member"><highlight class="normal"><ref refid="structpower__s" kindref="compound">power_t</ref>*<sp/><ref refid="parsepowerup_8c_1a94356a5fdd8b29d6a5fa2b730266275e" kindref="member">FindPower</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
+<codeline lineno="256"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>count;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="game_8c_1a3a8af497dc09185b0764ca27f6afff1b" kindref="member">gPowerUps</ref>)</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;No<sp/>PowerUps<sp/>Loaded&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>count<sp/>=<sp/><ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(<ref refid="game_8c_1a3a8af497dc09185b0764ca27f6afff1b" kindref="member">gPowerUps</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structpower__s" kindref="compound">power_t</ref>));</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>count;<sp/>i++)</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="game_8c_1a3a8af497dc09185b0764ca27f6afff1b" kindref="member">gPowerUps</ref>[i].<ref refid="player_8c_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>)</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(<ref refid="game_8c_1a3a8af497dc09185b0764ca27f6afff1b" kindref="member">gPowerUps</ref>[i].name,<sp/>str))</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;<ref refid="game_8c_1a3a8af497dc09185b0764ca27f6afff1b" kindref="member">gPowerUps</ref>[i];</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276" refid="parsepowerup_8h_1a283d180401ea1bf0ee68755d094b275a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8c_1a283d180401ea1bf0ee68755d094b275a" kindref="member">UsePower</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref>*<sp/>power)</highlight></codeline>
+<codeline lineno="277"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!power)</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(power-&gt;<ref refid="structpower__s_1a99fd6ee1c03eaf0de0f3e2c71237db69" kindref="member">UpdateInput</ref>)</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>power-&gt;<ref refid="structpower__s_1a99fd6ee1c03eaf0de0f3e2c71237db69" kindref="member">UpdateInput</ref>(power);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(power-&gt;<ref refid="structpower__s_1a3cad653c3718314662c4a98659778999" kindref="member">UpdateUse</ref>)</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>power-&gt;<ref refid="structpower__s_1a3cad653c3718314662c4a98659778999" kindref="member">UpdateUse</ref>(power);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(power-&gt;<ref refid="structpower__s_1a0547996a48a142c5c5006ce1dd3020a5" kindref="member">DoPower</ref>)</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>power-&gt;<ref refid="structpower__s_1a0547996a48a142c5c5006ce1dd3020a5" kindref="member">DoPower</ref>(power-&gt;<ref refid="structpower__s_1a6729e2052b01af694ccadb9c401b57a0" kindref="member">target</ref>,<sp/>power-&gt;<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="295"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/parsepowerup.c"/>
+  </compounddef>
+</doxygen>

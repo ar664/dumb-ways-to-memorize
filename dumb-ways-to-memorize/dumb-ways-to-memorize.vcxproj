@@ -117,6 +117,7 @@
     <ClInclude Include="parsevariable.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="quick_controller.h" />
+    <ClInclude Include="audio.h" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

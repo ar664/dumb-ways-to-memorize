@@ -21,13 +21,13 @@
 
 int exitRequest = 0;				/**< The integer to be changed to exit */
 int gDelay = 0;
-int gLives = 0;
-int gLevelsPerGame = LEVELS_DEFAULT;
+int gLives = 0;						/**< The lives of the player */
+int gLevelsPerGame = LEVELS_DEFAULT;	/**< The levels per game */
 jsmn_parser gParser;				/**< The global jsmn parser */
 char **gLevels = NULL;				/**< The level names */
 char **gSelectedLevels = NULL;		/**< The selected levels to load */
 char **gSelectedPowerUps = NULL;	/**< The power ups the player selects */
-char **gUsedPowerUps = NULL;
+char **gUsedPowerUps = NULL;		/**< The used power ups for this game run */
 jsmntok_t *gGameTokens;				/**< Tokens for GameData */
 jsmntok_t *gEntityTokens;			/**< The entity jsmn tokens */
 jsmntok_t *gLevelTokens;			/**< The level jsmn tokens */
@@ -37,11 +37,11 @@ object_t *gLevelObject;				/**< The level object */
 char *gGameData;					/**< Game Data File - holding the contents of file via string*/
 char *gEntityData;					/**< Entity data file */
 char *gLevelData;					/**< Information describing the current level */
-char *gEntitiesFile = NULL;
-char *gPowerUpsFile = NULL;
+char *gEntitiesFile = NULL;			/**< The name of the entities file */
+char *gPowerUpsFile = NULL;			/**< The name of the power ups file */
 entity_t *gEntityDictionary;		/**< Entities loaded from files AKA cached entities*/
 power_t *gPowerUps;					/**< The loaded power ups */
-char *gCurrentPowerUpName = NULL;
+char *gCurrentPowerUpName = NULL;   /**< The current power up name */
 GameState gGameState = SPLASH;		/**< State of the game */
 sprite_t *gSplash = NULL;			/**< The splash screen sprite*/
 vec2_t gZeroPos = {0,0};

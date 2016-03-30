@@ -1,0 +1,81 @@
+\hypertarget{simple__logger_8c}{}\section{dumb-\/ways-\/to-\/memorize/\+External\+\_\+\+Libs/simple\+\_\+logger.c File Reference}
+\label{simple__logger_8c}\index{dumb-\/ways-\/to-\/memorize/\+External\+\_\+\+Libs/simple\+\_\+logger.\+c@{dumb-\/ways-\/to-\/memorize/\+External\+\_\+\+Libs/simple\+\_\+logger.\+c}}
+{\ttfamily \#include \char`\"{}simple\+\_\+logger.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{simple__logger_8c_ad1ae3faf97c2b2d3beb3fe8b4240401b}{close\+\_\+logger} ()
+\item 
+void \hyperlink{simple__logger_8c_a7559e5b69b98077997f625eb5d4200ab}{init\+\_\+logger} (const char $\ast$log\+\_\+file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em initializes the simple logger. Will automatically cleanup at program exit. \end{DoxyCompactList}\item 
+void \hyperlink{simple__logger_8c_a94aefe2ae91b60d1f0e9f604ba85f701}{\+\_\+slog} (char $\ast$f, int l, char $\ast$msg,...)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+F\+I\+LE $\ast$ \hyperlink{simple__logger_8c_a2c0e67c0e339f89ee4a2eb9232360c91}{\+\_\+\+\_\+log\+\_\+file} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{simple\+\_\+logger.\+c@{simple\+\_\+logger.\+c}!\+\_\+slog@{\+\_\+slog}}
+\index{\+\_\+slog@{\+\_\+slog}!simple\+\_\+logger.\+c@{simple\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+slog(char $\ast$f, int l, char $\ast$msg,...)}{_slog(char *f, int l, char *msg,...)}}]{\setlength{\rightskip}{0pt plus 5cm}void \+\_\+slog (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{f, }
+\item[{int}]{l, }
+\item[{char $\ast$}]{msg, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{simple__logger_8c_a94aefe2ae91b60d1f0e9f604ba85f701}{}\label{simple__logger_8c_a94aefe2ae91b60d1f0e9f604ba85f701}
+
+
+Definition at line 30 of file simple\+\_\+logger.\+c.
+
+\index{simple\+\_\+logger.\+c@{simple\+\_\+logger.\+c}!close\+\_\+logger@{close\+\_\+logger}}
+\index{close\+\_\+logger@{close\+\_\+logger}!simple\+\_\+logger.\+c@{simple\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{close\+\_\+logger()}{close_logger()}}]{\setlength{\rightskip}{0pt plus 5cm}void close\+\_\+logger (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{simple__logger_8c_ad1ae3faf97c2b2d3beb3fe8b4240401b}{}\label{simple__logger_8c_ad1ae3faf97c2b2d3beb3fe8b4240401b}
+
+
+Definition at line 8 of file simple\+\_\+logger.\+c.
+
+\index{simple\+\_\+logger.\+c@{simple\+\_\+logger.\+c}!init\+\_\+logger@{init\+\_\+logger}}
+\index{init\+\_\+logger@{init\+\_\+logger}!simple\+\_\+logger.\+c@{simple\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{init\+\_\+logger(const char $\ast$log\+\_\+file\+\_\+path)}{init_logger(const char *log_file_path)}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+\_\+logger (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{log\+\_\+file\+\_\+path}
+\end{DoxyParamCaption}
+)}\hypertarget{simple__logger_8c_a7559e5b69b98077997f625eb5d4200ab}{}\label{simple__logger_8c_a7559e5b69b98077997f625eb5d4200ab}
+
+
+initializes the simple logger. Will automatically cleanup at program exit. 
+
+simple\+\_\+logger  The M\+IT License (M\+IT) \begin{DoxyCopyright}{Copyright}
+Copyright (c) 2015 Engineer\+Of\+Lies Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. T\+HE S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY OF A\+NY K\+I\+ND, E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED, I\+N\+C\+L\+U\+D\+I\+NG B\+UT N\+OT L\+I\+M\+I\+T\+ED TO T\+HE W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY, F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+ND N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+NT. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE A\+U\+T\+H\+O\+RS OR C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY C\+L\+A\+IM, D\+A\+M\+A\+G\+ES OR O\+T\+H\+ER L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN AN A\+C\+T\+I\+ON OF C\+O\+N\+T\+R\+A\+CT, T\+O\+RT OR O\+T\+H\+E\+R\+W\+I\+SE, A\+R\+I\+S\+I\+NG F\+R\+OM, O\+UT OF OR IN C\+O\+N\+N\+E\+C\+T\+I\+ON W\+I\+TH T\+HE S\+O\+F\+T\+W\+A\+RE OR T\+HE U\+SE OR O\+T\+H\+ER D\+E\+A\+L\+I\+N\+GS IN T\+HE S\+O\+F\+T\+W\+A\+RE. 
+\end{DoxyCopyright}
+
+\begin{DoxyParams}{Parameters}
+{\em log\+\_\+file\+\_\+path} & the file to log to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file simple\+\_\+logger.\+c.
+
+
+
+\subsection{Variable Documentation}
+\index{simple\+\_\+logger.\+c@{simple\+\_\+logger.\+c}!\+\_\+\+\_\+log\+\_\+file@{\+\_\+\+\_\+log\+\_\+file}}
+\index{\+\_\+\+\_\+log\+\_\+file@{\+\_\+\+\_\+log\+\_\+file}!simple\+\_\+logger.\+c@{simple\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+log\+\_\+file}{__log_file}}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+LE$\ast$ \+\_\+\+\_\+log\+\_\+file = N\+U\+LL}\hypertarget{simple__logger_8c_a2c0e67c0e339f89ee4a2eb9232360c91}{}\label{simple__logger_8c_a2c0e67c0e339f89ee4a2eb9232360c91}
+
+
+Definition at line 6 of file simple\+\_\+logger.\+c.
+

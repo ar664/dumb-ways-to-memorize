@@ -1,0 +1,370 @@
+\hypertarget{mystrings_8h}{}\section{dumb-\/ways-\/to-\/memorize/mystrings.h File Reference}
+\label{mystrings_8h}\index{dumb-\/ways-\/to-\/memorize/mystrings.\+h@{dumb-\/ways-\/to-\/memorize/mystrings.\+h}}
+{\ttfamily \#include $<$jsmn.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mystrings_8h_aa063848210bb153608dd1b382a9e1c44}{A\+L\+L\+O\+C\+\_\+\+S\+TR}(X)~( (char $\ast$) malloc(sizeof(char)$\ast$X) )
+\item 
+\#define \hyperlink{mystrings_8h_abee22002c9d20fec0bc94a3bfd4e40ad}{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+P\+L\+A\+S\+H\+\_\+\+S\+TR}~\char`\"{}Splash\char`\"{}
+\item 
+\#define \hyperlink{mystrings_8h_a06f08b51f172bd9daaa65efb9a67ec85}{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+S\+TR}~\char`\"{}Start\char`\"{}
+\item 
+\#define \hyperlink{mystrings_8h_aba8c67d5ed1579335310ff77649ff89e}{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+G\+U\+E\+S\+S\+\_\+\+S\+TR}~\char`\"{}Guess\char`\"{}
+\item 
+\#define \hyperlink{mystrings_8h_abe75cf0ea422164cff13e9821b1aedf1}{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+H\+O\+O\+S\+E\+\_\+\+S\+TR}~\char`\"{}Choose\char`\"{}
+\item 
+\#define \hyperlink{mystrings_8h_acfc3e6c9cf34eaee72d09667d7d265db}{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+P\+L\+A\+Y\+I\+N\+G\+\_\+\+S\+TR}~\char`\"{}Playing\char`\"{}
+\item 
+\#define \hyperlink{mystrings_8h_a4e38eab119f1fee536a85e1f29c1ee44}{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+E\+N\+D\+\_\+\+S\+TR}~\char`\"{}End\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{mystrings_8h_a0357c834f41f5fa46fafa8b8ade095e4}{File\+To\+String} (char $\ast$file)
+\item 
+char $\ast$ \hyperlink{mystrings_8h_a1f4734e9e15d21a1c72758530c1a468f}{Type\+From\+J\+S\+ON} (\hyperlink{jsmn_8h_a065320719769f9dc1fbe30094e52802f}{jsmntype\+\_\+t} Type)
+\item 
+char $\ast$ \hyperlink{mystrings_8h_a78d7d9580e10b30e6409ebfeb29e5cfe}{Jsmn\+To\+String} (\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$token, char $\ast$g\+\_\+str)
+\item 
+char $\ast$ \hyperlink{mystrings_8h_ac183085aec4f8b1867b5737aacb9c37f}{Find\+Value} (struct \hyperlink{structobject__s}{object\+\_\+s} $\ast$obj, char $\ast$key, char $\ast$g\+\_\+str)
+\item 
+void \hyperlink{mystrings_8h_aa5c26c3bf9ec4cf5d58937787db2d415}{Jsmn\+To\+Int} (\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$token, char $\ast$str, int $\ast$dst)
+\item 
+int \hyperlink{mystrings_8h_a7847ecf365cd64921278854576e5ddcc}{Str\+To\+Int} (char $\ast$str)
+\item 
+int \hyperlink{mystrings_8h_a357780097bc5067ece05926de2d77eae}{Char\+To\+Int} (char c)
+\item 
+\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$ \hyperlink{mystrings_8h_a6466498df69994b55bb62b9b53652142}{Find\+Key} (\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$token, char $\ast$key, char $\ast$g\+\_\+str)
+\item 
+int \hyperlink{mystrings_8h_a496e2427daae7d276aa1c25bf7173f9b}{Convert\+File\+To\+Useable} (char $\ast$file\+Name, \hyperlink{structjsmn__parser}{jsmn\+\_\+parser} $\ast$parser, char $\ast$$\ast$string\+Storage, \hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$$\ast$jsmn\+Storage)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{mystrings.\+h@{mystrings.\+h}!A\+L\+L\+O\+C\+\_\+\+S\+TR@{A\+L\+L\+O\+C\+\_\+\+S\+TR}}
+\index{A\+L\+L\+O\+C\+\_\+\+S\+TR@{A\+L\+L\+O\+C\+\_\+\+S\+TR}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{A\+L\+L\+O\+C\+\_\+\+S\+TR}{ALLOC_STR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+L\+L\+O\+C\+\_\+\+S\+TR(
+\begin{DoxyParamCaption}
+\item[{}]{X}
+\end{DoxyParamCaption}
+)~( (char $\ast$) malloc(sizeof(char)$\ast$X) )}\hypertarget{mystrings_8h_aa063848210bb153608dd1b382a9e1c44}{}\label{mystrings_8h_aa063848210bb153608dd1b382a9e1c44}
+
+
+Definition at line 4 of file mystrings.\+h.
+
+\index{mystrings.\+h@{mystrings.\+h}!G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+H\+O\+O\+S\+E\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+H\+O\+O\+S\+E\+\_\+\+S\+TR}}
+\index{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+H\+O\+O\+S\+E\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+H\+O\+O\+S\+E\+\_\+\+S\+TR}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+H\+O\+O\+S\+E\+\_\+\+S\+TR}{GAME_STATE_CHOOSE_STR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+H\+O\+O\+S\+E\+\_\+\+S\+TR~\char`\"{}Choose\char`\"{}}\hypertarget{mystrings_8h_abe75cf0ea422164cff13e9821b1aedf1}{}\label{mystrings_8h_abe75cf0ea422164cff13e9821b1aedf1}
+
+
+Definition at line 12 of file mystrings.\+h.
+
+\index{mystrings.\+h@{mystrings.\+h}!G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+E\+N\+D\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+E\+N\+D\+\_\+\+S\+TR}}
+\index{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+E\+N\+D\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+E\+N\+D\+\_\+\+S\+TR}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+E\+N\+D\+\_\+\+S\+TR}{GAME_STATE_END_STR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+E\+N\+D\+\_\+\+S\+TR~\char`\"{}End\char`\"{}}\hypertarget{mystrings_8h_a4e38eab119f1fee536a85e1f29c1ee44}{}\label{mystrings_8h_a4e38eab119f1fee536a85e1f29c1ee44}
+
+
+Definition at line 14 of file mystrings.\+h.
+
+\index{mystrings.\+h@{mystrings.\+h}!G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+G\+U\+E\+S\+S\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+G\+U\+E\+S\+S\+\_\+\+S\+TR}}
+\index{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+G\+U\+E\+S\+S\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+G\+U\+E\+S\+S\+\_\+\+S\+TR}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+G\+U\+E\+S\+S\+\_\+\+S\+TR}{GAME_STATE_GUESS_STR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+G\+U\+E\+S\+S\+\_\+\+S\+TR~\char`\"{}Guess\char`\"{}}\hypertarget{mystrings_8h_aba8c67d5ed1579335310ff77649ff89e}{}\label{mystrings_8h_aba8c67d5ed1579335310ff77649ff89e}
+
+
+Definition at line 11 of file mystrings.\+h.
+
+\index{mystrings.\+h@{mystrings.\+h}!G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+P\+L\+A\+Y\+I\+N\+G\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+P\+L\+A\+Y\+I\+N\+G\+\_\+\+S\+TR}}
+\index{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+P\+L\+A\+Y\+I\+N\+G\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+P\+L\+A\+Y\+I\+N\+G\+\_\+\+S\+TR}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+P\+L\+A\+Y\+I\+N\+G\+\_\+\+S\+TR}{GAME_STATE_PLAYING_STR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+P\+L\+A\+Y\+I\+N\+G\+\_\+\+S\+TR~\char`\"{}Playing\char`\"{}}\hypertarget{mystrings_8h_acfc3e6c9cf34eaee72d09667d7d265db}{}\label{mystrings_8h_acfc3e6c9cf34eaee72d09667d7d265db}
+
+
+Definition at line 13 of file mystrings.\+h.
+
+\index{mystrings.\+h@{mystrings.\+h}!G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+P\+L\+A\+S\+H\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+P\+L\+A\+S\+H\+\_\+\+S\+TR}}
+\index{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+P\+L\+A\+S\+H\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+P\+L\+A\+S\+H\+\_\+\+S\+TR}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+P\+L\+A\+S\+H\+\_\+\+S\+TR}{GAME_STATE_SPLASH_STR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+P\+L\+A\+S\+H\+\_\+\+S\+TR~\char`\"{}Splash\char`\"{}}\hypertarget{mystrings_8h_abee22002c9d20fec0bc94a3bfd4e40ad}{}\label{mystrings_8h_abee22002c9d20fec0bc94a3bfd4e40ad}
+
+
+Definition at line 9 of file mystrings.\+h.
+
+\index{mystrings.\+h@{mystrings.\+h}!G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+S\+TR}}
+\index{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+S\+TR@{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+S\+TR}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+S\+TR}{GAME_STATE_START_STR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+S\+TR~\char`\"{}Start\char`\"{}}\hypertarget{mystrings_8h_a06f08b51f172bd9daaa65efb9a67ec85}{}\label{mystrings_8h_a06f08b51f172bd9daaa65efb9a67ec85}
+
+
+Definition at line 10 of file mystrings.\+h.
+
+
+
+\subsection{Function Documentation}
+\index{mystrings.\+h@{mystrings.\+h}!Char\+To\+Int@{Char\+To\+Int}}
+\index{Char\+To\+Int@{Char\+To\+Int}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{Char\+To\+Int(char c)}{CharToInt(char c)}}]{\setlength{\rightskip}{0pt plus 5cm}int Char\+To\+Int (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{mystrings_8h_a357780097bc5067ece05926de2d77eae}{}\label{mystrings_8h_a357780097bc5067ece05926de2d77eae}
+Character to int. A cheap switch statement.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The character.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2/28/2016 
+\end{DoxyDate}
+
+
+Definition at line 228 of file mystrings.\+c.
+
+\index{mystrings.\+h@{mystrings.\+h}!Convert\+File\+To\+Useable@{Convert\+File\+To\+Useable}}
+\index{Convert\+File\+To\+Useable@{Convert\+File\+To\+Useable}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{Convert\+File\+To\+Useable(char $\ast$file\+Name, jsmn\+\_\+parser $\ast$parser, char $\ast$$\ast$string\+Storage, jsmntok\+\_\+t $\ast$$\ast$jsmn\+Storage)}{ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStorage, jsmntok_t **jsmnStorage)}}]{\setlength{\rightskip}{0pt plus 5cm}int Convert\+File\+To\+Useable (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\+Name, }
+\item[{{\bf jsmn\+\_\+parser} $\ast$}]{parser, }
+\item[{char $\ast$$\ast$}]{string\+Storage, }
+\item[{{\bf jsmntok\+\_\+t} $\ast$$\ast$}]{jsmn\+Storage}
+\end{DoxyParamCaption}
+)}\hypertarget{mystrings_8h_a496e2427daae7d276aa1c25bf7173f9b}{}\label{mystrings_8h_a496e2427daae7d276aa1c25bf7173f9b}
+Convert file to useable, by setting the storage for string and jsmntokens, give a filename.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em file\+Name} & If non-\/null, filename of the file. \\
+\hline
+\mbox{\tt in,out}  & {\em parser} & If non-\/null, the parser. \\
+\hline
+\mbox{\tt in,out}  & {\em string\+Storage} & If non-\/null, the string storage. \\
+\hline
+\mbox{\tt in,out}  & {\em jsmn\+Storage} & If non-\/null, the jsmn storage.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The file converted to useable.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 335 of file mystrings.\+c.
+
+\index{mystrings.\+h@{mystrings.\+h}!File\+To\+String@{File\+To\+String}}
+\index{File\+To\+String@{File\+To\+String}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{File\+To\+String(char $\ast$file)}{FileToString(char *file)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ File\+To\+String (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{mystrings_8h_a0357c834f41f5fa46fafa8b8ade095e4}{}\label{mystrings_8h_a0357c834f41f5fa46fafa8b8ade095e4}
+File to string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em file\+Name} & If non-\/null, filename of the file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a char$\ast$.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1/30/2016 
+\end{DoxyDate}
+
+
+Definition at line 288 of file mystrings.\+c.
+
+\index{mystrings.\+h@{mystrings.\+h}!Find\+Key@{Find\+Key}}
+\index{Find\+Key@{Find\+Key}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Key(jsmntok\+\_\+t $\ast$token, char $\ast$key, char $\ast$g\+\_\+str)}{FindKey(jsmntok_t *token, char *key, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jsmntok\+\_\+t}$\ast$ Find\+Key (
+\begin{DoxyParamCaption}
+\item[{{\bf jsmntok\+\_\+t} $\ast$}]{token, }
+\item[{char $\ast$}]{key, }
+\item[{char $\ast$}]{g\+\_\+str}
+\end{DoxyParamCaption}
+)}\hypertarget{mystrings_8h_a6466498df69994b55bb62b9b53652142}{}\label{mystrings_8h_a6466498df69994b55bb62b9b53652142}
+Searches for the first key and sets token.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em token} & The token. \\
+\hline
+\mbox{\tt in,out}  & {\em key} & The key. \\
+\hline
+\mbox{\tt in,out}  & {\em g\+\_\+str} & The string to get from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found key.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Junji 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1/30/2016 
+\end{DoxyDate}
+
+
+Definition at line 24 of file mystrings.\+c.
+
+\index{mystrings.\+h@{mystrings.\+h}!Find\+Value@{Find\+Value}}
+\index{Find\+Value@{Find\+Value}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Value(struct object\+\_\+s $\ast$obj, char $\ast$key, char $\ast$g\+\_\+str)}{FindValue(struct object_s *obj, char *key, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Find\+Value (
+\begin{DoxyParamCaption}
+\item[{struct {\bf object\+\_\+s} $\ast$}]{obj, }
+\item[{char $\ast$}]{key, }
+\item[{char $\ast$}]{g\+\_\+str}
+\end{DoxyParamCaption}
+)}\hypertarget{mystrings_8h_ac183085aec4f8b1867b5737aacb9c37f}{}\label{mystrings_8h_ac183085aec4f8b1867b5737aacb9c37f}
+Searches for the a value in the object that matches the key string given. Recursive.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em obj} & If non-\/null, the object. \\
+\hline
+\mbox{\tt in,out}  & {\em key} & If non-\/null, the key. \\
+\hline
+\mbox{\tt in,out}  & {\em g\+\_\+str} & If non-\/null, the string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found value.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/25/2016 
+\end{DoxyDate}
+
+
+Definition at line 126 of file mystrings.\+c.
+
+\index{mystrings.\+h@{mystrings.\+h}!Jsmn\+To\+Int@{Jsmn\+To\+Int}}
+\index{Jsmn\+To\+Int@{Jsmn\+To\+Int}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{Jsmn\+To\+Int(jsmntok\+\_\+t $\ast$token, char $\ast$str, int $\ast$dst)}{JsmnToInt(jsmntok_t *token, char *str, int *dst)}}]{\setlength{\rightskip}{0pt plus 5cm}void Jsmn\+To\+Int (
+\begin{DoxyParamCaption}
+\item[{{\bf jsmntok\+\_\+t} $\ast$}]{token, }
+\item[{char $\ast$}]{str, }
+\item[{int $\ast$}]{dst}
+\end{DoxyParamCaption}
+)}\hypertarget{mystrings_8h_aa5c26c3bf9ec4cf5d58937787db2d415}{}\label{mystrings_8h_aa5c26c3bf9ec4cf5d58937787db2d415}
+Jsmn to int.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em token} & If non-\/null, the token. \\
+\hline
+\mbox{\tt in,out}  & {\em str} & If non-\/null, the string. \\
+\hline
+\mbox{\tt in,out}  & {\em dst} & If non-\/null, destination for the value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2/28/2016 
+\end{DoxyDate}
+
+
+Definition at line 169 of file mystrings.\+c.
+
+\index{mystrings.\+h@{mystrings.\+h}!Jsmn\+To\+String@{Jsmn\+To\+String}}
+\index{Jsmn\+To\+String@{Jsmn\+To\+String}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{Jsmn\+To\+String(jsmntok\+\_\+t $\ast$token, char $\ast$g\+\_\+str)}{JsmnToString(jsmntok_t *token, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Jsmn\+To\+String (
+\begin{DoxyParamCaption}
+\item[{{\bf jsmntok\+\_\+t} $\ast$}]{token, }
+\item[{char $\ast$}]{g\+\_\+str}
+\end{DoxyParamCaption}
+)}\hypertarget{mystrings_8h_a78d7d9580e10b30e6409ebfeb29e5cfe}{}\label{mystrings_8h_a78d7d9580e10b30e6409ebfeb29e5cfe}
+Jsmn to string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em token} & If non-\/null, the token. \\
+\hline
+\mbox{\tt in,out}  & {\em g\+\_\+str} & If non-\/null, the global string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a char$\ast$.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1/30/2016 
+\end{DoxyDate}
+
+
+Definition at line 93 of file mystrings.\+c.
+
+\index{mystrings.\+h@{mystrings.\+h}!Str\+To\+Int@{Str\+To\+Int}}
+\index{Str\+To\+Int@{Str\+To\+Int}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{Str\+To\+Int(char $\ast$str)}{StrToInt(char *str)}}]{\setlength{\rightskip}{0pt plus 5cm}int Str\+To\+Int (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\hypertarget{mystrings_8h_a7847ecf365cd64921278854576e5ddcc}{}\label{mystrings_8h_a7847ecf365cd64921278854576e5ddcc}
+String to int.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em str} & If non-\/null, the string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2/28/2016 
+\end{DoxyDate}
+
+
+Definition at line 188 of file mystrings.\+c.
+
+\index{mystrings.\+h@{mystrings.\+h}!Type\+From\+J\+S\+ON@{Type\+From\+J\+S\+ON}}
+\index{Type\+From\+J\+S\+ON@{Type\+From\+J\+S\+ON}!mystrings.\+h@{mystrings.\+h}}
+\subsubsection[{\texorpdfstring{Type\+From\+J\+S\+O\+N(jsmntype\+\_\+t Type)}{TypeFromJSON(jsmntype_t Type)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Type\+From\+J\+S\+ON (
+\begin{DoxyParamCaption}
+\item[{{\bf jsmntype\+\_\+t}}]{Type}
+\end{DoxyParamCaption}
+)}\hypertarget{mystrings_8h_a1f4734e9e15d21a1c72758530c1a468f}{}\label{mystrings_8h_a1f4734e9e15d21a1c72758530c1a468f}
+Type string from J\+S\+ON string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Type} & The type.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a char$\ast$.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1/30/2016 
+\end{DoxyDate}
+
+
+Definition at line 258 of file mystrings.\+c.
+

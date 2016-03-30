@@ -34,12 +34,13 @@
 	{
 		"object" : "Ground",
 		"tile-to-x" : 1280,
-		"position" : [0,688],
+		"position" : [[0,688], [0, 660]],
 		"comment" : "testing"
 	},
 	{
 		"object" : "Ground",
 		"position" : [1200, 500],
+		"extra" : "goal"
 	}
 	]
 	

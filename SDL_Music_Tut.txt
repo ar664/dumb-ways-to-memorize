@@ -1,0 +1,23 @@
+SDL_Mixer - Mixes music;
+
+Type Files:
+SDL_Chunk = Sound Effects;
+SDL_Mixer = Music;
+
+Multiple or single channels might be available.
+
+Layers of sound consist of important and non-important stuff.
+
+Mix_playchannel() - play sound file, through a mixing channel
+Mix_playgroup() - play sound file, in a group of mixing channels (preallocated)
+
+16 channels min.
+44100, default shit, 2 stereo output channels (speakers)
+
+-1 = loop inf
+
+SDL_MixHookMusicFinished - Run void * when done
+
+Teacher Struct:
+Channel
+Volume,

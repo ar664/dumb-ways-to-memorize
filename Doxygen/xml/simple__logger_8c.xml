@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="simple__logger_8c" kind="file" language="C++">
+    <compoundname>simple_logger.c</compoundname>
+    <includes refid="simple__logger_8h" local="yes">simple_logger.h</includes>
+    <includes local="no">stdarg.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <incdepgraph>
+      <node id="146">
+        <label>stdarg.h</label>
+      </node>
+      <node id="148">
+        <label>stdlib.h</label>
+      </node>
+      <node id="147">
+        <label>stdio.h</label>
+      </node>
+      <node id="144">
+        <label>dumb-ways-to-memorize/External_Libs/simple_logger.c</label>
+        <link refid="simple_logger.c"/>
+        <childnode refid="145" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
+        </childnode>
+        <childnode refid="148" relation="include">
+        </childnode>
+      </node>
+      <node id="145">
+        <label>simple_logger.h</label>
+        <link refid="simple__logger_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* __log_file</definition>
+        <argsstring></argsstring>
+        <name>__log_file</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/External_Libs/simple_logger.c" line="6" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.c" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="simple__logger_8c_1ad1ae3faf97c2b2d3beb3fe8b4240401b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void close_logger</definition>
+        <argsstring>()</argsstring>
+        <name>close_logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/External_Libs/simple_logger.c" line="8" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.c" bodystart="8" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="simple__logger_8c_1a7559e5b69b98077997f625eb5d4200ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void init_logger</definition>
+        <argsstring>(const char *log_file_path)</argsstring>
+        <name>init_logger</name>
+        <param>
+          <type>const char *</type>
+          <declname>log_file_path</declname>
+        </param>
+        <briefdescription>
+<para>initializes the simple logger. Will automatically cleanup at program exit. </para>        </briefdescription>
+        <detaileddescription>
+<para>simple_logger  The MIT License (MIT) <simplesect kind="copyright"><para>Copyright (c) 2015 EngineerOfLies Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>log_file_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file to log to </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/External_Libs/simple_logger.c" line="17" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.c" bodystart="17" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="simple__logger_8c_1a94aefe2ae91b60d1f0e9f604ba85f701" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void _slog</definition>
+        <argsstring>(char *f, int l, char *msg,...)</argsstring>
+        <name>_slog</name>
+        <param>
+          <type>char *</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/External_Libs/simple_logger.c" line="30" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.c" bodystart="30" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="simple__logger_8h" kindref="compound">simple_logger.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdarg.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" refkind="member"><highlight class="normal">FILE<sp/>*<sp/><ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="simple__logger_8c_1ad1ae3faf97c2b2d3beb3fe8b4240401b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="simple__logger_8c_1ad1ae3faf97c2b2d3beb3fe8b4240401b" kindref="member">close_logger</ref>()</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref><sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fclose(<ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref>);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="simple__logger_8h_1a7559e5b69b98077997f625eb5d4200ab" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="simple__logger_8c_1a7559e5b69b98077997f625eb5d4200ab" kindref="member">init_logger</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*log_file_path)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(log_file_path<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref><sp/>=<sp/>fopen(</highlight><highlight class="stringliteral">&quot;output.log&quot;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref><sp/>=<sp/>fopen(log_file_path,</highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>atexit(<ref refid="simple__logger_8c_1ad1ae3faf97c2b2d3beb3fe8b4240401b" kindref="member">close_logger</ref>);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="simple__logger_8h_1a94aefe2ae91b60d1f0e9f604ba85f701" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="simple__logger_8c_1a94aefe2ae91b60d1f0e9f604ba85f701" kindref="member">_slog</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*f,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*msg,...)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>va_list<sp/>ap;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*echo<sp/>all<sp/>logging<sp/>to<sp/>stdout*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>va_start(ap,msg);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(stdout,</highlight><highlight class="stringliteral">&quot;%s:%i:<sp/>&quot;</highlight><highlight class="normal">,f,l);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>vfprintf(stdout,msg,ap);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(stdout,</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>va_end(ap);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(stdout,</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref><sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>va_start(ap,msg);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(<ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref>,</highlight><highlight class="stringliteral">&quot;%s:%i:<sp/>&quot;</highlight><highlight class="normal">,f,l);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vfprintf(<ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref>,msg,ap);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(<ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref>,</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>va_end(ap);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">/*eol@eof*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/External_Libs/simple_logger.c"/>
+  </compounddef>
+</doxygen>

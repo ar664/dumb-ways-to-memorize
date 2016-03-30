@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="player_8c" kind="file" language="C++">
+    <compoundname>player.c</compoundname>
+    <includes refid="globals_8h" local="yes">globals.h</includes>
+    <includes refid="parsepowerup_8h" local="yes">parsepowerup.h</includes>
+    <includes refid="entity_8h" local="yes">entity.h</includes>
+    <includes refid="player_8h" local="yes">player.h</includes>
+    <includes refid="parselevel_8h" local="yes">parselevel.h</includes>
+    <includes local="no">stdio.h</includes>
+    <incdepgraph>
+      <node id="468">
+        <label>globals.h</label>
+        <link refid="globals_8h"/>
+        <childnode refid="469" relation="include">
+        </childnode>
+      </node>
+      <node id="471">
+        <label>parsepowerup.h</label>
+        <link refid="parsepowerup_8h"/>
+        <childnode refid="472" relation="include">
+        </childnode>
+        <childnode refid="473" relation="include">
+        </childnode>
+      </node>
+      <node id="475">
+        <label>SDL.h</label>
+      </node>
+      <node id="469">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="470" relation="include">
+        </childnode>
+      </node>
+      <node id="472">
+        <label>parseobject.h</label>
+        <link refid="parseobject_8h"/>
+        <childnode refid="469" relation="include">
+        </childnode>
+      </node>
+      <node id="470">
+        <label>stddef.h</label>
+      </node>
+      <node id="467">
+        <label>dumb-ways-to-memorize/player.c</label>
+        <link refid="player.c"/>
+        <childnode refid="468" relation="include">
+        </childnode>
+        <childnode refid="471" relation="include">
+        </childnode>
+        <childnode refid="473" relation="include">
+        </childnode>
+        <childnode refid="477" relation="include">
+        </childnode>
+        <childnode refid="478" relation="include">
+        </childnode>
+        <childnode refid="479" relation="include">
+        </childnode>
+      </node>
+      <node id="477">
+        <label>player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="473" relation="include">
+        </childnode>
+      </node>
+      <node id="478">
+        <label>parselevel.h</label>
+        <link refid="parselevel_8h"/>
+        <childnode refid="472" relation="include">
+        </childnode>
+        <childnode refid="473" relation="include">
+        </childnode>
+      </node>
+      <node id="473">
+        <label>entity.h</label>
+        <link refid="entity_8h"/>
+        <childnode refid="468" relation="include">
+        </childnode>
+        <childnode refid="474" relation="include">
+        </childnode>
+        <childnode refid="476" relation="include">
+        </childnode>
+      </node>
+      <node id="474">
+        <label>graphics.h</label>
+        <link refid="graphics_8h"/>
+        <childnode refid="475" relation="include">
+        </childnode>
+        <childnode refid="468" relation="include">
+        </childnode>
+      </node>
+      <node id="479">
+        <label>stdio.h</label>
+      </node>
+      <node id="476">
+        <label>ai_interpret.h</label>
+        <link refid="ai__interpret_8h"/>
+        <childnode refid="468" relation="include">
+        </childnode>
+        <childnode refid="472" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="player_8c_1a5ac083a645d964373f022d03df4849c8" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <initializer>= <ref refid="player_8h_1a31b5c3a330ed3472634dac473596287c" kindref="member">PLAYER_NAME</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/player.c" line="8" column="1" bodyfile="dumb-ways-to-memorize/player.c" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="player_8c_1a39b4143c78f14357b34548d43450c880" prot="public" static="no" mutable="no">
+        <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+        <definition>entity_t* gPlayer</definition>
+        <argsstring></argsstring>
+        <name>gPlayer</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/player.c" line="9" column="1" bodyfile="dumb-ways-to-memorize/player.c" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="player_8c_1a7460e61d712f20efd9bca05176757e88" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gPlayerLives</definition>
+        <argsstring></argsstring>
+        <name>gPlayerLives</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/player.c" line="10" column="1" bodyfile="dumb-ways-to-memorize/player.c" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="player_8c_1ab1e3218036977e006ae6fd1f66c16ae4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InitPlayer</definition>
+        <argsstring>()</argsstring>
+        <name>InitPlayer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/player.c" line="12" column="1" bodyfile="dumb-ways-to-memorize/player.c" bodystart="12" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="player_8c_1a76fdb0f973bfdf01617e0e10468effe5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+        <definition>entity_t* GetPlayer</definition>
+        <argsstring>()</argsstring>
+        <name>GetPlayer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/player.c" line="40" column="1" bodyfile="dumb-ways-to-memorize/player.c" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="player_8c_1ae53c08c808a1dc1314ea3d3bfcb0ff1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DecrementPlayerLives</definition>
+        <argsstring>()</argsstring>
+        <name>DecrementPlayerLives</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/player.c" line="45" column="1" bodyfile="dumb-ways-to-memorize/player.c" bodystart="45" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="globals_8h" kindref="compound">globals.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parsepowerup_8h" kindref="compound">parsepowerup.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="entity_8h" kindref="compound">entity.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="player_8h" kindref="compound">player.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parselevel_8h" kindref="compound">parselevel.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="player_8h_1a5ac083a645d964373f022d03df4849c8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="player_8c_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref><sp/>=<sp/><ref refid="player_8h_1a31b5c3a330ed3472634dac473596287c" kindref="member">PLAYER_NAME</ref>;</highlight></codeline>
+<codeline lineno="9" refid="player_8h_1a39b4143c78f14357b34548d43450c880" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="player_8c_1a39b4143c78f14357b34548d43450c880" kindref="member">gPlayer</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="10" refid="player_8h_1a7460e61d712f20efd9bca05176757e88" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="player_8c_1a7460e61d712f20efd9bca05176757e88" kindref="member">gPlayerLives</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="player_8h_1ab1e3218036977e006ae6fd1f66c16ae4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="player_8c_1ab1e3218036977e006ae6fd1f66c16ae4" kindref="member">InitPlayer</ref>()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!gPlayer)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gPlayer<sp/>=<sp/><ref refid="entity_8c_1ad5cd21060189ddd8246414069ee01676" kindref="member">InitNewEntity</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!gPlayer)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Could<sp/>not<sp/>Init<sp/>Player&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" kindref="member">exitRequest</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(gPlayer,<ref refid="entity_8c_1a018dc9e984dbb58b293f263775b528c6" kindref="member">FindCachedEntity</ref>(</highlight><highlight class="stringliteral">&quot;Player&quot;</highlight><highlight class="normal">),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structentity__s" kindref="compound">entity_t</ref>));</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="player_8c_1a7460e61d712f20efd9bca05176757e88" kindref="member">gPlayerLives</ref>)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="player_8h_1a9d84f6e79f74322526a49e2eb0d82a12" kindref="member">PLAYER_LIVES</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>gPlayer-&gt;<ref refid="structentity__s_1a51719e3ab7c4f8dd260dea013021f53c" kindref="member">Draw</ref><sp/>=<sp/><ref refid="entity_8c_1a8572f94d16405fa3b42dd584893852bd" kindref="member">DrawGeneric</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>gPlayer-&gt;<ref refid="structentity__s_1ae045b7ba608e955e791f8af8507b78a4" kindref="member">Think</ref><sp/>=<sp/><ref refid="entity_8c_1ae11597dd27ad4ab341e8c1ebf07c15f8" kindref="member">ThinkPlayer</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>gPlayer-&gt;<ref refid="structentity__s_1af5c032961c1c6bca1832a0cb3fb34321" kindref="member">Touch</ref><sp/>=<sp/><ref refid="entity_8c_1a0090f3a150bf7833709c04eba953c6e2" kindref="member">TouchPlayer</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>gPlayer-&gt;<ref refid="structentity__s_1ad1606f41f8e2d6ffa8da068d620a102e" kindref="member">PowerUp</ref><sp/>=<sp/><ref refid="game_8c_1a3a8af497dc09185b0764ca27f6afff1b" kindref="member">gPowerUps</ref><sp/>?<sp/><ref refid="parsepowerup_8c_1a283d180401ea1bf0ee68755d094b275a" kindref="member">UsePower</ref><sp/>:<sp/>NULL;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>gPlayer-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref><sp/>=<sp/><ref refid="parselevel_8c_1acd0b27bf2cd52ed665c0f708aea8e48f" kindref="member">gCurrentLevel</ref><sp/>?<sp/><ref refid="parselevel_8c_1acd0b27bf2cd52ed665c0f708aea8e48f" kindref="member">gCurrentLevel</ref>-&gt;<ref refid="structlevel__s_1aa7fb9f569bb3df8b37853ebc7e67b11c" kindref="member">mSpawnPoint</ref><sp/>:<sp/><ref refid="game_8c_1a6cec6004c302c98221d23e95d2e2dff4" kindref="member">gZeroPos</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>gPlayer-&gt;<ref refid="structentity__s_1a709ed9fa7e17bcc63f51b9e011772aee" kindref="member">mHealth</ref><sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>gPlayer-&gt;<ref refid="structentity__s_1a069df5fe6b0f5a8eb03b0cc4c2e0ba43" kindref="member">mWeight</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>gPlayer-&gt;<ref refid="structentity__s_1a24bdc1525ed5bcbf2a8c7027c9e1db5f" kindref="member">mNextThink</ref><sp/>=<sp/><ref refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" kindref="member">gCurrentTime</ref><sp/>+<sp/>2*<ref refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" kindref="member">FRAME_DELAY</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="player_8h_1a76fdb0f973bfdf01617e0e10468effe5" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="player_8c_1a76fdb0f973bfdf01617e0e10468effe5" kindref="member">GetPlayer</ref>()</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*)<sp/><ref refid="player_8c_1a39b4143c78f14357b34548d43450c880" kindref="member">gPlayer</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="player_8h_1ae53c08c808a1dc1314ea3d3bfcb0ff1c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="player_8c_1ae53c08c808a1dc1314ea3d3bfcb0ff1c" kindref="member">DecrementPlayerLives</ref>()</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="player_8c_1a7460e61d712f20efd9bca05176757e88" kindref="member">gPlayerLives</ref>--;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/player.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="mymath_8c" kind="file" language="C++">
+    <compoundname>mymath.c</compoundname>
+    <includes refid="globals_8h" local="yes">globals.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <incdepgraph>
+      <node id="283">
+        <label>globals.h</label>
+        <link refid="globals_8h"/>
+        <childnode refid="284" relation="include">
+        </childnode>
+      </node>
+      <node id="287">
+        <label>stdlib.h</label>
+      </node>
+      <node id="284">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="285" relation="include">
+        </childnode>
+      </node>
+      <node id="285">
+        <label>stddef.h</label>
+      </node>
+      <node id="286">
+        <label>string.h</label>
+      </node>
+      <node id="282">
+        <label>dumb-ways-to-memorize/mymath.c</label>
+        <link refid="mymath.c"/>
+        <childnode refid="283" relation="include">
+        </childnode>
+        <childnode refid="286" relation="include">
+        </childnode>
+        <childnode refid="287" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="mymath_8c_1a9aa87727325e75d1590d911602eab803" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int LargestDivisor</definition>
+        <argsstring>(int num)</argsstring>
+        <name>LargestDivisor</name>
+        <param>
+          <type>int</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/mymath.c" line="5" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="5" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="mymath_8c_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vec2Add</definition>
+        <argsstring>(vec2_t *A, vec2_t *B, vec2_t *C)</argsstring>
+        <name>Vec2Add</name>
+        <param>
+          <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+          <declname>B</declname>
+        </param>
+        <param>
+          <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+          <declname>C</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/mymath.c" line="20" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="20" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="mymath_8c_1aad91f1e528aceb82eb58eeaeef31ba96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vec2Subtract</definition>
+        <argsstring>(vec2_t *First, vec2_t *Second, vec2_t *C)</argsstring>
+        <name>Vec2Subtract</name>
+        <param>
+          <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+          <declname>First</declname>
+        </param>
+        <param>
+          <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+          <declname>Second</declname>
+        </param>
+        <param>
+          <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+          <declname>C</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/mymath.c" line="31" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="31" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="mymath_8c_1aa9e0b764ef33951a7a3e46dfa128837b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vec2MultiplyScalar</definition>
+        <argsstring>(vec2_t *A, int B, vec2_t *C)</argsstring>
+        <name>Vec2MultiplyScalar</name>
+        <param>
+          <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>B</declname>
+        </param>
+        <param>
+          <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+          <declname>C</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/mymath.c" line="41" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="41" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="mymath_8c_1ab5272b6a1f2bf961c7534ec91a243715" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CountMem</definition>
+        <argsstring>(void *src, int size_type)</argsstring>
+        <name>CountMem</name>
+        <param>
+          <type>void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Counts the memory of type size_type, given that the final address is null.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, source of memory. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the type.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The total number of memory, if src is null 0 is returned.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>2/1/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/mymath.c" line="63" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="63" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="mymath_8c_1a2263fb5e65c0597a8e4c35fa0c05e15d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AllocateDynamic</definition>
+        <argsstring>(void **dst, void *src, int size_type, int size)</argsstring>
+        <name>AllocateDynamic</name>
+        <param>
+          <type>void **</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size_type</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocate memory and copy over src into it. Adds Null to end. Returns NULL on size 0</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, destination for the allocation. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, source for the adding. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the type. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 on success, -1 on error.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>2/1/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/mymath.c" line="93" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="93" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="mymath_8c_1a4cda7fb3c8f061cba2e2dff0710400ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CompareMemToMemArray</definition>
+        <argsstring>(void *mem, void *mem_array, int size_type, int size_array)</argsstring>
+        <name>CompareMemToMemArray</name>
+        <param>
+          <type>void *</type>
+          <declname>mem</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>mem_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size_type</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size_array</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compare memory to memory array.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">mem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the memory. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">mem_array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, array of memories. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of type, via sizeof() function. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size_array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of Array.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if equal, -1 if not.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>1/31/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/mymath.c" line="118" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="118" bodyend="132"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="globals_8h" kindref="compound">globals.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="mymath_8c_1a9aa87727325e75d1590d911602eab803" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mymath_8c_1a9aa87727325e75d1590d911602eab803" kindref="member">LargestDivisor</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>root,<sp/>hit;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>hit<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>root<sp/>=<sp/>num&gt;&gt;1;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>root;<sp/>i++)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!num%i)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hit<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hit;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="mymath_8c_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="mymath_8c_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" kindref="member">Vec2Add</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*A,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*B,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*C)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!A<sp/>||<sp/>!B<sp/>||<sp/>!C)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>C-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>A-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>+<sp/>B-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>C-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>A-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>+<sp/>B-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="mymath_8c_1aad91f1e528aceb82eb58eeaeef31ba96" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="mymath_8c_1aad91f1e528aceb82eb58eeaeef31ba96" kindref="member">Vec2Subtract</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*First,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*Second,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*C)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!First<sp/>||<sp/>!Second<sp/>||<sp/>!C)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>C-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>First-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>-<sp/>Second-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>C-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>First-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>-<sp/>Second-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="mymath_8c_1aa9e0b764ef33951a7a3e46dfa128837b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="mymath_8c_1aa9e0b764ef33951a7a3e46dfa128837b" kindref="member">Vec2MultiplyScalar</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*<sp/>A,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>B,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref>*<sp/>C)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!A<sp/>||<sp/>!C)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>(*C).x<sp/>=<sp/>A-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>*<sp/>B;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>(*C).y<sp/>=<sp/>A-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>*<sp/>B;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="mymath_8c_1ab5272b6a1f2bf961c7534ec91a243715" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mymath_8c_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_type)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>offset;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*source<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)src;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(source<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>i<sp/>=<sp/>0;<sp/>offset<sp/>=<sp/>size_type/</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(int);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(<sp/>*(source)<sp/>)<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>source<sp/>+=<sp/>offset;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="mymath_8c_1a2263fb5e65c0597a8e4c35fa0c05e15d" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mymath_8c_1a2263fb5e65c0597a8e4c35fa0c05e15d" kindref="member">AllocateDynamic</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**dst,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset<sp/>=<sp/>size_type/</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(int);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!dst)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>*dst<sp/>=<sp/>realloc(*dst,<sp/>size_type*(size+1));</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!*dst)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>src<sp/>?<sp/>memcpy((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)(*dst)+(size-1)*offset,<sp/>src,<sp/>size_type)<sp/>:<sp/>memset((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)(*dst)+(size-1)*offset,<sp/>0,<sp/>size_type);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>memset((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)(*dst)+(size)*offset,<sp/>0,<sp/>size_type);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="mymath_8c_1a4cda7fb3c8f061cba2e2dff0710400ee" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mymath_8c_1a4cda7fb3c8f061cba2e2dff0710400ee" kindref="member">CompareMemToMemArray</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*mem,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*mem_array,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_array)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>offset;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*memory<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)<sp/>mem_array;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>offset<sp/>=<sp/>size_type;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size_array;<sp/>i++)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!memcmp(mem,<sp/>memory,<sp/>size_type))</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memory<sp/>+=<sp/>offset;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/mymath.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dumb__physics_8c" kind="file" language="C++">
+    <compoundname>dumb_physics.c</compoundname>
+    <includes refid="dumb__physics_8h" local="yes">dumb_physics.h</includes>
+    <includes refid="entity_8h" local="yes">entity.h</includes>
+    <includes refid="globals_8h" local="yes">globals.h</includes>
+    <includes refid="player_8h" local="yes">player.h</includes>
+    <includes local="no">stdio.h</includes>
+    <incdepgraph>
+      <node id="44">
+        <label>globals.h</label>
+        <link refid="globals_8h"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>SDL.h</label>
+      </node>
+      <node id="45">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>dumb-ways-to-memorize/dumb_physics.c</label>
+        <link refid="dumb_physics.c"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>dumb_physics.h</label>
+        <link refid="dumb__physics_8h"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>parseobject.h</label>
+        <link refid="parseobject_8h"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>stddef.h</label>
+      </node>
+      <node id="51">
+        <label>player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>entity.h</label>
+        <link refid="entity_8h"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>graphics.h</label>
+        <link refid="graphics_8h"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>stdio.h</label>
+      </node>
+      <node id="49">
+        <label>ai_interpret.h</label>
+        <link refid="ai__interpret_8h"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="dumb__physics_8c_1a014e115137722e6de4b923adf3da681b" prot="public" static="no" mutable="no">
+        <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref></type>
+        <definition>vec2_t gGravity</definition>
+        <argsstring></argsstring>
+        <name>gGravity</name>
+        <initializer>= {0, 2}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/dumb_physics.c" line="7" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="dumb__physics_8c_1ae354ed0629e54a219f0a00be20f6e2f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RunPhysics</definition>
+        <argsstring>()</argsstring>
+        <name>RunPhysics</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes physics. RunTime O( n(n+1)/2 ) Applies velocity, acceleration, gravity, and friction. Limits velocity, acceleration, and sets bounds.</para><para><simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/20/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/dumb_physics.c" line="19" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="19" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="dumb__physics_8c_1ac2d2a3c3841dcc0533751a2421d21b58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CheckCollision</definition>
+        <argsstring>(entity_t *self, entity_t *other)</argsstring>
+        <name>CheckCollision</name>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check collision between entities. (AABB)</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the class instance that this method operates on. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the other.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An int 1 if colliding, 0 if not.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/20/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/dumb_physics.c" line="79" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="79" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="dumb__physics_8c_1a9e6b8c74bb414eeffcbd423e4a40e542" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DoCollision</definition>
+        <argsstring>(entity_t *self, entity_t *other)</argsstring>
+        <name>DoCollision</name>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes the collision operation. Place self farthest x or y away from other, vice versa. And negative the velocity to half of orginal collision vel, for bounce back.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the class instance that this method operates on. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the other.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/20/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/dumb_physics.c" line="109" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="109" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="dumb__physics_8c_1a1605813c3093dd564cd63719073ce122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApplySpeedLimit</definition>
+        <argsstring>(vec2_t *a)</argsstring>
+        <name>ApplySpeedLimit</name>
+        <param>
+          <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Applies the speed limit to vector a.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the vec2_t to process.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/29/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/dumb_physics.c" line="205" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="205" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="dumb__physics_8c_1aac1300a97cdd2b37a4ddfa316dc92ece" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApplyBounds</definition>
+        <argsstring>(entity_t *ent)</argsstring>
+        <name>ApplyBounds</name>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>ent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Applies the bounds to specified ent.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">ent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the ent.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/29/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/dumb_physics.c" line="220" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="220" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="dumb__physics_8c_1a04c93e0b3d3d778e28fc804fc52bf88b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApplyFriction</definition>
+        <argsstring>(vec2_t *a)</argsstring>
+        <name>ApplyFriction</name>
+        <param>
+          <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Applies the friction to vector a.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the vec2_t to process.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/29/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/dumb_physics.c" line="255" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="255" bodyend="265"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dumb__physics_8h" kindref="compound">dumb_physics.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="entity_8h" kindref="compound">entity.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="globals_8h" kindref="compound">globals.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="player_8h" kindref="compound">player.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="globals_8h_1a014e115137722e6de4b923adf3da681b" refkind="member"><highlight class="normal"><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/><ref refid="dumb__physics_8c_1a014e115137722e6de4b923adf3da681b" kindref="member">gGravity</ref><sp/>=<sp/>{0,<sp/>2};</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="dumb__physics_8h_1ae354ed0629e54a219f0a00be20f6e2f0" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1ae354ed0629e54a219f0a00be20f6e2f0" kindref="member">RunPhysics</ref>()</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>j;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" kindref="member">MAX_ENTITIES</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].mName)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].mCollisionType<sp/>==<sp/><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aaca8cf2b8670715dc64f0b04625fee211" kindref="member">COLLISION_TYPE_STATIC</ref>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dumb__physics_8c_1a04c93e0b3d3d778e28fc804fc52bf88b" kindref="member">ApplyFriction</ref>(&amp;<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].mVelocity);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>+=<sp/><ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>/<ref refid="globals_8h_1a0f595a73aa5c05ebf73729966239e15a" kindref="member">PHYSICS_LIMITER</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>+=<sp/><ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>/<ref refid="globals_8h_1a0f595a73aa5c05ebf73729966239e15a" kindref="member">PHYSICS_LIMITER</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="globals_8h_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" kindref="member">Vec2Add</ref>(&amp;<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].mAccel,&amp;<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].mVelocity,&amp;<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].mVelocity);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].mWeight)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].<ref refid="structentity__s_1ae9f3b8e36df4503009ee071958f75b6c" kindref="member">mAccel</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>gGravity.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dumb__physics_8c_1a1605813c3093dd564cd63719073ce122" kindref="member">ApplySpeedLimit</ref>(&amp;<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].mVelocity);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dumb__physics_8c_1a1605813c3093dd564cd63719073ce122" kindref="member">ApplySpeedLimit</ref>(&amp;<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].mAccel);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dumb__physics_8c_1aac1300a97cdd2b37a4ddfa316dc92ece" kindref="member">ApplyBounds</ref>(&amp;<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i]);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Vec2Add(&amp;friction,&amp;gEntities[i].mVelocity,&amp;gEntities[i].mVelocity);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Collision<sp/>Check</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" kindref="member">MAX_ENTITIES</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i].mName)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(j<sp/>=<sp/>i;<sp/>j<sp/>&lt;<sp/><ref refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" kindref="member">MAX_ENTITIES</ref>;<sp/>j++)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i<sp/>==<sp/>j<sp/>||<sp/>!<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[j].mName)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="dumb__physics_8c_1ac2d2a3c3841dcc0533751a2421d21b58" kindref="member">CheckCollision</ref>(&amp;<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i],<sp/>&amp;<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[j]))</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dumb__physics_8c_1a9e6b8c74bb414eeffcbd423e4a40e542" kindref="member">DoCollision</ref>(&amp;<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[i],<sp/>&amp;<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>[j]);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="dumb__physics_8h_1ac2d2a3c3841dcc0533751a2421d21b58" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1ac2d2a3c3841dcc0533751a2421d21b58" kindref="member">CheckCollision</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(self-&gt;mCollisionType<sp/>==<sp/><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aadaf36ae19b0226a720a707942aea87e5" kindref="member">COLLISION_TYPE_CLIP</ref><sp/>||<sp/>other-&gt;<ref refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" kindref="member">mCollisionType</ref><sp/>==<sp/><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aadaf36ae19b0226a720a707942aea87e5" kindref="member">COLLISION_TYPE_CLIP</ref>)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!self-&gt;mSprites<sp/>||<sp/>!self-&gt;mSprites)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(self-&gt;mPosition.x<sp/>+<sp/>self-&gt;mSprites[0]-&gt;mSize.x<sp/>&lt;<sp/>other-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>||<sp/>self-&gt;mPosition.y<sp/>+<sp/>self-&gt;mSprites[0]-&gt;mSize.y<sp/>&lt;<sp/>other-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>||<sp/>self-&gt;mPosition.x<sp/>&gt;<sp/>other-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>+<sp/>other-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[0]-&gt;<ref refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" kindref="member">mSize</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>||<sp/>self-&gt;mPosition.y<sp/>&gt;<sp/>other-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>+<sp/>other-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[0]-&gt;<ref refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" kindref="member">mSize</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="dumb__physics_8h_1a9e6b8c74bb414eeffcbd423e4a40e542" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1a9e6b8c74bb414eeffcbd423e4a40e542" kindref="member">DoCollision</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>self_min,<sp/>self_max,<sp/>self_res,<sp/>other_min,<sp/>other_max,<sp/>other_res;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>left,<sp/>right,<sp/>bottom,<sp/>top;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(self-&gt;Touch)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;Touch(</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>other,<sp/>other-&gt;<ref refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" kindref="member">mCollisionType</ref>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(other-&gt;<ref refid="structentity__s_1af5c032961c1c6bca1832a0cb3fb34321" kindref="member">Touch</ref>)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>other-&gt;<ref refid="structentity__s_1af5c032961c1c6bca1832a0cb3fb34321" kindref="member">Touch</ref>(other,<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>self-&gt;<ref refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" kindref="member">mCollisionType</ref>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(self-&gt;mName,<sp/>other-&gt;<ref refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" kindref="member">mName</ref>))</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%s<sp/>collided<sp/>with<sp/>%s<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>self-&gt;mName,<sp/>other-&gt;<ref refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" kindref="member">mName</ref>);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>self_min<sp/>=<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;mPosition;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="globals_8h_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" kindref="member">Vec2Add</ref>(&amp;self-&gt;mPosition,<sp/>&amp;self-&gt;mSprites[0]-&gt;mSize,<sp/>&amp;self_max);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>other_min<sp/>=<sp/>other-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="globals_8h_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" kindref="member">Vec2Add</ref>(&amp;other-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>,<sp/>&amp;other-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[0]-&gt;<ref refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" kindref="member">mSize</ref>,<sp/>&amp;other_max);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>left<sp/>=<sp/>other_min.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>-<sp/>self_max.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>right<sp/>=<sp/>other_max.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>-<sp/>self_min.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>top<sp/>=<sp/>other_min.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>-<sp/>self_max.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>bottom<sp/>=<sp/>other_max.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>-<sp/>self_min.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(abs(left)<sp/>&lt;<sp/>right)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self_res.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>left;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>other_res.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>right;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self_res.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>right;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>other_res.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>left;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(abs(top)<sp/>&lt;<sp/>bottom)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self_res.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>top;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>other_res.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>bottom;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self_res.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>bottom;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>other_res.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>top;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(abs(self_res.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>)<sp/>&lt;<sp/>abs(self_res.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>))</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self_res.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self_res.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(abs(other_res.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>)<sp/>&lt;<sp/>abs(other_res.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>))</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>other_res.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>other_res.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(self-&gt;mCollisionType<sp/>==<sp/><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aa7e4186c206af11ddf23d64e3d19c4bdb" kindref="member">COLLISION_TYPE_RAGDOLL</ref>)</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="globals_8h_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" kindref="member">Vec2Add</ref>(&amp;self-&gt;mPosition,<sp/>&amp;self_res,<sp/>&amp;self-&gt;mPosition);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(self_res.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>)</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;mVelocity.x<sp/>=<sp/>-</highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;mVelocity.x/2;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;mVelocity.y<sp/>=<sp/>-</highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;mVelocity.y/2;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(other-&gt;<ref refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" kindref="member">mCollisionType</ref><sp/>==<sp/><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aa7e4186c206af11ddf23d64e3d19c4bdb" kindref="member">COLLISION_TYPE_RAGDOLL</ref>)</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="globals_8h_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" kindref="member">Vec2Add</ref>(&amp;other-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>,<sp/>&amp;other_res,<sp/>&amp;other-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(other_res.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>other-&gt;<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>-</highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;mVelocity.x/2;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>other-&gt;<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>-</highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;mVelocity.y/2;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205" refid="dumb__physics_8h_1a1605813c3093dd564cd63719073ce122" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1a1605813c3093dd564cd63719073ce122" kindref="member">ApplySpeedLimit</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*<sp/>a)</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>abs(a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>)<sp/>&gt;<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref><sp/>?<sp/>(a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>&lt;<sp/>0<sp/>?<sp/>-<ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref><sp/>:<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref>)<sp/>:<sp/>a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>a-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>abs(a-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>)<sp/>&gt;<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref><sp/>?<sp/>(a-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>&lt;<sp/>0<sp/>?<sp/>-<ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref><sp/>:<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref>)<sp/>:<sp/>a-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220" refid="dumb__physics_8h_1aac1300a97cdd2b37a4ddfa316dc92ece" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1aac1300a97cdd2b37a4ddfa316dc92ece" kindref="member">ApplyBounds</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/>ent)</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ent-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ae9f3b8e36df4503009ee071958f75b6c" kindref="member">mAccel</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ent-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>&gt;<sp/><ref refid="globals_8h_1abc330db94c68edccfc134b50a56e134e" kindref="member">gScreenWidth</ref>)</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/><ref refid="globals_8h_1abc330db94c68edccfc134b50a56e134e" kindref="member">gScreenWidth</ref><sp/>-<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref>;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ae9f3b8e36df4503009ee071958f75b6c" kindref="member">mAccel</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ent-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ae9f3b8e36df4503009ee071958f75b6c" kindref="member">mAccel</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ent-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>&gt;<sp/><ref refid="globals_8h_1a530fa2ce59634663df7be20316444f8b" kindref="member">gScreenHeight</ref>)</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/><ref refid="globals_8h_1a530fa2ce59634663df7be20316444f8b" kindref="member">gScreenHeight</ref><sp/>-<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref>;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ae9f3b8e36df4503009ee071958f75b6c" kindref="member">mAccel</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255" refid="dumb__physics_8h_1a04c93e0b3d3d778e28fc804fc52bf88b" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1a04c93e0b3d3d778e28fc804fc52bf88b" kindref="member">ApplyFriction</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*<sp/>a)</highlight></codeline>
+<codeline lineno="256"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(abs(a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>))</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>+=<sp/>a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>&lt;<sp/>0<sp/>?<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09cadba46d443195d2b8b7100dc6cea0385d" kindref="member">PHYSICS_BASE_FRICTION</ref><sp/>:<sp/>-<ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09cadba46d443195d2b8b7100dc6cea0385d" kindref="member">PHYSICS_BASE_FRICTION</ref>;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(abs(a-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>))</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>+=<sp/>a-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>&lt;<sp/>0<sp/>?<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09cadba46d443195d2b8b7100dc6cea0385d" kindref="member">PHYSICS_BASE_FRICTION</ref><sp/>:<sp/>-<ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09cadba46d443195d2b8b7100dc6cea0385d" kindref="member">PHYSICS_BASE_FRICTION</ref>;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="265"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/dumb_physics.c"/>
+  </compounddef>
+</doxygen>

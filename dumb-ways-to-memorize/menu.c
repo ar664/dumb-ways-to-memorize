@@ -406,6 +406,7 @@ void DrawMenuByState(menu_t *self)
 	}
 
 }
+
 /**
  * Sets the positions of the menu items based on the type of layout.
  *

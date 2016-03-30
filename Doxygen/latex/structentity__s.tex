@@ -1,0 +1,212 @@
+\hypertarget{structentity__s}{}\section{entity\+\_\+s Struct Reference}
+\label{structentity__s}\index{entity\+\_\+s@{entity\+\_\+s}}
+
+
+{\ttfamily \#include $<$entity.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structentity__s_a8c5ee6d8b825b6da8ab851320eccd45e}{m\+Hazards}
+\item 
+int \hyperlink{structentity__s_a24bdc1525ed5bcbf2a8c7027c9e1db5f}{m\+Next\+Think}
+\item 
+int \hyperlink{structentity__s_a709ed9fa7e17bcc63f51b9e011772aee}{m\+Health}
+\item 
+int \hyperlink{structentity__s_a890d42df13307b51280d145a6b05211d}{m\+Damage}
+\item 
+int \hyperlink{structentity__s_a069df5fe6b0f5a8eb03b0cc4c2e0ba43}{m\+Weight}
+\item 
+int \hyperlink{structentity__s_a4bf029653a0ffc8ad5dfddd243aeff72}{m\+Current\+Frame}
+\item 
+int \hyperlink{structentity__s_ada44c567bee8dbfa47693d4068507cab}{m\+Direction}\+:1
+\item 
+\hyperlink{globals_8h_a09e75d7e17aa0fd73648231363dcc13a}{collision\+\_\+type\+\_\+t} \hyperlink{structentity__s_afe71918d74f1053c28126544dce2f32b}{m\+Collision\+Type}
+\item 
+\hyperlink{globals_8h_a99f3d33a52ee74fc145c14ceee9d4154}{entity\+\_\+state\+\_\+t} \hyperlink{structentity__s_aa50a2f30db6a433d25f42fe58ee20995}{m\+Entity\+State}
+\item 
+\hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t} $\ast$$\ast$ \hyperlink{structentity__s_ad454ff27c8d769254a727750ac38592f}{m\+Sprites}
+\item 
+\hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t} $\ast$ \hyperlink{structentity__s_ab8851adbf3f67db41bcdac86f698b197}{m\+Animation}
+\item 
+\hyperlink{ai__interpret_8h_a93e23f66130135adeb83b13c29f36fca}{ai\+\_\+function\+\_\+t} $\ast$ \hyperlink{structentity__s_af3ccc93f657a50bc80718e0fe9ad367f}{m\+Data}
+\item 
+char $\ast$ \hyperlink{structentity__s_ad5201d7f075979ee60c684961d6a4ead}{m\+Name}
+\item 
+\hyperlink{globals_8h_a773f2054819bb6014f1e50baa39cb5e3}{vec2\+\_\+t} \hyperlink{structentity__s_ae9f3b8e36df4503009ee071958f75b6c}{m\+Accel}
+\item 
+\hyperlink{globals_8h_a773f2054819bb6014f1e50baa39cb5e3}{vec2\+\_\+t} \hyperlink{structentity__s_ad3ee4f856561237cfaeb8af26759aec1}{m\+Velocity}
+\item 
+\hyperlink{globals_8h_a773f2054819bb6014f1e50baa39cb5e3}{vec2\+\_\+t} \hyperlink{structentity__s_af80cb24cef46274686528f461642ba50}{m\+Position}
+\item 
+void($\ast$ \hyperlink{structentity__s_ae045b7ba608e955e791f8af8507b78a4}{Think} )(\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self)
+\item 
+void($\ast$ \hyperlink{structentity__s_af5c032961c1c6bca1832a0cb3fb34321}{Touch} )(\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$other, int type)
+\item 
+void($\ast$ \hyperlink{structentity__s_a51719e3ab7c4f8dd260dea013021f53c}{Draw} )(\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$self)
+\item 
+void($\ast$ \hyperlink{structentity__s_ad1606f41f8e2d6ffa8da068d620a102e}{Power\+Up} )(struct \hyperlink{structpower__s}{power\+\_\+s} $\ast$info)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The core structure of our our entity system.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2/17/2016 
+\end{DoxyDate}
+
+
+Definition at line 21 of file entity.\+h.
+
+
+
+\subsection{Field Documentation}
+\index{entity\+\_\+s@{entity\+\_\+s}!Draw@{Draw}}
+\index{Draw@{Draw}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{Draw}{Draw}}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Draw) ({\bf entity\+\_\+t} $\ast$self)}\hypertarget{structentity__s_a51719e3ab7c4f8dd260dea013021f53c}{}\label{structentity__s_a51719e3ab7c4f8dd260dea013021f53c}
+The function that gets called every frame to draw the entity 
+
+Definition at line 41 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Accel@{m\+Accel}}
+\index{m\+Accel@{m\+Accel}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Accel}{mAccel}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vec2\+\_\+t} m\+Accel}\hypertarget{structentity__s_ae9f3b8e36df4503009ee071958f75b6c}{}\label{structentity__s_ae9f3b8e36df4503009ee071958f75b6c}
+The acceleration vector 
+
+Definition at line 36 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Animation@{m\+Animation}}
+\index{m\+Animation@{m\+Animation}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Animation}{mAnimation}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sprite\+\_\+t}$\ast$ m\+Animation}\hypertarget{structentity__s_ab8851adbf3f67db41bcdac86f698b197}{}\label{structentity__s_ab8851adbf3f67db41bcdac86f698b197}
+The current animation, the entity is running 
+
+Definition at line 33 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Collision\+Type@{m\+Collision\+Type}}
+\index{m\+Collision\+Type@{m\+Collision\+Type}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Collision\+Type}{mCollisionType}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf collision\+\_\+type\+\_\+t} m\+Collision\+Type}\hypertarget{structentity__s_afe71918d74f1053c28126544dce2f32b}{}\label{structentity__s_afe71918d74f1053c28126544dce2f32b}
+Type of the collision the entity is 
+
+Definition at line 30 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Current\+Frame@{m\+Current\+Frame}}
+\index{m\+Current\+Frame@{m\+Current\+Frame}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Current\+Frame}{mCurrentFrame}}]{\setlength{\rightskip}{0pt plus 5cm}int m\+Current\+Frame}\hypertarget{structentity__s_a4bf029653a0ffc8ad5dfddd243aeff72}{}\label{structentity__s_a4bf029653a0ffc8ad5dfddd243aeff72}
+The current frame 
+
+Definition at line 28 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Damage@{m\+Damage}}
+\index{m\+Damage@{m\+Damage}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Damage}{mDamage}}]{\setlength{\rightskip}{0pt plus 5cm}int m\+Damage}\hypertarget{structentity__s_a890d42df13307b51280d145a6b05211d}{}\label{structentity__s_a890d42df13307b51280d145a6b05211d}
+The damage the entity should deal to other entities 
+
+Definition at line 26 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Data@{m\+Data}}
+\index{m\+Data@{m\+Data}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Data}{mData}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ai\+\_\+function\+\_\+t}$\ast$ m\+Data}\hypertarget{structentity__s_af3ccc93f657a50bc80718e0fe9ad367f}{}\label{structentity__s_af3ccc93f657a50bc80718e0fe9ad367f}
+The data that an entity stores for its ai 
+
+Definition at line 34 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Direction@{m\+Direction}}
+\index{m\+Direction@{m\+Direction}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Direction}{mDirection}}]{\setlength{\rightskip}{0pt plus 5cm}int m\+Direction}\hypertarget{structentity__s_ada44c567bee8dbfa47693d4068507cab}{}\label{structentity__s_ada44c567bee8dbfa47693d4068507cab}
+The direction entity is facing 
+
+Definition at line 29 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Entity\+State@{m\+Entity\+State}}
+\index{m\+Entity\+State@{m\+Entity\+State}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Entity\+State}{mEntityState}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+state\+\_\+t} m\+Entity\+State}\hypertarget{structentity__s_aa50a2f30db6a433d25f42fe58ee20995}{}\label{structentity__s_aa50a2f30db6a433d25f42fe58ee20995}
+The state of the entity 
+
+Definition at line 31 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Hazards@{m\+Hazards}}
+\index{m\+Hazards@{m\+Hazards}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Hazards}{mHazards}}]{\setlength{\rightskip}{0pt plus 5cm}int m\+Hazards}\hypertarget{structentity__s_a8c5ee6d8b825b6da8ab851320eccd45e}{}\label{structentity__s_a8c5ee6d8b825b6da8ab851320eccd45e}
+The hazards that the entity is immune to / deals 
+
+Definition at line 23 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Health@{m\+Health}}
+\index{m\+Health@{m\+Health}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Health}{mHealth}}]{\setlength{\rightskip}{0pt plus 5cm}int m\+Health}\hypertarget{structentity__s_a709ed9fa7e17bcc63f51b9e011772aee}{}\label{structentity__s_a709ed9fa7e17bcc63f51b9e011772aee}
+The health of the entity, if below zero -\/ destroy this entity 
+
+Definition at line 25 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Name@{m\+Name}}
+\index{m\+Name@{m\+Name}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Name}{mName}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ m\+Name}\hypertarget{structentity__s_ad5201d7f075979ee60c684961d6a4ead}{}\label{structentity__s_ad5201d7f075979ee60c684961d6a4ead}
+The name of the entity 
+
+Definition at line 35 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Next\+Think@{m\+Next\+Think}}
+\index{m\+Next\+Think@{m\+Next\+Think}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Next\+Think}{mNextThink}}]{\setlength{\rightskip}{0pt plus 5cm}int m\+Next\+Think}\hypertarget{structentity__s_a24bdc1525ed5bcbf2a8c7027c9e1db5f}{}\label{structentity__s_a24bdc1525ed5bcbf2a8c7027c9e1db5f}
+The next time the entity should think 
+
+Definition at line 24 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Position@{m\+Position}}
+\index{m\+Position@{m\+Position}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Position}{mPosition}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vec2\+\_\+t} m\+Position}\hypertarget{structentity__s_af80cb24cef46274686528f461642ba50}{}\label{structentity__s_af80cb24cef46274686528f461642ba50}
+The position vector, equal to on screen draw position 
+
+Definition at line 38 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Sprites@{m\+Sprites}}
+\index{m\+Sprites@{m\+Sprites}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Sprites}{mSprites}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sprite\+\_\+t}$\ast$$\ast$ m\+Sprites}\hypertarget{structentity__s_ad454ff27c8d769254a727750ac38592f}{}\label{structentity__s_ad454ff27c8d769254a727750ac38592f}
+The sprites of the given entity 
+
+Definition at line 32 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Velocity@{m\+Velocity}}
+\index{m\+Velocity@{m\+Velocity}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Velocity}{mVelocity}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vec2\+\_\+t} m\+Velocity}\hypertarget{structentity__s_ad3ee4f856561237cfaeb8af26759aec1}{}\label{structentity__s_ad3ee4f856561237cfaeb8af26759aec1}
+The velocity vector 
+
+Definition at line 37 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!m\+Weight@{m\+Weight}}
+\index{m\+Weight@{m\+Weight}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{m\+Weight}{mWeight}}]{\setlength{\rightskip}{0pt plus 5cm}int m\+Weight}\hypertarget{structentity__s_a069df5fe6b0f5a8eb03b0cc4c2e0ba43}{}\label{structentity__s_a069df5fe6b0f5a8eb03b0cc4c2e0ba43}
+The weight boolean of the entity, if gravity affects him 
+
+Definition at line 27 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!Power\+Up@{Power\+Up}}
+\index{Power\+Up@{Power\+Up}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{Power\+Up}{PowerUp}}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Power\+Up) (struct {\bf power\+\_\+s} $\ast$info)}\hypertarget{structentity__s_ad1606f41f8e2d6ffa8da068d620a102e}{}\label{structentity__s_ad1606f41f8e2d6ffa8da068d620a102e}
+The player specific function for power\+\_\+up useage 
+
+Definition at line 42 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!Think@{Think}}
+\index{Think@{Think}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{Think}{Think}}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Think) ({\bf entity\+\_\+t} $\ast$self)}\hypertarget{structentity__s_ae045b7ba608e955e791f8af8507b78a4}{}\label{structentity__s_ae045b7ba608e955e791f8af8507b78a4}
+The think function which gets called to update the entity 
+
+Definition at line 39 of file entity.\+h.
+
+\index{entity\+\_\+s@{entity\+\_\+s}!Touch@{Touch}}
+\index{Touch@{Touch}!entity\+\_\+s@{entity\+\_\+s}}
+\subsubsection[{\texorpdfstring{Touch}{Touch}}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Touch) ({\bf entity\+\_\+t} $\ast$self, {\bf entity\+\_\+t} $\ast$other, int type)}\hypertarget{structentity__s_af5c032961c1c6bca1832a0cb3fb34321}{}\label{structentity__s_af5c032961c1c6bca1832a0cb3fb34321}
+The function that gets called when enitities collide 
+
+Definition at line 40 of file entity.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dumb-\/ways-\/to-\/memorize/\hyperlink{entity_8h}{entity.\+h}\end{DoxyCompactItemize}

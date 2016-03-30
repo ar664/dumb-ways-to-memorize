@@ -20,26 +20,26 @@ struct power_s;
 
 struct entity_s
 {
-	int mHazards;
-	int mNextThink;
-	int mHealth;
-	int mDamage;
-	int mWeight;
-	int mCurrentFrame;
+	int mHazards;					/**< The hazards that the entity is immune to / deals*/
+	int mNextThink;					/**< The next time the entity should think */
+	int mHealth;					/**< The health of the entity, if below zero - destroy this entity*/
+	int mDamage;					/**< The damage the entity should deal to other entities */
+	int mWeight;					/**< The weight boolean of the entity, if gravity affects him*/
+	int mCurrentFrame;				/**< The current frame */
 	int mDirection:1;				/**< The direction entity is facing*/
-	collision_type_t mCollisionType;
-	entity_state_t mEntityState;
-	sprite_t **mSprites;
-	sprite_t *mAnimation;			/**< The current animation */
-	ai_function_t *mData;
-	char *mName;
-	vec2_t mAccel;
-	vec2_t mVelocity;
-	vec2_t mPosition;
-	void (*Think)(entity_t *self);
-	void (*Touch)(entity_t *self, entity_t *other, int type);
-	void (*Draw)(entity_t *self);
-	void (*PowerUp)(struct power_s *info);
+	collision_type_t mCollisionType;	/**< Type of the collision the entity is */
+	entity_state_t mEntityState;	/**< The state of the entity */
+	sprite_t **mSprites;			/**< The sprites of the given entity */
+	sprite_t *mAnimation;			/**< The current animation, the entity is running */
+	ai_function_t *mData;			/**< The data that an entity stores for its ai */
+	char *mName;					/**< The name of the entity*/
+	vec2_t mAccel;					/**< The acceleration vector */
+	vec2_t mVelocity;				/**< The velocity vector */
+	vec2_t mPosition;				/**< The position vector, equal to on screen draw position */
+	void (*Think)(entity_t *self);	/**< The think function which gets called to update the entity*/
+	void (*Touch)(entity_t *self, entity_t *other, int type);	/**< The function that gets called when enitities collide*/
+	void (*Draw)(entity_t *self);	/**< The function that gets called every frame to draw the entity*/
+	void (*PowerUp)(struct power_s *info);	/**< The player specific function for power_up useage */
 };
 
 extern entity_t *gEntityDictionary;

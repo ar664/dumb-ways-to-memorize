@@ -10,12 +10,14 @@
 #define POWER_INPUT_TYPE_STR "input-type"
 #define POWER_ENTITY_STR "entity"
 
+/** Values that represent use types for power_ups */
 enum use_type_t
 {
 	INFINITE = -2,
 	STATIC
 };
 
+/** Defines an alias representing the types of info the power_up needs */
 typedef enum 
 {
 	INFO_NONE	= 0x0,
@@ -27,17 +29,24 @@ typedef enum
 
 typedef struct power_s power_t;
 
+/**
+ * The structure for our power_up system.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+
 struct power_s
 {	
-	char *name;
-	void (*UpdateInput)(power_t *self);
-	void (*GetTarg)(entity_t *self, entity_t **targ);
-	void (*UpdateUse)(power_t *power);
-	void (*DoPower)(entity_t *targ, entity_t *info);
-	int uses;
-	info_type_t info_type;
-	entity_t *target;
-	entity_t *info;
+	char *name;											/**< The name of the power up */
+	void (*UpdateInput)(power_t *self);					/**< The function to update the input for the power_up  */
+	void (*GetTarg)(entity_t *self, entity_t **targ);	/**< The function which calculates who or what is the specified target */
+	void (*UpdateUse)(power_t *power);					/**< The function which updates the power_up */
+	void (*DoPower)(entity_t *targ, entity_t *info);	/**< The function which does the power_up , called after all the updates */
+	int uses;											/**< The number of times this power can get used - @see use_type_t*/
+	info_type_t info_type;								/**< The type of info the powe up needs*/
+	entity_t *target;									/**< Target for the power_up */
+	entity_t *info;										/**< The information that the power_up uses*/
 
 };
 extern power_t *gPowerUps;

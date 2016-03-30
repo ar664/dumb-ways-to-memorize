@@ -6,7 +6,7 @@
 #include "mystrings.h"
 #include <stdio.h>
 
-level_t *gCurrentLevel = NULL;
+level_t *gCurrentLevel = NULL;  /**< The current level the game has */
 
 //Occurs after entity loads entity list
 int LoadLevel(object_t *level, char *g_str)

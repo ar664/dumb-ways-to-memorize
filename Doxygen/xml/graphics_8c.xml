@@ -1,0 +1,855 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="graphics_8c" kind="file" language="C++">
+    <compoundname>graphics.c</compoundname>
+    <includes refid="globals_8h" local="yes">globals.h</includes>
+    <includes refid="graphics_8h" local="yes">graphics.h</includes>
+    <includes local="no">SDL.h</includes>
+    <includes local="no">SDL_image.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <incdepgraph>
+      <node id="210">
+        <label>globals.h</label>
+        <link refid="globals_8h"/>
+        <childnode refid="211" relation="include">
+        </childnode>
+      </node>
+      <node id="214">
+        <label>SDL.h</label>
+      </node>
+      <node id="215">
+        <label>SDL_image.h</label>
+      </node>
+      <node id="218">
+        <label>stdlib.h</label>
+      </node>
+      <node id="211">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="212" relation="include">
+        </childnode>
+      </node>
+      <node id="212">
+        <label>stddef.h</label>
+      </node>
+      <node id="217">
+        <label>string.h</label>
+      </node>
+      <node id="209">
+        <label>dumb-ways-to-memorize/graphics.c</label>
+        <link refid="graphics.c"/>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="213" relation="include">
+        </childnode>
+        <childnode refid="214" relation="include">
+        </childnode>
+        <childnode refid="215" relation="include">
+        </childnode>
+        <childnode refid="216" relation="include">
+        </childnode>
+        <childnode refid="217" relation="include">
+        </childnode>
+        <childnode refid="218" relation="include">
+        </childnode>
+      </node>
+      <node id="213">
+        <label>graphics.h</label>
+        <link refid="graphics_8h"/>
+        <childnode refid="214" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+      </node>
+      <node id="216">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="graphics_8c_1a222f53a6a442d8f716dffd665e83528a" prot="public" static="no" mutable="no">
+        <type>SDL_Window *</type>
+        <definition>SDL_Window* gWindow</definition>
+        <argsstring></argsstring>
+        <name>gWindow</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="9" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" prot="public" static="no" mutable="no">
+        <type>SDL_Renderer *</type>
+        <definition>SDL_Renderer* gRenderer</definition>
+        <argsstring></argsstring>
+        <name>gRenderer</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="10" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8c_1aec8ecf79cbfef975bd1751e8eac92e0a" prot="public" static="no" mutable="no">
+        <type>SDL_Surface *</type>
+        <definition>SDL_Surface* gRedSurface</definition>
+        <argsstring></argsstring>
+        <name>gRedSurface</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="11" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8c_1a3b5a0de489d49963cac9fd22f187d813" prot="public" static="no" mutable="no">
+        <type>SDL_Texture *</type>
+        <definition>SDL_Texture* gRedTexture</definition>
+        <argsstring></argsstring>
+        <name>gRedTexture</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="12" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8c_1a324d0637f44d796996709bb187909c0c" prot="public" static="no" mutable="no">
+        <type>SDL_Renderer *</type>
+        <definition>SDL_Renderer* gRedRenderer</definition>
+        <argsstring></argsstring>
+        <name>gRedRenderer</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="13" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8c_1a7e583fa4ad1a7137e056e5dece1ed6c4" prot="public" static="no" mutable="no">
+        <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
+        <definition>sprite_t* gSprites</definition>
+        <argsstring></argsstring>
+        <name>gSprites</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="14" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gLastSprite</definition>
+        <argsstring></argsstring>
+        <name>gLastSprite</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="15" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8c_1abc330db94c68edccfc134b50a56e134e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gScreenWidth</definition>
+        <argsstring></argsstring>
+        <name>gScreenWidth</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="16" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8c_1a530fa2ce59634663df7be20316444f8b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gScreenHeight</definition>
+        <argsstring></argsstring>
+        <name>gScreenHeight</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="17" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="graphics_8c_1a5a91ce2f20cdb3efdd3a10f8bcd79fe2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int InitGraphics</definition>
+        <argsstring>()</argsstring>
+        <name>InitGraphics</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Init graphics.</para><para><simplesect kind="return"><para>0 if good, -1 if failure.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/16/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="27" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="27" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8c_1a57deac6adc760a6c690d7c05b1b32b3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShutdownGraphics</definition>
+        <argsstring>()</argsstring>
+        <name>ShutdownGraphics</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="100" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="100" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8c_1a9ef47fe758affb875f01b07e551513c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
+        <definition>sprite_t* LoadSprite</definition>
+        <argsstring>(const char *name, int flags)</argsstring>
+        <name>LoadSprite</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads a sprite.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The flags.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>null if it fails, else the sprite.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/16/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="127" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="127" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8c_1a17fde33b1d856d825920d633285aec6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int DrawSprite</definition>
+        <argsstring>(sprite_t *sprite, int *frame, vec2_t *position, SDL_Renderer *renderer)</argsstring>
+        <name>DrawSprite</name>
+        <param>
+          <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
+          <declname>sprite</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Draw the sprite. If mCurrentFrame not set, draws the first frame (0,0). If no position given, will draw as if was background.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">sprite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the sprite. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the position. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the renderer.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if good, -1 if failure</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/16/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="186" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="186" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8c_1a9cf2216f8c9099f0767277b29b0b8044" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_frame" kindref="compound">Frame</ref> *</type>
+        <definition>Frame* LoadAnimation</definition>
+        <argsstring>(int frame_width, int frame_height, int width, int height)</argsstring>
+        <name>LoadAnimation</name>
+        <param>
+          <type>int</type>
+          <declname>frame_width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frame_height</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads an animation based on frame_width &amp; frame_height.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Width of the frame. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame_height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Height of the frame. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The width. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The height.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>null if it fails, else the animation.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/16/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="238" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="238" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8c_1af4c49239d2f0e5306964c66be9553832" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
+        <definition>sprite_t* FindSprite</definition>
+        <argsstring>(const char *name, int *position)</argsstring>
+        <name>FindSprite</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Searches for the first sprite.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the position.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>null if it fails, else the found sprite.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/16/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="269" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="269" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8c_1a88a59e4cda72f43e47b635ed6c6a9f95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
+        <definition>sprite_t* FindFreeSprite</definition>
+        <argsstring>(int *position)</argsstring>
+        <name>FindFreeSprite</name>
+        <param>
+          <type>int *</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Searches for the first free sprite.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the position.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>null if it fails, else the found free sprite.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/16/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="297" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="297" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8c_1a5668bec74dc06834b3141ac6da4063a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FreeSprite</definition>
+        <argsstring>(sprite_t *sprite)</argsstring>
+        <name>FreeSprite</name>
+        <param>
+          <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
+          <declname>sprite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Free the sprite memory, if recfcount - 1 &gt; 0 nothing happens.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">sprite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the sprite.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/16/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="326" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="326" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8c_1aa804be8d810666078d9915033a3d4317" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IncrementFrame</definition>
+        <argsstring>(sprite_t *sprite)</argsstring>
+        <name>IncrementFrame</name>
+        <param>
+          <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
+          <declname>sprite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="342" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="342" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SDL_SetRect</definition>
+        <argsstring>(SDL_Rect *rect, int x, int y, int w, int h)</argsstring>
+        <name>SDL_SetRect</name>
+        <param>
+          <type>SDL_Rect *</type>
+          <declname>rect</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sdl set rectangle dimensions.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">rect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the rectangle. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x coordinate. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y coordinate. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>w</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The width. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The height.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/29/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.c" line="370" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="370" bodyend="376"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="globals_8h" kindref="compound">globals.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="graphics_8h" kindref="compound">graphics.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL_image.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="graphics_8h_1a222f53a6a442d8f716dffd665e83528a" refkind="member"><highlight class="normal">SDL_Window<sp/>*<ref refid="graphics_8c_1a222f53a6a442d8f716dffd665e83528a" kindref="member">gWindow</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="10" refid="graphics_8h_1a4735638969a524c4ac90a88f23c59a1f" refkind="member"><highlight class="normal">SDL_Renderer<sp/>*<ref refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" kindref="member">gRenderer</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="11" refid="graphics_8h_1aec8ecf79cbfef975bd1751e8eac92e0a" refkind="member"><highlight class="normal">SDL_Surface<sp/>*<ref refid="graphics_8c_1aec8ecf79cbfef975bd1751e8eac92e0a" kindref="member">gRedSurface</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="12" refid="graphics_8h_1a3b5a0de489d49963cac9fd22f187d813" refkind="member"><highlight class="normal">SDL_Texture<sp/>*<ref refid="graphics_8c_1a3b5a0de489d49963cac9fd22f187d813" kindref="member">gRedTexture</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="13" refid="graphics_8h_1a324d0637f44d796996709bb187909c0c" refkind="member"><highlight class="normal">SDL_Renderer<sp/>*<ref refid="graphics_8c_1a324d0637f44d796996709bb187909c0c" kindref="member">gRedRenderer</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="14" refid="graphics_8h_1a7e583fa4ad1a7137e056e5dece1ed6c4" refkind="member"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8c_1a7e583fa4ad1a7137e056e5dece1ed6c4" kindref="member">gSprites</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="15" refid="graphics_8h_1a3555fbac07f5c5a609c2e9b8c1b81731" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="16" refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" kindref="member">gScreenWidth</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="17" refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" kindref="member">gScreenHeight</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="27" refid="graphics_8h_1a5a91ce2f20cdb3efdd3a10f8bcd79fe2" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a5a91ce2f20cdb3efdd3a10f8bcd79fe2" kindref="member">InitGraphics</ref>()</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>Uint32<sp/>flags<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_DisplayMode<sp/>current;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(SDL_Init(SDL_INIT_EVERYTHING))</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;SDL<sp/>can&apos;t<sp/>initialize<sp/>:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>SDL_GetError());</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exit(-1);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(SDL_GetDisplayMode(0,0,&amp;current))</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;No<sp/>video<sp/>mode:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>SDL_GetError());</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exit(-1);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Create<sp/>Window<sp/>based<sp/>on<sp/>either<sp/>default<sp/>or<sp/>set<sp/>screenWidth<sp/>/<sp/>Height</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" kindref="member">gScreenHeight</ref><sp/>&amp;&amp;<sp/><ref refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" kindref="member">gScreenWidth</ref>)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<ref refid="graphics_8c_1a222f53a6a442d8f716dffd665e83528a" kindref="member">gWindow</ref><sp/>=<sp/>SDL_CreateWindow(<ref refid="graphics_8h_1aed7818555b2da57314243d796315e4e9" kindref="member">GAME_NAME</ref>,<sp/>SDL_WINDOWPOS_UNDEFINED,<sp/>SDL_WINDOWPOS_UNDEFINED,<sp/><ref refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" kindref="member">gScreenWidth</ref>,<sp/><ref refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" kindref="member">gScreenHeight</ref>,<sp/>flags<sp/>))<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Can&apos;t<sp/>create<sp/>window<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>SDL_GetError());</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exit(-1);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<ref refid="graphics_8c_1a222f53a6a442d8f716dffd665e83528a" kindref="member">gWindow</ref><sp/>=<sp/>SDL_CreateWindow(<ref refid="graphics_8h_1aed7818555b2da57314243d796315e4e9" kindref="member">GAME_NAME</ref>,<sp/>SDL_WINDOWPOS_UNDEFINED,<sp/>SDL_WINDOWPOS_UNDEFINED,<sp/><ref refid="graphics_8h_1ab4f60dcfaf8e1c328b2862723508d851" kindref="member">SCREEN_RES_W</ref>,<sp/><ref refid="graphics_8h_1a7a7d00e9da31c5ddbab5d35adab314f6" kindref="member">SCREEN_RES_H</ref>,<sp/>flags<sp/>))<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Can&apos;t<sp/>create<sp/>window<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>SDL_GetError());</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exit(-1);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" kindref="member">gScreenHeight</ref><sp/>=<sp/><ref refid="graphics_8h_1a7a7d00e9da31c5ddbab5d35adab314f6" kindref="member">SCREEN_RES_H</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" kindref="member">gScreenWidth</ref><sp/>=<sp/><ref refid="graphics_8h_1ab4f60dcfaf8e1c328b2862723508d851" kindref="member">SCREEN_RES_W</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Main<sp/>Rendering<sp/>Context</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_SetWindowTitle(<ref refid="graphics_8c_1a222f53a6a442d8f716dffd665e83528a" kindref="member">gWindow</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Dumb<sp/>Ways<sp/>to<sp/>Memorize&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<ref refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" kindref="member">gRenderer</ref><sp/>=<sp/>SDL_CreateRenderer(<ref refid="graphics_8c_1a222f53a6a442d8f716dffd665e83528a" kindref="member">gWindow</ref>,<sp/>-1,<sp/>flags))<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Can&apos;t<sp/>create<sp/>renderer<sp/>%s<sp/>&quot;</highlight><highlight class="normal">,<sp/>SDL_GetError());</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exit(-1);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Red<sp/>Renderer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(<ref refid="graphics_8c_1aec8ecf79cbfef975bd1751e8eac92e0a" kindref="member">gRedSurface</ref><sp/>=<sp/>SDL_CreateRGBSurface(0,<ref refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" kindref="member">gScreenWidth</ref>,<ref refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" kindref="member">gScreenHeight</ref>,32,0,0,0,0))<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Can&apos;t<sp/>create<sp/>red<sp/>surface<sp/>:<sp/>%s<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>SDL_GetError());</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<ref refid="graphics_8c_1a324d0637f44d796996709bb187909c0c" kindref="member">gRedRenderer</ref><sp/>=<sp/>SDL_CreateSoftwareRenderer(<ref refid="graphics_8c_1aec8ecf79cbfef975bd1751e8eac92e0a" kindref="member">gRedSurface</ref>))<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Can&apos;t<sp/>create<sp/>red<sp/>renderer<sp/>:<sp/>%s<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>SDL_GetError());</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>SDL_SetRenderDrawColor(<ref refid="graphics_8c_1a324d0637f44d796996709bb187909c0c" kindref="member">gRedRenderer</ref>,<sp/>0xFF,<sp/>0,<sp/>0,<sp/>0xFF)<sp/>)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Can&apos;t<sp/>set<sp/>red<sp/>renderer<sp/>:<sp/>%s<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>SDL_GetError());</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_RenderClear(<ref refid="graphics_8c_1a324d0637f44d796996709bb187909c0c" kindref="member">gRedRenderer</ref>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<ref refid="graphics_8c_1a3b5a0de489d49963cac9fd22f187d813" kindref="member">gRedTexture</ref><sp/>=<sp/>SDL_CreateTextureFromSurface(<ref refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" kindref="member">gRenderer</ref>,<sp/><ref refid="graphics_8c_1aec8ecf79cbfef975bd1751e8eac92e0a" kindref="member">gRedSurface</ref>))<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Can&apos;t<sp/>create<sp/>red<sp/>texture<sp/>:<sp/>%s<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>SDL_GetError());</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>gSprites<sp/>=<sp/>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>)*<ref refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" kindref="member">MAX_SPRITES</ref>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!gSprites)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Could<sp/>not<sp/>allocate<sp/>sprites&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(gSprites,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>)*<ref refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" kindref="member">MAX_SPRITES</ref>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>atexit(SDL_Quit);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>atexit(<ref refid="graphics_8c_1a57deac6adc760a6c690d7c05b1b32b3d" kindref="member">ShutdownGraphics</ref>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="graphics_8h_1a57deac6adc760a6c690d7c05b1b32b3d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a57deac6adc760a6c690d7c05b1b32b3d" kindref="member">ShutdownGraphics</ref>()</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" kindref="member">MAX_SPRITES</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!gSprites[i].refCount)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="graphics_8c_1a5668bec74dc06834b3141ac6da4063a2" kindref="member">FreeSprite</ref>(&amp;gSprites[i]);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>free(gSprites);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="graphics_8h_1a9ef47fe758affb875f01b07e551513c7" refkind="member"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8c_1a9ef47fe758affb875f01b07e551513c7" kindref="member">LoadSprite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="player_8c_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Surface<sp/>*temp;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*check;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>position;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!gSprites)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(abs(<ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref>)<sp/>&gt;<sp/><ref refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" kindref="member">MAX_SPRITES</ref>)</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!name)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;No<sp/>name<sp/>given<sp/>to<sp/>load<sp/>sprite&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(check<sp/>=<sp/><ref refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" kindref="member">FindSprite</ref>(name,<sp/>NULL))<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>check-&gt;<ref refid="structsprite__s_1a43ab0d8eafd71383b2233bdee65911de" kindref="member">refCount</ref>++;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>check;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(check<sp/>=<sp/><ref refid="graphics_8c_1a88a59e4cda72f43e47b635ed6c6a9f95" kindref="member">FindFreeSprite</ref>(&amp;position))<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;No<sp/>free<sp/>sprites&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>temp<sp/>=<sp/>IMG_Load(name);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!temp)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Could<sp/>not<sp/>load<sp/>image<sp/>:<sp/>%s<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>name);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>check-&gt;<ref refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" kindref="member">mSize</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>temp-&gt;w;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>check-&gt;<ref refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" kindref="member">mSize</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>temp-&gt;h;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>check-&gt;<ref refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" kindref="member">mTexture</ref><sp/>=<sp/>SDL_CreateTextureFromSurface(<ref refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" kindref="member">gRenderer</ref>,<sp/>temp);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>check-&gt;<ref refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref><sp/>=<sp/>strdup(name);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>check-&gt;<ref refid="structsprite__s_1a43ab0d8eafd71383b2233bdee65911de" kindref="member">refCount</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>check-&gt;<ref refid="structsprite__s_1acd9c3d76b8dfc0aed0c331ec5f0568f1" kindref="member">mFrames</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_FreeSurface(temp);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref><sp/>=<sp/>position;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>check;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186" refid="graphics_8h_1a17fde33b1d856d825920d633285aec6e" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a17fde33b1d856d825920d633285aec6e" kindref="member">DrawSprite</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>frame,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*<sp/>position,<sp/>SDL_Renderer<sp/>*<sp/>renderer)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Rect<sp/>src,<sp/>dst;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>zero<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!sprite)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Null<sp/>sprite<sp/>given<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!frame)</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame<sp/>=<sp/>&amp;zero;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>*frame<sp/>&gt;=<sp/>sprite-&gt;<ref refid="structsprite__s_1acd9c3d76b8dfc0aed0c331ec5f0568f1" kindref="member">mFrames</ref><sp/>)</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*frame<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" kindref="member">SDL_SetRect</ref>(&amp;src,<sp/>sprite-&gt;<ref refid="structsprite__s_1a8ce6c2916d6244600c434144ed6ac296" kindref="member">mAnimations</ref>[*frame].<ref refid="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" kindref="member">Position</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>,<sp/>sprite-&gt;<ref refid="structsprite__s_1a8ce6c2916d6244600c434144ed6ac296" kindref="member">mAnimations</ref>[*frame].<ref refid="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" kindref="member">Position</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>,<sp/>sprite-&gt;<ref refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" kindref="member">mSize</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>,<sp/>sprite-&gt;<ref refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" kindref="member">mSize</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>*frame<sp/>=<sp/>*frame+1;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!position)</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" kindref="member">SDL_SetRect</ref>(&amp;dst,<sp/>0,<sp/>0,<sp/>0,<sp/>0);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_GetRendererOutputSize(renderer,<sp/>&amp;dst.w,<sp/>&amp;dst.h);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" kindref="member">SDL_SetRect</ref>(&amp;dst,<sp/>position-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>,<sp/>position-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>,<sp/>sprite-&gt;<ref refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" kindref="member">mSize</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>,<sp/>sprite-&gt;<ref refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" kindref="member">mSize</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>SDL_RenderCopy(renderer,<sp/>sprite-&gt;<ref refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" kindref="member">mTexture</ref>,<sp/>&amp;src,<sp/>&amp;dst)<sp/>)</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Could<sp/>not<sp/>draw<sp/>sprite<sp/>%s<sp/>:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>sprite-&gt;<ref refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/>SDL_GetError());</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238" refid="graphics_8h_1a9cf2216f8c9099f0767277b29b0b8044" refkind="member"><highlight class="normal"><ref refid="struct_frame" kindref="compound">Frame</ref><sp/>*<ref refid="graphics_8c_1a9cf2216f8c9099f0767277b29b0b8044" kindref="member">LoadAnimation</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_height,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height)</highlight></codeline>
+<codeline lineno="239"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_frame" kindref="compound">Frame</ref><sp/>*retVal;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,j,<sp/>rows,<sp/>cols;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>cols<sp/>=<sp/>frame_width<sp/>?<sp/>width/frame_width<sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>rows<sp/>=<sp/>frame_height<sp/>?<sp/>height/frame_height<sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal<sp/>=<sp/>(<ref refid="struct_frame" kindref="compound">Frame</ref>*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="struct_frame" kindref="compound">Frame</ref>)*(rows*cols+1));</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows;<sp/>i++)</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>cols;<sp/>j++)</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal[i*rows<sp/>+<sp/>j].<ref refid="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" kindref="member">Position</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>j*frame_width;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal[i*rows<sp/>+<sp/>j].<ref refid="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" kindref="member">Position</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>i*frame_height;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(&amp;retVal[rows*cols+1],<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="struct_frame" kindref="compound">Frame</ref>));</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269" refid="graphics_8h_1af4c49239d2f0e5306964c66be9553832" refkind="member"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref>*<sp/><ref refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" kindref="member">FindSprite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="player_8c_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>position)</highlight></codeline>
+<codeline lineno="270"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" kindref="member">MAX_SPRITES</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(gSprites[i].refCount<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(gSprites[i].name,<sp/>name))</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(position)</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*position<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;gSprites[i];</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297" refid="graphics_8h_1a88a59e4cda72f43e47b635ed6c6a9f95" refkind="member"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref>*<sp/><ref refid="graphics_8c_1a88a59e4cda72f43e47b635ed6c6a9f95" kindref="member">FindFreeSprite</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*position)</highlight></codeline>
+<codeline lineno="298"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/><ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref>;<sp/>i<sp/>&lt;<sp/><ref refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" kindref="member">MAX_SPRITES</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(gSprites[i].refCount<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;gSprites[i];</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(gSprites[i].refCount<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;gSprites[i];</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="315"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326" refid="graphics_8h_1a5668bec74dc06834b3141ac6da4063a2" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a5668bec74dc06834b3141ac6da4063a2" kindref="member">FreeSprite</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite)</highlight></codeline>
+<codeline lineno="327"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>position;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sprite<sp/>==<sp/><ref refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" kindref="member">FindSprite</ref>(sprite-&gt;<ref refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/>&amp;position))</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprite-&gt;<ref refid="structsprite__s_1a43ab0d8eafd71383b2233bdee65911de" kindref="member">refCount</ref>--;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sprite-&gt;<ref refid="structsprite__s_1a43ab0d8eafd71383b2233bdee65911de" kindref="member">refCount</ref><sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_DestroyTexture(sprite-&gt;<ref refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" kindref="member">mTexture</ref>);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/>free(sprite-&gt;<ref refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(&amp;gSprites[position],<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>)<sp/>);</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight><highlight class="comment">//Unused<sp/>for<sp/>now</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="342" refid="graphics_8h_1aa804be8d810666078d9915033a3d4317" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1aa804be8d810666078d9915033a3d4317" kindref="member">IncrementFrame</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>*<sp/>sprite)</highlight></codeline>
+<codeline lineno="343"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frames;</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!sprite)</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/>frames<sp/>=<sp/><ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(&amp;sprite-&gt;<ref refid="structsprite__s_1a8ce6c2916d6244600c434144ed6ac296" kindref="member">mAnimations</ref>[0],<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="struct_frame" kindref="compound">Frame</ref>));</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!frames)</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight></codeline>
+<codeline lineno="370" refid="graphics_8h_1af04a9f3481d89afc13d2e2e0a621fad6" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" kindref="member">SDL_SetRect</ref>(SDL_Rect*<sp/>rect,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>h)</highlight></codeline>
+<codeline lineno="371"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/>rect-&gt;x<sp/>=<sp/>x;</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/>rect-&gt;y<sp/>=<sp/>y;</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/>rect-&gt;w<sp/>=<sp/>w;</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/>rect-&gt;h<sp/>=<sp/>h;</highlight></codeline>
+<codeline lineno="376"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/graphics.c"/>
+  </compounddef>
+</doxygen>

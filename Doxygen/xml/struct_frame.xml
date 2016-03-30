@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="struct_frame" kind="struct" language="C++" prot="public">
+    <compoundname>Frame</compoundname>
+    <includes refid="graphics_8h" local="no">graphics.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" prot="public" static="no" mutable="no">
+        <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref></type>
+        <definition>vec2_t Position</definition>
+        <argsstring></argsstring>
+        <name>Position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/graphics.h" line="17" column="1" bodyfile="dumb-ways-to-memorize/graphics.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Defines <ref refid="struct_frame" kindref="compound">Frame</ref> , which is an alias for Position of the start of the sprite </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="10">
+        <label>vec2_s</label>
+        <link refid="structvec2__s"/>
+      </node>
+      <node id="9">
+        <label>Frame</label>
+        <link refid="struct_frame"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="dumb-ways-to-memorize/graphics.h" line="16" column="1" bodyfile="dumb-ways-to-memorize/graphics.h" bodystart="15" bodyend="18"/>
+    <listofallmembers>
+      <member refid="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" prot="public" virt="non-virtual"><scope>Frame</scope><name>Position</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

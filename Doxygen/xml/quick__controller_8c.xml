@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="quick__controller_8c" kind="file" language="C++">
+    <compoundname>quick_controller.c</compoundname>
+    <includes refid="globals_8h" local="yes">globals.h</includes>
+    <includes refid="quick__controller_8h" local="yes">quick_controller.h</includes>
+    <includes refid="entity_8h" local="yes">entity.h</includes>
+    <includes refid="parsepowerup_8h" local="yes">parsepowerup.h</includes>
+    <includes refid="player_8h" local="yes">player.h</includes>
+    <incdepgraph>
+      <node id="499">
+        <label>globals.h</label>
+        <link refid="globals_8h"/>
+        <childnode refid="500" relation="include">
+        </childnode>
+      </node>
+      <node id="508">
+        <label>parsepowerup.h</label>
+        <link refid="parsepowerup_8h"/>
+        <childnode refid="507" relation="include">
+        </childnode>
+        <childnode refid="504" relation="include">
+        </childnode>
+      </node>
+      <node id="503">
+        <label>SDL.h</label>
+      </node>
+      <node id="500">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="501" relation="include">
+        </childnode>
+      </node>
+      <node id="507">
+        <label>parseobject.h</label>
+        <link refid="parseobject_8h"/>
+        <childnode refid="500" relation="include">
+        </childnode>
+      </node>
+      <node id="501">
+        <label>stddef.h</label>
+      </node>
+      <node id="509">
+        <label>player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="504" relation="include">
+        </childnode>
+      </node>
+      <node id="504">
+        <label>entity.h</label>
+        <link refid="entity_8h"/>
+        <childnode refid="499" relation="include">
+        </childnode>
+        <childnode refid="505" relation="include">
+        </childnode>
+        <childnode refid="506" relation="include">
+        </childnode>
+      </node>
+      <node id="505">
+        <label>graphics.h</label>
+        <link refid="graphics_8h"/>
+        <childnode refid="503" relation="include">
+        </childnode>
+        <childnode refid="499" relation="include">
+        </childnode>
+      </node>
+      <node id="506">
+        <label>ai_interpret.h</label>
+        <link refid="ai__interpret_8h"/>
+        <childnode refid="499" relation="include">
+        </childnode>
+        <childnode refid="507" relation="include">
+        </childnode>
+      </node>
+      <node id="498">
+        <label>dumb-ways-to-memorize/quick_controller.c</label>
+        <link refid="quick_controller.c"/>
+        <childnode refid="499" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+        <childnode refid="504" relation="include">
+        </childnode>
+        <childnode refid="508" relation="include">
+        </childnode>
+        <childnode refid="509" relation="include">
+        </childnode>
+      </node>
+      <node id="502">
+        <label>quick_controller.h</label>
+        <link refid="quick__controller_8h"/>
+        <childnode refid="503" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="quick__controller_8c_1afa7747dae7b1cb4e00338fa86a4f88ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DoPlayerThink</definition>
+        <argsstring>(void *player, SDL_GameControllerButton button)</argsstring>
+        <name>DoPlayerThink</name>
+        <param>
+          <type>void *</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>SDL_GameControllerButton</type>
+          <declname>button</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes the player think operation for player input.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">player</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the player. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>button</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The button.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/29/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/quick_controller.c" line="17" column="1" bodyfile="dumb-ways-to-memorize/quick_controller.c" bodystart="17" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="globals_8h" kindref="compound">globals.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="quick__controller_8h" kindref="compound">quick_controller.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="entity_8h" kindref="compound">entity.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parsepowerup_8h" kindref="compound">parsepowerup.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="player_8h" kindref="compound">player.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="quick__controller_8h_1afa7747dae7b1cb4e00338fa86a4f88ce" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="quick__controller_8c_1afa7747dae7b1cb4e00338fa86a4f88ce" kindref="member">DoPlayerThink</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*player,<sp/>SDL_GameControllerButton<sp/>button)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent<sp/>=<sp/>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*)<sp/>player;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(button)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal">(SDL_CONTROLLER_BUTTON_A):</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ent-&gt;<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>+=<sp/><ref refid="player_8h_1a70c671ff041da80a2d89834b31559a3e" kindref="member">PLAYER_BASE_JUMP</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ab8851adbf3f67db41bcdac86f698b197" kindref="member">mAnimation</ref><sp/>=<sp/><ref refid="globals_8h_1aa6f86057c10bca778f0390185896f050a536257d8a375b02042100ec9457f25dc" kindref="member">ANIMATION_JUMP</ref><sp/>&gt;=<sp/><ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>*))<sp/>?<sp/>NULL<sp/>:<sp/>ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[<ref refid="globals_8h_1aa6f86057c10bca778f0390185896f050a536257d8a375b02042100ec9457f25dc" kindref="member">ANIMATION_JUMP</ref>];</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal">(SDL_CONTROLLER_BUTTON_B):</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ad1606f41f8e2d6ffa8da068d620a102e" kindref="member">PowerUp</ref>(<ref refid="parsepowerup_8c_1a90fefa2dda0184e13839a0b67950fc88" kindref="member">gCurrentPowerUp</ref>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal">(SDL_CONTROLLER_BUTTON_DPAD_LEFT):</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>-=<sp/><ref refid="player_8h_1a8652c9805fbaf4fd5a2ab6943f024510" kindref="member">PLAYER_BASE_SPEED</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ab8851adbf3f67db41bcdac86f698b197" kindref="member">mAnimation</ref><sp/>=<sp/><ref refid="globals_8h_1aa6f86057c10bca778f0390185896f050a83054b457d88f8f493483de9ce763359" kindref="member">ANIMATION_WALK</ref><sp/>&gt;=<sp/><ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>*))<sp/>?<sp/>NULL<sp/>:<sp/>ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[<ref refid="globals_8h_1aa6f86057c10bca778f0390185896f050a83054b457d88f8f493483de9ce763359" kindref="member">ANIMATION_WALK</ref>];</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ada44c567bee8dbfa47693d4068507cab" kindref="member">mDirection</ref><sp/>=<sp/><ref refid="entity_8h_1a06fc171388523b3731c50218617d64b1" kindref="member">ENTITY_DIR_LEFT</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal">(SDL_CONTROLLER_BUTTON_DPAD_RIGHT):</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>+=<sp/><ref refid="player_8h_1a8652c9805fbaf4fd5a2ab6943f024510" kindref="member">PLAYER_BASE_SPEED</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ab8851adbf3f67db41bcdac86f698b197" kindref="member">mAnimation</ref><sp/>=<sp/><ref refid="globals_8h_1aa6f86057c10bca778f0390185896f050a83054b457d88f8f493483de9ce763359" kindref="member">ANIMATION_WALK</ref><sp/>&gt;=<sp/><ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>*))<sp/>?<sp/>NULL<sp/>:<sp/>ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[<ref refid="globals_8h_1aa6f86057c10bca778f0390185896f050a83054b457d88f8f493483de9ce763359" kindref="member">ANIMATION_WALK</ref>];;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity__s_1ada44c567bee8dbfa47693d4068507cab" kindref="member">mDirection</ref><sp/>=<sp/><ref refid="entity_8h_1a500b112c5fef7d3144b377ab85307075" kindref="member">ENTITY_DIR_RIGHT</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/quick_controller.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="structobject__s" kind="struct" language="C++" prot="public">
+    <compoundname>object_s</compoundname>
+    <includes refid="parseobject_8h" local="no">parseobject.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structobject__s_1a444f5b5cbba653b103c8841fa8536b8d" prot="public" static="no" mutable="no">
+        <type><ref refid="parseobject_8h_1a965db53884ff9e4e077dd5e2e2d6a5e2" kindref="member">object_t</ref> *</type>
+        <definition>object_t* parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="20" column="1" bodyfile="dumb-ways-to-memorize/parseobject.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" prot="public" static="no" mutable="no">
+        <type><ref refid="parseobject_8h_1a965db53884ff9e4e077dd5e2e2d6a5e2" kindref="member">object_t</ref> *</type>
+        <definition>object_t* children</definition>
+        <argsstring></argsstring>
+        <name>children</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="21" column="1" bodyfile="dumb-ways-to-memorize/parseobject.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" prot="public" static="no" mutable="no">
+        <type><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref> *</type>
+        <definition>jsmntok_t* keys</definition>
+        <argsstring></argsstring>
+        <name>keys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Array of keys </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="22" column="1" bodyfile="dumb-ways-to-memorize/parseobject.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" prot="public" static="no" mutable="no">
+        <type><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref> *</type>
+        <definition>jsmntok_t* values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Array of values related to those keys </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="23" column="1" bodyfile="dumb-ways-to-memorize/parseobject.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobject__s_1a5ac083a645d964373f022d03df4849c8" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The name of the object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="24" column="1" bodyfile="dumb-ways-to-memorize/parseobject.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>An object structure that is used for a better parsing system taken from jsmn tokens.</para><para>key + value = single key address + single value address object = single key + multiple values</para><para><simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="34">
+        <label>object_s</label>
+        <link refid="structobject__s"/>
+        <childnode refid="35" relation="usage">
+          <edgelabel>values</edgelabel>
+          <edgelabel>keys</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>parent</edgelabel>
+          <edgelabel>children</edgelabel>
+        </childnode>
+      </node>
+      <node id="35">
+        <label>jsmntok_t</label>
+        <link refid="structjsmntok__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="dumb-ways-to-memorize/parseobject.h" line="19" column="1" bodyfile="dumb-ways-to-memorize/parseobject.h" bodystart="18" bodyend="25"/>
+    <listofallmembers>
+      <member refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" prot="public" virt="non-virtual"><scope>object_s</scope><name>children</name></member>
+      <member refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" prot="public" virt="non-virtual"><scope>object_s</scope><name>keys</name></member>
+      <member refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" prot="public" virt="non-virtual"><scope>object_s</scope><name>name</name></member>
+      <member refid="structobject__s_1a444f5b5cbba653b103c8841fa8536b8d" prot="public" virt="non-virtual"><scope>object_s</scope><name>parent</name></member>
+      <member refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" prot="public" virt="non-virtual"><scope>object_s</scope><name>values</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

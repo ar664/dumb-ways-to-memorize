@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="audio_8h" kind="file" language="C++">
+    <compoundname>audio.h</compoundname>
+    <includes local="yes">SDL_mixer.h</includes>
+    <incdepgraph>
+      <node id="39">
+        <label>SDL_mixer.h</label>
+      </node>
+      <node id="38">
+        <label>dumb-ways-to-memorize/audio.h</label>
+        <link refid="audio.h"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structsound__s" prot="public">sound_s</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="audio_8h_1a7bbdbdcfece918fba0f794f7419cd6ac" prot="public" static="no">
+        <name>MAX_SOUNDS</name>
+        <initializer>100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/audio.h" line="5" column="10" bodyfile="dumb-ways-to-memorize/audio.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62" prot="public" static="no">
+        <name>sound_mixer_group</name>
+        <enumvalue id="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62a2b9da067c6fc24368dca1cf17421484f" prot="public">
+          <name>SOUND_GROUP_PLAYER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62a70f02ae9357941e0fba9753a0a0d8960" prot="public">
+          <name>SOUND_GROUP_OTHER_ENTS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62a6d02e919f899c40cda24fbefdb2e08fa" prot="public">
+          <name>SOUND_GROUP_MUSIC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62ad0b6930c93171de1630e25ca7bb9ec78" prot="public">
+          <name>SOUND_GROUP_OTHER</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines an enum for sound mixer groups </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/audio.h" line="9" column="1" bodyfile="dumb-ways-to-memorize/audio.h" bodystart="8" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="enum" id="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4c" prot="public" static="no">
+        <name>sound_mixer_effects</name>
+        <enumvalue id="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4ca9eb6a7302c6f7d3551961dd653376858" prot="public">
+          <name>SOUND_EFFECT_NULL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4cabdc3a63c3a99451d91dde262b71951b9" prot="public">
+          <name>SOUND_EFFECT_WALK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4ca56b12beae6941486c61c3e5d06c3fd76" prot="public">
+          <name>SOUND_EFFECT_ATTACK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4ca25e15a57801776f3ed5dc2c6c7217317" prot="public">
+          <name>SOUND_EFFECT_JUMP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4caf7e7ac2d473495e822cf0cd15b78cb03" prot="public">
+          <name>SOUND_EFFECT_DIE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines an alias representing the enum for different sound effects </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/audio.h" line="18" column="1" bodyfile="dumb-ways-to-memorize/audio.h" bodystart="17" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="audio_8h_1a1d79fe48c9fb0a943f5820b291a88adc" prot="public" static="no">
+        <type>struct <ref refid="structsound__s" kindref="compound">sound_s</ref></type>
+        <definition>typedef struct sound_s sound_t</definition>
+        <argsstring></argsstring>
+        <name>sound_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/audio.h" line="113" column="1" bodyfile="dumb-ways-to-memorize/audio.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__AUDIO__H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__AUDIO__H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;SDL_mixer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="audio_8h_1a7bbdbdcfece918fba0f794f7419cd6ac" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_SOUNDS<sp/><sp/>100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10" refid="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62a2b9da067c6fc24368dca1cf17421484f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62a2b9da067c6fc24368dca1cf17421484f" kindref="member">SOUND_GROUP_PLAYER</ref>,</highlight></codeline>
+<codeline lineno="11" refid="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62a70f02ae9357941e0fba9753a0a0d8960" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62a70f02ae9357941e0fba9753a0a0d8960" kindref="member">SOUND_GROUP_OTHER_ENTS</ref>,</highlight></codeline>
+<codeline lineno="12" refid="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62a6d02e919f899c40cda24fbefdb2e08fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62a6d02e919f899c40cda24fbefdb2e08fa" kindref="member">SOUND_GROUP_MUSIC</ref>,</highlight></codeline>
+<codeline lineno="13" refid="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62ad0b6930c93171de1630e25ca7bb9ec78" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62ad0b6930c93171de1630e25ca7bb9ec78" kindref="member">SOUND_GROUP_OTHER</ref><sp/>=<sp/>-1</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}<ref refid="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62" kindref="member">sound_mixer_group</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4c" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19" refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4ca9eb6a7302c6f7d3551961dd653376858" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4ca9eb6a7302c6f7d3551961dd653376858" kindref="member">SOUND_EFFECT_NULL</ref>,</highlight></codeline>
+<codeline lineno="20" refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4cabdc3a63c3a99451d91dde262b71951b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4cabdc3a63c3a99451d91dde262b71951b9" kindref="member">SOUND_EFFECT_WALK</ref>,</highlight></codeline>
+<codeline lineno="21" refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4ca56b12beae6941486c61c3e5d06c3fd76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4ca56b12beae6941486c61c3e5d06c3fd76" kindref="member">SOUND_EFFECT_ATTACK</ref>,</highlight></codeline>
+<codeline lineno="22" refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4ca25e15a57801776f3ed5dc2c6c7217317" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4ca25e15a57801776f3ed5dc2c6c7217317" kindref="member">SOUND_EFFECT_JUMP</ref>,</highlight></codeline>
+<codeline lineno="23" refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4caf7e7ac2d473495e822cf0cd15b78cb03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4caf7e7ac2d473495e822cf0cd15b78cb03" kindref="member">SOUND_EFFECT_DIE</ref>,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}<ref refid="audio_8h_1a9e08ab776531ab461b6da94a2e6b8f4c" kindref="member">sound_mixer_effects</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="audio_8h_1a1d79fe48c9fb0a943f5820b291a88adc" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsound__s" kindref="compound">sound_s</ref><sp/><ref refid="structsound__s" kindref="compound">sound_t</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//Unfinished<sp/>structure<sp/>of<sp/>the<sp/>entities</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="structsound__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsound__s" kindref="compound">sound_s</ref></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31" refid="structsound__s_1a48f8c3bfb8f583f6b01b6d98a4c1b76e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="audio_8h_1aefd8a54164d8e94ab23d6e2325d31d62" kindref="member">sound_mixer_group</ref><sp/><ref refid="structsound__s_1a48f8c3bfb8f583f6b01b6d98a4c1b76e" kindref="member">group_id</ref>;</highlight></codeline>
+<codeline lineno="32" refid="structsound__s_1a6d93e5d3ad0129fe52153ecacc4f162a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Mix_Chunk<sp/>*<ref refid="structsound__s_1a6d93e5d3ad0129fe52153ecacc4f162a" kindref="member">sounds</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>InitAudioSys();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/audio.h"/>
+  </compounddef>
+</doxygen>

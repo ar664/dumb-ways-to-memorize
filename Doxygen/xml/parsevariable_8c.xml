@@ -1,0 +1,640 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="parsevariable_8c" kind="file" language="C++">
+    <compoundname>parsevariable.c</compoundname>
+    <includes refid="parsevariable_8h" local="yes">parsevariable.h</includes>
+    <includes refid="parseobject_8h" local="yes">parseobject.h</includes>
+    <includes refid="mystrings_8h" local="yes">mystrings.h</includes>
+    <includes refid="jsmn_8h" local="no">jsmn.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <incdepgraph>
+      <node id="440">
+        <label>globals.h</label>
+        <link refid="globals_8h"/>
+        <childnode refid="441" relation="include">
+        </childnode>
+      </node>
+      <node id="447">
+        <label>mystrings.h</label>
+        <link refid="mystrings_8h"/>
+        <childnode refid="441" relation="include">
+        </childnode>
+      </node>
+      <node id="444">
+        <label>SDL.h</label>
+      </node>
+      <node id="450">
+        <label>stdlib.h</label>
+      </node>
+      <node id="441">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="442" relation="include">
+        </childnode>
+      </node>
+      <node id="446">
+        <label>parseobject.h</label>
+        <link refid="parseobject_8h"/>
+        <childnode refid="441" relation="include">
+        </childnode>
+      </node>
+      <node id="442">
+        <label>stddef.h</label>
+      </node>
+      <node id="437">
+        <label>dumb-ways-to-memorize/parsevariable.c</label>
+        <link refid="parsevariable.c"/>
+        <childnode refid="438" relation="include">
+        </childnode>
+        <childnode refid="446" relation="include">
+        </childnode>
+        <childnode refid="447" relation="include">
+        </childnode>
+        <childnode refid="441" relation="include">
+        </childnode>
+        <childnode refid="448" relation="include">
+        </childnode>
+        <childnode refid="449" relation="include">
+        </childnode>
+        <childnode refid="450" relation="include">
+        </childnode>
+      </node>
+      <node id="438">
+        <label>parsevariable.h</label>
+        <link refid="parsevariable_8h"/>
+        <childnode refid="439" relation="include">
+        </childnode>
+        <childnode refid="446" relation="include">
+        </childnode>
+      </node>
+      <node id="448">
+        <label>string.h</label>
+      </node>
+      <node id="439">
+        <label>entity.h</label>
+        <link refid="entity_8h"/>
+        <childnode refid="440" relation="include">
+        </childnode>
+        <childnode refid="443" relation="include">
+        </childnode>
+        <childnode refid="445" relation="include">
+        </childnode>
+      </node>
+      <node id="443">
+        <label>graphics.h</label>
+        <link refid="graphics_8h"/>
+        <childnode refid="444" relation="include">
+        </childnode>
+        <childnode refid="440" relation="include">
+        </childnode>
+      </node>
+      <node id="449">
+        <label>stdio.h</label>
+      </node>
+      <node id="445">
+        <label>ai_interpret.h</label>
+        <link refid="ai__interpret_8h"/>
+        <childnode refid="440" relation="include">
+        </childnode>
+        <childnode refid="446" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="parsevariable_8c_1aa9cea9281b3ad2f4065f8765ff335241" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* AssignableVariableNames[]</definition>
+        <argsstring>[]</argsstring>
+        <name>AssignableVariableNames</name>
+        <initializer>= {&quot;hazard(s)&quot; , &quot;health&quot;, &quot;collisionType&quot;, &quot;entityState&quot;, &quot;sprite(s)&quot;, &quot;accel&quot;, &quot;velocity&quot;, &quot;position&quot;, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsevariable.c" line="11" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="parsevariable_8c_1aa773235cab938d0b4234a5ffaca172f9" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* OtherVariableNames[]</definition>
+        <argsstring>[]</argsstring>
+        <name>OtherVariableNames</name>
+        <initializer>= { &quot;height&quot;, &quot;width&quot;, &quot;frames&quot;, 0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsevariable.c" line="12" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EditEntity</definition>
+        <argsstring>(entity_t *ent, EntityMembers member, void *value)</argsstring>
+        <name>EditEntity</name>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>ent</declname>
+        </param>
+        <param>
+          <type><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref></type>
+          <declname>member</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsevariable.c" line="15" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="15" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="parsevariable_8c_1ab44c577d09cbd67632c75301d846676e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+        <definition>entity_t* ParseToEntity</definition>
+        <argsstring>(object_t *object, char *str)</argsstring>
+        <name>ParseToEntity</name>
+        <param>
+          <type><ref refid="parseobject_8h_1a965db53884ff9e4e077dd5e2e2d6a5e2" kindref="member">object_t</ref> *</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parse to entity. Tries to Assign everything , but the entity function pointers. Current <ref refid="struct_frame" kindref="compound">Frame</ref> = 0, Weight = 1</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">object</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the string.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>null if it fails, else a pointer to an entity_t.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/21/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsevariable.c" line="50" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="50" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="parsevariable_8c_1a884bad6dac384af63e9becea40966bfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MiniParseFunc</definition>
+        <argsstring>(entity_t *ent, jsmntok_t *token, char *str, EntityMembers member, int size)</argsstring>
+        <name>MiniParseFunc</name>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>ent</declname>
+        </param>
+        <param>
+          <type><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref> *</type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref></type>
+          <declname>member</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mini parse function, handles entering / converting the data into the entity given.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">ent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the ent. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the token. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the string. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>member</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The member. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/29/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsevariable.c" line="163" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="163" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="parsevariable_8c_1aece06ba78503ca86b77daa6c0f64d01f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
+        <definition>vec2_t* ParseToVec2</definition>
+        <argsstring>(object_t *object, char *str)</argsstring>
+        <name>ParseToVec2</name>
+        <param>
+          <type><ref refid="parseobject_8h_1a965db53884ff9e4e077dd5e2e2d6a5e2" kindref="member">object_t</ref> *</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parse given obj/str to vector 2.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">object</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the string.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>null if it fails, else a pointer to a vec2_t.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/29/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsevariable.c" line="225" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="225" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="parsevariable_8c_1a090f6fa5f93d7a5becca914af766d1d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char **</type>
+        <definition>char** ParseToStringArray</definition>
+        <argsstring>(object_t *object, char *str)</argsstring>
+        <name>ParseToStringArray</name>
+        <param>
+          <type><ref refid="parseobject_8h_1a965db53884ff9e4e077dd5e2e2d6a5e2" kindref="member">object_t</ref> *</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parse obj/data to string array.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">object</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the string.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>null if it fails, else a handle to a char.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/29/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsevariable.c" line="254" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="254" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="parsevariable_8c_1a9a3d7af463607a209c8f52caf9e15c70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintEntity</definition>
+        <argsstring>(entity_t *ent)</argsstring>
+        <name>PrintEntity</name>
+        <param>
+          <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
+          <declname>ent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints the entities data, used for debug.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">ent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the ent.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/29/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dumb-ways-to-memorize/parsevariable.c" line="281" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="281" bodyend="315"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parsevariable_8h" kindref="compound">parsevariable.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parseobject_8h" kindref="compound">parseobject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mystrings_8h" kindref="compound">mystrings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="jsmn_8h" kindref="compound">jsmn.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//Globals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="parsevariable_8h_1aa9cea9281b3ad2f4065f8765ff335241" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="parsevariable_8c_1aa9cea9281b3ad2f4065f8765ff335241" kindref="member">AssignableVariableNames</ref>[]<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;hazard(s)&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;health&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;collisionType&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;entityState&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;sprite(s)&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;accel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;velocity&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;position&quot;</highlight><highlight class="normal">,<sp/>0};</highlight></codeline>
+<codeline lineno="12" refid="parsevariable_8h_1aa773235cab938d0b4234a5ffaca172f9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="parsevariable_8c_1aa773235cab938d0b4234a5ffaca172f9" kindref="member">OtherVariableNames</ref>[]<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;height&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;width&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;frames&quot;</highlight><highlight class="normal">,<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//BIG<sp/>ASS<sp/>SWITCH<sp/>CASE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="parsevariable_8h_1a2e27044cc4aa03202b8d1c8fbb3213ec" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" kindref="member">EditEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/><sp/>*ent,<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref><sp/>member,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*value)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(value<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(member)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a677cd0d5164b66bacecb95e8fd760f02" kindref="member">ENTITY_MEMBER_HAZARDS</ref>:<sp/>ent-&gt;<ref refid="structentity__s_1a8c5ee6d8b825b6da8ab851320eccd45e" kindref="member">mHazards</ref><sp/>=<sp/>(int)<sp/>value;<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a5bf3fcb47f83cfcca63bd8ee741ed978" kindref="member">ENTITY_MEMBER_HEALTH</ref>:<sp/>ent-&gt;<ref refid="structentity__s_1a709ed9fa7e17bcc63f51b9e011772aee" kindref="member">mHealth</ref><sp/>=<sp/>(int)<sp/>value;<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a0c56462a8b776bb0ea37c22cf0b825a0" kindref="member">ENTITY_MEMBER_COLLISION_TYPE</ref>:<sp/>ent-&gt;<ref refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" kindref="member">mCollisionType</ref><sp/>=<sp/>(<ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13a" kindref="member">collision_type_t</ref>)<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>value;<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a84d5f99d096860bdef80f955ba485546" kindref="member">ENTITY_MEMBER_ENTITY_STATE</ref>:<sp/>ent-&gt;<ref refid="structentity__s_1aa50a2f30db6a433d25f42fe58ee20995" kindref="member">mEntityState</ref><sp/>=<sp/>(<ref refid="globals_8h_1a99f3d33a52ee74fc145c14ceee9d4154" kindref="member">entity_state_t</ref>)<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>value;<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a204ac38f4d3eab5b09b6db8e8a64d04c" kindref="member">ENTITY_MEMBER_SPRITES</ref>:<sp/>ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref><sp/>=<sp/>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>**)<sp/>value;<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a108d8c704e5f4c344a33503071f056dc" kindref="member">ENTITY_MEMBER_ACCEL</ref>:<sp/>ent-&gt;<ref refid="structentity__s_1ae9f3b8e36df4503009ee071958f75b6c" kindref="member">mAccel</ref><sp/>=<sp/>*((<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*)<sp/>value);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a100ecf079439bf77e5f04b39252e6c6a" kindref="member">ENTITY_MEMBER_VELOCITY</ref><sp/>:<sp/>ent-&gt;<ref refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" kindref="member">mVelocity</ref><sp/>=<sp/>*((<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*)<sp/>value);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a09b4e850815f606e0859ee62e8536df2" kindref="member">ENTITY_MEMBER_POSITION</ref><sp/>:<sp/>ent-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref><sp/>=<sp/>*((<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*)<sp/>value);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="parsevariable_8h_1ab44c577d09cbd67632c75301d846676e" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/><ref refid="parsevariable_8c_1ab44c577d09cbd67632c75301d846676e" kindref="member">ParseToEntity</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>j,<sp/>checkInt,<sp/>heights[<ref refid="graphics_8h_1a99f9cfd68ef4237b568bda6e3e63312f" kindref="member">MAX_ANIMATIONS</ref>]<sp/>=<sp/>{0},<sp/>widths[<ref refid="graphics_8h_1a99f9cfd68ef4237b568bda6e3e63312f" kindref="member">MAX_ANIMATIONS</ref>]<sp/>=<sp/>{0},<sp/>frames[<ref refid="graphics_8h_1a99f9cfd68ef4237b568bda6e3e63312f" kindref="member">MAX_ANIMATIONS</ref>]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*temp;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*retVal;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_frame" kindref="compound">Frame</ref><sp/>*checkFrame<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*checkTok<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*checkObj<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!</highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>||<sp/>!str)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal<sp/>=<sp/>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structentity__s" kindref="compound">entity_t</ref>));</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(retVal,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structentity__s" kindref="compound">entity_t</ref>));</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" kindref="member">mName</ref><sp/>=<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">-&gt;name;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/><ref refid="parsevariable_8c_1aa9cea9281b3ad2f4065f8765ff335241" kindref="member">AssignableVariableNames</ref>[i];<sp/>i++)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(checkTok<sp/>=<sp/><ref refid="mystrings_8c_1a6466498df69994b55bb62b9b53652142" kindref="member">FindKey</ref>(object-&gt;<ref refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" kindref="member">keys</ref>,<sp/><ref refid="parsevariable_8c_1aa9cea9281b3ad2f4065f8765ff335241" kindref="member">AssignableVariableNames</ref>[i],<sp/>str))<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(checkTok-&gt;<ref refid="structjsmntok__t_1a7def41ebc3980f6e4526819b42c2721f" kindref="member">type</ref><sp/>==<sp/><ref refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539" kindref="member">JSMN_STRING</ref>)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i<sp/>==<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a677cd0d5164b66bacecb95e8fd760f02" kindref="member">ENTITY_MEMBER_HAZARDS</ref><sp/>||<sp/>i<sp/>==<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a204ac38f4d3eab5b09b6db8e8a64d04c" kindref="member">ENTITY_MEMBER_SPRITES</ref>)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkInt<sp/>=<sp/>abs((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>object-&gt;<ref refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" kindref="member">keys</ref><sp/>-<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>checkTok)/</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsevariable_8c_1a884bad6dac384af63e9becea40966bfb" kindref="member">MiniParseFunc</ref>(retVal,<sp/>&amp;object-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>[checkInt],<sp/>str,<sp/>(<ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref>)i,<sp/>1);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkTok<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkInt<sp/>=<sp/>abs((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>object-&gt;<ref refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" kindref="member">keys</ref><sp/>-<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>checkTok)/</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsevariable_8c_1a884bad6dac384af63e9becea40966bfb" kindref="member">MiniParseFunc</ref>(retVal,<sp/>&amp;object-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>[checkInt],<sp/>str,<sp/>(<ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref>)i,<sp/>1);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkTok<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp<sp/>=<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(checkTok,<sp/>str);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Error<sp/>Unkown<sp/>var<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>temp);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(temp);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(checkObj<sp/>=<sp/><ref refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" kindref="member">FindObject</ref>(</highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/><ref refid="parsevariable_8c_1aa9cea9281b3ad2f4065f8765ff335241" kindref="member">AssignableVariableNames</ref>[i]))<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i<sp/>==<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a677cd0d5164b66bacecb95e8fd760f02" kindref="member">ENTITY_MEMBER_HAZARDS</ref><sp/>||<sp/>i<sp/>==<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a204ac38f4d3eab5b09b6db8e8a64d04c" kindref="member">ENTITY_MEMBER_SPRITES</ref>)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsevariable_8c_1a884bad6dac384af63e9becea40966bfb" kindref="member">MiniParseFunc</ref>(retVal,<sp/>checkObj-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>,<sp/>str,<sp/>(<ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref>)i,<sp/><ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(checkObj-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref>)));</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(&amp;checkObj-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref>))<sp/>==<sp/>2)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" kindref="member">EditEntity</ref>(retVal,<sp/>(<ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref>)i,<sp/><ref refid="parsevariable_8c_1aece06ba78503ca86b77daa6c0f64d01f" kindref="member">ParseToVec2</ref>(checkObj,<sp/>str));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Error<sp/>with<sp/>:<sp/>%s<sp/>in<sp/>JSON<sp/>file<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>object-&gt;<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/><ref refid="parsevariable_8c_1aa773235cab938d0b4234a5ffaca172f9" kindref="member">OtherVariableNames</ref>[i];<sp/>i++)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(checkObj<sp/>=<sp/><ref refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" kindref="member">FindObject</ref>(</highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/><ref refid="parsevariable_8c_1aa773235cab938d0b4234a5ffaca172f9" kindref="member">OtherVariableNames</ref>[i]))<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(j<sp/>=<sp/>0;<sp/>checkObj-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>[j].<ref refid="structjsmntok__t_1a7def41ebc3980f6e4526819b42c2721f" kindref="member">type</ref>;<sp/>j++)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(i)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a3364407dac472d6f76df7f89341b2a5aa38b9241136017b93ea2755a49cf0a000" kindref="member">HEIGHT</ref>:<sp/><ref refid="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" kindref="member">JsmnToInt</ref>(&amp;checkObj-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>[j],<sp/>str,<sp/>&amp;heights[j]);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a3364407dac472d6f76df7f89341b2a5aa73c0818986b7c462c2977f57afd00522" kindref="member">WIDTH</ref>:<sp/><ref refid="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" kindref="member">JsmnToInt</ref>(&amp;checkObj-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>[j],<sp/>str,<sp/>&amp;widths[j]);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a3364407dac472d6f76df7f89341b2a5aa0233623f1ec67ee345913c5d13cfa660" kindref="member">FRAMES</ref>:<sp/><ref refid="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" kindref="member">JsmnToInt</ref>(&amp;checkObj-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>[j],<sp/>str,<sp/>&amp;frames[j]);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(checkTok<sp/>=<sp/><ref refid="mystrings_8c_1a6466498df69994b55bb62b9b53652142" kindref="member">FindKey</ref>(object-&gt;<ref refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" kindref="member">keys</ref>,<sp/><ref refid="parsevariable_8c_1aa773235cab938d0b4234a5ffaca172f9" kindref="member">OtherVariableNames</ref>[i],<sp/>str))<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(i)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a3364407dac472d6f76df7f89341b2a5aa38b9241136017b93ea2755a49cf0a000" kindref="member">HEIGHT</ref>:<sp/><ref refid="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" kindref="member">JsmnToInt</ref>(checkTok,<sp/>str,<sp/>&amp;heights[0]);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a3364407dac472d6f76df7f89341b2a5aa73c0818986b7c462c2977f57afd00522" kindref="member">WIDTH</ref>:<sp/><ref refid="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" kindref="member">JsmnToInt</ref>(checkTok,<sp/>str,<sp/>&amp;widths[0]);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8h_1a3364407dac472d6f76df7f89341b2a5aa0233623f1ec67ee345913c5d13cfa660" kindref="member">FRAMES</ref>:<sp/><ref refid="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" kindref="member">JsmnToInt</ref>(checkTok,<sp/>str,<sp/>&amp;frames[0]);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//retVal-&gt;mSprites<sp/>=<sp/>(sprite_t**)<sp/>malloc(sizeof(sprite_t*)*(j+1));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//retVal-&gt;mSprites[j]<sp/>=<sp/>NULL;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(retVal-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>retVal-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[i];<sp/>i++)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!retVal-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[i])</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkFrame<sp/>=<sp/><ref refid="graphics_8c_1a9cf2216f8c9099f0767277b29b0b8044" kindref="member">LoadAnimation</ref>(widths[i],<sp/>heights[i],<sp/>retVal-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[i]-&gt;<ref refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" kindref="member">mSize</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>,<sp/>retVal-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[i]-&gt;<ref refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" kindref="member">mSize</ref>.<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[i]-&gt;<ref refid="structsprite__s_1acd9c3d76b8dfc0aed0c331ec5f0568f1" kindref="member">mFrames</ref><sp/>=<sp/>frames[i]<sp/>?<sp/>frames[i]<sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(&amp;retVal-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[i]-&gt;<ref refid="structsprite__s_1a8ce6c2916d6244600c434144ed6ac296" kindref="member">mAnimations</ref>,<sp/>checkFrame,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="struct_frame" kindref="compound">Frame</ref>)*retVal-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[i]-&gt;<ref refid="structsprite__s_1acd9c3d76b8dfc0aed0c331ec5f0568f1" kindref="member">mFrames</ref><sp/>);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structentity__s_1a24bdc1525ed5bcbf2a8c7027c9e1db5f" kindref="member">mNextThink</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structentity__s_1a4bf029653a0ffc8ad5dfddd243aeff72" kindref="member">mCurrentFrame</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structentity__s_1a069df5fe6b0f5a8eb03b0cc4c2e0ba43" kindref="member">mWeight</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structentity__s_1ae045b7ba608e955e791f8af8507b78a4" kindref="member">Think</ref><sp/>=<sp/><ref refid="entity_8c_1adb84b9e6a5a5c18dc147a1c0de60fd85" kindref="member">ThinkGeneric</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structentity__s_1a51719e3ab7c4f8dd260dea013021f53c" kindref="member">Draw</ref><sp/>=<sp/><ref refid="entity_8c_1a8572f94d16405fa3b42dd584893852bd" kindref="member">DrawGeneric</ref>;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structentity__s_1af5c032961c1c6bca1832a0cb3fb34321" kindref="member">Touch</ref><sp/>=<sp/><ref refid="entity_8c_1a2eb4fef990cd3eb845b5a99fbd22e0fc" kindref="member">TouchGeneric</ref>;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="parsevariable_8c_1a9a3d7af463607a209c8f52caf9e15c70" kindref="member">PrintEntity</ref>(retVal);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="parsevariable_8h_1a884bad6dac384af63e9becea40966bfb" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8c_1a884bad6dac384af63e9becea40966bfb" kindref="member">MiniParseFunc</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent,<sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref>*<sp/>token,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str,<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref><sp/>member,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*temp<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>checkInt<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>**checkSprite<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!ent<sp/>||<sp/>!token<sp/>||<sp/>!str)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(member==<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a677cd0d5164b66bacecb95e8fd760f02" kindref="member">ENTITY_MEMBER_HAZARDS</ref>)</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>i++)</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp<sp/>=<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(&amp;token[i],<sp/>str);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkInt<sp/>+=<sp/><ref refid="globals_8h_1abe578bfaa1629eec4e43d2ec76b0499b" kindref="member">StrToHazard</ref>(temp);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(temp)<sp/>free(temp);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" kindref="member">EditEntity</ref>(ent,<sp/>member,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)checkInt);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(member==<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a204ac38f4d3eab5b09b6db8e8a64d04c" kindref="member">ENTITY_MEMBER_SPRITES</ref>)</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkSprite<sp/>=<sp/>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>**)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>*)*(size+1));</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!checkSprite)</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>i++)</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp<sp/>=<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(&amp;token[i],<sp/>str);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkSprite[i]<sp/>=<sp/><ref refid="graphics_8c_1a9ef47fe758affb875f01b07e551513c7" kindref="member">LoadSprite</ref>(temp,<sp/>0);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(temp)<sp/>free(temp);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memset(&amp;checkSprite[size],<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>*));</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" kindref="member">EditEntity</ref>(ent,<sp/>member,<sp/>checkSprite);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(member<sp/>==<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a0c56462a8b776bb0ea37c22cf0b825a0" kindref="member">ENTITY_MEMBER_COLLISION_TYPE</ref>)</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp<sp/>=<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(token,<sp/>str);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" kindref="member">EditEntity</ref>(ent,<sp/>member,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)<ref refid="globals_8h_1a44b3e24411aec8ef45be1d5430c5b2eb" kindref="member">StrToCollisionType</ref>(temp));</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(temp)<sp/>free(temp);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(member<sp/>==<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a84d5f99d096860bdef80f955ba485546" kindref="member">ENTITY_MEMBER_ENTITY_STATE</ref>)</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp<sp/>=<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(token,<sp/>str);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" kindref="member">EditEntity</ref>(ent,<sp/>member,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)<ref refid="globals_8h_1a228d03ca7eff58ad7ed8fccb3a7bc9c9" kindref="member">StrToEntityState</ref>(temp));</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(temp)<sp/>free(temp);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp<sp/>=<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(token,<sp/>str);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" kindref="member">EditEntity</ref>(ent,<sp/>member,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)<ref refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" kindref="member">StrToInt</ref>(temp));</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(temp)<sp/>free(temp);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225" refid="parsevariable_8h_1aece06ba78503ca86b77daa6c0f64d01f" refkind="member"><highlight class="normal"><ref refid="structvec2__s" kindref="compound">vec2_t</ref>*<sp/><ref refid="parsevariable_8c_1aece06ba78503ca86b77daa6c0f64d01f" kindref="member">ParseToVec2</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
+<codeline lineno="226"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*retVal;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*temp1,<sp/>*temp2;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal<sp/>=<sp/>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>));</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!retVal<sp/>||<sp/>!</highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>||<sp/>!str)</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>temp1<sp/>=<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(&amp;object-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>[0],<sp/>str);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>temp2<sp/>=<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(&amp;object-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>[1],<sp/>str);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/><ref refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" kindref="member">StrToInt</ref>(temp1);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/><ref refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" kindref="member">StrToInt</ref>(temp2);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>free(temp1);<sp/>free(temp2);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254" refid="parsevariable_8h_1a090f6fa5f93d7a5becca914af766d1d8" refkind="member"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="parsevariable_8c_1a090f6fa5f93d7a5becca914af766d1d8" kindref="member">ParseToStringArray</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
+<codeline lineno="255"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>size;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*temp;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**retVal;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!</highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>||<sp/>!str)</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>size<sp/>=<sp/><ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(object-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref>));</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)*(size+1));</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>i++)</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp<sp/>=<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(&amp;object-&gt;<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>[i],<sp/>str);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retVal[i]<sp/>=<sp/>temp;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal[size+1]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281" refid="parsevariable_8c_1a9a3d7af463607a209c8f52caf9e15c70" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8c_1a9a3d7af463607a209c8f52caf9e15c70" kindref="member">PrintEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent)</highlight></codeline>
+<codeline lineno="282"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!ent)</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Print<sp/>Entity<sp/>given<sp/>NULL<sp/>Entity<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!ent-&gt;<ref refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" kindref="member">mName</ref>)</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Print<sp/>Entity<sp/>given<sp/>NULL<sp/>Entity<sp/>Name&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;&lt;<sp/>Entity<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Entity<sp/>Name<sp/>:<sp/>%s<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>ent-&gt;<ref refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" kindref="member">mName</ref>);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Entity<sp/>CollisionType<sp/>:<sp/>%d<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>ent-&gt;<ref refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" kindref="member">mCollisionType</ref>);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Enity<sp/>State<sp/>:<sp/>%d<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>ent-&gt;<ref refid="structentity__s_1aa50a2f30db6a433d25f42fe58ee20995" kindref="member">mEntityState</ref>);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>)</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;No<sp/>Sprites<sp/>loaded<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[0])</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;No<sp/>Sprites<sp/>loaded<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Entity<sp/>Sprites<sp/>:<sp/>%s<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[0]-&gt;<ref refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>1;<sp/>ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[i];<sp/>i++)</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;<sp/>%s<sp/>&quot;</highlight><highlight class="normal">,<sp/>ent-&gt;<ref refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" kindref="member">mSprites</ref>[i]-&gt;<ref refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;<sp/>Entity<sp/>&gt;<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="dumb-ways-to-memorize/parsevariable.c"/>
+  </compounddef>
+</doxygen>

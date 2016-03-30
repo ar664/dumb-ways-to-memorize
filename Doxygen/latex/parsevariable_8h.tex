@@ -1,0 +1,256 @@
+\hypertarget{parsevariable_8h}{}\section{dumb-\/ways-\/to-\/memorize/parsevariable.h File Reference}
+\label{parsevariable_8h}\index{dumb-\/ways-\/to-\/memorize/parsevariable.\+h@{dumb-\/ways-\/to-\/memorize/parsevariable.\+h}}
+{\ttfamily \#include \char`\"{}entity.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parseobject.\+h\char`\"{}}\\*
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43}{Entity\+Members} \{ \\*
+\hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a677cd0d5164b66bacecb95e8fd760f02}{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+A\+Z\+A\+R\+DS}, 
+\hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a5bf3fcb47f83cfcca63bd8ee741ed978}{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+E\+A\+L\+TH}, 
+\hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a0c56462a8b776bb0ea37c22cf0b825a0}{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+C\+O\+L\+L\+I\+S\+I\+O\+N\+\_\+\+T\+Y\+PE}, 
+\hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a84d5f99d096860bdef80f955ba485546}{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+T\+A\+TE}, 
+\\*
+\hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a204ac38f4d3eab5b09b6db8e8a64d04c}{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+S\+P\+R\+I\+T\+ES}, 
+\hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a108d8c704e5f4c344a33503071f056dc}{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+A\+C\+C\+EL}, 
+\hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a100ecf079439bf77e5f04b39252e6c6a}{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+V\+E\+L\+O\+C\+I\+TY}, 
+\hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a09b4e850815f606e0859ee62e8536df2}{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+P\+O\+S\+I\+T\+I\+ON}, 
+\\*
+\hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43ab21e72ea3a1269e5a95562f97edffc2f}{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+M\+AX}
+ \}
+\item 
+enum \hyperlink{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5a}{Other\+Numbers} \{ \hyperlink{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5aa38b9241136017b93ea2755a49cf0a000}{H\+E\+I\+G\+HT}, 
+\hyperlink{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5aa73c0818986b7c462c2977f57afd00522}{W\+I\+D\+TH}, 
+\hyperlink{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5aa0233623f1ec67ee345913c5d13cfa660}{F\+R\+A\+M\+ES}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{parsevariable_8h_a2e27044cc4aa03202b8d1c8fbb3213ec}{Edit\+Entity} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ent, \hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43}{Entity\+Members} member, void $\ast$value)
+\item 
+void \hyperlink{parsevariable_8h_a884bad6dac384af63e9becea40966bfb}{Mini\+Parse\+Func} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ent, \hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$token, char $\ast$str, \hyperlink{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43}{Entity\+Members} member, int size)
+\item 
+\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ \hyperlink{parsevariable_8h_ab44c577d09cbd67632c75301d846676e}{Parse\+To\+Entity} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$object, char $\ast$str)
+\item 
+\hyperlink{globals_8h_a773f2054819bb6014f1e50baa39cb5e3}{vec2\+\_\+t} $\ast$ \hyperlink{parsevariable_8h_aece06ba78503ca86b77daa6c0f64d01f}{Parse\+To\+Vec2} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$object, char $\ast$str)
+\item 
+char $\ast$$\ast$ \hyperlink{parsevariable_8h_a090f6fa5f93d7a5becca914af766d1d8}{Parse\+To\+String\+Array} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$object, char $\ast$str)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{parsevariable_8h_aa9cea9281b3ad2f4065f8765ff335241}{Assignable\+Variable\+Names} \mbox{[}$\,$\mbox{]}
+\item 
+char $\ast$ \hyperlink{parsevariable_8h_aa773235cab938d0b4234a5ffaca172f9}{Other\+Variable\+Names} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\index{parsevariable.\+h@{parsevariable.\+h}!Entity\+Members@{Entity\+Members}}
+\index{Entity\+Members@{Entity\+Members}!parsevariable.\+h@{parsevariable.\+h}}
+\subsubsection[{\texorpdfstring{Entity\+Members}{EntityMembers}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Entity\+Members}}\hypertarget{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43}{}\label{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43}
+Defines the enum for variables in the entity structure \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+A\+Z\+A\+R\+DS@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+A\+Z\+A\+R\+DS}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+A\+Z\+A\+R\+DS@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+A\+Z\+A\+R\+DS}}\item[{\em 
+E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+A\+Z\+A\+R\+DS\hypertarget{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a677cd0d5164b66bacecb95e8fd760f02}{}\label{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a677cd0d5164b66bacecb95e8fd760f02}
+}]An enum constant representing the entity member hazards \index{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+E\+A\+L\+TH@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+E\+A\+L\+TH}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+E\+A\+L\+TH@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+E\+A\+L\+TH}}\item[{\em 
+E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+H\+E\+A\+L\+TH\hypertarget{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a5bf3fcb47f83cfcca63bd8ee741ed978}{}\label{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a5bf3fcb47f83cfcca63bd8ee741ed978}
+}]An enum constant representing the entity member health \index{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+C\+O\+L\+L\+I\+S\+I\+O\+N\+\_\+\+T\+Y\+PE@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+C\+O\+L\+L\+I\+S\+I\+O\+N\+\_\+\+T\+Y\+PE}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+C\+O\+L\+L\+I\+S\+I\+O\+N\+\_\+\+T\+Y\+PE@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+C\+O\+L\+L\+I\+S\+I\+O\+N\+\_\+\+T\+Y\+PE}}\item[{\em 
+E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+C\+O\+L\+L\+I\+S\+I\+O\+N\+\_\+\+T\+Y\+PE\hypertarget{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a0c56462a8b776bb0ea37c22cf0b825a0}{}\label{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a0c56462a8b776bb0ea37c22cf0b825a0}
+}]An enum constant representing the entity member collision type \index{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+T\+A\+TE@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+T\+A\+TE}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+T\+A\+TE@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+T\+A\+TE}}\item[{\em 
+E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+T\+A\+TE\hypertarget{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a84d5f99d096860bdef80f955ba485546}{}\label{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a84d5f99d096860bdef80f955ba485546}
+}]An enum constant representing the entity member entity state \index{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+S\+P\+R\+I\+T\+ES@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+S\+P\+R\+I\+T\+ES}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+S\+P\+R\+I\+T\+ES@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+S\+P\+R\+I\+T\+ES}}\item[{\em 
+E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+S\+P\+R\+I\+T\+ES\hypertarget{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a204ac38f4d3eab5b09b6db8e8a64d04c}{}\label{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a204ac38f4d3eab5b09b6db8e8a64d04c}
+}]An enum constant representing the entity member sprites \index{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+A\+C\+C\+EL@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+A\+C\+C\+EL}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+A\+C\+C\+EL@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+A\+C\+C\+EL}}\item[{\em 
+E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+A\+C\+C\+EL\hypertarget{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a108d8c704e5f4c344a33503071f056dc}{}\label{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a108d8c704e5f4c344a33503071f056dc}
+}]An enum constant representing the entity member accel \index{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+V\+E\+L\+O\+C\+I\+TY@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+V\+E\+L\+O\+C\+I\+TY}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+V\+E\+L\+O\+C\+I\+TY@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+V\+E\+L\+O\+C\+I\+TY}}\item[{\em 
+E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+V\+E\+L\+O\+C\+I\+TY\hypertarget{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a100ecf079439bf77e5f04b39252e6c6a}{}\label{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a100ecf079439bf77e5f04b39252e6c6a}
+}]An enum constant representing the entity member velocity \index{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+P\+O\+S\+I\+T\+I\+ON@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+P\+O\+S\+I\+T\+I\+ON}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+P\+O\+S\+I\+T\+I\+ON@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+P\+O\+S\+I\+T\+I\+ON}}\item[{\em 
+E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+P\+O\+S\+I\+T\+I\+ON\hypertarget{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a09b4e850815f606e0859ee62e8536df2}{}\label{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43a09b4e850815f606e0859ee62e8536df2}
+}]An enum constant representing the entity member position \index{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+M\+AX@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+M\+AX}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+M\+AX@{E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+M\+AX}}\item[{\em 
+E\+N\+T\+I\+T\+Y\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+M\+AX\hypertarget{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43ab21e72ea3a1269e5a95562f97edffc2f}{}\label{parsevariable_8h_a05aa3ed10f55de7389364b5f1a6cda43ab21e72ea3a1269e5a95562f97edffc2f}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 11 of file parsevariable.\+h.
+
+\index{parsevariable.\+h@{parsevariable.\+h}!Other\+Numbers@{Other\+Numbers}}
+\index{Other\+Numbers@{Other\+Numbers}!parsevariable.\+h@{parsevariable.\+h}}
+\subsubsection[{\texorpdfstring{Other\+Numbers}{OtherNumbers}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Other\+Numbers}}\hypertarget{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5a}{}\label{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5a}
+Defines the enum for graphics members in the entity \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{H\+E\+I\+G\+HT@{H\+E\+I\+G\+HT}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!H\+E\+I\+G\+HT@{H\+E\+I\+G\+HT}}\item[{\em 
+H\+E\+I\+G\+HT\hypertarget{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5aa38b9241136017b93ea2755a49cf0a000}{}\label{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5aa38b9241136017b93ea2755a49cf0a000}
+}]An enum constant representing the heights of the sprites \index{W\+I\+D\+TH@{W\+I\+D\+TH}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!W\+I\+D\+TH@{W\+I\+D\+TH}}\item[{\em 
+W\+I\+D\+TH\hypertarget{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5aa73c0818986b7c462c2977f57afd00522}{}\label{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5aa73c0818986b7c462c2977f57afd00522}
+}]An enum constant representing the widths of th sprites \index{F\+R\+A\+M\+ES@{F\+R\+A\+M\+ES}!parsevariable.\+h@{parsevariable.\+h}}\index{parsevariable.\+h@{parsevariable.\+h}!F\+R\+A\+M\+ES@{F\+R\+A\+M\+ES}}\item[{\em 
+F\+R\+A\+M\+ES\hypertarget{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5aa0233623f1ec67ee345913c5d13cfa660}{}\label{parsevariable_8h_a3364407dac472d6f76df7f89341b2a5aa0233623f1ec67ee345913c5d13cfa660}
+}]An enum constant representing the number of frames in each sprite \end{description}
+\end{Desc}
+
+
+Definition at line 26 of file parsevariable.\+h.
+
+
+
+\subsection{Function Documentation}
+\index{parsevariable.\+h@{parsevariable.\+h}!Edit\+Entity@{Edit\+Entity}}
+\index{Edit\+Entity@{Edit\+Entity}!parsevariable.\+h@{parsevariable.\+h}}
+\subsubsection[{\texorpdfstring{Edit\+Entity(entity\+\_\+t $\ast$ent, Entity\+Members member, void $\ast$value)}{EditEntity(entity_t *ent, EntityMembers member, void *value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Edit\+Entity (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{ent, }
+\item[{{\bf Entity\+Members}}]{member, }
+\item[{void $\ast$}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{parsevariable_8h_a2e27044cc4aa03202b8d1c8fbb3213ec}{}\label{parsevariable_8h_a2e27044cc4aa03202b8d1c8fbb3213ec}
+
+
+Definition at line 15 of file parsevariable.\+c.
+
+\index{parsevariable.\+h@{parsevariable.\+h}!Mini\+Parse\+Func@{Mini\+Parse\+Func}}
+\index{Mini\+Parse\+Func@{Mini\+Parse\+Func}!parsevariable.\+h@{parsevariable.\+h}}
+\subsubsection[{\texorpdfstring{Mini\+Parse\+Func(entity\+\_\+t $\ast$ent, jsmntok\+\_\+t $\ast$token, char $\ast$str, Entity\+Members member, int size)}{MiniParseFunc(entity_t *ent, jsmntok_t *token, char *str, EntityMembers member, int size)}}]{\setlength{\rightskip}{0pt plus 5cm}void Mini\+Parse\+Func (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{ent, }
+\item[{{\bf jsmntok\+\_\+t} $\ast$}]{token, }
+\item[{char $\ast$}]{str, }
+\item[{{\bf Entity\+Members}}]{member, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{parsevariable_8h_a884bad6dac384af63e9becea40966bfb}{}\label{parsevariable_8h_a884bad6dac384af63e9becea40966bfb}
+Mini parse function, handles entering / converting the data into the entity given.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em ent} & If non-\/null, the ent. \\
+\hline
+\mbox{\tt in,out}  & {\em token} & If non-\/null, the token. \\
+\hline
+\mbox{\tt in,out}  & {\em str} & If non-\/null, the string. \\
+\hline
+ & {\em member} & The member. \\
+\hline
+ & {\em size} & The size.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 163 of file parsevariable.\+c.
+
+\index{parsevariable.\+h@{parsevariable.\+h}!Parse\+To\+Entity@{Parse\+To\+Entity}}
+\index{Parse\+To\+Entity@{Parse\+To\+Entity}!parsevariable.\+h@{parsevariable.\+h}}
+\subsubsection[{\texorpdfstring{Parse\+To\+Entity(object\+\_\+t $\ast$object, char $\ast$str)}{ParseToEntity(object_t *object, char *str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+t}$\ast$ Parse\+To\+Entity (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$}]{object, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\hypertarget{parsevariable_8h_ab44c577d09cbd67632c75301d846676e}{}\label{parsevariable_8h_ab44c577d09cbd67632c75301d846676e}
+Parse to entity. Tries to Assign everything , but the entity function pointers. Current \hyperlink{struct_frame}{Frame} = 0, Weight = 1
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em object} & If non-\/null, the object. \\
+\hline
+\mbox{\tt in,out}  & {\em str} & If non-\/null, the string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a pointer to an entity\+\_\+t.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/21/2016 
+\end{DoxyDate}
+
+
+Definition at line 50 of file parsevariable.\+c.
+
+\index{parsevariable.\+h@{parsevariable.\+h}!Parse\+To\+String\+Array@{Parse\+To\+String\+Array}}
+\index{Parse\+To\+String\+Array@{Parse\+To\+String\+Array}!parsevariable.\+h@{parsevariable.\+h}}
+\subsubsection[{\texorpdfstring{Parse\+To\+String\+Array(object\+\_\+t $\ast$object, char $\ast$str)}{ParseToStringArray(object_t *object, char *str)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ Parse\+To\+String\+Array (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$}]{object, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\hypertarget{parsevariable_8h_a090f6fa5f93d7a5becca914af766d1d8}{}\label{parsevariable_8h_a090f6fa5f93d7a5becca914af766d1d8}
+Parse obj/data to string array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em object} & If non-\/null, the object. \\
+\hline
+\mbox{\tt in,out}  & {\em str} & If non-\/null, the string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a handle to a char.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 254 of file parsevariable.\+c.
+
+\index{parsevariable.\+h@{parsevariable.\+h}!Parse\+To\+Vec2@{Parse\+To\+Vec2}}
+\index{Parse\+To\+Vec2@{Parse\+To\+Vec2}!parsevariable.\+h@{parsevariable.\+h}}
+\subsubsection[{\texorpdfstring{Parse\+To\+Vec2(object\+\_\+t $\ast$object, char $\ast$str)}{ParseToVec2(object_t *object, char *str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vec2\+\_\+t}$\ast$ Parse\+To\+Vec2 (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$}]{object, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\hypertarget{parsevariable_8h_aece06ba78503ca86b77daa6c0f64d01f}{}\label{parsevariable_8h_aece06ba78503ca86b77daa6c0f64d01f}
+Parse given obj/str to vector 2.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em object} & If non-\/null, the object. \\
+\hline
+\mbox{\tt in,out}  & {\em str} & If non-\/null, the string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a pointer to a vec2\+\_\+t.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+Definition at line 225 of file parsevariable.\+c.
+
+
+
+\subsection{Variable Documentation}
+\index{parsevariable.\+h@{parsevariable.\+h}!Assignable\+Variable\+Names@{Assignable\+Variable\+Names}}
+\index{Assignable\+Variable\+Names@{Assignable\+Variable\+Names}!parsevariable.\+h@{parsevariable.\+h}}
+\subsubsection[{\texorpdfstring{Assignable\+Variable\+Names}{AssignableVariableNames}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Assignable\+Variable\+Names\mbox{[}$\,$\mbox{]}}\hypertarget{parsevariable_8h_aa9cea9281b3ad2f4065f8765ff335241}{}\label{parsevariable_8h_aa9cea9281b3ad2f4065f8765ff335241}
+
+
+Definition at line 11 of file parsevariable.\+c.
+
+\index{parsevariable.\+h@{parsevariable.\+h}!Other\+Variable\+Names@{Other\+Variable\+Names}}
+\index{Other\+Variable\+Names@{Other\+Variable\+Names}!parsevariable.\+h@{parsevariable.\+h}}
+\subsubsection[{\texorpdfstring{Other\+Variable\+Names}{OtherVariableNames}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Other\+Variable\+Names\mbox{[}$\,$\mbox{]}}\hypertarget{parsevariable_8h_aa773235cab938d0b4234a5ffaca172f9}{}\label{parsevariable_8h_aa773235cab938d0b4234a5ffaca172f9}
+
+
+Definition at line 12 of file parsevariable.\+c.
+

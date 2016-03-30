@@ -35,7 +35,7 @@
 		"use-type" : "infinite",
 		"interaction" : "edit",
 		"target" : "self",
-		"velocity" : [0,5]
+		"velocity" : [0,-5]
 	},
 	
 	"OverPowered" :

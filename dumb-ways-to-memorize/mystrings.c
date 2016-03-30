@@ -187,16 +187,29 @@ void JsmnToInt(jsmntok_t* token, char* str, int* dst)
 
 int StrToInt(char* str)
 {
-	int i, retVal, length;
+	int i, retVal, length, neg;
 	if(str == NULL)
 	{
 		return 0;
 	}
 	length = strlen(str);
 	retVal = 0;
-	for(i = 0; i < length; i++)
+	neg = 0;
+	if(str[0] == '-')
+	{
+		i = 1;
+		neg = 1;
+	} else
+	{
+		i = 0;
+	}
+	for(i; i < length; i++)
 	{
 		retVal += CharToInt(str[i])*(powf( 10, (length-i-1) ) );
+	}
+	if(neg)
+	{
+		retVal *= -1;
 	}
 	return retVal;
 }

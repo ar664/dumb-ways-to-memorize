@@ -1,0 +1,233 @@
+\hypertarget{parsepowerup_8c}{}\section{dumb-\/ways-\/to-\/memorize/parsepowerup.c File Reference}
+\label{parsepowerup_8c}\index{dumb-\/ways-\/to-\/memorize/parsepowerup.\+c@{dumb-\/ways-\/to-\/memorize/parsepowerup.\+c}}
+{\ttfamily \#include \char`\"{}globals.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parsefunction.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parsepowerup.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parseobject.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}entity.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mystrings.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$jsmn.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}parsevariable.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{parsepowerup_8c_a289b46202a6f305acde1afc2d821207e}{Move} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$targ, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$info)
+\item 
+void \hyperlink{parsepowerup_8c_a6b34755eb80b623ca36505219d6e1012}{Destroy} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$targ, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$info)
+\item 
+void \hyperlink{parsepowerup_8c_a050ba84fee976778201dc7aff3e6ff41}{Spawn} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$targ, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$info)
+\item 
+void \hyperlink{parsepowerup_8c_a288e67be7e4235a802f8f0a779dfa68a}{Edit} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$targ, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$info)
+\item 
+void \hyperlink{parsepowerup_8c_abbf1dd6779e0cb88bade4a2dcbc06671}{Nullify} (\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$targ, \hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$info)
+\item 
+void \hyperlink{parsepowerup_8c_abfc420da26ddb1f9d592bf432644c94c}{Update\+Normal} (\hyperlink{parsepowerup_8h_a5b6034e874b6462f78a13c5202a4d2eb}{power\+\_\+t} $\ast$power)
+\item 
+void \hyperlink{parsepowerup_8c_a7ae6cede71041d57a4863372b0f2a43a}{Update\+Infinite} (\hyperlink{parsepowerup_8h_a5b6034e874b6462f78a13c5202a4d2eb}{power\+\_\+t} $\ast$power)
+\item 
+int \hyperlink{parsepowerup_8c_a5eacfd4521f47eb6ce756416ed91ffb4}{Get\+Use\+Type} (const char $\ast$var, int $\ast$use\+Type)
+\item 
+void \hyperlink{parsepowerup_8c_a4e4cd8f4b3499de1268fd7cf1ed0a790}{Call\+Info} (\hyperlink{parsepowerup_8h_a5b6034e874b6462f78a13c5202a4d2eb}{power\+\_\+t} $\ast$self)
+\item 
+\hyperlink{parsepowerup_8h_a5b6034e874b6462f78a13c5202a4d2eb}{power\+\_\+t} $\ast$ \hyperlink{parsepowerup_8c_a8d842ada05e7a3a934447d48af492f7f}{Parse\+To\+Power\+Up} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$power, char $\ast$g\+\_\+str)
+\item 
+\hyperlink{parsepowerup_8h_a5b6034e874b6462f78a13c5202a4d2eb}{power\+\_\+t} $\ast$ \hyperlink{parsepowerup_8c_a94356a5fdd8b29d6a5fa2b730266275e}{Find\+Power} (char $\ast$str)
+\item 
+void \hyperlink{parsepowerup_8c_a283d180401ea1bf0ee68755d094b275a}{Use\+Power} (\hyperlink{parsepowerup_8h_a5b6034e874b6462f78a13c5202a4d2eb}{power\+\_\+t} $\ast$power)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{parsepowerup_8c_a4df04830c86d6dcbd3ef4557df82d9bd}{Interaction\+Names} \mbox{[}$\,$\mbox{]} = \{\char`\"{}move\char`\"{}, \char`\"{}destroy\char`\"{}, \char`\"{}spawn\char`\"{}, \char`\"{}edit\char`\"{}, \char`\"{}nullify\char`\"{}, 0\}
+\item 
+void \hyperlink{parsepowerup_8c_ae5fb8c4f4ec5d863b1344f069b50d8c6}{Interaction\+Symbols} = \{\hyperlink{parsepowerup_8h_a289b46202a6f305acde1afc2d821207e}{Move}, \hyperlink{parsepowerup_8h_a6b34755eb80b623ca36505219d6e1012}{Destroy}, \hyperlink{parsepowerup_8h_a050ba84fee976778201dc7aff3e6ff41}{Spawn}, \hyperlink{parsepowerup_8h_a288e67be7e4235a802f8f0a779dfa68a}{Edit}, \hyperlink{parsepowerup_8h_abbf1dd6779e0cb88bade4a2dcbc06671}{Nullify}, 0\}
+\item 
+\hyperlink{parsepowerup_8h_a5b6034e874b6462f78a13c5202a4d2eb}{power\+\_\+t} $\ast$ \hyperlink{parsepowerup_8c_a90fefa2dda0184e13839a0b67950fc88}{g\+Current\+Power\+Up} = N\+U\+LL
+\item 
+\hyperlink{globals_8h_a773f2054819bb6014f1e50baa39cb5e3}{vec2\+\_\+t} $\ast$ \hyperlink{parsepowerup_8c_adfb61c9280504c470a83ce9da1384ae2}{mouse\+Pos} = N\+U\+LL
+\item 
+int $\ast$ \hyperlink{parsepowerup_8c_abf3c4f267001e0e0f3e5b748b3b1c5e5}{key\+Power} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Call\+Info@{Call\+Info}}
+\index{Call\+Info@{Call\+Info}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Call\+Info(power\+\_\+t $\ast$self)}{CallInfo(power_t *self)}}]{\setlength{\rightskip}{0pt plus 5cm}void Call\+Info (
+\begin{DoxyParamCaption}
+\item[{{\bf power\+\_\+t} $\ast$}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_a4e4cd8f4b3499de1268fd7cf1ed0a790}{}\label{parsepowerup_8c_a4e4cd8f4b3499de1268fd7cf1ed0a790}
+
+
+Definition at line 133 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Destroy(entity\+\_\+t $\ast$targ, entity\+\_\+t $\ast$info)}{Destroy(entity_t *targ, entity_t *info)}}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{targ, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_a6b34755eb80b623ca36505219d6e1012}{}\label{parsepowerup_8c_a6b34755eb80b623ca36505219d6e1012}
+
+
+Definition at line 32 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Edit@{Edit}}
+\index{Edit@{Edit}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Edit(entity\+\_\+t $\ast$targ, entity\+\_\+t $\ast$info)}{Edit(entity_t *targ, entity_t *info)}}]{\setlength{\rightskip}{0pt plus 5cm}void Edit (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{targ, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_a288e67be7e4235a802f8f0a779dfa68a}{}\label{parsepowerup_8c_a288e67be7e4235a802f8f0a779dfa68a}
+
+
+Definition at line 59 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Find\+Power@{Find\+Power}}
+\index{Find\+Power@{Find\+Power}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Find\+Power(char $\ast$str)}{FindPower(char *str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf power\+\_\+t}$\ast$ Find\+Power (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_a94356a5fdd8b29d6a5fa2b730266275e}{}\label{parsepowerup_8c_a94356a5fdd8b29d6a5fa2b730266275e}
+
+
+Definition at line 255 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Get\+Use\+Type@{Get\+Use\+Type}}
+\index{Get\+Use\+Type@{Get\+Use\+Type}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Get\+Use\+Type(const char $\ast$var, int $\ast$use\+Type)}{GetUseType(const char *var, int *useType)}}]{\setlength{\rightskip}{0pt plus 5cm}int Get\+Use\+Type (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{var, }
+\item[{int $\ast$}]{use\+Type}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_a5eacfd4521f47eb6ce756416ed91ffb4}{}\label{parsepowerup_8c_a5eacfd4521f47eb6ce756416ed91ffb4}
+
+
+Definition at line 115 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Move@{Move}}
+\index{Move@{Move}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Move(entity\+\_\+t $\ast$targ, entity\+\_\+t $\ast$info)}{Move(entity_t *targ, entity_t *info)}}]{\setlength{\rightskip}{0pt plus 5cm}void Move (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{targ, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_a289b46202a6f305acde1afc2d821207e}{}\label{parsepowerup_8c_a289b46202a6f305acde1afc2d821207e}
+
+
+Definition at line 20 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Nullify@{Nullify}}
+\index{Nullify@{Nullify}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Nullify(entity\+\_\+t $\ast$targ, entity\+\_\+t $\ast$info)}{Nullify(entity_t *targ, entity_t *info)}}]{\setlength{\rightskip}{0pt plus 5cm}void Nullify (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{targ, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_abbf1dd6779e0cb88bade4a2dcbc06671}{}\label{parsepowerup_8c_abbf1dd6779e0cb88bade4a2dcbc06671}
+
+
+Definition at line 81 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Parse\+To\+Power\+Up@{Parse\+To\+Power\+Up}}
+\index{Parse\+To\+Power\+Up@{Parse\+To\+Power\+Up}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Parse\+To\+Power\+Up(object\+\_\+t $\ast$power, char $\ast$g\+\_\+str)}{ParseToPowerUp(object_t *power, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf power\+\_\+t}$\ast$ Parse\+To\+Power\+Up (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$}]{power, }
+\item[{char $\ast$}]{g\+\_\+str}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_a8d842ada05e7a3a934447d48af492f7f}{}\label{parsepowerup_8c_a8d842ada05e7a3a934447d48af492f7f}
+
+
+Definition at line 148 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Spawn@{Spawn}}
+\index{Spawn@{Spawn}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Spawn(entity\+\_\+t $\ast$targ, entity\+\_\+t $\ast$info)}{Spawn(entity_t *targ, entity_t *info)}}]{\setlength{\rightskip}{0pt plus 5cm}void Spawn (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\+\_\+t} $\ast$}]{targ, }
+\item[{{\bf entity\+\_\+t} $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_a050ba84fee976778201dc7aff3e6ff41}{}\label{parsepowerup_8c_a050ba84fee976778201dc7aff3e6ff41}
+
+
+Definition at line 41 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Update\+Infinite@{Update\+Infinite}}
+\index{Update\+Infinite@{Update\+Infinite}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Update\+Infinite(power\+\_\+t $\ast$power)}{UpdateInfinite(power_t *power)}}]{\setlength{\rightskip}{0pt plus 5cm}void Update\+Infinite (
+\begin{DoxyParamCaption}
+\item[{{\bf power\+\_\+t} $\ast$}]{power}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_a7ae6cede71041d57a4863372b0f2a43a}{}\label{parsepowerup_8c_a7ae6cede71041d57a4863372b0f2a43a}
+
+
+Definition at line 110 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Update\+Normal@{Update\+Normal}}
+\index{Update\+Normal@{Update\+Normal}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Update\+Normal(power\+\_\+t $\ast$power)}{UpdateNormal(power_t *power)}}]{\setlength{\rightskip}{0pt plus 5cm}void Update\+Normal (
+\begin{DoxyParamCaption}
+\item[{{\bf power\+\_\+t} $\ast$}]{power}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_abfc420da26ddb1f9d592bf432644c94c}{}\label{parsepowerup_8c_abfc420da26ddb1f9d592bf432644c94c}
+
+
+Definition at line 90 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Use\+Power@{Use\+Power}}
+\index{Use\+Power@{Use\+Power}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Use\+Power(power\+\_\+t $\ast$power)}{UsePower(power_t *power)}}]{\setlength{\rightskip}{0pt plus 5cm}void Use\+Power (
+\begin{DoxyParamCaption}
+\item[{{\bf power\+\_\+t} $\ast$}]{power}
+\end{DoxyParamCaption}
+)}\hypertarget{parsepowerup_8c_a283d180401ea1bf0ee68755d094b275a}{}\label{parsepowerup_8c_a283d180401ea1bf0ee68755d094b275a}
+
+
+Definition at line 276 of file parsepowerup.\+c.
+
+
+
+\subsection{Variable Documentation}
+\index{parsepowerup.\+c@{parsepowerup.\+c}!g\+Current\+Power\+Up@{g\+Current\+Power\+Up}}
+\index{g\+Current\+Power\+Up@{g\+Current\+Power\+Up}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{g\+Current\+Power\+Up}{gCurrentPowerUp}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf power\+\_\+t}$\ast$ g\+Current\+Power\+Up = N\+U\+LL}\hypertarget{parsepowerup_8c_a90fefa2dda0184e13839a0b67950fc88}{}\label{parsepowerup_8c_a90fefa2dda0184e13839a0b67950fc88}
+
+
+Definition at line 16 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Interaction\+Names@{Interaction\+Names}}
+\index{Interaction\+Names@{Interaction\+Names}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Interaction\+Names}{InteractionNames}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Interaction\+Names\mbox{[}$\,$\mbox{]} = \{\char`\"{}move\char`\"{}, \char`\"{}destroy\char`\"{}, \char`\"{}spawn\char`\"{}, \char`\"{}edit\char`\"{}, \char`\"{}nullify\char`\"{}, 0\}}\hypertarget{parsepowerup_8c_a4df04830c86d6dcbd3ef4557df82d9bd}{}\label{parsepowerup_8c_a4df04830c86d6dcbd3ef4557df82d9bd}
+
+
+Definition at line 13 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!Interaction\+Symbols@{Interaction\+Symbols}}
+\index{Interaction\+Symbols@{Interaction\+Symbols}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{Interaction\+Symbols}{InteractionSymbols}}]{\setlength{\rightskip}{0pt plus 5cm}void Interaction\+Symbols = \{{\bf Move}, {\bf Destroy}, {\bf Spawn}, {\bf Edit}, {\bf Nullify}, 0\}}\hypertarget{parsepowerup_8c_ae5fb8c4f4ec5d863b1344f069b50d8c6}{}\label{parsepowerup_8c_ae5fb8c4f4ec5d863b1344f069b50d8c6}
+
+
+Definition at line 14 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!key\+Power@{key\+Power}}
+\index{key\+Power@{key\+Power}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{key\+Power}{keyPower}}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ key\+Power = N\+U\+LL}\hypertarget{parsepowerup_8c_abf3c4f267001e0e0f3e5b748b3b1c5e5}{}\label{parsepowerup_8c_abf3c4f267001e0e0f3e5b748b3b1c5e5}
+
+
+Definition at line 18 of file parsepowerup.\+c.
+
+\index{parsepowerup.\+c@{parsepowerup.\+c}!mouse\+Pos@{mouse\+Pos}}
+\index{mouse\+Pos@{mouse\+Pos}!parsepowerup.\+c@{parsepowerup.\+c}}
+\subsubsection[{\texorpdfstring{mouse\+Pos}{mousePos}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vec2\+\_\+t}$\ast$ mouse\+Pos = N\+U\+LL}\hypertarget{parsepowerup_8c_adfb61c9280504c470a83ce9da1384ae2}{}\label{parsepowerup_8c_adfb61c9280504c470a83ce9da1384ae2}
+
+
+Definition at line 17 of file parsepowerup.\+c.
+
