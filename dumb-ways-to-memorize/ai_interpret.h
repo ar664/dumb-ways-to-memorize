@@ -34,6 +34,10 @@ extern char *gAI_Conditions[];
 #define AI_LINK_ACTION			"link_action"
 #define AI_LINK_AI				"link_ai"
 
+#define AI_BASE_JUMP			-5
+#define AI_BASE_SPEED			1
+#define AI_BASE_THINK_FRAMES	1
+#define AI_BASE_DAMAGE			5
 
 typedef enum
 {

@@ -2,6 +2,7 @@
 #include "quick_controller.h"
 #include "entity.h"
 #include "parsepowerup.h"
+#include "player.h"
 
 /**
  * Executes the player think operation for player input.
@@ -22,7 +23,7 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 		{
 			if(ent->mVelocity.y == 0)
 			{
-				ent->mVelocity.y += -5;
+				ent->mVelocity.y += PLAYER_BASE_JUMP;
 				ent->mAnimation = ANIMATION_JUMP >= CountMem(ent->mSprites, sizeof(sprite_t*)) ? NULL : ent->mSprites[ANIMATION_JUMP];
 			}
 			
@@ -35,14 +36,14 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 		}
 	case(SDL_CONTROLLER_BUTTON_DPAD_LEFT):
 		{
-			ent->mVelocity.x -= 5;
+			ent->mVelocity.x -= PLAYER_BASE_SPEED;
 			ent->mAnimation = ANIMATION_WALK >= CountMem(ent->mSprites, sizeof(sprite_t*)) ? NULL : ent->mSprites[ANIMATION_WALK];
 			ent->mDirection = ENTITY_DIR_LEFT;
 			break;
 		}
 	case(SDL_CONTROLLER_BUTTON_DPAD_RIGHT):
 		{
-			ent->mVelocity.x += 5;
+			ent->mVelocity.x += PLAYER_BASE_SPEED;
 			ent->mAnimation = ANIMATION_WALK >= CountMem(ent->mSprites, sizeof(sprite_t*)) ? NULL : ent->mSprites[ANIMATION_WALK];;
 			ent->mDirection = ENTITY_DIR_RIGHT;
 			break;

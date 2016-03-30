@@ -11,7 +11,11 @@ int gPlayerLives = 0;
 
 void InitPlayer()
 {
-	gPlayer = InitNewEntity();
+	if(!gPlayer)
+	{
+		gPlayer = InitNewEntity();
+	}
+
 	if(!gPlayer)
 	{
 		printf("Could not Init Player");
@@ -19,14 +23,18 @@ void InitPlayer()
 		return;
 	}
 	memcpy(gPlayer,FindCachedEntity("Player"), sizeof(entity_t));
-	gPlayerLives = PLAYER_LIVES;
+	if(!gPlayerLives)
+	{
+		PLAYER_LIVES;
+	}
 	gPlayer->Draw = DrawGeneric;
 	gPlayer->Think = ThinkPlayer;
 	gPlayer->Touch = TouchPlayer;
 	gPlayer->PowerUp = gPowerUps ? UsePower : NULL;
 	gPlayer->mPosition = gCurrentLevel ? gCurrentLevel->mSpawnPoint : gZeroPos;
-	gPlayer->mHealth = 10000000;
+	gPlayer->mHealth = 100;
 	gPlayer->mWeight = 1;
+	gPlayer->mNextThink = gCurrentTime + 2*FRAME_DELAY;
 }
 
 entity_t *GetPlayer()

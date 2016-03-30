@@ -7,6 +7,7 @@
 #include <string.h>
 #include "parsepowerup.h"
 #include "parselevel.h"
+#include "player.h"
 
 menu_t *gMenus = NULL;
 int gCurrentSelectedItem = 0;
@@ -219,6 +220,16 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 	}
 }
 
+/**
+ * Updates the power select menu, sets current powerup of the player.
+ *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
+ * @param	button			The button.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+
 void UpdatePowerSelectMenu(menu_t* self, SDL_GameControllerButton button)
 {
 	int i, powerUps, usedPower = 1;
@@ -268,8 +279,13 @@ void UpdatePowerSelectMenu(menu_t* self, SDL_GameControllerButton button)
 				{
 					gCurrentPowerUpName = self->mSelectedItem[i].Name;
 					gCurrentPowerUp = FindPower(gCurrentPowerUpName);
+					
 					LoadSelectedLevel(i);
 					gGameState = self->mSelectedItem[i].NextState;
+					if(gGameState == PLAYING)
+					{
+						InitPlayer();
+					}
 				}
 			}
 		}

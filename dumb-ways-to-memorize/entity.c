@@ -70,7 +70,7 @@ void ThinkGeneric(entity_t *self)
 		self->Think = FreeEntity;
 	}
 
-	self->mNextThink = gCurrentTime + 1*FRAME_DELAY;
+	self->mNextThink = gCurrentTime + 2*FRAME_DELAY;
 }
 
 /**
@@ -101,17 +101,14 @@ void ThinkPlayer(entity_t *self)
 	{
 		if(gPlayerLives < 0)
 		{
-			
+			printf("You died, Game over. Start a new game");
 			FreeEntity(gPlayer);
-			InitPlayer();
 			gPlayerLives = PLAYER_LIVES;
 			FreeNonPlayerEntities();
 			gGameState = START;
 		} else
 		{
-			FreeEntity(gPlayer);
-			InitPlayer();
-			gPlayer->mPosition = gCurrentLevel->mSpawnPoint;
+			printf("You died, select your powerups again \n");
 			gPlayerLives--;
 			gGameState = GUESS;
 		}
@@ -385,9 +382,8 @@ void RunEntities()
 		{
 			continue;  
 		}
-		if( (gCurrentTime - gEntities[i].mNextThink) > 0)
+		if( gCurrentTime > gEntities[i].mNextThink)
 		{
-			gEntities[i].mNextThink = 0;
 			gEntities[i].Think(&gEntities[i]);
 		}
 	}

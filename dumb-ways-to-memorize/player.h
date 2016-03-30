@@ -4,6 +4,9 @@
 #include "entity.h"
 #define PLAYER_NAME "Player1"
 #define PLAYER_LIVES 3
+#define PLAYER_BASE_JUMP	-5
+#define PLAYER_BASE_SPEED	5
+
 
 void InitPlayer();
 entity_t *GetPlayer();

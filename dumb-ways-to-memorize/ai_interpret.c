@@ -554,7 +554,7 @@ void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 	{
 		if(!data_str)
 		{
-			function->mVariables[AI_VAR_SPEED] = 1;
+			function->mVariables[AI_VAR_SPEED] = AI_BASE_SPEED;
 		} else
 		{
 			function->mVariables[AI_VAR_SPEED] = StrToInt(data_str);
@@ -564,7 +564,7 @@ void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 	{
 		if(!data_str)
 		{
-			function->mVariables[AI_VAR_FRAMES] = 1;
+			function->mVariables[AI_VAR_FRAMES] = AI_BASE_THINK_FRAMES;
 		} else
 		{
 			function->mVariables[AI_VAR_FRAMES] = StrToInt(data_str);
@@ -584,7 +584,7 @@ void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 	{
 		if(!data_str)
 		{
-			function->mVariables[AI_VAR_DAMAGE] = 1;
+			function->mVariables[AI_VAR_DAMAGE] = AI_BASE_DAMAGE;
 		} else
 		{
 			function->mVariables[AI_VAR_DAMAGE] = StrToInt(data_str);
@@ -662,7 +662,7 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 		if(!obj)
 		{
 			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = -3;
+			function->mVariables[AI_VAR_DIR_Y] = AI_BASE_JUMP;
 			
 		} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
 		{
@@ -671,7 +671,7 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 		} else
 		{
 			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = -3;
+			function->mVariables[AI_VAR_DIR_Y] = AI_BASE_JUMP;
 		}
 
 		function->mAction = AI_ACTION_JUMP;
