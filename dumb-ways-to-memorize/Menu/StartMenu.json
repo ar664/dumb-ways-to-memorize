@@ -1,21 +1,21 @@
 {
-	"Background": "Sprite/Level/Background.png",
+	"Background": "Sprite/Level/Dumb_Background.png",
 	"Type" : "vertical",
 	"link" : "Start",
 	"Test-Position" : [ [0,0], [1,1] ],
 	"Items" : [
 		{
-			"sprite" : "Sprite/Level/Background.png",
+			"sprite" : "Sprite/UI/Dumb_UI_Start.png",
 			"text" : "Start",
 			"link" : "Guess"
 		},
 		{
-			"sprite" : "Sprite/Level/Background.png",
+			"sprite" : "Sprite/UI/Dumb_UI_Options.png",
 			"text" : "Options",
 			"link" : "Splash"
 		},
 		{
-			"sprite" : "Sprite/Level/Background.png",
+			"sprite" : "Sprite/Power/Dumb_Power_Destroy_All.png",
 			"text" : "End",
 			"link" : "End"
 		}

@@ -7,27 +7,27 @@
 	"Items" : [
 	{
 		"extra" : "Teleport",
-		"sprite" : "Sprite/Level/Background.png"
+		"sprite" : "Sprite/Power/Dumb_Power_Teleport.png"
 	},
 	
 	{
 		"extra" : "Fireball",
-		"sprite" : "Sprite/Level/Background.png"
+		"sprite" : "Sprite/UI/Dumb_UI_Options.png"
 	},
 	
 	{
 		"extra" : "Telekenisis",
-		"sprite" : "Sprite/Level/Background.png"
+		"sprite" : "Sprite/Power/Dumb_Power_Telekenisis.png"
 	},
 	
 	{
 		"extra" : "Flight",
-		"sprite" : "Sprite/Level/Background.png"
+		"sprite" : "Sprite/Power/Dumb_Power_Flight.png"
 	},
 	
 	{
 		"extra" : "OverPowered",
-		"sprite" : "Sprite/Level/Background.png"
+		"sprite" : "Sprite/Power/Dumb_Power_Destroy_All.png"
 	},
 	
 	{
