@@ -279,7 +279,17 @@ void UsePower(power_t* power)
 	{
 		return;
 	}
-	power->UpdateInput(power);
-	power->UpdateUse(power);
-	power->DoPower(power->target, power->info);
+	if(power->UpdateInput)
+	{
+		power->UpdateInput(power);
+	}
+	if(power->UpdateUse)
+	{
+		power->UpdateUse(power);
+	}
+	if(power->DoPower)
+	{
+		power->DoPower(power->target, power->info);
+	}
+	
 }

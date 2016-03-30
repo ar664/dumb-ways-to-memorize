@@ -6,6 +6,7 @@
 #include <math.h>
 #include "player.h"
 #include "parselevel.h"
+#include "parsepowerup.h"
 
 entity_t *gEntities = NULL;
 int gLastEntity = 0;
@@ -95,8 +96,18 @@ void ThinkPlayer(entity_t *self)
 	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_DPAD_RIGHT))
 	{
 		DoPlayerThink(self, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
+	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_B))
+	{
+		if(gCurrentPowerUp)
+		{
+			//If infinite use
+			if(!gCurrentPowerUp->UpdateUse)
+			{
+				self->PowerUp(gCurrentPowerUp);
+			}
+		}
 	}
-	self->mNextThink = gCurrentTime + 1*FRAME_DELAY;
+	self->mNextThink = gCurrentTime + 1; //Player always thinks
 	if(self->mHealth < 0)
 	{
 		if(gPlayerLives < 0)

@@ -174,6 +174,7 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 			{
 				powerUps = CountMem(gPowerUps, sizeof(power_t));
 				gSelectedPowerUps = (char**) malloc(sizeof(char*)*(powerUps+1));
+				memset(gSelectedPowerUps, 0, sizeof(char*)*(powerUps+1));
 				selected_power_ups = 0;
 				for(i = 0; i < powerUps; i++)
 				{
