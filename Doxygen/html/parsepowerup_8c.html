@@ -122,9 +122,7 @@ $(document).ready(function(){initNavTree('parsepowerup_8c.html','');});
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="parsevariable_8h_source.html">parsevariable.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
-</div>
-<p><a href="parsepowerup_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a289b46202a6f305acde1afc2d821207e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsepowerup_8c.html#a289b46202a6f305acde1afc2d821207e">Move</a> (<a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a> *targ, <a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a> *info)</td></tr>
@@ -179,8 +177,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00133">133</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Call information functions for the power_up.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">self</td><td>If non-null, the class instance that this method operates on.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -207,8 +212,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00032">32</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Destroys target.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">targ</td><td>If non-null, the targ. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">info</td><td>If non-null, the information.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -235,8 +248,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00059">59</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Edits the target with values from info.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">targ</td><td>If non-null, the targ. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">info</td><td>If non-null, the information.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -253,8 +274,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00255">255</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Searches for the first power with matching name str.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">str</td><td>If non-null, the string.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>null if it fails, else the found power.</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -281,8 +310,17 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00115">115</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Gets the usetype from var, and puts it in useType.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">var</td><td>The variable. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">useType</td><td>If non-null, type of the use.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The use type.</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -309,8 +347,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00020">20</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Moves the target to position given by info.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">targ</td><td>If non-null, the targ. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">info</td><td>If non-null, the information.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -337,8 +383,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00081">81</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Nullifies the entity by removing the think function of targ.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">targ</td><td>If non-null, the targ. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">info</td><td>If non-null, the information.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -356,7 +410,7 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>g_str</em>&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -365,8 +419,17 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00148">148</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Parses object/str data to a power up.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">power</td><td>If non-null, the power. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">str</td><td>If non-null, the string.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>null if it fails, else a pointer to a power_t.</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -393,8 +456,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00041">41</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Spawns entity from info to position of targ.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">targ</td><td>If non-null, the targ. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">info</td><td>If non-null, the information.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -411,8 +482,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00110">110</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Updates an infinite use power_up</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">power</td><td>If non-null, the power.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -429,8 +507,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00090">90</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Updates a normal use power_up, with uses &gt; 0.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">power</td><td>If non-null, the power.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -447,8 +532,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00276">276</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>Uses the power, more like a macro then anything.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">power</td><td>If non-null, the power.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -462,8 +554,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00016">16</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>The currently loaded power_up </p>
 
 </div>
 </div>
@@ -476,8 +567,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00013">13</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>The interaction names, which deal with what function power does </p>
 
 </div>
 </div>
@@ -490,8 +580,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00014">14</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>The interaction symbol for the functions </p>
 
 </div>
 </div>
@@ -504,8 +593,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00018">18</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>The key press related to using the power </p>
 
 </div>
 </div>
@@ -518,8 +606,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parsepowerup_8c_source.html#l00017">17</a> of file <a class="el" href="parsepowerup_8c_source.html">parsepowerup.c</a>.</p>
+<p>The mouse position </p>
 
 </div>
 </div>

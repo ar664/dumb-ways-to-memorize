@@ -1,0 +1,284 @@
+\hypertarget{menu_8h}{}\section{dumb-\/ways-\/to-\/memorize/menu.h File Reference}
+\label{menu_8h}\index{dumb-\/ways-\/to-\/memorize/menu.\+h@{dumb-\/ways-\/to-\/memorize/menu.\+h}}
+{\ttfamily \#include \char`\"{}globals.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}graphics.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parseobject.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmenu__item__s}{menu\+\_\+item\+\_\+s}
+\item 
+struct \hyperlink{structmenu__s}{menu\+\_\+s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{menu_8h_ab4ca22b3abeffba22f56886bbb39c0f9}{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+M\+AX}~20
+\item 
+\#define \hyperlink{menu_8h_ab2b40834d297a20af015b5c3b13e31e4}{M\+A\+X\+\_\+\+M\+E\+N\+US}~10
+\item 
+\#define \hyperlink{menu_8h_a61e9cfe2e8569082ec57ba6a7c3e7cbe}{M\+E\+N\+U\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+ND}~\char`\"{}Background\char`\"{}
+\item 
+\#define \hyperlink{menu_8h_a9d4a2080871448b284a8449cd899898f}{M\+E\+N\+U\+\_\+\+I\+T\+E\+MS}~\char`\"{}Items\char`\"{}
+\item 
+\#define \hyperlink{menu_8h_aa9ede24621a515a557d60a374f4dff6a}{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+S\+P\+R\+I\+TE}~\char`\"{}sprite\char`\"{}
+\item 
+\#define \hyperlink{menu_8h_a4b6cafdbf81fcaff2646bea1c99cdc33}{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+T\+E\+XT}~\char`\"{}text\char`\"{}
+\item 
+\#define \hyperlink{menu_8h_aa17ff70e4da81270ffeab1dcb19cacb6}{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+L\+I\+NK}~\char`\"{}link\char`\"{}
+\item 
+\#define \hyperlink{menu_8h_a31141b0e1ee4f4ab9f3f64e7ed63a6e9}{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+E\+X\+T\+RA}~\char`\"{}extra\char`\"{}
+\item 
+\#define \hyperlink{menu_8h_a7608eabfc6ac732a60c62ec331346032}{M\+E\+N\+U\+\_\+\+T\+Y\+PE}~\char`\"{}Type\char`\"{}
+\item 
+\#define \hyperlink{menu_8h_a184f67b2269e942df91f4cc4ef314b77}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+P\+O\+W\+ER}~\char`\"{}power\+\_\+select\char`\"{}
+\item 
+\#define \hyperlink{menu_8h_a14d7adc2f2315acd3a25c75f0df1b00a}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+C\+H\+O\+O\+SE}~\char`\"{}choose\+\_\+power\char`\"{}
+\item 
+\#define \hyperlink{menu_8h_ad93a7e08ccb25a8e9d9ff257c6d00d7f}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+H}~\char`\"{}horizontal\char`\"{}
+\item 
+\#define \hyperlink{menu_8h_a6e3272cde8626b4dbe6fb12af2a4fec8}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+V}~\char`\"{}vertical\char`\"{}
+\item 
+\#define \hyperlink{menu_8h_af1d21de0fd729ce50359d39fc89b84bf}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+G\+R\+ID}~\char`\"{}grid\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structmenu__item__s}{menu\+\_\+item\+\_\+s} \hyperlink{menu_8h_affefd3de0ee32201a1e405b126d4a8dd}{menu\+\_\+item\+\_\+t}
+\item 
+typedef struct \hyperlink{structmenu__s}{menu\+\_\+s} \hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{menu_8h_ae04d0184eeca6be261090a6cfc49b92e}{menu\+\_\+type\+\_\+t} \{ \\*
+\hyperlink{menu_8h_ae04d0184eeca6be261090a6cfc49b92ea40eba317709e6fb74680ab0be4506ff5}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+LL} = 0x0, 
+\hyperlink{menu_8h_ae04d0184eeca6be261090a6cfc49b92ea44093eb84c021250710c21d7040742c9}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+H} = 0x1, 
+\hyperlink{menu_8h_ae04d0184eeca6be261090a6cfc49b92eae51e962ec8beccece27215c15adcead4}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+V} = 0x2, 
+\hyperlink{menu_8h_ae04d0184eeca6be261090a6cfc49b92eadf5c230f1c0e9ba8cb94248e675e520c}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+G\+R\+ID} = 0x4, 
+\\*
+\hyperlink{menu_8h_ae04d0184eeca6be261090a6cfc49b92eaed4cdae7debfa0f072aed36802897c8d}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+O\+W\+ER} = 0x8, 
+\hyperlink{menu_8h_ae04d0184eeca6be261090a6cfc49b92eaf382d35204a24dfcc899f49a21d6180a}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+H\+O\+O\+SE} = 0x10, 
+\hyperlink{menu_8h_ae04d0184eeca6be261090a6cfc49b92ea029b59e4df4e951f090850a0f1e6800b}{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+AX} = 0x20
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{menu_8h_a1c427a4122a85bc392880fdcf2a843ce}{Init\+Menu\+System} ()
+\item 
+\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t} $\ast$ \hyperlink{menu_8h_a6f4a9eb4cd081c5b7a3e5e0475ed8437}{Load\+Menu} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$object, char $\ast$g\+\_\+str, \hyperlink{globals_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State} curr\+\_\+state, \hyperlink{globals_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State} previous\+\_\+state)
+\item 
+\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t} $\ast$ \hyperlink{menu_8h_a9cd9b0277a6a4e88c4c065e0efeb6192}{Find\+Menu\+From\+Game\+State} (\hyperlink{globals_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State} curr\+\_\+state)
+\item 
+\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t} $\ast$ \hyperlink{menu_8h_a7cb8c357e2b15b9a01f236ff19382427}{Find\+Free\+Menu} ()
+\item 
+\hyperlink{menu_8h_affefd3de0ee32201a1e405b126d4a8dd}{menu\+\_\+item\+\_\+t} $\ast$ \hyperlink{menu_8h_af50d4e67c36ed63b1b84befc82d8ac8a}{Find\+Menu\+Item} (\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t} $\ast$menu, char $\ast$item)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t} $\ast$ \hyperlink{menu_8h_ac9844c472d09220d402c191e16f6474e}{g\+Menus}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{menu.\+h@{menu.\+h}!M\+A\+X\+\_\+\+M\+E\+N\+US@{M\+A\+X\+\_\+\+M\+E\+N\+US}}
+\index{M\+A\+X\+\_\+\+M\+E\+N\+US@{M\+A\+X\+\_\+\+M\+E\+N\+US}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+M\+E\+N\+US}{MAX_MENUS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+M\+E\+N\+US~10}\hypertarget{menu_8h_ab2b40834d297a20af015b5c3b13e31e4}{}\label{menu_8h_ab2b40834d297a20af015b5c3b13e31e4}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+ND@{M\+E\+N\+U\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+ND}}
+\index{M\+E\+N\+U\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+ND@{M\+E\+N\+U\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+ND}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+ND}{MENU_BACKGROUND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+ND~\char`\"{}Background\char`\"{}}\hypertarget{menu_8h_a61e9cfe2e8569082ec57ba6a7c3e7cbe}{}\label{menu_8h_a61e9cfe2e8569082ec57ba6a7c3e7cbe}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+E\+X\+T\+RA@{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+E\+X\+T\+RA}}
+\index{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+E\+X\+T\+RA@{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+E\+X\+T\+RA}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+E\+X\+T\+RA}{MENU_ITEM_EXTRA}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+E\+X\+T\+RA~\char`\"{}extra\char`\"{}}\hypertarget{menu_8h_a31141b0e1ee4f4ab9f3f64e7ed63a6e9}{}\label{menu_8h_a31141b0e1ee4f4ab9f3f64e7ed63a6e9}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+L\+I\+NK@{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+L\+I\+NK}}
+\index{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+L\+I\+NK@{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+L\+I\+NK}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+L\+I\+NK}{MENU_ITEM_LINK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+L\+I\+NK~\char`\"{}link\char`\"{}}\hypertarget{menu_8h_aa17ff70e4da81270ffeab1dcb19cacb6}{}\label{menu_8h_aa17ff70e4da81270ffeab1dcb19cacb6}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+M\+AX@{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+M\+AX}}
+\index{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+M\+AX@{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+M\+AX}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+M\+AX}{MENU_ITEM_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+M\+AX~20}\hypertarget{menu_8h_ab4ca22b3abeffba22f56886bbb39c0f9}{}\label{menu_8h_ab4ca22b3abeffba22f56886bbb39c0f9}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+S\+P\+R\+I\+TE@{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+S\+P\+R\+I\+TE}}
+\index{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+S\+P\+R\+I\+TE@{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+S\+P\+R\+I\+TE}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+S\+P\+R\+I\+TE}{MENU_ITEM_SPRITE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+S\+P\+R\+I\+TE~\char`\"{}sprite\char`\"{}}\hypertarget{menu_8h_aa9ede24621a515a557d60a374f4dff6a}{}\label{menu_8h_aa9ede24621a515a557d60a374f4dff6a}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+T\+E\+XT@{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+T\+E\+XT}}
+\index{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+T\+E\+XT@{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+T\+E\+XT}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+T\+E\+XT}{MENU_ITEM_TEXT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+I\+T\+E\+M\+\_\+\+T\+E\+XT~\char`\"{}text\char`\"{}}\hypertarget{menu_8h_a4b6cafdbf81fcaff2646bea1c99cdc33}{}\label{menu_8h_a4b6cafdbf81fcaff2646bea1c99cdc33}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+I\+T\+E\+MS@{M\+E\+N\+U\+\_\+\+I\+T\+E\+MS}}
+\index{M\+E\+N\+U\+\_\+\+I\+T\+E\+MS@{M\+E\+N\+U\+\_\+\+I\+T\+E\+MS}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+I\+T\+E\+MS}{MENU_ITEMS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+I\+T\+E\+MS~\char`\"{}Items\char`\"{}}\hypertarget{menu_8h_a9d4a2080871448b284a8449cd899898f}{}\label{menu_8h_a9d4a2080871448b284a8449cd899898f}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+PE@{M\+E\+N\+U\+\_\+\+T\+Y\+PE}}
+\index{M\+E\+N\+U\+\_\+\+T\+Y\+PE@{M\+E\+N\+U\+\_\+\+T\+Y\+PE}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+T\+Y\+PE}{MENU_TYPE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+T\+Y\+PE~\char`\"{}Type\char`\"{}}\hypertarget{menu_8h_a7608eabfc6ac732a60c62ec331346032}{}\label{menu_8h_a7608eabfc6ac732a60c62ec331346032}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+C\+H\+O\+O\+SE@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+C\+H\+O\+O\+SE}}
+\index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+C\+H\+O\+O\+SE@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+C\+H\+O\+O\+SE}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+C\+H\+O\+O\+SE}{MENU_TYPE_STR_CHOOSE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+C\+H\+O\+O\+SE~\char`\"{}choose\+\_\+power\char`\"{}}\hypertarget{menu_8h_a14d7adc2f2315acd3a25c75f0df1b00a}{}\label{menu_8h_a14d7adc2f2315acd3a25c75f0df1b00a}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+G\+R\+ID@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+G\+R\+ID}}
+\index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+G\+R\+ID@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+G\+R\+ID}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+G\+R\+ID}{MENU_TYPE_STR_GRID}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+G\+R\+ID~\char`\"{}grid\char`\"{}}\hypertarget{menu_8h_af1d21de0fd729ce50359d39fc89b84bf}{}\label{menu_8h_af1d21de0fd729ce50359d39fc89b84bf}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+H@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+H}}
+\index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+H@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+H}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+H}{MENU_TYPE_STR_H}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+H~\char`\"{}horizontal\char`\"{}}\hypertarget{menu_8h_ad93a7e08ccb25a8e9d9ff257c6d00d7f}{}\label{menu_8h_ad93a7e08ccb25a8e9d9ff257c6d00d7f}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+P\+O\+W\+ER@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+P\+O\+W\+ER}}
+\index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+P\+O\+W\+ER@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+P\+O\+W\+ER}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+P\+O\+W\+ER}{MENU_TYPE_STR_POWER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+\+P\+O\+W\+ER~\char`\"{}power\+\_\+select\char`\"{}}\hypertarget{menu_8h_a184f67b2269e942df91f4cc4ef314b77}{}\label{menu_8h_a184f67b2269e942df91f4cc4ef314b77}
+\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+V@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+V}}
+\index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+V@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+V}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+V}{MENU_TYPE_STR_V}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+\_\+V~\char`\"{}vertical\char`\"{}}\hypertarget{menu_8h_a6e3272cde8626b4dbe6fb12af2a4fec8}{}\label{menu_8h_a6e3272cde8626b4dbe6fb12af2a4fec8}
+
+
+\subsection{Typedef Documentation}
+\index{menu.\+h@{menu.\+h}!menu\+\_\+item\+\_\+t@{menu\+\_\+item\+\_\+t}}
+\index{menu\+\_\+item\+\_\+t@{menu\+\_\+item\+\_\+t}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{menu\+\_\+item\+\_\+t}{menu_item_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf menu\+\_\+item\+\_\+s} {\bf menu\+\_\+item\+\_\+t}}\hypertarget{menu_8h_affefd3de0ee32201a1e405b126d4a8dd}{}\label{menu_8h_affefd3de0ee32201a1e405b126d4a8dd}
+\index{menu.\+h@{menu.\+h}!menu\+\_\+t@{menu\+\_\+t}}
+\index{menu\+\_\+t@{menu\+\_\+t}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{menu\+\_\+t}{menu_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf menu\+\_\+s} {\bf menu\+\_\+t}}\hypertarget{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{}\label{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}
+
+
+\subsection{Enumeration Type Documentation}
+\index{menu.\+h@{menu.\+h}!menu\+\_\+type\+\_\+t@{menu\+\_\+type\+\_\+t}}
+\index{menu\+\_\+type\+\_\+t@{menu\+\_\+type\+\_\+t}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{menu\+\_\+type\+\_\+t}{menu_type_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf menu\+\_\+type\+\_\+t}}\hypertarget{menu_8h_ae04d0184eeca6be261090a6cfc49b92e}{}\label{menu_8h_ae04d0184eeca6be261090a6cfc49b92e}
+Defines the enum for what type of menu it is \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+LL@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+LL}!menu.\+h@{menu.\+h}}\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+LL@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+LL}}\item[{\em 
+M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+LL\hypertarget{menu_8h_ae04d0184eeca6be261090a6cfc49b92ea40eba317709e6fb74680ab0be4506ff5}{}\label{menu_8h_ae04d0184eeca6be261090a6cfc49b92ea40eba317709e6fb74680ab0be4506ff5}
+}]\index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+H@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+H}!menu.\+h@{menu.\+h}}\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+H@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+H}}\item[{\em 
+M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+H\hypertarget{menu_8h_ae04d0184eeca6be261090a6cfc49b92ea44093eb84c021250710c21d7040742c9}{}\label{menu_8h_ae04d0184eeca6be261090a6cfc49b92ea44093eb84c021250710c21d7040742c9}
+}]An enum constant representing the menu type -\/ horizontal \index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+V@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+V}!menu.\+h@{menu.\+h}}\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+V@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+V}}\item[{\em 
+M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+V\hypertarget{menu_8h_ae04d0184eeca6be261090a6cfc49b92eae51e962ec8beccece27215c15adcead4}{}\label{menu_8h_ae04d0184eeca6be261090a6cfc49b92eae51e962ec8beccece27215c15adcead4}
+}]An enum constant representing the menu type -\/ vertical \index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+G\+R\+ID@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+G\+R\+ID}!menu.\+h@{menu.\+h}}\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+G\+R\+ID@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+G\+R\+ID}}\item[{\em 
+M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+G\+R\+ID\hypertarget{menu_8h_ae04d0184eeca6be261090a6cfc49b92eadf5c230f1c0e9ba8cb94248e675e520c}{}\label{menu_8h_ae04d0184eeca6be261090a6cfc49b92eadf5c230f1c0e9ba8cb94248e675e520c}
+}]An enum constant representing the menu type -\/ grid \index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+O\+W\+ER@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+O\+W\+ER}!menu.\+h@{menu.\+h}}\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+O\+W\+ER@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+O\+W\+ER}}\item[{\em 
+M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+O\+W\+ER\hypertarget{menu_8h_ae04d0184eeca6be261090a6cfc49b92eaed4cdae7debfa0f072aed36802897c8d}{}\label{menu_8h_ae04d0184eeca6be261090a6cfc49b92eaed4cdae7debfa0f072aed36802897c8d}
+}]An enum constant representing the menu type -\/ half circle for power selection \index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+H\+O\+O\+SE@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+H\+O\+O\+SE}!menu.\+h@{menu.\+h}}\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+H\+O\+O\+SE@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+H\+O\+O\+SE}}\item[{\em 
+M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+H\+O\+O\+SE\hypertarget{menu_8h_ae04d0184eeca6be261090a6cfc49b92eaf382d35204a24dfcc899f49a21d6180a}{}\label{menu_8h_ae04d0184eeca6be261090a6cfc49b92eaf382d35204a24dfcc899f49a21d6180a}
+}]An enum constant representing the menu -\/ same as power, but used to differ the menu operations \index{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+AX@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+AX}!menu.\+h@{menu.\+h}}\index{menu.\+h@{menu.\+h}!M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+AX@{M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+AX}}\item[{\em 
+M\+E\+N\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+AX\hypertarget{menu_8h_ae04d0184eeca6be261090a6cfc49b92ea029b59e4df4e951f090850a0f1e6800b}{}\label{menu_8h_ae04d0184eeca6be261090a6cfc49b92ea029b59e4df4e951f090850a0f1e6800b}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{menu.\+h@{menu.\+h}!Find\+Free\+Menu@{Find\+Free\+Menu}}
+\index{Find\+Free\+Menu@{Find\+Free\+Menu}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Free\+Menu()}{FindFreeMenu()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf menu\+\_\+t}$\ast$ Find\+Free\+Menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{menu_8h_a7cb8c357e2b15b9a01f236ff19382427}{}\label{menu_8h_a7cb8c357e2b15b9a01f236ff19382427}
+Searches for the first free menu slot in g\+Menus, used for loading new menus.
+
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found free menu.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/30/2016 
+\end{DoxyDate}
+\index{menu.\+h@{menu.\+h}!Find\+Menu\+From\+Game\+State@{Find\+Menu\+From\+Game\+State}}
+\index{Find\+Menu\+From\+Game\+State@{Find\+Menu\+From\+Game\+State}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Menu\+From\+Game\+State(\+Game\+State curr\+\_\+state)}{FindMenuFromGameState(GameState curr_state)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf menu\+\_\+t}$\ast$ Find\+Menu\+From\+Game\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+State}}]{curr\+\_\+state}
+\end{DoxyParamCaption}
+)}\hypertarget{menu_8h_a9cd9b0277a6a4e88c4c065e0efeb6192}{}\label{menu_8h_a9cd9b0277a6a4e88c4c065e0efeb6192}
+Searches for the first menu from game state in g\+Menus.
+
+
+\begin{DoxyParams}{Parameters}
+{\em curr\+\_\+state} & State of the curr.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found menu from game state.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/16/2016 
+\end{DoxyDate}
+\index{menu.\+h@{menu.\+h}!Find\+Menu\+Item@{Find\+Menu\+Item}}
+\index{Find\+Menu\+Item@{Find\+Menu\+Item}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Menu\+Item(menu\+\_\+t $\ast$menu, char $\ast$item)}{FindMenuItem(menu_t *menu, char *item)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf menu\+\_\+item\+\_\+t}$\ast$ Find\+Menu\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf menu\+\_\+t} $\ast$}]{menu, }
+\item[{char $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\hypertarget{menu_8h_af50d4e67c36ed63b1b84befc82d8ac8a}{}\label{menu_8h_af50d4e67c36ed63b1b84befc82d8ac8a}
+Searches for the first menu item, with g\+Player\+Name of str given.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em menu} & If non-\/null, the menu. \\
+\hline
+\mbox{\tt in,out}  & {\em item} & If non-\/null, the item.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found menu item.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/30/2016 
+\end{DoxyDate}
+\index{menu.\+h@{menu.\+h}!Init\+Menu\+System@{Init\+Menu\+System}}
+\index{Init\+Menu\+System@{Init\+Menu\+System}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{Init\+Menu\+System()}{InitMenuSystem()}}]{\setlength{\rightskip}{0pt plus 5cm}int Init\+Menu\+System (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{menu_8h_a1c427a4122a85bc392880fdcf2a843ce}{}\label{menu_8h_a1c427a4122a85bc392880fdcf2a843ce}
+Allocate memor for menu system, g\+Menus is the menu list.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/16/2016 
+\end{DoxyDate}
+\index{menu.\+h@{menu.\+h}!Load\+Menu@{Load\+Menu}}
+\index{Load\+Menu@{Load\+Menu}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{Load\+Menu(object\+\_\+t $\ast$object, char $\ast$g\+\_\+str, Game\+State curr\+\_\+state, Game\+State previous\+\_\+state)}{LoadMenu(object_t *object, char *g_str, GameState curr_state, GameState previous_state)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf menu\+\_\+t}$\ast$ Load\+Menu (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$}]{object, }
+\item[{char $\ast$}]{g\+\_\+str, }
+\item[{{\bf Game\+State}}]{curr\+\_\+state, }
+\item[{{\bf Game\+State}}]{previous\+\_\+state}
+\end{DoxyParamCaption}
+)}\hypertarget{menu_8h_a6f4a9eb4cd081c5b7a3e5e0475ed8437}{}\label{menu_8h_a6f4a9eb4cd081c5b7a3e5e0475ed8437}
+Loads a menu.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em object} & If non-\/null, the object menu was parsed to. \\
+\hline
+\mbox{\tt in,out}  & {\em g\+\_\+str} & If non-\/null, the string. \\
+\hline
+ & {\em curr\+State} & State to assign the menu. \\
+\hline
+ & {\em previous\+\_\+state} & State before this menu.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if loads correctly, -\/1 if it doesn\textquotesingle{}t.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/16/2016 
+\end{DoxyDate}
+
+
+\subsection{Variable Documentation}
+\index{menu.\+h@{menu.\+h}!g\+Menus@{g\+Menus}}
+\index{g\+Menus@{g\+Menus}!menu.\+h@{menu.\+h}}
+\subsubsection[{\texorpdfstring{g\+Menus}{gMenus}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf menu\+\_\+t}$\ast$ g\+Menus}\hypertarget{menu_8h_ac9844c472d09220d402c191e16f6474e}{}\label{menu_8h_ac9844c472d09220d402c191e16f6474e}

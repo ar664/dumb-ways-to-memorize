@@ -154,14 +154,12 @@ Functions</h2></td></tr>
 <tr class="separator:a57deac6adc760a6c690d7c05b1b32b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cf2216f8c9099f0767277b29b0b8044"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphics_8h.html#a9cf2216f8c9099f0767277b29b0b8044">LoadAnimation</a> (int frame_width, int frame_height, int width, int height)</td></tr>
 <tr class="separator:a9cf2216f8c9099f0767277b29b0b8044"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4c49239d2f0e5306964c66be9553832"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graphics_8h.html#a5371414b10358aeda7c6bcec8196342f">sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphics_8h.html#af4c49239d2f0e5306964c66be9553832">FindSprite</a> (const char *<a class="el" href="player_8h.html#a5ac083a645d964373f022d03df4849c8">name</a>, int *position)</td></tr>
+<tr class="memitem:af4c49239d2f0e5306964c66be9553832"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graphics_8h.html#a5371414b10358aeda7c6bcec8196342f">sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphics_8h.html#af4c49239d2f0e5306964c66be9553832">FindSprite</a> (const char *name, int *position)</td></tr>
 <tr class="separator:af4c49239d2f0e5306964c66be9553832"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88a59e4cda72f43e47b635ed6c6a9f95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graphics_8h.html#a5371414b10358aeda7c6bcec8196342f">sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphics_8h.html#a88a59e4cda72f43e47b635ed6c6a9f95">FindFreeSprite</a> (int *position)</td></tr>
 <tr class="separator:a88a59e4cda72f43e47b635ed6c6a9f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ef47fe758affb875f01b07e551513c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graphics_8h.html#a5371414b10358aeda7c6bcec8196342f">sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphics_8h.html#a9ef47fe758affb875f01b07e551513c7">LoadSprite</a> (const char *<a class="el" href="player_8h.html#a5ac083a645d964373f022d03df4849c8">name</a>, int flags)</td></tr>
+<tr class="memitem:a9ef47fe758affb875f01b07e551513c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graphics_8h.html#a5371414b10358aeda7c6bcec8196342f">sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphics_8h.html#a9ef47fe758affb875f01b07e551513c7">LoadSprite</a> (const char *name, int flags)</td></tr>
 <tr class="separator:a9ef47fe758affb875f01b07e551513c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a837200eb3b2724ab70d5accf0b3bcd48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graphics_8h.html#a5371414b10358aeda7c6bcec8196342f">sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphics_8h.html#a837200eb3b2724ab70d5accf0b3bcd48">LoadSpriteWithAnimation</a> ()</td></tr>
-<tr class="separator:a837200eb3b2724ab70d5accf0b3bcd48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17fde33b1d856d825920d633285aec6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphics_8h.html#a17fde33b1d856d825920d633285aec6e">DrawSprite</a> (<a class="el" href="graphics_8h.html#a5371414b10358aeda7c6bcec8196342f">sprite_t</a> *sprite, int *frame, <a class="el" href="globals_8h.html#a773f2054819bb6014f1e50baa39cb5e3">vec2_t</a> *position, SDL_Renderer *renderer)</td></tr>
 <tr class="separator:a17fde33b1d856d825920d633285aec6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5668bec74dc06834b3141ac6da4063a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphics_8h.html#a5668bec74dc06834b3141ac6da4063a2">FreeSprite</a> (<a class="el" href="graphics_8h.html#a5371414b10358aeda7c6bcec8196342f">sprite_t</a> *sprite)</td></tr>
@@ -199,8 +197,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="graphics_8h_source.html#l00007">7</a> of file <a class="el" href="graphics_8h_source.html">graphics.h</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a99f9cfd68ef4237b568bda6e3e63312f"></a>
@@ -212,8 +208,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="graphics_8h_source.html#l00012">12</a> of file <a class="el" href="graphics_8h_source.html">graphics.h</a>.</p>
 
 </div>
 </div>
@@ -227,8 +221,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="graphics_8h_source.html#l00011">11</a> of file <a class="el" href="graphics_8h_source.html">graphics.h</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7a7d00e9da31c5ddbab5d35adab314f6"></a>
@@ -240,8 +232,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="graphics_8h_source.html#l00010">10</a> of file <a class="el" href="graphics_8h_source.html">graphics.h</a>.</p>
 
 </div>
 </div>
@@ -255,8 +245,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="graphics_8h_source.html#l00009">9</a> of file <a class="el" href="graphics_8h_source.html">graphics.h</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aa7c5e8a32eb1645ee26fda856b4ca41a"></a>
@@ -268,8 +256,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="graphics_8h_source.html#l00008">8</a> of file <a class="el" href="graphics_8h_source.html">graphics.h</a>.</p>
 
 </div>
 </div>
@@ -283,8 +269,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="graphics_8h_source.html#l00020">20</a> of file <a class="el" href="graphics_8h_source.html">graphics.h</a>.</p>
 
 </div>
 </div>
@@ -337,8 +321,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/16/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00186">186</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a88a59e4cda72f43e47b635ed6c6a9f95"></a>
@@ -354,7 +336,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Searches for the first free sprite.</p>
+<p>Searches for the first free sprite in sprite system memory.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">position</td><td>If non-null, the position.</td></tr>
@@ -364,8 +346,6 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>null if it fails, else the found free sprite.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/16/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00297">297</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
 
 </div>
 </div>
@@ -395,7 +375,7 @@ Variables</h2></td></tr>
 <p>Searches for the first sprite.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">name</td><td>The name. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">gPlayerName</td><td>The gPlayerName. </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">position</td><td>If non-null, the position.</td></tr>
   </table>
   </dd>
@@ -403,8 +383,6 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>null if it fails, else the found sprite.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/16/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00269">269</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
 
 </div>
 </div>
@@ -431,8 +409,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/16/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00326">326</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aa804be8d810666078d9915033a3d4317"></a>
@@ -449,8 +425,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00342">342</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a5a91ce2f20cdb3efdd3a10f8bcd79fe2"></a>
@@ -465,12 +439,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Init graphics.</p>
+<p>Init graphics system. Calls SDL_Init and allocates memory for the sprites.</p>
 <dl class="section return"><dt>Returns</dt><dd>0 if good, -1 if failure.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/16/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00027">27</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
 
 </div>
 </div>
@@ -523,8 +495,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/16/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00238">238</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a9ef47fe758affb875f01b07e551513c7"></a>
@@ -553,7 +523,7 @@ Variables</h2></td></tr>
 <p>Loads a sprite.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>The name. </td></tr>
+    <tr><td class="paramname">gPlayerName</td><td>The file gPlayerName of the image to load. </td></tr>
     <tr><td class="paramname">flags</td><td>The flags.</td></tr>
   </table>
   </dd>
@@ -561,23 +531,6 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>null if it fails, else the sprite.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/16/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00127">127</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a837200eb3b2724ab70d5accf0b3bcd48"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="graphics_8h.html#a5371414b10358aeda7c6bcec8196342f">sprite_t</a>* LoadSpriteWithAnimation </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -625,7 +578,7 @@ Variables</h2></td></tr>
 <p>Sdl set rectangle dimensions.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">rect</td><td>If non-null, the rectangle. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">rect</td><td>If non-null, the rectangle to set. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">x</td><td>The x coordinate. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">y</td><td>The y coordinate. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">w</td><td>The width. </td></tr>
@@ -635,8 +588,6 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00370">370</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
 
 </div>
 </div>
@@ -652,8 +603,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00100">100</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
+<p>Shutdown graphics system, which frees all sprite data.</p>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -668,8 +620,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00015">15</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a324d0637f44d796996709bb187909c0c"></a>
@@ -681,8 +631,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00013">13</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
 
 </div>
 </div>
@@ -696,8 +644,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00011">11</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a3b5a0de489d49963cac9fd22f187d813"></a>
@@ -709,8 +655,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00012">12</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
 
 </div>
 </div>
@@ -724,8 +668,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00010">10</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7e583fa4ad1a7137e056e5dece1ed6c4"></a>
@@ -738,8 +680,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00014">14</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a222f53a6a442d8f716dffd665e83528a"></a>
@@ -751,8 +691,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="graphics_8c_source.html#l00009">9</a> of file <a class="el" href="graphics_8c_source.html">graphics.c</a>.</p>
 
 </div>
 </div>

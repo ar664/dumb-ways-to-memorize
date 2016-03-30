@@ -119,9 +119,7 @@ $(document).ready(function(){initNavTree('mystrings_8c.html','');});
 <code>#include &quot;<a class="el" href="globals_8h_source.html">globals.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mystrings_8h_source.html">mystrings.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="parseobject_8h_source.html">parseobject.h</a>&quot;</code><br />
-</div>
-<p><a href="mystrings_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a1da99834a75d917d81dc9c9921da4f19"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mystrings_8c.html#a1da99834a75d917d81dc9c9921da4f19">FreeVar</a> { <a class="el" href="mystrings_8c.html#a1da99834a75d917d81dc9c9921da4f19a24e246e9a582f56a2b81bf805261840b">PARSER</a> = 0x1, 
@@ -134,8 +132,6 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a6466498df69994b55bb62b9b53652142"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjsmntok__t.html">jsmntok_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mystrings_8c.html#a6466498df69994b55bb62b9b53652142">FindKey</a> (<a class="el" href="structjsmntok__t.html">jsmntok_t</a> *token, char *key, char *g_str)</td></tr>
 <tr class="separator:a6466498df69994b55bb62b9b53652142"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abca948a2151f9db88c613f89edbaf5e0"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mystrings_8c.html#abca948a2151f9db88c613f89edbaf5e0">FindValueFromKey</a> (<a class="el" href="structjsmntok__t.html">jsmntok_t</a> *token, char *key, char *g_str)</td></tr>
-<tr class="separator:abca948a2151f9db88c613f89edbaf5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78d7d9580e10b30e6409ebfeb29e5cfe"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mystrings_8c.html#a78d7d9580e10b30e6409ebfeb29e5cfe">JsmnToString</a> (<a class="el" href="structjsmntok__t.html">jsmntok_t</a> *token, char *g_str)</td></tr>
 <tr class="separator:a78d7d9580e10b30e6409ebfeb29e5cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac183085aec4f8b1867b5737aacb9c37f"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mystrings_8c.html#ac183085aec4f8b1867b5737aacb9c37f">FindValue</a> (struct <a class="el" href="structobject__s.html">object_s</a> *obj, char *key, char *g_str)</td></tr>
@@ -180,8 +176,6 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00314">314</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -208,8 +202,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>An int.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2/28/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00228">228</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
 
 </div>
 </div>
@@ -262,8 +254,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00335">335</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a641da0f4b770922d999f38d2d23b2ed6"></a>
@@ -274,12 +264,12 @@ Functions</h2></td></tr>
           <td class="memname">char* FileToString </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>File to string.</p>
+<p>Loads string data from a file.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">fileName</td><td>If non-null, filename of the file.</td></tr>
@@ -289,8 +279,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>null if it fails, else a char*.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1/30/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00288">288</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
 
 </div>
 </div>
@@ -323,7 +311,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Searches for the first key and sets token.</p>
+<p>Searches for the first key that matches given gPlayerName, through through tokens &amp; g_str.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">token</td><td>The token. </td></tr>
@@ -335,8 +323,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>null if it fails, else the found key.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Junji </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1/30/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00024">24</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
 
 </div>
 </div>
@@ -382,54 +368,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/25/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00126">126</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abca948a2151f9db88c613f89edbaf5e0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* FindValueFromKey </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structjsmntok__t.html">jsmntok_t</a> *&#160;</td>
-          <td class="paramname"><em>token</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>g_str</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Searches for the first value from key.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">token</td><td>If non-null, the token. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">key</td><td>If non-null, the key. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">g_str</td><td>If non-null, the global string.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>null if it fails, else the found value from key.</dd></dl>
-<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>1/30/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00061">61</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aa5c26c3bf9ec4cf5d58937787db2d415"></a>
@@ -473,8 +411,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2/28/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00169">169</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a78d7d9580e10b30e6409ebfeb29e5cfe"></a>
@@ -512,8 +448,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1/30/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00093">93</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a44b3e24411aec8ef45be1d5430c5b2eb"></a>
@@ -539,8 +473,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>str as a collision_type_t.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00487">487</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
 
 </div>
 </div>
@@ -568,8 +500,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00513">513</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a295e14f293c2d135e244c6b9f417a447"></a>
@@ -595,8 +525,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>str as a GameState.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00417">417</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
 
 </div>
 </div>
@@ -624,8 +552,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00460">460</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7847ecf365cd64921278854576e5ddcc"></a>
@@ -652,8 +578,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2/28/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00188">188</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a1f4734e9e15d21a1c72758530c1a468f"></a>
@@ -679,8 +603,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>null if it fails, else a char*.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1/30/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00258">258</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
 
 </div>
 </div>

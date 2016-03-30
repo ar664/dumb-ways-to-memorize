@@ -21,8 +21,6 @@ enum \hyperlink{mystrings_8c_a1da99834a75d917d81dc9c9921da4f19}{Free\+Var} \{ \h
 \item 
 \hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$ \hyperlink{mystrings_8c_a6466498df69994b55bb62b9b53652142}{Find\+Key} (\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$token, char $\ast$key, char $\ast$g\+\_\+str)
 \item 
-char $\ast$ \hyperlink{mystrings_8c_abca948a2151f9db88c613f89edbaf5e0}{Find\+Value\+From\+Key} (\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$token, char $\ast$key, char $\ast$g\+\_\+str)
-\item 
 char $\ast$ \hyperlink{mystrings_8c_a78d7d9580e10b30e6409ebfeb29e5cfe}{Jsmn\+To\+String} (\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$token, char $\ast$g\+\_\+str)
 \item 
 char $\ast$ \hyperlink{mystrings_8c_ac183085aec4f8b1867b5737aacb9c37f}{Find\+Value} (struct \hyperlink{structobject__s}{object\+\_\+s} $\ast$obj, char $\ast$key, char $\ast$g\+\_\+str)
@@ -66,10 +64,6 @@ T\+O\+K\+EN\hypertarget{mystrings_8c_a1da99834a75d917d81dc9c9921da4f19a07fe54e18
 \end{Desc}
 
 
-Definition at line 314 of file mystrings.\+c.
-
-
-
 \subsection{Function Documentation}
 \index{mystrings.\+c@{mystrings.\+c}!Char\+To\+Int@{Char\+To\+Int}}
 \index{Char\+To\+Int@{Char\+To\+Int}!mystrings.\+c@{mystrings.\+c}}
@@ -94,10 +88,6 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 2/28/2016 
 \end{DoxyDate}
-
-
-Definition at line 228 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!Convert\+File\+To\+Useable@{Convert\+File\+To\+Useable}}
 \index{Convert\+File\+To\+Useable@{Convert\+File\+To\+Useable}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{Convert\+File\+To\+Useable(char $\ast$file\+Name, jsmn\+\_\+parser $\ast$parser, char $\ast$$\ast$string\+Storage, jsmntok\+\_\+t $\ast$$\ast$jsmn\+Storage)}{ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStorage, jsmntok_t **jsmnStorage)}}]{\setlength{\rightskip}{0pt plus 5cm}int Convert\+File\+To\+Useable (
@@ -130,18 +120,14 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 3/29/2016 
 \end{DoxyDate}
-
-
-Definition at line 335 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!File\+To\+String@{File\+To\+String}}
 \index{File\+To\+String@{File\+To\+String}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{File\+To\+String(char $\ast$file\+Name)}{FileToString(char *fileName)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ File\+To\+String (
 \begin{DoxyParamCaption}
-\item[{char $\ast$}]{file\+Name}
+\item[{char $\ast$}]{file}
 \end{DoxyParamCaption}
 )}\hypertarget{mystrings_8c_a641da0f4b770922d999f38d2d23b2ed6}{}\label{mystrings_8c_a641da0f4b770922d999f38d2d23b2ed6}
-File to string.
+Loads string data from a file.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -157,10 +143,6 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 1/30/2016 
 \end{DoxyDate}
-
-
-Definition at line 288 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!Find\+Key@{Find\+Key}}
 \index{Find\+Key@{Find\+Key}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{Find\+Key(jsmntok\+\_\+t $\ast$token, char $\ast$key, char $\ast$g\+\_\+str)}{FindKey(jsmntok_t *token, char *key, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jsmntok\+\_\+t}$\ast$ Find\+Key (
@@ -170,7 +152,7 @@ Definition at line 288 of file mystrings.\+c.
 \item[{char $\ast$}]{g\+\_\+str}
 \end{DoxyParamCaption}
 )}\hypertarget{mystrings_8c_a6466498df69994b55bb62b9b53652142}{}\label{mystrings_8c_a6466498df69994b55bb62b9b53652142}
-Searches for the first key and sets token.
+Searches for the first key that matches given g\+Player\+Name, through through tokens \& g\+\_\+str.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -190,10 +172,6 @@ Junji
 \begin{DoxyDate}{Date}
 1/30/2016 
 \end{DoxyDate}
-
-
-Definition at line 24 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!Find\+Value@{Find\+Value}}
 \index{Find\+Value@{Find\+Value}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{Find\+Value(struct object\+\_\+s $\ast$obj, char $\ast$key, char $\ast$g\+\_\+str)}{FindValue(struct object_s *obj, char *key, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Find\+Value (
@@ -223,43 +201,6 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 3/25/2016 
 \end{DoxyDate}
-
-
-Definition at line 126 of file mystrings.\+c.
-
-\index{mystrings.\+c@{mystrings.\+c}!Find\+Value\+From\+Key@{Find\+Value\+From\+Key}}
-\index{Find\+Value\+From\+Key@{Find\+Value\+From\+Key}!mystrings.\+c@{mystrings.\+c}}
-\subsubsection[{\texorpdfstring{Find\+Value\+From\+Key(jsmntok\+\_\+t $\ast$token, char $\ast$key, char $\ast$g\+\_\+str)}{FindValueFromKey(jsmntok_t *token, char *key, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Find\+Value\+From\+Key (
-\begin{DoxyParamCaption}
-\item[{{\bf jsmntok\+\_\+t} $\ast$}]{token, }
-\item[{char $\ast$}]{key, }
-\item[{char $\ast$}]{g\+\_\+str}
-\end{DoxyParamCaption}
-)}\hypertarget{mystrings_8c_abca948a2151f9db88c613f89edbaf5e0}{}\label{mystrings_8c_abca948a2151f9db88c613f89edbaf5e0}
-Searches for the first value from key.
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in,out}  & {\em token} & If non-\/null, the token. \\
-\hline
-\mbox{\tt in,out}  & {\em key} & If non-\/null, the key. \\
-\hline
-\mbox{\tt in,out}  & {\em g\+\_\+str} & If non-\/null, the global string.\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-null if it fails, else the found value from key.
-\end{DoxyReturn}
-\begin{DoxyAuthor}{Author}
-Anthony Rios 
-\end{DoxyAuthor}
-\begin{DoxyDate}{Date}
-1/30/2016 
-\end{DoxyDate}
-
-
-Definition at line 61 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!Jsmn\+To\+Int@{Jsmn\+To\+Int}}
 \index{Jsmn\+To\+Int@{Jsmn\+To\+Int}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{Jsmn\+To\+Int(jsmntok\+\_\+t $\ast$token, char $\ast$str, int $\ast$dst)}{JsmnToInt(jsmntok_t *token, char *str, int *dst)}}]{\setlength{\rightskip}{0pt plus 5cm}void Jsmn\+To\+Int (
@@ -286,10 +227,6 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 2/28/2016 
 \end{DoxyDate}
-
-
-Definition at line 169 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!Jsmn\+To\+String@{Jsmn\+To\+String}}
 \index{Jsmn\+To\+String@{Jsmn\+To\+String}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{Jsmn\+To\+String(jsmntok\+\_\+t $\ast$token, char $\ast$g\+\_\+str)}{JsmnToString(jsmntok_t *token, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Jsmn\+To\+String (
@@ -316,10 +253,6 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 1/30/2016 
 \end{DoxyDate}
-
-
-Definition at line 93 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!Str\+To\+Collision\+Type@{Str\+To\+Collision\+Type}}
 \index{Str\+To\+Collision\+Type@{Str\+To\+Collision\+Type}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{Str\+To\+Collision\+Type(char $\ast$str)}{StrToCollisionType(char *str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf collision\+\_\+type\+\_\+t} Str\+To\+Collision\+Type (
@@ -343,10 +276,6 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 3/29/2016 
 \end{DoxyDate}
-
-
-Definition at line 487 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!Str\+To\+Entity\+State@{Str\+To\+Entity\+State}}
 \index{Str\+To\+Entity\+State@{Str\+To\+Entity\+State}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{Str\+To\+Entity\+State(char $\ast$str)}{StrToEntityState(char *str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+state\+\_\+t} Str\+To\+Entity\+State (
@@ -370,10 +299,6 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 3/29/2016 
 \end{DoxyDate}
-
-
-Definition at line 513 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!Str\+To\+Game\+State@{Str\+To\+Game\+State}}
 \index{Str\+To\+Game\+State@{Str\+To\+Game\+State}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{Str\+To\+Game\+State(char $\ast$str)}{StrToGameState(char *str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\+State} Str\+To\+Game\+State (
@@ -397,10 +322,6 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 3/29/2016 
 \end{DoxyDate}
-
-
-Definition at line 417 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!Str\+To\+Hazard@{Str\+To\+Hazard}}
 \index{Str\+To\+Hazard@{Str\+To\+Hazard}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{Str\+To\+Hazard(char $\ast$str)}{StrToHazard(char *str)}}]{\setlength{\rightskip}{0pt plus 5cm}int Str\+To\+Hazard (
@@ -424,10 +345,6 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 3/29/2016 
 \end{DoxyDate}
-
-
-Definition at line 460 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!Str\+To\+Int@{Str\+To\+Int}}
 \index{Str\+To\+Int@{Str\+To\+Int}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{Str\+To\+Int(char $\ast$str)}{StrToInt(char *str)}}]{\setlength{\rightskip}{0pt plus 5cm}int Str\+To\+Int (
@@ -451,10 +368,6 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 2/28/2016 
 \end{DoxyDate}
-
-
-Definition at line 188 of file mystrings.\+c.
-
 \index{mystrings.\+c@{mystrings.\+c}!Type\+From\+J\+S\+ON@{Type\+From\+J\+S\+ON}}
 \index{Type\+From\+J\+S\+ON@{Type\+From\+J\+S\+ON}!mystrings.\+c@{mystrings.\+c}}
 \subsubsection[{\texorpdfstring{Type\+From\+J\+S\+O\+N(jsmntype\+\_\+t Type)}{TypeFromJSON(jsmntype_t Type)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Type\+From\+J\+S\+ON (
@@ -478,7 +391,3 @@ Anthony Rios
 \begin{DoxyDate}{Date}
 1/30/2016 
 \end{DoxyDate}
-
-
-Definition at line 258 of file mystrings.\+c.
-

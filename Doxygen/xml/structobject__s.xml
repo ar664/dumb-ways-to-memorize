@@ -12,7 +12,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Pointer to Parent Object </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parseobject.h" line="20" column="1" bodyfile="dumb-ways-to-memorize/parseobject.h" bodystart="20" bodyend="-1"/>
@@ -25,7 +25,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Array of children objects </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parseobject.h" line="21" column="1" bodyfile="dumb-ways-to-memorize/parseobject.h" bodystart="21" bodyend="-1"/>

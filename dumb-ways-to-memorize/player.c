@@ -5,7 +5,7 @@
 #include "parselevel.h"
 #include <stdio.h>
 
-char *name = PLAYER_NAME;
+char *gPlayerName = PLAYER_NAME;
 entity_t *gPlayer = NULL;
 int gPlayerLives = 0;
 
@@ -35,11 +35,6 @@ void InitPlayer()
 	gPlayer->mHealth = 100;
 	gPlayer->mWeight = 1;
 	gPlayer->mNextThink = gCurrentTime + 2*FRAME_DELAY;
-}
-
-entity_t *GetPlayer()
-{
-	return (entity_t*) gPlayer;
 }
 
 void DecrementPlayerLives()

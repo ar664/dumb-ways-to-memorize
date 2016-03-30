@@ -33,20 +33,6 @@ void EditEntity(entity_t  *ent, EntityMembers member, void *value)
 	}
 }
 
-/**
- * Parse to entity.
- * Tries to Assign everything , but the entity function pointers.
- * Current Frame = 0, Weight = 1
- *
- * @param [in,out]	object	If non-null, the object.
- * @param [in,out]	str   	If non-null, the string.
- *
- * @return	null if it fails, else a pointer to an entity_t.
- *
- * @author	Anthony Rios
- * @date	3/21/2016
- */
-
 entity_t* ParseToEntity(object_t* object, char* str)
 {
 	int i, j, checkInt, heights[MAX_ANIMATIONS] = {0}, widths[MAX_ANIMATIONS] = {0}, frames[MAX_ANIMATIONS] = {0};
@@ -147,19 +133,6 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	return retVal;
 }
 
-/**
- * Mini parse function, handles entering / converting the data into the entity given.
- *
- * @param [in,out]	ent  	If non-null, the ent.
- * @param [in,out]	token	If non-null, the token.
- * @param [in,out]	str  	If non-null, the string.
- * @param	member		 	The member.
- * @param	size		 	The size.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
-
 void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityMembers member, int size)
 {
 	int i;
@@ -210,18 +183,6 @@ void MiniParseFunc(entity_t *ent, jsmntok_t* token, char *str, EntityMembers mem
 	}
 }
 
-/**
- * Parse given obj/str to vector 2.
- *
- * @param [in,out]	object	If non-null, the object.
- * @param [in,out]	str   	If non-null, the string.
- *
- * @return	null if it fails, else a pointer to a vec2_t.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
-
 vec2_t* ParseToVec2(object_t* object, char* str)
 {
 	vec2_t *retVal;
@@ -238,18 +199,6 @@ vec2_t* ParseToVec2(object_t* object, char* str)
 	free(temp1); free(temp2);
 	return retVal;
 }
-
-/**
- * Parse obj/data to string array.
- *
- * @param [in,out]	object	If non-null, the object.
- * @param [in,out]	str   	If non-null, the string.
- *
- * @return	null if it fails, else a handle to a char.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
 
 char **ParseToStringArray(object_t* object, char* str)
 {

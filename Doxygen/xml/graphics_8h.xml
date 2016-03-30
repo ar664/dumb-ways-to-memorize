@@ -11,128 +11,126 @@
     <includedby refid="graphics_8c" local="yes">dumb-ways-to-memorize/graphics.c</includedby>
     <includedby refid="menu_8c" local="yes">dumb-ways-to-memorize/menu.c</includedby>
     <incdepgraph>
-      <node id="222">
+      <node id="223">
         <label>globals.h</label>
         <link refid="globals_8h"/>
-        <childnode refid="223" relation="include">
-        </childnode>
-      </node>
-      <node id="221">
-        <label>SDL.h</label>
-      </node>
-      <node id="223">
-        <label>jsmn.h</label>
-        <link refid="jsmn_8h"/>
         <childnode refid="224" relation="include">
         </childnode>
       </node>
+      <node id="222">
+        <label>SDL.h</label>
+      </node>
       <node id="224">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="225" relation="include">
+        </childnode>
+      </node>
+      <node id="225">
         <label>stddef.h</label>
       </node>
-      <node id="220">
+      <node id="221">
         <label>dumb-ways-to-memorize/graphics.h</label>
         <link refid="graphics.h"/>
-        <childnode refid="221" relation="include">
-        </childnode>
         <childnode refid="222" relation="include">
+        </childnode>
+        <childnode refid="223" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="231">
+      <node id="232">
         <label>dumb-ways-to-memorize/parsepowerup.c</label>
         <link refid="parsepowerup_8c"/>
       </node>
-      <node id="233">
+      <node id="234">
         <label>dumb-ways-to-memorize/parsepowerup.h</label>
         <link refid="parsepowerup_8h"/>
-        <childnode refid="227" relation="include">
-        </childnode>
-        <childnode refid="234" relation="include">
-        </childnode>
-        <childnode refid="229" relation="include">
+        <childnode refid="228" relation="include">
         </childnode>
         <childnode refid="235" relation="include">
         </childnode>
-        <childnode refid="231" relation="include">
+        <childnode refid="230" relation="include">
         </childnode>
         <childnode refid="236" relation="include">
         </childnode>
+        <childnode refid="232" relation="include">
+        </childnode>
         <childnode refid="237" relation="include">
         </childnode>
+        <childnode refid="238" relation="include">
+        </childnode>
       </node>
-      <node id="243">
+      <node id="244">
         <label>dumb-ways-to-memorize/parsefunction.c</label>
         <link refid="parsefunction_8c"/>
       </node>
-      <node id="242">
+      <node id="243">
         <label>dumb-ways-to-memorize/parsefunction.h</label>
         <link refid="parsefunction_8h"/>
-        <childnode refid="243" relation="include">
+        <childnode refid="244" relation="include">
         </childnode>
-        <childnode refid="231" relation="include">
+        <childnode refid="232" relation="include">
         </childnode>
       </node>
-      <node id="229">
+      <node id="230">
         <label>dumb-ways-to-memorize/game.c</label>
         <link refid="game_8c"/>
       </node>
-      <node id="239">
+      <node id="240">
         <label>dumb-ways-to-memorize/dumb_physics.c</label>
         <link refid="dumb__physics_8c"/>
       </node>
-      <node id="238">
+      <node id="239">
         <label>dumb-ways-to-memorize/dumb_physics.h</label>
         <link refid="dumb__physics_8h"/>
-        <childnode refid="239" relation="include">
+        <childnode refid="240" relation="include">
         </childnode>
-        <childnode refid="229" relation="include">
-        </childnode>
-      </node>
-      <node id="235">
-        <label>dumb-ways-to-memorize/menu.c</label>
-        <link refid="menu_8c"/>
-      </node>
-      <node id="244">
-        <label>dumb-ways-to-memorize/menu.h</label>
-        <link refid="menu_8h"/>
-        <childnode refid="229" relation="include">
-        </childnode>
-        <childnode refid="235" relation="include">
+        <childnode refid="230" relation="include">
         </childnode>
       </node>
       <node id="236">
-        <label>dumb-ways-to-memorize/player.c</label>
-        <link refid="player_8c"/>
+        <label>dumb-ways-to-memorize/menu.c</label>
+        <link refid="menu_8c"/>
       </node>
-      <node id="240">
-        <label>dumb-ways-to-memorize/player.h</label>
-        <link refid="player_8h"/>
-        <childnode refid="239" relation="include">
-        </childnode>
-        <childnode refid="234" relation="include">
-        </childnode>
-        <childnode refid="229" relation="include">
-        </childnode>
-        <childnode refid="235" relation="include">
-        </childnode>
-        <childnode refid="231" relation="include">
+      <node id="245">
+        <label>dumb-ways-to-memorize/menu.h</label>
+        <link refid="menu_8h"/>
+        <childnode refid="230" relation="include">
         </childnode>
         <childnode refid="236" relation="include">
         </childnode>
+      </node>
+      <node id="237">
+        <label>dumb-ways-to-memorize/player.c</label>
+        <link refid="player_8c"/>
+      </node>
+      <node id="241">
+        <label>dumb-ways-to-memorize/player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="240" relation="include">
+        </childnode>
+        <childnode refid="235" relation="include">
+        </childnode>
+        <childnode refid="230" relation="include">
+        </childnode>
+        <childnode refid="236" relation="include">
+        </childnode>
+        <childnode refid="232" relation="include">
+        </childnode>
         <childnode refid="237" relation="include">
         </childnode>
+        <childnode refid="238" relation="include">
+        </childnode>
       </node>
-      <node id="232">
+      <node id="233">
         <label>dumb-ways-to-memorize/parsevariable.c</label>
         <link refid="parsevariable_8c"/>
       </node>
-      <node id="228">
+      <node id="229">
         <label>dumb-ways-to-memorize/parsevariable.h</label>
         <link refid="parsevariable_8h"/>
-        <childnode refid="227" relation="include">
-        </childnode>
-        <childnode refid="229" relation="include">
+        <childnode refid="228" relation="include">
         </childnode>
         <childnode refid="230" relation="include">
         </childnode>
@@ -140,86 +138,88 @@
         </childnode>
         <childnode refid="232" relation="include">
         </childnode>
+        <childnode refid="233" relation="include">
+        </childnode>
       </node>
-      <node id="230">
+      <node id="231">
         <label>dumb-ways-to-memorize/parselevel.c</label>
         <link refid="parselevel_8c"/>
       </node>
-      <node id="241">
+      <node id="242">
         <label>dumb-ways-to-memorize/parselevel.h</label>
         <link refid="parselevel_8h"/>
-        <childnode refid="234" relation="include">
-        </childnode>
-        <childnode refid="229" relation="include">
-        </childnode>
         <childnode refid="235" relation="include">
         </childnode>
         <childnode refid="230" relation="include">
         </childnode>
         <childnode refid="236" relation="include">
         </childnode>
+        <childnode refid="231" relation="include">
+        </childnode>
+        <childnode refid="237" relation="include">
+        </childnode>
       </node>
-      <node id="234">
+      <node id="235">
         <label>dumb-ways-to-memorize/entity.c</label>
         <link refid="entity_8c"/>
       </node>
-      <node id="226">
+      <node id="227">
         <label>dumb-ways-to-memorize/entity.h</label>
         <link refid="entity_8h"/>
-        <childnode refid="227" relation="include">
-        </childnode>
         <childnode refid="228" relation="include">
         </childnode>
-        <childnode refid="233" relation="include">
+        <childnode refid="229" relation="include">
         </childnode>
-        <childnode refid="238" relation="include">
+        <childnode refid="234" relation="include">
         </childnode>
         <childnode refid="239" relation="include">
         </childnode>
         <childnode refid="240" relation="include">
         </childnode>
-        <childnode refid="234" relation="include">
-        </childnode>
         <childnode refid="241" relation="include">
         </childnode>
-        <childnode refid="229" relation="include">
+        <childnode refid="235" relation="include">
         </childnode>
         <childnode refid="242" relation="include">
         </childnode>
         <childnode refid="230" relation="include">
         </childnode>
+        <childnode refid="243" relation="include">
+        </childnode>
         <childnode refid="231" relation="include">
         </childnode>
-        <childnode refid="236" relation="include">
+        <childnode refid="232" relation="include">
         </childnode>
         <childnode refid="237" relation="include">
         </childnode>
+        <childnode refid="238" relation="include">
+        </childnode>
       </node>
-      <node id="245">
+      <node id="246">
         <label>dumb-ways-to-memorize/graphics.c</label>
         <link refid="graphics_8c"/>
       </node>
-      <node id="225">
+      <node id="226">
         <label>dumb-ways-to-memorize/graphics.h</label>
         <link refid="graphics.h"/>
-        <childnode refid="226" relation="include">
-        </childnode>
-        <childnode refid="234" relation="include">
-        </childnode>
-        <childnode refid="229" relation="include">
-        </childnode>
-        <childnode refid="244" relation="include">
-        </childnode>
-        <childnode refid="245" relation="include">
+        <childnode refid="227" relation="include">
         </childnode>
         <childnode refid="235" relation="include">
         </childnode>
+        <childnode refid="230" relation="include">
+        </childnode>
+        <childnode refid="245" relation="include">
+        </childnode>
+        <childnode refid="246" relation="include">
+        </childnode>
+        <childnode refid="236" relation="include">
+        </childnode>
       </node>
-      <node id="227">
+      <node id="228">
         <label>dumb-ways-to-memorize/ai_interpret.c</label>
         <link refid="ai__interpret_8c"/>
       </node>
-      <node id="237">
+      <node id="238">
         <label>dumb-ways-to-memorize/quick_controller.c</label>
         <link refid="quick__controller_8c"/>
       </node>
@@ -306,7 +306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="370" column="1" bodyfile="dumb-ways-to-memorize/graphics.h" bodystart="20" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="276" column="1" bodyfile="dumb-ways-to-memorize/graphics.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -321,7 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="52" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="14" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="154" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="graphics_8h_1a3555fbac07f5c5a609c2e9b8c1b81731" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -334,7 +334,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="53" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="15" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="155" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="15" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="graphics_8h_1a222f53a6a442d8f716dffd665e83528a" prot="public" static="no" mutable="no">
         <type>SDL_Window *</type>
@@ -347,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="54" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="9" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="156" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="9" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="graphics_8h_1a4735638969a524c4ac90a88f23c59a1f" prot="public" static="no" mutable="no">
         <type>SDL_Renderer *</type>
@@ -360,7 +360,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="55" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="10" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="157" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="10" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="graphics_8h_1aec8ecf79cbfef975bd1751e8eac92e0a" prot="public" static="no" mutable="no">
         <type>SDL_Surface *</type>
@@ -373,7 +373,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="56" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="11" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="158" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="11" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="graphics_8h_1a3b5a0de489d49963cac9fd22f187d813" prot="public" static="no" mutable="no">
         <type>SDL_Texture *</type>
@@ -386,7 +386,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="57" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="12" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="159" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="12" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="graphics_8h_1a324d0637f44d796996709bb187909c0c" prot="public" static="no" mutable="no">
         <type>SDL_Renderer *</type>
@@ -399,7 +399,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="58" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="13" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="160" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="13" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -411,13 +411,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Init graphics.</para><para><simplesect kind="return"><para>0 if good, -1 if failure.</para></simplesect>
+<para>Init graphics system. Calls SDL_Init and allocates memory for the sprites.</para><para><simplesect kind="return"><para>0 if good, -1 if failure.</para></simplesect>
 <simplesect kind="author"><para>Anthony Rios </para></simplesect>
 <simplesect kind="date"><para>3/16/2016 </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="40" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="27" bodyend="98"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="49" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="19" bodyend="90"/>
+        <references refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" compoundref="graphics_8c" startline="17">gScreenHeight</references>
+        <references refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" compoundref="graphics_8c" startline="16">gScreenWidth</references>
+        <references refid="graphics_8c_1a222f53a6a442d8f716dffd665e83528a" compoundref="graphics_8c" startline="9">gWindow</references>
+        <references refid="graphics_8h_1aed7818555b2da57314243d796315e4e9" compoundref="graphics_8h" startline="7">GAME_NAME</references>
+        <references refid="graphics_8h_1ab4f60dcfaf8e1c328b2862723508d851" compoundref="graphics_8h" startline="9">SCREEN_RES_W</references>
+        <references refid="graphics_8h_1a7a7d00e9da31c5ddbab5d35adab314f6" compoundref="graphics_8h" startline="10">SCREEN_RES_H</references>
+        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
+        <references refid="graphics_8c_1aec8ecf79cbfef975bd1751e8eac92e0a" compoundref="graphics_8c" startline="11">gRedSurface</references>
+        <references refid="graphics_8c_1a324d0637f44d796996709bb187909c0c" compoundref="graphics_8c" startline="13">gRedRenderer</references>
+        <references refid="graphics_8c_1a3b5a0de489d49963cac9fd22f187d813" compoundref="graphics_8c" startline="12">gRedTexture</references>
+        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
+        <references refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" compoundref="graphics_8c" startline="15">gLastSprite</references>
+        <references refid="graphics_8c_1a57deac6adc760a6c690d7c05b1b32b3d" compoundref="graphics_8c" startline="92" endline="105">ShutdownGraphics</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a57deac6adc760a6c690d7c05b1b32b3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -427,10 +440,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Shutdown graphics system, which frees all sprite data.</para><para><simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="41" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="100" bodyend="113"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="57" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="92" bodyend="105"/>
+        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
+        <references refid="graphics_8c_1a5668bec74dc06834b3141ac6da4063a2" compoundref="graphics_8c" startline="246" endline="259">FreeSprite</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a9cf2216f8c9099f0767277b29b0b8044" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_frame" kindref="compound">Frame</ref> *</type>
@@ -491,7 +508,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="42" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="238" bodyend="255"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="72" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="190" bodyend="207"/>
+        <references refid="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" compoundref="graphics_8h" startline="17">Frame::Position</references>
+        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
+        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1af4c49239d2f0e5306964c66be9553832" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
@@ -511,10 +531,10 @@
         <detaileddescription>
 <para>Searches for the first sprite.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>name</parametername>
+<parametername>gPlayerName</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The name. </para></parameterdescription>
+<para>The gPlayerName. </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
@@ -530,7 +550,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="43" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="269" bodyend="284"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="85" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="209" bodyend="224"/>
+        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a88a59e4cda72f43e47b635ed6c6a9f95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
@@ -544,7 +565,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Searches for the first free sprite.</para><para><parameterlist kind="param"><parameteritem>
+<para>Searches for the first free sprite in sprite system memory.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername direction="inout">position</parametername>
 </parameternamelist>
@@ -558,7 +579,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="44" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="297" bodyend="315"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="97" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="226" bodyend="244"/>
+        <references refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" compoundref="graphics_8c" startline="15">gLastSprite</references>
+        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a9ef47fe758affb875f01b07e551513c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
@@ -578,10 +601,10 @@
         <detaileddescription>
 <para>Loads a sprite.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>name</parametername>
+<parametername>gPlayerName</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The name. </para></parameterdescription>
+<para>The file gPlayerName of the image to load. </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
@@ -597,20 +620,19 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="45" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="127" bodyend="170"/>
-      </memberdef>
-      <memberdef kind="function" id="graphics_8h_1a837200eb3b2724ab70d5accf0b3bcd48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
-        <definition>sprite_t* LoadSpriteWithAnimation</definition>
-        <argsstring>()</argsstring>
-        <name>LoadSpriteWithAnimation</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="46" column="1"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="110" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="107" bodyend="150"/>
+        <references refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" compoundref="graphics_8c" startline="15">gLastSprite</references>
+        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
+        <references refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" compoundref="graphics_8c" startline="209" endline="224">FindSprite</references>
+        <references refid="structsprite__s_1a43ab0d8eafd71383b2233bdee65911de" compoundref="graphics_8h" startline="35">sprite_s::refCount</references>
+        <references refid="graphics_8c_1a88a59e4cda72f43e47b635ed6c6a9f95" compoundref="graphics_8c" startline="226" endline="244">FindFreeSprite</references>
+        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
+        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
+        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
+        <references refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" compoundref="graphics_8h" startline="32">sprite_s::mTexture</references>
+        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
+        <references refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" compoundref="graphics_8h" startline="36">sprite_s::name</references>
+        <references refid="structsprite__s_1acd9c3d76b8dfc0aed0c331ec5f0568f1" compoundref="graphics_8h" startline="34">sprite_s::mFrames</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a17fde33b1d856d825920d633285aec6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -664,7 +686,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="47" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="186" bodyend="222"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="125" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="152" bodyend="188"/>
+        <references refid="structsprite__s_1acd9c3d76b8dfc0aed0c331ec5f0568f1" compoundref="graphics_8h" startline="34">sprite_s::mFrames</references>
+        <references refid="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" compoundref="graphics_8c" startline="276" endline="282">SDL_SetRect</references>
+        <references refid="structsprite__s_1a8ce6c2916d6244600c434144ed6ac296" compoundref="graphics_8h" startline="31">sprite_s::mAnimations</references>
+        <references refid="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" compoundref="graphics_8h" startline="17">Frame::Position</references>
+        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
+        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
+        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
+        <references refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" compoundref="graphics_8h" startline="32">sprite_s::mTexture</references>
+        <references refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" compoundref="graphics_8h" startline="36">sprite_s::name</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a5668bec74dc06834b3141ac6da4063a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -691,7 +722,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="48" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="326" bodyend="339"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="135" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="246" bodyend="259"/>
+        <references refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" compoundref="graphics_8c" startline="209" endline="224">FindSprite</references>
+        <references refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" compoundref="graphics_8h" startline="36">sprite_s::name</references>
+        <references refid="structsprite__s_1a43ab0d8eafd71383b2233bdee65911de" compoundref="graphics_8h" startline="35">sprite_s::refCount</references>
+        <references refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" compoundref="graphics_8h" startline="32">sprite_s::mTexture</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1aa804be8d810666078d9915033a3d4317" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -708,7 +743,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="49" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="342" bodyend="355"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="138" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="262" bodyend="274"/>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
+        <references refid="structsprite__s_1a8ce6c2916d6244600c434144ed6ac296" compoundref="graphics_8h" startline="31">sprite_s::mAnimations</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1af04a9f3481d89afc13d2e2e0a621fad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -743,7 +780,7 @@
 <parametername direction="inout">rect</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>If non-null, the rectangle. </para></parameterdescription>
+<para>If non-null, the rectangle to set. </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
@@ -779,7 +816,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/graphics.h" line="50" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="370" bodyend="376"/>
+        <location file="dumb-ways-to-memorize/graphics.h" line="152" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="276" bodyend="282"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -817,27 +854,36 @@
 <codeline lineno="36" refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="38"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1a5a91ce2f20cdb3efdd3a10f8bcd79fe2" kindref="member">InitGraphics</ref>();</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1a57deac6adc760a6c690d7c05b1b32b3d" kindref="member">ShutdownGraphics</ref>();</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><ref refid="struct_frame" kindref="compound">Frame</ref><sp/>*<ref refid="graphics_8h_1a9cf2216f8c9099f0767277b29b0b8044" kindref="member">LoadAnimation</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_height,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height);</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8h_1af4c49239d2f0e5306964c66be9553832" kindref="member">FindSprite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*position);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8h_1a88a59e4cda72f43e47b635ed6c6a9f95" kindref="member">FindFreeSprite</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*position);</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8h_1a9ef47fe758affb875f01b07e551513c7" kindref="member">LoadSprite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags);</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8h_1a837200eb3b2724ab70d5accf0b3bcd48" kindref="member">LoadSpriteWithAnimation</ref>();</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1a17fde33b1d856d825920d633285aec6e" kindref="member">DrawSprite</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>frame,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*<sp/>position,<sp/>SDL_Renderer<sp/>*<sp/>renderer);</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1a5668bec74dc06834b3141ac6da4063a2" kindref="member">FreeSprite</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite);</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1aa804be8d810666078d9915033a3d4317" kindref="member">IncrementFrame</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1af04a9f3481d89afc13d2e2e0a621fad6" kindref="member">SDL_SetRect</ref>(SDL_Rect<sp/>*rect,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>h);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8h_1a7e583fa4ad1a7137e056e5dece1ed6c4" kindref="member">gSprites</ref>;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref>;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>SDL_Window<sp/>*<ref refid="graphics_8h_1a222f53a6a442d8f716dffd665e83528a" kindref="member">gWindow</ref>;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>SDL_Renderer<sp/>*<ref refid="graphics_8h_1a4735638969a524c4ac90a88f23c59a1f" kindref="member">gRenderer</ref>;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>SDL_Surface<sp/>*<ref refid="graphics_8h_1aec8ecf79cbfef975bd1751e8eac92e0a" kindref="member">gRedSurface</ref>;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>SDL_Texture<sp/>*<ref refid="graphics_8h_1a3b5a0de489d49963cac9fd22f187d813" kindref="member">gRedTexture</ref>;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>SDL_Renderer<sp/>*<ref refid="graphics_8h_1a324d0637f44d796996709bb187909c0c" kindref="member">gRedRenderer</ref>;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="49"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1a5a91ce2f20cdb3efdd3a10f8bcd79fe2" kindref="member">InitGraphics</ref>();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1a57deac6adc760a6c690d7c05b1b32b3d" kindref="member">ShutdownGraphics</ref>();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><ref refid="struct_frame" kindref="compound">Frame</ref><sp/>*<ref refid="graphics_8h_1a9cf2216f8c9099f0767277b29b0b8044" kindref="member">LoadAnimation</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_height,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8h_1af4c49239d2f0e5306964c66be9553832" kindref="member">FindSprite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*position);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8h_1a88a59e4cda72f43e47b635ed6c6a9f95" kindref="member">FindFreeSprite</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*position);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8h_1a9ef47fe758affb875f01b07e551513c7" kindref="member">LoadSprite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1a17fde33b1d856d825920d633285aec6e" kindref="member">DrawSprite</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>frame,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*<sp/>position,<sp/>SDL_Renderer<sp/>*<sp/>renderer);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1a5668bec74dc06834b3141ac6da4063a2" kindref="member">FreeSprite</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment">//Unused</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1aa804be8d810666078d9915033a3d4317" kindref="member">IncrementFrame</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1af04a9f3481d89afc13d2e2e0a621fad6" kindref="member">SDL_SetRect</ref>(SDL_Rect<sp/>*rect,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>h);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8h_1a7e583fa4ad1a7137e056e5dece1ed6c4" kindref="member">gSprites</ref>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8h_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>SDL_Window<sp/>*<ref refid="graphics_8h_1a222f53a6a442d8f716dffd665e83528a" kindref="member">gWindow</ref>;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>SDL_Renderer<sp/>*<ref refid="graphics_8h_1a4735638969a524c4ac90a88f23c59a1f" kindref="member">gRenderer</ref>;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>SDL_Surface<sp/>*<ref refid="graphics_8h_1aec8ecf79cbfef975bd1751e8eac92e0a" kindref="member">gRedSurface</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>SDL_Texture<sp/>*<ref refid="graphics_8h_1a3b5a0de489d49963cac9fd22f187d813" kindref="member">gRedTexture</ref>;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>SDL_Renderer<sp/>*<ref refid="graphics_8h_1a324d0637f44d796996709bb187909c0c" kindref="member">gRedRenderer</ref>;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="dumb-ways-to-memorize/graphics.h"/>
   </compounddef>

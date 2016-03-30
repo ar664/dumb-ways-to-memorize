@@ -121,9 +121,7 @@ $(document).ready(function(){initNavTree('menu_8c.html','');});
 <code>#include &quot;<a class="el" href="parsepowerup_8h_source.html">parsepowerup.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="parselevel_8h_source.html">parselevel.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
-</div>
-<p><a href="menu_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4e4ef9cbfcd4be548e989655712272a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a4e4ef9cbfcd4be548e989655712272a1">DeselectItemByNum</a> (<a class="el" href="menu_8h.html#aed08c6d5d5b5d87ad2368f169239217c">menu_t</a> *self, int item)</td></tr>
@@ -197,8 +195,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00025">25</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ad2751e2bba6d6da7cf3658079447e629"></a>
@@ -214,8 +210,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00324">324</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -233,8 +227,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00368">368</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7cb8c357e2b15b9a01f236ff19382427"></a>
@@ -249,8 +241,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00692">692</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p>Searches for the first free menu slot in gMenus, used for loading new menus.</p>
+<dl class="section return"><dt>Returns</dt><dd>null if it fails, else the found free menu.</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -278,8 +272,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/16/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00670">670</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="af50d4e67c36ed63b1b84befc82d8ac8a"></a>
@@ -305,8 +297,17 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00712">712</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p>Searches for the first menu item, with gPlayerName of str given.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">menu</td><td>If non-null, the menu. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">item</td><td>If non-null, the item.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>null if it fails, else the found menu item.</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -325,8 +326,6 @@ Variables</h2></td></tr>
 <p>Allocate memor for menu system, gMenus is the menu list.</p>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/16/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00306">306</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -379,8 +378,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/16/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00500">500</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ac633a4b1666d690b51d887d296c9e3d2"></a>
@@ -416,8 +413,6 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/16/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00420">420</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -455,8 +450,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00045">45</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7d08e8b15cd91ee8dfc2acfcf9c7ca8d"></a>
@@ -472,8 +465,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00730">730</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p>Converts a string into a menu type </p>
 
 </div>
 </div>
@@ -511,8 +503,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00234">234</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aa9b02df49523b8c264f21ea4022db35c"></a>
@@ -548,8 +538,6 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00125">125</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -587,8 +575,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00065">65</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -602,8 +588,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00013">13</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ac9844c472d09220d402c191e16f6474e"></a>
@@ -615,8 +599,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="menu_8c_source.html#l00012">12</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>

@@ -11,13 +11,13 @@
 #define AI_VAR_G_STR			"Variables"
 #define AI_RECURSIVE_STR		"AI_Recursive"
 #define AI_VAR_STR				"variables"
-extern char *gAI_Variables[];
+extern char *gAI_Variables[];   /**< The variables to be parsed for ai data */
 #define AI_VAR_FRAMES_STR		"frames"
 #define AI_VAR_TIME_STR			"time"
 #define AI_VAR_DAMAGE_STR		"damage"
 #define AI_VAR_SPEED_STR		"speed"
 #define AI_VAR_GRAVITY_STR		"gravity"
-extern char *gAI_Actions[];
+extern char *gAI_Actions[];		/**< The actions that are related to ai functions */
 #define AI_ACTION_NOTHING_STR	"nothing"
 #define AI_ACTION_MOVE_STR		"move"
 #define AI_ACTION_WALK_STR		"walk"
@@ -27,7 +27,7 @@ extern char *gAI_Actions[];
 #define AI_TYPE_PRESET_STR		"preset"
 #define AI_TYPE_VARIABLE_STR	"variable"
 #define AI_CHECK_STR			"condition"
-extern char *gAI_Conditions[];
+extern char *gAI_Conditions[];  /**< The conditions for the ai function to be executed */
 #define AI_CHECK_PLAYER_STR		"distance_player"
 #define AI_CHECK_OBJECT_STR		"distance_object"
 #define AI_SPECIFY_OBJ_STR		"object_check"
@@ -99,33 +99,112 @@ struct ai_function_s
 	ai_type_t mType;		/**< The type of ai (preset, variable, recursive)*/
 	ai_actions_t mAction;   /**< The action type of this function, to get the action think function for entity */
 	int mFlags;				/**< The flags defined in ai_flags_t */
-	int mVariables[7];
-	//mVariables
-	// 1 - speed
-	// [2 , 3] - direction
-	// 4 - frames
-	// 5 - time
-	// 6 - damage
-	// 7 - check
-
+	int mVariables[7];  /**< The 7 currently parsed or default values in this function
+						1 - speed; [2,3] - direction; 4 - frames; 5 - time; 6 - damage; 7 - check;*/
 	char *mObject;			/**< Optional - The object/entity to spawn during an action */
 	char *mObjectCheck;		/**< Optional - The object/entity that you need to find, in order for condition to be valid */
 	ai_function_t *mLink;   /**< The link to the next ai_function to set */
 
 };
 
-extern ai_function_t *gVariableAIs;
-extern ai_function_t *gPresetAIs;
+extern ai_function_t *gVariableAIs; /**< The AI's of type variable */
+extern ai_function_t *gPresetAIs;	/**< The AI's of type preset */
 
+/**
+ * Parses AI behavior using the variables given and the AI obj/file specified.
+ *
+ * @param [in,out]	obj		 	If non-null, the object.
+ * @param [in,out]	g_str	 	If non-null, the string.
+ * @param [in,out]	variables	If non-null, the variables.
+ *
+ * @return	null if it fails, else a pointer to an ai_function_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables);
+
+/**
+ * Parse a preset AI, with values determined by whats in the file.
+ *
+ * @param [in,out]	obj  	If non-null, the object.
+ * @param [in,out]	g_str	If non-null, the string.
+ *
+ * @return	null if it fails, else a pointer to an ai_function_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 ai_function_t *ParsePresetAI(object_t *obj, char *g_str);
+
+/**
+ * Sets AI variables in ai_function->mVariables.
+ *
+ * @param [in,out]	function	If non-null, the function.
+ * @param [in,out]	data_str	If non-null, the data string.
+ * @param [in,out]	var_str 	If non-null, the variable string.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 void SetAI_Var(ai_function_t* function, char * data_str, char * var_str);
+
+/**
+ * Sets AI action defined in ai_actions to the ai_function
+ *
+ * @param [in,out]	function  	If non-null, the function.
+ * @param [in,out]	obj		  	If non-null, the object.
+ * @param [in,out]	tok		  	If non-null, the tok.
+ * @param [in,out]	g_str	  	If non-null, the string.
+ * @param [in,out]	action_str	If non-null, the action string.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 void SetAI_Action(ai_function_t* function, object_t * obj, jsmntok_t* tok, char* g_str, char * action_str);
+
+/**
+ * Sets checks that need to occur for the ai_function to be called.
+ *
+ * @param [in,out]	function	 	If non-null, the function.
+ * @param [in,out]	variables_str	If non-null, the variables string.
+ * @param [in,out]	data_str	 	If non-null, the data string.
+ * @param [in,out]	check_str	 	If non-null, the check string.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 void SetAI_Check(ai_function_t* function, char** variables_str, char * data_str, char * check_str);
-//void *GetFunctionAI(ai_function_t *data);
+
+/**
+ * Init AI system, similar to Entity init, for now....
+ *
+ * @return	An int.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 int InitAISystem();
+
+/**
+ * Shutdown AI system, just frees the global variables simple.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+
 void ShutdownAISystem();
 
+/**
+ * Converts a str to an AI type.
+ *
+ * @param	str	The string.
+ *
+ * @return	str as an ai_type_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 ai_type_t StrToAI_Type(const char *str);
 
 #endif

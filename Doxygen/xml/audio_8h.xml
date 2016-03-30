@@ -4,13 +4,13 @@
     <compoundname>audio.h</compoundname>
     <includes local="yes">SDL_mixer.h</includes>
     <incdepgraph>
-      <node id="39">
+      <node id="40">
         <label>SDL_mixer.h</label>
       </node>
-      <node id="38">
+      <node id="39">
         <label>dumb-ways-to-memorize/audio.h</label>
         <link refid="audio.h"/>
-        <childnode refid="39" relation="include">
+        <childnode refid="40" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -126,7 +126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/audio.h" line="113" column="1" bodyfile="dumb-ways-to-memorize/audio.h" bodystart="26" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/audio.h" line="106" column="1" bodyfile="dumb-ways-to-memorize/audio.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

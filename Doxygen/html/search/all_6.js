@@ -14,7 +14,6 @@ var searchData=
   ['findpower',['FindPower',['../parsepowerup_8c.html#a94356a5fdd8b29d6a5fa2b730266275e',1,'FindPower(char *str):&#160;parsepowerup.c'],['../parsepowerup_8h.html#a94356a5fdd8b29d6a5fa2b730266275e',1,'FindPower(char *str):&#160;parsepowerup.c']]],
   ['findsprite',['FindSprite',['../graphics_8c.html#af4c49239d2f0e5306964c66be9553832',1,'FindSprite(const char *name, int *position):&#160;graphics.c'],['../graphics_8h.html#af4c49239d2f0e5306964c66be9553832',1,'FindSprite(const char *name, int *position):&#160;graphics.c']]],
   ['findvalue',['FindValue',['../mystrings_8c.html#ac183085aec4f8b1867b5737aacb9c37f',1,'FindValue(struct object_s *obj, char *key, char *g_str):&#160;mystrings.c'],['../mystrings_8h.html#ac183085aec4f8b1867b5737aacb9c37f',1,'FindValue(struct object_s *obj, char *key, char *g_str):&#160;mystrings.c']]],
-  ['findvaluefromkey',['FindValueFromKey',['../mystrings_8c.html#abca948a2151f9db88c613f89edbaf5e0',1,'mystrings.c']]],
   ['frame',['Frame',['../struct_frame.html',1,'']]],
   ['frame_5fdelay',['FRAME_DELAY',['../globals_8h.html#a33fabd29c10aabcb416dfbf5c84d3e08',1,'globals.h']]],
   ['frames',['FRAMES',['../parsevariable_8h.html#a3364407dac472d6f76df7f89341b2a5aa0233623f1ec67ee345913c5d13cfa660',1,'parsevariable.h']]],

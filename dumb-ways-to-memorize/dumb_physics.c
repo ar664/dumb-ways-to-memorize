@@ -6,16 +6,6 @@
 
 vec2_t gGravity = {0, 2};
 
-/**
- * Executes physics.
- * RunTime O( n(n+1)/2 )
- * Applies velocity, acceleration, gravity, and friction.
- * Limits velocity, acceleration, and sets bounds.
- * 
- * @author	Anthony Rios
- * @date	3/20/2016
- */
-
 void RunPhysics()
 {
 	int i, j;
@@ -64,18 +54,6 @@ void RunPhysics()
 	}
 }
 
-/**
- * Check collision between entities. (AABB)
- *
- * @param [in,out]	self 	If non-null, the class instance that this method operates on.
- * @param [in,out]	other	If non-null, the other.
- *
- * @return	An int 1 if colliding, 0 if not.
- *
- * @author	Anthony Rios
- * @date	3/20/2016
- */
-
 int CheckCollision(entity_t *self, entity_t *other)
 {
 	if(self->mCollisionType == COLLISION_TYPE_CLIP || other->mCollisionType == COLLISION_TYPE_CLIP)
@@ -93,18 +71,6 @@ int CheckCollision(entity_t *self, entity_t *other)
 	}
 	return 1;
 }
-
-/**
- * Executes the collision operation.
- * Place self farthest x or y away from other, vice versa.
- * And negative the velocity to half of orginal collision vel, for bounce back.
- *
- * @param [in,out]	self 	If non-null, the class instance that this method operates on.
- * @param [in,out]	other	If non-null, the other.
- *
- * @author	Anthony Rios
- * @date	3/20/2016
- */
 
 void DoCollision(entity_t *self, entity_t *other)
 {
@@ -193,29 +159,11 @@ void DoCollision(entity_t *self, entity_t *other)
 
 }
 
-/**
- * Applies the speed limit to vector a.
- *
- * @param [in,out]	a	If non-null, the vec2_t to process.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
-
 void ApplySpeedLimit(vec2_t* a)
 {
 	a->x = abs(a->x) > PHYSICS_MAX_SPEED ? (a->x < 0 ? -PHYSICS_MAX_SPEED : PHYSICS_MAX_SPEED) : a->x;
 	a->y = abs(a->y) > PHYSICS_MAX_SPEED ? (a->y < 0 ? -PHYSICS_MAX_SPEED : PHYSICS_MAX_SPEED) : a->y;
 }
-
-/**
- * Applies the bounds to specified ent.
- *
- * @param [in,out]	ent	If non-null, the ent.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
 
 void ApplyBounds(entity_t* ent)
 {
@@ -242,15 +190,6 @@ void ApplyBounds(entity_t* ent)
 		ent->mAccel.y = 0;
 	}
 }
-
-/**
- * Applies the friction to vector a.
- *
- * @param [in,out]	a	If non-null, the vec2_t to process.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
 
 void ApplyFriction(vec2_t* a)
 {

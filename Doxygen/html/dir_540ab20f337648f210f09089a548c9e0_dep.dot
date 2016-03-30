@@ -1,0 +1,11 @@
+digraph "dumb-ways-to-memorize" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_540ab20f337648f210f09089a548c9e0 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_540ab20f337648f210f09089a548c9e0.html"];
+    dir_540ab20f337648f210f09089a548c9e0 [shape=plaintext label="dumb-ways-to-memorize"];
+    dir_1c07fc99bd3a11e592c77cc7f1f05bb7 [shape=box label="External_Libs" color="black" fillcolor="white" style="filled" URL="dir_1c07fc99bd3a11e592c77cc7f1f05bb7.html"];
+  }
+  dir_540ab20f337648f210f09089a548c9e0->dir_1c07fc99bd3a11e592c77cc7f1f05bb7 [headlabel="5", labeldistance=1.5 headhref="dir_000000_000001.html"];
+}

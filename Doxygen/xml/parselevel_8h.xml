@@ -10,87 +10,85 @@
     <includedby refid="parselevel_8c" local="yes">dumb-ways-to-memorize/parselevel.c</includedby>
     <includedby refid="player_8c" local="yes">dumb-ways-to-memorize/player.c</includedby>
     <incdepgraph>
-      <node id="357">
+      <node id="358">
         <label>globals.h</label>
         <link refid="globals_8h"/>
-        <childnode refid="354" relation="include">
-        </childnode>
-      </node>
-      <node id="359">
-        <label>SDL.h</label>
-      </node>
-      <node id="354">
-        <label>jsmn.h</label>
-        <link refid="jsmn_8h"/>
         <childnode refid="355" relation="include">
         </childnode>
       </node>
-      <node id="353">
-        <label>parseobject.h</label>
-        <link refid="parseobject_8h"/>
-        <childnode refid="354" relation="include">
-        </childnode>
+      <node id="360">
+        <label>SDL.h</label>
       </node>
       <node id="355">
-        <label>stddef.h</label>
-      </node>
-      <node id="352">
-        <label>dumb-ways-to-memorize/parselevel.h</label>
-        <link refid="parselevel.h"/>
-        <childnode refid="353" relation="include">
-        </childnode>
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
         <childnode refid="356" relation="include">
         </childnode>
       </node>
+      <node id="354">
+        <label>parseobject.h</label>
+        <link refid="parseobject_8h"/>
+        <childnode refid="355" relation="include">
+        </childnode>
+      </node>
       <node id="356">
+        <label>stddef.h</label>
+      </node>
+      <node id="353">
+        <label>dumb-ways-to-memorize/parselevel.h</label>
+        <link refid="parselevel.h"/>
+        <childnode refid="354" relation="include">
+        </childnode>
+        <childnode refid="357" relation="include">
+        </childnode>
+      </node>
+      <node id="357">
         <label>entity.h</label>
         <link refid="entity_8h"/>
-        <childnode refid="357" relation="include">
+        <childnode refid="358" relation="include">
+        </childnode>
+        <childnode refid="359" relation="include">
+        </childnode>
+        <childnode refid="361" relation="include">
+        </childnode>
+      </node>
+      <node id="359">
+        <label>graphics.h</label>
+        <link refid="graphics_8h"/>
+        <childnode refid="360" relation="include">
         </childnode>
         <childnode refid="358" relation="include">
         </childnode>
-        <childnode refid="360" relation="include">
-        </childnode>
       </node>
-      <node id="358">
-        <label>graphics.h</label>
-        <link refid="graphics_8h"/>
-        <childnode refid="359" relation="include">
-        </childnode>
-        <childnode refid="357" relation="include">
-        </childnode>
-      </node>
-      <node id="360">
+      <node id="361">
         <label>ai_interpret.h</label>
         <link refid="ai__interpret_8h"/>
-        <childnode refid="357" relation="include">
+        <childnode refid="358" relation="include">
         </childnode>
-        <childnode refid="353" relation="include">
+        <childnode refid="354" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="363">
+      <node id="364">
         <label>dumb-ways-to-memorize/game.c</label>
         <link refid="game_8c"/>
       </node>
-      <node id="364">
+      <node id="365">
         <label>dumb-ways-to-memorize/menu.c</label>
         <link refid="menu_8c"/>
       </node>
-      <node id="366">
+      <node id="367">
         <label>dumb-ways-to-memorize/player.c</label>
         <link refid="player_8c"/>
       </node>
-      <node id="365">
+      <node id="366">
         <label>dumb-ways-to-memorize/parselevel.c</label>
         <link refid="parselevel_8c"/>
       </node>
-      <node id="361">
+      <node id="362">
         <label>dumb-ways-to-memorize/parselevel.h</label>
         <link refid="parselevel.h"/>
-        <childnode refid="362" relation="include">
-        </childnode>
         <childnode refid="363" relation="include">
         </childnode>
         <childnode refid="364" relation="include">
@@ -99,8 +97,10 @@
         </childnode>
         <childnode refid="366" relation="include">
         </childnode>
+        <childnode refid="367" relation="include">
+        </childnode>
       </node>
-      <node id="362">
+      <node id="363">
         <label>dumb-ways-to-memorize/entity.c</label>
         <link refid="entity_8c"/>
       </node>
@@ -285,7 +285,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parselevel.h" line="249" column="1" bodyfile="dumb-ways-to-memorize/parselevel.h" bodystart="23" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/parselevel.h" line="248" column="1" bodyfile="dumb-ways-to-memorize/parselevel.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -297,7 +297,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The current level the game has </para>        </detaileddescription>
+<para>The current level the game is on </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parselevel.h" line="41" column="1" bodyfile="dumb-ways-to-memorize/parselevel.c" bodystart="9" bodyend="-1"/>
@@ -320,10 +320,84 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Loads a level.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the level object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">g_str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the level string data for obj reference.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successful, -1 if not successful.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parselevel.h" line="43" column="1" bodyfile="dumb-ways-to-memorize/parselevel.c" bodystart="12" bodyend="244"/>
+        <location file="dumb-ways-to-memorize/parselevel.h" line="55" column="1" bodyfile="dumb-ways-to-memorize/parselevel.c" bodystart="11" bodyend="243"/>
+        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
+        <references refid="entity_8c_1aec8aad072a0215184b68b9815194950c" compoundref="entity_8c" startline="409" endline="425">FreeNonPlayerEntities</references>
+        <references refid="mystrings_8c_1a6466498df69994b55bb62b9b53652142" compoundref="mystrings_8c" startline="10" endline="32">FindKey</references>
+        <references refid="globals_8h_1a4ca59b935766b727b7d2b1340f5befc3" compoundref="globals_8h" startline="133">G_NAME_STR</references>
+        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
+        <references refid="structlevel__s_1ad5201d7f075979ee60c684961d6a4ead" compoundref="parselevel_8h" startline="34">level_s::mName</references>
+        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
+        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
+        <references refid="structlevel__s_1a3353a10b7f238b4dc36fc1ccad58cd45" compoundref="parselevel_8h" startline="35">level_s::mHint</references>
+        <references refid="parselevel_8h_1aace118d77fff2b2dbd5552f8bf787a9c" compoundref="parselevel_8h" startline="7">LEVEL_BACKGROUND_STR</references>
+        <references refid="structlevel__s_1ab2cdfd66047e062b1da2948d07f9f90d" compoundref="parselevel_8h" startline="36">level_s::mBackground</references>
+        <references refid="graphics_8c_1a9ef47fe758affb875f01b07e551513c7" compoundref="graphics_8c" startline="107" endline="150">LoadSprite</references>
+        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
+        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
+        <references refid="parselevel_8h_1a73ec4bac6de3bd9b0a4b2ce4030438bb" compoundref="parselevel_8h" startline="9">LEVEL_SPAWN_STR</references>
+        <references refid="parsevariable_8c_1aece06ba78503ca86b77daa6c0f64d01f" compoundref="parsevariable_8c" startline="186" endline="201">ParseToVec2</references>
+        <references refid="structlevel__s_1aa7fb9f569bb3df8b37853ebc7e67b11c" compoundref="parselevel_8h" startline="37">level_s::mSpawnPoint</references>
+        <references refid="parselevel_8h_1a403feb4054715e96447f8a8ac31ad2ef" compoundref="parselevel_8h" startline="12">LEVEL_ENEMY_OBJ_STR</references>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
+        <references refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" compoundref="mystrings_8c" startline="53" endline="82">FindValue</references>
+        <references refid="parselevel_8h_1a34681cbe3818085ebadf80e37327bb18" compoundref="parselevel_8h" startline="13">LEVEL_ENEMY_NAME_STR</references>
+        <references refid="entity_8c_1a018dc9e984dbb58b293f263775b528c6" compoundref="entity_8c" startline="301" endline="314">FindCachedEntity</references>
+        <references refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" compoundref="entity_8c" startline="379" endline="407">FreeEntity</references>
+        <references refid="parselevel_8h_1a973b8d892b3acf95aa32fe5dbf95a991" compoundref="parselevel_8h" startline="17">LEVEL_AI_STR</references>
+        <references refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" compoundref="mystrings_8c" startline="192" endline="261">ConvertFileToUseable</references>
+        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
+        <references refid="parselevel_8h_1ab42ad82f69f40cbcbca9ffd6fa3d0386" compoundref="parselevel_8h" startline="21">LEVEL_VARIABLES_STR</references>
+        <references refid="ai__interpret_8c_1a487d35ce74f749b0bfb024a900699f37" compoundref="ai__interpret_8c" startline="261" endline="391">ParseAI</references>
+        <references refid="parsevariable_8c_1a090f6fa5f93d7a5becca914af766d1d8" compoundref="parsevariable_8c" startline="203" endline="219">ParseToStringArray</references>
+        <references refid="ai__interpret_8c_1a325c62634a19a96fcd9117b5f59968d6" compoundref="ai__interpret_8c" startline="393" endline="499">ParsePresetAI</references>
+        <references refid="parselevel_8h_1a4e7de1799b1fd58bdfb7852e9764c2dc" compoundref="parselevel_8h" startline="18">LEVEL_POSITION_STR</references>
+        <references refid="parselevel_8h_1a07457be1d84573522d483ab123ca000c" compoundref="parselevel_8h" startline="10">LEVEL_TILE_X_STR</references>
+        <references refid="parselevel_8h_1afb7badf24ff0111bbcbd3d4af09b5991" compoundref="parselevel_8h" startline="11">LEVEL_TILE_Y_STR</references>
+        <references refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" compoundref="mystrings_8c" startline="92" endline="119">StrToInt</references>
+        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
+        <references refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" compoundref="entity_8h" startline="32">entity_s::mSprites</references>
+        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
+        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
+        <references refid="entity_8c_1ad5cd21060189ddd8246414069ee01676" compoundref="entity_8c" startline="235" endline="248">InitNewEntity</references>
+        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
+        <references refid="structentity__s_1af3ccc93f657a50bc80718e0fe9ad367f" compoundref="entity_8h" startline="34">entity_s::mData</references>
+        <references refid="structentity__s_1ae045b7ba608e955e791f8af8507b78a4" compoundref="entity_8h" startline="39">entity_s::Think</references>
+        <references refid="entity_8c_1a6c8f8a4a732c4324caca6ba22521e5a7" compoundref="entity_8c" startline="102" endline="137">ThinkEnemy</references>
+        <references refid="structentity__s_1a51719e3ab7c4f8dd260dea013021f53c" compoundref="entity_8h" startline="41">entity_s::Draw</references>
+        <references refid="entity_8c_1a8572f94d16405fa3b42dd584893852bd" compoundref="entity_8c" startline="17" endline="37">DrawGeneric</references>
+        <references refid="structentity__s_1af5c032961c1c6bca1832a0cb3fb34321" compoundref="entity_8h" startline="40">entity_s::Touch</references>
+        <references refid="entity_8c_1a8460f228ddd46eb74cf3693274191365" compoundref="entity_8c" startline="196" endline="207">TouchEnemy</references>
+        <references refid="structentity__s_1a069df5fe6b0f5a8eb03b0cc4c2e0ba43" compoundref="entity_8h" startline="27">entity_s::mWeight</references>
+        <references refid="structentity__s_1a24bdc1525ed5bcbf2a8c7027c9e1db5f" compoundref="entity_8h" startline="24">entity_s::mNextThink</references>
+        <references refid="parselevel_8h_1aad789b078e1dd3a35317626bd46f2370" compoundref="parselevel_8h" startline="14">LEVEL_ITEM_OBJ_STR</references>
+        <references refid="parselevel_8h_1ac06257f244acb2bee834947199e05c13" compoundref="parselevel_8h" startline="15">LEVEL_ITEM_NAME_STR</references>
+        <references refid="parselevel_8h_1a386a51e3a6fe0b31dd2ba059a550a60f" compoundref="parselevel_8h" startline="16">LEVEL_ITEM_XTRA_STR</references>
+        <references refid="entity_8c_1a4929b147240092a570d720f74ce10617" compoundref="entity_8c" startline="209" endline="215">TouchGoal</references>
+        <references refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" compoundref="entity_8h" startline="30">entity_s::mCollisionType</references>
+        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aaca8cf2b8670715dc64f0b04625fee211" compoundref="globals_8h" startline="55">COLLISION_TYPE_STATIC</references>
+        <references refid="parselevel_8c_1afd1ec7c09a102e0695a56e7882eec799">SpawnInLevel</references>
       </memberdef>
       <memberdef kind="function" id="parselevel_8h_1af0b3b2530a9027139729335d90824340" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -333,10 +407,15 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Draws the background of the level, everything else is cool.</para><para><simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parselevel.h" line="44" column="1" bodyfile="dumb-ways-to-memorize/parselevel.c" bodystart="249" bodyend="257"/>
+        <location file="dumb-ways-to-memorize/parselevel.h" line="64" column="1" bodyfile="dumb-ways-to-memorize/parselevel.c" bodystart="248" bodyend="256"/>
+        <references refid="graphics_8c_1a17fde33b1d856d825920d633285aec6e" compoundref="graphics_8c" startline="152" endline="188">DrawSprite</references>
+        <references refid="structlevel__s_1ab2cdfd66047e062b1da2948d07f9f90d" compoundref="parselevel_8h" startline="36">level_s::mBackground</references>
+        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -377,12 +456,12 @@
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Later<sp/>implement<sp/>Size</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structlevel__s" kindref="compound">level_t</ref><sp/>*<ref refid="parselevel_8h_1acd0b27bf2cd52ed665c0f708aea8e48f" kindref="member">gCurrentLevel</ref>;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="parselevel_8h_1ad9ebda29344f8ab359a5630fadc56489" kindref="member">LoadLevel</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*level,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parselevel_8h_1af0b3b2530a9027139729335d90824340" kindref="member">DrawLevel</ref>();</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structlevel__s" kindref="compound">level_t</ref><sp/>*<ref refid="parselevel_8h_1acd0b27bf2cd52ed665c0f708aea8e48f" kindref="member">gCurrentLevel</ref>;<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="parselevel_8h_1ad9ebda29344f8ab359a5630fadc56489" kindref="member">LoadLevel</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*level,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parselevel_8h_1af0b3b2530a9027139729335d90824340" kindref="member">DrawLevel</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="dumb-ways-to-memorize/parselevel.h"/>
   </compounddef>

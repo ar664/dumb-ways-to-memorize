@@ -38,9 +38,29 @@ struct level_s
 	// Later implement Size
 };
 
-extern level_t *gCurrentLevel;
+extern level_t *gCurrentLevel; /**< The current level the game is on */
+
+/**
+ * Loads a level.
+ *
+ * @param [in,out]	level	If non-null, the level object.
+ * @param [in,out]	g_str	If non-null, the level string data for obj reference.
+ *
+ * @return	0 if successful, -1 if not successful.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
 
 int LoadLevel(object_t *level, char *g_str);
+
+/**
+ * Draws the background of the level, everything else is cool.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+
 void DrawLevel();
 
 #endif

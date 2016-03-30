@@ -1,0 +1,17 @@
+digraph "menu_s"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="menu_s",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mBackground" ,fontname="Helvetica"];
+  Node2 [label="sprite_s",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structsprite__s.html"];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mSize" ,fontname="Helvetica"];
+  Node3 [label="vec2_s",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structvec2__s.html"];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mAnimations" ,fontname="Helvetica"];
+  Node4 [label="Frame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_frame.html"];
+  Node3 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Position" ,fontname="Helvetica"];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mSelectedItem\nmItems" ,fontname="Helvetica"];
+  Node5 [label="menu_item_s",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structmenu__item__s.html"];
+  Node3 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Position" ,fontname="Helvetica"];
+  Node2 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Image" ,fontname="Helvetica"];
+}

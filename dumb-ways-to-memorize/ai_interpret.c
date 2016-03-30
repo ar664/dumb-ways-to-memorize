@@ -4,6 +4,7 @@
 #include "parsepowerup.h"
 #include "mystrings.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 ai_function_t * gVariableAIs = NULL;
 ai_function_t * gPresetAIs = NULL;
@@ -234,17 +235,6 @@ void AttackAI(entity_t *ent)
 	}
 }
 
-/**
- * Returns a function pointer to the think function, given ai_function data.
- *
- * @param [in,out]	parameter1	If non-null, the first parameter.
- *
- * @return	null if it fails, else a GetFunctionAI(ai_function_t *data.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
-
 void (*GetFunctionAI(ai_function_t *data))(entity_t *)
 {
 	if(!data)
@@ -267,19 +257,6 @@ void (*GetFunctionAI(ai_function_t *data))(entity_t *)
 		return NULL;
 	}
 }
-
-/**
- * Parses AI behavior using the variables given and the AI obj/file specified.
- *
- * @param [in,out]	obj		 	If non-null, the object.
- * @param [in,out]	g_str	 	If non-null, the string.
- * @param [in,out]	variables	If non-null, the variables.
- *
- * @return	null if it fails, else a pointer to an ai_function_t.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
 
 ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 {
@@ -413,18 +390,6 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 	return retVal;
 }
 
-/**
- * Parse a preset AI, with values determined by whats in the file.
- *
- * @param [in,out]	obj  	If non-null, the object.
- * @param [in,out]	g_str	If non-null, the string.
- *
- * @return	null if it fails, else a pointer to an ai_function_t.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
-
 ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 {
 	int i, j, k,children, position, variables, gravity;
@@ -533,17 +498,6 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 	return retVal;
 }
 
-/**
- * Sets AI variables in ai_function->mVariables.
- *
- * @param [in,out]	function	If non-null, the function.
- * @param [in,out]	data_str	If non-null, the data string.
- * @param [in,out]	var_str 	If non-null, the variable string.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
-
 void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 {
 	if(!var_str)
@@ -591,19 +545,6 @@ void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
 		}
 	}
 }
-
-/**
- * Sets AI action defined in ai_actions to the ai_function
- *
- * @param [in,out]	function  	If non-null, the function.
- * @param [in,out]	obj		  	If non-null, the object.
- * @param [in,out]	tok		  	If non-null, the tok.
- * @param [in,out]	g_str	  	If non-null, the string.
- * @param [in,out]	action_str	If non-null, the action string.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
 
 void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* g_str, char* action_str)
 {
@@ -683,18 +624,6 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 	}
 }
 
-/**
- * Sets checks that need to occur for the ai_function to be called.
- *
- * @param [in,out]	function	 	If non-null, the function.
- * @param [in,out]	variables_str	If non-null, the variables string.
- * @param [in,out]	data_str	 	If non-null, the data string.
- * @param [in,out]	check_str	 	If non-null, the check string.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
-
 void SetAI_Check(ai_function_t* function, char** variables_str, char* data_str, char* check_str)
 {
 	ai_function_t *temp_ai;
@@ -732,15 +661,6 @@ void SetAI_Check(ai_function_t* function, char** variables_str, char* data_str, 
 	}
 }
 
-/**
- * Init AI system, similar to Entity init, for now....
- *
- * @return	An int.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
-
 int InitAISystem()
 {
 	if(gVariableAIs)
@@ -759,20 +679,20 @@ int InitAISystem()
 
 	memset(gVariableAIs, 0, sizeof(ai_function_t)*(MAX_AI+1));
 	memset(gPresetAIs, 0, sizeof(ai_function_t)*(MAX_AI+1));
-
+	atexit(ShutdownAISystem);
 	return 0;
 }
 
-/**
- * Converts a str to an AI type.
- *
- * @param	str	The string.
- *
- * @return	str as an ai_type_t.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
+void ShutdownAISystem()
+{
+	if(!gVariableAIs || !gPresetAIs)
+	{
+		printf("AI not initialized before shutdown called \n");
+		return;
+	}
+	free(gVariableAIs);
+	free(gPresetAIs);
+}
 
 ai_type_t StrToAI_Type(const char *str)
 {

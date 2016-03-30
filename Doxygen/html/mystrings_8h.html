@@ -168,8 +168,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mystrings_8h_source.html#l00004">4</a> of file <a class="el" href="mystrings_8h_source.html">mystrings.h</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="abe75cf0ea422164cff13e9821b1aedf1"></a>
@@ -181,8 +179,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="mystrings_8h_source.html#l00012">12</a> of file <a class="el" href="mystrings_8h_source.html">mystrings.h</a>.</p>
 
 </div>
 </div>
@@ -196,8 +192,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mystrings_8h_source.html#l00014">14</a> of file <a class="el" href="mystrings_8h_source.html">mystrings.h</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aba8c67d5ed1579335310ff77649ff89e"></a>
@@ -209,8 +203,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="mystrings_8h_source.html#l00011">11</a> of file <a class="el" href="mystrings_8h_source.html">mystrings.h</a>.</p>
 
 </div>
 </div>
@@ -224,8 +216,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mystrings_8h_source.html#l00013">13</a> of file <a class="el" href="mystrings_8h_source.html">mystrings.h</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="abee22002c9d20fec0bc94a3bfd4e40ad"></a>
@@ -238,8 +228,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mystrings_8h_source.html#l00009">9</a> of file <a class="el" href="mystrings_8h_source.html">mystrings.h</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a06f08b51f172bd9daaa65efb9a67ec85"></a>
@@ -251,8 +239,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="mystrings_8h_source.html#l00010">10</a> of file <a class="el" href="mystrings_8h_source.html">mystrings.h</a>.</p>
 
 </div>
 </div>
@@ -280,8 +266,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>An int.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2/28/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00228">228</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
 
 </div>
 </div>
@@ -334,8 +318,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00335">335</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a0357c834f41f5fa46fafa8b8ade095e4"></a>
@@ -346,12 +328,12 @@ Functions</h2></td></tr>
           <td class="memname">char* FileToString </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>File to string.</p>
+<p>Loads string data from a file.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">fileName</td><td>If non-null, filename of the file.</td></tr>
@@ -361,8 +343,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>null if it fails, else a char*.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1/30/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00288">288</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
 
 </div>
 </div>
@@ -395,7 +375,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Searches for the first key and sets token.</p>
+<p>Searches for the first key that matches given gPlayerName, through through tokens &amp; g_str.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">token</td><td>The token. </td></tr>
@@ -407,8 +387,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>null if it fails, else the found key.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Junji </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1/30/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00024">24</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
 
 </div>
 </div>
@@ -454,8 +432,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/25/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00126">126</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aa5c26c3bf9ec4cf5d58937787db2d415"></a>
@@ -499,8 +475,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2/28/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00169">169</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a78d7d9580e10b30e6409ebfeb29e5cfe"></a>
@@ -538,8 +512,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1/30/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00093">93</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7847ecf365cd64921278854576e5ddcc"></a>
@@ -566,8 +538,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2/28/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00188">188</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a1f4734e9e15d21a1c72758530c1a468f"></a>
@@ -593,8 +563,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>null if it fails, else a char*.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1/30/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="mystrings_8c_source.html#l00258">258</a> of file <a class="el" href="mystrings_8c_source.html">mystrings.c</a>.</p>
 
 </div>
 </div>

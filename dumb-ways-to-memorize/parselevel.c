@@ -6,9 +6,8 @@
 #include "mystrings.h"
 #include <stdio.h>
 
-level_t *gCurrentLevel = NULL;  /**< The current level the game has */
+level_t *gCurrentLevel = NULL;  
 
-//Occurs after entity loads entity list
 int LoadLevel(object_t *level, char *g_str)
 {
 	jsmntok_t *tempTok, *aiTok, *enemyTok;

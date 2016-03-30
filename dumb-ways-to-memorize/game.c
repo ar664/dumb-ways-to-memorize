@@ -19,36 +19,36 @@
 
 //All char ** should be size+1, and ending member = NULL
 
-int exitRequest = 0;				/**< The integer to be changed to exit */
+int exitRequest = 0;
 int gDelay = 0;
-int gLives = 0;						/**< The lives of the player */
-int gLevelsPerGame = LEVELS_DEFAULT;	/**< The levels per game */
-jsmn_parser gParser;				/**< The global jsmn parser */
-char **gLevels = NULL;				/**< The level names */
-char **gSelectedLevels = NULL;		/**< The selected levels to load */
-char **gSelectedPowerUps = NULL;	/**< The power ups the player selects */
-char **gUsedPowerUps = NULL;		/**< The used power ups for this game run */
-jsmntok_t *gGameTokens;				/**< Tokens for GameData */
-jsmntok_t *gEntityTokens;			/**< The entity jsmn tokens */
-jsmntok_t *gLevelTokens;			/**< The level jsmn tokens */
-object_t *gGameObject;				/**< The game object */
-object_t *gEntityObject;			/**< The entity object */
-object_t *gLevelObject;				/**< The level object */
-char *gGameData;					/**< Game Data File - holding the contents of file via string*/
-char *gEntityData;					/**< Entity data file */
-char *gLevelData;					/**< Information describing the current level */
-char *gEntitiesFile = NULL;			/**< The name of the entities file */
-char *gPowerUpsFile = NULL;			/**< The name of the power ups file */
-entity_t *gEntityDictionary;		/**< Entities loaded from files AKA cached entities*/
-power_t *gPowerUps;					/**< The loaded power ups */
-char *gCurrentPowerUpName = NULL;   /**< The current power up name */
-GameState gGameState = SPLASH;		/**< State of the game */
+int gLevelsPerGame = LEVELS_DEFAULT;
+jsmn_parser gParser;
+char **gLevels = NULL;
+char **gSelectedLevels = NULL;
+char **gSelectedPowerUps = NULL;
+char **gUsedPowerUps = NULL;
+jsmntok_t *gGameTokens;
+jsmntok_t *gEntityTokens;
+jsmntok_t *gLevelTokens;
+object_t *gGameObject;
+object_t *gEntityObject;
+object_t *gLevelObject;
+char *gGameData;
+char *gEntityData;
+char *gLevelData;
+char *gEntitiesFile = NULL;
+char *gPowerUpsFile = NULL;
+entity_t *gEntityDictionary;
+power_t *gPowerUps;					
+char *gCurrentPowerUpName = NULL;   
+GameState gGameState = SPLASH;		
 sprite_t *gSplash = NULL;			/**< The splash screen sprite*/
 vec2_t gZeroPos = {0,0};
 SDL_Event gEventQ;					/**< The event qeueu update with all SDL_Events */
-SDL_GameController *gController = NULL; /**< The controller */
-SDL_GameControllerButton gButtonQ;  /**< The button qeueu updated with the current button pressed*/
+SDL_GameController *gController = NULL; 
+SDL_GameControllerButton gButtonQ;
 unsigned int gCurrentTime = 0;
+
 /**
  * Loads game data from GameData.json, stored in gGameData.
  *
@@ -57,7 +57,6 @@ unsigned int gCurrentTime = 0;
  * @author	Anthony Rios
  * @date	1/31/2016
  */
-
 int LoadGameData()
 {
 	vec2_t *screen;
@@ -146,7 +145,6 @@ int LoadEntityData()
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 int LoadLevelData()
 {
 	object_t *levelObj;
@@ -195,7 +193,6 @@ int LoadLevelData()
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 int LoadPowerUpData()
 {
 	jsmntok_t *power_tok;
@@ -250,7 +247,6 @@ int LoadPowerUpData()
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 int LoadMenuData()
 {
 	int i, menuCount;
@@ -298,7 +294,6 @@ int LoadMenuData()
  * @author	Anthony Rios
  * @date	1/31/2016
  */
-
 int SelectLevels()
 {
 	int i, rand_i, *no_repeats, type_i;
@@ -345,7 +340,6 @@ int SelectLevels()
  * @author	Anthony Rios
  * @date	2/19/2016
  */
-
 void RandomizeSelectedLevels()
 {
 	int i, rand_i, *no_repeats;
@@ -393,7 +387,6 @@ void RandomizeSelectedLevels()
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 int LoadSelectedLevel(int level)
 {
 	if(!gSelectedLevels)
@@ -431,7 +424,6 @@ int LoadSelectedLevel(int level)
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 void Poll()
 {
 	if( SDL_PollEvent(&gEventQ) )
@@ -597,7 +589,6 @@ void Draw()
  * @author	Anthony Rios
  * @date	1/31/2016
  */
-
 int Setup()
 {
 	//sprite_t *test_sprite;
@@ -672,7 +663,6 @@ int Setup()
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 int Run()
 {
 	while(!exitRequest)
@@ -698,7 +688,6 @@ void Shutdown()
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 void DrawSplash()
 {
 	if(gSplash)
@@ -717,7 +706,6 @@ void DrawSplash()
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 void DrawStart()
 {
 	if(!gMenus)
@@ -736,7 +724,6 @@ void DrawStart()
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 void DrawGuess()
 {
 	if(!gMenus)
@@ -755,7 +742,6 @@ void DrawGuess()
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 void DrawChoose()
 {
 	if(!gMenus)
@@ -774,7 +760,6 @@ void DrawChoose()
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 void DrawPlaying()
 {
 	DrawLevel();
@@ -788,7 +773,6 @@ void DrawPlaying()
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-
 void UpdatePlaying()
 {
 	RunEntities();

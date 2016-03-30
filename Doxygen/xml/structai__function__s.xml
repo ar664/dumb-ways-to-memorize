@@ -51,7 +51,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The 7 currently parsed or default values in this function 1 - speed; [2,3] - direction; 4 - frames; 5 - time; 6 - damage; 7 - check; </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/ai_interpret.h" line="102" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="102" bodyend="-1"/>
@@ -67,7 +67,7 @@
 <para>Optional - The object/entity to spawn during an action </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/ai_interpret.h" line="111" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="111" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/ai_interpret.h" line="104" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="104" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structai__function__s_1ae9037e9c23c85312470746c5c4379814" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -80,7 +80,7 @@
 <para>Optional - The object/entity that you need to find, in order for condition to be valid </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/ai_interpret.h" line="112" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="112" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/ai_interpret.h" line="105" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structai__function__s_1a7965c244eab12a7cdc29c447b8c76dbc" prot="public" static="no" mutable="no">
         <type><ref refid="ai__interpret_8h_1a93e23f66130135adeb83b13c29f36fca" kindref="member">ai_function_t</ref> *</type>
@@ -93,7 +93,7 @@
 <para>The link to the next ai_function to set </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/ai_interpret.h" line="113" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="113" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/ai_interpret.h" line="106" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -111,7 +111,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="dumb-ways-to-memorize/ai_interpret.h" line="98" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="97" bodyend="115"/>
+    <location file="dumb-ways-to-memorize/ai_interpret.h" line="98" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.h" bodystart="97" bodyend="108"/>
     <listofallmembers>
       <member refid="structai__function__s_1a99f128ebf8f9bb2be7e2ffaee33c5554" prot="public" virt="non-virtual"><scope>ai_function_s</scope><name>mAction</name></member>
       <member refid="structai__function__s_1ab64996ddf8cd7006232fcb79bc296b03" prot="public" virt="non-virtual"><scope>ai_function_s</scope><name>mFlags</name></member>

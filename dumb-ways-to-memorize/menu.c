@@ -296,13 +296,6 @@ void UpdatePowerSelectMenu(menu_t* self, SDL_GameControllerButton button)
 	
 }
 
-/**
- * Allocate memor for menu system, gMenus is the menu list. 
- *
- * @author	Anthony Rios
- * @date	3/16/2016
- */
-
 int InitMenuSystem()
 {
 	if(gMenus)
@@ -482,21 +475,6 @@ void ProcessMenuItemsByType(menu_item_t *items,menu_type_t type)
 	
 }
 
-
-/**
- * Loads a menu.
- *
- * @param [in,out]	object 	If non-null, the object menu was parsed to.
- * @param [in,out]	g_str 	If non-null, the string.
- * @param	currState	  	State to assign the menu.
- * @param	previous_state	State before this menu.
- *
- * @return	0 if loads correctly, -1 if it doesn't.
- *
- * @author	Anthony Rios
- * @date	3/16/2016
- */
-
 menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState previous_state)
 {
 	menu_t *menu, *ref_menu;
@@ -655,17 +633,6 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	return menu;
 
 }
-
-/**
- * Searches for the first menu from game state in gMenus.
- *
- * @param	curr_state	State of the curr.
- *
- * @return	null if it fails, else the found menu from game state.
- *
- * @author	Anthony Rios
- * @date	3/16/2016
- */
 
 menu_t* FindMenuFromGameState(GameState curr_state)
 {

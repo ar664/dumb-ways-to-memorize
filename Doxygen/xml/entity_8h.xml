@@ -20,144 +20,142 @@
     <includedby refid="player_8c" local="yes">dumb-ways-to-memorize/player.c</includedby>
     <includedby refid="quick__controller_8c" local="yes">dumb-ways-to-memorize/quick_controller.c</includedby>
     <incdepgraph>
-      <node id="83">
+      <node id="84">
         <label>globals.h</label>
         <link refid="globals_8h"/>
-        <childnode refid="84" relation="include">
-        </childnode>
-      </node>
-      <node id="87">
-        <label>SDL.h</label>
-      </node>
-      <node id="84">
-        <label>jsmn.h</label>
-        <link refid="jsmn_8h"/>
         <childnode refid="85" relation="include">
         </childnode>
       </node>
-      <node id="89">
-        <label>parseobject.h</label>
-        <link refid="parseobject_8h"/>
-        <childnode refid="84" relation="include">
-        </childnode>
+      <node id="88">
+        <label>SDL.h</label>
       </node>
       <node id="85">
-        <label>stddef.h</label>
-      </node>
-      <node id="82">
-        <label>dumb-ways-to-memorize/entity.h</label>
-        <link refid="entity.h"/>
-        <childnode refid="83" relation="include">
-        </childnode>
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
         <childnode refid="86" relation="include">
         </childnode>
-        <childnode refid="88" relation="include">
+      </node>
+      <node id="90">
+        <label>parseobject.h</label>
+        <link refid="parseobject_8h"/>
+        <childnode refid="85" relation="include">
         </childnode>
       </node>
       <node id="86">
-        <label>graphics.h</label>
-        <link refid="graphics_8h"/>
-        <childnode refid="87" relation="include">
-        </childnode>
-        <childnode refid="83" relation="include">
-        </childnode>
+        <label>stddef.h</label>
       </node>
-      <node id="88">
-        <label>ai_interpret.h</label>
-        <link refid="ai__interpret_8h"/>
-        <childnode refid="83" relation="include">
+      <node id="83">
+        <label>dumb-ways-to-memorize/entity.h</label>
+        <link refid="entity.h"/>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
         </childnode>
         <childnode refid="89" relation="include">
         </childnode>
       </node>
+      <node id="87">
+        <label>graphics.h</label>
+        <link refid="graphics_8h"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+      </node>
+      <node id="89">
+        <label>ai_interpret.h</label>
+        <link refid="ai__interpret_8h"/>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="95">
+      <node id="96">
         <label>dumb-ways-to-memorize/parsepowerup.c</label>
         <link refid="parsepowerup_8c"/>
       </node>
-      <node id="97">
+      <node id="98">
         <label>dumb-ways-to-memorize/parsepowerup.h</label>
         <link refid="parsepowerup_8h"/>
-        <childnode refid="91" relation="include">
-        </childnode>
-        <childnode refid="98" relation="include">
-        </childnode>
-        <childnode refid="93" relation="include">
+        <childnode refid="92" relation="include">
         </childnode>
         <childnode refid="99" relation="include">
         </childnode>
-        <childnode refid="95" relation="include">
+        <childnode refid="94" relation="include">
         </childnode>
         <childnode refid="100" relation="include">
         </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
         <childnode refid="101" relation="include">
         </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
       </node>
-      <node id="107">
+      <node id="108">
         <label>dumb-ways-to-memorize/parsefunction.c</label>
         <link refid="parsefunction_8c"/>
       </node>
-      <node id="106">
+      <node id="107">
         <label>dumb-ways-to-memorize/parsefunction.h</label>
         <link refid="parsefunction_8h"/>
-        <childnode refid="107" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
-        <childnode refid="95" relation="include">
+        <childnode refid="96" relation="include">
         </childnode>
       </node>
-      <node id="93">
+      <node id="94">
         <label>dumb-ways-to-memorize/game.c</label>
         <link refid="game_8c"/>
       </node>
-      <node id="103">
+      <node id="104">
         <label>dumb-ways-to-memorize/dumb_physics.c</label>
         <link refid="dumb__physics_8c"/>
       </node>
-      <node id="102">
+      <node id="103">
         <label>dumb-ways-to-memorize/dumb_physics.h</label>
         <link refid="dumb__physics_8h"/>
-        <childnode refid="103" relation="include">
+        <childnode refid="104" relation="include">
         </childnode>
-        <childnode refid="93" relation="include">
+        <childnode refid="94" relation="include">
         </childnode>
       </node>
-      <node id="99">
+      <node id="100">
         <label>dumb-ways-to-memorize/menu.c</label>
         <link refid="menu_8c"/>
       </node>
-      <node id="100">
+      <node id="101">
         <label>dumb-ways-to-memorize/player.c</label>
         <link refid="player_8c"/>
       </node>
-      <node id="104">
+      <node id="105">
         <label>dumb-ways-to-memorize/player.h</label>
         <link refid="player_8h"/>
-        <childnode refid="103" relation="include">
-        </childnode>
-        <childnode refid="98" relation="include">
-        </childnode>
-        <childnode refid="93" relation="include">
+        <childnode refid="104" relation="include">
         </childnode>
         <childnode refid="99" relation="include">
         </childnode>
-        <childnode refid="95" relation="include">
+        <childnode refid="94" relation="include">
         </childnode>
         <childnode refid="100" relation="include">
         </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
         <childnode refid="101" relation="include">
         </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
       </node>
-      <node id="96">
+      <node id="97">
         <label>dumb-ways-to-memorize/parsevariable.c</label>
         <link refid="parsevariable_8c"/>
       </node>
-      <node id="92">
+      <node id="93">
         <label>dumb-ways-to-memorize/parsevariable.h</label>
         <link refid="parsevariable_8h"/>
-        <childnode refid="91" relation="include">
-        </childnode>
-        <childnode refid="93" relation="include">
+        <childnode refid="92" relation="include">
         </childnode>
         <childnode refid="94" relation="include">
         </childnode>
@@ -165,66 +163,68 @@
         </childnode>
         <childnode refid="96" relation="include">
         </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
       </node>
-      <node id="94">
+      <node id="95">
         <label>dumb-ways-to-memorize/parselevel.c</label>
         <link refid="parselevel_8c"/>
       </node>
-      <node id="105">
+      <node id="106">
         <label>dumb-ways-to-memorize/parselevel.h</label>
         <link refid="parselevel_8h"/>
-        <childnode refid="98" relation="include">
-        </childnode>
-        <childnode refid="93" relation="include">
-        </childnode>
         <childnode refid="99" relation="include">
         </childnode>
         <childnode refid="94" relation="include">
         </childnode>
         <childnode refid="100" relation="include">
         </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
       </node>
-      <node id="98">
+      <node id="99">
         <label>dumb-ways-to-memorize/entity.c</label>
         <link refid="entity_8c"/>
       </node>
-      <node id="90">
+      <node id="91">
         <label>dumb-ways-to-memorize/entity.h</label>
         <link refid="entity.h"/>
-        <childnode refid="91" relation="include">
-        </childnode>
         <childnode refid="92" relation="include">
         </childnode>
-        <childnode refid="97" relation="include">
+        <childnode refid="93" relation="include">
         </childnode>
-        <childnode refid="102" relation="include">
+        <childnode refid="98" relation="include">
         </childnode>
         <childnode refid="103" relation="include">
         </childnode>
         <childnode refid="104" relation="include">
         </childnode>
-        <childnode refid="98" relation="include">
-        </childnode>
         <childnode refid="105" relation="include">
         </childnode>
-        <childnode refid="93" relation="include">
+        <childnode refid="99" relation="include">
         </childnode>
         <childnode refid="106" relation="include">
         </childnode>
         <childnode refid="94" relation="include">
         </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
         <childnode refid="95" relation="include">
         </childnode>
-        <childnode refid="100" relation="include">
+        <childnode refid="96" relation="include">
         </childnode>
         <childnode refid="101" relation="include">
         </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
       </node>
-      <node id="91">
+      <node id="92">
         <label>dumb-ways-to-memorize/ai_interpret.c</label>
         <link refid="ai__interpret_8c"/>
       </node>
-      <node id="101">
+      <node id="102">
         <label>dumb-ways-to-memorize/quick_controller.c</label>
         <link refid="quick__controller_8c"/>
       </node>
@@ -277,7 +277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="611" column="1" bodyfile="dumb-ways-to-memorize/entity.h" bodystart="12" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="427" column="1" bodyfile="dumb-ways-to-memorize/entity.h" bodystart="12" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -292,7 +292,7 @@
 <para>Entities loaded from files AKA cached entities </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="45" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="42" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="45" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="entity_8h_1a725e495de3797c12610995f701dd8a6a" prot="public" static="no" mutable="no">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -302,7 +302,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The memory for entities that are currently running in the game </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.h" line="46" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="11" bodyend="-1"/>
@@ -315,7 +315,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The last entity that was free&apos;d or created </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.h" line="47" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="12" bodyend="-1"/>
@@ -342,7 +342,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="59" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.c" bodystart="248" bodyend="269"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="150" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.c" bodystart="238" bodyend="259"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -360,7 +360,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="49" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="286" bodyend="302"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="57" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="217" bodyend="233"/>
+        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
+        <references refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" compoundref="game_8c" startline="41">gEntityDictionary</references>
+        <references refid="entity_8c_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" compoundref="entity_8c" startline="12">gLastEntity</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1ad5cd21060189ddd8246414069ee01676" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -370,13 +373,15 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Init new entity.</para><para><simplesect kind="return"><para>null if it fails, else a pointer to an entity_t.</para></simplesect>
+<para>Init new entity in the memory of global entity space.</para><para><simplesect kind="return"><para>null if it fails, else a pointer to an entity_t.</para></simplesect>
 <simplesect kind="author"><para>Anthony Rios </para></simplesect>
 <simplesect kind="date"><para>3/29/2016 </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="50" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="313" bodyend="326"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="67" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="235" bodyend="248"/>
+        <references refid="entity_8c_1ace2c9f2a6fee203dab937c5e716ad7dd" compoundref="entity_8c" startline="331" endline="353">FindFreeEntity</references>
+        <references refid="entity_8c_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" compoundref="entity_8c" startline="12">gLastEntity</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a373409dde746bc4935afd92aa8975f4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -392,7 +397,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="51" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="337" bodyend="349"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="77" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="250" bodyend="262"/>
+        <references refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" compoundref="game_8c" startline="41">gEntityDictionary</references>
+        <references refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" compoundref="entity_8h" startline="35">entity_s::mName</references>
+        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a018dc9e984dbb58b293f263775b528c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -406,12 +414,12 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Searches for the cached entity whose name matches given str.</para><para><parameterlist kind="param"><parameteritem>
+<para>Searches for the cached entity whose gPlayerName matches given str.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>name</parametername>
+<parametername>gPlayerName</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The name.</para></parameterdescription>
+<para>The gPlayerName.</para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <simplesect kind="return"><para>null if it fails, else the found cached entity.</para></simplesect>
@@ -420,7 +428,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="52" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="414" bodyend="427"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="89" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="301" bodyend="314"/>
+        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
+        <references refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" compoundref="game_8c" startline="41">gEntityDictionary</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1aa4c00fea364c35f0a56dd90b9c38efb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -434,12 +444,12 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Searches for the first entity with the name of given str.</para><para><parameterlist kind="param"><parameteritem>
+<para>Searches for the first entity with the gPlayerName of given str.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>name</parametername>
+<parametername>gPlayerName</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The name.</para></parameterdescription>
+<para>The gPlayerName.</para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <simplesect kind="return"><para>null if it fails, else the found entity.</para></simplesect>
@@ -448,7 +458,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="53" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="440" bodyend="453"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="101" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="316" bodyend="329"/>
+        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1ace2c9f2a6fee203dab937c5e716ad7dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -476,7 +487,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="54" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="466" bodyend="488"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="113" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="331" bodyend="353"/>
+        <references refid="entity_8c_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" compoundref="entity_8c" startline="12">gLastEntity</references>
+        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a69811b56fbaa2dfc61154fb027632ea8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -504,7 +517,13 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="55" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="501" bodyend="515"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="125" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="355" bodyend="369"/>
+        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
+        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
+        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
+        <references refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" compoundref="entity_8h" startline="32">entity_s::mSprites</references>
+        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
+        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a1c8f7981791b1935beab73c3faab96a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -543,7 +562,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="58" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="529" bodyend="535"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="138" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="371" bodyend="377"/>
+        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
+        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a4804d845517ee1430fc40dfdc3d333df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -559,7 +580,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="61" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="383" bodyend="401"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="159" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="281" bodyend="299"/>
+        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
+        <references refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" compoundref="game_8c" startline="50">gCurrentTime</references>
+        <references refid="structentity__s_1ae045b7ba608e955e791f8af8507b78a4" compoundref="entity_8h" startline="39">entity_s::Think</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a7406ec610d0755cd8022ceea378f83a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -574,7 +598,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="62" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="358" bodyend="373"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="167" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="264" bodyend="279"/>
+        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
+        <references refid="game_8c_1a3d5cf0d8d37b6b17224867eb397c9a16" compoundref="game_8c" startline="547" endline="582">Draw</references>
+        <references refid="structentity__s_1a51719e3ab7c4f8dd260dea013021f53c" compoundref="entity_8h" startline="41">entity_s::Draw</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a9a3d7af463607a209c8f52caf9e15c70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -601,7 +628,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="63" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="281" bodyend="315"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="168" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="230" bodyend="264"/>
+        <references refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" compoundref="entity_8h" startline="35">entity_s::mName</references>
+        <references refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" compoundref="entity_8h" startline="30">entity_s::mCollisionType</references>
+        <references refid="structentity__s_1aa50a2f30db6a433d25f42fe58ee20995" compoundref="entity_8h" startline="31">entity_s::mEntityState</references>
+        <references refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" compoundref="entity_8h" startline="32">entity_s::mSprites</references>
+        <references refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" compoundref="graphics_8h" startline="36">sprite_s::name</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1ae27dad323fa0f26748bd2485f5d019e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -629,7 +661,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="65" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="549" bodyend="577"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="181" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="379" bodyend="407"/>
+        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1aec8aad072a0215184b68b9815194950c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -644,7 +677,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="66" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="586" bodyend="602"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="189" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="409" bodyend="425"/>
+        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
+        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
+        <references refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" compoundref="entity_8c" startline="379" endline="407">FreeEntity</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a8aebaea1606f89c449d67b1f1afb7cdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -659,7 +695,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="67" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="611" bodyend="623"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="197" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="427" bodyend="439"/>
+        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
+        <references refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" compoundref="entity_8c" startline="379" endline="407">FreeEntity</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a8572f94d16405fa3b42dd584893852bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -686,7 +724,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="70" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="26" bodyend="46"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="208" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="17" bodyend="37"/>
+        <references refid="graphics_8c_1a17fde33b1d856d825920d633285aec6e" compoundref="graphics_8c" startline="152" endline="188">DrawSprite</references>
+        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
+        <references refid="globals_8h_1aa6f86057c10bca778f0390185896f050a365057b4417eea6fa7f37cb60877369d" compoundref="globals_8h" startline="73">ANIMATION_IDLE</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1af5e7ffbf279b65e179e3f89caad2ec45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -703,7 +744,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="71" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="49" bodyend="52"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="210" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="40" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1adb84b9e6a5a5c18dc147a1c0de60fd85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -730,7 +771,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="72" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="63" bodyend="75"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="221" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="45" bodyend="57"/>
+        <references refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" compoundref="entity_8c" startline="379" endline="407">FreeEntity</references>
+        <references refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" compoundref="game_8c" startline="50">gCurrentTime</references>
+        <references refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" compoundref="globals_8h" startline="135">FRAME_DELAY</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1ae11597dd27ad4ab341e8c1ebf07c15f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -757,7 +801,22 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="73" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="86" bodyend="127"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="231" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="59" bodyend="100"/>
+        <references refid="game_8c_1a644f3aeee8c48bb2c622244836ef2046" compoundref="game_8c" startline="49">gButtonQ</references>
+        <references refid="quick__controller_8h_1ab7820abcb4653b4fcf13da1a7a724b3f" compoundref="quick__controller_8h" startline="5">BUTTON_NO_INPUT</references>
+        <references refid="quick__controller_8c_1afa7747dae7b1cb4e00338fa86a4f88ce" compoundref="quick__controller_8c" startline="7" endline="45">DoPlayerThink</references>
+        <references refid="game_8c_1ace39fee8ad9b40be707e8bb899b4b66e" compoundref="game_8c" startline="48">gController</references>
+        <references refid="parsepowerup_8c_1a90fefa2dda0184e13839a0b67950fc88" compoundref="parsepowerup_8c" startline="16">gCurrentPowerUp</references>
+        <references refid="structpower__s_1a3cad653c3718314662c4a98659778999" compoundref="parsepowerup_8h" startline="44">power_s::UpdateUse</references>
+        <references refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" compoundref="game_8c" startline="50">gCurrentTime</references>
+        <references refid="globals_8h_1a7460e61d712f20efd9bca05176757e88" compoundref="player_8c" startline="10">gPlayerLives</references>
+        <references refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" compoundref="entity_8c" startline="379" endline="407">FreeEntity</references>
+        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
+        <references refid="player_8h_1a9d84f6e79f74322526a49e2eb0d82a12" compoundref="player_8h" startline="6">PLAYER_LIVES</references>
+        <references refid="entity_8c_1aec8aad072a0215184b68b9815194950c" compoundref="entity_8c" startline="409" endline="425">FreeNonPlayerEntities</references>
+        <references refid="game_8c_1aafc8457d9121884bb074efeff2941e23" compoundref="game_8c" startline="44">gGameState</references>
+        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a13d000b4d7dc70d90239b7430d1eb6b2" compoundref="globals_8h" startline="86">START</references>
+        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285ab8c769f7e7a67d0a91a2fe34fdc5dbea" compoundref="globals_8h" startline="87">GUESS</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a6c8f8a4a732c4324caca6ba22521e5a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -784,7 +843,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="74" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="138" bodyend="173"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="241" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="102" bodyend="137"/>
+        <references refid="ai__interpret_8h_1aab487a4dae4d7338733bfd01a5658b23a2f4801c84fb1ead492802fc8b93d1619" compoundref="ai__interpret_8h" startline="70">AI_FLAG_CHECK_OBJECT</references>
+        <references refid="entity_8c_1a1c8f7981791b1935beab73c3faab96a5" compoundref="entity_8c" startline="371" endline="377">Distance2Entity</references>
+        <references refid="entity_8c_1aa4c00fea364c35f0a56dd90b9c38efb0" compoundref="entity_8c" startline="316" endline="329">FindEntity</references>
+        <references refid="ai__interpret_8h_1a0fd706f9f199bde94857277c893baa47a682c194be42cbd5ca0d0deabb0239876" compoundref="ai__interpret_8h" startline="61">AI_VAR_CHECK</references>
+        <references refid="ai__interpret_8c_1a5ad36cd8551508ec69032e3dc782a1ba" compoundref="ai__interpret_8c" startline="238" endline="259">GetFunctionAI</references>
+        <references refid="ai__interpret_8h_1aab487a4dae4d7338733bfd01a5658b23a1e62188aa9d46d657686622ed91447e2" compoundref="ai__interpret_8h" startline="69">AI_FLAG_CHECK_PLAYER</references>
+        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a2eb4fef990cd3eb845b5a99fbd22e0fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -833,7 +899,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="75" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="187" bodyend="213"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="254" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="139" bodyend="165"/>
+        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aaca8cf2b8670715dc64f0b04625fee211" compoundref="globals_8h" startline="55">COLLISION_TYPE_STATIC</references>
+        <references refid="structentity__s_1a8c5ee6d8b825b6da8ab851320eccd45e" compoundref="entity_8h" startline="23">entity_s::mHazards</references>
+        <references refid="globals_8h_1a64503cbd995995a54eaa8ee4c5f4419d" compoundref="globals_8h" startline="100">HAZARD_DAMAGE</references>
+        <references refid="globals_8h_1aa6f86057c10bca778f0390185896f050a1dfa398765a2780df83e82c8de685710" compoundref="globals_8h" startline="77">ANIMATION_HIT</references>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
+        <references refid="globals_8h_1af1a2e554453150b34cd34fc077cd217a" compoundref="globals_8h" startline="101">HAZARD_STUN_FRAMES</references>
+        <references refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" compoundref="globals_8h" startline="135">FRAME_DELAY</references>
+        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aa7e4186c206af11ddf23d64e3d19c4bdb" compoundref="globals_8h" startline="56">COLLISION_TYPE_RAGDOLL</references>
+        <references refid="structentity__s_1a709ed9fa7e17bcc63f51b9e011772aee" compoundref="entity_8h" startline="25">entity_s::mHealth</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a0090f3a150bf7833709c04eba953c6e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -855,10 +930,42 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The player touch function called on collision. If he touches a hazard, he gets damaged.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the class instance that this method operates on. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the other. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="76" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="216" bodyend="242"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="267" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="168" bodyend="194"/>
+        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aaca8cf2b8670715dc64f0b04625fee211" compoundref="globals_8h" startline="55">COLLISION_TYPE_STATIC</references>
+        <references refid="structentity__s_1a8c5ee6d8b825b6da8ab851320eccd45e" compoundref="entity_8h" startline="23">entity_s::mHazards</references>
+        <references refid="globals_8h_1a64503cbd995995a54eaa8ee4c5f4419d" compoundref="globals_8h" startline="100">HAZARD_DAMAGE</references>
+        <references refid="globals_8h_1aa6f86057c10bca778f0390185896f050a1dfa398765a2780df83e82c8de685710" compoundref="globals_8h" startline="77">ANIMATION_HIT</references>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
+        <references refid="globals_8h_1af1a2e554453150b34cd34fc077cd217a" compoundref="globals_8h" startline="101">HAZARD_STUN_FRAMES</references>
+        <references refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" compoundref="globals_8h" startline="135">FRAME_DELAY</references>
+        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aa7e4186c206af11ddf23d64e3d19c4bdb" compoundref="globals_8h" startline="56">COLLISION_TYPE_RAGDOLL</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a8460f228ddd46eb74cf3693274191365" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -880,10 +987,37 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The touch function for an enemy, currently does nothing.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the class instance that this method operates on. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the other. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="77" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="244" bodyend="255"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="280" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="196" bodyend="207"/>
+        <references refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" compoundref="entity_8h" startline="30">entity_s::mCollisionType</references>
+        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aaca8cf2b8670715dc64f0b04625fee211" compoundref="globals_8h" startline="55">COLLISION_TYPE_STATIC</references>
+        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aa7e4186c206af11ddf23d64e3d19c4bdb" compoundref="globals_8h" startline="56">COLLISION_TYPE_RAGDOLL</references>
       </memberdef>
       <memberdef kind="function" id="entity_8h_1a4929b147240092a570d720f74ce10617" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -932,7 +1066,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/entity.h" line="78" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="269" bodyend="275"/>
+        <location file="dumb-ways-to-memorize/entity.h" line="293" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="209" bodyend="215"/>
+        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
+        <references refid="game_8c_1aafc8457d9121884bb074efeff2941e23" compoundref="game_8c" startline="44">gGameState</references>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
+        <references refid="game_8c_1a6540f730c8dc68b12d940f68358ca677" compoundref="game_8c" startline="29">gUsedPowerUps</references>
+        <references refid="game_8c_1a66329b13979a75d803e9f5d705f5a755" compoundref="game_8c" startline="28">gSelectedPowerUps</references>
+        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a13d000b4d7dc70d90239b7430d1eb6b2" compoundref="globals_8h" startline="86">START</references>
+        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a58a9a2b13d64bdcda325c28725c1a73f" compoundref="globals_8h" startline="88">CHOOSE</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -977,43 +1118,60 @@
 <codeline lineno="42" refid="structentity__s_1ad1606f41f8e2d6ffa8da068d620a102e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*<ref refid="structentity__s_1ad1606f41f8e2d6ffa8da068d620a102e" kindref="member">PowerUp</ref>)(</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structpower__s" kindref="compound">power_s</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);<sp/><sp/></highlight></codeline>
 <codeline lineno="43"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" kindref="member">gEntityDictionary</ref>;</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>;</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" kindref="member">gLastEntity</ref>;</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a9aa4a5f113750202be9f45db34908955" kindref="member">InitEntitySystem</ref>();</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1ad5cd21060189ddd8246414069ee01676" kindref="member">InitNewEntity</ref>();</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1a373409dde746bc4935afd92aa8975f4c" kindref="member">FindNextFreeCachePos</ref>();</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1a018dc9e984dbb58b293f263775b528c6" kindref="member">FindCachedEntity</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="player_8c_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1aa4c00fea364c35f0a56dd90b9c38efb0" kindref="member">FindEntity</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="player_8c_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1ace2c9f2a6fee203dab937c5e716ad7dd" kindref="member">FindFreeEntity</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>position);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1a69811b56fbaa2dfc61154fb027632ea8" kindref="member">LookForEntityAtPos</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>position);</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a1c8f7981791b1935beab73c3faab96a5" kindref="member">Distance2Entity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="entity_8h_1a5ad36cd8551508ec69032e3dc782a1ba" kindref="member">GetFunctionAI</ref>(<ref refid="structai__function__s" kindref="compound">ai_function_t</ref><sp/>*data))(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a4804d845517ee1430fc40dfdc3d333df" kindref="member">RunEntities</ref>();</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a7406ec610d0755cd8022ceea378f83a6" kindref="member">DrawEntities</ref>();</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a9a3d7af463607a209c8f52caf9e15c70" kindref="member">PrintEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1ae27dad323fa0f26748bd2485f5d019e3" kindref="member">FreeEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1aec8aad072a0215184b68b9815194950c" kindref="member">FreeNonPlayerEntities</ref>();</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a8aebaea1606f89c449d67b1f1afb7cdb" kindref="member">ShutdownEntitySystem</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" kindref="member">gEntityDictionary</ref>;<sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" kindref="member">gLastEntity</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a9aa4a5f113750202be9f45db34908955" kindref="member">InitEntitySystem</ref>();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1ad5cd21060189ddd8246414069ee01676" kindref="member">InitNewEntity</ref>();</highlight></codeline>
 <codeline lineno="68"><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//Think<sp/>&amp;<sp/>Draw<sp/>Functions</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a8572f94d16405fa3b42dd584893852bd" kindref="member">DrawGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1af5e7ffbf279b65e179e3f89caad2ec45" kindref="member">DrawPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1adb84b9e6a5a5c18dc147a1c0de60fd85" kindref="member">ThinkGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1ae11597dd27ad4ab341e8c1ebf07c15f8" kindref="member">ThinkPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a6c8f8a4a732c4324caca6ba22521e5a7" kindref="member">ThinkEnemy</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a2eb4fef990cd3eb845b5a99fbd22e0fc" kindref="member">TouchGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type);</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a0090f3a150bf7833709c04eba953c6e2" kindref="member">TouchPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type);</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a8460f228ddd46eb74cf3693274191365" kindref="member">TouchEnemy</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type);</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a4929b147240092a570d720f74ce10617" kindref="member">TouchGoal</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="77"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1a373409dde746bc4935afd92aa8975f4c" kindref="member">FindNextFreeCachePos</ref>();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1a018dc9e984dbb58b293f263775b528c6" kindref="member">FindCachedEntity</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structpower__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1aa4c00fea364c35f0a56dd90b9c38efb0" kindref="member">FindEntity</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structpower__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1ace2c9f2a6fee203dab937c5e716ad7dd" kindref="member">FindFreeEntity</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>position);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8h_1a69811b56fbaa2dfc61154fb027632ea8" kindref="member">LookForEntityAtPos</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>position);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a1c8f7981791b1935beab73c3faab96a5" kindref="member">Distance2Entity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="entity_8h_1a5ad36cd8551508ec69032e3dc782a1ba" kindref="member">GetFunctionAI</ref>(<ref refid="structai__function__s" kindref="compound">ai_function_t</ref><sp/>*data))(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a4804d845517ee1430fc40dfdc3d333df" kindref="member">RunEntities</ref>();</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a7406ec610d0755cd8022ceea378f83a6" kindref="member">DrawEntities</ref>();</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a9a3d7af463607a209c8f52caf9e15c70" kindref="member">PrintEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1ae27dad323fa0f26748bd2485f5d019e3" kindref="member">FreeEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1aec8aad072a0215184b68b9815194950c" kindref="member">FreeNonPlayerEntities</ref>();</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a8aebaea1606f89c449d67b1f1afb7cdb" kindref="member">ShutdownEntitySystem</ref>();</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="comment">//Draw<sp/>Functions</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a8572f94d16405fa3b42dd584893852bd" kindref="member">DrawGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="comment">//Unused<sp/>for<sp/>now</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1af5e7ffbf279b65e179e3f89caad2ec45" kindref="member">DrawPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="comment">//Think<sp/>Functions</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1adb84b9e6a5a5c18dc147a1c0de60fd85" kindref="member">ThinkGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1ae11597dd27ad4ab341e8c1ebf07c15f8" kindref="member">ThinkPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a6c8f8a4a732c4324caca6ba22521e5a7" kindref="member">ThinkEnemy</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a2eb4fef990cd3eb845b5a99fbd22e0fc" kindref="member">TouchGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type);</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a0090f3a150bf7833709c04eba953c6e2" kindref="member">TouchPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a8460f228ddd46eb74cf3693274191365" kindref="member">TouchEnemy</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8h_1a4929b147240092a570d720f74ce10617" kindref="member">TouchGoal</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="dumb-ways-to-memorize/entity.h"/>
   </compounddef>

@@ -5,26 +5,26 @@
     <includedby refid="game_8c" local="yes">dumb-ways-to-memorize/game.c</includedby>
     <includedby refid="main_8h" local="yes">dumb-ways-to-memorize/main.h</includedby>
     <invincdepgraph>
-      <node id="177">
+      <node id="178">
         <label>dumb-ways-to-memorize/game.c</label>
         <link refid="game_8c"/>
       </node>
-      <node id="176">
+      <node id="177">
         <label>dumb-ways-to-memorize/game.h</label>
         <link refid="game.h"/>
-        <childnode refid="177" relation="include">
-        </childnode>
         <childnode refid="178" relation="include">
         </childnode>
+        <childnode refid="179" relation="include">
+        </childnode>
       </node>
-      <node id="179">
+      <node id="180">
         <label>dumb-ways-to-memorize/main.c</label>
         <link refid="main_8c"/>
       </node>
-      <node id="178">
+      <node id="179">
         <label>dumb-ways-to-memorize/main.h</label>
         <link refid="main_8h"/>
-        <childnode refid="179" relation="include">
+        <childnode refid="180" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -148,7 +148,18 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/game.h" line="15" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="601" bodyend="665"/>
+        <location file="dumb-ways-to-memorize/game.h" line="15" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="592" bodyend="656"/>
+        <references refid="game_8c_1a52972542fcf0985d5ee7277513fbc94c" compoundref="game_8c" startline="60" endline="94">LoadGameData</references>
+        <references refid="graphics_8c_1a5a91ce2f20cdb3efdd3a10f8bcd79fe2" compoundref="graphics_8c" startline="19" endline="90">InitGraphics</references>
+        <references refid="entity_8c_1a9aa4a5f113750202be9f45db34908955" compoundref="entity_8c" startline="217" endline="233">InitEntitySystem</references>
+        <references refid="menu_8c_1a1c427a4122a85bc392880fdcf2a843ce" compoundref="menu_8c" startline="299" endline="314">InitMenuSystem</references>
+        <references refid="ai__interpret_8c_1a766fc5dc0fd99733613cc7a396f6efdf" compoundref="ai__interpret_8c" startline="664" endline="684">InitAISystem</references>
+        <references refid="game_8c_1a3c5ed8ec6399e50f714fcdab2e6c070a" compoundref="game_8c" startline="96" endline="138">LoadEntityData</references>
+        <references refid="game_8c_1abc5753dfa46f96a3f00ce0c228e8e281" compoundref="game_8c" startline="250" endline="287">LoadMenuData</references>
+        <references refid="game_8c_1a80fc9e8ab6c9f36242aca245edee14c9" compoundref="game_8c" startline="148" endline="185">LoadLevelData</references>
+        <references refid="game_8c_1a8c608fbaa05aed812f106331f8dad649" compoundref="game_8c" startline="196" endline="240">LoadPowerUpData</references>
+        <references refid="game_8c_1a94f46db60f69856665f7b6fce5db209e" compoundref="game_8c" startline="297" endline="335">SelectLevels</references>
+        <references refid="game_8c_1ace39fee8ad9b40be707e8bb899b4b66e" compoundref="game_8c" startline="48">gController</references>
       </memberdef>
       <memberdef kind="function" id="game_8h_1aac704aea738c1edc384a97e51d60662b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -164,7 +175,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/game.h" line="16" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="676" bodyend="687"/>
+        <location file="dumb-ways-to-memorize/game.h" line="16" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="666" bodyend="677"/>
+        <references refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" compoundref="game_8c" startline="22">exitRequest</references>
+        <references refid="game_8c_1a28255989d2c8adf3bca455e48b6736c4" compoundref="game_8c" startline="427" endline="453">Poll</references>
+        <references refid="game_8c_1aec0783b5a136e042adcc47bae4fe5291" compoundref="game_8c" startline="458" endline="539">Update</references>
+        <references refid="game_8c_1a3d5cf0d8d37b6b17224867eb397c9a16" compoundref="game_8c" startline="547" endline="582">Draw</references>
+        <references refid="game_8c_1a9736f3ab7bf57237ebee62b9cbd15f13" compoundref="game_8c" startline="23">gDelay</references>
+        <references refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" compoundref="game_8c" startline="50">gCurrentTime</references>
+        <references refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" compoundref="globals_8h" startline="135">FRAME_DELAY</references>
       </memberdef>
       <memberdef kind="function" id="game_8h_1ac5f038c2b480cf9ef5e19e3eba8dbaf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -177,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/game.h" line="17" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="689" bodyend="693"/>
+        <location file="dumb-ways-to-memorize/game.h" line="17" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="679" bodyend="683"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

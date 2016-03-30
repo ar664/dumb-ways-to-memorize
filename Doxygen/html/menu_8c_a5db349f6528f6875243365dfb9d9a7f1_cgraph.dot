@@ -1,0 +1,13 @@
+digraph "UpdateVerticalMenu"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="UpdateVerticalMenu",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="DeselectItemByNum",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$menu_8c.html#a4e4ef9cbfcd4be548e989655712272a1"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SelectItemByNum",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$menu_8c.html#a6d1957abbc96c1fae5a5baee797eb4b8"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="CountMem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$globals_8h.html#ab5272b6a1f2bf961c7534ec91a243715"];
+}

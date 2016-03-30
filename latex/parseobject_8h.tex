@@ -1,0 +1,121 @@
+\hypertarget{parseobject_8h}{}\section{dumb-\/ways-\/to-\/memorize/parseobject.h File Reference}
+\label{parseobject_8h}\index{dumb-\/ways-\/to-\/memorize/parseobject.\+h@{dumb-\/ways-\/to-\/memorize/parseobject.\+h}}
+{\ttfamily \#include $<$jsmn.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structobject__s}{object\+\_\+s}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structobject__s}{object\+\_\+s} \hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$ \hyperlink{parseobject_8h_abeb996817aa47a5e463a47275c897483}{Parse\+To\+Object} (\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$token, char $\ast$g\+\_\+str)
+\item 
+\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$ \hyperlink{parseobject_8h_a0d7610fbd167c6f81519e6ab3403e3bd}{Find\+Object} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$obj, char $\ast$name)
+\item 
+int \hyperlink{parseobject_8h_aef0cb86d9b54e11206d154c369cb9a7e}{Count\+Object\+Members} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$obj, char $\ast$g\+\_\+str)
+\item 
+int \hyperlink{parseobject_8h_acaa82337937e66fae84e360325cabdc6}{Count\+Object\+Children} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$obj)
+\item 
+void \hyperlink{parseobject_8h_ae7d41e06515589776dc92961481d56ab}{Print\+Object} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$obj, char $\ast$g\+\_\+str)
+\item 
+int \hyperlink{parseobject_8h_a66550ec5ad5119b002932431e1ce8578}{Copy\+Object\+To\+Object\+Array} (\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$$\ast$dst, \hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$src, int size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{parseobject.\+h@{parseobject.\+h}!object\+\_\+t@{object\+\_\+t}}
+\index{object\+\_\+t@{object\+\_\+t}!parseobject.\+h@{parseobject.\+h}}
+\subsubsection[{\texorpdfstring{object\+\_\+t}{object_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf object\+\_\+s} {\bf object\+\_\+t}}\hypertarget{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{}\label{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}
+
+
+\subsection{Function Documentation}
+\index{parseobject.\+h@{parseobject.\+h}!Copy\+Object\+To\+Object\+Array@{Copy\+Object\+To\+Object\+Array}}
+\index{Copy\+Object\+To\+Object\+Array@{Copy\+Object\+To\+Object\+Array}!parseobject.\+h@{parseobject.\+h}}
+\subsubsection[{\texorpdfstring{Copy\+Object\+To\+Object\+Array(object\+\_\+t $\ast$$\ast$dst, object\+\_\+t $\ast$src, int size)}{CopyObjectToObjectArray(object_t **dst, object_t *src, int size)}}]{\setlength{\rightskip}{0pt plus 5cm}int Copy\+Object\+To\+Object\+Array (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$$\ast$}]{dst, }
+\item[{{\bf object\+\_\+t} $\ast$}]{src, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{parseobject_8h_a66550ec5ad5119b002932431e1ce8578}{}\label{parseobject_8h_a66550ec5ad5119b002932431e1ce8578}
+\index{parseobject.\+h@{parseobject.\+h}!Count\+Object\+Children@{Count\+Object\+Children}}
+\index{Count\+Object\+Children@{Count\+Object\+Children}!parseobject.\+h@{parseobject.\+h}}
+\subsubsection[{\texorpdfstring{Count\+Object\+Children(object\+\_\+t $\ast$obj)}{CountObjectChildren(object_t *obj)}}]{\setlength{\rightskip}{0pt plus 5cm}int Count\+Object\+Children (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$}]{obj}
+\end{DoxyParamCaption}
+)}\hypertarget{parseobject_8h_acaa82337937e66fae84e360325cabdc6}{}\label{parseobject_8h_acaa82337937e66fae84e360325cabdc6}
+\index{parseobject.\+h@{parseobject.\+h}!Count\+Object\+Members@{Count\+Object\+Members}}
+\index{Count\+Object\+Members@{Count\+Object\+Members}!parseobject.\+h@{parseobject.\+h}}
+\subsubsection[{\texorpdfstring{Count\+Object\+Members(object\+\_\+t $\ast$obj, char $\ast$g\+\_\+str)}{CountObjectMembers(object_t *obj, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}int Count\+Object\+Members (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$}]{obj, }
+\item[{char $\ast$}]{g\+\_\+str}
+\end{DoxyParamCaption}
+)}\hypertarget{parseobject_8h_aef0cb86d9b54e11206d154c369cb9a7e}{}\label{parseobject_8h_aef0cb86d9b54e11206d154c369cb9a7e}
+\index{parseobject.\+h@{parseobject.\+h}!Find\+Object@{Find\+Object}}
+\index{Find\+Object@{Find\+Object}!parseobject.\+h@{parseobject.\+h}}
+\subsubsection[{\texorpdfstring{Find\+Object(object\+\_\+t $\ast$obj, char $\ast$name)}{FindObject(object_t *obj, char *name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf object\+\_\+t}$\ast$ Find\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$}]{obj, }
+\item[{char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{parseobject_8h_a0d7610fbd167c6f81519e6ab3403e3bd}{}\label{parseobject_8h_a0d7610fbd167c6f81519e6ab3403e3bd}
+Searches for the first object in object list that matches name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em obj} & If non-\/null, the object. \\
+\hline
+\mbox{\tt in,out}  & {\em name} & If non-\/null, the name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else the found object.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2/27/2016 
+\end{DoxyDate}
+\index{parseobject.\+h@{parseobject.\+h}!Parse\+To\+Object@{Parse\+To\+Object}}
+\index{Parse\+To\+Object@{Parse\+To\+Object}!parseobject.\+h@{parseobject.\+h}}
+\subsubsection[{\texorpdfstring{Parse\+To\+Object(jsmntok\+\_\+t $\ast$token, char $\ast$g\+\_\+str)}{ParseToObject(jsmntok_t *token, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf object\+\_\+t}$\ast$ Parse\+To\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf jsmntok\+\_\+t} $\ast$}]{token, }
+\item[{char $\ast$}]{g\+\_\+str}
+\end{DoxyParamCaption}
+)}\hypertarget{parseobject_8h_abeb996817aa47a5e463a47275c897483}{}\label{parseobject_8h_abeb996817aa47a5e463a47275c897483}
+Parse to object, this object has no parent.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em token} & If non-\/null, the token that begins with object. \\
+\hline
+\mbox{\tt in,out}  & {\em str} & If non-\/null, the global string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else an object\+\_\+t$\ast$.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2/1/2016 
+\end{DoxyDate}
+\index{parseobject.\+h@{parseobject.\+h}!Print\+Object@{Print\+Object}}
+\index{Print\+Object@{Print\+Object}!parseobject.\+h@{parseobject.\+h}}
+\subsubsection[{\texorpdfstring{Print\+Object(object\+\_\+t $\ast$obj, char $\ast$g\+\_\+str)}{PrintObject(object_t *obj, char *g_str)}}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf object\+\_\+t} $\ast$}]{obj, }
+\item[{char $\ast$}]{g\+\_\+str}
+\end{DoxyParamCaption}
+)}\hypertarget{parseobject_8h_ae7d41e06515589776dc92961481d56ab}{}\label{parseobject_8h_ae7d41e06515589776dc92961481d56ab}

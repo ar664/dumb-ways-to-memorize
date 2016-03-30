@@ -116,9 +116,7 @@ $(document).ready(function(){initNavTree('dumb__physics_8c.html','');});
 <code>#include &quot;<a class="el" href="globals_8h_source.html">globals.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
-</div>
-<p><a href="dumb__physics_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae354ed0629e54a219f0a00be20f6e2f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dumb__physics_8c.html#ae354ed0629e54a219f0a00be20f6e2f0">RunPhysics</a> ()</td></tr>
@@ -153,7 +151,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Applies the bounds to specified ent.</p>
+<p>Applies the bounds to specified ent, defined by the screen dimensions.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ent</td><td>If non-null, the ent.</td></tr>
@@ -162,8 +160,6 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00220">220</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
 
 </div>
 </div>
@@ -180,7 +176,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Applies the friction to vector a.</p>
+<p>Applies the friction to vector a, for the nonzero values. Uses Physics_base_friction for friction coefficient.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>If non-null, the vec2_t to process.</td></tr>
@@ -189,8 +185,6 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00255">255</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
 
 </div>
 </div>
@@ -207,7 +201,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Applies the speed limit to vector a.</p>
+<p>Applies the speed limit to vector a, defined by physics max speed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>If non-null, the vec2_t to process.</td></tr>
@@ -216,8 +210,6 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00205">205</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
 
 </div>
 </div>
@@ -256,8 +248,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/20/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00079">79</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a9e6b8c74bb414eeffcbd423e4a40e542"></a>
@@ -294,8 +284,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/20/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00109">109</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ae354ed0629e54a219f0a00be20f6e2f0"></a>
@@ -314,8 +302,6 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/20/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00019">19</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -328,8 +314,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00007">7</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
+<p>The gravity which affects all the assets </p>
 
 </div>
 </div>

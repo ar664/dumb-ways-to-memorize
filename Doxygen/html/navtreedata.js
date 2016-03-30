@@ -28,9 +28,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ai__interpret_8c.html",
-"game_8h.html",
-"menu_8h.html#a31141b0e1ee4f4ab9f3f64e7ed63a6e9",
-"quick__controller_8h.html#a644f3aeee8c48bb2c622244836ef2046"
+"game_8h.html#a50ac2197010a8cf188eafc647122f1a3",
+"menu_8h.html#aa17ff70e4da81270ffeab1dcb19cacb6",
+"structai__function__s.html#a889d5923f6b7628af2fe824149b5a942"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

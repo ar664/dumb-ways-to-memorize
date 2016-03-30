@@ -1,0 +1,516 @@
+\hypertarget{game_8c}{}\section{dumb-\/ways-\/to-\/memorize/game.c File Reference}
+\label{game_8c}\index{dumb-\/ways-\/to-\/memorize/game.\+c@{dumb-\/ways-\/to-\/memorize/game.\+c}}
+{\ttfamily \#include \char`\"{}globals.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}quick\+\_\+controller.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}game.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}entity.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mystrings.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parseobject.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parsevariable.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parsepowerup.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parselevel.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dumb\+\_\+physics.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}graphics.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$S\+D\+L.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}menu.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{game_8c_a52972542fcf0985d5ee7277513fbc94c}{Load\+Game\+Data} ()
+\item 
+int \hyperlink{game_8c_a3c5ed8ec6399e50f714fcdab2e6c070a}{Load\+Entity\+Data} ()
+\item 
+int \hyperlink{game_8c_a80fc9e8ab6c9f36242aca245edee14c9}{Load\+Level\+Data} ()
+\item 
+int \hyperlink{game_8c_a8c608fbaa05aed812f106331f8dad649}{Load\+Power\+Up\+Data} ()
+\item 
+int \hyperlink{game_8c_abc5753dfa46f96a3f00ce0c228e8e281}{Load\+Menu\+Data} ()
+\item 
+int \hyperlink{game_8c_a94f46db60f69856665f7b6fce5db209e}{Select\+Levels} ()
+\item 
+void \hyperlink{game_8c_a61420beeaf5d0198b41709412508cfd8}{Randomize\+Selected\+Levels} ()
+\item 
+int \hyperlink{game_8c_ae4bccf3c8c8b60d039485212d07c6489}{Load\+Selected\+Level} (int level)
+\item 
+void \hyperlink{game_8c_a28255989d2c8adf3bca455e48b6736c4}{Poll} ()
+\item 
+void \hyperlink{game_8c_a3ddcf597916a7185f18d493a51684845}{Update\+Playing} ()
+\item 
+void \hyperlink{game_8c_aec0783b5a136e042adcc47bae4fe5291}{Update} ()
+\item 
+void \hyperlink{game_8c_addfb0717b9d4923ffd6ca6a879a24d8a}{Draw\+Splash} ()
+\item 
+void \hyperlink{game_8c_a649bc00af241211bb527b38ea5100f35}{Draw\+Start} ()
+\item 
+void \hyperlink{game_8c_a3d1af84dd28675b906294f461ba1eacd}{Draw\+Guess} ()
+\item 
+void \hyperlink{game_8c_aa4fdce6f0033a5f2bfc633e9d5edc55a}{Draw\+Choose} ()
+\item 
+void \hyperlink{game_8c_a3d331e84879ecaad643c10c9b0a74164}{Draw\+Playing} ()
+\item 
+void \hyperlink{game_8c_a3d5cf0d8d37b6b17224867eb397c9a16}{Draw} ()
+\item 
+int \hyperlink{game_8c_a50ac2197010a8cf188eafc647122f1a3}{Setup} ()
+\item 
+int \hyperlink{game_8c_aac704aea738c1edc384a97e51d60662b}{Run} ()
+\item 
+void \hyperlink{game_8c_ac5f038c2b480cf9ef5e19e3eba8dbaf9}{Shutdown} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{game_8c_aaaad6d2ffd165538265b1e68f60ab837}{exit\+Request} = 0
+\item 
+int \hyperlink{game_8c_a9736f3ab7bf57237ebee62b9cbd15f13}{g\+Delay} = 0
+\item 
+int \hyperlink{game_8c_a9527243766b6dbc450b03e44a940e8b4}{g\+Levels\+Per\+Game} = \hyperlink{game_8h_a603aab592ed467dac063a1cf44a55c49}{L\+E\+V\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+LT}
+\item 
+\hyperlink{structjsmn__parser}{jsmn\+\_\+parser} \hyperlink{game_8c_a93e375e494425adf95818f2524f06891}{g\+Parser}
+\item 
+char $\ast$$\ast$ \hyperlink{game_8c_ad2b9ce520a1c8afb8f8e07fcd4b6e58f}{g\+Levels} = N\+U\+LL
+\item 
+char $\ast$$\ast$ \hyperlink{game_8c_a74afd8193cb4b707d3c1cbe7c6109f7c}{g\+Selected\+Levels} = N\+U\+LL
+\item 
+char $\ast$$\ast$ \hyperlink{game_8c_a66329b13979a75d803e9f5d705f5a755}{g\+Selected\+Power\+Ups} = N\+U\+LL
+\item 
+char $\ast$$\ast$ \hyperlink{game_8c_a6540f730c8dc68b12d940f68358ca677}{g\+Used\+Power\+Ups} = N\+U\+LL
+\item 
+\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$ \hyperlink{game_8c_a141d6ca754370006cba996c9d17ad16e}{g\+Game\+Tokens}
+\item 
+\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$ \hyperlink{game_8c_ae426c13677e3a0be6593f5af1a3995ed}{g\+Entity\+Tokens}
+\item 
+\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$ \hyperlink{game_8c_a9f795d64c303e4534a33fa56b0ac3476}{g\+Level\+Tokens}
+\item 
+\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$ \hyperlink{game_8c_abf114e18525eeabfe0ba238c1ef5985d}{g\+Game\+Object}
+\item 
+\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$ \hyperlink{game_8c_a837b44a004dc14ea18337c23f78a569f}{g\+Entity\+Object}
+\item 
+\hyperlink{parseobject_8h_a965db53884ff9e4e077dd5e2e2d6a5e2}{object\+\_\+t} $\ast$ \hyperlink{game_8c_a161d9225397ace076dabb57b90ff2c1a}{g\+Level\+Object}
+\item 
+char $\ast$ \hyperlink{game_8c_ae4c70a31e9d973c951caa5d0081f371b}{g\+Game\+Data}
+\item 
+char $\ast$ \hyperlink{game_8c_a2438de532d787b051cc555989e00eaf1}{g\+Entity\+Data}
+\item 
+char $\ast$ \hyperlink{game_8c_acff6c545ae762a933011c296fda1ead0}{g\+Level\+Data}
+\item 
+char $\ast$ \hyperlink{game_8c_ae41ba571b800cdaf245c2fb320f897c1}{g\+Entities\+File} = N\+U\+LL
+\item 
+char $\ast$ \hyperlink{game_8c_ad2abc3c2640a4883d78427b9cd1b3b8b}{g\+Power\+Ups\+File} = N\+U\+LL
+\item 
+\hyperlink{entity_8h_ad0c3149de5542539dcb5c9251c68fbd2}{entity\+\_\+t} $\ast$ \hyperlink{game_8c_af8475c9d8ef741632cc7461fec5c0fad}{g\+Entity\+Dictionary}
+\item 
+\hyperlink{parsepowerup_8h_a5b6034e874b6462f78a13c5202a4d2eb}{power\+\_\+t} $\ast$ \hyperlink{game_8c_a3a8af497dc09185b0764ca27f6afff1b}{g\+Power\+Ups}
+\item 
+char $\ast$ \hyperlink{game_8c_a66f3fc97502132ecdb2983351ffed1b5}{g\+Current\+Power\+Up\+Name} = N\+U\+LL
+\item 
+\hyperlink{globals_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State} \hyperlink{game_8c_aafc8457d9121884bb074efeff2941e23}{g\+Game\+State} = \hyperlink{globals_8h_a7899b65f1ea0f655e4bbf8d2a5714285a96a92720d3d9970db2d464166b8a569e}{S\+P\+L\+A\+SH}
+\item 
+\hyperlink{graphics_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t} $\ast$ \hyperlink{game_8c_adc658e2e6011d6fb1cdac68634b26a58}{g\+Splash} = N\+U\+LL
+\item 
+\hyperlink{globals_8h_a773f2054819bb6014f1e50baa39cb5e3}{vec2\+\_\+t} \hyperlink{game_8c_a6cec6004c302c98221d23e95d2e2dff4}{g\+Zero\+Pos} = \{0,0\}
+\item 
+S\+D\+L\+\_\+\+Event \hyperlink{game_8c_a66f12a481d172f126a6bf8d3e4a683df}{g\+EventQ}
+\item 
+S\+D\+L\+\_\+\+Game\+Controller $\ast$ \hyperlink{game_8c_ace39fee8ad9b40be707e8bb899b4b66e}{g\+Controller} = N\+U\+LL
+\item 
+S\+D\+L\+\_\+\+Game\+Controller\+Button \hyperlink{game_8c_a644f3aeee8c48bb2c622244836ef2046}{g\+ButtonQ}
+\item 
+unsigned int \hyperlink{game_8c_a708e57fe7cda9dcf5fc11de7d0ec0e5e}{g\+Current\+Time} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{game.\+c@{game.\+c}!Draw@{Draw}}
+\index{Draw@{Draw}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Draw()}{Draw()}}]{\setlength{\rightskip}{0pt plus 5cm}void Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a3d5cf0d8d37b6b17224867eb397c9a16}{}\label{game_8c_a3d5cf0d8d37b6b17224867eb397c9a16}
+\index{game.\+c@{game.\+c}!Draw\+Choose@{Draw\+Choose}}
+\index{Draw\+Choose@{Draw\+Choose}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Draw\+Choose()}{DrawChoose()}}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\+Choose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_aa4fdce6f0033a5f2bfc633e9d5edc55a}{}\label{game_8c_aa4fdce6f0033a5f2bfc633e9d5edc55a}
+Draws the screen for the player to choose which power\+Up he wants for this level.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Draw\+Guess@{Draw\+Guess}}
+\index{Draw\+Guess@{Draw\+Guess}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Draw\+Guess()}{DrawGuess()}}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\+Guess (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a3d1af84dd28675b906294f461ba1eacd}{}\label{game_8c_a3d1af84dd28675b906294f461ba1eacd}
+Draws the screen to player for powers to choose for this run.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Draw\+Playing@{Draw\+Playing}}
+\index{Draw\+Playing@{Draw\+Playing}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Draw\+Playing()}{DrawPlaying()}}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\+Playing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a3d331e84879ecaad643c10c9b0a74164}{}\label{game_8c_a3d331e84879ecaad643c10c9b0a74164}
+Draws the main game state, which is playing the game.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Draw\+Splash@{Draw\+Splash}}
+\index{Draw\+Splash@{Draw\+Splash}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Draw\+Splash()}{DrawSplash()}}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\+Splash (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_addfb0717b9d4923ffd6ca6a879a24d8a}{}\label{game_8c_addfb0717b9d4923ffd6ca6a879a24d8a}
+Draws the splash screen.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Draw\+Start@{Draw\+Start}}
+\index{Draw\+Start@{Draw\+Start}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Draw\+Start()}{DrawStart()}}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\+Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a649bc00af241211bb527b38ea5100f35}{}\label{game_8c_a649bc00af241211bb527b38ea5100f35}
+Draws the start screen.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Load\+Entity\+Data@{Load\+Entity\+Data}}
+\index{Load\+Entity\+Data@{Load\+Entity\+Data}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Load\+Entity\+Data()}{LoadEntityData()}}]{\setlength{\rightskip}{0pt plus 5cm}int Load\+Entity\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a3c5ed8ec6399e50f714fcdab2e6c070a}{}\label{game_8c_a3c5ed8ec6399e50f714fcdab2e6c070a}
+\index{game.\+c@{game.\+c}!Load\+Game\+Data@{Load\+Game\+Data}}
+\index{Load\+Game\+Data@{Load\+Game\+Data}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Load\+Game\+Data()}{LoadGameData()}}]{\setlength{\rightskip}{0pt plus 5cm}int Load\+Game\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a52972542fcf0985d5ee7277513fbc94c}{}\label{game_8c_a52972542fcf0985d5ee7277513fbc94c}
+Loads game data from Game\+Data.\+json, stored in g\+Game\+Data.
+
+\begin{DoxyReturn}{Returns}
+state 0 on success, -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1/31/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Load\+Level\+Data@{Load\+Level\+Data}}
+\index{Load\+Level\+Data@{Load\+Level\+Data}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Load\+Level\+Data()}{LoadLevelData()}}]{\setlength{\rightskip}{0pt plus 5cm}int Load\+Level\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a80fc9e8ab6c9f36242aca245edee14c9}{}\label{game_8c_a80fc9e8ab6c9f36242aca245edee14c9}
+Loads level file names, and how many levels per game.
+
+\begin{DoxyReturn}{Returns}
+The level data.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Load\+Menu\+Data@{Load\+Menu\+Data}}
+\index{Load\+Menu\+Data@{Load\+Menu\+Data}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Load\+Menu\+Data()}{LoadMenuData()}}]{\setlength{\rightskip}{0pt plus 5cm}int Load\+Menu\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_abc5753dfa46f96a3f00ce0c228e8e281}{}\label{game_8c_abc5753dfa46f96a3f00ce0c228e8e281}
+Loads menu data, from files given, which are put in g\+Menus
+
+\begin{DoxyReturn}{Returns}
+The menu data.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Load\+Power\+Up\+Data@{Load\+Power\+Up\+Data}}
+\index{Load\+Power\+Up\+Data@{Load\+Power\+Up\+Data}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Load\+Power\+Up\+Data()}{LoadPowerUpData()}}]{\setlength{\rightskip}{0pt plus 5cm}int Load\+Power\+Up\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a8c608fbaa05aed812f106331f8dad649}{}\label{game_8c_a8c608fbaa05aed812f106331f8dad649}
+After Load Game\+Data, Before Menu. Loads the power\+\_\+ups in the file given.
+
+\begin{DoxyReturn}{Returns}
+The power up data.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Load\+Selected\+Level@{Load\+Selected\+Level}}
+\index{Load\+Selected\+Level@{Load\+Selected\+Level}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Load\+Selected\+Level(int level)}{LoadSelectedLevel(int level)}}]{\setlength{\rightskip}{0pt plus 5cm}int Load\+Selected\+Level (
+\begin{DoxyParamCaption}
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_ae4bccf3c8c8b60d039485212d07c6489}{}\label{game_8c_ae4bccf3c8c8b60d039485212d07c6489}
+Loads selected level.
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & The level.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The selected level.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{parselevel_8h_ad9ebda29344f8ab359a5630fadc56489}{Load\+Level} , in parselevel.\+c 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Poll@{Poll}}
+\index{Poll@{Poll}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Poll()}{Poll()}}]{\setlength{\rightskip}{0pt plus 5cm}void Poll (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a28255989d2c8adf3bca455e48b6736c4}{}\label{game_8c_a28255989d2c8adf3bca455e48b6736c4}
+Polls for all events and handles them.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Randomize\+Selected\+Levels@{Randomize\+Selected\+Levels}}
+\index{Randomize\+Selected\+Levels@{Randomize\+Selected\+Levels}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Randomize\+Selected\+Levels()}{RandomizeSelectedLevels()}}]{\setlength{\rightskip}{0pt plus 5cm}void Randomize\+Selected\+Levels (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a61420beeaf5d0198b41709412508cfd8}{}\label{game_8c_a61420beeaf5d0198b41709412508cfd8}
+Randomize selected levels.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2/19/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Run@{Run}}
+\index{Run@{Run}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Run()}{Run()}}]{\setlength{\rightskip}{0pt plus 5cm}int Run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_aac704aea738c1edc384a97e51d60662b}{}\label{game_8c_aac704aea738c1edc384a97e51d60662b}
+Runs the main game loop.
+
+\begin{DoxyReturn}{Returns}
+An int.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Select\+Levels@{Select\+Levels}}
+\index{Select\+Levels@{Select\+Levels}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Select\+Levels()}{SelectLevels()}}]{\setlength{\rightskip}{0pt plus 5cm}int Select\+Levels (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a94f46db60f69856665f7b6fce5db209e}{}\label{game_8c_a94f46db60f69856665f7b6fce5db209e}
+Select the levels randomly from the available levels, stores in g\+Selected\+Levels.
+
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1/31/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Setup@{Setup}}
+\index{Setup@{Setup}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Setup()}{Setup()}}]{\setlength{\rightskip}{0pt plus 5cm}int Setup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a50ac2197010a8cf188eafc647122f1a3}{}\label{game_8c_a50ac2197010a8cf188eafc647122f1a3}
+Loads files and images for game.
+
+\begin{DoxyReturn}{Returns}
+state returns 0 on success, -\/1 on error
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1/31/2016 
+\end{DoxyDate}
+\index{game.\+c@{game.\+c}!Shutdown@{Shutdown}}
+\index{Shutdown@{Shutdown}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Shutdown()}{Shutdown()}}]{\setlength{\rightskip}{0pt plus 5cm}void Shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_ac5f038c2b480cf9ef5e19e3eba8dbaf9}{}\label{game_8c_ac5f038c2b480cf9ef5e19e3eba8dbaf9}
+\index{game.\+c@{game.\+c}!Update@{Update}}
+\index{Update@{Update}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Update()}{Update()}}]{\setlength{\rightskip}{0pt plus 5cm}void Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_aec0783b5a136e042adcc47bae4fe5291}{}\label{game_8c_aec0783b5a136e042adcc47bae4fe5291}
+\index{game.\+c@{game.\+c}!Update\+Playing@{Update\+Playing}}
+\index{Update\+Playing@{Update\+Playing}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{Update\+Playing()}{UpdatePlaying()}}]{\setlength{\rightskip}{0pt plus 5cm}void Update\+Playing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{game_8c_a3ddcf597916a7185f18d493a51684845}{}\label{game_8c_a3ddcf597916a7185f18d493a51684845}
+Updates the playing game state.
+
+\begin{DoxyAuthor}{Author}
+Anthony Rios 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3/29/2016 
+\end{DoxyDate}
+
+
+\subsection{Variable Documentation}
+\index{game.\+c@{game.\+c}!exit\+Request@{exit\+Request}}
+\index{exit\+Request@{exit\+Request}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{exit\+Request}{exitRequest}}]{\setlength{\rightskip}{0pt plus 5cm}int exit\+Request = 0}\hypertarget{game_8c_aaaad6d2ffd165538265b1e68f60ab837}{}\label{game_8c_aaaad6d2ffd165538265b1e68f60ab837}
+The integer to be changed to exit \index{game.\+c@{game.\+c}!g\+ButtonQ@{g\+ButtonQ}}
+\index{g\+ButtonQ@{g\+ButtonQ}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+ButtonQ}{gButtonQ}}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Game\+Controller\+Button g\+ButtonQ}\hypertarget{game_8c_a644f3aeee8c48bb2c622244836ef2046}{}\label{game_8c_a644f3aeee8c48bb2c622244836ef2046}
+The button qeueu updated with the current button pressed \index{game.\+c@{game.\+c}!g\+Controller@{g\+Controller}}
+\index{g\+Controller@{g\+Controller}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Controller}{gController}}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Game\+Controller$\ast$ g\+Controller = N\+U\+LL}\hypertarget{game_8c_ace39fee8ad9b40be707e8bb899b4b66e}{}\label{game_8c_ace39fee8ad9b40be707e8bb899b4b66e}
+The controller \index{game.\+c@{game.\+c}!g\+Current\+Power\+Up\+Name@{g\+Current\+Power\+Up\+Name}}
+\index{g\+Current\+Power\+Up\+Name@{g\+Current\+Power\+Up\+Name}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Current\+Power\+Up\+Name}{gCurrentPowerUpName}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ g\+Current\+Power\+Up\+Name = N\+U\+LL}\hypertarget{game_8c_a66f3fc97502132ecdb2983351ffed1b5}{}\label{game_8c_a66f3fc97502132ecdb2983351ffed1b5}
+The current power up name \index{game.\+c@{game.\+c}!g\+Current\+Time@{g\+Current\+Time}}
+\index{g\+Current\+Time@{g\+Current\+Time}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Current\+Time}{gCurrentTime}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int g\+Current\+Time = 0}\hypertarget{game_8c_a708e57fe7cda9dcf5fc11de7d0ec0e5e}{}\label{game_8c_a708e57fe7cda9dcf5fc11de7d0ec0e5e}
+The current time , updated from last update call \index{game.\+c@{game.\+c}!g\+Delay@{g\+Delay}}
+\index{g\+Delay@{g\+Delay}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Delay}{gDelay}}]{\setlength{\rightskip}{0pt plus 5cm}int g\+Delay = 0}\hypertarget{game_8c_a9736f3ab7bf57237ebee62b9cbd15f13}{}\label{game_8c_a9736f3ab7bf57237ebee62b9cbd15f13}
+\index{game.\+c@{game.\+c}!g\+Entities\+File@{g\+Entities\+File}}
+\index{g\+Entities\+File@{g\+Entities\+File}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Entities\+File}{gEntitiesFile}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ g\+Entities\+File = N\+U\+LL}\hypertarget{game_8c_ae41ba571b800cdaf245c2fb320f897c1}{}\label{game_8c_ae41ba571b800cdaf245c2fb320f897c1}
+The name of the entities file \index{game.\+c@{game.\+c}!g\+Entity\+Data@{g\+Entity\+Data}}
+\index{g\+Entity\+Data@{g\+Entity\+Data}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Entity\+Data}{gEntityData}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ g\+Entity\+Data}\hypertarget{game_8c_a2438de532d787b051cc555989e00eaf1}{}\label{game_8c_a2438de532d787b051cc555989e00eaf1}
+The current parsed string of the entity file \index{game.\+c@{game.\+c}!g\+Entity\+Dictionary@{g\+Entity\+Dictionary}}
+\index{g\+Entity\+Dictionary@{g\+Entity\+Dictionary}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Entity\+Dictionary}{gEntityDictionary}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\+\_\+t}$\ast$ g\+Entity\+Dictionary}\hypertarget{game_8c_af8475c9d8ef741632cc7461fec5c0fad}{}\label{game_8c_af8475c9d8ef741632cc7461fec5c0fad}
+Entities loaded from files A\+KA cached entities \index{game.\+c@{game.\+c}!g\+Entity\+Object@{g\+Entity\+Object}}
+\index{g\+Entity\+Object@{g\+Entity\+Object}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Entity\+Object}{gEntityObject}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf object\+\_\+t}$\ast$ g\+Entity\+Object}\hypertarget{game_8c_a837b44a004dc14ea18337c23f78a569f}{}\label{game_8c_a837b44a004dc14ea18337c23f78a569f}
+The entity object \index{game.\+c@{game.\+c}!g\+Entity\+Tokens@{g\+Entity\+Tokens}}
+\index{g\+Entity\+Tokens@{g\+Entity\+Tokens}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Entity\+Tokens}{gEntityTokens}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jsmntok\+\_\+t}$\ast$ g\+Entity\+Tokens}\hypertarget{game_8c_ae426c13677e3a0be6593f5af1a3995ed}{}\label{game_8c_ae426c13677e3a0be6593f5af1a3995ed}
+The entity jsmn tokens \index{game.\+c@{game.\+c}!g\+EventQ@{g\+EventQ}}
+\index{g\+EventQ@{g\+EventQ}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+EventQ}{gEventQ}}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Event g\+EventQ}\hypertarget{game_8c_a66f12a481d172f126a6bf8d3e4a683df}{}\label{game_8c_a66f12a481d172f126a6bf8d3e4a683df}
+The event qeueu update with all S\+D\+L\+\_\+\+Events \index{game.\+c@{game.\+c}!g\+Game\+Data@{g\+Game\+Data}}
+\index{g\+Game\+Data@{g\+Game\+Data}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Game\+Data}{gGameData}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ g\+Game\+Data}\hypertarget{game_8c_ae4c70a31e9d973c951caa5d0081f371b}{}\label{game_8c_ae4c70a31e9d973c951caa5d0081f371b}
+Game Data File -\/ holding the contents of file via string \index{game.\+c@{game.\+c}!g\+Game\+Object@{g\+Game\+Object}}
+\index{g\+Game\+Object@{g\+Game\+Object}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Game\+Object}{gGameObject}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf object\+\_\+t}$\ast$ g\+Game\+Object}\hypertarget{game_8c_abf114e18525eeabfe0ba238c1ef5985d}{}\label{game_8c_abf114e18525eeabfe0ba238c1ef5985d}
+The game object \index{game.\+c@{game.\+c}!g\+Game\+State@{g\+Game\+State}}
+\index{g\+Game\+State@{g\+Game\+State}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Game\+State}{gGameState}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\+State} g\+Game\+State = {\bf S\+P\+L\+A\+SH}}\hypertarget{game_8c_aafc8457d9121884bb074efeff2941e23}{}\label{game_8c_aafc8457d9121884bb074efeff2941e23}
+State of the game \index{game.\+c@{game.\+c}!g\+Game\+Tokens@{g\+Game\+Tokens}}
+\index{g\+Game\+Tokens@{g\+Game\+Tokens}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Game\+Tokens}{gGameTokens}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jsmntok\+\_\+t}$\ast$ g\+Game\+Tokens}\hypertarget{game_8c_a141d6ca754370006cba996c9d17ad16e}{}\label{game_8c_a141d6ca754370006cba996c9d17ad16e}
+Tokens for Game\+Data \index{game.\+c@{game.\+c}!g\+Level\+Data@{g\+Level\+Data}}
+\index{g\+Level\+Data@{g\+Level\+Data}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Level\+Data}{gLevelData}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ g\+Level\+Data}\hypertarget{game_8c_acff6c545ae762a933011c296fda1ead0}{}\label{game_8c_acff6c545ae762a933011c296fda1ead0}
+Information describing the current level \index{game.\+c@{game.\+c}!g\+Level\+Object@{g\+Level\+Object}}
+\index{g\+Level\+Object@{g\+Level\+Object}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Level\+Object}{gLevelObject}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf object\+\_\+t}$\ast$ g\+Level\+Object}\hypertarget{game_8c_a161d9225397ace076dabb57b90ff2c1a}{}\label{game_8c_a161d9225397ace076dabb57b90ff2c1a}
+The current level object \index{game.\+c@{game.\+c}!g\+Levels@{g\+Levels}}
+\index{g\+Levels@{g\+Levels}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Levels}{gLevels}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ g\+Levels = N\+U\+LL}\hypertarget{game_8c_ad2b9ce520a1c8afb8f8e07fcd4b6e58f}{}\label{game_8c_ad2b9ce520a1c8afb8f8e07fcd4b6e58f}
+The level names \index{game.\+c@{game.\+c}!g\+Levels\+Per\+Game@{g\+Levels\+Per\+Game}}
+\index{g\+Levels\+Per\+Game@{g\+Levels\+Per\+Game}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Levels\+Per\+Game}{gLevelsPerGame}}]{\setlength{\rightskip}{0pt plus 5cm}int g\+Levels\+Per\+Game = {\bf L\+E\+V\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+LT}}\hypertarget{game_8c_a9527243766b6dbc450b03e44a940e8b4}{}\label{game_8c_a9527243766b6dbc450b03e44a940e8b4}
+The levels per game \index{game.\+c@{game.\+c}!g\+Level\+Tokens@{g\+Level\+Tokens}}
+\index{g\+Level\+Tokens@{g\+Level\+Tokens}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Level\+Tokens}{gLevelTokens}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jsmntok\+\_\+t}$\ast$ g\+Level\+Tokens}\hypertarget{game_8c_a9f795d64c303e4534a33fa56b0ac3476}{}\label{game_8c_a9f795d64c303e4534a33fa56b0ac3476}
+The level jsmn tokens \index{game.\+c@{game.\+c}!g\+Parser@{g\+Parser}}
+\index{g\+Parser@{g\+Parser}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Parser}{gParser}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jsmn\+\_\+parser} g\+Parser}\hypertarget{game_8c_a93e375e494425adf95818f2524f06891}{}\label{game_8c_a93e375e494425adf95818f2524f06891}
+The global jsmn parser \index{game.\+c@{game.\+c}!g\+Power\+Ups@{g\+Power\+Ups}}
+\index{g\+Power\+Ups@{g\+Power\+Ups}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Power\+Ups}{gPowerUps}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf power\+\_\+t}$\ast$ g\+Power\+Ups}\hypertarget{game_8c_a3a8af497dc09185b0764ca27f6afff1b}{}\label{game_8c_a3a8af497dc09185b0764ca27f6afff1b}
+The loaded power ups \index{game.\+c@{game.\+c}!g\+Power\+Ups\+File@{g\+Power\+Ups\+File}}
+\index{g\+Power\+Ups\+File@{g\+Power\+Ups\+File}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Power\+Ups\+File}{gPowerUpsFile}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ g\+Power\+Ups\+File = N\+U\+LL}\hypertarget{game_8c_ad2abc3c2640a4883d78427b9cd1b3b8b}{}\label{game_8c_ad2abc3c2640a4883d78427b9cd1b3b8b}
+The name of the power ups file \index{game.\+c@{game.\+c}!g\+Selected\+Levels@{g\+Selected\+Levels}}
+\index{g\+Selected\+Levels@{g\+Selected\+Levels}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Selected\+Levels}{gSelectedLevels}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ g\+Selected\+Levels = N\+U\+LL}\hypertarget{game_8c_a74afd8193cb4b707d3c1cbe7c6109f7c}{}\label{game_8c_a74afd8193cb4b707d3c1cbe7c6109f7c}
+The selected levels to load \index{game.\+c@{game.\+c}!g\+Selected\+Power\+Ups@{g\+Selected\+Power\+Ups}}
+\index{g\+Selected\+Power\+Ups@{g\+Selected\+Power\+Ups}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Selected\+Power\+Ups}{gSelectedPowerUps}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ g\+Selected\+Power\+Ups = N\+U\+LL}\hypertarget{game_8c_a66329b13979a75d803e9f5d705f5a755}{}\label{game_8c_a66329b13979a75d803e9f5d705f5a755}
+The power ups the player selects \index{game.\+c@{game.\+c}!g\+Splash@{g\+Splash}}
+\index{g\+Splash@{g\+Splash}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Splash}{gSplash}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sprite\+\_\+t}$\ast$ g\+Splash = N\+U\+LL}\hypertarget{game_8c_adc658e2e6011d6fb1cdac68634b26a58}{}\label{game_8c_adc658e2e6011d6fb1cdac68634b26a58}
+The splash screen sprite \index{game.\+c@{game.\+c}!g\+Used\+Power\+Ups@{g\+Used\+Power\+Ups}}
+\index{g\+Used\+Power\+Ups@{g\+Used\+Power\+Ups}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Used\+Power\+Ups}{gUsedPowerUps}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ g\+Used\+Power\+Ups = N\+U\+LL}\hypertarget{game_8c_a6540f730c8dc68b12d940f68358ca677}{}\label{game_8c_a6540f730c8dc68b12d940f68358ca677}
+The used power ups for this game run \index{game.\+c@{game.\+c}!g\+Zero\+Pos@{g\+Zero\+Pos}}
+\index{g\+Zero\+Pos@{g\+Zero\+Pos}!game.\+c@{game.\+c}}
+\subsubsection[{\texorpdfstring{g\+Zero\+Pos}{gZeroPos}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vec2\+\_\+t} g\+Zero\+Pos = \{0,0\}}\hypertarget{game_8c_a6cec6004c302c98221d23e95d2e2dff4}{}\label{game_8c_a6cec6004c302c98221d23e95d2e2dff4}

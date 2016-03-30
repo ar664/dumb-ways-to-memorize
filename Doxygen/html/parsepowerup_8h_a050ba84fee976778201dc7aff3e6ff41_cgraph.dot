@@ -1,0 +1,13 @@
+digraph "Spawn"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Spawn",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="InitNewEntity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$entity_8c.html#ad5cd21060189ddd8246414069ee01676"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="FindFreeEntity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$entity_8c.html#ace2c9f2a6fee203dab937c5e716ad7dd"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Vec2Add",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$globals_8h.html#a0b07daa7e4d5ab9bc9842dbd07ffbd1c"];
+}

@@ -12,75 +12,73 @@
     <includedby refid="player_8c" local="yes">dumb-ways-to-memorize/player.c</includedby>
     <includedby refid="quick__controller_8c" local="yes">dumb-ways-to-memorize/quick_controller.c</includedby>
     <incdepgraph>
-      <node id="425">
+      <node id="426">
         <label>globals.h</label>
         <link refid="globals_8h"/>
-        <childnode refid="422" relation="include">
-        </childnode>
-      </node>
-      <node id="420">
-        <label>dumb-ways-to-memorize/parsepowerup.h</label>
-        <link refid="parsepowerup.h"/>
-        <childnode refid="421" relation="include">
-        </childnode>
-        <childnode refid="424" relation="include">
-        </childnode>
-      </node>
-      <node id="427">
-        <label>SDL.h</label>
-      </node>
-      <node id="422">
-        <label>jsmn.h</label>
-        <link refid="jsmn_8h"/>
         <childnode refid="423" relation="include">
         </childnode>
       </node>
       <node id="421">
-        <label>parseobject.h</label>
-        <link refid="parseobject_8h"/>
+        <label>dumb-ways-to-memorize/parsepowerup.h</label>
+        <link refid="parsepowerup.h"/>
         <childnode refid="422" relation="include">
-        </childnode>
-      </node>
-      <node id="423">
-        <label>stddef.h</label>
-      </node>
-      <node id="424">
-        <label>entity.h</label>
-        <link refid="entity_8h"/>
-        <childnode refid="425" relation="include">
-        </childnode>
-        <childnode refid="426" relation="include">
-        </childnode>
-        <childnode refid="428" relation="include">
-        </childnode>
-      </node>
-      <node id="426">
-        <label>graphics.h</label>
-        <link refid="graphics_8h"/>
-        <childnode refid="427" relation="include">
         </childnode>
         <childnode refid="425" relation="include">
         </childnode>
       </node>
       <node id="428">
+        <label>SDL.h</label>
+      </node>
+      <node id="423">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="424" relation="include">
+        </childnode>
+      </node>
+      <node id="422">
+        <label>parseobject.h</label>
+        <link refid="parseobject_8h"/>
+        <childnode refid="423" relation="include">
+        </childnode>
+      </node>
+      <node id="424">
+        <label>stddef.h</label>
+      </node>
+      <node id="425">
+        <label>entity.h</label>
+        <link refid="entity_8h"/>
+        <childnode refid="426" relation="include">
+        </childnode>
+        <childnode refid="427" relation="include">
+        </childnode>
+        <childnode refid="429" relation="include">
+        </childnode>
+      </node>
+      <node id="427">
+        <label>graphics.h</label>
+        <link refid="graphics_8h"/>
+        <childnode refid="428" relation="include">
+        </childnode>
+        <childnode refid="426" relation="include">
+        </childnode>
+      </node>
+      <node id="429">
         <label>ai_interpret.h</label>
         <link refid="ai__interpret_8h"/>
-        <childnode refid="425" relation="include">
+        <childnode refid="426" relation="include">
         </childnode>
-        <childnode refid="421" relation="include">
+        <childnode refid="422" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="434">
+      <node id="435">
         <label>dumb-ways-to-memorize/parsepowerup.c</label>
         <link refid="parsepowerup_8c"/>
       </node>
-      <node id="429">
+      <node id="430">
         <label>dumb-ways-to-memorize/parsepowerup.h</label>
         <link refid="parsepowerup.h"/>
-        <childnode refid="430" relation="include">
-        </childnode>
         <childnode refid="431" relation="include">
         </childnode>
         <childnode refid="432" relation="include">
@@ -93,28 +91,30 @@
         </childnode>
         <childnode refid="436" relation="include">
         </childnode>
+        <childnode refid="437" relation="include">
+        </childnode>
       </node>
-      <node id="432">
+      <node id="433">
         <label>dumb-ways-to-memorize/game.c</label>
         <link refid="game_8c"/>
       </node>
-      <node id="433">
+      <node id="434">
         <label>dumb-ways-to-memorize/menu.c</label>
         <link refid="menu_8c"/>
       </node>
-      <node id="435">
+      <node id="436">
         <label>dumb-ways-to-memorize/player.c</label>
         <link refid="player_8c"/>
       </node>
-      <node id="431">
+      <node id="432">
         <label>dumb-ways-to-memorize/entity.c</label>
         <link refid="entity_8c"/>
       </node>
-      <node id="430">
+      <node id="431">
         <label>dumb-ways-to-memorize/ai_interpret.c</label>
         <link refid="ai__interpret_8c"/>
       </node>
-      <node id="436">
+      <node id="437">
         <label>dumb-ways-to-memorize/quick_controller.c</label>
         <link refid="quick__controller_8c"/>
       </node>
@@ -186,14 +186,14 @@
           <briefdescription>
           </briefdescription>
           <detaileddescription>
-          </detaileddescription>
+<para>An enum constant representing infinite use of a power_up, which implies activation prior to use </para>          </detaileddescription>
         </enumvalue>
         <enumvalue id="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4ae55a36a850c67d46b3b3325de7fce0b8" prot="public">
           <name>STATIC</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
-          </detaileddescription>
+<para>An enum constant representing static use of a power_up, which implies passive activation </para>          </detaileddescription>
         </enumvalue>
         <briefdescription>
         </briefdescription>
@@ -273,7 +273,7 @@
 <para>The loaded power ups </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="52" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="43" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="52" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="parsepowerup_8h_1a90fefa2dda0184e13839a0b67950fc88" prot="public" static="no" mutable="no">
         <type><ref refid="parsepowerup_8h_1a5b6034e874b6462f78a13c5202a4d2eb" kindref="member">power_t</ref> *</type>
@@ -283,7 +283,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The currently loaded power_up </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsepowerup.h" line="53" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="16" bodyend="-1"/>
@@ -296,10 +296,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The interaction names, which deal with what function power does </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="73" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="13" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="191" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="parsepowerup_8h_1a8a8a842e8d72c67addd165fbe8c293ed" prot="public" static="no" mutable="no">
         <type>void *[]</type>
@@ -309,10 +309,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The interaction symbol for the functions </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="74" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="14" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="192" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="14" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -328,10 +328,28 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Call information functions for the power_up.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the class instance that this method operates on.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="56" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="133" bodyend="146"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="64" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="133" bodyend="146"/>
+        <references refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a424e7ac8424cb2b5f8ad421ce7049960" compoundref="parsepowerup_8h" startline="26">INFO_BOTH</references>
+        <references refid="parsefunction_8c_1a0f50ddf2c031233309190bfe8e3f8701" compoundref="parsefunction_8c" startline="59" endline="63">GetXMouse</references>
+        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
+        <references refid="parsepowerup_8c_1abf3c4f267001e0e0f3e5b748b3b1c5e5" compoundref="parsepowerup_8c" startline="18">keyPower</references>
+        <references refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5af4924e029416352949b8726ad12153e1" compoundref="parsepowerup_8h" startline="24">INFO_BUTTON</references>
+        <references refid="parsefunction_8c_1a2f1ce1fc3533578da89e9d9e566769af" compoundref="parsefunction_8c" startline="47" endline="51">GetX</references>
+        <references refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a415d1df754c472023341c16ab6343b4b" compoundref="parsepowerup_8h" startline="25">INFO_MOUSE</references>
+        <references refid="parsefunction_8c_1a9f48ba431a0a1cfb77ac410398303773" compoundref="parsefunction_8c" startline="53" endline="57">GetMousePos</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1abfc420da26ddb1f9d592bf432644c94c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -345,10 +363,24 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Updates a normal use power_up, with uses &gt; 0.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">power</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the power.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="57" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="90" bodyend="108"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="74" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="90" bodyend="108"/>
+        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
+        <references refid="structpower__s_1a8e7faa42ca042b4df438d3c82427d2ee" compoundref="parsepowerup_8h" startline="43">power_s::GetTarg</references>
+        <references refid="structpower__s_1a6729e2052b01af694ccadb9c401b57a0" compoundref="parsepowerup_8h" startline="48">power_s::target</references>
+        <references refid="structpower__s_1ab8646ebc46bf478ca09510b7a01c7223" compoundref="parsepowerup_8h" startline="46">power_s::uses</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a7ae6cede71041d57a4863372b0f2a43a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -362,10 +394,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Updates an infinite use power_up</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">power</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the power.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="58" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="110" bodyend="113"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="84" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="110" bodyend="113"/>
+        <references refid="structpower__s_1a8e7faa42ca042b4df438d3c82427d2ee" compoundref="parsepowerup_8h" startline="43">power_s::GetTarg</references>
+        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
+        <references refid="structpower__s_1a6729e2052b01af694ccadb9c401b57a0" compoundref="parsepowerup_8h" startline="48">power_s::target</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a5eacfd4521f47eb6ce756416ed91ffb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -383,10 +428,28 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Gets the usetype from var, and puts it in useType.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>var</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The variable. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">useType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, type of the use.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The use type.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="59" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="115" bodyend="131"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="97" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="115" bodyend="131"/>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1aac472c2c38ac3fd8b451c7aaf31b8bdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="parsepowerup_8h_1a5b6034e874b6462f78a13c5202a4d2eb" kindref="member">power_t</ref> *</type>
@@ -404,10 +467,57 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Parses object/str data to a power up.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">power</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the power. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the string.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>null if it fails, else a pointer to a power_t.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="61" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="148" bodyend="253"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="110" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="148" bodyend="253"/>
+        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
+        <references refid="structpower__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parsepowerup_8h" startline="41">power_s::name</references>
+        <references refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" compoundref="mystrings_8c" startline="53" endline="82">FindValue</references>
+        <references refid="parsepowerup_8h_1ae4ff7ab7b5ce057c9af5622a291cc4d1" compoundref="parsepowerup_8h" startline="7">POWER_TARGET_STR</references>
+        <references refid="structpower__s_1a8e7faa42ca042b4df438d3c82427d2ee" compoundref="parsepowerup_8h" startline="43">power_s::GetTarg</references>
+        <references refid="parsefunction_8c_1a3364b018786a8ca3a643e80ee703807f" compoundref="parsefunction_8c" startline="11" endline="23">ParseToFunction</references>
+        <references refid="parsepowerup_8h_1a2939e5dcdb99093d66f2dcf2a9cdcefc" compoundref="parsepowerup_8h" startline="8">POWER_USE_TYPE_STR</references>
+        <references refid="parsepowerup_8c_1a5eacfd4521f47eb6ce756416ed91ffb4" compoundref="parsepowerup_8c" startline="115" endline="131">GetUseType</references>
+        <references refid="structpower__s_1ab8646ebc46bf478ca09510b7a01c7223" compoundref="parsepowerup_8h" startline="46">power_s::uses</references>
+        <references refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4a6a1459101774b7f68e084098fa8bacbb" compoundref="parsepowerup_8h" startline="16">INFINITE</references>
+        <references refid="structpower__s_1a3cad653c3718314662c4a98659778999" compoundref="parsepowerup_8h" startline="44">power_s::UpdateUse</references>
+        <references refid="parsepowerup_8c_1a7ae6cede71041d57a4863372b0f2a43a" compoundref="parsepowerup_8c" startline="110" endline="113">UpdateInfinite</references>
+        <references refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4ae55a36a850c67d46b3b3325de7fce0b8" compoundref="parsepowerup_8h" startline="17">STATIC</references>
+        <references refid="parsepowerup_8c_1abfc420da26ddb1f9d592bf432644c94c" compoundref="parsepowerup_8c" startline="90" endline="108">UpdateNormal</references>
+        <references refid="parsepowerup_8h_1a334dcc2970f95cee54b9ffe8d95b117e" compoundref="parsepowerup_8h" startline="10">POWER_INPUT_TYPE_STR</references>
+        <references refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a424e7ac8424cb2b5f8ad421ce7049960" compoundref="parsepowerup_8h" startline="26">INFO_BOTH</references>
+        <references refid="parsefunction_8c_1a77aa3443e1cc11d1389a851b108f3328" compoundref="parsefunction_8c" startline="8">FunctionNames</references>
+        <references refid="structpower__s_1a92e471ab75337ebde8ffbddf14890542" compoundref="parsepowerup_8h" startline="47">power_s::info_type</references>
+        <references refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a4b7dcb53be065c6db542a2de0f0231ca" compoundref="parsepowerup_8h" startline="23">INFO_NONE</references>
+        <references refid="structpower__s_1a99fd6ee1c03eaf0de0f3e2c71237db69" compoundref="parsepowerup_8h" startline="42">power_s::UpdateInput</references>
+        <references refid="parsepowerup_8c_1a4e4cd8f4b3499de1268fd7cf1ed0a790" compoundref="parsepowerup_8c" startline="133" endline="146">CallInfo</references>
+        <references refid="parsepowerup_8c_1abf3c4f267001e0e0f3e5b748b3b1c5e5" compoundref="parsepowerup_8c" startline="18">keyPower</references>
+        <references refid="parsepowerup_8h_1a452f9650ebca3a4bdf7e47196426070b" compoundref="parsepowerup_8h" startline="9">POWER_INTERACTION_STR</references>
+        <references refid="parsepowerup_8c_1a4df04830c86d6dcbd3ef4557df82d9bd" compoundref="parsepowerup_8c" startline="13">InteractionNames</references>
+        <references refid="structpower__s_1a0547996a48a142c5c5006ce1dd3020a5" compoundref="parsepowerup_8h" startline="45">power_s::DoPower</references>
+        <references refid="parsepowerup_8c_1ae5fb8c4f4ec5d863b1344f069b50d8c6" compoundref="parsepowerup_8c" startline="14">InteractionSymbols</references>
+        <references refid="parsepowerup_8h_1ab2ae8695bdfb17d6bb3a797a6416cc13" compoundref="parsepowerup_8h" startline="11">POWER_ENTITY_STR</references>
+        <references refid="entity_8c_1a018dc9e984dbb58b293f263775b528c6" compoundref="entity_8c" startline="301" endline="314">FindCachedEntity</references>
+        <references refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" compoundref="parsepowerup_8h" startline="49">power_s::info</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a94356a5fdd8b29d6a5fa2b730266275e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="parsepowerup_8h_1a5b6034e874b6462f78a13c5202a4d2eb" kindref="member">power_t</ref> *</type>
@@ -421,10 +531,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Searches for the first power with matching name str.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the string.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>null if it fails, else the found power.</para></simplesect>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="62" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="255" bodyend="274"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="122" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="255" bodyend="274"/>
+        <references refid="game_8c_1a3a8af497dc09185b0764ca27f6afff1b" compoundref="game_8c" startline="42">gPowerUps</references>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a283d180401ea1bf0ee68755d094b275a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -438,10 +561,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Uses the power, more like a macro then anything.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">power</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the power.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="63" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="276" bodyend="295"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="132" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="276" bodyend="295"/>
+        <references refid="structpower__s_1a99fd6ee1c03eaf0de0f3e2c71237db69" compoundref="parsepowerup_8h" startline="42">power_s::UpdateInput</references>
+        <references refid="structpower__s_1a3cad653c3718314662c4a98659778999" compoundref="parsepowerup_8h" startline="44">power_s::UpdateUse</references>
+        <references refid="structpower__s_1a0547996a48a142c5c5006ce1dd3020a5" compoundref="parsepowerup_8h" startline="45">power_s::DoPower</references>
+        <references refid="structpower__s_1a6729e2052b01af694ccadb9c401b57a0" compoundref="parsepowerup_8h" startline="48">power_s::target</references>
+        <references refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" compoundref="parsepowerup_8h" startline="49">power_s::info</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a289b46202a6f305acde1afc2d821207e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -459,10 +597,28 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Moves the target to position given by info.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">targ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the targ. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the information.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="66" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="20" bodyend="28"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="144" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="20" bodyend="28"/>
+        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a6b34755eb80b623ca36505219d6e1012" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -480,10 +636,28 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Destroys target.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">targ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the targ. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the information.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="67" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="32" bodyend="38"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="155" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="32" bodyend="38"/>
+        <references refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" compoundref="entity_8c" startline="379" endline="407">FreeEntity</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a050ba84fee976778201dc7aff3e6ff41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -501,10 +675,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Spawns entity from info to position of targ.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">targ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the targ. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the information.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="68" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="41" bodyend="57"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="166" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="41" bodyend="57"/>
+        <references refid="entity_8c_1ad5cd21060189ddd8246414069ee01676" compoundref="entity_8c" startline="235" endline="248">InitNewEntity</references>
+        <references refid="globals_8h_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" compoundref="mymath_8c" startline="20" endline="28">Vec2Add</references>
+        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a288e67be7e4235a802f8f0a779dfa68a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -522,10 +716,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Edits the target with values from info.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">targ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the targ. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the information.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="69" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="59" bodyend="79"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="177" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="59" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1abbf1dd6779e0cb88bade4a2dcbc06671" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -543,10 +754,28 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Nullifies the entity by removing the think function of targ.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">targ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the targ. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the information.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsepowerup.h" line="70" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="81" bodyend="88"/>
+        <location file="dumb-ways-to-memorize/parsepowerup.h" line="188" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="81" bodyend="88"/>
+        <references refid="structentity__s_1ae045b7ba608e955e791f8af8507b78a4" compoundref="entity_8h" startline="39">entity_s::Think</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -568,8 +797,8 @@
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
 <codeline lineno="14" refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4" refkind="member"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4" kindref="member">use_type_t</ref></highlight></codeline>
 <codeline lineno="15"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="16" refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4a6a1459101774b7f68e084098fa8bacbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4a6a1459101774b7f68e084098fa8bacbb" kindref="member">INFINITE</ref><sp/>=<sp/>-2,</highlight></codeline>
-<codeline lineno="17" refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4ae55a36a850c67d46b3b3325de7fce0b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4ae55a36a850c67d46b3b3325de7fce0b8" kindref="member">STATIC</ref></highlight></codeline>
+<codeline lineno="16" refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4a6a1459101774b7f68e084098fa8bacbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4a6a1459101774b7f68e084098fa8bacbb" kindref="member">INFINITE</ref><sp/>=<sp/>-2,<sp/><sp/></highlight></codeline>
+<codeline lineno="17" refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4ae55a36a850c67d46b3b3325de7fce0b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4ae55a36a850c67d46b3b3325de7fce0b8" kindref="member">STATIC</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="18"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
 <codeline lineno="21" refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/></highlight></codeline>
@@ -595,31 +824,38 @@
 <codeline lineno="48" refid="structpower__s_1a6729e2052b01af694ccadb9c401b57a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1a6729e2052b01af694ccadb9c401b57a0" kindref="member">target</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="49" refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="51"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*<ref refid="parsepowerup_8h_1a3a8af497dc09185b0764ca27f6afff1b" kindref="member">gPowerUps</ref>;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*<ref refid="parsepowerup_8h_1a90fefa2dda0184e13839a0b67950fc88" kindref="member">gCurrentPowerUp</ref>;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//Power<sp/>Specific</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a4e4cd8f4b3499de1268fd7cf1ed0a790" kindref="member">CallInfo</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1abfc420da26ddb1f9d592bf432644c94c" kindref="member">UpdateNormal</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*power);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a7ae6cede71041d57a4863372b0f2a43a" kindref="member">UpdateInfinite</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*power);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a5eacfd4521f47eb6ce756416ed91ffb4" kindref="member">GetUseType</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*var,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*useType);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*<ref refid="parsepowerup_8h_1aac472c2c38ac3fd8b451c7aaf31b8bdf" kindref="member">ParseToPowerUp</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*power,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*<ref refid="parsepowerup_8h_1a94356a5fdd8b29d6a5fa2b730266275e" kindref="member">FindPower</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a283d180401ea1bf0ee68755d094b275a" kindref="member">UsePower</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*power);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//Interactions</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a289b46202a6f305acde1afc2d821207e" kindref="member">Move</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a6b34755eb80b623ca36505219d6e1012" kindref="member">Destroy</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a050ba84fee976778201dc7aff3e6ff41" kindref="member">Spawn</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a288e67be7e4235a802f8f0a779dfa68a" kindref="member">Edit</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1abbf1dd6779e0cb88bade4a2dcbc06671" kindref="member">Nullify</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//Interactions<sp/>Array</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="parsepowerup_8h_1a4df04830c86d6dcbd3ef4557df82d9bd" kindref="member">InteractionNames</ref>[];</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="parsepowerup_8h_1a8a8a842e8d72c67addd165fbe8c293ed" kindref="member">InteractionSymbols</ref>[]);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*<ref refid="parsepowerup_8h_1a3a8af497dc09185b0764ca27f6afff1b" kindref="member">gPowerUps</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*<ref refid="parsepowerup_8h_1a90fefa2dda0184e13839a0b67950fc88" kindref="member">gCurrentPowerUp</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="comment">//Power<sp/>Specific</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a4e4cd8f4b3499de1268fd7cf1ed0a790" kindref="member">CallInfo</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1abfc420da26ddb1f9d592bf432644c94c" kindref="member">UpdateNormal</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*power);</highlight></codeline>
 <codeline lineno="75"><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="84"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a7ae6cede71041d57a4863372b0f2a43a" kindref="member">UpdateInfinite</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*power);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a5eacfd4521f47eb6ce756416ed91ffb4" kindref="member">GetUseType</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*var,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*useType);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*<ref refid="parsepowerup_8h_1aac472c2c38ac3fd8b451c7aaf31b8bdf" kindref="member">ParseToPowerUp</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*power,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*<ref refid="parsepowerup_8h_1a94356a5fdd8b29d6a5fa2b730266275e" kindref="member">FindPower</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a283d180401ea1bf0ee68755d094b275a" kindref="member">UsePower</ref>(<ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*power);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">//Interactions</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a289b46202a6f305acde1afc2d821207e" kindref="member">Move</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a6b34755eb80b623ca36505219d6e1012" kindref="member">Destroy</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a050ba84fee976778201dc7aff3e6ff41" kindref="member">Spawn</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1a288e67be7e4235a802f8f0a779dfa68a" kindref="member">Edit</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsepowerup_8h_1abbf1dd6779e0cb88bade4a2dcbc06671" kindref="member">Nullify</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*targ,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" kindref="member">info</ref>);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="comment">//Interactions<sp/>Array</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="parsepowerup_8h_1a4df04830c86d6dcbd3ef4557df82d9bd" kindref="member">InteractionNames</ref>[];<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="192"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="parsepowerup_8h_1a8a8a842e8d72c67addd165fbe8c293ed" kindref="member">InteractionSymbols</ref>[]);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="194"><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="dumb-ways-to-memorize/parsepowerup.h"/>
   </compounddef>

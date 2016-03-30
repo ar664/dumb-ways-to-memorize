@@ -5,19 +5,6 @@
 #include <string.h>
 #include <stdio.h>
 
-
-/**
- * Parse to object, this object has no parent.
- *
- * @param [in,out]	token	If non-null, the token that begins with object.
- * @param [in,out]	str  	If non-null, the global string.
- *
- * @return	null if it fails, else an object_t*.
- *
- * @author	Anthony Rios
- * @date	2/1/2016
- */
-
 object_t *ParseToObject(jsmntok_t *token, char *g_str)
 {
 	int objects, keys, values, size, i;
@@ -129,17 +116,6 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 	return retVal;
 	}
 
-/**
- * Searches for the first object in object list that matches name.
- *
- * @param [in,out]	obj 	If non-null, the object.
- * @param [in,out]	name	If non-null, the name.
- *
- * @return	null if it fails, else the found object.
- *
- * @author	Anthony Rios
- * @date	2/27/2016
- */
 
 object_t *FindObject(object_t *obj, char *name)
 {
@@ -165,7 +141,6 @@ object_t *FindObject(object_t *obj, char *name)
 	return retVal;
 }
 
-//Recursive Member search
 int CountObjectMembers(object_t* obj, char* g_str)
 {
 	int objects, objCount, retVal, i;
@@ -192,7 +167,6 @@ int CountObjectMembers(object_t* obj, char* g_str)
 	return retVal;
 }
 
-//Recursive children search
 int CountObjectChildren(object_t *obj)
 {
 	int objects, temp, children;
@@ -211,8 +185,6 @@ int CountObjectChildren(object_t *obj)
 	return children;
 }
 
-//Doesn't print key only object
-// Recursive Print
 void PrintObject(object_t* obj, char *g_str)
 {
 	int objects, tempInt, i;
@@ -262,7 +234,6 @@ void PrintObject(object_t* obj, char *g_str)
 
 }
 
-//Dynamic
 int CopyObjectToObjectArray(object_t **dst, object_t *src, int size)
 {
 	int count, i;

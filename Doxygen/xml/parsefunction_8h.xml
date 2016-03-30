@@ -7,80 +7,80 @@
     <includedby refid="parsefunction_8c" local="yes">dumb-ways-to-memorize/parsefunction.c</includedby>
     <includedby refid="parsepowerup_8c" local="yes">dumb-ways-to-memorize/parsepowerup.c</includedby>
     <incdepgraph>
-      <node id="328">
+      <node id="329">
         <label>globals.h</label>
         <link refid="globals_8h"/>
-        <childnode refid="329" relation="include">
-        </childnode>
-      </node>
-      <node id="326">
-        <label>dumb-ways-to-memorize/parsefunction.h</label>
-        <link refid="parsefunction.h"/>
-        <childnode refid="327" relation="include">
-        </childnode>
-        <childnode refid="332" relation="include">
-        </childnode>
-      </node>
-      <node id="332">
-        <label>SDL.h</label>
-      </node>
-      <node id="329">
-        <label>jsmn.h</label>
-        <link refid="jsmn_8h"/>
         <childnode refid="330" relation="include">
         </childnode>
       </node>
-      <node id="334">
-        <label>parseobject.h</label>
-        <link refid="parseobject_8h"/>
-        <childnode refid="329" relation="include">
-        </childnode>
-      </node>
-      <node id="330">
-        <label>stddef.h</label>
-      </node>
       <node id="327">
-        <label>entity.h</label>
-        <link refid="entity_8h"/>
+        <label>dumb-ways-to-memorize/parsefunction.h</label>
+        <link refid="parsefunction.h"/>
         <childnode refid="328" relation="include">
-        </childnode>
-        <childnode refid="331" relation="include">
         </childnode>
         <childnode refid="333" relation="include">
         </childnode>
       </node>
-      <node id="331">
-        <label>graphics.h</label>
-        <link refid="graphics_8h"/>
-        <childnode refid="332" relation="include">
-        </childnode>
-        <childnode refid="328" relation="include">
+      <node id="333">
+        <label>SDL.h</label>
+      </node>
+      <node id="330">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="331" relation="include">
         </childnode>
       </node>
-      <node id="333">
-        <label>ai_interpret.h</label>
-        <link refid="ai__interpret_8h"/>
-        <childnode refid="328" relation="include">
+      <node id="335">
+        <label>parseobject.h</label>
+        <link refid="parseobject_8h"/>
+        <childnode refid="330" relation="include">
+        </childnode>
+      </node>
+      <node id="331">
+        <label>stddef.h</label>
+      </node>
+      <node id="328">
+        <label>entity.h</label>
+        <link refid="entity_8h"/>
+        <childnode refid="329" relation="include">
+        </childnode>
+        <childnode refid="332" relation="include">
         </childnode>
         <childnode refid="334" relation="include">
         </childnode>
       </node>
+      <node id="332">
+        <label>graphics.h</label>
+        <link refid="graphics_8h"/>
+        <childnode refid="333" relation="include">
+        </childnode>
+        <childnode refid="329" relation="include">
+        </childnode>
+      </node>
+      <node id="334">
+        <label>ai_interpret.h</label>
+        <link refid="ai__interpret_8h"/>
+        <childnode refid="329" relation="include">
+        </childnode>
+        <childnode refid="335" relation="include">
+        </childnode>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="337">
+      <node id="338">
         <label>dumb-ways-to-memorize/parsepowerup.c</label>
         <link refid="parsepowerup_8c"/>
       </node>
-      <node id="336">
+      <node id="337">
         <label>dumb-ways-to-memorize/parsefunction.c</label>
         <link refid="parsefunction_8c"/>
       </node>
-      <node id="335">
+      <node id="336">
         <label>dumb-ways-to-memorize/parsefunction.h</label>
         <link refid="parsefunction.h"/>
-        <childnode refid="336" relation="include">
-        </childnode>
         <childnode refid="337" relation="include">
+        </childnode>
+        <childnode refid="338" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -96,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsefunction.h" line="18" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="8" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/parsefunction.h" line="78" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="8" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="parsefunction_8h_1a1a22b108a457c916e27af13baf7c97a7" prot="public" static="no" mutable="no">
         <type>void *[]</type>
@@ -109,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsefunction.h" line="19" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="9" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/parsefunction.h" line="79" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="9" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -129,6 +129,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsefunction.h" line="7" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="11" bodyend="23"/>
+        <references refid="parsefunction_8c_1a77aa3443e1cc11d1389a851b108f3328" compoundref="parsefunction_8c" startline="8">FunctionNames</references>
+        <references refid="parsefunction_8c_1a69c92da9a6a5e5dd4c02c68ab396ab9b" compoundref="parsefunction_8c" startline="9">FunctionSymbols</references>
       </memberdef>
       <memberdef kind="function" id="parsefunction_8h_1a73c2d9e32b37716a4fa1a886f7cbb1e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -146,10 +148,28 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Gets the world entities.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the class instance that this method operates on. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">targ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the targ.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsefunction.h" line="10" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="25" bodyend="29"/>
+        <location file="dumb-ways-to-memorize/parsefunction.h" line="19" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="25" bodyend="29"/>
+        <references refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" compoundref="entity_8c" startline="11">gEntities</references>
       </memberdef>
       <memberdef kind="function" id="parsefunction_8h_1a2bd9d331736aa28b1650dcb48d2ad141" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -167,10 +187,29 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Gets the entity at the point specified by the mouse.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the class instance that this method operates on. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">targ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the targ.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsefunction.h" line="11" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="31" bodyend="38"/>
+        <location file="dumb-ways-to-memorize/parsefunction.h" line="30" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="31" bodyend="38"/>
+        <references refid="parsefunction_8c_1a9f48ba431a0a1cfb77ac410398303773" compoundref="parsefunction_8c" startline="53" endline="57">GetMousePos</references>
+        <references refid="entity_8c_1a69811b56fbaa2dfc61154fb027632ea8" compoundref="entity_8c" startline="355" endline="369">LookForEntityAtPos</references>
       </memberdef>
       <memberdef kind="function" id="parsefunction_8h_1ad5c9fe379d9ad3c5c1047b2d290c0302" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -188,10 +227,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Gets self and makes it targ.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the class instance that this method operates on. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">targ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the targ.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsefunction.h" line="12" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="40" bodyend="44"/>
+        <location file="dumb-ways-to-memorize/parsefunction.h" line="41" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="40" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="parsefunction_8h_1a2f1ce1fc3533578da89e9d9e566769af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -209,10 +265,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Get the status of the button of the power_up.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the class instance that this method operates on. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">button</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the button.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsefunction.h" line="13" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="47" bodyend="51"/>
+        <location file="dumb-ways-to-memorize/parsefunction.h" line="52" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="47" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="parsefunction_8h_1a9f48ba431a0a1cfb77ac410398303773" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -230,10 +303,29 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Gets mouse position.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the class instance that this method operates on. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the position.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsefunction.h" line="14" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="53" bodyend="57"/>
+        <location file="dumb-ways-to-memorize/parsefunction.h" line="63" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="53" bodyend="57"/>
+        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
+        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="parsefunction_8h_1a0f50ddf2c031233309190bfe8e3f8701" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -255,10 +347,36 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Gets status of button and mouse position.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the class instance that this method operates on. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">button</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the button. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-null, the position.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Anthony Rios </para></simplesect>
+<simplesect kind="date"><para>3/30/2016 </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parsefunction.h" line="15" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="59" bodyend="63"/>
+        <location file="dumb-ways-to-memorize/parsefunction.h" line="75" column="1" bodyfile="dumb-ways-to-memorize/parsefunction.c" bodystart="59" bodyend="63"/>
+        <references refid="parsefunction_8c_1a2f1ce1fc3533578da89e9d9e566769af" compoundref="parsefunction_8c" startline="47" endline="51">GetX</references>
+        <references refid="parsefunction_8c_1a9f48ba431a0a1cfb77ac410398303773" compoundref="parsefunction_8c" startline="53" endline="57">GetMousePos</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -272,21 +390,26 @@
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="entity_8h" kindref="compound">entity.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;SDL.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal">void<sp/>(*<ref refid="parsefunction_8h_1a3364b018786a8ca3a643e80ee703807f" kindref="member">ParseToFunction</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="player_8c_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>));</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">void<sp/>(*<ref refid="parsefunction_8h_1a3364b018786a8ca3a643e80ee703807f" kindref="member">ParseToFunction</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>));</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//Functions<sp/>to<sp/>Parse<sp/>to</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1a73c2d9e32b37716a4fa1a886f7cbb1e3" kindref="member">GetWorld</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>**targ);</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1a2bd9d331736aa28b1650dcb48d2ad141" kindref="member">GetAtPoint</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>**targ);</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1ad5c9fe379d9ad3c5c1047b2d290c0302" kindref="member">GetSelf</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>**targ);</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1a2f1ce1fc3533578da89e9d9e566769af" kindref="member">GetX</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/>button);</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1a9f48ba431a0a1cfb77ac410398303773" kindref="member">GetMousePos</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*pos);</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1a0f50ddf2c031233309190bfe8e3f8701" kindref="member">GetXMouse</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/>button,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*pos);</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//Functions<sp/>array</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="parsefunction_8h_1a77aa3443e1cc11d1389a851b108f3328" kindref="member">FunctionNames</ref>[];</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="parsefunction_8h_1a1a22b108a457c916e27af13baf7c97a7" kindref="member">FunctionSymbols</ref>[]);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//Functions<sp/>to<sp/>Parse<sp/>to</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1a73c2d9e32b37716a4fa1a886f7cbb1e3" kindref="member">GetWorld</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>**targ);</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="30"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1a2bd9d331736aa28b1650dcb48d2ad141" kindref="member">GetAtPoint</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>**targ);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1ad5c9fe379d9ad3c5c1047b2d290c0302" kindref="member">GetSelf</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>**targ);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1a2f1ce1fc3533578da89e9d9e566769af" kindref="member">GetX</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/>button);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1a9f48ba431a0a1cfb77ac410398303773" kindref="member">GetMousePos</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*pos);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsefunction_8h_1a0f50ddf2c031233309190bfe8e3f8701" kindref="member">GetXMouse</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/>button,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*pos);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//Functions<sp/>array</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="parsefunction_8h_1a77aa3443e1cc11d1389a851b108f3328" kindref="member">FunctionNames</ref>[];</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="parsefunction_8h_1a1a22b108a457c916e27af13baf7c97a7" kindref="member">FunctionSymbols</ref>[]);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="dumb-ways-to-memorize/parsefunction.h"/>
   </compounddef>

@@ -15,14 +15,6 @@ sprite_t *gSprites = NULL;
 int gLastSprite = 0;
 int gScreenWidth = 0;
 int gScreenHeight = 0;
-/**
- * Init graphics.
- *
- * @return	0 if good, -1 if failure.
- *
- * @author	Anthony Rios
- * @date	3/16/2016
- */
 
 int InitGraphics()
 {
@@ -112,18 +104,6 @@ void ShutdownGraphics()
 	free(gSprites);
 }
 
-/**
- * Loads a sprite.
- *
- * @param	name 	The name.
- * @param	flags	The flags.
- *
- * @return	null if it fails, else the sprite.
- *
- * @author	Anthony Rios
- * @date	3/16/2016
- */
-
 sprite_t *LoadSprite(const char *name, int flags)
 {
 	SDL_Surface *temp;
@@ -139,7 +119,7 @@ sprite_t *LoadSprite(const char *name, int flags)
 	}
 	if(!name)
 	{
-		printf("No name given to load sprite");
+		printf("No gPlayerName given to load sprite");
 		return NULL;
 	}
 	if( (check = FindSprite(name, NULL)) != NULL)
@@ -168,20 +148,6 @@ sprite_t *LoadSprite(const char *name, int flags)
 	gLastSprite = position;
 	return check;
 }
-
-/**
- * Draw the sprite. If mCurrentFrame not set, draws the first frame (0,0). 
- * If no position given, will draw as if was background.
- *
- * @param [in,out]	sprite  	If non-null, the sprite.
- * @param [in,out]	position	If non-null, the position.
- * @param [in,out]	renderer	If non-null, the renderer.
- *
- * @return	0 if good, -1 if failure
- *
- * @author	Anthony Rios
- * @date	3/16/2016
- */
 
 int DrawSprite(sprite_t *sprite, int* frame, vec2_t * position, SDL_Renderer * renderer)
 {
@@ -221,20 +187,6 @@ int DrawSprite(sprite_t *sprite, int* frame, vec2_t * position, SDL_Renderer * r
 	return 0;
 }
 
-/**
- * Loads an animation based on frame_width & frame_height.
- *
- * @param	frame_width 	Width of the frame.
- * @param	frame_height	Height of the frame.
- * @param	width			The width.
- * @param	height			The height.
- *
- * @return	null if it fails, else the animation.
- *
- * @author	Anthony Rios
- * @date	3/16/2016
- */
-
 Frame *LoadAnimation(int frame_width, int frame_height, int width, int height)
 {
 	Frame *retVal;
@@ -254,18 +206,6 @@ Frame *LoadAnimation(int frame_width, int frame_height, int width, int height)
 	return retVal;
 }
 
-/**
- * Searches for the first sprite.
- *
- * @param	name				The name.
- * @param [in,out]	position	If non-null, the position.
- *
- * @return	null if it fails, else the found sprite.
- *
- * @author	Anthony Rios
- * @date	3/16/2016
- */
-
 sprite_t* FindSprite(const char* name, int* position)
 {
 	int i;
@@ -282,17 +222,6 @@ sprite_t* FindSprite(const char* name, int* position)
 	}
 	return NULL;
 }
-
-/**
- * Searches for the first free sprite.
- *
- * @param [in,out]	position	If non-null, the position.
- *
- * @return	null if it fails, else the found free sprite.
- *
- * @author	Anthony Rios
- * @date	3/16/2016
- */
 
 sprite_t* FindFreeSprite(int *position)
 {
@@ -313,15 +242,6 @@ sprite_t* FindFreeSprite(int *position)
 	}
 	return NULL;
 }
-
-/**
- * Free the sprite memory, if recfcount - 1 > 0 nothing happens.
- *
- * @param [in,out]	sprite	If non-null, the sprite.
- *
- * @author	Anthony Rios
- * @date	3/16/2016
- */
 
 void FreeSprite(sprite_t *sprite)
 {
@@ -351,21 +271,7 @@ void IncrementFrame(sprite_t* sprite)
 	{
 		return;
 	}
-
 }
-
-/**
- * Sdl set rectangle dimensions.
- *
- * @param [in,out]	rect	If non-null, the rectangle.
- * @param	x				The x coordinate.
- * @param	y				The y coordinate.
- * @param	w				The width.
- * @param	h				The height.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
 
 void SDL_SetRect(SDL_Rect* rect, int x, int y, int w, int h)
 {

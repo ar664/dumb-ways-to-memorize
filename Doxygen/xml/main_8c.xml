@@ -4,20 +4,20 @@
     <compoundname>main.c</compoundname>
     <includes refid="main_8h" local="yes">main.h</includes>
     <incdepgraph>
-      <node id="248">
+      <node id="249">
         <label>game.h</label>
         <link refid="game_8h"/>
       </node>
-      <node id="246">
+      <node id="247">
         <label>dumb-ways-to-memorize/main.c</label>
         <link refid="main.c"/>
-        <childnode refid="247" relation="include">
+        <childnode refid="248" relation="include">
         </childnode>
       </node>
-      <node id="247">
+      <node id="248">
         <label>main.h</label>
         <link refid="main_8h"/>
-        <childnode refid="248" relation="include">
+        <childnode refid="249" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -34,6 +34,9 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/main.c" line="4" column="1" bodyfile="dumb-ways-to-memorize/main.c" bodystart="4" bodyend="9"/>
+        <references refid="game_8c_1a50ac2197010a8cf188eafc647122f1a3" compoundref="game_8c" startline="592" endline="656">Setup</references>
+        <references refid="game_8c_1aac704aea738c1edc384a97e51d60662b" compoundref="game_8c" startline="666" endline="677">Run</references>
+        <references refid="game_8c_1ac5f038c2b480cf9ef5e19e3eba8dbaf9" compoundref="game_8c" startline="679" endline="683">Shutdown</references>
       </memberdef>
       </sectiondef>
     <briefdescription>

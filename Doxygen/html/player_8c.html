@@ -117,22 +117,18 @@ $(document).ready(function(){initNavTree('player_8c.html','');});
 <code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="parselevel_8h_source.html">parselevel.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
-</div>
-<p><a href="player_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab1e3218036977e006ae6fd1f66c16ae4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8c.html#ab1e3218036977e006ae6fd1f66c16ae4">InitPlayer</a> ()</td></tr>
 <tr class="separator:ab1e3218036977e006ae6fd1f66c16ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76fdb0f973bfdf01617e0e10468effe5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8c.html#a76fdb0f973bfdf01617e0e10468effe5">GetPlayer</a> ()</td></tr>
-<tr class="separator:a76fdb0f973bfdf01617e0e10468effe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae53c08c808a1dc1314ea3d3bfcb0ff1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8c.html#ae53c08c808a1dc1314ea3d3bfcb0ff1c">DecrementPlayerLives</a> ()</td></tr>
 <tr class="separator:ae53c08c808a1dc1314ea3d3bfcb0ff1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a5ac083a645d964373f022d03df4849c8"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8c.html#a5ac083a645d964373f022d03df4849c8">name</a> = <a class="el" href="player_8h.html#a31b5c3a330ed3472634dac473596287c">PLAYER_NAME</a></td></tr>
-<tr class="separator:a5ac083a645d964373f022d03df4849c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6796f4467fe6aa940a363aef4004dd0c"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8c.html#a6796f4467fe6aa940a363aef4004dd0c">gPlayerName</a> = <a class="el" href="player_8h.html#a31b5c3a330ed3472634dac473596287c">PLAYER_NAME</a></td></tr>
+<tr class="separator:a6796f4467fe6aa940a363aef4004dd0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39b4143c78f14357b34548d43450c880"><td class="memItemLeft" align="right" valign="top"><a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8c.html#a39b4143c78f14357b34548d43450c880">gPlayer</a> = NULL</td></tr>
 <tr class="separator:a39b4143c78f14357b34548d43450c880"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7460e61d712f20efd9bca05176757e88"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8c.html#a7460e61d712f20efd9bca05176757e88">gPlayerLives</a> = 0</td></tr>
@@ -152,25 +148,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="player_8c_source.html#l00045">45</a> of file <a class="el" href="player_8c_source.html">player.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a76fdb0f973bfdf01617e0e10468effe5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a>* GetPlayer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="player_8c_source.html#l00040">40</a> of file <a class="el" href="player_8c_source.html">player.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ab1e3218036977e006ae6fd1f66c16ae4"></a>
@@ -185,8 +162,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="player_8c_source.html#l00012">12</a> of file <a class="el" href="player_8c_source.html">player.c</a>.</p>
+<p>Initialize the player entity and variables thereof, also used to reset player.</p>
+<dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3/30/2016 </dd></dl>
 
 </div>
 </div>
@@ -200,8 +178,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="player_8c_source.html#l00009">9</a> of file <a class="el" href="player_8c_source.html">player.c</a>.</p>
+<p>The player entity </p>
 
 </div>
 </div>
@@ -214,22 +191,20 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="player_8c_source.html#l00010">10</a> of file <a class="el" href="player_8c_source.html">player.c</a>.</p>
+<p>The lives of the player </p>
 
 </div>
 </div>
-<a class="anchor" id="a5ac083a645d964373f022d03df4849c8"></a>
+<a class="anchor" id="a6796f4467fe6aa940a363aef4004dd0c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* name = <a class="el" href="player_8h.html#a31b5c3a330ed3472634dac473596287c">PLAYER_NAME</a></td>
+          <td class="memname">char* gPlayerName = <a class="el" href="player_8h.html#a31b5c3a330ed3472634dac473596287c">PLAYER_NAME</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="player_8c_source.html#l00008">8</a> of file <a class="el" href="player_8c_source.html">player.c</a>.</p>
+<p>The name of the player </p>
 
 </div>
 </div>

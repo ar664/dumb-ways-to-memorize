@@ -1,0 +1,85 @@
+\hypertarget{audio_8h}{}\section{dumb-\/ways-\/to-\/memorize/audio.h File Reference}
+\label{audio_8h}\index{dumb-\/ways-\/to-\/memorize/audio.\+h@{dumb-\/ways-\/to-\/memorize/audio.\+h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+mixer.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsound__s}{sound\+\_\+s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{audio_8h_a7bbdbdcfece918fba0f794f7419cd6ac}{M\+A\+X\+\_\+\+S\+O\+U\+N\+DS}~100
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structsound__s}{sound\+\_\+s} \hyperlink{audio_8h_a1d79fe48c9fb0a943f5820b291a88adc}{sound\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62}{sound\+\_\+mixer\+\_\+group} \{ \hyperlink{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62a2b9da067c6fc24368dca1cf17421484f}{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+P\+L\+A\+Y\+ER}, 
+\hyperlink{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62a70f02ae9357941e0fba9753a0a0d8960}{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+E\+R\+\_\+\+E\+N\+TS}, 
+\hyperlink{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62a6d02e919f899c40cda24fbefdb2e08fa}{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+U\+S\+IC}, 
+\hyperlink{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62ad0b6930c93171de1630e25ca7bb9ec78}{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+ER} = -\/1
+ \}
+\item 
+enum \hyperlink{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4c}{sound\+\_\+mixer\+\_\+effects} \{ \\*
+\hyperlink{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4ca9eb6a7302c6f7d3551961dd653376858}{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+N\+U\+LL}, 
+\hyperlink{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4cabdc3a63c3a99451d91dde262b71951b9}{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+W\+A\+LK}, 
+\hyperlink{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4ca56b12beae6941486c61c3e5d06c3fd76}{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+A\+T\+T\+A\+CK}, 
+\hyperlink{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4ca25e15a57801776f3ed5dc2c6c7217317}{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+J\+U\+MP}, 
+\\*
+\hyperlink{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4caf7e7ac2d473495e822cf0cd15b78cb03}{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+D\+IE}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{audio.\+h@{audio.\+h}!M\+A\+X\+\_\+\+S\+O\+U\+N\+DS@{M\+A\+X\+\_\+\+S\+O\+U\+N\+DS}}
+\index{M\+A\+X\+\_\+\+S\+O\+U\+N\+DS@{M\+A\+X\+\_\+\+S\+O\+U\+N\+DS}!audio.\+h@{audio.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+S\+O\+U\+N\+DS}{MAX_SOUNDS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+S\+O\+U\+N\+DS~100}\hypertarget{audio_8h_a7bbdbdcfece918fba0f794f7419cd6ac}{}\label{audio_8h_a7bbdbdcfece918fba0f794f7419cd6ac}
+
+
+\subsection{Typedef Documentation}
+\index{audio.\+h@{audio.\+h}!sound\+\_\+t@{sound\+\_\+t}}
+\index{sound\+\_\+t@{sound\+\_\+t}!audio.\+h@{audio.\+h}}
+\subsubsection[{\texorpdfstring{sound\+\_\+t}{sound_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf sound\+\_\+s} {\bf sound\+\_\+t}}\hypertarget{audio_8h_a1d79fe48c9fb0a943f5820b291a88adc}{}\label{audio_8h_a1d79fe48c9fb0a943f5820b291a88adc}
+
+
+\subsection{Enumeration Type Documentation}
+\index{audio.\+h@{audio.\+h}!sound\+\_\+mixer\+\_\+effects@{sound\+\_\+mixer\+\_\+effects}}
+\index{sound\+\_\+mixer\+\_\+effects@{sound\+\_\+mixer\+\_\+effects}!audio.\+h@{audio.\+h}}
+\subsubsection[{\texorpdfstring{sound\+\_\+mixer\+\_\+effects}{sound_mixer_effects}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf sound\+\_\+mixer\+\_\+effects}}\hypertarget{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4c}{}\label{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4c}
+Defines an alias representing the enum for different sound effects \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+N\+U\+LL@{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+N\+U\+LL}!audio.\+h@{audio.\+h}}\index{audio.\+h@{audio.\+h}!S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+N\+U\+LL@{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+N\+U\+LL}}\item[{\em 
+S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+N\+U\+LL\hypertarget{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4ca9eb6a7302c6f7d3551961dd653376858}{}\label{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4ca9eb6a7302c6f7d3551961dd653376858}
+}]\index{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+W\+A\+LK@{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+W\+A\+LK}!audio.\+h@{audio.\+h}}\index{audio.\+h@{audio.\+h}!S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+W\+A\+LK@{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+W\+A\+LK}}\item[{\em 
+S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+W\+A\+LK\hypertarget{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4cabdc3a63c3a99451d91dde262b71951b9}{}\label{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4cabdc3a63c3a99451d91dde262b71951b9}
+}]\index{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+A\+T\+T\+A\+CK@{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+A\+T\+T\+A\+CK}!audio.\+h@{audio.\+h}}\index{audio.\+h@{audio.\+h}!S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+A\+T\+T\+A\+CK@{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+A\+T\+T\+A\+CK}}\item[{\em 
+S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+A\+T\+T\+A\+CK\hypertarget{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4ca56b12beae6941486c61c3e5d06c3fd76}{}\label{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4ca56b12beae6941486c61c3e5d06c3fd76}
+}]\index{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+J\+U\+MP@{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+J\+U\+MP}!audio.\+h@{audio.\+h}}\index{audio.\+h@{audio.\+h}!S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+J\+U\+MP@{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+J\+U\+MP}}\item[{\em 
+S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+J\+U\+MP\hypertarget{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4ca25e15a57801776f3ed5dc2c6c7217317}{}\label{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4ca25e15a57801776f3ed5dc2c6c7217317}
+}]\index{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+D\+IE@{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+D\+IE}!audio.\+h@{audio.\+h}}\index{audio.\+h@{audio.\+h}!S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+D\+IE@{S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+D\+IE}}\item[{\em 
+S\+O\+U\+N\+D\+\_\+\+E\+F\+F\+E\+C\+T\+\_\+\+D\+IE\hypertarget{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4caf7e7ac2d473495e822cf0cd15b78cb03}{}\label{audio_8h_a9e08ab776531ab461b6da94a2e6b8f4caf7e7ac2d473495e822cf0cd15b78cb03}
+}]\end{description}
+\end{Desc}
+\index{audio.\+h@{audio.\+h}!sound\+\_\+mixer\+\_\+group@{sound\+\_\+mixer\+\_\+group}}
+\index{sound\+\_\+mixer\+\_\+group@{sound\+\_\+mixer\+\_\+group}!audio.\+h@{audio.\+h}}
+\subsubsection[{\texorpdfstring{sound\+\_\+mixer\+\_\+group}{sound_mixer_group}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf sound\+\_\+mixer\+\_\+group}}\hypertarget{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62}{}\label{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62}
+Defines an enum for sound mixer groups \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+P\+L\+A\+Y\+ER@{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+P\+L\+A\+Y\+ER}!audio.\+h@{audio.\+h}}\index{audio.\+h@{audio.\+h}!S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+P\+L\+A\+Y\+ER@{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+P\+L\+A\+Y\+ER}}\item[{\em 
+S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+P\+L\+A\+Y\+ER\hypertarget{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62a2b9da067c6fc24368dca1cf17421484f}{}\label{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62a2b9da067c6fc24368dca1cf17421484f}
+}]\index{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+E\+R\+\_\+\+E\+N\+TS@{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+E\+R\+\_\+\+E\+N\+TS}!audio.\+h@{audio.\+h}}\index{audio.\+h@{audio.\+h}!S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+E\+R\+\_\+\+E\+N\+TS@{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+E\+R\+\_\+\+E\+N\+TS}}\item[{\em 
+S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+E\+R\+\_\+\+E\+N\+TS\hypertarget{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62a70f02ae9357941e0fba9753a0a0d8960}{}\label{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62a70f02ae9357941e0fba9753a0a0d8960}
+}]\index{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+U\+S\+IC@{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+U\+S\+IC}!audio.\+h@{audio.\+h}}\index{audio.\+h@{audio.\+h}!S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+U\+S\+IC@{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+U\+S\+IC}}\item[{\em 
+S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+U\+S\+IC\hypertarget{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62a6d02e919f899c40cda24fbefdb2e08fa}{}\label{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62a6d02e919f899c40cda24fbefdb2e08fa}
+}]\index{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+ER@{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+ER}!audio.\+h@{audio.\+h}}\index{audio.\+h@{audio.\+h}!S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+ER@{S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+ER}}\item[{\em 
+S\+O\+U\+N\+D\+\_\+\+G\+R\+O\+U\+P\+\_\+\+O\+T\+H\+ER\hypertarget{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62ad0b6930c93171de1630e25ca7bb9ec78}{}\label{audio_8h_aefd8a54164d8e94ab23d6e2325d31d62ad0b6930c93171de1630e25ca7bb9ec78}
+}]\end{description}
+\end{Desc}

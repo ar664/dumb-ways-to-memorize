@@ -4,14 +4,14 @@
     <compoundname>simple_logger.h</compoundname>
     <includedby refid="simple__logger_8c" local="yes">dumb-ways-to-memorize/External_Libs/simple_logger.c</includedby>
     <invincdepgraph>
-      <node id="152">
+      <node id="153">
         <label>dumb-ways-to-memorize/External_Libs/simple_logger.c</label>
         <link refid="simple__logger_8c"/>
       </node>
-      <node id="151">
+      <node id="152">
         <label>dumb-ways-to-memorize/External_Libs/simple_logger.h</label>
         <link refid="simple_logger.h"/>
-        <childnode refid="152" relation="include">
+        <childnode refid="153" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -70,6 +70,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/External_Libs/simple_logger.h" line="29" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.c" bodystart="17" bodyend="28"/>
+        <references refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" compoundref="simple__logger_8c" startline="6">__log_file</references>
+        <references refid="simple__logger_8c_1ad1ae3faf97c2b2d3beb3fe8b4240401b" compoundref="simple__logger_8c" startline="8" endline="15">close_logger</references>
       </memberdef>
       <memberdef kind="function" id="simple__logger_8h_1a94aefe2ae91b60d1f0e9f604ba85f701" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -98,6 +100,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/External_Libs/simple_logger.h" line="37" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.c" bodystart="30" bodyend="48"/>
+        <references refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" compoundref="simple__logger_8c" startline="6">__log_file</references>
       </memberdef>
       </sectiondef>
     <briefdescription>

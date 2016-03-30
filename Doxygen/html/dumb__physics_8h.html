@@ -135,14 +135,14 @@ Functions</h2></td></tr>
 <tr class="separator:ae354ed0629e54a219f0a00be20f6e2f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2d2a3c3841dcc0533751a2421d21b58"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dumb__physics_8h.html#ac2d2a3c3841dcc0533751a2421d21b58">CheckCollision</a> (<a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a> *self, <a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a> *other)</td></tr>
 <tr class="separator:ac2d2a3c3841dcc0533751a2421d21b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e6b8c74bb414eeffcbd423e4a40e542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dumb__physics_8h.html#a9e6b8c74bb414eeffcbd423e4a40e542">DoCollision</a> (<a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a> *self, <a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a> *other)</td></tr>
+<tr class="separator:a9e6b8c74bb414eeffcbd423e4a40e542"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1605813c3093dd564cd63719073ce122"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dumb__physics_8h.html#a1605813c3093dd564cd63719073ce122">ApplySpeedLimit</a> (<a class="el" href="globals_8h.html#a773f2054819bb6014f1e50baa39cb5e3">vec2_t</a> *a)</td></tr>
 <tr class="separator:a1605813c3093dd564cd63719073ce122"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac1300a97cdd2b37a4ddfa316dc92ece"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dumb__physics_8h.html#aac1300a97cdd2b37a4ddfa316dc92ece">ApplyBounds</a> (<a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a> *ent)</td></tr>
 <tr class="separator:aac1300a97cdd2b37a4ddfa316dc92ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04c93e0b3d3d778e28fc804fc52bf88b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dumb__physics_8h.html#a04c93e0b3d3d778e28fc804fc52bf88b">ApplyFriction</a> (<a class="el" href="globals_8h.html#a773f2054819bb6014f1e50baa39cb5e3">vec2_t</a> *a)</td></tr>
 <tr class="separator:a04c93e0b3d3d778e28fc804fc52bf88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e6b8c74bb414eeffcbd423e4a40e542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dumb__physics_8h.html#a9e6b8c74bb414eeffcbd423e4a40e542">DoCollision</a> (<a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a> *self, <a class="el" href="entity_8h.html#ad0c3149de5542539dcb5c9251c68fbd2">entity_t</a> *other)</td></tr>
-<tr class="separator:a9e6b8c74bb414eeffcbd423e4a40e542"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a class="anchor" id="a8a3549fa7a1515ef10a78d6f382fe09c"></a>
@@ -174,8 +174,6 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="dumb__physics_8h_source.html#l00007">7</a> of file <a class="el" href="dumb__physics_8h_source.html">dumb_physics.h</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -192,7 +190,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Applies the bounds to specified ent.</p>
+<p>Applies the bounds to specified ent, defined by the screen dimensions.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ent</td><td>If non-null, the ent.</td></tr>
@@ -201,8 +199,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00220">220</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
 
 </div>
 </div>
@@ -219,7 +215,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Applies the friction to vector a.</p>
+<p>Applies the friction to vector a, for the nonzero values. Uses Physics_base_friction for friction coefficient.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>If non-null, the vec2_t to process.</td></tr>
@@ -228,8 +224,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00255">255</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
 
 </div>
 </div>
@@ -246,7 +240,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Applies the speed limit to vector a.</p>
+<p>Applies the speed limit to vector a, defined by physics max speed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>If non-null, the vec2_t to process.</td></tr>
@@ -255,8 +249,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/29/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00205">205</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
 
 </div>
 </div>
@@ -295,8 +287,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/20/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00079">79</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a9e6b8c74bb414eeffcbd423e4a40e542"></a>
@@ -333,8 +323,6 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/20/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00109">109</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ae354ed0629e54a219f0a00be20f6e2f0"></a>
@@ -352,8 +340,6 @@ Functions</h2></td></tr>
 <p>Executes physics. RunTime O( n(n+1)/2 ) Applies velocity, acceleration, gravity, and friction. Limits velocity, acceleration, and sets bounds.</p>
 <dl class="section author"><dt>Author</dt><dd>Anthony Rios </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>3/20/2016 </dd></dl>
-
-<p>Definition at line <a class="el" href="dumb__physics_8c_source.html#l00019">19</a> of file <a class="el" href="dumb__physics_8c_source.html">dumb_physics.c</a>.</p>
 
 </div>
 </div>

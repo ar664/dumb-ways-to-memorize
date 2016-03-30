@@ -7,13 +7,18 @@
 #define PLAYER_BASE_JUMP	-5
 #define PLAYER_BASE_SPEED	5
 
-
+/**
+ * Initialize the player entity and variables thereof, also used to reset player.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
 void InitPlayer();
-entity_t *GetPlayer();
+
+//Self explanatory
 void DecrementPlayerLives();
 
-extern int gPlayerLives;
-extern entity_t *gPlayer;
-extern char *name;
+extern entity_t *gPlayer;   /**< The player entity */
+extern char *gPlayerName;  /**< The name of the player */
 
 #endif

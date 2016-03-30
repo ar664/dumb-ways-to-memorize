@@ -49,7 +49,7 @@ struct menu_item_s
 	menu_item_state_t	State;		/**< The state of the menu item */
 	GameState			NextState;  /**< State of the next gamestate this item links to */
 	vec2_t				Position;   /**< The position of the item */
-	char				*Name;		/**< The name of the menu item */
+	char				*Name;		/**< The gPlayerName of the menu item */
 	sprite_t			*Image;		/**< The image of the menu item */
 	void				*Info;		/**< The information specific to this menu */
 };
@@ -75,11 +75,62 @@ struct menu_s
 
 extern menu_t *gMenus;
 
+/**
+ * Allocate memor for menu system, gMenus is the menu list. 
+ *
+ * @author	Anthony Rios
+ * @date	3/16/2016
+ */
 int InitMenuSystem();
+
+/**
+ * Loads a menu.
+ *
+ * @param [in,out]	object 	If non-null, the object menu was parsed to.
+ * @param [in,out]	g_str 	If non-null, the string.
+ * @param	currState	  	State to assign the menu.
+ * @param	previous_state	State before this menu.
+ *
+ * @return	0 if loads correctly, -1 if it doesn't.
+ *
+ * @author	Anthony Rios
+ * @date	3/16/2016
+ */
 menu_t *LoadMenu(object_t *object, char *g_str, GameState curr_state, GameState previous_state );
+
+/**
+ * Searches for the first menu from game state in gMenus.
+ *
+ * @param	curr_state	State of the curr.
+ *
+ * @return	null if it fails, else the found menu from game state.
+ *
+ * @author	Anthony Rios
+ * @date	3/16/2016
+ */
 menu_t *FindMenuFromGameState(GameState curr_state);
+
+/**
+ * Searches for the first free menu slot in gMenus, used for loading new menus.
+ *
+ * @return	null if it fails, else the found free menu.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
 menu_t *FindFreeMenu();
 
+/**
+ * Searches for the first menu item, with gPlayerName of str given.
+ *
+ * @param [in,out]	menu	If non-null, the menu.
+ * @param [in,out]	item	If non-null, the item.
+ *
+ * @return	null if it fails, else the found menu item.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
 menu_item_t *FindMenuItem(menu_t *menu, char *item);
 
 #endif

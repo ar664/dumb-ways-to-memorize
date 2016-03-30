@@ -20,161 +20,159 @@
     <includedby refid="player_8c" local="yes">dumb-ways-to-memorize/player.c</includedby>
     <includedby refid="quick__controller_8c" local="yes">dumb-ways-to-memorize/quick_controller.c</includedby>
     <incdepgraph>
-      <node id="180">
+      <node id="181">
         <label>dumb-ways-to-memorize/globals.h</label>
         <link refid="globals.h"/>
-        <childnode refid="181" relation="include">
-        </childnode>
-      </node>
-      <node id="181">
-        <label>jsmn.h</label>
-        <link refid="jsmn_8h"/>
         <childnode refid="182" relation="include">
         </childnode>
       </node>
       <node id="182">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="183" relation="include">
+        </childnode>
+      </node>
+      <node id="183">
         <label>stddef.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="183">
+      <node id="184">
         <label>dumb-ways-to-memorize/globals.h</label>
         <link refid="globals.h"/>
-        <childnode refid="184" relation="include">
+        <childnode refid="185" relation="include">
         </childnode>
-        <childnode refid="186" relation="include">
-        </childnode>
-        <childnode refid="203" relation="include">
-        </childnode>
-        <childnode refid="198" relation="include">
-        </childnode>
-        <childnode refid="193" relation="include">
-        </childnode>
-        <childnode refid="188" relation="include">
+        <childnode refid="187" relation="include">
         </childnode>
         <childnode refid="204" relation="include">
         </childnode>
-        <childnode refid="205" relation="include">
+        <childnode refid="199" relation="include">
         </childnode>
         <childnode refid="194" relation="include">
+        </childnode>
+        <childnode refid="189" relation="include">
+        </childnode>
+        <childnode refid="205" relation="include">
         </childnode>
         <childnode refid="206" relation="include">
         </childnode>
-        <childnode refid="207" relation="include">
+        <childnode refid="195" relation="include">
         </childnode>
-        <childnode refid="202" relation="include">
+        <childnode refid="207" relation="include">
         </childnode>
         <childnode refid="208" relation="include">
         </childnode>
-        <childnode refid="190" relation="include">
+        <childnode refid="203" relation="include">
         </childnode>
-        <childnode refid="195" relation="include">
+        <childnode refid="209" relation="include">
         </childnode>
-        <childnode refid="196" relation="include">
-        </childnode>
-      </node>
-      <node id="207">
-        <label>dumb-ways-to-memorize/mystrings.c</label>
-        <link refid="mystrings_8c"/>
-      </node>
-      <node id="190">
-        <label>dumb-ways-to-memorize/parsepowerup.c</label>
-        <link refid="parsepowerup_8c"/>
-      </node>
-      <node id="192">
-        <label>dumb-ways-to-memorize/parsepowerup.h</label>
-        <link refid="parsepowerup_8h"/>
-        <childnode refid="185" relation="include">
-        </childnode>
-        <childnode refid="193" relation="include">
-        </childnode>
-        <childnode refid="188" relation="include">
-        </childnode>
-        <childnode refid="194" relation="include">
-        </childnode>
-        <childnode refid="190" relation="include">
-        </childnode>
-        <childnode refid="195" relation="include">
+        <childnode refid="191" relation="include">
         </childnode>
         <childnode refid="196" relation="include">
         </childnode>
-      </node>
-      <node id="202">
-        <label>dumb-ways-to-memorize/parsefunction.c</label>
-        <link refid="parsefunction_8c"/>
-      </node>
-      <node id="201">
-        <label>dumb-ways-to-memorize/parsefunction.h</label>
-        <link refid="parsefunction_8h"/>
-        <childnode refid="202" relation="include">
-        </childnode>
-        <childnode refid="190" relation="include">
-        </childnode>
-      </node>
-      <node id="188">
-        <label>dumb-ways-to-memorize/game.c</label>
-        <link refid="game_8c"/>
-      </node>
-      <node id="198">
-        <label>dumb-ways-to-memorize/dumb_physics.c</label>
-        <link refid="dumb__physics_8c"/>
-      </node>
-      <node id="197">
-        <label>dumb-ways-to-memorize/dumb_physics.h</label>
-        <link refid="dumb__physics_8h"/>
-        <childnode refid="198" relation="include">
-        </childnode>
-        <childnode refid="188" relation="include">
-        </childnode>
-      </node>
-      <node id="194">
-        <label>dumb-ways-to-memorize/menu.c</label>
-        <link refid="menu_8c"/>
-      </node>
-      <node id="204">
-        <label>dumb-ways-to-memorize/menu.h</label>
-        <link refid="menu_8h"/>
-        <childnode refid="188" relation="include">
-        </childnode>
-        <childnode refid="194" relation="include">
+        <childnode refid="197" relation="include">
         </childnode>
       </node>
       <node id="208">
-        <label>dumb-ways-to-memorize/parseobject.c</label>
-        <link refid="parseobject_8c"/>
+        <label>dumb-ways-to-memorize/mystrings.c</label>
+        <link refid="mystrings_8c"/>
       </node>
-      <node id="195">
-        <label>dumb-ways-to-memorize/player.c</label>
-        <link refid="player_8c"/>
+      <node id="191">
+        <label>dumb-ways-to-memorize/parsepowerup.c</label>
+        <link refid="parsepowerup_8c"/>
       </node>
-      <node id="199">
-        <label>dumb-ways-to-memorize/player.h</label>
-        <link refid="player_8h"/>
-        <childnode refid="198" relation="include">
-        </childnode>
-        <childnode refid="193" relation="include">
-        </childnode>
-        <childnode refid="188" relation="include">
+      <node id="193">
+        <label>dumb-ways-to-memorize/parsepowerup.h</label>
+        <link refid="parsepowerup_8h"/>
+        <childnode refid="186" relation="include">
         </childnode>
         <childnode refid="194" relation="include">
         </childnode>
-        <childnode refid="190" relation="include">
+        <childnode refid="189" relation="include">
         </childnode>
         <childnode refid="195" relation="include">
         </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
         <childnode refid="196" relation="include">
         </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
       </node>
-      <node id="191">
+      <node id="203">
+        <label>dumb-ways-to-memorize/parsefunction.c</label>
+        <link refid="parsefunction_8c"/>
+      </node>
+      <node id="202">
+        <label>dumb-ways-to-memorize/parsefunction.h</label>
+        <link refid="parsefunction_8h"/>
+        <childnode refid="203" relation="include">
+        </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
+      </node>
+      <node id="189">
+        <label>dumb-ways-to-memorize/game.c</label>
+        <link refid="game_8c"/>
+      </node>
+      <node id="199">
+        <label>dumb-ways-to-memorize/dumb_physics.c</label>
+        <link refid="dumb__physics_8c"/>
+      </node>
+      <node id="198">
+        <label>dumb-ways-to-memorize/dumb_physics.h</label>
+        <link refid="dumb__physics_8h"/>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="189" relation="include">
+        </childnode>
+      </node>
+      <node id="195">
+        <label>dumb-ways-to-memorize/menu.c</label>
+        <link refid="menu_8c"/>
+      </node>
+      <node id="205">
+        <label>dumb-ways-to-memorize/menu.h</label>
+        <link refid="menu_8h"/>
+        <childnode refid="189" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
+      </node>
+      <node id="209">
+        <label>dumb-ways-to-memorize/parseobject.c</label>
+        <link refid="parseobject_8c"/>
+      </node>
+      <node id="196">
+        <label>dumb-ways-to-memorize/player.c</label>
+        <link refid="player_8c"/>
+      </node>
+      <node id="200">
+        <label>dumb-ways-to-memorize/player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="194" relation="include">
+        </childnode>
+        <childnode refid="189" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
+      </node>
+      <node id="192">
         <label>dumb-ways-to-memorize/parsevariable.c</label>
         <link refid="parsevariable_8c"/>
       </node>
-      <node id="187">
+      <node id="188">
         <label>dumb-ways-to-memorize/parsevariable.h</label>
         <link refid="parsevariable_8h"/>
-        <childnode refid="185" relation="include">
-        </childnode>
-        <childnode refid="188" relation="include">
+        <childnode refid="186" relation="include">
         </childnode>
         <childnode refid="189" relation="include">
         </childnode>
@@ -182,100 +180,102 @@
         </childnode>
         <childnode refid="191" relation="include">
         </childnode>
+        <childnode refid="192" relation="include">
+        </childnode>
       </node>
-      <node id="189">
+      <node id="190">
         <label>dumb-ways-to-memorize/parselevel.c</label>
         <link refid="parselevel_8c"/>
       </node>
-      <node id="200">
+      <node id="201">
         <label>dumb-ways-to-memorize/parselevel.h</label>
         <link refid="parselevel_8h"/>
-        <childnode refid="193" relation="include">
-        </childnode>
-        <childnode refid="188" relation="include">
-        </childnode>
         <childnode refid="194" relation="include">
         </childnode>
         <childnode refid="189" relation="include">
         </childnode>
         <childnode refid="195" relation="include">
         </childnode>
+        <childnode refid="190" relation="include">
+        </childnode>
+        <childnode refid="196" relation="include">
+        </childnode>
       </node>
-      <node id="206">
+      <node id="207">
         <label>dumb-ways-to-memorize/mymath.c</label>
         <link refid="mymath_8c"/>
       </node>
-      <node id="193">
+      <node id="194">
         <label>dumb-ways-to-memorize/entity.c</label>
         <link refid="entity_8c"/>
       </node>
-      <node id="186">
+      <node id="187">
         <label>dumb-ways-to-memorize/entity.h</label>
         <link refid="entity_8h"/>
-        <childnode refid="185" relation="include">
+        <childnode refid="186" relation="include">
         </childnode>
-        <childnode refid="187" relation="include">
+        <childnode refid="188" relation="include">
         </childnode>
-        <childnode refid="192" relation="include">
-        </childnode>
-        <childnode refid="197" relation="include">
+        <childnode refid="193" relation="include">
         </childnode>
         <childnode refid="198" relation="include">
         </childnode>
         <childnode refid="199" relation="include">
         </childnode>
-        <childnode refid="193" relation="include">
-        </childnode>
         <childnode refid="200" relation="include">
         </childnode>
-        <childnode refid="188" relation="include">
+        <childnode refid="194" relation="include">
         </childnode>
         <childnode refid="201" relation="include">
         </childnode>
         <childnode refid="189" relation="include">
         </childnode>
+        <childnode refid="202" relation="include">
+        </childnode>
         <childnode refid="190" relation="include">
         </childnode>
-        <childnode refid="195" relation="include">
+        <childnode refid="191" relation="include">
         </childnode>
         <childnode refid="196" relation="include">
         </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
       </node>
-      <node id="205">
+      <node id="206">
         <label>dumb-ways-to-memorize/graphics.c</label>
         <link refid="graphics_8c"/>
       </node>
-      <node id="203">
+      <node id="204">
         <label>dumb-ways-to-memorize/graphics.h</label>
         <link refid="graphics_8h"/>
-        <childnode refid="186" relation="include">
-        </childnode>
-        <childnode refid="193" relation="include">
-        </childnode>
-        <childnode refid="188" relation="include">
-        </childnode>
-        <childnode refid="204" relation="include">
-        </childnode>
-        <childnode refid="205" relation="include">
+        <childnode refid="187" relation="include">
         </childnode>
         <childnode refid="194" relation="include">
         </childnode>
+        <childnode refid="189" relation="include">
+        </childnode>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
       </node>
-      <node id="185">
+      <node id="186">
         <label>dumb-ways-to-memorize/ai_interpret.c</label>
         <link refid="ai__interpret_8c"/>
       </node>
-      <node id="184">
+      <node id="185">
         <label>dumb-ways-to-memorize/ai_interpret.h</label>
         <link refid="ai__interpret_8h"/>
-        <childnode refid="185" relation="include">
-        </childnode>
         <childnode refid="186" relation="include">
         </childnode>
-        <childnode refid="189" relation="include">
+        <childnode refid="187" relation="include">
+        </childnode>
+        <childnode refid="190" relation="include">
         </childnode>
       </node>
-      <node id="196">
+      <node id="197">
         <label>dumb-ways-to-memorize/quick_controller.c</label>
         <link refid="quick__controller_8c"/>
       </node>
@@ -697,7 +697,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="25" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="47" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="25" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1aafc8457d9121884bb074efeff2941e23" prot="public" static="no" mutable="no">
         <type><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref></type>
@@ -710,7 +710,7 @@
 <para>State of the game </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="93" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="45" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="93" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1a4a2a39e414a5c7caa23e9a8faf5b0e7d" prot="public" static="no" mutable="no">
         <type>char **</type>
@@ -720,7 +720,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The hazards string array which is defined in the gamedata file </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="102" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="13" bodyend="-1"/>
@@ -736,7 +736,7 @@
 <para>The name of the entities file </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="107" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="40" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="107" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1acaf43cd754d2eb69556f0502847bc524" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -746,7 +746,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The collisions type strings for parsing </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="108" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="14" bodyend="-1"/>
@@ -759,7 +759,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The entity state strings for parsing </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="109" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="15" bodyend="-1"/>
@@ -775,7 +775,7 @@
 <para>The name of the power ups file </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="115" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="41" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="115" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1adfb61c9280504c470a83ce9da1384ae2" prot="public" static="no" mutable="no">
         <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
@@ -785,7 +785,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The mouse position </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="116" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="17" bodyend="-1"/>
@@ -798,7 +798,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The key press related to using the power </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="117" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="18" bodyend="-1"/>
@@ -814,7 +814,7 @@
 <para>The power ups the player selects </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="118" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="29" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="118" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1a6540f730c8dc68b12d940f68358ca677" prot="public" static="no" mutable="no">
         <type>char **</type>
@@ -827,7 +827,7 @@
 <para>The used power ups for this game run </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="119" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="30" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="119" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1a66f3fc97502132ecdb2983351ffed1b5" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -840,7 +840,7 @@
 <para>The current power up name </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="120" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="44" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="120" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" prot="public" static="no" mutable="no">
         <type>char **</type>
@@ -853,7 +853,7 @@
 <para>The level names </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="123" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="27" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="123" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1a74afd8193cb4b707d3c1cbe7c6109f7c" prot="public" static="no" mutable="no">
         <type>char **</type>
@@ -866,7 +866,7 @@
 <para>The selected levels to load </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="124" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="28" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="124" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1abc10adf2681d11b06b6878800b3ca08a" prot="public" static="no" mutable="no">
         <type>void *</type>
@@ -894,18 +894,18 @@
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="130" column="1"/>
       </memberdef>
-      <memberdef kind="variable" id="globals_8h_1a9116370490d785dce76b8291269feab7" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="globals_8h_1a7460e61d712f20efd9bca05176757e88" prot="public" static="no" mutable="no">
         <type>int</type>
-        <definition>int gLives</definition>
+        <definition>int gPlayerLives</definition>
         <argsstring></argsstring>
-        <name>gLives</name>
+        <name>gPlayerLives</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
 <para>The lives of the player </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="137" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="24" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="137" column="1" bodyfile="dumb-ways-to-memorize/player.c" bodystart="10" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1a9527243766b6dbc450b03e44a940e8b4" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -918,7 +918,7 @@
 <para>The levels per game </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="138" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="25" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="138" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1abc330db94c68edccfc134b50a56e134e" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -928,7 +928,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The set Width of the screen </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="139" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="16" bodyend="-1"/>
@@ -941,7 +941,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Te set Height of the screen </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="140" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="17" bodyend="-1"/>
@@ -954,10 +954,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The current time , updated from last update call </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="141" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="51" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="141" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1a014e115137722e6de4b923adf3da681b" prot="public" static="no" mutable="no">
         <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref></type>
@@ -967,7 +967,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The gravity which affects all the assets </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="142" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="7" bodyend="-1"/>
@@ -996,7 +996,7 @@
 <para>The global jsmn parser </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="155" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="26" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="195" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1a141d6ca754370006cba996c9d17ad16e" prot="public" static="no" mutable="no">
         <type><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref> *</type>
@@ -1009,7 +1009,7 @@
 <para>Tokens for GameData </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="156" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="31" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="196" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1a251a8e16ca7c41f1e7a6120dd23cff4a" prot="public" static="no" mutable="no">
         <type>struct <ref refid="structobject__s" kindref="compound">object_s</ref> *</type>
@@ -1022,7 +1022,7 @@
 <para>The game object </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="157" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="34" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="197" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1ae426c13677e3a0be6593f5af1a3995ed" prot="public" static="no" mutable="no">
         <type><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref> *</type>
@@ -1035,7 +1035,7 @@
 <para>The entity jsmn tokens </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="158" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="32" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="198" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1ae9a03a398547a2b1de15b7513a1a4ee0" prot="public" static="no" mutable="no">
         <type>struct <ref refid="structobject__s" kindref="compound">object_s</ref> *</type>
@@ -1048,7 +1048,7 @@
 <para>The entity object </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="159" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="35" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="199" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1a9f795d64c303e4534a33fa56b0ac3476" prot="public" static="no" mutable="no">
         <type><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref> *</type>
@@ -1061,7 +1061,7 @@
 <para>The level jsmn tokens </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="160" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="33" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="200" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1a298cfdaa57c7c170b3e7556a36d4f95b" prot="public" static="no" mutable="no">
         <type>struct <ref refid="structobject__s" kindref="compound">object_s</ref> *</type>
@@ -1071,10 +1071,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The level object </para>        </detaileddescription>
+<para>The current level object </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="161" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="36" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="201" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1ae4c70a31e9d973c951caa5d0081f371b" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -1087,7 +1087,7 @@
 <para>Game Data File - holding the contents of file via string </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="162" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="37" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="202" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1a2438de532d787b051cc555989e00eaf1" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -1097,10 +1097,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Entity data file </para>        </detaileddescription>
+<para>The current parsed string of the entity file </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="163" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="38" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="203" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="globals_8h_1acff6c545ae762a933011c296fda1ead0" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -1113,7 +1113,7 @@
 <para>Information describing the current level </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="164" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="39" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="204" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="38" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -1141,6 +1141,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="38" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="20" bodyend="28"/>
+        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
+        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1aad91f1e528aceb82eb58eeaeef31ba96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1166,6 +1168,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="39" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="31" bodyend="39"/>
+        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
+        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1aa9e0b764ef33951a7a3e46dfa128837b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1191,6 +1195,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="40" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="41" bodyend="49"/>
+        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
+        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a9aa87727325e75d1590d911602eab803" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1221,7 +1227,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Converts a str to a game state.</para><para><parameterlist kind="param"><parameteritem>
+<para>Converts a string into a game state</para><para>Converts a str to a game state.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername direction="inout">str</parametername>
 </parameternamelist>
@@ -1235,7 +1241,19 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="94" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="417" bodyend="447"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="94" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="274" bodyend="304"/>
+        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a96a92720d3d9970db2d464166b8a569e" compoundref="globals_8h" startline="85">SPLASH</references>
+        <references refid="mystrings_8h_1abee22002c9d20fec0bc94a3bfd4e40ad" compoundref="mystrings_8h" startline="9">GAME_STATE_SPLASH_STR</references>
+        <references refid="mystrings_8h_1a06f08b51f172bd9daaa65efb9a67ec85" compoundref="mystrings_8h" startline="10">GAME_STATE_START_STR</references>
+        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a13d000b4d7dc70d90239b7430d1eb6b2" compoundref="globals_8h" startline="86">START</references>
+        <references refid="mystrings_8h_1aba8c67d5ed1579335310ff77649ff89e" compoundref="mystrings_8h" startline="11">GAME_STATE_GUESS_STR</references>
+        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285ab8c769f7e7a67d0a91a2fe34fdc5dbea" compoundref="globals_8h" startline="87">GUESS</references>
+        <references refid="mystrings_8h_1abe75cf0ea422164cff13e9821b1aedf1" compoundref="mystrings_8h" startline="12">GAME_STATE_CHOOSE_STR</references>
+        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a58a9a2b13d64bdcda325c28725c1a73f" compoundref="globals_8h" startline="88">CHOOSE</references>
+        <references refid="mystrings_8h_1acfc3e6c9cf34eaee72d09667d7d265db" compoundref="mystrings_8h" startline="13">GAME_STATE_PLAYING_STR</references>
+        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285af095245f5cebc27a97a124345269fed8" compoundref="globals_8h" startline="89">PLAYING</references>
+        <references refid="mystrings_8h_1a4e38eab119f1fee536a85e1f29c1ee44" compoundref="mystrings_8h" startline="14">GAME_STATE_END_STR</references>
+        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285adc6f24fd6915a3f2786a1b7045406924" compoundref="globals_8h" startline="90">END</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a7d08e8b15cd91ee8dfc2acfcf9c7ca8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1249,10 +1267,21 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Converts a string into a menu type </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="95" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="730" bodyend="753"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="95" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="697" bodyend="720"/>
+        <references refid="menu_8h_1ad93a7e08ccb25a8e9d9ff257c6d00d7f" compoundref="menu_8h" startline="19">MENU_TYPE_STR_H</references>
+        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea44093eb84c021250710c21d7040742c9" compoundref="menu_8h" startline="27">MENU_TYPE_H</references>
+        <references refid="menu_8h_1a6e3272cde8626b4dbe6fb12af2a4fec8" compoundref="menu_8h" startline="20">MENU_TYPE_STR_V</references>
+        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eae51e962ec8beccece27215c15adcead4" compoundref="menu_8h" startline="28">MENU_TYPE_V</references>
+        <references refid="menu_8h_1af1d21de0fd729ce50359d39fc89b84bf" compoundref="menu_8h" startline="21">MENU_TYPE_STR_GRID</references>
+        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eadf5c230f1c0e9ba8cb94248e675e520c" compoundref="menu_8h" startline="29">MENU_TYPE_GRID</references>
+        <references refid="menu_8h_1a184f67b2269e942df91f4cc4ef314b77" compoundref="menu_8h" startline="17">MENU_TYPE_STR_POWER</references>
+        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaed4cdae7debfa0f072aed36802897c8d" compoundref="menu_8h" startline="30">MENU_TYPE_POWER</references>
+        <references refid="menu_8h_1a14d7adc2f2315acd3a25c75f0df1b00a" compoundref="menu_8h" startline="18">MENU_TYPE_STR_CHOOSE</references>
+        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaf382d35204a24dfcc899f49a21d6180a" compoundref="menu_8h" startline="31">MENU_TYPE_CHOOSE</references>
+        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea40eba317709e6fb74680ab0be4506ff5" compoundref="menu_8h" startline="26">MENU_TYPE_NULL</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1abe578bfaa1629eec4e43d2ec76b0499b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1266,7 +1295,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Converts a str to a hazard.</para><para><parameterlist kind="param"><parameteritem>
+<para>Converts a string into a hazard, using the parsed hazards_str for comparison</para><para>Converts a str to a hazard.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername direction="inout">str</parametername>
 </parameternamelist>
@@ -1280,7 +1309,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="103" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="460" bodyend="474"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="103" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="317" bodyend="331"/>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
+        <references refid="entity_8c_1a4a2a39e414a5c7caa23e9a8faf5b0e7d" compoundref="entity_8c" startline="13">Hazards_str</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a44b3e24411aec8ef45be1d5430c5b2eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13a" kindref="member">collision_type_t</ref></type>
@@ -1294,7 +1325,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Converts a str to a collision type.</para><para><parameterlist kind="param"><parameteritem>
+<para>Converts a string into a entity collision type</para><para>Converts a str to a collision type.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername direction="inout">str</parametername>
 </parameternamelist>
@@ -1308,7 +1339,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="110" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="487" bodyend="500"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="110" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="344" bodyend="357"/>
+        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aadaf36ae19b0226a720a707942aea87e5" compoundref="globals_8h" startline="57">COLLISION_TYPE_CLIP</references>
+        <references refid="entity_8c_1acaf43cd754d2eb69556f0502847bc524" compoundref="entity_8c" startline="14">Collisions_str</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a228d03ca7eff58ad7ed8fccb3a7bc9c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="globals_8h_1a99f3d33a52ee74fc145c14ceee9d4154" kindref="member">entity_state_t</ref></type>
@@ -1322,7 +1355,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Converts a str to an entity state.</para><para><parameterlist kind="param"><parameteritem>
+<para>Converts a string into an entity state</para><para>Converts a str to an entity state.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername direction="inout">str</parametername>
 </parameternamelist>
@@ -1336,7 +1369,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="111" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="513" bodyend="526"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="111" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="370" bodyend="383"/>
+        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aadaf36ae19b0226a720a707942aea87e5" compoundref="globals_8h" startline="57">COLLISION_TYPE_CLIP</references>
+        <references refid="entity_8c_1a4cb66787ca1de7d1e390016a47ecea04" compoundref="entity_8c" startline="15">EntityStates_str</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a94f46db60f69856665f7b6fce5db209e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1352,7 +1387,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="125" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="302" bodyend="340"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="125" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="297" bodyend="335"/>
+        <references refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" compoundref="game_8c" startline="26">gLevels</references>
+        <references refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" compoundref="game_8c" startline="27">gSelectedLevels</references>
+        <references refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" compoundref="game_8c" startline="24">gLevelsPerGame</references>
+        <references refid="globals_8h_1a4cda7fb3c8f061cba2e2dff0710400ee" compoundref="mymath_8c" startline="77" endline="91">CompareMemToMemArray</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1ae4bccf3c8c8b60d039485212d07c6489" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1381,7 +1420,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="126" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="397" bodyend="426"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="126" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="390" bodyend="419"/>
+        <references refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" compoundref="game_8c" startline="27">gSelectedLevels</references>
+        <references refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" compoundref="mystrings_8c" startline="192" endline="261">ConvertFileToUseable</references>
+        <references refid="game_8c_1acff6c545ae762a933011c296fda1ead0" compoundref="game_8c" startline="38">gLevelData</references>
+        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
+        <references refid="parselevel_8c_1ad9ebda29344f8ab359a5630fadc56489" compoundref="parselevel_8c" startline="11" endline="243">LoadLevel</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a61420beeaf5d0198b41709412508cfd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1396,7 +1440,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="127" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="349" bodyend="383"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="127" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="343" bodyend="377"/>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
+        <references refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" compoundref="game_8c" startline="26">gLevels</references>
+        <references refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" compoundref="game_8c" startline="24">gLevelsPerGame</references>
+        <references refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" compoundref="game_8c" startline="27">gSelectedLevels</references>
+        <references refid="globals_8h_1a4cda7fb3c8f061cba2e2dff0710400ee" compoundref="mymath_8c" startline="77" endline="91">CompareMemToMemArray</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1435,7 +1484,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="147" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="63" bodyend="76"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="158" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="51" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a2263fb5e65c0597a8e4c35fa0c05e15d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1496,7 +1545,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="148" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="93" bodyend="102"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="174" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a4cda7fb3c8f061cba2e2dff0710400ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1557,7 +1606,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/globals.h" line="149" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="118" bodyend="132"/>
+        <location file="dumb-ways-to-memorize/globals.h" line="189" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="77" bodyend="91"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1645,39 +1694,35 @@
 <codeline lineno="86" refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a13d000b4d7dc70d90239b7430d1eb6b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285adc6f24fd6915a3f2786a1b7045406924" kindref="member">END</ref><sp/>=<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x20,<sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="87" refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285ab8c769f7e7a67d0a91a2fe34fdc5dbea" refkind="member"><highlight class="normal">}<ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref>;</highlight></codeline>
 <codeline lineno="88" refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a58a9a2b13d64bdcda325c28725c1a73f" refkind="member"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89" refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285af095245f5cebc27a97a124345269fed8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/><ref refid="globals_8h_1aafc8457d9121884bb074efeff2941e23" kindref="member">gGameState</ref>;</highlight></codeline>
-<codeline lineno="90" refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285adc6f24fd6915a3f2786a1b7045406924" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/><ref refid="globals_8h_1a295e14f293c2d135e244c6b9f417a447" kindref="member">StrToGameState</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a7d08e8b15cd91ee8dfc2acfcf9c7ca8d" kindref="member">StrToMenuType</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//For<sp/>Hazards</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285af095245f5cebc27a97a124345269fed8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/><ref refid="globals_8h_1aafc8457d9121884bb074efeff2941e23" kindref="member">gGameState</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="90" refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285adc6f24fd6915a3f2786a1b7045406924" refkind="member"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/><ref refid="globals_8h_1a295e14f293c2d135e244c6b9f417a447" kindref="member">StrToGameState</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a7d08e8b15cd91ee8dfc2acfcf9c7ca8d" kindref="member">StrToMenuType</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="comment">//For<sp/>Hazards</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAZARD_NULL<sp/>0x0</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAZARD_MAX<sp/><sp/>(0x1<sp/>&gt;&gt;<sp/>31)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAZARD_DAMAGE<sp/>10</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAZARD_STUN_FRAMES<sp/>10</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98" refid="globals_8h_1a280e46b940d0a42b68758e663db5b23f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="globals_8h_1a4a2a39e414a5c7caa23e9a8faf5b0e7d" kindref="member">Hazards_str</ref>;</highlight></codeline>
-<codeline lineno="99" refid="globals_8h_1a675210b5beae2282d2d78410c9a4892a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1abe578bfaa1629eec4e43d2ec76b0499b" kindref="member">StrToHazard</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
-<codeline lineno="100" refid="globals_8h_1a64503cbd995995a54eaa8ee4c5f4419d" refkind="member"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101" refid="globals_8h_1af1a2e554453150b34cd34fc077cd217a" refkind="member"><highlight class="normal"></highlight><highlight class="comment">//For<sp/>EntParsing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="globals_8h_1a280e46b940d0a42b68758e663db5b23f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="globals_8h_1a4a2a39e414a5c7caa23e9a8faf5b0e7d" kindref="member">Hazards_str</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99" refid="globals_8h_1a675210b5beae2282d2d78410c9a4892a" refkind="member"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1abe578bfaa1629eec4e43d2ec76b0499b" kindref="member">StrToHazard</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="101" refid="globals_8h_1af1a2e554453150b34cd34fc077cd217a" refkind="member"><highlight class="comment">//For<sp/>EntParsing</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ENTITIES_FILE_STR<sp/><sp/><sp/>&quot;Entities&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1ae41ba571b800cdaf245c2fb320f897c1" kindref="member">gEntitiesFile</ref>;</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1acaf43cd754d2eb69556f0502847bc524" kindref="member">Collisions_str</ref>[];</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1a4cb66787ca1de7d1e390016a47ecea04" kindref="member">EntityStates_str</ref>[];</highlight></codeline>
-<codeline lineno="106" refid="globals_8h_1ad3f536d6b289b57569cb1a0298059b74" refkind="member"><highlight class="normal"><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13a" kindref="member">collision_type_t</ref><sp/><ref refid="globals_8h_1a44b3e24411aec8ef45be1d5430c5b2eb" kindref="member">StrToCollisionType</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><ref refid="globals_8h_1a99f3d33a52ee74fc145c14ceee9d4154" kindref="member">entity_state_t</ref><sp/><ref refid="globals_8h_1a228d03ca7eff58ad7ed8fccb3a7bc9c9" kindref="member">StrToEntityState</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment">//For<sp/>PowerUps</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1ae41ba571b800cdaf245c2fb320f897c1" kindref="member">gEntitiesFile</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1acaf43cd754d2eb69556f0502847bc524" kindref="member">Collisions_str</ref>[];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1a4cb66787ca1de7d1e390016a47ecea04" kindref="member">EntityStates_str</ref>[];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="106" refid="globals_8h_1ad3f536d6b289b57569cb1a0298059b74" refkind="member"><highlight class="normal"><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13a" kindref="member">collision_type_t</ref><sp/><ref refid="globals_8h_1a44b3e24411aec8ef45be1d5430c5b2eb" kindref="member">StrToCollisionType</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><ref refid="globals_8h_1a99f3d33a52ee74fc145c14ceee9d4154" kindref="member">entity_state_t</ref><sp/><ref refid="globals_8h_1a228d03ca7eff58ad7ed8fccb3a7bc9c9" kindref="member">StrToEntityState</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="comment">//For<sp/>PowerUps</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POWER_UPS_STR<sp/><sp/><sp/>&quot;PowerUps&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1ad2abc3c2640a4883d78427b9cd1b3b8b" kindref="member">gPowerUpsFile</ref>;</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*<ref refid="globals_8h_1adfb61c9280504c470a83ce9da1384ae2" kindref="member">mousePos</ref>;</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1abf3c4f267001e0e0f3e5b748b3b1c5e5" kindref="member">keyPower</ref>;</highlight></codeline>
-<codeline lineno="114" refid="globals_8h_1ae3a2e4fbacd8fc047e40bc4dcbe1ed86" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="globals_8h_1a66329b13979a75d803e9f5d705f5a755" kindref="member">gSelectedPowerUps</ref>;</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="globals_8h_1a6540f730c8dc68b12d940f68358ca677" kindref="member">gUsedPowerUps</ref>;</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1a66f3fc97502132ecdb2983351ffed1b5" kindref="member">gCurrentPowerUpName</ref>;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight><highlight class="comment">//For<sp/>Levels</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="globals_8h_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" kindref="member">gLevels</ref>;</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="globals_8h_1a74afd8193cb4b707d3c1cbe7c6109f7c" kindref="member">gSelectedLevels</ref>;</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a94f46db60f69856665f7b6fce5db209e" kindref="member">SelectLevels</ref>();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1ad2abc3c2640a4883d78427b9cd1b3b8b" kindref="member">gPowerUpsFile</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*<ref refid="globals_8h_1adfb61c9280504c470a83ce9da1384ae2" kindref="member">mousePos</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1abf3c4f267001e0e0f3e5b748b3b1c5e5" kindref="member">keyPower</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="114" refid="globals_8h_1ae3a2e4fbacd8fc047e40bc4dcbe1ed86" refkind="member"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="globals_8h_1a66329b13979a75d803e9f5d705f5a755" kindref="member">gSelectedPowerUps</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="115"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="globals_8h_1a6540f730c8dc68b12d940f68358ca677" kindref="member">gUsedPowerUps</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="116"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1a66f3fc97502132ecdb2983351ffed1b5" kindref="member">gCurrentPowerUpName</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="118"><highlight class="comment">//For<sp/>Levels</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="globals_8h_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" kindref="member">gLevels</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="globals_8h_1a74afd8193cb4b707d3c1cbe7c6109f7c" kindref="member">gSelectedLevels</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="121"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a94f46db60f69856665f7b6fce5db209e" kindref="member">SelectLevels</ref>();</highlight></codeline>
 <codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1ae4bccf3c8c8b60d039485212d07c6489" kindref="member">LoadSelectedLevel</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>level);</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a61420beeaf5d0198b41709412508cfd8" kindref="member">RandomizeSelectedLevels</ref>();</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"></highlight></codeline>
@@ -1689,36 +1734,35 @@
 <codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOC_NAME_STR<sp/><sp/><sp/><sp/>&quot;name&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FRAME_DELAY<sp/><sp/><sp/><sp/><sp/>13</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PHYSICS_LIMITER<sp/>2</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="133" refid="globals_8h_1a4ca59b935766b727b7d2b1340f5befc3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a9116370490d785dce76b8291269feab7" kindref="member">gLives</ref>;</highlight></codeline>
-<codeline lineno="134" refid="globals_8h_1a239a28ce65b112a24a27062afa7e7668" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref>;</highlight></codeline>
-<codeline lineno="135" refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1abc330db94c68edccfc134b50a56e134e" kindref="member">gScreenWidth</ref>;</highlight></codeline>
-<codeline lineno="136" refid="globals_8h_1a0f595a73aa5c05ebf73729966239e15a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a530fa2ce59634663df7be20316444f8b" kindref="member">gScreenHeight</ref>;</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" kindref="member">gCurrentTime</ref>;</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/><ref refid="globals_8h_1a014e115137722e6de4b923adf3da681b" kindref="member">gGravity</ref>;</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1aaaad6d2ffd165538265b1e68f60ab837" kindref="member">exitRequest</ref>;</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment">//Memory<sp/>Functions</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_type);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a2263fb5e65c0597a8e4c35fa0c05e15d" kindref="member">AllocateDynamic</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**dst,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a4cda7fb3c8f061cba2e2dff0710400ee" kindref="member">CompareMemToMemArray</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*mem,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*mem_array,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_array);</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment">//Foward<sp/>dec<sp/>of<sp/>object_s<sp/>for<sp/>global<sp/>objects</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_s</ref>;</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment">//Prepoccessor<sp/>defed<sp/>LINKS<sp/>and<sp/>STRICT_MODE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment">//JSON<sp/>Parser</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/><ref refid="globals_8h_1a93e375e494425adf95818f2524f06891" kindref="member">gParser</ref>;</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="globals_8h_1a141d6ca754370006cba996c9d17ad16e" kindref="member">gGameTokens</ref>;</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_s</ref><sp/>*<ref refid="globals_8h_1a251a8e16ca7c41f1e7a6120dd23cff4a" kindref="member">gGameObject</ref>;</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="globals_8h_1ae426c13677e3a0be6593f5af1a3995ed" kindref="member">gEntityTokens</ref>;</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_s</ref><sp/>*<ref refid="globals_8h_1ae9a03a398547a2b1de15b7513a1a4ee0" kindref="member">gEntityObject</ref>;</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="globals_8h_1a9f795d64c303e4534a33fa56b0ac3476" kindref="member">gLevelTokens</ref>;</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_s</ref><sp/>*<ref refid="globals_8h_1a298cfdaa57c7c170b3e7556a36d4f95b" kindref="member">gLevelObject</ref>;</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1ae4c70a31e9d973c951caa5d0081f371b" kindref="member">gGameData</ref>;</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1a2438de532d787b051cc555989e00eaf1" kindref="member">gEntityData</ref>;</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1acff6c545ae762a933011c296fda1ead0" kindref="member">gLevelData</ref>;</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="133" refid="globals_8h_1a4ca59b935766b727b7d2b1340f5befc3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a7460e61d712f20efd9bca05176757e88" kindref="member">gPlayerLives</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134" refid="globals_8h_1a239a28ce65b112a24a27062afa7e7668" refkind="member"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="135" refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" refkind="member"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1abc330db94c68edccfc134b50a56e134e" kindref="member">gScreenWidth</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="136" refid="globals_8h_1a0f595a73aa5c05ebf73729966239e15a" refkind="member"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a530fa2ce59634663df7be20316444f8b" kindref="member">gScreenHeight</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" kindref="member">gCurrentTime</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="138"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/><ref refid="globals_8h_1a014e115137722e6de4b923adf3da681b" kindref="member">gGravity</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1aaaad6d2ffd165538265b1e68f60ab837" kindref="member">exitRequest</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="142"><highlight class="comment">//Memory<sp/>Functions</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_type);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a2263fb5e65c0597a8e4c35fa0c05e15d" kindref="member">AllocateDynamic</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**dst,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a4cda7fb3c8f061cba2e2dff0710400ee" kindref="member">CompareMemToMemArray</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*mem,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*mem_array,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_array);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment">//Foward<sp/>dec<sp/>of<sp/>object_s<sp/>for<sp/>global<sp/>objects</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_s</ref>;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="comment">//Prepoccessor<sp/>defed<sp/>LINKS<sp/>and<sp/>STRICT_MODE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="comment">//JSON<sp/>Parser</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/><ref refid="globals_8h_1a93e375e494425adf95818f2524f06891" kindref="member">gParser</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="192"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="globals_8h_1a141d6ca754370006cba996c9d17ad16e" kindref="member">gGameTokens</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_s</ref><sp/>*<ref refid="globals_8h_1a251a8e16ca7c41f1e7a6120dd23cff4a" kindref="member">gGameObject</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="194"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="globals_8h_1ae426c13677e3a0be6593f5af1a3995ed" kindref="member">gEntityTokens</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="195"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_s</ref><sp/>*<ref refid="globals_8h_1ae9a03a398547a2b1de15b7513a1a4ee0" kindref="member">gEntityObject</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="196"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="globals_8h_1a9f795d64c303e4534a33fa56b0ac3476" kindref="member">gLevelTokens</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="197"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_s</ref><sp/>*<ref refid="globals_8h_1a298cfdaa57c7c170b3e7556a36d4f95b" kindref="member">gLevelObject</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="198"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1ae4c70a31e9d973c951caa5d0081f371b" kindref="member">gGameData</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="199"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1a2438de532d787b051cc555989e00eaf1" kindref="member">gEntityData</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="200"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="globals_8h_1acff6c545ae762a933011c296fda1ead0" kindref="member">gLevelData</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="202"><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="dumb-ways-to-memorize/globals.h"/>
   </compounddef>

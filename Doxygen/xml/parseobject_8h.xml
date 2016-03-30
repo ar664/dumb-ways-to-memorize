@@ -15,169 +15,127 @@
     <includedby refid="parsepowerup_8c" local="yes">dumb-ways-to-memorize/parsepowerup.c</includedby>
     <includedby refid="parsevariable_8c" local="yes">dumb-ways-to-memorize/parsevariable.c</includedby>
     <incdepgraph>
-      <node id="378">
+      <node id="379">
         <label>jsmn.h</label>
         <link refid="jsmn_8h"/>
+        <childnode refid="380" relation="include">
+        </childnode>
+      </node>
+      <node id="378">
+        <label>dumb-ways-to-memorize/parseobject.h</label>
+        <link refid="parseobject.h"/>
         <childnode refid="379" relation="include">
         </childnode>
       </node>
-      <node id="377">
-        <label>dumb-ways-to-memorize/parseobject.h</label>
-        <link refid="parseobject.h"/>
-        <childnode refid="378" relation="include">
-        </childnode>
-      </node>
-      <node id="379">
+      <node id="380">
         <label>stddef.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="401">
+      <node id="402">
         <label>dumb-ways-to-memorize/mystrings.c</label>
         <link refid="mystrings_8c"/>
       </node>
-      <node id="387">
+      <node id="388">
         <label>dumb-ways-to-memorize/parsepowerup.c</label>
         <link refid="parsepowerup_8c"/>
       </node>
-      <node id="389">
+      <node id="390">
         <label>dumb-ways-to-memorize/parsepowerup.h</label>
         <link refid="parsepowerup_8h"/>
-        <childnode refid="382" relation="include">
-        </childnode>
-        <childnode refid="390" relation="include">
-        </childnode>
-        <childnode refid="385" relation="include">
+        <childnode refid="383" relation="include">
         </childnode>
         <childnode refid="391" relation="include">
-        </childnode>
-        <childnode refid="387" relation="include">
-        </childnode>
-        <childnode refid="392" relation="include">
-        </childnode>
-        <childnode refid="393" relation="include">
-        </childnode>
-      </node>
-      <node id="399">
-        <label>dumb-ways-to-memorize/parsefunction.c</label>
-        <link refid="parsefunction_8c"/>
-      </node>
-      <node id="398">
-        <label>dumb-ways-to-memorize/parsefunction.h</label>
-        <link refid="parsefunction_8h"/>
-        <childnode refid="399" relation="include">
-        </childnode>
-        <childnode refid="387" relation="include">
-        </childnode>
-      </node>
-      <node id="385">
-        <label>dumb-ways-to-memorize/game.c</label>
-        <link refid="game_8c"/>
-      </node>
-      <node id="395">
-        <label>dumb-ways-to-memorize/dumb_physics.c</label>
-        <link refid="dumb__physics_8c"/>
-      </node>
-      <node id="394">
-        <label>dumb-ways-to-memorize/dumb_physics.h</label>
-        <link refid="dumb__physics_8h"/>
-        <childnode refid="395" relation="include">
-        </childnode>
-        <childnode refid="385" relation="include">
-        </childnode>
-      </node>
-      <node id="391">
-        <label>dumb-ways-to-memorize/menu.c</label>
-        <link refid="menu_8c"/>
-      </node>
-      <node id="400">
-        <label>dumb-ways-to-memorize/menu.h</label>
-        <link refid="menu_8h"/>
-        <childnode refid="385" relation="include">
-        </childnode>
-        <childnode refid="391" relation="include">
-        </childnode>
-      </node>
-      <node id="402">
-        <label>dumb-ways-to-memorize/parseobject.c</label>
-        <link refid="parseobject_8c"/>
-      </node>
-      <node id="380">
-        <label>dumb-ways-to-memorize/parseobject.h</label>
-        <link refid="parseobject.h"/>
-        <childnode refid="381" relation="include">
-        </childnode>
-        <childnode refid="384" relation="include">
-        </childnode>
-        <childnode refid="389" relation="include">
-        </childnode>
-        <childnode refid="397" relation="include">
-        </childnode>
-        <childnode refid="385" relation="include">
-        </childnode>
-        <childnode refid="400" relation="include">
-        </childnode>
-        <childnode refid="401" relation="include">
         </childnode>
         <childnode refid="386" relation="include">
         </childnode>
-        <childnode refid="402" relation="include">
-        </childnode>
-        <childnode refid="387" relation="include">
+        <childnode refid="392" relation="include">
         </childnode>
         <childnode refid="388" relation="include">
         </childnode>
-      </node>
-      <node id="392">
-        <label>dumb-ways-to-memorize/player.c</label>
-        <link refid="player_8c"/>
-      </node>
-      <node id="396">
-        <label>dumb-ways-to-memorize/player.h</label>
-        <link refid="player_8h"/>
-        <childnode refid="395" relation="include">
-        </childnode>
-        <childnode refid="390" relation="include">
-        </childnode>
-        <childnode refid="385" relation="include">
-        </childnode>
-        <childnode refid="391" relation="include">
-        </childnode>
-        <childnode refid="387" relation="include">
-        </childnode>
-        <childnode refid="392" relation="include">
-        </childnode>
         <childnode refid="393" relation="include">
         </childnode>
+        <childnode refid="394" relation="include">
+        </childnode>
       </node>
-      <node id="388">
-        <label>dumb-ways-to-memorize/parsevariable.c</label>
-        <link refid="parsevariable_8c"/>
+      <node id="400">
+        <label>dumb-ways-to-memorize/parsefunction.c</label>
+        <link refid="parsefunction_8c"/>
       </node>
-      <node id="384">
-        <label>dumb-ways-to-memorize/parsevariable.h</label>
-        <link refid="parsevariable_8h"/>
-        <childnode refid="382" relation="include">
-        </childnode>
-        <childnode refid="385" relation="include">
-        </childnode>
-        <childnode refid="386" relation="include">
-        </childnode>
-        <childnode refid="387" relation="include">
+      <node id="399">
+        <label>dumb-ways-to-memorize/parsefunction.h</label>
+        <link refid="parsefunction_8h"/>
+        <childnode refid="400" relation="include">
         </childnode>
         <childnode refid="388" relation="include">
         </childnode>
       </node>
       <node id="386">
-        <label>dumb-ways-to-memorize/parselevel.c</label>
-        <link refid="parselevel_8c"/>
+        <label>dumb-ways-to-memorize/game.c</label>
+        <link refid="game_8c"/>
       </node>
-      <node id="397">
-        <label>dumb-ways-to-memorize/parselevel.h</label>
-        <link refid="parselevel_8h"/>
-        <childnode refid="390" relation="include">
+      <node id="396">
+        <label>dumb-ways-to-memorize/dumb_physics.c</label>
+        <link refid="dumb__physics_8c"/>
+      </node>
+      <node id="395">
+        <label>dumb-ways-to-memorize/dumb_physics.h</label>
+        <link refid="dumb__physics_8h"/>
+        <childnode refid="396" relation="include">
+        </childnode>
+        <childnode refid="386" relation="include">
+        </childnode>
+      </node>
+      <node id="392">
+        <label>dumb-ways-to-memorize/menu.c</label>
+        <link refid="menu_8c"/>
+      </node>
+      <node id="401">
+        <label>dumb-ways-to-memorize/menu.h</label>
+        <link refid="menu_8h"/>
+        <childnode refid="386" relation="include">
+        </childnode>
+        <childnode refid="392" relation="include">
+        </childnode>
+      </node>
+      <node id="403">
+        <label>dumb-ways-to-memorize/parseobject.c</label>
+        <link refid="parseobject_8c"/>
+      </node>
+      <node id="381">
+        <label>dumb-ways-to-memorize/parseobject.h</label>
+        <link refid="parseobject.h"/>
+        <childnode refid="382" relation="include">
         </childnode>
         <childnode refid="385" relation="include">
+        </childnode>
+        <childnode refid="390" relation="include">
+        </childnode>
+        <childnode refid="398" relation="include">
+        </childnode>
+        <childnode refid="386" relation="include">
+        </childnode>
+        <childnode refid="401" relation="include">
+        </childnode>
+        <childnode refid="402" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
+        </childnode>
+        <childnode refid="403" relation="include">
+        </childnode>
+        <childnode refid="388" relation="include">
+        </childnode>
+        <childnode refid="389" relation="include">
+        </childnode>
+      </node>
+      <node id="393">
+        <label>dumb-ways-to-memorize/player.c</label>
+        <link refid="player_8c"/>
+      </node>
+      <node id="397">
+        <label>dumb-ways-to-memorize/player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="396" relation="include">
         </childnode>
         <childnode refid="391" relation="include">
         </childnode>
@@ -185,58 +143,100 @@
         </childnode>
         <childnode refid="392" relation="include">
         </childnode>
-      </node>
-      <node id="390">
-        <label>dumb-ways-to-memorize/entity.c</label>
-        <link refid="entity_8c"/>
-      </node>
-      <node id="383">
-        <label>dumb-ways-to-memorize/entity.h</label>
-        <link refid="entity_8h"/>
-        <childnode refid="382" relation="include">
+        <childnode refid="388" relation="include">
         </childnode>
-        <childnode refid="384" relation="include">
-        </childnode>
-        <childnode refid="389" relation="include">
+        <childnode refid="393" relation="include">
         </childnode>
         <childnode refid="394" relation="include">
         </childnode>
-        <childnode refid="395" relation="include">
-        </childnode>
-        <childnode refid="396" relation="include">
-        </childnode>
-        <childnode refid="390" relation="include">
-        </childnode>
-        <childnode refid="397" relation="include">
-        </childnode>
-        <childnode refid="385" relation="include">
-        </childnode>
-        <childnode refid="398" relation="include">
+      </node>
+      <node id="389">
+        <label>dumb-ways-to-memorize/parsevariable.c</label>
+        <link refid="parsevariable_8c"/>
+      </node>
+      <node id="385">
+        <label>dumb-ways-to-memorize/parsevariable.h</label>
+        <link refid="parsevariable_8h"/>
+        <childnode refid="383" relation="include">
         </childnode>
         <childnode refid="386" relation="include">
         </childnode>
         <childnode refid="387" relation="include">
         </childnode>
+        <childnode refid="388" relation="include">
+        </childnode>
+        <childnode refid="389" relation="include">
+        </childnode>
+      </node>
+      <node id="387">
+        <label>dumb-ways-to-memorize/parselevel.c</label>
+        <link refid="parselevel_8c"/>
+      </node>
+      <node id="398">
+        <label>dumb-ways-to-memorize/parselevel.h</label>
+        <link refid="parselevel_8h"/>
+        <childnode refid="391" relation="include">
+        </childnode>
+        <childnode refid="386" relation="include">
+        </childnode>
         <childnode refid="392" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
         </childnode>
         <childnode refid="393" relation="include">
         </childnode>
       </node>
-      <node id="382">
-        <label>dumb-ways-to-memorize/ai_interpret.c</label>
-        <link refid="ai__interpret_8c"/>
+      <node id="391">
+        <label>dumb-ways-to-memorize/entity.c</label>
+        <link refid="entity_8c"/>
       </node>
-      <node id="381">
-        <label>dumb-ways-to-memorize/ai_interpret.h</label>
-        <link refid="ai__interpret_8h"/>
-        <childnode refid="382" relation="include">
-        </childnode>
+      <node id="384">
+        <label>dumb-ways-to-memorize/entity.h</label>
+        <link refid="entity_8h"/>
         <childnode refid="383" relation="include">
+        </childnode>
+        <childnode refid="385" relation="include">
+        </childnode>
+        <childnode refid="390" relation="include">
+        </childnode>
+        <childnode refid="395" relation="include">
+        </childnode>
+        <childnode refid="396" relation="include">
+        </childnode>
+        <childnode refid="397" relation="include">
+        </childnode>
+        <childnode refid="391" relation="include">
+        </childnode>
+        <childnode refid="398" relation="include">
         </childnode>
         <childnode refid="386" relation="include">
         </childnode>
+        <childnode refid="399" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
+        </childnode>
+        <childnode refid="388" relation="include">
+        </childnode>
+        <childnode refid="393" relation="include">
+        </childnode>
+        <childnode refid="394" relation="include">
+        </childnode>
       </node>
-      <node id="393">
+      <node id="383">
+        <label>dumb-ways-to-memorize/ai_interpret.c</label>
+        <link refid="ai__interpret_8c"/>
+      </node>
+      <node id="382">
+        <label>dumb-ways-to-memorize/ai_interpret.h</label>
+        <link refid="ai__interpret_8h"/>
+        <childnode refid="383" relation="include">
+        </childnode>
+        <childnode refid="384" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
+        </childnode>
+      </node>
+      <node id="394">
         <label>dumb-ways-to-memorize/quick_controller.c</label>
         <link refid="quick__controller_8c"/>
       </node>
@@ -254,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parseobject.h" line="266" column="1" bodyfile="dumb-ways-to-memorize/parseobject.h" bodystart="6" bodyend="-1"/>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="237" column="1" bodyfile="dumb-ways-to-memorize/parseobject.h" bodystart="6" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -295,7 +295,22 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parseobject.h" line="27" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="21" bodyend="130"/>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="38" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="8" bodyend="117"/>
+        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
+        <references refid="structobject__s_1a444f5b5cbba653b103c8841fa8536b8d" compoundref="parseobject_8h" startline="20">object_s::parent</references>
+        <references refid="structjsmntok__t_1abce9f5dc9c83f2639b72024fdee5d388" compoundref="jsmn_8h" startline="43">jsmntok_t::end</references>
+        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa416d6e733082bedc1166f0d66f571867" compoundref="jsmn_8h" startline="19">JSMN_OBJECT</references>
+        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
+        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539" compoundref="jsmn_8h" startline="21">JSMN_STRING</references>
+        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fabc4c47216dacf36bd4f64ac3d649d471" compoundref="jsmn_8h" startline="20">JSMN_ARRAY</references>
+        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
+        <references refid="structjsmntok__t_1a439227feff9d7f55384e8780cfc2eb82" compoundref="jsmn_8h" startline="44">jsmntok_t::size</references>
+        <references refid="parseobject_8c_1a66550ec5ad5119b002932431e1ce8578" compoundref="parseobject_8c" startline="237" endline="291">CopyObjectToObjectArray</references>
+        <references refid="parseobject_8c_1aef0cb86d9b54e11206d154c369cb9a7e" compoundref="parseobject_8c" startline="144" endline="168">CountObjectMembers</references>
+        <references refid="globals_8h_1a2263fb5e65c0597a8e4c35fa0c05e15d" compoundref="mymath_8c" startline="66" endline="75">AllocateDynamic</references>
+        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
+        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
+        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
       </memberdef>
       <memberdef kind="function" id="parseobject_8h_1a0d7610fbd167c6f81519e6ab3403e3bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="parseobject_8h_1a965db53884ff9e4e077dd5e2e2d6a5e2" kindref="member">object_t</ref> *</type>
@@ -334,7 +349,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parseobject.h" line="28" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="144" bodyend="166"/>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="51" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="120" bodyend="142"/>
+        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
+        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
+        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
       </memberdef>
       <memberdef kind="function" id="parseobject_8h_1aef0cb86d9b54e11206d154c369cb9a7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -355,7 +373,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parseobject.h" line="29" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="169" bodyend="193"/>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="54" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="144" bodyend="168"/>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
+        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
+        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
+        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
+        <references refid="parseobject_8c_1aef0cb86d9b54e11206d154c369cb9a7e" compoundref="parseobject_8c" startline="144" endline="168">CountObjectMembers</references>
       </memberdef>
       <memberdef kind="function" id="parseobject_8h_1acaa82337937e66fae84e360325cabdc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -372,7 +395,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parseobject.h" line="30" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="196" bodyend="212"/>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="57" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="170" bodyend="186"/>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
+        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
+        <references refid="parseobject_8c_1acaa82337937e66fae84e360325cabdc6" compoundref="parseobject_8c" startline="170" endline="186">CountObjectChildren</references>
       </memberdef>
       <memberdef kind="function" id="parseobject_8h_1ae7d41e06515589776dc92961481d56ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -393,7 +419,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parseobject.h" line="31" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="216" bodyend="263"/>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="60" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="188" bodyend="235"/>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
+        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
+        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
+        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
+        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
+        <references refid="structjsmntok__t_1a7def41ebc3980f6e4526819b42c2721f" compoundref="jsmn_8h" startline="41">jsmntok_t::type</references>
+        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
+        <references refid="parseobject_8c_1ae7d41e06515589776dc92961481d56ab" compoundref="parseobject_8c" startline="188" endline="235">PrintObject</references>
       </memberdef>
       <memberdef kind="function" id="parseobject_8h_1a66550ec5ad5119b002932431e1ce8578" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -418,7 +452,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dumb-ways-to-memorize/parseobject.h" line="32" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="266" bodyend="320"/>
+        <location file="dumb-ways-to-memorize/parseobject.h" line="63" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="237" bodyend="291"/>
+        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
+        <references refid="structobject__s_1a444f5b5cbba653b103c8841fa8536b8d" compoundref="parseobject_8h" startline="20">object_s::parent</references>
+        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
+        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
+        <references refid="globals_8h_1a2263fb5e65c0597a8e4c35fa0c05e15d" compoundref="mymath_8c" startline="66" endline="75">AllocateDynamic</references>
+        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
+        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
+        <references refid="parseobject_8c_1a66550ec5ad5119b002932431e1ce8578" compoundref="parseobject_8c" startline="237" endline="291">CopyObjectToObjectArray</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -435,21 +477,30 @@
 <codeline lineno="7"><highlight class="normal"></highlight></codeline>
 <codeline lineno="18" refid="structobject__s" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_s</ref></highlight></codeline>
 <codeline lineno="19"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="20" refid="structobject__s_1a444f5b5cbba653b103c8841fa8536b8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="structobject__s_1a444f5b5cbba653b103c8841fa8536b8d" kindref="member">parent</ref>;</highlight></codeline>
-<codeline lineno="21" refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" kindref="member">children</ref>;</highlight></codeline>
+<codeline lineno="20" refid="structobject__s_1a444f5b5cbba653b103c8841fa8536b8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="structobject__s_1a444f5b5cbba653b103c8841fa8536b8d" kindref="member">parent</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21" refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" kindref="member">children</ref>;<sp/></highlight></codeline>
 <codeline lineno="22" refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" kindref="member">keys</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="23" refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" kindref="member">values</ref>;<sp/><sp/></highlight></codeline>
 <codeline lineno="24" refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="25"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="parseobject_8h_1abeb996817aa47a5e463a47275c897483" kindref="member">ParseToObject</ref>(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*token,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str);</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="parseobject_8h_1a0d7610fbd167c6f81519e6ab3403e3bd" kindref="member">FindObject</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*obj,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="parseobject_8h_1aef0cb86d9b54e11206d154c369cb9a7e" kindref="member">CountObjectMembers</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*obj,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str);</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="parseobject_8h_1acaa82337937e66fae84e360325cabdc6" kindref="member">CountObjectChildren</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*obj);</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parseobject_8h_1ae7d41e06515589776dc92961481d56ab" kindref="member">PrintObject</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*obj,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str);</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="parseobject_8h_1a66550ec5ad5119b002932431e1ce8578" kindref="member">CopyObjectToObjectArray</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>**dst,<sp/><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="parseobject_8h_1abeb996817aa47a5e463a47275c897483" kindref="member">ParseToObject</ref>(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*token,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="parseobject_8h_1a0d7610fbd167c6f81519e6ab3403e3bd" kindref="member">FindObject</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*obj,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//Recursive<sp/>Member<sp/>Count</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="parseobject_8h_1aef0cb86d9b54e11206d154c369cb9a7e" kindref="member">CountObjectMembers</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*obj,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//Recursive<sp/>Children<sp/>Count</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="parseobject_8h_1acaa82337937e66fae84e360325cabdc6" kindref="member">CountObjectChildren</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*obj);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Recursive<sp/>Print<sp/>for<sp/>Objects</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parseobject_8h_1ae7d41e06515589776dc92961481d56ab" kindref="member">PrintObject</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*obj,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copy&apos;s<sp/>object<sp/>into<sp/>a<sp/>object_array<sp/>,dynamically<sp/>allocates<sp/>if<sp/>dst<sp/>not<sp/>big<sp/>enough</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="parseobject_8h_1a66550ec5ad5119b002932431e1ce8578" kindref="member">CopyObjectToObjectArray</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref><sp/>**dst,<sp/><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="dumb-ways-to-memorize/parseobject.h"/>
   </compounddef>

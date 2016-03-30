@@ -4,19 +4,19 @@
     <compoundname>jsmn.c</compoundname>
     <includes refid="jsmn_8h" local="yes">jsmn.h</includes>
     <incdepgraph>
-      <node id="108">
+      <node id="109">
         <label>dumb-ways-to-memorize/External_Libs/jsmn.c</label>
         <link refid="jsmn.c"/>
-        <childnode refid="109" relation="include">
-        </childnode>
-      </node>
-      <node id="109">
-        <label>jsmn.h</label>
-        <link refid="jsmn_8h"/>
         <childnode refid="110" relation="include">
         </childnode>
       </node>
       <node id="110">
+        <label>jsmn.h</label>
+        <link refid="jsmn_8h"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
         <label>stddef.h</label>
       </node>
     </incdepgraph>
@@ -45,6 +45,10 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/External_Libs/jsmn.c" line="6" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/jsmn.c" bodystart="6" bodyend="19"/>
+        <references refid="structjsmn__parser_1a07a43834d3e063cab9e9a69b37dc55b8" compoundref="jsmn_8h" startline="56">jsmn_parser::toknext</references>
+        <references refid="structjsmntok__t_1a37722a150250e2a5a98e5e0d11e53449" compoundref="jsmn_8h" startline="42">jsmntok_t::start</references>
+        <references refid="structjsmntok__t_1abce9f5dc9c83f2639b72024fdee5d388" compoundref="jsmn_8h" startline="43">jsmntok_t::end</references>
+        <references refid="structjsmntok__t_1a439227feff9d7f55384e8780cfc2eb82" compoundref="jsmn_8h" startline="44">jsmntok_t::size</references>
       </memberdef>
       <memberdef kind="function" id="jsmn_8c_1a20b875e37a2a5c88888c6d80068715be" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -74,6 +78,10 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/External_Libs/jsmn.c" line="24" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/jsmn.c" bodystart="24" bodyend="30"/>
+        <references refid="structjsmntok__t_1a7def41ebc3980f6e4526819b42c2721f" compoundref="jsmn_8h" startline="41">jsmntok_t::type</references>
+        <references refid="structjsmntok__t_1a37722a150250e2a5a98e5e0d11e53449" compoundref="jsmn_8h" startline="42">jsmntok_t::start</references>
+        <references refid="structjsmntok__t_1abce9f5dc9c83f2639b72024fdee5d388" compoundref="jsmn_8h" startline="43">jsmntok_t::end</references>
+        <references refid="structjsmntok__t_1a439227feff9d7f55384e8780cfc2eb82" compoundref="jsmn_8h" startline="44">jsmntok_t::size</references>
       </memberdef>
       <memberdef kind="function" id="jsmn_8c_1a4d1f29464811e2bbf5506fbe5c7ee9de" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -107,6 +115,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/External_Libs/jsmn.c" line="35" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/jsmn.c" bodystart="35" bodyend="79"/>
+        <references refid="structjsmn__parser_1addcb93d939ffa259ff1d9247bdd590fd" compoundref="jsmn_8h" startline="55">jsmn_parser::pos</references>
+        <references refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaa3297b1c54d926ce497b7a20530689171" compoundref="jsmn_8h" startline="29">JSMN_ERROR_INVAL</references>
+        <references refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaa851a0e75343c14a13c6893b3727ead16" compoundref="jsmn_8h" startline="31">JSMN_ERROR_PART</references>
+        <references refid="jsmn_8c_1a0d7a964b95b65cd16699a355ede80394" compoundref="jsmn_8c" startline="6" endline="19">jsmn_alloc_token</references>
+        <references refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41" compoundref="jsmn_8h" startline="27">JSMN_ERROR_NOMEM</references>
+        <references refid="jsmn_8c_1a20b875e37a2a5c88888c6d80068715be" compoundref="jsmn_8c" startline="24" endline="30">jsmn_fill_token</references>
+        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa2550c93fe929f81f30ea9b629ed98742" compoundref="jsmn_8h" startline="22">JSMN_PRIMITIVE</references>
+        <references refid="structjsmn__parser_1a81bf640a522fb6791889aac12f71f8db" compoundref="jsmn_8h" startline="57">jsmn_parser::toksuper</references>
       </memberdef>
       <memberdef kind="function" id="jsmn_8c_1a568f184e45bb9718270088e1e05a4264" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -140,6 +156,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/External_Libs/jsmn.c" line="84" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/jsmn.c" bodystart="84" bodyend="146"/>
+        <references refid="structjsmn__parser_1addcb93d939ffa259ff1d9247bdd590fd" compoundref="jsmn_8h" startline="55">jsmn_parser::pos</references>
+        <references refid="jsmn_8c_1a0d7a964b95b65cd16699a355ede80394" compoundref="jsmn_8c" startline="6" endline="19">jsmn_alloc_token</references>
+        <references refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41" compoundref="jsmn_8h" startline="27">JSMN_ERROR_NOMEM</references>
+        <references refid="jsmn_8c_1a20b875e37a2a5c88888c6d80068715be" compoundref="jsmn_8c" startline="24" endline="30">jsmn_fill_token</references>
+        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539" compoundref="jsmn_8h" startline="21">JSMN_STRING</references>
+        <references refid="structjsmn__parser_1a81bf640a522fb6791889aac12f71f8db" compoundref="jsmn_8h" startline="57">jsmn_parser::toksuper</references>
+        <references refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaa3297b1c54d926ce497b7a20530689171" compoundref="jsmn_8h" startline="29">JSMN_ERROR_INVAL</references>
+        <references refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaa851a0e75343c14a13c6893b3727ead16" compoundref="jsmn_8h" startline="31">JSMN_ERROR_PART</references>
       </memberdef>
       <memberdef kind="function" id="jsmn_8c_1a774f985a9750a10c7e88304e30191e03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -173,6 +197,22 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/External_Libs/jsmn.c" line="151" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/jsmn.c" bodystart="151" bodyend="300"/>
+        <references refid="structjsmn__parser_1a07a43834d3e063cab9e9a69b37dc55b8" compoundref="jsmn_8h" startline="56">jsmn_parser::toknext</references>
+        <references refid="structjsmn__parser_1addcb93d939ffa259ff1d9247bdd590fd" compoundref="jsmn_8h" startline="55">jsmn_parser::pos</references>
+        <references refid="jsmn_8c_1a0d7a964b95b65cd16699a355ede80394" compoundref="jsmn_8c" startline="6" endline="19">jsmn_alloc_token</references>
+        <references refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41" compoundref="jsmn_8h" startline="27">JSMN_ERROR_NOMEM</references>
+        <references refid="structjsmn__parser_1a81bf640a522fb6791889aac12f71f8db" compoundref="jsmn_8h" startline="57">jsmn_parser::toksuper</references>
+        <references refid="structjsmntok__t_1a439227feff9d7f55384e8780cfc2eb82" compoundref="jsmn_8h" startline="44">jsmntok_t::size</references>
+        <references refid="structjsmntok__t_1a7def41ebc3980f6e4526819b42c2721f" compoundref="jsmn_8h" startline="41">jsmntok_t::type</references>
+        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa416d6e733082bedc1166f0d66f571867" compoundref="jsmn_8h" startline="19">JSMN_OBJECT</references>
+        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fabc4c47216dacf36bd4f64ac3d649d471" compoundref="jsmn_8h" startline="20">JSMN_ARRAY</references>
+        <references refid="structjsmntok__t_1a37722a150250e2a5a98e5e0d11e53449" compoundref="jsmn_8h" startline="42">jsmntok_t::start</references>
+        <references refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaa3297b1c54d926ce497b7a20530689171" compoundref="jsmn_8h" startline="29">JSMN_ERROR_INVAL</references>
+        <references refid="structjsmntok__t_1abce9f5dc9c83f2639b72024fdee5d388" compoundref="jsmn_8h" startline="43">jsmntok_t::end</references>
+        <references refid="jsmn_8c_1a568f184e45bb9718270088e1e05a4264" compoundref="jsmn_8c" startline="84" endline="146">jsmn_parse_string</references>
+        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539" compoundref="jsmn_8h" startline="21">JSMN_STRING</references>
+        <references refid="jsmn_8c_1a4d1f29464811e2bbf5506fbe5c7ee9de" compoundref="jsmn_8c" startline="35" endline="79">jsmn_parse_primitive</references>
+        <references refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaa851a0e75343c14a13c6893b3727ead16" compoundref="jsmn_8h" startline="31">JSMN_ERROR_PART</references>
       </memberdef>
       <memberdef kind="function" id="jsmn_8c_1a8d4a8b3ce5c3d600feea38615b5f9aa6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -190,6 +230,9 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/External_Libs/jsmn.c" line="306" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/jsmn.c" bodystart="306" bodyend="310"/>
+        <references refid="structjsmn__parser_1addcb93d939ffa259ff1d9247bdd590fd" compoundref="jsmn_8h" startline="55">jsmn_parser::pos</references>
+        <references refid="structjsmn__parser_1a07a43834d3e063cab9e9a69b37dc55b8" compoundref="jsmn_8h" startline="56">jsmn_parser::toknext</references>
+        <references refid="structjsmn__parser_1a81bf640a522fb6791889aac12f71f8db" compoundref="jsmn_8h" startline="57">jsmn_parser::toksuper</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -199,7 +242,7 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="jsmn_8h" kindref="compound">jsmn.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*jsmn_alloc_token(<ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/>*parser,</highlight></codeline>
+<codeline lineno="6" refid="jsmn_8c_1a0d7a964b95b65cd16699a355ede80394" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="jsmn_8c_1a0d7a964b95b65cd16699a355ede80394" kindref="member">jsmn_alloc_token</ref>(<ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/>*parser,</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*tokens,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>num_tokens)<sp/>{</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*tok;</highlight></codeline>
 <codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parser-&gt;<ref refid="structjsmn__parser_1a07a43834d3e063cab9e9a69b37dc55b8" kindref="member">toknext</ref><sp/>&gt;=<sp/>num_tokens)<sp/>{</highlight></codeline>
@@ -214,7 +257,7 @@
 <codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tok;</highlight></codeline>
 <codeline lineno="19"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>jsmn_fill_token(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*token,<sp/><ref refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802f" kindref="member">jsmntype_t</ref><sp/>type,</highlight></codeline>
+<codeline lineno="24" refid="jsmn_8c_1a20b875e37a2a5c88888c6d80068715be" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="jsmn_8c_1a20b875e37a2a5c88888c6d80068715be" kindref="member">jsmn_fill_token</ref>(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*token,<sp/><ref refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802f" kindref="member">jsmntype_t</ref><sp/>type,</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end)<sp/>{</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>token-&gt;<ref refid="structjsmntok__t_1a7def41ebc3980f6e4526819b42c2721f" kindref="member">type</ref><sp/>=<sp/>type;</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>token-&gt;<ref refid="structjsmntok__t_1a37722a150250e2a5a98e5e0d11e53449" kindref="member">start</ref><sp/>=<sp/>start;</highlight></codeline>
@@ -222,7 +265,7 @@
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>token-&gt;<ref refid="structjsmntok__t_1a439227feff9d7f55384e8780cfc2eb82" kindref="member">size</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="30"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>jsmn_parse_primitive(<ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/>*parser,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*js,</highlight></codeline>
+<codeline lineno="35" refid="jsmn_8c_1a4d1f29464811e2bbf5506fbe5c7ee9de" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="jsmn_8c_1a4d1f29464811e2bbf5506fbe5c7ee9de" kindref="member">jsmn_parse_primitive</ref>(<ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/>*parser,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*js,</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len,<sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*tokens,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>num_tokens)<sp/>{</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*token;</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start;</highlight></codeline>
@@ -255,12 +298,12 @@
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parser-&gt;<ref refid="structjsmn__parser_1addcb93d939ffa259ff1d9247bdd590fd" kindref="member">pos</ref>--;</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>token<sp/>=<sp/>jsmn_alloc_token(parser,<sp/>tokens,<sp/>num_tokens);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>token<sp/>=<sp/><ref refid="jsmn_8c_1a0d7a964b95b65cd16699a355ede80394" kindref="member">jsmn_alloc_token</ref>(parser,<sp/>tokens,<sp/>num_tokens);</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(token<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
 <codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parser-&gt;<ref refid="structjsmn__parser_1addcb93d939ffa259ff1d9247bdd590fd" kindref="member">pos</ref><sp/>=<sp/>start;</highlight></codeline>
 <codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41" kindref="member">JSMN_ERROR_NOMEM</ref>;</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>jsmn_fill_token(token,<sp/><ref refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa2550c93fe929f81f30ea9b629ed98742" kindref="member">JSMN_PRIMITIVE</ref>,<sp/>start,<sp/>parser-&gt;<ref refid="structjsmn__parser_1addcb93d939ffa259ff1d9247bdd590fd" kindref="member">pos</ref>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="jsmn_8c_1a20b875e37a2a5c88888c6d80068715be" kindref="member">jsmn_fill_token</ref>(token,<sp/><ref refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa2550c93fe929f81f30ea9b629ed98742" kindref="member">JSMN_PRIMITIVE</ref>,<sp/>start,<sp/>parser-&gt;<ref refid="structjsmn__parser_1addcb93d939ffa259ff1d9247bdd590fd" kindref="member">pos</ref>);</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>JSMN_PARENT_LINKS</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>token-&gt;parent<sp/>=<sp/>parser-&gt;<ref refid="structjsmn__parser_1a81bf640a522fb6791889aac12f71f8db" kindref="member">toksuper</ref>;</highlight></codeline>
 <codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
@@ -268,7 +311,7 @@
 <codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="79"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="80"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>jsmn_parse_string(<ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/>*parser,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*js,</highlight></codeline>
+<codeline lineno="84" refid="jsmn_8c_1a568f184e45bb9718270088e1e05a4264" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="jsmn_8c_1a568f184e45bb9718270088e1e05a4264" kindref="member">jsmn_parse_string</ref>(<ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/>*parser,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*js,</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len,<sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*tokens,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>num_tokens)<sp/>{</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*token;</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"></highlight></codeline>
@@ -285,12 +328,12 @@
 <codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tokens<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>token<sp/>=<sp/>jsmn_alloc_token(parser,<sp/>tokens,<sp/>num_tokens);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>token<sp/>=<sp/><ref refid="jsmn_8c_1a0d7a964b95b65cd16699a355ede80394" kindref="member">jsmn_alloc_token</ref>(parser,<sp/>tokens,<sp/>num_tokens);</highlight></codeline>
 <codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(token<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
 <codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parser-&gt;<ref refid="structjsmn__parser_1addcb93d939ffa259ff1d9247bdd590fd" kindref="member">pos</ref><sp/>=<sp/>start;</highlight></codeline>
 <codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41" kindref="member">JSMN_ERROR_NOMEM</ref>;</highlight></codeline>
 <codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>jsmn_fill_token(token,<sp/><ref refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539" kindref="member">JSMN_STRING</ref>,<sp/>start+1,<sp/>parser-&gt;<ref refid="structjsmn__parser_1addcb93d939ffa259ff1d9247bdd590fd" kindref="member">pos</ref>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="jsmn_8c_1a20b875e37a2a5c88888c6d80068715be" kindref="member">jsmn_fill_token</ref>(token,<sp/><ref refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539" kindref="member">JSMN_STRING</ref>,<sp/>start+1,<sp/>parser-&gt;<ref refid="structjsmn__parser_1addcb93d939ffa259ff1d9247bdd590fd" kindref="member">pos</ref>);</highlight></codeline>
 <codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>JSMN_PARENT_LINKS</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>token-&gt;parent<sp/>=<sp/>parser-&gt;<ref refid="structjsmn__parser_1a81bf640a522fb6791889aac12f71f8db" kindref="member">toksuper</ref>;</highlight></codeline>
 <codeline lineno="109"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
@@ -350,7 +393,7 @@
 <codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tokens<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
 <codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>token<sp/>=<sp/>jsmn_alloc_token(parser,<sp/>tokens,<sp/>num_tokens);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>token<sp/>=<sp/><ref refid="jsmn_8c_1a0d7a964b95b65cd16699a355ede80394" kindref="member">jsmn_alloc_token</ref>(parser,<sp/>tokens,<sp/>num_tokens);</highlight></codeline>
 <codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(token<sp/>==<sp/>NULL)</highlight></codeline>
 <codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="jsmn_8h_1afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41" kindref="member">JSMN_ERROR_NOMEM</ref>;</highlight></codeline>
 <codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parser-&gt;<ref refid="structjsmn__parser_1a81bf640a522fb6791889aac12f71f8db" kindref="member">toksuper</ref><sp/>!=<sp/>-1)<sp/>{</highlight></codeline>
@@ -410,7 +453,7 @@
 <codeline lineno="226"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;\&quot;&apos;</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>jsmn_parse_string(parser,<sp/>js,<sp/>len,<sp/>tokens,<sp/>num_tokens);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/><ref refid="jsmn_8c_1a568f184e45bb9718270088e1e05a4264" kindref="member">jsmn_parse_string</ref>(parser,<sp/>js,<sp/>len,<sp/>tokens,<sp/>num_tokens);</highlight></codeline>
 <codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(r<sp/>&lt;<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
 <codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count++;</highlight></codeline>
 <codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parser-&gt;<ref refid="structjsmn__parser_1a81bf640a522fb6791889aac12f71f8db" kindref="member">toksuper</ref><sp/>!=<sp/>-1<sp/>&amp;&amp;<sp/>tokens<sp/>!=<sp/>NULL)</highlight></codeline>
@@ -456,7 +499,7 @@
 <codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>In<sp/>non-strict<sp/>mode<sp/>every<sp/>unquoted<sp/>value<sp/>is<sp/>a<sp/>primitive<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="274"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>jsmn_parse_primitive(parser,<sp/>js,<sp/>len,<sp/>tokens,<sp/>num_tokens);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/><ref refid="jsmn_8c_1a4d1f29464811e2bbf5506fbe5c7ee9de" kindref="member">jsmn_parse_primitive</ref>(parser,<sp/>js,<sp/>len,<sp/>tokens,<sp/>num_tokens);</highlight></codeline>
 <codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(r<sp/>&lt;<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
 <codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count++;</highlight></codeline>
 <codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parser-&gt;<ref refid="structjsmn__parser_1a81bf640a522fb6791889aac12f71f8db" kindref="member">toksuper</ref><sp/>!=<sp/>-1<sp/>&amp;&amp;<sp/>tokens<sp/>!=<sp/>NULL)</highlight></codeline>

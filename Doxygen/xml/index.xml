@@ -125,6 +125,7 @@
     <member refid="ai__interpret_8c_1a5d87dca860c5320136e684cbe422ca21" kind="function"><name>SetAI_Action</name></member>
     <member refid="ai__interpret_8c_1a16e24cd82a74fa54781c203aaccec738" kind="function"><name>SetAI_Check</name></member>
     <member refid="ai__interpret_8c_1a766fc5dc0fd99733613cc7a396f6efdf" kind="function"><name>InitAISystem</name></member>
+    <member refid="ai__interpret_8c_1a7a593ea725968a09171ad562877652a1" kind="function"><name>ShutdownAISystem</name></member>
     <member refid="ai__interpret_8c_1a38d0ac016fd6a956b4fcdd5eefdff0c1" kind="function"><name>StrToAI_Type</name></member>
   </compound>
   <compound refid="ai__interpret_8h" kind="file"><name>ai_interpret.h</name>
@@ -231,10 +232,10 @@
     <member refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca2e61b2ff5df60b2418d1b96722fbe06f" kind="enumvalue"><name>PHYSICS_MAX</name></member>
     <member refid="dumb__physics_8h_1ae354ed0629e54a219f0a00be20f6e2f0" kind="function"><name>RunPhysics</name></member>
     <member refid="dumb__physics_8h_1ac2d2a3c3841dcc0533751a2421d21b58" kind="function"><name>CheckCollision</name></member>
+    <member refid="dumb__physics_8h_1a9e6b8c74bb414eeffcbd423e4a40e542" kind="function"><name>DoCollision</name></member>
     <member refid="dumb__physics_8h_1a1605813c3093dd564cd63719073ce122" kind="function"><name>ApplySpeedLimit</name></member>
     <member refid="dumb__physics_8h_1aac1300a97cdd2b37a4ddfa316dc92ece" kind="function"><name>ApplyBounds</name></member>
     <member refid="dumb__physics_8h_1a04c93e0b3d3d778e28fc804fc52bf88b" kind="function"><name>ApplyFriction</name></member>
-    <member refid="dumb__physics_8h_1a9e6b8c74bb414eeffcbd423e4a40e542" kind="function"><name>DoCollision</name></member>
   </compound>
   <compound refid="entity_8c" kind="file"><name>entity.c</name>
     <member refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kind="variable"><name>gEntities</name></member>
@@ -334,7 +335,6 @@
   <compound refid="game_8c" kind="file"><name>game.c</name>
     <member refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" kind="variable"><name>exitRequest</name></member>
     <member refid="game_8c_1a9736f3ab7bf57237ebee62b9cbd15f13" kind="variable"><name>gDelay</name></member>
-    <member refid="game_8c_1a9116370490d785dce76b8291269feab7" kind="variable"><name>gLives</name></member>
     <member refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kind="variable"><name>gLevelsPerGame</name></member>
     <member refid="game_8c_1a93e375e494425adf95818f2524f06891" kind="variable"><name>gParser</name></member>
     <member refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" kind="variable"><name>gLevels</name></member>
@@ -457,7 +457,7 @@
     <member refid="globals_8h_1a74afd8193cb4b707d3c1cbe7c6109f7c" kind="variable"><name>gSelectedLevels</name></member>
     <member refid="globals_8h_1abc10adf2681d11b06b6878800b3ca08a" kind="variable"><name>gWorld</name></member>
     <member refid="globals_8h_1ab049bafb778aa304baa073bba7d0f306" kind="variable"><name>gMouse</name></member>
-    <member refid="globals_8h_1a9116370490d785dce76b8291269feab7" kind="variable"><name>gLives</name></member>
+    <member refid="globals_8h_1a7460e61d712f20efd9bca05176757e88" kind="variable"><name>gPlayerLives</name></member>
     <member refid="globals_8h_1a9527243766b6dbc450b03e44a940e8b4" kind="variable"><name>gLevelsPerGame</name></member>
     <member refid="globals_8h_1abc330db94c68edccfc134b50a56e134e" kind="variable"><name>gScreenWidth</name></member>
     <member refid="globals_8h_1a530fa2ce59634663df7be20316444f8b" kind="variable"><name>gScreenHeight</name></member>
@@ -532,7 +532,6 @@
     <member refid="graphics_8h_1af4c49239d2f0e5306964c66be9553832" kind="function"><name>FindSprite</name></member>
     <member refid="graphics_8h_1a88a59e4cda72f43e47b635ed6c6a9f95" kind="function"><name>FindFreeSprite</name></member>
     <member refid="graphics_8h_1a9ef47fe758affb875f01b07e551513c7" kind="function"><name>LoadSprite</name></member>
-    <member refid="graphics_8h_1a837200eb3b2724ab70d5accf0b3bcd48" kind="function"><name>LoadSpriteWithAnimation</name></member>
     <member refid="graphics_8h_1a17fde33b1d856d825920d633285aec6e" kind="function"><name>DrawSprite</name></member>
     <member refid="graphics_8h_1a5668bec74dc06834b3141ac6da4063a2" kind="function"><name>FreeSprite</name></member>
     <member refid="graphics_8h_1aa804be8d810666078d9915033a3d4317" kind="function"><name>IncrementFrame</name></member>
@@ -608,7 +607,6 @@
     <member refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19aee847e634a4297b274316de8a8ca9921" kind="enumvalue"><name>STRING</name></member>
     <member refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19a07fe54e18c187cac6548db45a3f3676a" kind="enumvalue"><name>TOKEN</name></member>
     <member refid="mystrings_8c_1a6466498df69994b55bb62b9b53652142" kind="function"><name>FindKey</name></member>
-    <member refid="mystrings_8c_1abca948a2151f9db88c613f89edbaf5e0" kind="function"><name>FindValueFromKey</name></member>
     <member refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kind="function"><name>JsmnToString</name></member>
     <member refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" kind="function"><name>FindValue</name></member>
     <member refid="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" kind="function"><name>JsmnToInt</name></member>
@@ -791,11 +789,10 @@
     <member refid="parsevariable_8h_1a090f6fa5f93d7a5becca914af766d1d8" kind="function"><name>ParseToStringArray</name></member>
   </compound>
   <compound refid="player_8c" kind="file"><name>player.c</name>
-    <member refid="player_8c_1a5ac083a645d964373f022d03df4849c8" kind="variable"><name>name</name></member>
+    <member refid="player_8c_1a6796f4467fe6aa940a363aef4004dd0c" kind="variable"><name>gPlayerName</name></member>
     <member refid="player_8c_1a39b4143c78f14357b34548d43450c880" kind="variable"><name>gPlayer</name></member>
     <member refid="player_8c_1a7460e61d712f20efd9bca05176757e88" kind="variable"><name>gPlayerLives</name></member>
     <member refid="player_8c_1ab1e3218036977e006ae6fd1f66c16ae4" kind="function"><name>InitPlayer</name></member>
-    <member refid="player_8c_1a76fdb0f973bfdf01617e0e10468effe5" kind="function"><name>GetPlayer</name></member>
     <member refid="player_8c_1ae53c08c808a1dc1314ea3d3bfcb0ff1c" kind="function"><name>DecrementPlayerLives</name></member>
   </compound>
   <compound refid="player_8h" kind="file"><name>player.h</name>
@@ -803,11 +800,9 @@
     <member refid="player_8h_1a9d84f6e79f74322526a49e2eb0d82a12" kind="define"><name>PLAYER_LIVES</name></member>
     <member refid="player_8h_1a70c671ff041da80a2d89834b31559a3e" kind="define"><name>PLAYER_BASE_JUMP</name></member>
     <member refid="player_8h_1a8652c9805fbaf4fd5a2ab6943f024510" kind="define"><name>PLAYER_BASE_SPEED</name></member>
-    <member refid="player_8h_1a7460e61d712f20efd9bca05176757e88" kind="variable"><name>gPlayerLives</name></member>
     <member refid="player_8h_1a39b4143c78f14357b34548d43450c880" kind="variable"><name>gPlayer</name></member>
-    <member refid="player_8h_1a5ac083a645d964373f022d03df4849c8" kind="variable"><name>name</name></member>
+    <member refid="player_8h_1a6796f4467fe6aa940a363aef4004dd0c" kind="variable"><name>gPlayerName</name></member>
     <member refid="player_8h_1ab1e3218036977e006ae6fd1f66c16ae4" kind="function"><name>InitPlayer</name></member>
-    <member refid="player_8h_1a76fdb0f973bfdf01617e0e10468effe5" kind="function"><name>GetPlayer</name></member>
     <member refid="player_8h_1ae53c08c808a1dc1314ea3d3bfcb0ff1c" kind="function"><name>DecrementPlayerLives</name></member>
   </compound>
   <compound refid="quick__controller_8c" kind="file"><name>quick_controller.c</name>

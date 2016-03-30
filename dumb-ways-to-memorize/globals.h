@@ -86,38 +86,38 @@ typedef enum
 	END =		0x20,   /**< An enum constant representing the player has chosen to quit the game */
 }GameState;
 
-extern GameState gGameState;
-extern GameState StrToGameState(char *str);
-extern int StrToMenuType(char *str);
+extern GameState gGameState;					/**< State of the game */
+extern GameState StrToGameState(char *str);		/**< Converts a string into a game state*/
+extern int StrToMenuType(char *str);			/**< Converts a string into a menu type*/
 
 //For Hazards
 #define HAZARD_NULL	0x0
 #define HAZARD_MAX	(0x1 >> 31)
 #define HAZARD_DAMAGE 10
 #define HAZARD_STUN_FRAMES 10
-extern char **Hazards_str;
-extern int StrToHazard(char *str);
+extern char **Hazards_str;							/**< The hazards string array which is defined in the gamedata file */
+extern int StrToHazard(char *str);					/**< Converts a string into a hazard, using the parsed hazards_str for comparison */
 
 //For EntParsing
 #define ENTITIES_FILE_STR	"Entities"
-extern char *gEntitiesFile;
-extern char *Collisions_str[];
-extern char *EntityStates_str[];
-collision_type_t StrToCollisionType(char *str);
-entity_state_t StrToEntityState(char *str);
+extern char *gEntitiesFile;							/**< The name of the entities file */
+extern char *Collisions_str[];						/**< The collisions type strings for parsing */
+extern char *EntityStates_str[];					/**< The entity state strings for parsing */
+collision_type_t StrToCollisionType(char *str);		/**< Converts a string into a entity collision type */
+entity_state_t StrToEntityState(char *str);			/**< Converts a string into an entity state */
 
 //For PowerUps
 #define POWER_UPS_STR	"PowerUps"
-extern char *gPowerUpsFile;
-extern vec2_t *mousePos;
-extern int *keyPower;
-extern char **gSelectedPowerUps;
-extern char **gUsedPowerUps;
-extern char *gCurrentPowerUpName;
+extern char *gPowerUpsFile;							/**< The name of the power ups file */
+extern vec2_t *mousePos;							/**< The mouse position */
+extern int *keyPower;								/**< The key press related to using the power */
+extern char **gSelectedPowerUps;					/**< The power ups the player selects */
+extern char **gUsedPowerUps;						/**< The used power ups for this game run */
+extern char *gCurrentPowerUpName;					/**< The current power up name */
 
 //For Levels
-extern char **gLevels;
-extern char **gSelectedLevels;
+extern char **gLevels;								/**< The level names */
+extern char **gSelectedLevels;						/**< The selected levels to load */
 int SelectLevels();
 int LoadSelectedLevel(int level);
 void RandomizeSelectedLevels();
@@ -130,33 +130,73 @@ extern void *gMouse;
 #define LOC_NAME_STR	"name"
 #define	FRAME_DELAY		13
 #define PHYSICS_LIMITER 2
-extern int gLives;
-extern int gLevelsPerGame;
-extern int gScreenWidth;
-extern int gScreenHeight;
-extern unsigned int gCurrentTime;
-extern vec2_t gGravity;
+extern int gPlayerLives;			/**< The lives of the player */
+extern int gLevelsPerGame;			/**< The levels per game */
+extern int gScreenWidth;			/**< The set Width of the screen */
+extern int gScreenHeight;			/**< Te set Height of the screen */
+extern unsigned int gCurrentTime;   /**< The current time , updated from last update call*/
+extern vec2_t gGravity;				/**< The gravity which affects all the assets */
 
-extern int exitRequest;
+extern int exitRequest;				/**< The integer to be changed to exit */
 
 //Memory Functions
+/**
+ * Counts the memory of type size_type, given that the final address is null.
+ *
+ * @param [in,out]	src	If non-null, source of memory.
+ * @param			size_type  	Size of the type.
+ *
+ * @return	The total number of memory, if src is null 0 is returned.
+ *
+ * @author	Anthony Rios
+ * @date	2/1/2016
+ */
 extern int CountMem(void *src, int size_type);
+
+/**
+ * Allocate memory and copy over src into it. Adds Null to end.
+ * Returns NULL on size 0
+ * 
+ * @param [in,out]	dst	If non-null, destination for the allocation.
+ * @param [in,out]	src	If non-null, source for the adding.
+ * @param	size_type  	Size of the type.
+ * @param	size	   	The size.
+ *
+ * @return	0 on success, -1 on error.
+ *
+ * @author	Anthony Rios
+ * @date	2/1/2016
+ */
 extern int AllocateDynamic(void **dst, void *src, int size_type, int size);
+
+/**
+ * Compare memory to memory array.
+ *
+ * @param [in,out]	mem		 	If non-null, the memory.
+ * @param [in,out]	mem_array	If non-null, array of memories.
+ * @param	size_type		 	Size of type, via sizeof() function.
+ * @param	size_array		 	Size of Array.
+ *
+ * @return	0 if equal, -1 if not.
+ *
+ * @author	Anthony Rios
+ * @date	1/31/2016
+ */
 extern int CompareMemToMemArray(void *mem, void *mem_array, int size_type, int size_array);
 
 //Foward dec of object_s for global objects
 struct object_s;
 //Prepoccessor defed LINKS and STRICT_MODE
 //JSON Parser
-extern jsmn_parser gParser;
-extern jsmntok_t *gGameTokens;
-extern struct object_s *gGameObject;
-extern jsmntok_t *gEntityTokens;
-extern struct object_s *gEntityObject;
-extern jsmntok_t *gLevelTokens;
-extern struct object_s *gLevelObject;
-extern char *gGameData;
-extern char *gEntityData;
-extern char *gLevelData;
+extern jsmn_parser gParser;								/**< The global jsmn parser */
+extern jsmntok_t *gGameTokens;							/**< Tokens for GameData */
+extern struct object_s *gGameObject;					/**< The game object */
+extern jsmntok_t *gEntityTokens;						/**< The entity jsmn tokens */
+extern struct object_s *gEntityObject;					/**< The entity object */
+extern jsmntok_t *gLevelTokens;							/**< The level jsmn tokens */
+extern struct object_s *gLevelObject;					/**< The current level object */
+extern char *gGameData;									/**< Game Data File - holding the contents of file via string*/
+extern char *gEntityData;								/**< The current parsed string of the entity file */
+extern char *gLevelData;								/**< Information describing the current level */
 
 #endif

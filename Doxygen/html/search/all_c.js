@@ -31,7 +31,6 @@ var searchData=
   ['loadpowerupdata',['LoadPowerUpData',['../game_8c.html#a8c608fbaa05aed812f106331f8dad649',1,'game.c']]],
   ['loadselectedlevel',['LoadSelectedLevel',['../game_8c.html#ae4bccf3c8c8b60d039485212d07c6489',1,'LoadSelectedLevel(int level):&#160;game.c'],['../globals_8h.html#ae4bccf3c8c8b60d039485212d07c6489',1,'LoadSelectedLevel(int level):&#160;game.c']]],
   ['loadsprite',['LoadSprite',['../graphics_8c.html#a9ef47fe758affb875f01b07e551513c7',1,'LoadSprite(const char *name, int flags):&#160;graphics.c'],['../graphics_8h.html#a9ef47fe758affb875f01b07e551513c7',1,'LoadSprite(const char *name, int flags):&#160;graphics.c']]],
-  ['loadspritewithanimation',['LoadSpriteWithAnimation',['../graphics_8h.html#a837200eb3b2724ab70d5accf0b3bcd48',1,'graphics.h']]],
   ['loc_5fname_5fstr',['LOC_NAME_STR',['../globals_8h.html#a239a28ce65b112a24a27062afa7e7668',1,'globals.h']]],
   ['lookforentityatpos',['LookForEntityAtPos',['../entity_8c.html#a69811b56fbaa2dfc61154fb027632ea8',1,'LookForEntityAtPos(vec2_t position):&#160;entity.c'],['../entity_8h.html#a69811b56fbaa2dfc61154fb027632ea8',1,'LookForEntityAtPos(vec2_t position):&#160;entity.c']]]
 ];
