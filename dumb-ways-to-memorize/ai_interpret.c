@@ -10,8 +10,8 @@ ai_function_t * gVariableAIs = NULL;
 ai_function_t * gPresetAIs = NULL;
 
 char *gAI_Variables[] = {"speed", "frames", "time", "damage", 0};
-char *gAI_Actions[] = {"nothing", "move", "walk", "jump","attack",0};
-char *gAI_Conditions[] = {"distance_player", "distance_object", "link_ai", "link_action", 0};
+char *gAI_Actions[] = {"nothing", "move", "walk", "jump", "attack", 0};
+char *gAI_Conditions[] = {"distance_player", "distance_object", "object_check", "link_ai", "link_action", 0};
 
 /**
  * AI that does nothing for its think, except make sure values are set.
@@ -264,7 +264,7 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 	ai_function_t *retVal;
 	jsmntok_t *temp_tok, *action_tok;
 	object_t *temp_obj, *action_obj, *variables_obj;
-	char *temp_str, *type_str, **variables_str;
+	char *temp_str, *type_str, *cond_str,**variables_str;
 	if(!obj || !g_str)
 	{
 		return NULL;
@@ -277,20 +277,20 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 	{
 		gravity = 0;
 	}
+
 	temp_obj = FindObject(obj, AI_FUNCTION_OBJECT);
 	if(!temp_obj)
 	{
 		printf("No thinks in ai : %s \n", obj->name);
 		return NULL;
 	}
-	temp_tok = FindKey(obj->keys, AI_TYPE_STR, g_str);
-	if(!temp_tok)
+
+	type_str = FindValue(obj, AI_TYPE_STR, g_str);
+	if(!type_str)
 	{
 		printf("No types in ai : %s \n", obj->name);
 		return NULL;
 	}
-	position = temp_tok - obj->keys;
-	type_str = JsmnToString(&obj->values[position], g_str);
 
 	children = CountMem(temp_obj->children, sizeof(object_t));
 	retVal = (ai_function_t*) malloc(sizeof(ai_function_t)*(children+1));
@@ -299,18 +299,8 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 	{
 		for(j = 0; gAI_Variables[j]; j++ )
 		{
-
-			temp_tok = FindKey(temp_obj->children[i].keys,gAI_Variables[j], g_str);
-			position = temp_tok - temp_obj->children[i].keys ;
-			if(position < 0)
-			{
-				temp_str = NULL;
-			} else
-			{
-				temp_str = JsmnToString(&temp_obj->children[i].values[position], g_str);
-			}
-			
-			SetAI_Var(&retVal[i], variables[StrToInt(temp_str)], gAI_Variables[j]);
+			temp_str = FindValue(&temp_obj->children[i], gAI_Variables[j], g_str);
+			SetAI_Var(&retVal[i], variables[StrToInt(temp_str)], (ai_variables_t)j );
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
 		}
@@ -322,19 +312,13 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 			{
 				continue;
 			}
-			position = action_tok - temp_obj->children[i].keys;
-			position = position < 0 ? 0 : position;
-			temp_str = JsmnToString(&temp_obj->children[i].values[position], g_str);
-			if(StrToInt(temp_str))
-			{
-				SetAI_Action(&retVal[i], NULL, NULL, g_str, gAI_Actions[AI_ACTION_NOTHING] );
-			}
-			SetAI_Action(&retVal[i],action_obj, action_tok, g_str, gAI_Actions[j]);
+
+			SetAI_Action(&retVal[i],action_obj, action_tok, g_str, (ai_actions_t)j );
 		}
 		for(j = 0; gAI_Conditions[j]; j++)
 		{
-			temp_tok = FindKey(temp_obj->children[i].keys, gAI_Conditions[j], g_str);
-			if(!temp_tok)
+			cond_str = FindValue(&temp_obj->children[i], gAI_Conditions[j], g_str);
+			if(!cond_str)
 			{
 				continue;
 			}
@@ -355,12 +339,10 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 					temp_str = NULL;
 				}
 			}
-			position = temp_tok - temp_obj->children[i].keys;
-			temp_str = JsmnToString(&temp_obj->children[i].values[position], g_str);
 
-			SetAI_Check(&retVal[i], variables_str, variables[StrToInt(temp_str)], gAI_Conditions[j]);
-			if(temp_str) free(temp_str);
-			temp_str = NULL;
+			SetAI_Check(&retVal[i], variables_str, variables[StrToInt(cond_str)], (ai_conditions_t)j );
+			if(cond_str) free(cond_str);
+			cond_str = NULL;
 		}
 		retVal[i].mFlags |= gravity ? AI_FLAG_GRAVITY : 0;
 		retVal[i].mType = StrToAI_Type(type_str);
@@ -378,13 +360,12 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 		}
 		if(retVal[i].mFlags & AI_FLAG_CHECK_OBJECT)
 		{
-			temp_tok = FindKey(temp_obj->children[i].keys, AI_SPECIFY_OBJ_STR, g_str);
-			if(!temp_tok)
+			temp_str = FindValue(&temp_obj->children[i], gAI_Conditions[AI_CONDITION_OBJECT_NAME], g_str);
+			if(!temp_str)
 			{
 				continue;
 			}
-			position = temp_tok - temp_obj->children[i].keys;
-			retVal[i].mObjectCheck = JsmnToString(&temp_obj->children[i].values[position], g_str);
+			retVal[i].mObjectCheck = temp_str;
 		}
 	}
 	return retVal;
@@ -433,7 +414,7 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 		{
 			temp_str = FindValue(&temp_obj->children[i], gAI_Variables[j] ,g_str);
 			
-			SetAI_Var(&retVal[i], temp_str, gAI_Variables[j]);
+			SetAI_Var(&retVal[i], temp_str, (ai_variables_t)j );
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
 		}
@@ -445,7 +426,7 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 			{
 				continue;
 			}
-			SetAI_Action(&retVal[i],action_obj, action_tok, g_str, gAI_Actions[j]);
+			SetAI_Action(&retVal[i],action_obj, action_tok, g_str, (ai_actions_t)j );
 		}
 		for(j = 0; gAI_Conditions[j]; j++)
 		{
@@ -469,7 +450,7 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 				}
 			}
 
-			SetAI_Check(&retVal[i], variables_str, temp_str, gAI_Conditions[j]);
+			SetAI_Check(&retVal[i], variables_str, temp_str, (ai_conditions_t)j );
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
 		}
@@ -486,178 +467,179 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 		}
 		if(retVal[i].mFlags & AI_FLAG_CHECK_OBJECT)
 		{
-			temp_tok = FindKey(temp_obj->children[i].keys, AI_SPECIFY_OBJ_STR, g_str);
-			if(!temp_tok)
+			temp_str = FindValue(&temp_obj->children[i], gAI_Conditions[AI_CONDITION_OBJECT_NAME], g_str);
+			if(!temp_str)
 			{
 				continue;
 			}
-			position = temp_tok - temp_obj->children[i].keys;
-			retVal[i].mObjectCheck = JsmnToString(&temp_obj->children[i].values[position], g_str);
+			retVal[i].mObjectCheck = temp_str;
 		}
 	}
 	return retVal;
 }
 
-void SetAI_Var(ai_function_t* function, char* data_str, char* var_str)
+void SetAI_Var(ai_function_t* function, char* data_str, ai_variables_t var_type)
 {
-	if(!var_str)
+	if(!var_type)
 	{
 		return;
 	}
-	if(!strcmp(AI_VAR_SPEED_STR, var_str))
+
+	switch(var_type)
 	{
-		if(!data_str)
+	case AI_VAR_SPEED:
 		{
-			function->mVariables[AI_VAR_SPEED] = AI_BASE_SPEED;
-		} else
-		{
-			function->mVariables[AI_VAR_SPEED] = StrToInt(data_str);
+			function->mVariables[AI_VAR_SPEED] = data_str ? StrToInt(data_str) : AI_BASE_SPEED;
+			break;
 		}
-	}
-	else if(!strcmp(AI_VAR_FRAMES_STR, var_str))
-	{
-		if(!data_str)
+	case AI_VAR_FRAMES:
 		{
-			function->mVariables[AI_VAR_FRAMES] = AI_BASE_THINK_FRAMES;
-		} else
-		{
-			function->mVariables[AI_VAR_FRAMES] = StrToInt(data_str);
+			function->mVariables[AI_VAR_FRAMES] = data_str ? StrToInt(data_str) : AI_BASE_THINK_FRAMES;
+			break;
 		}
-	}
-	else if(!strcmp(AI_VAR_TIME_STR, var_str))
-	{
-		if(!data_str)
+	case AI_VAR_TIME:
 		{
-			function->mVariables[AI_VAR_TIME] = 1;
-		} else
-		{
-			function->mVariables[AI_VAR_TIME] = StrToInt(data_str);
+			function->mVariables[AI_VAR_TIME] = data_str ? StrToInt(data_str) : 1;
+			break;
 		}
-	}
-	else if(!strcmp(AI_VAR_DAMAGE_STR, var_str))
-	{
-		if(!data_str)
+	case AI_VAR_DAMAGE:
 		{
-			function->mVariables[AI_VAR_DAMAGE] = AI_BASE_DAMAGE;
-		} else
-		{
-			function->mVariables[AI_VAR_DAMAGE] = StrToInt(data_str);
+			function->mVariables[AI_VAR_DAMAGE] = data_str ? StrToInt(data_str) : AI_BASE_DAMAGE;
+			break;
 		}
+	default:
+		break;
 	}
+
 }
 
-void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* g_str, char* action_str)
+void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* g_str, ai_actions_t action_type)
 {
 	vec2_t *temp_vec2;
-	if(!action_str || !function)
+	if(!action_type || !function)
 	{
 		return;
 	}
-	if(!strcmp(AI_ACTION_NOTHING_STR, action_str))
+	switch(action_type)
 	{
-		function->mAction = AI_ACTION_NOTHING;
-	}
-
-	else if(!strcmp(AI_ACTION_MOVE_STR, action_str))
-	{
-		if(!obj)
+	case AI_ACTION_NOTHING:
 		{
-			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = 0;
-			
-		} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
-		{
-			function->mVariables[AI_VAR_DIR_X] = temp_vec2->x;
-			function->mVariables[AI_VAR_DIR_X] = temp_vec2->y;
-		} else
-		{
-			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = 0;
+			function->mAction = AI_ACTION_NOTHING;
+			break;
 		}
-
-		function->mAction = AI_ACTION_MOVE;
-	}
-
-	else if(!strcmp(AI_ACTION_WALK_STR, action_str))
-	{
-		if(!obj)
+	case AI_ACTION_MOVE:
 		{
-			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = 0;
+			if(!obj)
+			{
+				function->mVariables[AI_VAR_DIR_X] = 0;
+				function->mVariables[AI_VAR_DIR_Y] = 0;
 			
-		} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
-		{
-			function->mVariables[AI_VAR_DIR_X] = temp_vec2->x;
-			function->mVariables[AI_VAR_DIR_X] = temp_vec2->y;
-		} else
-		{
-			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = 0;
-		}
+			} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
+			{
+				function->mVariables[AI_VAR_DIR_X] = temp_vec2->x;
+				function->mVariables[AI_VAR_DIR_X] = temp_vec2->y;
+			} else
+			{
+				function->mVariables[AI_VAR_DIR_X] = 0;
+				function->mVariables[AI_VAR_DIR_Y] = 0;
+			}
 
-		function->mAction = AI_ACTION_WALK;
-	}
-
-	else if(!strcmp(AI_ACTION_JUMP_STR, action_str))
-	{
-		if(!obj)
+			function->mAction = AI_ACTION_MOVE;
+				break;
+			}
+	case AI_ACTION_WALK:
 		{
-			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = AI_BASE_JUMP;
+			if(!obj)
+			{
+				function->mVariables[AI_VAR_DIR_X] = 0;
+				function->mVariables[AI_VAR_DIR_Y] = 0;
 			
-		} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
-		{
-			function->mVariables[AI_VAR_DIR_X] = temp_vec2->x;
-			function->mVariables[AI_VAR_DIR_X] = temp_vec2->y;
-		} else
-		{
-			function->mVariables[AI_VAR_DIR_X] = 0;
-			function->mVariables[AI_VAR_DIR_Y] = AI_BASE_JUMP;
-		}
+			} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
+			{
+				function->mVariables[AI_VAR_DIR_X] = temp_vec2->x;
+				function->mVariables[AI_VAR_DIR_X] = temp_vec2->y;
+			} else
+			{
+				function->mVariables[AI_VAR_DIR_X] = 0;
+				function->mVariables[AI_VAR_DIR_Y] = 0;
+			}
 
-		function->mAction = AI_ACTION_JUMP;
-	}
-	else if(!strcmp(AI_ACTION_ATTACK_STR, action_str))
-	{
-		function->mAction = AI_ACTION_ATTACK;
-		function->mObject = JsmnToString(tok, g_str);
+			function->mAction = AI_ACTION_WALK;
+			break;
+		}
+	case AI_ACTION_JUMP:
+		{
+			if(!obj)
+			{
+				function->mVariables[AI_VAR_DIR_X] = 0;
+				function->mVariables[AI_VAR_DIR_Y] = AI_BASE_JUMP;
+			
+			} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
+			{
+				function->mVariables[AI_VAR_DIR_X] = temp_vec2->x;
+				function->mVariables[AI_VAR_DIR_X] = temp_vec2->y;
+			} else
+			{
+				function->mVariables[AI_VAR_DIR_X] = 0;
+				function->mVariables[AI_VAR_DIR_Y] = AI_BASE_JUMP;
+			}
+
+			function->mAction = AI_ACTION_JUMP;
+			break;
+		}
+	case AI_ACTION_ATTACK:
+		{
+			function->mAction = AI_ACTION_ATTACK;
+			function->mObject = JsmnToString(tok, g_str);
+			break;
+		}
+	default:
+		break;
 	}
 }
 
-void SetAI_Check(ai_function_t* function, char** variables_str, char* data_str, char* check_str)
+void SetAI_Check(ai_function_t* function, char** variables_str, char* data_str, ai_conditions_t condition)
 {
 	ai_function_t *temp_ai;
 	object_t *temp_obj;
 	jsmntok_t *temp_tok;
 	char *temp_str;
-	if(!check_str || !function)
+	if(!condition || !function)
 	{
 		return;
 	}
-	if(!strcmp(AI_LINK_ACTION, check_str) )
+	switch(condition)
 	{
-		function->mVariables[AI_VAR_CHECK] = StrToInt(data_str);
-	} 
-	else if(!strcmp(AI_CHECK_PLAYER_STR, check_str))
-	{
-		function->mVariables[AI_VAR_CHECK] = StrToInt(data_str);
-		function->mFlags |= AI_FLAG_CHECK_PLAYER;
-	} 
-	else if(!strcmp(AI_CHECK_OBJECT_STR, check_str))
-	{
-		function->mVariables[AI_VAR_CHECK] = StrToInt(data_str);
-		function->mFlags |= AI_FLAG_CHECK_OBJECT;
-	} 
-	else if(!strcmp(AI_LINK_AI, check_str))
-	{
-
-		ConvertFileToUseable(data_str, NULL, &temp_str, &temp_tok);
-		if(!temp_str || !temp_tok)
+	case AI_CONDITION_LINK_ACTION:
 		{
-			return;
+			function->mVariables[AI_VAR_CHECK] = StrToInt(data_str);
+			break;
 		}
-		temp_obj = ParseToObject(temp_tok, temp_str);
-		function->mLink = ParseAI(temp_obj, temp_str, variables_str);
+	case AI_CONDITION_PLAYER_DISTANCE:
+		{
+			function->mVariables[AI_VAR_CHECK] = StrToInt(data_str);
+			function->mFlags |= AI_FLAG_CHECK_PLAYER;
+			break;
+		}
+	case AI_CONDITION_OBJECT_DISTANCE:
+		{
+			function->mVariables[AI_VAR_CHECK] = StrToInt(data_str);
+			function->mFlags |= AI_FLAG_CHECK_OBJECT;
+			break;
+		}
+	case AI_CONDITION_LINK_AI:
+		{
+			ConvertFileToUseable(data_str, NULL, &temp_str, &temp_tok);
+			if(!temp_str || !temp_tok)
+			{
+				return;
+			}
+			temp_obj = ParseToObject(temp_tok, temp_str);
+			function->mLink = ParseAI(temp_obj, temp_str, variables_str);
+			break;
+		}
+	default:
+		break;
 	}
 }
 
@@ -704,4 +686,43 @@ ai_type_t StrToAI_Type(const char *str)
 		return AI_TYPE_VARIABLE;
 	}
 	return AI_TYPE_NULL;
+}
+
+ai_actions_t StrToAI_Action(const char* str)
+{
+	int i;
+	for(i = 0; gAI_Actions[i]; i++)
+	{
+		if(!strcmp(gAI_Actions[i], str))
+		{
+			return (ai_actions_t)i;
+		}
+	}
+	return  AI_ACTION_MAX;
+}
+
+ai_conditions_t StrToAI_Condition(const char* str)
+{
+	int i;
+	for(i = 0; gAI_Conditions[i]; i++)
+	{
+		if(!strcmp(gAI_Conditions[i], str))
+		{
+			return (ai_conditions_t)i;
+		}
+	}
+	return  AI_CONDITION_MAX;
+}
+
+ai_variables_t StrToVariableType(const char* str)
+{
+	int i;
+	for(i = 0; gAI_Variables[i]; i++)
+	{
+		if(!strcmp(gAI_Variables[i], str))
+		{
+			return (ai_variables_t)i;
+		}
+	}
+	return  AI_VAR_MAX;
 }
