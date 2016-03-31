@@ -28,7 +28,7 @@ struct object_s
  * Parse to object, this object has no parent.
  *
  * @param [in,out]	token	If non-null, the token that begins with object.
- * @param [in,out]	str  	If non-null, the global string.
+ * @param [in,out]	g_str  	If non-null, the global string data of given tokens.
  *
  * @return	null if it fails, else an object_t*.
  *

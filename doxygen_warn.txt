@@ -1,0 +1,4 @@
+C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/ai_interpret.c:58: warning: Found unknown command `\Todo'
+C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/External_Libs/simple_logger.h:25: warning: Found unknown command `\license'
+C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/External_Libs/simple_logger.h:32: warning: argument 'msg' of command @param is not found in the argument list of slog(...)
+C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/External_Libs/simple_logger.h:25: warning: Found unknown command `\license'

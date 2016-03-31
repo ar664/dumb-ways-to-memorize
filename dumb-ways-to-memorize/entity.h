@@ -32,7 +32,7 @@ struct entity_s
 	sprite_t **mSprites;			/**< The sprites of the given entity */
 	sprite_t *mAnimation;			/**< The current animation, the entity is running */
 	ai_function_t *mData;			/**< The data that an entity stores for its ai */
-	char *mName;					/**< The gPlayerName of the entity*/
+	char *mName;					/**< The name of the entity*/
 	vec2_t mAccel;					/**< The acceleration vector */
 	vec2_t mVelocity;				/**< The velocity vector */
 	vec2_t mPosition;				/**< The position vector, equal to on screen draw position */
@@ -77,9 +77,9 @@ extern entity_t *InitNewEntity();
 extern entity_t *FindNextFreeCachePos();
 
 /**
- * Searches for the cached entity whose gPlayerName matches given str.
+ * Searches for the cached entity whose name matches given str.
  *
- * @param	gPlayerName	The gPlayerName.
+ * @param	name	The name of the entity.
  *
  * @return	null if it fails, else the found cached entity.
  *
@@ -89,9 +89,9 @@ extern entity_t *FindNextFreeCachePos();
 extern entity_t *FindCachedEntity(const char *name);
 
 /**
- * Searches for the first entity with the gPlayerName of given str.
+ * Searches for the first entity with the name of given str.
  *
- * @param	gPlayerName	The gPlayerName.
+ * @param	name	The name of the searched for entity.
  *
  * @return	null if it fails, else the found entity.
  *

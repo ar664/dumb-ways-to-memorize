@@ -16,7 +16,7 @@ struct object_s;
 /**
  * Loads string data from a file.
  *
- * @param [in,out]	fileName	If non-null, filename of the file.
+ * @param [in,out]	file	If non-null, filename of the file.
  *
  * @return	null if it fails, else a char*.
  *

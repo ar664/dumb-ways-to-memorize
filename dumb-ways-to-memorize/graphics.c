@@ -119,7 +119,7 @@ sprite_t *LoadSprite(const char *name, int flags)
 	}
 	if(!name)
 	{
-		printf("No gPlayerName given to load sprite");
+		printf("No name given to load sprite");
 		return NULL;
 	}
 	if( (check = FindSprite(name, NULL)) != NULL)

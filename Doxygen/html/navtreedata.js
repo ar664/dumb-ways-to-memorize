@@ -4,7 +4,6 @@ var NAVTREE =
     [ "Todo List", "todo.html", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
-      [ "Data Structure Index", "classes.html", null ],
       [ "Data Fields", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Variables", "functions_vars.html", null ]
@@ -28,9 +27,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ai__interpret_8c.html",
-"game_8h.html#a50ac2197010a8cf188eafc647122f1a3",
-"menu_8h.html#aa17ff70e4da81270ffeab1dcb19cacb6",
-"structai__function__s.html#a889d5923f6b7628af2fe824149b5a942"
+"game_8h.html#aae6948b99853ea69a786492d3bb3453c",
+"menu_8h.html#ae04d0184eeca6be261090a6cfc49b92eadf5c230f1c0e9ba8cb94248e675e520c",
+"structentity__s.html#ada44c567bee8dbfa47693d4068507cab"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

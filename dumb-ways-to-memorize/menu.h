@@ -49,7 +49,7 @@ struct menu_item_s
 	menu_item_state_t	State;		/**< The state of the menu item */
 	GameState			NextState;  /**< State of the next gamestate this item links to */
 	vec2_t				Position;   /**< The position of the item */
-	char				*Name;		/**< The gPlayerName of the menu item */
+	char				*Name;		/**< The name of the menu item */
 	sprite_t			*Image;		/**< The image of the menu item */
 	void				*Info;		/**< The information specific to this menu */
 };
@@ -88,7 +88,7 @@ int InitMenuSystem();
  *
  * @param [in,out]	object 	If non-null, the object menu was parsed to.
  * @param [in,out]	g_str 	If non-null, the string.
- * @param	currState	  	State to assign the menu.
+ * @param	curr_state	  	State to assign the menu.
  * @param	previous_state	State before this menu.
  *
  * @return	0 if loads correctly, -1 if it doesn't.
@@ -121,7 +121,7 @@ menu_t *FindMenuFromGameState(GameState curr_state);
 menu_t *FindFreeMenu();
 
 /**
- * Searches for the first menu item, with gPlayerName of str given.
+ * Searches for the first menu item, with name of str given.
  *
  * @param [in,out]	menu	If non-null, the menu.
  * @param [in,out]	item	If non-null, the item.

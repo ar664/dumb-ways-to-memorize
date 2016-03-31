@@ -33,7 +33,7 @@ struct sprite_s
 	vec2_t mSize;						/**< The size of the sprite width + height */
 	int mFrames;						/**< The number of frames in this sprite */
 	int refCount;						/**< Number of references, in the engine */
-	char *name;							/**< The gPlayerName of the sprite's location */
+	char *name;							/**< The name of the sprite's location */
 
 };
 
@@ -74,7 +74,7 @@ Frame *LoadAnimation(int frame_width, int frame_height, int width, int height);
 /**
  * Searches for the first sprite.
  *
- * @param	gPlayerName				The gPlayerName.
+ * @param	name				The name of the sprite file.
  * @param [in,out]	position	If non-null, the position.
  *
  * @return	null if it fails, else the found sprite.
@@ -99,7 +99,7 @@ sprite_t *FindFreeSprite(int *position);
 /**
  * Loads a sprite.
  *
- * @param	gPlayerName 	The file gPlayerName of the image to load.
+ * @param	name 	The file name of the image to load.
  * @param	flags	The flags.
  *
  * @return	null if it fails, else the sprite.
@@ -114,6 +114,7 @@ sprite_t *LoadSprite(const char *name, int flags);
  * If no position given, will draw as if was background.
  *
  * @param [in,out]	sprite  	If non-null, the sprite.
+ * @param [in,out]	frame		If non-null, the frame number to draw.
  * @param [in,out]	position	If non-null, the position.
  * @param [in,out]	renderer	If non-null, the renderer.
  *
