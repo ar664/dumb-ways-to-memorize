@@ -34,9 +34,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/main.c" line="4" column="1" bodyfile="dumb-ways-to-memorize/main.c" bodystart="4" bodyend="9"/>
-        <references refid="game_8c_1a50ac2197010a8cf188eafc647122f1a3" compoundref="game_8c" startline="592" endline="656">Setup</references>
-        <references refid="game_8c_1aac704aea738c1edc384a97e51d60662b" compoundref="game_8c" startline="666" endline="677">Run</references>
-        <references refid="game_8c_1ac5f038c2b480cf9ef5e19e3eba8dbaf9" compoundref="game_8c" startline="679" endline="683">Shutdown</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -47,7 +44,7 @@
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="main_8h" kindref="compound">main.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4" refid="main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>()</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>()</highlight></codeline>
 <codeline lineno="5"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="game_8c_1a50ac2197010a8cf188eafc647122f1a3" kindref="member">Setup</ref>();</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="game_8c_1aac704aea738c1edc384a97e51d60662b" kindref="member">Run</ref>();</highlight></codeline>

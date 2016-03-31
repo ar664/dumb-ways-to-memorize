@@ -203,7 +203,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="25" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="25" bodyend="33"/>
-        <references refid="globals_8h_1a82d3a17b01eab2136e9f3ee50640b89fa7d5af9aa82596fba5dac11601b34bf19" compoundref="globals_8h" startline="65">MENU_ITEM_STATE_NOT_SELECTED</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1a6d1957abbc96c1fae5a5baee797eb4b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -242,7 +241,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="45" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="45" bodyend="53"/>
-        <references refid="globals_8h_1a82d3a17b01eab2136e9f3ee50640b89fa67f7e72d6ff1c47e3bd9d92a40c76f48" compoundref="globals_8h" startline="64">MENU_ITEM_STATE_SELECTED</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1a5db349f6528f6875243365dfb9d9a7f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -281,11 +279,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="65" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="65" bodyend="112"/>
-        <references refid="menu_8c_1aedbdd42a09e1068fad843e6a3d867271" compoundref="menu_8c" startline="13">gCurrentSelectedItem</references>
-        <references refid="menu_8c_1a4e4ef9cbfcd4be548e989655712272a1" compoundref="menu_8c" startline="25" endline="33">DeselectItemByNum</references>
-        <references refid="menu_8c_1a6d1957abbc96c1fae5a5baee797eb4b8" compoundref="menu_8c" startline="45" endline="53">SelectItemByNum</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="game_8c_1aafc8457d9121884bb074efeff2941e23" compoundref="game_8c" startline="44">gGameState</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1aa9b02df49523b8c264f21ea4022db35c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -324,26 +317,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="125" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="125" bodyend="222"/>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a96a92720d3d9970db2d464166b8a569e" compoundref="globals_8h" startline="85">SPLASH</references>
-        <references refid="globals_8h_1a82d3a17b01eab2136e9f3ee50640b89fab813795d0b9d360f25383957026e3481" compoundref="globals_8h" startline="66">MENU_ITEM_STATE_PICKED</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="game_8c_1a3a8af497dc09185b0764ca27f6afff1b" compoundref="game_8c" startline="42">gPowerUps</references>
-        <references refid="game_8c_1a66329b13979a75d803e9f5d705f5a755" compoundref="game_8c" startline="28">gSelectedPowerUps</references>
-        <references refid="structpower__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parsepowerup_8h" startline="41">power_s::name</references>
-        <references refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" compoundref="game_8c" startline="24">gLevelsPerGame</references>
-        <references refid="game_8c_1a6540f730c8dc68b12d940f68358ca677" compoundref="game_8c" startline="29">gUsedPowerUps</references>
-        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
-        <references refid="game_8c_1abf114e18525eeabfe0ba238c1ef5985d" compoundref="game_8c" startline="33">gGameObject</references>
-        <references refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" compoundref="mystrings_8c" startline="192" endline="261">ConvertFileToUseable</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="game_8c_1ae4c70a31e9d973c951caa5d0081f371b" compoundref="game_8c" startline="36">gGameData</references>
-        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
-        <references refid="menu_8c_1a6f4a9eb4cd081c5b7a3e5e0475ed8437" compoundref="menu_8c" startline="478" endline="635">LoadMenu</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a58a9a2b13d64bdcda325c28725c1a73f" compoundref="globals_8h" startline="88">CHOOSE</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285ab8c769f7e7a67d0a91a2fe34fdc5dbea" compoundref="globals_8h" startline="87">GUESS</references>
-        <references refid="globals_8h_1a82d3a17b01eab2136e9f3ee50640b89fa7d5af9aa82596fba5dac11601b34bf19" compoundref="globals_8h" startline="65">MENU_ITEM_STATE_NOT_SELECTED</references>
-        <references refid="game_8c_1aafc8457d9121884bb074efeff2941e23" compoundref="game_8c" startline="44">gGameState</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1a5c05034491d908bb3ac48a67be87d300" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -382,17 +355,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="234" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="234" bodyend="297"/>
-        <references refid="globals_8h_1a82d3a17b01eab2136e9f3ee50640b89fa6608ad97d094319cd005d3377288fd6d" compoundref="globals_8h" startline="63">MENU_ITEM_STATE_NULL</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="game_8c_1a66329b13979a75d803e9f5d705f5a755" compoundref="game_8c" startline="28">gSelectedPowerUps</references>
-        <references refid="game_8c_1a6540f730c8dc68b12d940f68358ca677" compoundref="game_8c" startline="29">gUsedPowerUps</references>
-        <references refid="game_8c_1a66f3fc97502132ecdb2983351ffed1b5" compoundref="game_8c" startline="43">gCurrentPowerUpName</references>
-        <references refid="parsepowerup_8c_1a90fefa2dda0184e13839a0b67950fc88" compoundref="parsepowerup_8c" startline="16">gCurrentPowerUp</references>
-        <references refid="parsepowerup_8c_1a94356a5fdd8b29d6a5fa2b730266275e" compoundref="parsepowerup_8c" startline="255" endline="274">FindPower</references>
-        <references refid="game_8c_1ae4bccf3c8c8b60d039485212d07c6489" compoundref="game_8c" startline="390" endline="419">LoadSelectedLevel</references>
-        <references refid="game_8c_1aafc8457d9121884bb074efeff2941e23" compoundref="game_8c" startline="44">gGameState</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285af095245f5cebc27a97a124345269fed8" compoundref="globals_8h" startline="89">PLAYING</references>
-        <references refid="player_8c_1ab1e3218036977e006ae6fd1f66c16ae4" compoundref="player_8c" startline="12" endline="38">InitPlayer</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1a1c427a4122a85bc392880fdcf2a843ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -408,7 +370,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="299" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="299" bodyend="314"/>
-        <references refid="menu_8h_1ab2b40834d297a20af015b5c3b13e31e4" compoundref="menu_8h" startline="9">MAX_MENUS</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1ad2751e2bba6d6da7cf3658079447e629" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -426,10 +387,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="317" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="317" bodyend="358"/>
-        <references refid="graphics_8c_1a17fde33b1d856d825920d633285aec6e" compoundref="graphics_8c" startline="152" endline="188">DrawSprite</references>
-        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
-        <references refid="menu_8c_1aedbdd42a09e1068fad843e6a3d867271" compoundref="menu_8c" startline="13">gCurrentSelectedItem</references>
-        <references refid="graphics_8c_1a3b5a0de489d49963cac9fd22f187d813" compoundref="graphics_8c" startline="12">gRedTexture</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1a07e521149cdeaef92a6ba4c82945f7ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -447,10 +404,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="361" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="361" bodyend="401"/>
-        <references refid="graphics_8c_1a17fde33b1d856d825920d633285aec6e" compoundref="graphics_8c" startline="152" endline="188">DrawSprite</references>
-        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
-        <references refid="globals_8h_1a82d3a17b01eab2136e9f3ee50640b89fab813795d0b9d360f25383957026e3481" compoundref="globals_8h" startline="66">MENU_ITEM_STATE_PICKED</references>
-        <references refid="graphics_8c_1a3b5a0de489d49963cac9fd22f187d813" compoundref="graphics_8c" startline="12">gRedTexture</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1ac633a4b1666d690b51d887d296c9e3d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -489,21 +442,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="413" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="413" bodyend="476"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="globals_8h_1abc330db94c68edccfc134b50a56e134e" compoundref="graphics_8c" startline="16">gScreenWidth</references>
-        <references refid="graphics_8h_1ab4f60dcfaf8e1c328b2862723508d851" compoundref="graphics_8h" startline="9">SCREEN_RES_W</references>
-        <references refid="globals_8h_1a530fa2ce59634663df7be20316444f8b" compoundref="graphics_8c" startline="17">gScreenHeight</references>
-        <references refid="graphics_8h_1a7a7d00e9da31c5ddbab5d35adab314f6" compoundref="graphics_8h" startline="10">SCREEN_RES_H</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea44093eb84c021250710c21d7040742c9" compoundref="menu_8h" startline="27">MENU_TYPE_H</references>
-        <references refid="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" compoundref="graphics_8c" startline="276" endline="282">SDL_SetRect</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eae51e962ec8beccece27215c15adcead4" compoundref="menu_8h" startline="28">MENU_TYPE_V</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eadf5c230f1c0e9ba8cb94248e675e520c" compoundref="menu_8h" startline="29">MENU_TYPE_GRID</references>
-        <references refid="globals_8h_1a9aa87727325e75d1590d911602eab803" compoundref="mymath_8c" startline="5" endline="18">LargestDivisor</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaed4cdae7debfa0f072aed36802897c8d" compoundref="menu_8h" startline="30">MENU_TYPE_POWER</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaf382d35204a24dfcc899f49a21d6180a" compoundref="menu_8h" startline="31">MENU_TYPE_CHOOSE</references>
-        <references refid="structmenu__item__s_1ae69b5c22d5cd3911965dc992d40ba4fc" compoundref="menu_8h" startline="51">menu_item_s::Position</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1a6f4a9eb4cd081c5b7a3e5e0475ed8437" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="menu_8h_1aed08c6d5d5b5d87ad2368f169239217c" kindref="member">menu_t</ref> *</type>
@@ -565,54 +503,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="478" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="478" bodyend="635"/>
-        <references refid="menu_8c_1a7cb8c357e2b15b9a01f236ff19382427" compoundref="menu_8c" startline="659" endline="677">FindFreeMenu</references>
-        <references refid="structmenu__s_1a5caad79c0b16c966cdace805942e2592" compoundref="menu_8h" startline="70">menu_s::mPreviousState</references>
-        <references refid="structmenu__s_1a0f4930e7bfb881141c55f2ff6532343c" compoundref="menu_8h" startline="69">menu_s::mCurrentState</references>
-        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
-        <references refid="menu_8h_1a9d4a2080871448b284a8449cd899898f" compoundref="menu_8h" startline="11">MENU_ITEMS</references>
-        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
-        <references refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" compoundref="mystrings_8c" startline="53" endline="82">FindValue</references>
-        <references refid="menu_8h_1a61e9cfe2e8569082ec57ba6a7c3e7cbe" compoundref="menu_8h" startline="10">MENU_BACKGROUND</references>
-        <references refid="structmenu__s_1ab2cdfd66047e062b1da2948d07f9f90d" compoundref="menu_8h" startline="68">menu_s::mBackground</references>
-        <references refid="graphics_8c_1a9ef47fe758affb875f01b07e551513c7" compoundref="graphics_8c" startline="107" endline="150">LoadSprite</references>
-        <references refid="menu_8h_1a7608eabfc6ac732a60c62ec331346032" compoundref="menu_8h" startline="16">MENU_TYPE</references>
-        <references refid="menu_8h_1a6e3272cde8626b4dbe6fb12af2a4fec8" compoundref="menu_8h" startline="20">MENU_TYPE_STR_V</references>
-        <references refid="parseobject_8c_1acaa82337937e66fae84e360325cabdc6" compoundref="parseobject_8c" startline="170" endline="186">CountObjectChildren</references>
-        <references refid="menu_8h_1ab4ca22b3abeffba22f56886bbb39c0f9" compoundref="menu_8h" startline="8">MENU_ITEM_MAX</references>
-        <references refid="structmenu__s_1a20f9c9276293cccf509c5102dad0698a" compoundref="menu_8h" startline="71">menu_s::mItemCount</references>
-        <references refid="structmenu__s_1a0cc653a44ba5b3f6fc46b8c43131c18b" compoundref="menu_8h" startline="66">menu_s::mItems</references>
-        <references refid="structmenu__item__s_1a549a5400c9f9b61bb66d0239bd21fe53" compoundref="menu_8h" startline="49">menu_item_s::State</references>
-        <references refid="globals_8h_1a82d3a17b01eab2136e9f3ee50640b89fa7d5af9aa82596fba5dac11601b34bf19" compoundref="globals_8h" startline="65">MENU_ITEM_STATE_NOT_SELECTED</references>
-        <references refid="structmenu__item__s_1a2459e5f05ca13ac8dff1f7b9abda4534" compoundref="menu_8h" startline="54">menu_item_s::Info</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="menu_8h_1aa9ede24621a515a557d60a374f4dff6a" compoundref="menu_8h" startline="12">MENU_ITEM_SPRITE</references>
-        <references refid="structmenu__item__s_1a25fe573e4bbeefb06bccb0c0c9acf35f" compoundref="menu_8h" startline="53">menu_item_s::Image</references>
-        <references refid="menu_8h_1a4b6cafdbf81fcaff2646bea1c99cdc33" compoundref="menu_8h" startline="13">MENU_ITEM_TEXT</references>
-        <references refid="structmenu__item__s_1a5e6182c030324511dd82e9fa1a0ab071" compoundref="menu_8h" startline="52">menu_item_s::Name</references>
-        <references refid="menu_8h_1aa17ff70e4da81270ffeab1dcb19cacb6" compoundref="menu_8h" startline="14">MENU_ITEM_LINK</references>
-        <references refid="structmenu__item__s_1ab0377c6660ff457af3498a0e121e42f0" compoundref="menu_8h" startline="50">menu_item_s::NextState</references>
-        <references refid="globals_8h_1a295e14f293c2d135e244c6b9f417a447" compoundref="mystrings_8c" startline="274" endline="304">StrToGameState</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a96a92720d3d9970db2d464166b8a569e" compoundref="globals_8h" startline="85">SPLASH</references>
-        <references refid="menu_8h_1a31141b0e1ee4f4ab9f3f64e7ed63a6e9" compoundref="menu_8h" startline="15">MENU_ITEM_EXTRA</references>
-        <references refid="menu_8h_1a14d7adc2f2315acd3a25c75f0df1b00a" compoundref="menu_8h" startline="18">MENU_TYPE_STR_CHOOSE</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="game_8c_1a66329b13979a75d803e9f5d705f5a755" compoundref="game_8c" startline="28">gSelectedPowerUps</references>
-        <references refid="menu_8c_1a9cd9b0277a6a4e88c4c065e0efeb6192" compoundref="menu_8c" startline="637" endline="657">FindMenuFromGameState</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285ab8c769f7e7a67d0a91a2fe34fdc5dbea" compoundref="globals_8h" startline="87">GUESS</references>
-        <references refid="menu_8c_1af50d4e67c36ed63b1b84befc82d8ac8a" compoundref="menu_8c" startline="679" endline="695">FindMenuItem</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285af095245f5cebc27a97a124345269fed8" compoundref="globals_8h" startline="89">PLAYING</references>
-        <references refid="menu_8c_1ac633a4b1666d690b51d887d296c9e3d2" compoundref="menu_8c" startline="413" endline="476">ProcessMenuItemsByType</references>
-        <references refid="menu_8c_1a7d08e8b15cd91ee8dfc2acfcf9c7ca8d" compoundref="menu_8c" startline="697" endline="720">StrToMenuType</references>
-        <references refid="structmenu__s_1a02f9bbc347b039857ac927bfa84b66cf" compoundref="menu_8h" startline="67">menu_s::mSelectedItem</references>
-        <references refid="globals_8h_1a82d3a17b01eab2136e9f3ee50640b89fa67f7e72d6ff1c47e3bd9d92a40c76f48" compoundref="globals_8h" startline="64">MENU_ITEM_STATE_SELECTED</references>
-        <references refid="structmenu__s_1afdc00f47a596fec9f5362aeab002e868" compoundref="menu_8h" startline="72">menu_s::Update</references>
-        <references refid="menu_8c_1a5db349f6528f6875243365dfb9d9a7f1" compoundref="menu_8c" startline="65" endline="112">UpdateVerticalMenu</references>
-        <references refid="structmenu__s_1ab0d1e3b40626060280d7a069ef441961" compoundref="menu_8h" startline="73">menu_s::Draw</references>
-        <references refid="menu_8c_1ad2751e2bba6d6da7cf3658079447e629" compoundref="menu_8c" startline="317" endline="358">DrawMenuByNum</references>
-        <references refid="menu_8h_1a184f67b2269e942df91f4cc4ef314b77" compoundref="menu_8h" startline="17">MENU_TYPE_STR_POWER</references>
-        <references refid="menu_8c_1aa9b02df49523b8c264f21ea4022db35c" compoundref="menu_8c" startline="125" endline="222">UpdatePowerUpMenu</references>
-        <references refid="menu_8c_1a07e521149cdeaef92a6ba4c82945f7ca" compoundref="menu_8c" startline="361" endline="401">DrawMenuByState</references>
-        <references refid="menu_8c_1a5c05034491d908bb3ac48a67be87d300" compoundref="menu_8c" startline="234" endline="297">UpdatePowerSelectMenu</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1a9cd9b0277a6a4e88c4c065e0efeb6192" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="menu_8h_1aed08c6d5d5b5d87ad2368f169239217c" kindref="member">menu_t</ref> *</type>
@@ -641,8 +531,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="637" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="637" bodyend="657"/>
-        <references refid="menu_8h_1ab2b40834d297a20af015b5c3b13e31e4" compoundref="menu_8h" startline="9">MAX_MENUS</references>
-        <references refid="game_8c_1aec0783b5a136e042adcc47bae4fe5291" compoundref="game_8c" startline="458" endline="539">Update</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1a7cb8c357e2b15b9a01f236ff19382427" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="menu_8h_1aed08c6d5d5b5d87ad2368f169239217c" kindref="member">menu_t</ref> *</type>
@@ -659,7 +547,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="659" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="659" bodyend="677"/>
-        <references refid="menu_8h_1ab2b40834d297a20af015b5c3b13e31e4" compoundref="menu_8h" startline="9">MAX_MENUS</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1af50d4e67c36ed63b1b84befc82d8ac8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="menu_8h_1affefd3de0ee32201a1e405b126d4a8dd" kindref="member">menu_item_t</ref> *</type>
@@ -699,9 +586,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="679" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="679" bodyend="695"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structmenu__s_1a0cc653a44ba5b3f6fc46b8c43131c18b" compoundref="menu_8h" startline="66">menu_s::mItems</references>
-        <references refid="structmenu__item__s_1a5e6182c030324511dd82e9fa1a0ab071" compoundref="menu_8h" startline="52">menu_item_s::Name</references>
       </memberdef>
       <memberdef kind="function" id="menu_8c_1a7d08e8b15cd91ee8dfc2acfcf9c7ca8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -719,17 +603,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/menu.c" line="697" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="697" bodyend="720"/>
-        <references refid="menu_8h_1ad93a7e08ccb25a8e9d9ff257c6d00d7f" compoundref="menu_8h" startline="19">MENU_TYPE_STR_H</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea44093eb84c021250710c21d7040742c9" compoundref="menu_8h" startline="27">MENU_TYPE_H</references>
-        <references refid="menu_8h_1a6e3272cde8626b4dbe6fb12af2a4fec8" compoundref="menu_8h" startline="20">MENU_TYPE_STR_V</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eae51e962ec8beccece27215c15adcead4" compoundref="menu_8h" startline="28">MENU_TYPE_V</references>
-        <references refid="menu_8h_1af1d21de0fd729ce50359d39fc89b84bf" compoundref="menu_8h" startline="21">MENU_TYPE_STR_GRID</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eadf5c230f1c0e9ba8cb94248e675e520c" compoundref="menu_8h" startline="29">MENU_TYPE_GRID</references>
-        <references refid="menu_8h_1a184f67b2269e942df91f4cc4ef314b77" compoundref="menu_8h" startline="17">MENU_TYPE_STR_POWER</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaed4cdae7debfa0f072aed36802897c8d" compoundref="menu_8h" startline="30">MENU_TYPE_POWER</references>
-        <references refid="menu_8h_1a14d7adc2f2315acd3a25c75f0df1b00a" compoundref="menu_8h" startline="18">MENU_TYPE_STR_CHOOSE</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaf382d35204a24dfcc899f49a21d6180a" compoundref="menu_8h" startline="31">MENU_TYPE_CHOOSE</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea40eba317709e6fb74680ab0be4506ff5" compoundref="menu_8h" startline="26">MENU_TYPE_NULL</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -748,10 +621,10 @@
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parselevel_8h" kindref="compound">parselevel.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="player_8h" kindref="compound">player.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
-<codeline lineno="12" refid="menu_8h_1ac9844c472d09220d402c191e16f6474e" refkind="member"><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*<ref refid="menu_8c_1ac9844c472d09220d402c191e16f6474e" kindref="member">gMenus</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="13" refid="menu_8c_1aedbdd42a09e1068fad843e6a3d867271" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1aedbdd42a09e1068fad843e6a3d867271" kindref="member">gCurrentSelectedItem</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*<ref refid="menu_8c_1ac9844c472d09220d402c191e16f6474e" kindref="member">gMenus</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1aedbdd42a09e1068fad843e6a3d867271" kindref="member">gCurrentSelectedItem</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25" refid="menu_8c_1a4e4ef9cbfcd4be548e989655712272a1" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a4e4ef9cbfcd4be548e989655712272a1" kindref="member">DeselectItemByNum</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>item)</highlight></codeline>
+<codeline lineno="25"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a4e4ef9cbfcd4be548e989655712272a1" kindref="member">DeselectItemByNum</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>item)</highlight></codeline>
 <codeline lineno="26"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -761,7 +634,7 @@
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;mItems[item].State<sp/>=<sp/><ref refid="globals_8h_1a82d3a17b01eab2136e9f3ee50640b89fa7d5af9aa82596fba5dac11601b34bf19" kindref="member">MENU_ITEM_STATE_NOT_SELECTED</ref>;</highlight></codeline>
 <codeline lineno="33"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45" refid="menu_8c_1a6d1957abbc96c1fae5a5baee797eb4b8" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a6d1957abbc96c1fae5a5baee797eb4b8" kindref="member">SelectItemByNum</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>item)</highlight></codeline>
+<codeline lineno="45"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a6d1957abbc96c1fae5a5baee797eb4b8" kindref="member">SelectItemByNum</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>item)</highlight></codeline>
 <codeline lineno="46"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -771,7 +644,7 @@
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;mItems[item].State<sp/>=<sp/><ref refid="globals_8h_1a82d3a17b01eab2136e9f3ee50640b89fa67f7e72d6ff1c47e3bd9d92a40c76f48" kindref="member">MENU_ITEM_STATE_SELECTED</ref>;</highlight></codeline>
 <codeline lineno="53"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65" refid="menu_8c_1a5db349f6528f6875243365dfb9d9a7f1" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a5db349f6528f6875243365dfb9d9a7f1" kindref="member">UpdateVerticalMenu</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>SDL_GameControllerButton<sp/>button)</highlight></codeline>
+<codeline lineno="65"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a5db349f6528f6875243365dfb9d9a7f1" kindref="member">UpdateVerticalMenu</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>SDL_GameControllerButton<sp/>button)</highlight></codeline>
 <codeline lineno="66"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -820,7 +693,7 @@
 <codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="112"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125" refid="menu_8c_1aa9b02df49523b8c264f21ea4022db35c" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1aa9b02df49523b8c264f21ea4022db35c" kindref="member">UpdatePowerUpMenu</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>SDL_GameControllerButton<sp/>button)</highlight></codeline>
+<codeline lineno="125"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1aa9b02df49523b8c264f21ea4022db35c" kindref="member">UpdatePowerUpMenu</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>SDL_GameControllerButton<sp/>button)</highlight></codeline>
 <codeline lineno="126"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>powerUps,<sp/>selected_power_ups;</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*temp,<sp/>*choose_obj;</highlight></codeline>
@@ -919,7 +792,7 @@
 <codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="222"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="223"><highlight class="normal"></highlight></codeline>
-<codeline lineno="234" refid="menu_8c_1a5c05034491d908bb3ac48a67be87d300" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a5c05034491d908bb3ac48a67be87d300" kindref="member">UpdatePowerSelectMenu</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>SDL_GameControllerButton<sp/>button)</highlight></codeline>
+<codeline lineno="234"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a5c05034491d908bb3ac48a67be87d300" kindref="member">UpdatePowerSelectMenu</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>SDL_GameControllerButton<sp/>button)</highlight></codeline>
 <codeline lineno="235"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>powerUps,<sp/>usedPower<sp/>=<sp/>1;</highlight></codeline>
 <codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
@@ -984,7 +857,7 @@
 <codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="297"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="298"><highlight class="normal"></highlight></codeline>
-<codeline lineno="299" refid="menu_8h_1a1c427a4122a85bc392880fdcf2a843ce" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a1c427a4122a85bc392880fdcf2a843ce" kindref="member">InitMenuSystem</ref>()</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a1c427a4122a85bc392880fdcf2a843ce" kindref="member">InitMenuSystem</ref>()</highlight></codeline>
 <codeline lineno="300"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(gMenus)</highlight></codeline>
 <codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1002,7 +875,7 @@
 <codeline lineno="314"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="315"><highlight class="normal"></highlight></codeline>
 <codeline lineno="316"><highlight class="normal"></highlight><highlight class="comment">//Draw<sp/>Function<sp/>through<sp/>gCurrentSelectedItm</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="317" refid="menu_8c_1ad2751e2bba6d6da7cf3658079447e629" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1ad2751e2bba6d6da7cf3658079447e629" kindref="member">DrawMenuByNum</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1ad2751e2bba6d6da7cf3658079447e629" kindref="member">DrawMenuByNum</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="318"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Rect<sp/>selection_rect<sp/>=<sp/>{0,0,10,10};</highlight></codeline>
@@ -1046,7 +919,7 @@
 <codeline lineno="358"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="359"><highlight class="normal"></highlight></codeline>
 <codeline lineno="360"><highlight class="normal"></highlight><highlight class="comment">//Draw<sp/>Function<sp/>through<sp/>mItem<sp/>State</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="361" refid="menu_8c_1a07e521149cdeaef92a6ba4c82945f7ca" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a07e521149cdeaef92a6ba4c82945f7ca" kindref="member">DrawMenuByState</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a07e521149cdeaef92a6ba4c82945f7ca" kindref="member">DrawMenuByState</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="362"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Rect<sp/>selection_rect<sp/>=<sp/>{0,0,10,10};</highlight></codeline>
@@ -1088,7 +961,7 @@
 <codeline lineno="400"><highlight class="normal"></highlight></codeline>
 <codeline lineno="401"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="402"><highlight class="normal"></highlight></codeline>
-<codeline lineno="413" refid="menu_8c_1ac633a4b1666d690b51d887d296c9e3d2" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1ac633a4b1666d690b51d887d296c9e3d2" kindref="member">ProcessMenuItemsByType</ref>(<ref refid="structmenu__item__s" kindref="compound">menu_item_t</ref><sp/>*items,<ref refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92e" kindref="member">menu_type_t</ref><sp/>type)</highlight></codeline>
+<codeline lineno="413"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1ac633a4b1666d690b51d887d296c9e3d2" kindref="member">ProcessMenuItemsByType</ref>(<ref refid="structmenu__item__s" kindref="compound">menu_item_t</ref><sp/>*items,<ref refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92e" kindref="member">menu_type_t</ref><sp/>type)</highlight></codeline>
 <codeline lineno="414"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Rect<sp/>format;</highlight></codeline>
 <codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>itemCount,<sp/>i,<sp/>width,<sp/>height,<sp/>divisor;</highlight></codeline>
@@ -1153,7 +1026,7 @@
 <codeline lineno="475"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="476"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="477"><highlight class="normal"></highlight></codeline>
-<codeline lineno="478" refid="menu_8h_1a6f4a9eb4cd081c5b7a3e5e0475ed8437" refkind="member"><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*<ref refid="menu_8c_1a6f4a9eb4cd081c5b7a3e5e0475ed8437" kindref="member">LoadMenu</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str<sp/>,<ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/>curr_state,<sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/>previous_state)</highlight></codeline>
+<codeline lineno="478"><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*<ref refid="menu_8c_1a6f4a9eb4cd081c5b7a3e5e0475ed8437" kindref="member">LoadMenu</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str<sp/>,<ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/>curr_state,<sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/>previous_state)</highlight></codeline>
 <codeline lineno="479"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structmenu__s" kindref="compound">menu_t</ref><sp/>*menu,<sp/>*ref_menu;</highlight></codeline>
 <codeline lineno="481"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structmenu__item__s" kindref="compound">menu_item_t</ref><sp/>*ref_menu_item;</highlight></codeline>
@@ -1312,7 +1185,7 @@
 <codeline lineno="634"><highlight class="normal"></highlight></codeline>
 <codeline lineno="635"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="636"><highlight class="normal"></highlight></codeline>
-<codeline lineno="637" refid="menu_8h_1a9cd9b0277a6a4e88c4c065e0efeb6192" refkind="member"><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_t</ref>*<sp/><ref refid="menu_8c_1a9cd9b0277a6a4e88c4c065e0efeb6192" kindref="member">FindMenuFromGameState</ref>(<ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/>curr_state)</highlight></codeline>
+<codeline lineno="637"><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_t</ref>*<sp/><ref refid="menu_8c_1a9cd9b0277a6a4e88c4c065e0efeb6192" kindref="member">FindMenuFromGameState</ref>(<ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/>curr_state)</highlight></codeline>
 <codeline lineno="638"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="639"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="640"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!gMenus)</highlight></codeline>
@@ -1334,7 +1207,7 @@
 <codeline lineno="656"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="657"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="658"><highlight class="normal"></highlight></codeline>
-<codeline lineno="659" refid="menu_8h_1a7cb8c357e2b15b9a01f236ff19382427" refkind="member"><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_t</ref>*<sp/><ref refid="menu_8c_1a7cb8c357e2b15b9a01f236ff19382427" kindref="member">FindFreeMenu</ref>()</highlight></codeline>
+<codeline lineno="659"><highlight class="normal"><ref refid="structmenu__s" kindref="compound">menu_t</ref>*<sp/><ref refid="menu_8c_1a7cb8c357e2b15b9a01f236ff19382427" kindref="member">FindFreeMenu</ref>()</highlight></codeline>
 <codeline lineno="660"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="661"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>*menuCmp;</highlight></codeline>
 <codeline lineno="662"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!gMenus)</highlight></codeline>
@@ -1354,7 +1227,7 @@
 <codeline lineno="676"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="677"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="678"><highlight class="normal"></highlight></codeline>
-<codeline lineno="679" refid="menu_8h_1af50d4e67c36ed63b1b84befc82d8ac8a" refkind="member"><highlight class="normal"><ref refid="structmenu__item__s" kindref="compound">menu_item_t</ref>*<sp/><ref refid="menu_8c_1af50d4e67c36ed63b1b84befc82d8ac8a" kindref="member">FindMenuItem</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref>*<sp/>menu,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>item)</highlight></codeline>
+<codeline lineno="679"><highlight class="normal"><ref refid="structmenu__item__s" kindref="compound">menu_item_t</ref>*<sp/><ref refid="menu_8c_1af50d4e67c36ed63b1b84befc82d8ac8a" kindref="member">FindMenuItem</ref>(<ref refid="structmenu__s" kindref="compound">menu_t</ref>*<sp/>menu,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>item)</highlight></codeline>
 <codeline lineno="680"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="681"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>items;</highlight></codeline>
 <codeline lineno="682"><highlight class="normal"><sp/><sp/><sp/><sp/>items<sp/>=<sp/><ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(menu-&gt;<ref refid="structmenu__s_1a0cc653a44ba5b3f6fc46b8c43131c18b" kindref="member">mItems</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structmenu__item__s" kindref="compound">menu_item_t</ref>));</highlight></codeline>
@@ -1372,7 +1245,7 @@
 <codeline lineno="694"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="695"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="696"><highlight class="normal"></highlight></codeline>
-<codeline lineno="697" refid="menu_8c_1a7d08e8b15cd91ee8dfc2acfcf9c7ca8d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a7d08e8b15cd91ee8dfc2acfcf9c7ca8d" kindref="member">StrToMenuType</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
+<codeline lineno="697"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="menu_8c_1a7d08e8b15cd91ee8dfc2acfcf9c7ca8d" kindref="member">StrToMenuType</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
 <codeline lineno="698"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="699"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(str,<sp/><ref refid="menu_8h_1ad93a7e08ccb25a8e9d9ff257c6d00d7f" kindref="member">MENU_TYPE_STR_H</ref>))</highlight></codeline>
 <codeline lineno="700"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>

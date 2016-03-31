@@ -1141,8 +1141,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="38" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="20" bodyend="28"/>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1aad91f1e528aceb82eb58eeaeef31ba96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1168,8 +1166,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="39" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="31" bodyend="39"/>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1aa9e0b764ef33951a7a3e46dfa128837b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1195,8 +1191,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="40" column="1" bodyfile="dumb-ways-to-memorize/mymath.c" bodystart="41" bodyend="49"/>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a9aa87727325e75d1590d911602eab803" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1242,18 +1236,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="94" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="274" bodyend="304"/>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a96a92720d3d9970db2d464166b8a569e" compoundref="globals_8h" startline="85">SPLASH</references>
-        <references refid="mystrings_8h_1abee22002c9d20fec0bc94a3bfd4e40ad" compoundref="mystrings_8h" startline="9">GAME_STATE_SPLASH_STR</references>
-        <references refid="mystrings_8h_1a06f08b51f172bd9daaa65efb9a67ec85" compoundref="mystrings_8h" startline="10">GAME_STATE_START_STR</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a13d000b4d7dc70d90239b7430d1eb6b2" compoundref="globals_8h" startline="86">START</references>
-        <references refid="mystrings_8h_1aba8c67d5ed1579335310ff77649ff89e" compoundref="mystrings_8h" startline="11">GAME_STATE_GUESS_STR</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285ab8c769f7e7a67d0a91a2fe34fdc5dbea" compoundref="globals_8h" startline="87">GUESS</references>
-        <references refid="mystrings_8h_1abe75cf0ea422164cff13e9821b1aedf1" compoundref="mystrings_8h" startline="12">GAME_STATE_CHOOSE_STR</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a58a9a2b13d64bdcda325c28725c1a73f" compoundref="globals_8h" startline="88">CHOOSE</references>
-        <references refid="mystrings_8h_1acfc3e6c9cf34eaee72d09667d7d265db" compoundref="mystrings_8h" startline="13">GAME_STATE_PLAYING_STR</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285af095245f5cebc27a97a124345269fed8" compoundref="globals_8h" startline="89">PLAYING</references>
-        <references refid="mystrings_8h_1a4e38eab119f1fee536a85e1f29c1ee44" compoundref="mystrings_8h" startline="14">GAME_STATE_END_STR</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285adc6f24fd6915a3f2786a1b7045406924" compoundref="globals_8h" startline="90">END</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a7d08e8b15cd91ee8dfc2acfcf9c7ca8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1271,17 +1253,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="95" column="1" bodyfile="dumb-ways-to-memorize/menu.c" bodystart="697" bodyend="720"/>
-        <references refid="menu_8h_1ad93a7e08ccb25a8e9d9ff257c6d00d7f" compoundref="menu_8h" startline="19">MENU_TYPE_STR_H</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea44093eb84c021250710c21d7040742c9" compoundref="menu_8h" startline="27">MENU_TYPE_H</references>
-        <references refid="menu_8h_1a6e3272cde8626b4dbe6fb12af2a4fec8" compoundref="menu_8h" startline="20">MENU_TYPE_STR_V</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eae51e962ec8beccece27215c15adcead4" compoundref="menu_8h" startline="28">MENU_TYPE_V</references>
-        <references refid="menu_8h_1af1d21de0fd729ce50359d39fc89b84bf" compoundref="menu_8h" startline="21">MENU_TYPE_STR_GRID</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eadf5c230f1c0e9ba8cb94248e675e520c" compoundref="menu_8h" startline="29">MENU_TYPE_GRID</references>
-        <references refid="menu_8h_1a184f67b2269e942df91f4cc4ef314b77" compoundref="menu_8h" startline="17">MENU_TYPE_STR_POWER</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaed4cdae7debfa0f072aed36802897c8d" compoundref="menu_8h" startline="30">MENU_TYPE_POWER</references>
-        <references refid="menu_8h_1a14d7adc2f2315acd3a25c75f0df1b00a" compoundref="menu_8h" startline="18">MENU_TYPE_STR_CHOOSE</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92eaf382d35204a24dfcc899f49a21d6180a" compoundref="menu_8h" startline="31">MENU_TYPE_CHOOSE</references>
-        <references refid="menu_8h_1ae04d0184eeca6be261090a6cfc49b92ea40eba317709e6fb74680ab0be4506ff5" compoundref="menu_8h" startline="26">MENU_TYPE_NULL</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1abe578bfaa1629eec4e43d2ec76b0499b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1310,8 +1281,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="103" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="317" bodyend="331"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="entity_8c_1a4a2a39e414a5c7caa23e9a8faf5b0e7d" compoundref="entity_8c" startline="13">Hazards_str</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a44b3e24411aec8ef45be1d5430c5b2eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13a" kindref="member">collision_type_t</ref></type>
@@ -1340,8 +1309,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="110" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="344" bodyend="357"/>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aadaf36ae19b0226a720a707942aea87e5" compoundref="globals_8h" startline="57">COLLISION_TYPE_CLIP</references>
-        <references refid="entity_8c_1acaf43cd754d2eb69556f0502847bc524" compoundref="entity_8c" startline="14">Collisions_str</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a228d03ca7eff58ad7ed8fccb3a7bc9c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="globals_8h_1a99f3d33a52ee74fc145c14ceee9d4154" kindref="member">entity_state_t</ref></type>
@@ -1370,8 +1337,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="111" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="370" bodyend="383"/>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aadaf36ae19b0226a720a707942aea87e5" compoundref="globals_8h" startline="57">COLLISION_TYPE_CLIP</references>
-        <references refid="entity_8c_1a4cb66787ca1de7d1e390016a47ecea04" compoundref="entity_8c" startline="15">EntityStates_str</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a94f46db60f69856665f7b6fce5db209e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1388,10 +1353,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="125" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="297" bodyend="335"/>
-        <references refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" compoundref="game_8c" startline="26">gLevels</references>
-        <references refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" compoundref="game_8c" startline="27">gSelectedLevels</references>
-        <references refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" compoundref="game_8c" startline="24">gLevelsPerGame</references>
-        <references refid="globals_8h_1a4cda7fb3c8f061cba2e2dff0710400ee" compoundref="mymath_8c" startline="77" endline="91">CompareMemToMemArray</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1ae4bccf3c8c8b60d039485212d07c6489" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1421,11 +1382,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="126" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="390" bodyend="419"/>
-        <references refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" compoundref="game_8c" startline="27">gSelectedLevels</references>
-        <references refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" compoundref="mystrings_8c" startline="192" endline="261">ConvertFileToUseable</references>
-        <references refid="game_8c_1acff6c545ae762a933011c296fda1ead0" compoundref="game_8c" startline="38">gLevelData</references>
-        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
-        <references refid="parselevel_8c_1ad9ebda29344f8ab359a5630fadc56489" compoundref="parselevel_8c" startline="11" endline="243">LoadLevel</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1a61420beeaf5d0198b41709412508cfd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1441,11 +1397,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/globals.h" line="127" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="343" bodyend="377"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" compoundref="game_8c" startline="26">gLevels</references>
-        <references refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" compoundref="game_8c" startline="24">gLevelsPerGame</references>
-        <references refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" compoundref="game_8c" startline="27">gSelectedLevels</references>
-        <references refid="globals_8h_1a4cda7fb3c8f061cba2e2dff0710400ee" compoundref="mymath_8c" startline="77" endline="91">CompareMemToMemArray</references>
       </memberdef>
       <memberdef kind="function" id="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>

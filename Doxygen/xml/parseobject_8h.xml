@@ -296,21 +296,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parseobject.h" line="38" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="8" bodyend="117"/>
-        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
-        <references refid="structobject__s_1a444f5b5cbba653b103c8841fa8536b8d" compoundref="parseobject_8h" startline="20">object_s::parent</references>
-        <references refid="structjsmntok__t_1abce9f5dc9c83f2639b72024fdee5d388" compoundref="jsmn_8h" startline="43">jsmntok_t::end</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa416d6e733082bedc1166f0d66f571867" compoundref="jsmn_8h" startline="19">JSMN_OBJECT</references>
-        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539" compoundref="jsmn_8h" startline="21">JSMN_STRING</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fabc4c47216dacf36bd4f64ac3d649d471" compoundref="jsmn_8h" startline="20">JSMN_ARRAY</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="structjsmntok__t_1a439227feff9d7f55384e8780cfc2eb82" compoundref="jsmn_8h" startline="44">jsmntok_t::size</references>
-        <references refid="parseobject_8c_1a66550ec5ad5119b002932431e1ce8578" compoundref="parseobject_8c" startline="237" endline="291">CopyObjectToObjectArray</references>
-        <references refid="parseobject_8c_1aef0cb86d9b54e11206d154c369cb9a7e" compoundref="parseobject_8c" startline="144" endline="168">CountObjectMembers</references>
-        <references refid="globals_8h_1a2263fb5e65c0597a8e4c35fa0c05e15d" compoundref="mymath_8c" startline="66" endline="75">AllocateDynamic</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
       </memberdef>
       <memberdef kind="function" id="parseobject_8h_1a0d7610fbd167c6f81519e6ab3403e3bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="parseobject_8h_1a965db53884ff9e4e077dd5e2e2d6a5e2" kindref="member">object_t</ref> *</type>
@@ -350,9 +335,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parseobject.h" line="51" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="120" bodyend="142"/>
-        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
       </memberdef>
       <memberdef kind="function" id="parseobject_8h_1aef0cb86d9b54e11206d154c369cb9a7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -374,11 +356,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parseobject.h" line="54" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="144" bodyend="168"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="parseobject_8c_1aef0cb86d9b54e11206d154c369cb9a7e" compoundref="parseobject_8c" startline="144" endline="168">CountObjectMembers</references>
       </memberdef>
       <memberdef kind="function" id="parseobject_8h_1acaa82337937e66fae84e360325cabdc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -396,9 +373,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parseobject.h" line="57" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="170" bodyend="186"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="parseobject_8c_1acaa82337937e66fae84e360325cabdc6" compoundref="parseobject_8c" startline="170" endline="186">CountObjectChildren</references>
       </memberdef>
       <memberdef kind="function" id="parseobject_8h_1ae7d41e06515589776dc92961481d56ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -420,14 +394,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parseobject.h" line="60" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="188" bodyend="235"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
-        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="structjsmntok__t_1a7def41ebc3980f6e4526819b42c2721f" compoundref="jsmn_8h" startline="41">jsmntok_t::type</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="parseobject_8c_1ae7d41e06515589776dc92961481d56ab" compoundref="parseobject_8c" startline="188" endline="235">PrintObject</references>
       </memberdef>
       <memberdef kind="function" id="parseobject_8h_1a66550ec5ad5119b002932431e1ce8578" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -453,14 +419,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parseobject.h" line="63" column="1" bodyfile="dumb-ways-to-memorize/parseobject.c" bodystart="237" bodyend="291"/>
-        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
-        <references refid="structobject__s_1a444f5b5cbba653b103c8841fa8536b8d" compoundref="parseobject_8h" startline="20">object_s::parent</references>
-        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="globals_8h_1a2263fb5e65c0597a8e4c35fa0c05e15d" compoundref="mymath_8c" startline="66" endline="75">AllocateDynamic</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="parseobject_8c_1a66550ec5ad5119b002932431e1ce8578" compoundref="parseobject_8c" startline="237" endline="291">CopyObjectToObjectArray</references>
       </memberdef>
       </sectiondef>
     <briefdescription>

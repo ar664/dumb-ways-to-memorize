@@ -218,9 +218,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="17" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="17" bodyend="37"/>
-        <references refid="graphics_8c_1a17fde33b1d856d825920d633285aec6e" compoundref="graphics_8c" startline="152" endline="188">DrawSprite</references>
-        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
-        <references refid="globals_8h_1aa6f86057c10bca778f0390185896f050a365057b4417eea6fa7f37cb60877369d" compoundref="globals_8h" startline="73">ANIMATION_IDLE</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1af5e7ffbf279b65e179e3f89caad2ec45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -265,9 +262,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="45" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="45" bodyend="57"/>
-        <references refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" compoundref="entity_8c" startline="379" endline="407">FreeEntity</references>
-        <references refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" compoundref="game_8c" startline="50">gCurrentTime</references>
-        <references refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" compoundref="globals_8h" startline="135">FRAME_DELAY</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1ae11597dd27ad4ab341e8c1ebf07c15f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -295,21 +289,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="59" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="59" bodyend="100"/>
-        <references refid="game_8c_1a644f3aeee8c48bb2c622244836ef2046" compoundref="game_8c" startline="49">gButtonQ</references>
-        <references refid="quick__controller_8h_1ab7820abcb4653b4fcf13da1a7a724b3f" compoundref="quick__controller_8h" startline="5">BUTTON_NO_INPUT</references>
-        <references refid="quick__controller_8c_1afa7747dae7b1cb4e00338fa86a4f88ce" compoundref="quick__controller_8c" startline="7" endline="45">DoPlayerThink</references>
-        <references refid="game_8c_1ace39fee8ad9b40be707e8bb899b4b66e" compoundref="game_8c" startline="48">gController</references>
-        <references refid="parsepowerup_8c_1a90fefa2dda0184e13839a0b67950fc88" compoundref="parsepowerup_8c" startline="16">gCurrentPowerUp</references>
-        <references refid="structpower__s_1a3cad653c3718314662c4a98659778999" compoundref="parsepowerup_8h" startline="44">power_s::UpdateUse</references>
-        <references refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" compoundref="game_8c" startline="50">gCurrentTime</references>
-        <references refid="globals_8h_1a7460e61d712f20efd9bca05176757e88" compoundref="player_8c" startline="10">gPlayerLives</references>
-        <references refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" compoundref="entity_8c" startline="379" endline="407">FreeEntity</references>
-        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
-        <references refid="player_8h_1a9d84f6e79f74322526a49e2eb0d82a12" compoundref="player_8h" startline="6">PLAYER_LIVES</references>
-        <references refid="entity_8c_1aec8aad072a0215184b68b9815194950c" compoundref="entity_8c" startline="409" endline="425">FreeNonPlayerEntities</references>
-        <references refid="game_8c_1aafc8457d9121884bb074efeff2941e23" compoundref="game_8c" startline="44">gGameState</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a13d000b4d7dc70d90239b7430d1eb6b2" compoundref="globals_8h" startline="86">START</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285ab8c769f7e7a67d0a91a2fe34fdc5dbea" compoundref="globals_8h" startline="87">GUESS</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a6c8f8a4a732c4324caca6ba22521e5a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -337,13 +316,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="102" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="102" bodyend="137"/>
-        <references refid="ai__interpret_8h_1aab487a4dae4d7338733bfd01a5658b23a2f4801c84fb1ead492802fc8b93d1619" compoundref="ai__interpret_8h" startline="70">AI_FLAG_CHECK_OBJECT</references>
-        <references refid="entity_8c_1a1c8f7981791b1935beab73c3faab96a5" compoundref="entity_8c" startline="371" endline="377">Distance2Entity</references>
-        <references refid="entity_8c_1aa4c00fea364c35f0a56dd90b9c38efb0" compoundref="entity_8c" startline="316" endline="329">FindEntity</references>
-        <references refid="ai__interpret_8h_1a0fd706f9f199bde94857277c893baa47a682c194be42cbd5ca0d0deabb0239876" compoundref="ai__interpret_8h" startline="61">AI_VAR_CHECK</references>
-        <references refid="ai__interpret_8c_1a5ad36cd8551508ec69032e3dc782a1ba" compoundref="ai__interpret_8c" startline="238" endline="259">GetFunctionAI</references>
-        <references refid="ai__interpret_8h_1aab487a4dae4d7338733bfd01a5658b23a1e62188aa9d46d657686622ed91447e2" compoundref="ai__interpret_8h" startline="69">AI_FLAG_CHECK_PLAYER</references>
-        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a2eb4fef990cd3eb845b5a99fbd22e0fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -393,15 +365,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="139" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="139" bodyend="165"/>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aaca8cf2b8670715dc64f0b04625fee211" compoundref="globals_8h" startline="55">COLLISION_TYPE_STATIC</references>
-        <references refid="structentity__s_1a8c5ee6d8b825b6da8ab851320eccd45e" compoundref="entity_8h" startline="23">entity_s::mHazards</references>
-        <references refid="globals_8h_1a64503cbd995995a54eaa8ee4c5f4419d" compoundref="globals_8h" startline="100">HAZARD_DAMAGE</references>
-        <references refid="globals_8h_1aa6f86057c10bca778f0390185896f050a1dfa398765a2780df83e82c8de685710" compoundref="globals_8h" startline="77">ANIMATION_HIT</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="globals_8h_1af1a2e554453150b34cd34fc077cd217a" compoundref="globals_8h" startline="101">HAZARD_STUN_FRAMES</references>
-        <references refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" compoundref="globals_8h" startline="135">FRAME_DELAY</references>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aa7e4186c206af11ddf23d64e3d19c4bdb" compoundref="globals_8h" startline="56">COLLISION_TYPE_RAGDOLL</references>
-        <references refid="structentity__s_1a709ed9fa7e17bcc63f51b9e011772aee" compoundref="entity_8h" startline="25">entity_s::mHealth</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a0090f3a150bf7833709c04eba953c6e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -451,14 +414,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="168" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="168" bodyend="194"/>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aaca8cf2b8670715dc64f0b04625fee211" compoundref="globals_8h" startline="55">COLLISION_TYPE_STATIC</references>
-        <references refid="structentity__s_1a8c5ee6d8b825b6da8ab851320eccd45e" compoundref="entity_8h" startline="23">entity_s::mHazards</references>
-        <references refid="globals_8h_1a64503cbd995995a54eaa8ee4c5f4419d" compoundref="globals_8h" startline="100">HAZARD_DAMAGE</references>
-        <references refid="globals_8h_1aa6f86057c10bca778f0390185896f050a1dfa398765a2780df83e82c8de685710" compoundref="globals_8h" startline="77">ANIMATION_HIT</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="globals_8h_1af1a2e554453150b34cd34fc077cd217a" compoundref="globals_8h" startline="101">HAZARD_STUN_FRAMES</references>
-        <references refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" compoundref="globals_8h" startline="135">FRAME_DELAY</references>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aa7e4186c206af11ddf23d64e3d19c4bdb" compoundref="globals_8h" startline="56">COLLISION_TYPE_RAGDOLL</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a8460f228ddd46eb74cf3693274191365" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -508,9 +463,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="196" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="196" bodyend="207"/>
-        <references refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" compoundref="entity_8h" startline="30">entity_s::mCollisionType</references>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aaca8cf2b8670715dc64f0b04625fee211" compoundref="globals_8h" startline="55">COLLISION_TYPE_STATIC</references>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aa7e4186c206af11ddf23d64e3d19c4bdb" compoundref="globals_8h" startline="56">COLLISION_TYPE_RAGDOLL</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a4929b147240092a570d720f74ce10617" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -560,13 +512,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="209" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="209" bodyend="215"/>
-        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
-        <references refid="game_8c_1aafc8457d9121884bb074efeff2941e23" compoundref="game_8c" startline="44">gGameState</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="game_8c_1a6540f730c8dc68b12d940f68358ca677" compoundref="game_8c" startline="29">gUsedPowerUps</references>
-        <references refid="game_8c_1a66329b13979a75d803e9f5d705f5a755" compoundref="game_8c" startline="28">gSelectedPowerUps</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a13d000b4d7dc70d90239b7430d1eb6b2" compoundref="globals_8h" startline="86">START</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a58a9a2b13d64bdcda325c28725c1a73f" compoundref="globals_8h" startline="88">CHOOSE</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a9aa4a5f113750202be9f45db34908955" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -583,9 +528,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="217" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="217" bodyend="233"/>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
-        <references refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" compoundref="game_8c" startline="41">gEntityDictionary</references>
-        <references refid="entity_8c_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" compoundref="entity_8c" startline="12">gLastEntity</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1ad5cd21060189ddd8246414069ee01676" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -602,8 +544,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="235" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="235" bodyend="248"/>
-        <references refid="entity_8c_1ace2c9f2a6fee203dab937c5e716ad7dd" compoundref="entity_8c" startline="331" endline="353">FindFreeEntity</references>
-        <references refid="entity_8c_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" compoundref="entity_8c" startline="12">gLastEntity</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a373409dde746bc4935afd92aa8975f4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -620,9 +560,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="250" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="250" bodyend="262"/>
-        <references refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" compoundref="game_8c" startline="41">gEntityDictionary</references>
-        <references refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" compoundref="entity_8h" startline="35">entity_s::mName</references>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a7406ec610d0755cd8022ceea378f83a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -638,9 +575,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="264" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="264" bodyend="279"/>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
-        <references refid="game_8c_1a3d5cf0d8d37b6b17224867eb397c9a16" compoundref="game_8c" startline="547" endline="582">Draw</references>
-        <references refid="structentity__s_1a51719e3ab7c4f8dd260dea013021f53c" compoundref="entity_8h" startline="41">entity_s::Draw</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a4804d845517ee1430fc40dfdc3d333df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -657,9 +591,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="281" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="281" bodyend="299"/>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
-        <references refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" compoundref="game_8c" startline="50">gCurrentTime</references>
-        <references refid="structentity__s_1ae045b7ba608e955e791f8af8507b78a4" compoundref="entity_8h" startline="39">entity_s::Think</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a018dc9e984dbb58b293f263775b528c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -688,8 +619,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="301" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="301" bodyend="314"/>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
-        <references refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" compoundref="game_8c" startline="41">gEntityDictionary</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1aa4c00fea364c35f0a56dd90b9c38efb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -718,7 +647,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="316" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="316" bodyend="329"/>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1ace2c9f2a6fee203dab937c5e716ad7dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -747,8 +675,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="331" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="331" bodyend="353"/>
-        <references refid="entity_8c_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" compoundref="entity_8c" startline="12">gLastEntity</references>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a69811b56fbaa2dfc61154fb027632ea8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -777,12 +703,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="355" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="355" bodyend="369"/>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
-        <references refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" compoundref="entity_8h" startline="32">entity_s::mSprites</references>
-        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a1c8f7981791b1935beab73c3faab96a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -822,8 +742,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="371" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="371" bodyend="377"/>
-        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -852,7 +770,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="379" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="379" bodyend="407"/>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1aec8aad072a0215184b68b9815194950c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -868,9 +785,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="409" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="409" bodyend="425"/>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
-        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
-        <references refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" compoundref="entity_8c" startline="379" endline="407">FreeEntity</references>
       </memberdef>
       <memberdef kind="function" id="entity_8c_1a8aebaea1606f89c449d67b1f1afb7cdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -886,8 +800,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/entity.c" line="427" column="1" bodyfile="dumb-ways-to-memorize/entity.c" bodystart="427" bodyend="439"/>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
-        <references refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" compoundref="entity_8c" startline="379" endline="407">FreeEntity</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -905,13 +817,13 @@
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parselevel_8h" kindref="compound">parselevel.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parsepowerup_8h" kindref="compound">parsepowerup.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight></codeline>
-<codeline lineno="11" refid="entity_8h_1a725e495de3797c12610995f701dd8a6a" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="12" refid="entity_8h_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" kindref="member">gLastEntity</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="13" refid="globals_8h_1a4a2a39e414a5c7caa23e9a8faf5b0e7d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="entity_8c_1a4a2a39e414a5c7caa23e9a8faf5b0e7d" kindref="member">Hazards_str</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="14" refid="globals_8h_1acaf43cd754d2eb69556f0502847bc524" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="entity_8c_1acaf43cd754d2eb69556f0502847bc524" kindref="member">Collisions_str</ref>[]<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;static&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ragdoll&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;clip&quot;</highlight><highlight class="normal">,<sp/>0};</highlight></codeline>
-<codeline lineno="15" refid="globals_8h_1a4cb66787ca1de7d1e390016a47ecea04" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="entity_8c_1a4cb66787ca1de7d1e390016a47ecea04" kindref="member">EntityStates_str</ref>[]<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;alive&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;dead&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;other&quot;</highlight><highlight class="normal">,<sp/>0};</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" kindref="member">gEntities</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" kindref="member">gLastEntity</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="entity_8c_1a4a2a39e414a5c7caa23e9a8faf5b0e7d" kindref="member">Hazards_str</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="entity_8c_1acaf43cd754d2eb69556f0502847bc524" kindref="member">Collisions_str</ref>[]<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;static&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ragdoll&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;clip&quot;</highlight><highlight class="normal">,<sp/>0};</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="entity_8c_1a4cb66787ca1de7d1e390016a47ecea04" kindref="member">EntityStates_str</ref>[]<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;alive&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;dead&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;other&quot;</highlight><highlight class="normal">,<sp/>0};</highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17" refid="entity_8h_1a8572f94d16405fa3b42dd584893852bd" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a8572f94d16405fa3b42dd584893852bd" kindref="member">DrawGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a8572f94d16405fa3b42dd584893852bd" kindref="member">DrawGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="18"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -934,12 +846,12 @@
 <codeline lineno="37"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//Unused<sp/>for<sp/>now</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="entity_8h_1af5e7ffbf279b65e179e3f89caad2ec45" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1af5e7ffbf279b65e179e3f89caad2ec45" kindref="member">DrawPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1af5e7ffbf279b65e179e3f89caad2ec45" kindref="member">DrawPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="41"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//DrawSprite(self-&gt;mSprites,<sp/>&amp;self-&gt;mPosition,<sp/>gRenderer);</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45" refid="entity_8h_1adb84b9e6a5a5c18dc147a1c0de60fd85" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1adb84b9e6a5a5c18dc147a1c0de60fd85" kindref="member">ThinkGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1adb84b9e6a5a5c18dc147a1c0de60fd85" kindref="member">ThinkGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="46"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -953,7 +865,7 @@
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;mNextThink<sp/>=<sp/><ref refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" kindref="member">gCurrentTime</ref><sp/>+<sp/>2*<ref refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" kindref="member">FRAME_DELAY</ref>;</highlight></codeline>
 <codeline lineno="57"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59" refid="entity_8h_1ae11597dd27ad4ab341e8c1ebf07c15f8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1ae11597dd27ad4ab341e8c1ebf07c15f8" kindref="member">ThinkPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1ae11597dd27ad4ab341e8c1ebf07c15f8" kindref="member">ThinkPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="60"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Do<sp/>input<sp/>control</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!</highlight><highlight class="keyword">self</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
@@ -996,7 +908,7 @@
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="100"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="102" refid="entity_8h_1a6c8f8a4a732c4324caca6ba22521e5a7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a6c8f8a4a732c4324caca6ba22521e5a7" kindref="member">ThinkEnemy</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a6c8f8a4a732c4324caca6ba22521e5a7" kindref="member">ThinkEnemy</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="103"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!</highlight><highlight class="keyword">self</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!self-&gt;mData)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
@@ -1033,7 +945,7 @@
 <codeline lineno="136"><highlight class="normal"></highlight></codeline>
 <codeline lineno="137"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="138"><highlight class="normal"></highlight></codeline>
-<codeline lineno="139" refid="entity_8h_1a2eb4fef990cd3eb845b5a99fbd22e0fc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a2eb4fef990cd3eb845b5a99fbd22e0fc" kindref="member">TouchGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a2eb4fef990cd3eb845b5a99fbd22e0fc" kindref="member">TouchGeneric</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type)</highlight></codeline>
 <codeline lineno="140"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(type)</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1062,7 +974,7 @@
 <codeline lineno="165"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="166"><highlight class="normal"></highlight></codeline>
 <codeline lineno="167"><highlight class="normal"></highlight><highlight class="comment">//Touch<sp/>Functions</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="168" refid="entity_8h_1a0090f3a150bf7833709c04eba953c6e2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a0090f3a150bf7833709c04eba953c6e2" kindref="member">TouchPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a0090f3a150bf7833709c04eba953c6e2" kindref="member">TouchPlayer</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type)</highlight></codeline>
 <codeline lineno="169"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(type)</highlight></codeline>
 <codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1090,7 +1002,7 @@
 <codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="194"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="195"><highlight class="normal"></highlight></codeline>
-<codeline lineno="196" refid="entity_8h_1a8460f228ddd46eb74cf3693274191365" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a8460f228ddd46eb74cf3693274191365" kindref="member">TouchEnemy</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type)</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a8460f228ddd46eb74cf3693274191365" kindref="member">TouchEnemy</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type)</highlight></codeline>
 <codeline lineno="197"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(other-&gt;<ref refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" kindref="member">mCollisionType</ref>)</highlight></codeline>
 <codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1103,7 +1015,7 @@
 <codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="207"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="208"><highlight class="normal"></highlight></codeline>
-<codeline lineno="209" refid="entity_8h_1a4929b147240092a570d720f74ce10617" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a4929b147240092a570d720f74ce10617" kindref="member">TouchGoal</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/>other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type)</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a4929b147240092a570d720f74ce10617" kindref="member">TouchGoal</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/>other,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type)</highlight></codeline>
 <codeline lineno="210"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(other<sp/>==<sp/><ref refid="player_8c_1a39b4143c78f14357b34548d43450c880" kindref="member">gPlayer</ref>)</highlight></codeline>
 <codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1111,7 +1023,7 @@
 <codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="215"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="216"><highlight class="normal"></highlight></codeline>
-<codeline lineno="217" refid="entity_8h_1a9aa4a5f113750202be9f45db34908955" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a9aa4a5f113750202be9f45db34908955" kindref="member">InitEntitySystem</ref>()</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a9aa4a5f113750202be9f45db34908955" kindref="member">InitEntitySystem</ref>()</highlight></codeline>
 <codeline lineno="218"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(gEntities<sp/>=<sp/>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structentity__s" kindref="compound">entity_t</ref>)*<ref refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" kindref="member">MAX_ENTITIES</ref>))<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
 <codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1129,7 +1041,7 @@
 <codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="233"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="234"><highlight class="normal"></highlight></codeline>
-<codeline lineno="235" refid="entity_8h_1ad5cd21060189ddd8246414069ee01676" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8c_1ad5cd21060189ddd8246414069ee01676" kindref="member">InitNewEntity</ref>()</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8c_1ad5cd21060189ddd8246414069ee01676" kindref="member">InitNewEntity</ref>()</highlight></codeline>
 <codeline lineno="236"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pos;</highlight></codeline>
 <codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*retVal;</highlight></codeline>
@@ -1144,21 +1056,21 @@
 <codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
 <codeline lineno="248"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="249"><highlight class="normal"></highlight></codeline>
-<codeline lineno="250" refid="entity_8h_1a373409dde746bc4935afd92aa8975f4c" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/><ref refid="entity_8c_1a373409dde746bc4935afd92aa8975f4c" kindref="member">FindNextFreeCachePos</ref>()</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/><ref refid="entity_8c_1a373409dde746bc4935afd92aa8975f4c" kindref="member">FindNextFreeCachePos</ref>()</highlight></codeline>
 <codeline lineno="251"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/><ref refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" kindref="member">gEntityDictionary</ref>[i].<ref refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" kindref="member">mName</ref>;<sp/>i++)</highlight></codeline>
 <codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
 <codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(&amp;<ref refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" kindref="member">gEntityDictionary</ref>[i]<sp/>&gt;<sp/>&amp;<ref refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" kindref="member">gEntityDictionary</ref>[<ref refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" kindref="member">MAX_ENTITIES</ref>])</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(&amp;<ref refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" kindref="member">gEntityDictionary</ref>[i]<sp/>&gt;<sp/>&amp;<ref refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" kindref="member">gEntityDictionary</ref>[MAX_ENTITIES])</highlight></codeline>
 <codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;<ref refid="entity_8h_1af8475c9d8ef741632cc7461fec5c0fad" kindref="member">gEntityDictionary</ref>[i];</highlight></codeline>
 <codeline lineno="262"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="263"><highlight class="normal"></highlight></codeline>
-<codeline lineno="264" refid="entity_8h_1a7406ec610d0755cd8022ceea378f83a6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a7406ec610d0755cd8022ceea378f83a6" kindref="member">DrawEntities</ref>()</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a7406ec610d0755cd8022ceea378f83a6" kindref="member">DrawEntities</ref>()</highlight></codeline>
 <codeline lineno="265"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!gEntities)</highlight></codeline>
@@ -1175,7 +1087,7 @@
 <codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="279"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="280"><highlight class="normal"></highlight></codeline>
-<codeline lineno="281" refid="entity_8h_1a4804d845517ee1430fc40dfdc3d333df" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a4804d845517ee1430fc40dfdc3d333df" kindref="member">RunEntities</ref>()</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a4804d845517ee1430fc40dfdc3d333df" kindref="member">RunEntities</ref>()</highlight></codeline>
 <codeline lineno="282"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!gEntities)</highlight></codeline>
@@ -1195,7 +1107,7 @@
 <codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="299"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="300"><highlight class="normal"></highlight></codeline>
-<codeline lineno="301" refid="entity_8h_1a018dc9e984dbb58b293f263775b528c6" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/><ref refid="entity_8c_1a018dc9e984dbb58b293f263775b528c6" kindref="member">FindCachedEntity</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name)</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/><ref refid="entity_8c_1a018dc9e984dbb58b293f263775b528c6" kindref="member">FindCachedEntity</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name)</highlight></codeline>
 <codeline lineno="302"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" kindref="member">MAX_ENTITIES</ref>;<sp/>i++)</highlight></codeline>
@@ -1210,7 +1122,7 @@
 <codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="314"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="315"><highlight class="normal"></highlight></codeline>
-<codeline lineno="316" refid="entity_8h_1aa4c00fea364c35f0a56dd90b9c38efb0" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/><ref refid="entity_8c_1aa4c00fea364c35f0a56dd90b9c38efb0" kindref="member">FindEntity</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name)</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/><ref refid="entity_8c_1aa4c00fea364c35f0a56dd90b9c38efb0" kindref="member">FindEntity</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name)</highlight></codeline>
 <codeline lineno="317"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" kindref="member">MAX_ENTITIES</ref>;<sp/>i++)</highlight></codeline>
@@ -1225,7 +1137,7 @@
 <codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="329"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="330"><highlight class="normal"></highlight></codeline>
-<codeline lineno="331" refid="entity_8h_1ace2c9f2a6fee203dab937c5e716ad7dd" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/><ref refid="entity_8c_1ace2c9f2a6fee203dab937c5e716ad7dd" kindref="member">FindFreeEntity</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>position)</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/><ref refid="entity_8c_1ace2c9f2a6fee203dab937c5e716ad7dd" kindref="member">FindFreeEntity</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>position)</highlight></codeline>
 <codeline lineno="332"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/><ref refid="entity_8c_1a7c67a8b083cb98b1c3eaf871bc4dd4cd" kindref="member">gLastEntity</ref>;<sp/>i<sp/>&lt;<sp/><ref refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" kindref="member">MAX_ENTITIES</ref>;<sp/>i++)</highlight></codeline>
@@ -1249,7 +1161,7 @@
 <codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="353"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="354"><highlight class="normal"></highlight></codeline>
-<codeline lineno="355" refid="entity_8h_1a69811b56fbaa2dfc61154fb027632ea8" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8c_1a69811b56fbaa2dfc61154fb027632ea8" kindref="member">LookForEntityAtPos</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>position)</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="entity_8c_1a69811b56fbaa2dfc61154fb027632ea8" kindref="member">LookForEntityAtPos</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>position)</highlight></codeline>
 <codeline lineno="356"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" kindref="member">MAX_ENTITIES</ref>;<sp/>i++)</highlight></codeline>
@@ -1265,7 +1177,7 @@
 <codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="369"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="370"><highlight class="normal"></highlight></codeline>
-<codeline lineno="371" refid="entity_8h_1a1c8f7981791b1935beab73c3faab96a5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a1c8f7981791b1935beab73c3faab96a5" kindref="member">Distance2Entity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/>other)</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a1c8f7981791b1935beab73c3faab96a5" kindref="member">Distance2Entity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/>other)</highlight></codeline>
 <codeline lineno="372"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/>y;</highlight></codeline>
 <codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/>x<sp/>=<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">-&gt;mPosition.x<sp/>-<sp/>other-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>;</highlight></codeline>
@@ -1273,7 +1185,7 @@
 <codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>powf(powf(x,<sp/>2)<sp/>+<sp/>powf(y,<sp/>2),<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)<sp/>1/2);</highlight></codeline>
 <codeline lineno="377"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="378"><highlight class="normal"></highlight></codeline>
-<codeline lineno="379" refid="entity_8h_1ae27dad323fa0f26748bd2485f5d019e3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" kindref="member">FreeEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent)</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" kindref="member">FreeEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent)</highlight></codeline>
 <codeline lineno="380"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>isGlobal<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!ent)</highlight></codeline>
@@ -1303,7 +1215,7 @@
 <codeline lineno="406"><highlight class="normal"></highlight></codeline>
 <codeline lineno="407"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="408"><highlight class="normal"></highlight></codeline>
-<codeline lineno="409" refid="entity_8h_1aec8aad072a0215184b68b9815194950c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1aec8aad072a0215184b68b9815194950c" kindref="member">FreeNonPlayerEntities</ref>()</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1aec8aad072a0215184b68b9815194950c" kindref="member">FreeNonPlayerEntities</ref>()</highlight></codeline>
 <codeline lineno="410"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>,<sp/>entities;</highlight></codeline>
 <codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!gEntities)</highlight></codeline>
@@ -1321,7 +1233,7 @@
 <codeline lineno="424"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="425"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="426"><highlight class="normal"></highlight></codeline>
-<codeline lineno="427" refid="entity_8h_1a8aebaea1606f89c449d67b1f1afb7cdb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a8aebaea1606f89c449d67b1f1afb7cdb" kindref="member">ShutdownEntitySystem</ref>()</highlight></codeline>
+<codeline lineno="427"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="entity_8c_1a8aebaea1606f89c449d67b1f1afb7cdb" kindref="member">ShutdownEntitySystem</ref>()</highlight></codeline>
 <codeline lineno="428"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="429"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!gEntities)</highlight></codeline>

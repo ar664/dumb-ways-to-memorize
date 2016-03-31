@@ -190,7 +190,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.h" line="26" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="159" bodyend="182"/>
-        <references refid="mystrings_8h_1aa063848210bb153608dd1b382a9e1c44" compoundref="mystrings_8h" startline="4">ALLOC_STR</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8h_1a1f4734e9e15d21a1c72758530c1a468f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
@@ -219,11 +218,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.h" line="38" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="140" bodyend="157"/>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa7bc5faeddd33197250cf352af984f185" compoundref="jsmn_8h" startline="18">JSMN_UNDEFINED</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa416d6e733082bedc1166f0d66f571867" compoundref="jsmn_8h" startline="19">JSMN_OBJECT</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fabc4c47216dacf36bd4f64ac3d649d471" compoundref="jsmn_8h" startline="20">JSMN_ARRAY</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539" compoundref="jsmn_8h" startline="21">JSMN_STRING</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa2550c93fe929f81f30ea9b629ed98742" compoundref="jsmn_8h" startline="22">JSMN_PRIMITIVE</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8h_1a78d7d9580e10b30e6409ebfeb29e5cfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
@@ -263,9 +257,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.h" line="51" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="34" bodyend="51"/>
-        <references refid="structjsmntok__t_1abce9f5dc9c83f2639b72024fdee5d388" compoundref="jsmn_8h" startline="43">jsmntok_t::end</references>
-        <references refid="structjsmntok__t_1a37722a150250e2a5a98e5e0d11e53449" compoundref="jsmn_8h" startline="42">jsmntok_t::start</references>
-        <references refid="mystrings_8h_1aa063848210bb153608dd1b382a9e1c44" compoundref="mystrings_8h" startline="4">ALLOC_STR</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8h_1ac183085aec4f8b1867b5737aacb9c37f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
@@ -316,12 +307,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.h" line="66" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="53" bodyend="82"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" compoundref="mystrings_8c" startline="53" endline="82">FindValue</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8h_1aa5c26c3bf9ec4cf5d58937787db2d415" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -371,8 +356,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.h" line="78" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="84" bodyend="90"/>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" compoundref="mystrings_8c" startline="92" endline="119">StrToInt</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8h_1a7847ecf365cd64921278854576e5ddcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -401,7 +384,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.h" line="90" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="92" bodyend="119"/>
-        <references refid="mystrings_8c_1a357780097bc5067ece05926de2d77eae" compoundref="mystrings_8c" startline="121" endline="138">CharToInt</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8h_1a357780097bc5067ece05926de2d77eae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -480,9 +462,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.h" line="116" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="10" bodyend="32"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structjsmntok__t_1a439227feff9d7f55384e8780cfc2eb82" compoundref="jsmn_8h" startline="44">jsmntok_t::size</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8h_1a496e2427daae7d276aa1c25bf7173f9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -544,12 +523,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.h" line="132" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="192" bodyend="261"/>
-        <references refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19a24e246e9a582f56a2b81bf805261840b" compoundref="mystrings_8c" startline="187">PARSER</references>
-        <references refid="jsmn_8c_1a8d4a8b3ce5c3d600feea38615b5f9aa6" compoundref="jsmn_8c" startline="306" endline="310">jsmn_init</references>
-        <references refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19aee847e634a4297b274316de8a8ca9921" compoundref="mystrings_8c" startline="188">STRING</references>
-        <references refid="mystrings_8c_1a641da0f4b770922d999f38d2d23b2ed6" compoundref="mystrings_8c" startline="159" endline="182">FileToString</references>
-        <references refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19a07fe54e18c187cac6548db45a3f3676a" compoundref="mystrings_8c" startline="189">TOKEN</references>
-        <references refid="jsmn_8c_1a774f985a9750a10c7e88304e30191e03" compoundref="jsmn_8c" startline="151" endline="300">jsmn_parse</references>
       </memberdef>
       </sectiondef>
     <briefdescription>

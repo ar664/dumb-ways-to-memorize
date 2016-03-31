@@ -181,22 +181,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsevariable.c" line="15" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="15" bodyend="34"/>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a677cd0d5164b66bacecb95e8fd760f02" compoundref="parsevariable_8h" startline="13">ENTITY_MEMBER_HAZARDS</references>
-        <references refid="structentity__s_1a8c5ee6d8b825b6da8ab851320eccd45e" compoundref="entity_8h" startline="23">entity_s::mHazards</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a5bf3fcb47f83cfcca63bd8ee741ed978" compoundref="parsevariable_8h" startline="14">ENTITY_MEMBER_HEALTH</references>
-        <references refid="structentity__s_1a709ed9fa7e17bcc63f51b9e011772aee" compoundref="entity_8h" startline="25">entity_s::mHealth</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a0c56462a8b776bb0ea37c22cf0b825a0" compoundref="parsevariable_8h" startline="15">ENTITY_MEMBER_COLLISION_TYPE</references>
-        <references refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" compoundref="entity_8h" startline="30">entity_s::mCollisionType</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a84d5f99d096860bdef80f955ba485546" compoundref="parsevariable_8h" startline="16">ENTITY_MEMBER_ENTITY_STATE</references>
-        <references refid="structentity__s_1aa50a2f30db6a433d25f42fe58ee20995" compoundref="entity_8h" startline="31">entity_s::mEntityState</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a204ac38f4d3eab5b09b6db8e8a64d04c" compoundref="parsevariable_8h" startline="17">ENTITY_MEMBER_SPRITES</references>
-        <references refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" compoundref="entity_8h" startline="32">entity_s::mSprites</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a108d8c704e5f4c344a33503071f056dc" compoundref="parsevariable_8h" startline="18">ENTITY_MEMBER_ACCEL</references>
-        <references refid="structentity__s_1ae9f3b8e36df4503009ee071958f75b6c" compoundref="entity_8h" startline="36">entity_s::mAccel</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a100ecf079439bf77e5f04b39252e6c6a" compoundref="parsevariable_8h" startline="19">ENTITY_MEMBER_VELOCITY</references>
-        <references refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" compoundref="entity_8h" startline="37">entity_s::mVelocity</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a09b4e850815f606e0859ee62e8536df2" compoundref="parsevariable_8h" startline="20">ENTITY_MEMBER_POSITION</references>
-        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
       </memberdef>
       <memberdef kind="function" id="parsevariable_8c_1ab44c577d09cbd67632c75301d846676e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="entity_8h_1ad0c3149de5542539dcb5c9251c68fbd2" kindref="member">entity_t</ref> *</type>
@@ -236,45 +220,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsevariable.c" line="36" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="36" bodyend="134"/>
-        <references refid="graphics_8h_1a99f9cfd68ef4237b568bda6e3e63312f" compoundref="graphics_8h" startline="12">MAX_ANIMATIONS</references>
-        <references refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" compoundref="entity_8h" startline="35">entity_s::mName</references>
-        <references refid="parsevariable_8c_1aa9cea9281b3ad2f4065f8765ff335241" compoundref="parsevariable_8c" startline="11">AssignableVariableNames</references>
-        <references refid="mystrings_8c_1a6466498df69994b55bb62b9b53652142" compoundref="mystrings_8c" startline="10" endline="32">FindKey</references>
-        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
-        <references refid="structjsmntok__t_1a7def41ebc3980f6e4526819b42c2721f" compoundref="jsmn_8h" startline="41">jsmntok_t::type</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539" compoundref="jsmn_8h" startline="21">JSMN_STRING</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a677cd0d5164b66bacecb95e8fd760f02" compoundref="parsevariable_8h" startline="13">ENTITY_MEMBER_HAZARDS</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a204ac38f4d3eab5b09b6db8e8a64d04c" compoundref="parsevariable_8h" startline="17">ENTITY_MEMBER_SPRITES</references>
-        <references refid="parsevariable_8c_1a884bad6dac384af63e9becea40966bfb" compoundref="parsevariable_8c" startline="136" endline="184">MiniParseFunc</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" compoundref="parsevariable_8c" startline="15" endline="34">EditEntity</references>
-        <references refid="parsevariable_8c_1aece06ba78503ca86b77daa6c0f64d01f" compoundref="parsevariable_8c" startline="186" endline="201">ParseToVec2</references>
-        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
-        <references refid="parsevariable_8c_1aa773235cab938d0b4234a5ffaca172f9" compoundref="parsevariable_8c" startline="12">OtherVariableNames</references>
-        <references refid="parsevariable_8h_1a3364407dac472d6f76df7f89341b2a5aa38b9241136017b93ea2755a49cf0a000" compoundref="parsevariable_8h" startline="28">HEIGHT</references>
-        <references refid="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" compoundref="mystrings_8c" startline="84" endline="90">JsmnToInt</references>
-        <references refid="parsevariable_8h_1a3364407dac472d6f76df7f89341b2a5aa73c0818986b7c462c2977f57afd00522" compoundref="parsevariable_8h" startline="29">WIDTH</references>
-        <references refid="parsevariable_8h_1a3364407dac472d6f76df7f89341b2a5aa0233623f1ec67ee345913c5d13cfa660" compoundref="parsevariable_8h" startline="30">FRAMES</references>
-        <references refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" compoundref="entity_8h" startline="32">entity_s::mSprites</references>
-        <references refid="graphics_8c_1a9cf2216f8c9099f0767277b29b0b8044" compoundref="graphics_8c" startline="190" endline="207">LoadAnimation</references>
-        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="structsprite__s_1acd9c3d76b8dfc0aed0c331ec5f0568f1" compoundref="graphics_8h" startline="34">sprite_s::mFrames</references>
-        <references refid="structsprite__s_1a8ce6c2916d6244600c434144ed6ac296" compoundref="graphics_8h" startline="31">sprite_s::mAnimations</references>
-        <references refid="structentity__s_1a24bdc1525ed5bcbf2a8c7027c9e1db5f" compoundref="entity_8h" startline="24">entity_s::mNextThink</references>
-        <references refid="structentity__s_1a4bf029653a0ffc8ad5dfddd243aeff72" compoundref="entity_8h" startline="28">entity_s::mCurrentFrame</references>
-        <references refid="structentity__s_1a069df5fe6b0f5a8eb03b0cc4c2e0ba43" compoundref="entity_8h" startline="27">entity_s::mWeight</references>
-        <references refid="structentity__s_1ae045b7ba608e955e791f8af8507b78a4" compoundref="entity_8h" startline="39">entity_s::Think</references>
-        <references refid="entity_8c_1adb84b9e6a5a5c18dc147a1c0de60fd85" compoundref="entity_8c" startline="45" endline="57">ThinkGeneric</references>
-        <references refid="structentity__s_1a51719e3ab7c4f8dd260dea013021f53c" compoundref="entity_8h" startline="41">entity_s::Draw</references>
-        <references refid="entity_8c_1a8572f94d16405fa3b42dd584893852bd" compoundref="entity_8c" startline="17" endline="37">DrawGeneric</references>
-        <references refid="structentity__s_1af5c032961c1c6bca1832a0cb3fb34321" compoundref="entity_8h" startline="40">entity_s::Touch</references>
-        <references refid="entity_8c_1a2eb4fef990cd3eb845b5a99fbd22e0fc" compoundref="entity_8c" startline="139" endline="165">TouchGeneric</references>
-        <references refid="parsevariable_8c_1a9a3d7af463607a209c8f52caf9e15c70" compoundref="parsevariable_8c" startline="230" endline="264">PrintEntity</references>
       </memberdef>
       <memberdef kind="function" id="parsevariable_8c_1a884bad6dac384af63e9becea40966bfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -346,17 +291,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsevariable.c" line="136" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="136" bodyend="184"/>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a677cd0d5164b66bacecb95e8fd760f02" compoundref="parsevariable_8h" startline="13">ENTITY_MEMBER_HAZARDS</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="globals_8h_1abe578bfaa1629eec4e43d2ec76b0499b" compoundref="mystrings_8c" startline="317" endline="331">StrToHazard</references>
-        <references refid="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" compoundref="parsevariable_8c" startline="15" endline="34">EditEntity</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a204ac38f4d3eab5b09b6db8e8a64d04c" compoundref="parsevariable_8h" startline="17">ENTITY_MEMBER_SPRITES</references>
-        <references refid="graphics_8c_1a9ef47fe758affb875f01b07e551513c7" compoundref="graphics_8c" startline="107" endline="150">LoadSprite</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a0c56462a8b776bb0ea37c22cf0b825a0" compoundref="parsevariable_8h" startline="15">ENTITY_MEMBER_COLLISION_TYPE</references>
-        <references refid="globals_8h_1a44b3e24411aec8ef45be1d5430c5b2eb" compoundref="mystrings_8c" startline="344" endline="357">StrToCollisionType</references>
-        <references refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43a84d5f99d096860bdef80f955ba485546" compoundref="parsevariable_8h" startline="16">ENTITY_MEMBER_ENTITY_STATE</references>
-        <references refid="globals_8h_1a228d03ca7eff58ad7ed8fccb3a7bc9c9" compoundref="mystrings_8c" startline="370" endline="383">StrToEntityState</references>
-        <references refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" compoundref="mystrings_8c" startline="92" endline="119">StrToInt</references>
       </memberdef>
       <memberdef kind="function" id="parsevariable_8c_1aece06ba78503ca86b77daa6c0f64d01f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="globals_8h_1a773f2054819bb6014f1e50baa39cb5e3" kindref="member">vec2_t</ref> *</type>
@@ -396,11 +330,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsevariable.c" line="186" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="186" bodyend="201"/>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" compoundref="mystrings_8c" startline="92" endline="119">StrToInt</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="parsevariable_8c_1a090f6fa5f93d7a5becca914af766d1d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char **</type>
@@ -440,9 +369,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsevariable.c" line="203" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="203" bodyend="219"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
       </memberdef>
       <memberdef kind="function" id="parsevariable_8c_1a9a3d7af463607a209c8f52caf9e15c70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -470,11 +396,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsevariable.c" line="230" column="1" bodyfile="dumb-ways-to-memorize/parsevariable.c" bodystart="230" bodyend="264"/>
-        <references refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" compoundref="entity_8h" startline="35">entity_s::mName</references>
-        <references refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" compoundref="entity_8h" startline="30">entity_s::mCollisionType</references>
-        <references refid="structentity__s_1aa50a2f30db6a433d25f42fe58ee20995" compoundref="entity_8h" startline="31">entity_s::mEntityState</references>
-        <references refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" compoundref="entity_8h" startline="32">entity_s::mSprites</references>
-        <references refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" compoundref="graphics_8h" startline="36">sprite_s::name</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -492,11 +413,11 @@
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//Globals</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11" refid="parsevariable_8h_1aa9cea9281b3ad2f4065f8765ff335241" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="parsevariable_8c_1aa9cea9281b3ad2f4065f8765ff335241" kindref="member">AssignableVariableNames</ref>[]<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;hazard(s)&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;health&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;collisionType&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;entityState&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;sprite(s)&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;accel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;velocity&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;position&quot;</highlight><highlight class="normal">,<sp/>0};</highlight></codeline>
-<codeline lineno="12" refid="parsevariable_8h_1aa773235cab938d0b4234a5ffaca172f9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="parsevariable_8c_1aa773235cab938d0b4234a5ffaca172f9" kindref="member">OtherVariableNames</ref>[]<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;height&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;width&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;frames&quot;</highlight><highlight class="normal">,<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="parsevariable_8c_1aa9cea9281b3ad2f4065f8765ff335241" kindref="member">AssignableVariableNames</ref>[]<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;hazard(s)&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;health&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;collisionType&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;entityState&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;sprite(s)&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;accel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;velocity&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;position&quot;</highlight><highlight class="normal">,<sp/>0};</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="parsevariable_8c_1aa773235cab938d0b4234a5ffaca172f9" kindref="member">OtherVariableNames</ref>[]<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;height&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;width&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;frames&quot;</highlight><highlight class="normal">,<sp/>0<sp/>};</highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//BIG<sp/>ASS<sp/>SWITCH<sp/>CASE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15" refid="parsevariable_8h_1a2e27044cc4aa03202b8d1c8fbb3213ec" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" kindref="member">EditEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/><sp/>*ent,<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref><sp/>member,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*value)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8c_1a2e27044cc4aa03202b8d1c8fbb3213ec" kindref="member">EditEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/><sp/>*ent,<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref><sp/>member,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*value)</highlight></codeline>
 <codeline lineno="16"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(value<sp/>==<sp/>NULL)</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -517,7 +438,7 @@
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="34"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36" refid="parsevariable_8h_1ab44c577d09cbd67632c75301d846676e" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/><ref refid="parsevariable_8c_1ab44c577d09cbd67632c75301d846676e" kindref="member">ParseToEntity</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/><ref refid="parsevariable_8c_1ab44c577d09cbd67632c75301d846676e" kindref="member">ParseToEntity</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
 <codeline lineno="37"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>j,<sp/>checkInt,<sp/>heights[<ref refid="graphics_8h_1a99f9cfd68ef4237b568bda6e3e63312f" kindref="member">MAX_ANIMATIONS</ref>]<sp/>=<sp/>{0},<sp/>widths[<ref refid="graphics_8h_1a99f9cfd68ef4237b568bda6e3e63312f" kindref="member">MAX_ANIMATIONS</ref>]<sp/>=<sp/>{0},<sp/>frames[<ref refid="graphics_8h_1a99f9cfd68ef4237b568bda6e3e63312f" kindref="member">MAX_ANIMATIONS</ref>]<sp/>=<sp/>{0};</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*temp;</highlight></codeline>
@@ -617,7 +538,7 @@
 <codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
 <codeline lineno="134"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136" refid="parsevariable_8h_1a884bad6dac384af63e9becea40966bfb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8c_1a884bad6dac384af63e9becea40966bfb" kindref="member">MiniParseFunc</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent,<sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref>*<sp/>token,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str,<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref><sp/>member,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8c_1a884bad6dac384af63e9becea40966bfb" kindref="member">MiniParseFunc</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent,<sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref>*<sp/>token,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str,<sp/><ref refid="parsevariable_8h_1a05aa3ed10f55de7389364b5f1a6cda43" kindref="member">EntityMembers</ref><sp/>member,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
 <codeline lineno="137"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*temp<sp/>=<sp/>NULL;</highlight></codeline>
@@ -667,7 +588,7 @@
 <codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="184"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="185"><highlight class="normal"></highlight></codeline>
-<codeline lineno="186" refid="parsevariable_8h_1aece06ba78503ca86b77daa6c0f64d01f" refkind="member"><highlight class="normal"><ref refid="structvec2__s" kindref="compound">vec2_t</ref>*<sp/><ref refid="parsevariable_8c_1aece06ba78503ca86b77daa6c0f64d01f" kindref="member">ParseToVec2</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><ref refid="structvec2__s" kindref="compound">vec2_t</ref>*<sp/><ref refid="parsevariable_8c_1aece06ba78503ca86b77daa6c0f64d01f" kindref="member">ParseToVec2</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
 <codeline lineno="187"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*retVal;</highlight></codeline>
 <codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*temp1,<sp/>*temp2;</highlight></codeline>
@@ -684,7 +605,7 @@
 <codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
 <codeline lineno="201"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="202"><highlight class="normal"></highlight></codeline>
-<codeline lineno="203" refid="parsevariable_8h_1a090f6fa5f93d7a5becca914af766d1d8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="parsevariable_8c_1a090f6fa5f93d7a5becca914af766d1d8" kindref="member">ParseToStringArray</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="parsevariable_8c_1a090f6fa5f93d7a5becca914af766d1d8" kindref="member">ParseToStringArray</ref>(<ref refid="structobject__s" kindref="compound">object_t</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
 <codeline lineno="204"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>size;</highlight></codeline>
 <codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*temp;</highlight></codeline>
@@ -702,7 +623,7 @@
 <codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
 <codeline lineno="219"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="220"><highlight class="normal"></highlight></codeline>
-<codeline lineno="230" refid="parsevariable_8c_1a9a3d7af463607a209c8f52caf9e15c70" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8c_1a9a3d7af463607a209c8f52caf9e15c70" kindref="member">PrintEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent)</highlight></codeline>
+<codeline lineno="230"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsevariable_8c_1a9a3d7af463607a209c8f52caf9e15c70" kindref="member">PrintEntity</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*ent)</highlight></codeline>
 <codeline lineno="231"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!ent)</highlight></codeline>

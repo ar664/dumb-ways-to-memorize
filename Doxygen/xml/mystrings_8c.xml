@@ -160,9 +160,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="10" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="10" bodyend="32"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structjsmntok__t_1a439227feff9d7f55384e8780cfc2eb82" compoundref="jsmn_8h" startline="44">jsmntok_t::size</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
@@ -202,9 +199,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="34" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="34" bodyend="51"/>
-        <references refid="structjsmntok__t_1abce9f5dc9c83f2639b72024fdee5d388" compoundref="jsmn_8h" startline="43">jsmntok_t::end</references>
-        <references refid="structjsmntok__t_1a37722a150250e2a5a98e5e0d11e53449" compoundref="jsmn_8h" startline="42">jsmntok_t::start</references>
-        <references refid="mystrings_8h_1aa063848210bb153608dd1b382a9e1c44" compoundref="mystrings_8h" startline="4">ALLOC_STR</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
@@ -255,12 +249,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="53" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="53" bodyend="82"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" compoundref="mystrings_8c" startline="53" endline="82">FindValue</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -310,8 +298,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="84" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="84" bodyend="90"/>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" compoundref="mystrings_8c" startline="92" endline="119">StrToInt</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -340,7 +326,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="92" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="92" bodyend="119"/>
-        <references refid="mystrings_8c_1a357780097bc5067ece05926de2d77eae" compoundref="mystrings_8c" startline="121" endline="138">CharToInt</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8c_1a357780097bc5067ece05926de2d77eae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -397,11 +382,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="140" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="140" bodyend="157"/>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa7bc5faeddd33197250cf352af984f185" compoundref="jsmn_8h" startline="18">JSMN_UNDEFINED</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa416d6e733082bedc1166f0d66f571867" compoundref="jsmn_8h" startline="19">JSMN_OBJECT</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fabc4c47216dacf36bd4f64ac3d649d471" compoundref="jsmn_8h" startline="20">JSMN_ARRAY</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539" compoundref="jsmn_8h" startline="21">JSMN_STRING</references>
-        <references refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802fa2550c93fe929f81f30ea9b629ed98742" compoundref="jsmn_8h" startline="22">JSMN_PRIMITIVE</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8c_1a641da0f4b770922d999f38d2d23b2ed6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
@@ -431,7 +411,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="159" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="159" bodyend="182"/>
-        <references refid="mystrings_8h_1aa063848210bb153608dd1b382a9e1c44" compoundref="mystrings_8h" startline="4">ALLOC_STR</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -493,12 +472,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="192" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="192" bodyend="261"/>
-        <references refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19a24e246e9a582f56a2b81bf805261840b" compoundref="mystrings_8c" startline="187">PARSER</references>
-        <references refid="jsmn_8c_1a8d4a8b3ce5c3d600feea38615b5f9aa6" compoundref="jsmn_8c" startline="306" endline="310">jsmn_init</references>
-        <references refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19aee847e634a4297b274316de8a8ca9921" compoundref="mystrings_8c" startline="188">STRING</references>
-        <references refid="mystrings_8c_1a641da0f4b770922d999f38d2d23b2ed6" compoundref="mystrings_8c" startline="159" endline="182">FileToString</references>
-        <references refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19a07fe54e18c187cac6548db45a3f3676a" compoundref="mystrings_8c" startline="189">TOKEN</references>
-        <references refid="jsmn_8c_1a774f985a9750a10c7e88304e30191e03" compoundref="jsmn_8c" startline="151" endline="300">jsmn_parse</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8c_1a295e14f293c2d135e244c6b9f417a447" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref></type>
@@ -527,18 +500,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="274" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="274" bodyend="304"/>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a96a92720d3d9970db2d464166b8a569e" compoundref="globals_8h" startline="85">SPLASH</references>
-        <references refid="mystrings_8h_1abee22002c9d20fec0bc94a3bfd4e40ad" compoundref="mystrings_8h" startline="9">GAME_STATE_SPLASH_STR</references>
-        <references refid="mystrings_8h_1a06f08b51f172bd9daaa65efb9a67ec85" compoundref="mystrings_8h" startline="10">GAME_STATE_START_STR</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a13d000b4d7dc70d90239b7430d1eb6b2" compoundref="globals_8h" startline="86">START</references>
-        <references refid="mystrings_8h_1aba8c67d5ed1579335310ff77649ff89e" compoundref="mystrings_8h" startline="11">GAME_STATE_GUESS_STR</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285ab8c769f7e7a67d0a91a2fe34fdc5dbea" compoundref="globals_8h" startline="87">GUESS</references>
-        <references refid="mystrings_8h_1abe75cf0ea422164cff13e9821b1aedf1" compoundref="mystrings_8h" startline="12">GAME_STATE_CHOOSE_STR</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a58a9a2b13d64bdcda325c28725c1a73f" compoundref="globals_8h" startline="88">CHOOSE</references>
-        <references refid="mystrings_8h_1acfc3e6c9cf34eaee72d09667d7d265db" compoundref="mystrings_8h" startline="13">GAME_STATE_PLAYING_STR</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285af095245f5cebc27a97a124345269fed8" compoundref="globals_8h" startline="89">PLAYING</references>
-        <references refid="mystrings_8h_1a4e38eab119f1fee536a85e1f29c1ee44" compoundref="mystrings_8h" startline="14">GAME_STATE_END_STR</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285adc6f24fd6915a3f2786a1b7045406924" compoundref="globals_8h" startline="90">END</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8c_1abe578bfaa1629eec4e43d2ec76b0499b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -567,8 +528,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="317" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="317" bodyend="331"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="entity_8c_1a4a2a39e414a5c7caa23e9a8faf5b0e7d" compoundref="entity_8c" startline="13">Hazards_str</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8c_1a44b3e24411aec8ef45be1d5430c5b2eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13a" kindref="member">collision_type_t</ref></type>
@@ -597,8 +556,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="344" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="344" bodyend="357"/>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aadaf36ae19b0226a720a707942aea87e5" compoundref="globals_8h" startline="57">COLLISION_TYPE_CLIP</references>
-        <references refid="entity_8c_1acaf43cd754d2eb69556f0502847bc524" compoundref="entity_8c" startline="14">Collisions_str</references>
       </memberdef>
       <memberdef kind="function" id="mystrings_8c_1a228d03ca7eff58ad7ed8fccb3a7bc9c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="globals_8h_1a99f3d33a52ee74fc145c14ceee9d4154" kindref="member">entity_state_t</ref></type>
@@ -627,8 +584,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/mystrings.c" line="370" column="1" bodyfile="dumb-ways-to-memorize/mystrings.c" bodystart="370" bodyend="383"/>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aadaf36ae19b0226a720a707942aea87e5" compoundref="globals_8h" startline="57">COLLISION_TYPE_CLIP</references>
-        <references refid="entity_8c_1a4cb66787ca1de7d1e390016a47ecea04" compoundref="entity_8c" startline="15">EntityStates_str</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -645,7 +600,7 @@
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mystrings_8h" kindref="compound">mystrings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parseobject_8h" kindref="compound">parseobject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10" refid="mystrings_8h_1a6466498df69994b55bb62b9b53652142" refkind="member"><highlight class="normal"><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="mystrings_8c_1a6466498df69994b55bb62b9b53652142" kindref="member">FindKey</ref>(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*token,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*key,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="mystrings_8c_1a6466498df69994b55bb62b9b53652142" kindref="member">FindKey</ref>(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*token,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*key,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str)</highlight></codeline>
 <codeline lineno="11"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str;</highlight></codeline>
 <codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*local_token<sp/>=<sp/>token;</highlight></codeline>
@@ -669,7 +624,7 @@
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="32"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="mystrings_8h_1a78d7d9580e10b30e6409ebfeb29e5cfe" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*token,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*token,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*g_str)</highlight></codeline>
 <codeline lineno="35"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size<sp/>=<sp/>token-&gt;<ref refid="structjsmntok__t_1abce9f5dc9c83f2639b72024fdee5d388" kindref="member">end</ref><sp/>-<sp/>token-&gt;<ref refid="structjsmntok__t_1a37722a150250e2a5a98e5e0d11e53449" kindref="member">start</ref>;</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*retVal;</highlight></codeline>
@@ -688,7 +643,7 @@
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
 <codeline lineno="51"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53" refid="mystrings_8h_1ac183085aec4f8b1867b5737aacb9c37f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" kindref="member">FindValue</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structobject__s" kindref="compound">object_s</ref>*<sp/>obj,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>key,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>g_str)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" kindref="member">FindValue</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structobject__s" kindref="compound">object_s</ref>*<sp/>obj,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>key,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>g_str)</highlight></codeline>
 <codeline lineno="54"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>keys,<sp/>objects;</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*temp_str;</highlight></codeline>
@@ -719,7 +674,7 @@
 <codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="82"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84" refid="mystrings_8h_1aa5c26c3bf9ec4cf5d58937787db2d415" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" kindref="member">JsmnToInt</ref>(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref>*<sp/>token,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>dst)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" kindref="member">JsmnToInt</ref>(<ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref>*<sp/>token,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>dst)</highlight></codeline>
 <codeline lineno="85"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*temp;</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>temp<sp/>=<sp/><ref refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" kindref="member">JsmnToString</ref>(token,<sp/>str);</highlight></codeline>
@@ -727,7 +682,7 @@
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(temp)<sp/>free(temp);</highlight></codeline>
 <codeline lineno="90"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92" refid="mystrings_8h_1a7847ecf365cd64921278854576e5ddcc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" kindref="member">StrToInt</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" kindref="member">StrToInt</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str)</highlight></codeline>
 <codeline lineno="93"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>retVal,<sp/>length,<sp/>neg;</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(str<sp/>==<sp/>NULL)</highlight></codeline>
@@ -756,7 +711,7 @@
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
 <codeline lineno="119"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121" refid="mystrings_8h_1a357780097bc5067ece05926de2d77eae" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1a357780097bc5067ece05926de2d77eae" kindref="member">CharToInt</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1a357780097bc5067ece05926de2d77eae" kindref="member">CharToInt</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c)</highlight></codeline>
 <codeline lineno="122"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(c)</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -775,7 +730,7 @@
 <codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="138"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="139"><highlight class="normal"></highlight></codeline>
-<codeline lineno="140" refid="mystrings_8h_1a1f4734e9e15d21a1c72758530c1a468f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/><ref refid="mystrings_8c_1a1f4734e9e15d21a1c72758530c1a468f" kindref="member">TypeFromJSON</ref>(<ref refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802f" kindref="member">jsmntype_t</ref><sp/>Type)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/><ref refid="mystrings_8c_1a1f4734e9e15d21a1c72758530c1a468f" kindref="member">TypeFromJSON</ref>(<ref refid="jsmn_8h_1a065320719769f9dc1fbe30094e52802f" kindref="member">jsmntype_t</ref><sp/>Type)</highlight></codeline>
 <codeline lineno="141"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(Type)</highlight></codeline>
 <codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -794,7 +749,7 @@
 <codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="157"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="158"><highlight class="normal"></highlight></codeline>
-<codeline lineno="159" refid="mystrings_8h_1a0357c834f41f5fa46fafa8b8ade095e4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/><ref refid="mystrings_8c_1a641da0f4b770922d999f38d2d23b2ed6" kindref="member">FileToString</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fileName)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/><ref refid="mystrings_8c_1a641da0f4b770922d999f38d2d23b2ed6" kindref="member">FileToString</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fileName)</highlight></codeline>
 <codeline lineno="160"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*string;</highlight></codeline>
 <codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size;</highlight></codeline>
@@ -820,14 +775,14 @@
 <codeline lineno="182"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="183"><highlight class="normal"></highlight></codeline>
 <codeline lineno="184"><highlight class="normal"></highlight></codeline>
-<codeline lineno="185" refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19" kindref="member">FreeVar</ref></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19" kindref="member">FreeVar</ref></highlight></codeline>
 <codeline lineno="186"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="187" refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19a24e246e9a582f56a2b81bf805261840b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19a24e246e9a582f56a2b81bf805261840b" kindref="member">PARSER</ref>=<sp/>0x1,</highlight></codeline>
-<codeline lineno="188" refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19aee847e634a4297b274316de8a8ca9921" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19aee847e634a4297b274316de8a8ca9921" kindref="member">STRING</ref>=<sp/>0x2,</highlight></codeline>
-<codeline lineno="189" refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19a07fe54e18c187cac6548db45a3f3676a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19a07fe54e18c187cac6548db45a3f3676a" kindref="member">TOKEN</ref>=<sp/><sp/>0x4</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19a24e246e9a582f56a2b81bf805261840b" kindref="member">PARSER</ref>=<sp/>0x1,</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19aee847e634a4297b274316de8a8ca9921" kindref="member">STRING</ref>=<sp/>0x2,</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mystrings_8c_1a1da99834a75d917d81dc9c9921da4f19a07fe54e18c187cac6548db45a3f3676a" kindref="member">TOKEN</ref>=<sp/><sp/>0x4</highlight></codeline>
 <codeline lineno="190"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="191"><highlight class="normal"></highlight></codeline>
-<codeline lineno="192" refid="mystrings_8h_1a496e2427daae7d276aa1c25bf7173f9b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" kindref="member">ConvertFileToUseable</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fileName,<sp/><ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/>*parser,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**stringStorage,<sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>**jsmnStorage)</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" kindref="member">ConvertFileToUseable</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fileName,<sp/><ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/>*parser,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**stringStorage,<sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>**jsmnStorage)</highlight></codeline>
 <codeline lineno="193"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_tokens,<sp/>varsToFree<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/>*tempPars;</highlight></codeline>
@@ -898,7 +853,7 @@
 <codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>num_tokens;</highlight></codeline>
 <codeline lineno="261"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="262"><highlight class="normal"></highlight></codeline>
-<codeline lineno="274" refid="mystrings_8c_1a295e14f293c2d135e244c6b9f417a447" refkind="member"><highlight class="normal"><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/><ref refid="mystrings_8c_1a295e14f293c2d135e244c6b9f417a447" kindref="member">StrToGameState</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/><ref refid="mystrings_8c_1a295e14f293c2d135e244c6b9f417a447" kindref="member">StrToGameState</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
 <codeline lineno="275"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!str)</highlight></codeline>
 <codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -930,7 +885,7 @@
 <codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a96a92720d3d9970db2d464166b8a569e" kindref="member">SPLASH</ref>;</highlight></codeline>
 <codeline lineno="304"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="305"><highlight class="normal"></highlight></codeline>
-<codeline lineno="317" refid="mystrings_8c_1abe578bfaa1629eec4e43d2ec76b0499b" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1abe578bfaa1629eec4e43d2ec76b0499b" kindref="member">StrToHazard</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
+<codeline lineno="317"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mystrings_8c_1abe578bfaa1629eec4e43d2ec76b0499b" kindref="member">StrToHazard</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
 <codeline lineno="318"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>length;</highlight></codeline>
 <codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!str)</highlight></codeline>
@@ -946,7 +901,7 @@
 <codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="331"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="332"><highlight class="normal"></highlight></codeline>
-<codeline lineno="344" refid="mystrings_8c_1a44b3e24411aec8ef45be1d5430c5b2eb" refkind="member"><highlight class="normal"><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13a" kindref="member">collision_type_t</ref><sp/><ref refid="mystrings_8c_1a44b3e24411aec8ef45be1d5430c5b2eb" kindref="member">StrToCollisionType</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13a" kindref="member">collision_type_t</ref><sp/><ref refid="mystrings_8c_1a44b3e24411aec8ef45be1d5430c5b2eb" kindref="member">StrToCollisionType</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
 <codeline lineno="345"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!str)</highlight></codeline>
@@ -961,7 +916,7 @@
 <codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="357"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="358"><highlight class="normal"></highlight></codeline>
-<codeline lineno="370" refid="mystrings_8c_1a228d03ca7eff58ad7ed8fccb3a7bc9c9" refkind="member"><highlight class="normal"><ref refid="globals_8h_1a99f3d33a52ee74fc145c14ceee9d4154" kindref="member">entity_state_t</ref><sp/><ref refid="mystrings_8c_1a228d03ca7eff58ad7ed8fccb3a7bc9c9" kindref="member">StrToEntityState</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><ref refid="globals_8h_1a99f3d33a52ee74fc145c14ceee9d4154" kindref="member">entity_state_t</ref><sp/><ref refid="mystrings_8c_1a228d03ca7eff58ad7ed8fccb3a7bc9c9" kindref="member">StrToEntityState</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
 <codeline lineno="371"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!str)</highlight></codeline>

@@ -62,7 +62,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/External_Libs/simple_logger.c" line="8" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.c" bodystart="8" bodyend="15"/>
-        <references refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" compoundref="simple__logger_8c" startline="6">__log_file</references>
       </memberdef>
       <memberdef kind="function" id="simple__logger_8c_1a7559e5b69b98077997f625eb5d4200ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -89,8 +88,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/External_Libs/simple_logger.c" line="17" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.c" bodystart="17" bodyend="28"/>
-        <references refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" compoundref="simple__logger_8c" startline="6">__log_file</references>
-        <references refid="simple__logger_8c_1ad1ae3faf97c2b2d3beb3fe8b4240401b" compoundref="simple__logger_8c" startline="8" endline="15">close_logger</references>
       </memberdef>
       <memberdef kind="function" id="simple__logger_8c_1a94aefe2ae91b60d1f0e9f604ba85f701" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -119,7 +116,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/External_Libs/simple_logger.c" line="30" column="1" bodyfile="dumb-ways-to-memorize/External_Libs/simple_logger.c" bodystart="30" bodyend="48"/>
-        <references refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" compoundref="simple__logger_8c" startline="6">__log_file</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -132,9 +128,9 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6" refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" refkind="member"><highlight class="normal">FILE<sp/>*<sp/><ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">FILE<sp/>*<sp/><ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref><sp/>=<sp/>NULL;</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8" refid="simple__logger_8c_1ad1ae3faf97c2b2d3beb3fe8b4240401b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="simple__logger_8c_1ad1ae3faf97c2b2d3beb3fe8b4240401b" kindref="member">close_logger</ref>()</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="simple__logger_8c_1ad1ae3faf97c2b2d3beb3fe8b4240401b" kindref="member">close_logger</ref>()</highlight></codeline>
 <codeline lineno="9"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="simple__logger_8c_1a2c0e67c0e339f89ee4a2eb9232360c91" kindref="member">__log_file</ref><sp/>!=<sp/>NULL)</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -143,7 +139,7 @@
 <codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="15"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17" refid="simple__logger_8h_1a7559e5b69b98077997f625eb5d4200ab" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="simple__logger_8c_1a7559e5b69b98077997f625eb5d4200ab" kindref="member">init_logger</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*log_file_path)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="simple__logger_8c_1a7559e5b69b98077997f625eb5d4200ab" kindref="member">init_logger</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*log_file_path)</highlight></codeline>
 <codeline lineno="18"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(log_file_path<sp/>==<sp/>NULL)</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -156,7 +152,7 @@
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>atexit(<ref refid="simple__logger_8c_1ad1ae3faf97c2b2d3beb3fe8b4240401b" kindref="member">close_logger</ref>);</highlight></codeline>
 <codeline lineno="28"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30" refid="simple__logger_8h_1a94aefe2ae91b60d1f0e9f604ba85f701" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="simple__logger_8c_1a94aefe2ae91b60d1f0e9f604ba85f701" kindref="member">_slog</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*f,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*msg,...)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="simple__logger_8c_1a94aefe2ae91b60d1f0e9f604ba85f701" kindref="member">_slog</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*f,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*msg,...)</highlight></codeline>
 <codeline lineno="31"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>va_list<sp/>ap;</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*echo<sp/>all<sp/>logging<sp/>to<sp/>stdout*/</highlight><highlight class="normal"></highlight></codeline>

@@ -211,19 +211,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.c" line="19" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="19" bodyend="90"/>
-        <references refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" compoundref="graphics_8c" startline="17">gScreenHeight</references>
-        <references refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" compoundref="graphics_8c" startline="16">gScreenWidth</references>
-        <references refid="graphics_8c_1a222f53a6a442d8f716dffd665e83528a" compoundref="graphics_8c" startline="9">gWindow</references>
-        <references refid="graphics_8h_1aed7818555b2da57314243d796315e4e9" compoundref="graphics_8h" startline="7">GAME_NAME</references>
-        <references refid="graphics_8h_1ab4f60dcfaf8e1c328b2862723508d851" compoundref="graphics_8h" startline="9">SCREEN_RES_W</references>
-        <references refid="graphics_8h_1a7a7d00e9da31c5ddbab5d35adab314f6" compoundref="graphics_8h" startline="10">SCREEN_RES_H</references>
-        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
-        <references refid="graphics_8c_1aec8ecf79cbfef975bd1751e8eac92e0a" compoundref="graphics_8c" startline="11">gRedSurface</references>
-        <references refid="graphics_8c_1a324d0637f44d796996709bb187909c0c" compoundref="graphics_8c" startline="13">gRedRenderer</references>
-        <references refid="graphics_8c_1a3b5a0de489d49963cac9fd22f187d813" compoundref="graphics_8c" startline="12">gRedTexture</references>
-        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
-        <references refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" compoundref="graphics_8c" startline="15">gLastSprite</references>
-        <references refid="graphics_8c_1a57deac6adc760a6c690d7c05b1b32b3d" compoundref="graphics_8c" startline="92" endline="105">ShutdownGraphics</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8c_1a57deac6adc760a6c690d7c05b1b32b3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -239,8 +226,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.c" line="92" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="92" bodyend="105"/>
-        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
-        <references refid="graphics_8c_1a5668bec74dc06834b3141ac6da4063a2" compoundref="graphics_8c" startline="246" endline="259">FreeSprite</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8c_1a9ef47fe758affb875f01b07e551513c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
@@ -280,18 +265,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.c" line="107" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="107" bodyend="150"/>
-        <references refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" compoundref="graphics_8c" startline="15">gLastSprite</references>
-        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
-        <references refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" compoundref="graphics_8c" startline="209" endline="224">FindSprite</references>
-        <references refid="structsprite__s_1a43ab0d8eafd71383b2233bdee65911de" compoundref="graphics_8h" startline="35">sprite_s::refCount</references>
-        <references refid="graphics_8c_1a88a59e4cda72f43e47b635ed6c6a9f95" compoundref="graphics_8c" startline="226" endline="244">FindFreeSprite</references>
-        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" compoundref="graphics_8h" startline="32">sprite_s::mTexture</references>
-        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
-        <references refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" compoundref="graphics_8h" startline="36">sprite_s::name</references>
-        <references refid="structsprite__s_1acd9c3d76b8dfc0aed0c331ec5f0568f1" compoundref="graphics_8h" startline="34">sprite_s::mFrames</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8c_1a17fde33b1d856d825920d633285aec6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -346,15 +319,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.c" line="152" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="152" bodyend="188"/>
-        <references refid="structsprite__s_1acd9c3d76b8dfc0aed0c331ec5f0568f1" compoundref="graphics_8h" startline="34">sprite_s::mFrames</references>
-        <references refid="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" compoundref="graphics_8c" startline="276" endline="282">SDL_SetRect</references>
-        <references refid="structsprite__s_1a8ce6c2916d6244600c434144ed6ac296" compoundref="graphics_8h" startline="31">sprite_s::mAnimations</references>
-        <references refid="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" compoundref="graphics_8h" startline="17">Frame::Position</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
-        <references refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" compoundref="graphics_8h" startline="32">sprite_s::mTexture</references>
-        <references refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" compoundref="graphics_8h" startline="36">sprite_s::name</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8c_1a9cf2216f8c9099f0767277b29b0b8044" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_frame" kindref="compound">Frame</ref> *</type>
@@ -416,9 +380,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.c" line="190" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="190" bodyend="207"/>
-        <references refid="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" compoundref="graphics_8h" startline="17">Frame::Position</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8c_1af4c49239d2f0e5306964c66be9553832" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
@@ -458,7 +419,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.c" line="209" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="209" bodyend="224"/>
-        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8c_1a88a59e4cda72f43e47b635ed6c6a9f95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
@@ -487,8 +447,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.c" line="226" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="226" bodyend="244"/>
-        <references refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" compoundref="graphics_8c" startline="15">gLastSprite</references>
-        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8c_1a5668bec74dc06834b3141ac6da4063a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -516,10 +474,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.c" line="246" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="246" bodyend="259"/>
-        <references refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" compoundref="graphics_8c" startline="209" endline="224">FindSprite</references>
-        <references refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" compoundref="graphics_8h" startline="36">sprite_s::name</references>
-        <references refid="structsprite__s_1a43ab0d8eafd71383b2233bdee65911de" compoundref="graphics_8h" startline="35">sprite_s::refCount</references>
-        <references refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" compoundref="graphics_8h" startline="32">sprite_s::mTexture</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8c_1aa804be8d810666078d9915033a3d4317" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -537,8 +491,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.c" line="262" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="262" bodyend="274"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structsprite__s_1a8ce6c2916d6244600c434144ed6ac296" compoundref="graphics_8h" startline="31">sprite_s::mAnimations</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -625,17 +577,17 @@
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9" refid="graphics_8h_1a222f53a6a442d8f716dffd665e83528a" refkind="member"><highlight class="normal">SDL_Window<sp/>*<ref refid="graphics_8c_1a222f53a6a442d8f716dffd665e83528a" kindref="member">gWindow</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="10" refid="graphics_8h_1a4735638969a524c4ac90a88f23c59a1f" refkind="member"><highlight class="normal">SDL_Renderer<sp/>*<ref refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" kindref="member">gRenderer</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="11" refid="graphics_8h_1aec8ecf79cbfef975bd1751e8eac92e0a" refkind="member"><highlight class="normal">SDL_Surface<sp/>*<ref refid="graphics_8c_1aec8ecf79cbfef975bd1751e8eac92e0a" kindref="member">gRedSurface</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="12" refid="graphics_8h_1a3b5a0de489d49963cac9fd22f187d813" refkind="member"><highlight class="normal">SDL_Texture<sp/>*<ref refid="graphics_8c_1a3b5a0de489d49963cac9fd22f187d813" kindref="member">gRedTexture</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="13" refid="graphics_8h_1a324d0637f44d796996709bb187909c0c" refkind="member"><highlight class="normal">SDL_Renderer<sp/>*<ref refid="graphics_8c_1a324d0637f44d796996709bb187909c0c" kindref="member">gRedRenderer</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="14" refid="graphics_8h_1a7e583fa4ad1a7137e056e5dece1ed6c4" refkind="member"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8c_1a7e583fa4ad1a7137e056e5dece1ed6c4" kindref="member">gSprites</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="15" refid="graphics_8h_1a3555fbac07f5c5a609c2e9b8c1b81731" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="16" refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" kindref="member">gScreenWidth</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="17" refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" kindref="member">gScreenHeight</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">SDL_Window<sp/>*<ref refid="graphics_8c_1a222f53a6a442d8f716dffd665e83528a" kindref="member">gWindow</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">SDL_Renderer<sp/>*<ref refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" kindref="member">gRenderer</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">SDL_Surface<sp/>*<ref refid="graphics_8c_1aec8ecf79cbfef975bd1751e8eac92e0a" kindref="member">gRedSurface</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">SDL_Texture<sp/>*<ref refid="graphics_8c_1a3b5a0de489d49963cac9fd22f187d813" kindref="member">gRedTexture</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">SDL_Renderer<sp/>*<ref refid="graphics_8c_1a324d0637f44d796996709bb187909c0c" kindref="member">gRedRenderer</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8c_1a7e583fa4ad1a7137e056e5dece1ed6c4" kindref="member">gSprites</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" kindref="member">gScreenWidth</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" kindref="member">gScreenHeight</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19" refid="graphics_8h_1a5a91ce2f20cdb3efdd3a10f8bcd79fe2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a5a91ce2f20cdb3efdd3a10f8bcd79fe2" kindref="member">InitGraphics</ref>()</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a5a91ce2f20cdb3efdd3a10f8bcd79fe2" kindref="member">InitGraphics</ref>()</highlight></codeline>
 <codeline lineno="20"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>Uint32<sp/>flags<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_DisplayMode<sp/>current;</highlight></codeline>
@@ -708,7 +660,7 @@
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="90"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92" refid="graphics_8h_1a57deac6adc760a6c690d7c05b1b32b3d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a57deac6adc760a6c690d7c05b1b32b3d" kindref="member">ShutdownGraphics</ref>()</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a57deac6adc760a6c690d7c05b1b32b3d" kindref="member">ShutdownGraphics</ref>()</highlight></codeline>
 <codeline lineno="93"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" kindref="member">MAX_SPRITES</ref>;<sp/>i++)</highlight></codeline>
@@ -723,7 +675,7 @@
 <codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>free(gSprites);</highlight></codeline>
 <codeline lineno="105"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="106"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107" refid="graphics_8h_1a9ef47fe758affb875f01b07e551513c7" refkind="member"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8c_1a9ef47fe758affb875f01b07e551513c7" kindref="member">LoadSprite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="graphics_8c_1a9ef47fe758affb875f01b07e551513c7" kindref="member">LoadSprite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags)</highlight></codeline>
 <codeline lineno="108"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Surface<sp/>*temp;</highlight></codeline>
 <codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*check;</highlight></codeline>
@@ -732,7 +684,7 @@
 <codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(abs(<ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref>)<sp/>&gt;<sp/><ref refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" kindref="member">MAX_SPRITES</ref>)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(abs(<ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref>)<sp/>&gt;<sp/>MAX_SPRITES)</highlight></codeline>
 <codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -768,7 +720,7 @@
 <codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>check;</highlight></codeline>
 <codeline lineno="150"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"></highlight></codeline>
-<codeline lineno="152" refid="graphics_8h_1a17fde33b1d856d825920d633285aec6e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a17fde33b1d856d825920d633285aec6e" kindref="member">DrawSprite</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>frame,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*<sp/>position,<sp/>SDL_Renderer<sp/>*<sp/>renderer)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a17fde33b1d856d825920d633285aec6e" kindref="member">DrawSprite</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>frame,<sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*<sp/>position,<sp/>SDL_Renderer<sp/>*<sp/>renderer)</highlight></codeline>
 <codeline lineno="153"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Rect<sp/>src,<sp/>dst;</highlight></codeline>
 <codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>zero<sp/>=<sp/>0;</highlight></codeline>
@@ -806,7 +758,7 @@
 <codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="188"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="189"><highlight class="normal"></highlight></codeline>
-<codeline lineno="190" refid="graphics_8h_1a9cf2216f8c9099f0767277b29b0b8044" refkind="member"><highlight class="normal"><ref refid="struct_frame" kindref="compound">Frame</ref><sp/>*<ref refid="graphics_8c_1a9cf2216f8c9099f0767277b29b0b8044" kindref="member">LoadAnimation</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_height,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><ref refid="struct_frame" kindref="compound">Frame</ref><sp/>*<ref refid="graphics_8c_1a9cf2216f8c9099f0767277b29b0b8044" kindref="member">LoadAnimation</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_height,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height)</highlight></codeline>
 <codeline lineno="191"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_frame" kindref="compound">Frame</ref><sp/>*retVal;</highlight></codeline>
 <codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,j,<sp/>rows,<sp/>cols;</highlight></codeline>
@@ -825,7 +777,7 @@
 <codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
 <codeline lineno="207"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="208"><highlight class="normal"></highlight></codeline>
-<codeline lineno="209" refid="graphics_8h_1af4c49239d2f0e5306964c66be9553832" refkind="member"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref>*<sp/><ref refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" kindref="member">FindSprite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>position)</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref>*<sp/><ref refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" kindref="member">FindSprite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>position)</highlight></codeline>
 <codeline lineno="210"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" kindref="member">MAX_SPRITES</ref>;<sp/>i++)</highlight></codeline>
@@ -842,7 +794,7 @@
 <codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="224"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="225"><highlight class="normal"></highlight></codeline>
-<codeline lineno="226" refid="graphics_8h_1a88a59e4cda72f43e47b635ed6c6a9f95" refkind="member"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref>*<sp/><ref refid="graphics_8c_1a88a59e4cda72f43e47b635ed6c6a9f95" kindref="member">FindFreeSprite</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*position)</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref>*<sp/><ref refid="graphics_8c_1a88a59e4cda72f43e47b635ed6c6a9f95" kindref="member">FindFreeSprite</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*position)</highlight></codeline>
 <codeline lineno="227"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
 <codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/><ref refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" kindref="member">gLastSprite</ref>;<sp/>i<sp/>&lt;<sp/><ref refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" kindref="member">MAX_SPRITES</ref>;<sp/>i++)</highlight></codeline>
@@ -862,7 +814,7 @@
 <codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="244"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="245"><highlight class="normal"></highlight></codeline>
-<codeline lineno="246" refid="graphics_8h_1a5668bec74dc06834b3141ac6da4063a2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a5668bec74dc06834b3141ac6da4063a2" kindref="member">FreeSprite</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite)</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1a5668bec74dc06834b3141ac6da4063a2" kindref="member">FreeSprite</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*sprite)</highlight></codeline>
 <codeline lineno="247"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>position;</highlight></codeline>
 <codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sprite<sp/>==<sp/><ref refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" kindref="member">FindSprite</ref>(sprite-&gt;<ref refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/>&amp;position))</highlight></codeline>
@@ -878,7 +830,7 @@
 <codeline lineno="259"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="260"><highlight class="normal"></highlight></codeline>
 <codeline lineno="261"><highlight class="normal"></highlight><highlight class="comment">//Unused<sp/>for<sp/>now</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="262" refid="graphics_8h_1aa804be8d810666078d9915033a3d4317" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1aa804be8d810666078d9915033a3d4317" kindref="member">IncrementFrame</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>*<sp/>sprite)</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1aa804be8d810666078d9915033a3d4317" kindref="member">IncrementFrame</ref>(<ref refid="structsprite__s" kindref="compound">sprite_t</ref>*<sp/>sprite)</highlight></codeline>
 <codeline lineno="263"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frames;</highlight></codeline>
 <codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!sprite)</highlight></codeline>
@@ -892,7 +844,7 @@
 <codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="274"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="275"><highlight class="normal"></highlight></codeline>
-<codeline lineno="276" refid="graphics_8h_1af04a9f3481d89afc13d2e2e0a621fad6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" kindref="member">SDL_SetRect</ref>(SDL_Rect*<sp/>rect,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>h)</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" kindref="member">SDL_SetRect</ref>(SDL_Rect*<sp/>rect,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>h)</highlight></codeline>
 <codeline lineno="277"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>rect-&gt;x<sp/>=<sp/>x;</highlight></codeline>
 <codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>rect-&gt;y<sp/>=<sp/>y;</highlight></codeline>

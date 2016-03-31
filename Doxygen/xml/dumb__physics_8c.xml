@@ -119,21 +119,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/dumb_physics.c" line="9" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="9" bodyend="55"/>
-        <references refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" compoundref="entity_8h" startline="8">MAX_ENTITIES</references>
-        <references refid="entity_8c_1a725e495de3797c12610995f701dd8a6a" compoundref="entity_8c" startline="11">gEntities</references>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aaca8cf2b8670715dc64f0b04625fee211" compoundref="globals_8h" startline="55">COLLISION_TYPE_STATIC</references>
-        <references refid="dumb__physics_8c_1a04c93e0b3d3d778e28fc804fc52bf88b" compoundref="dumb__physics_8c" startline="194" endline="204">ApplyFriction</references>
-        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" compoundref="entity_8h" startline="37">entity_s::mVelocity</references>
-        <references refid="globals_8h_1a0f595a73aa5c05ebf73729966239e15a" compoundref="globals_8h" startline="136">PHYSICS_LIMITER</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="globals_8h_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" compoundref="mymath_8c" startline="20" endline="28">Vec2Add</references>
-        <references refid="structentity__s_1ae9f3b8e36df4503009ee071958f75b6c" compoundref="entity_8h" startline="36">entity_s::mAccel</references>
-        <references refid="dumb__physics_8c_1a1605813c3093dd564cd63719073ce122" compoundref="dumb__physics_8c" startline="162" endline="166">ApplySpeedLimit</references>
-        <references refid="dumb__physics_8c_1aac1300a97cdd2b37a4ddfa316dc92ece" compoundref="dumb__physics_8c" startline="168" endline="192">ApplyBounds</references>
-        <references refid="dumb__physics_8c_1ac2d2a3c3841dcc0533751a2421d21b58" compoundref="dumb__physics_8c" startline="57" endline="73">CheckCollision</references>
-        <references refid="dumb__physics_8c_1a9e6b8c74bb414eeffcbd423e4a40e542" compoundref="dumb__physics_8c" startline="75" endline="160">DoCollision</references>
       </memberdef>
       <memberdef kind="function" id="dumb__physics_8c_1ac2d2a3c3841dcc0533751a2421d21b58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -173,13 +158,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/dumb_physics.c" line="57" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="57" bodyend="73"/>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aadaf36ae19b0226a720a707942aea87e5" compoundref="globals_8h" startline="57">COLLISION_TYPE_CLIP</references>
-        <references refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" compoundref="entity_8h" startline="30">entity_s::mCollisionType</references>
-        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" compoundref="entity_8h" startline="32">entity_s::mSprites</references>
-        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
       </memberdef>
       <memberdef kind="function" id="dumb__physics_8c_1a9e6b8c74bb414eeffcbd423e4a40e542" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -218,17 +196,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/dumb_physics.c" line="75" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="75" bodyend="160"/>
-        <references refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" compoundref="entity_8h" startline="30">entity_s::mCollisionType</references>
-        <references refid="structentity__s_1af5c032961c1c6bca1832a0cb3fb34321" compoundref="entity_8h" startline="40">entity_s::Touch</references>
-        <references refid="structentity__s_1ad5201d7f075979ee60c684961d6a4ead" compoundref="entity_8h" startline="35">entity_s::mName</references>
-        <references refid="globals_8h_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" compoundref="mymath_8c" startline="20" endline="28">Vec2Add</references>
-        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
-        <references refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" compoundref="entity_8h" startline="32">entity_s::mSprites</references>
-        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aa7e4186c206af11ddf23d64e3d19c4bdb" compoundref="globals_8h" startline="56">COLLISION_TYPE_RAGDOLL</references>
-        <references refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" compoundref="entity_8h" startline="37">entity_s::mVelocity</references>
       </memberdef>
       <memberdef kind="function" id="dumb__physics_8c_1a1605813c3093dd564cd63719073ce122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -256,9 +223,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/dumb_physics.c" line="162" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="162" bodyend="166"/>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" compoundref="dumb__physics_8h" startline="13">PHYSICS_MAX_SPEED</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="dumb__physics_8c_1aac1300a97cdd2b37a4ddfa316dc92ece" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -286,14 +250,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/dumb_physics.c" line="168" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="168" bodyend="192"/>
-        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" compoundref="entity_8h" startline="37">entity_s::mVelocity</references>
-        <references refid="structentity__s_1ae9f3b8e36df4503009ee071958f75b6c" compoundref="entity_8h" startline="36">entity_s::mAccel</references>
-        <references refid="globals_8h_1abc330db94c68edccfc134b50a56e134e" compoundref="graphics_8c" startline="16">gScreenWidth</references>
-        <references refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" compoundref="dumb__physics_8h" startline="13">PHYSICS_MAX_SPEED</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="globals_8h_1a530fa2ce59634663df7be20316444f8b" compoundref="graphics_8c" startline="17">gScreenHeight</references>
       </memberdef>
       <memberdef kind="function" id="dumb__physics_8c_1a04c93e0b3d3d778e28fc804fc52bf88b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -321,9 +277,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/dumb_physics.c" line="194" column="1" bodyfile="dumb-ways-to-memorize/dumb_physics.c" bodystart="194" bodyend="204"/>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09cadba46d443195d2b8b7100dc6cea0385d" compoundref="dumb__physics_8h" startline="10">PHYSICS_BASE_FRICTION</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -337,9 +290,9 @@
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="player_8h" kindref="compound">player.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7" refid="globals_8h_1a014e115137722e6de4b923adf3da681b" refkind="member"><highlight class="normal"><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/><ref refid="dumb__physics_8c_1a014e115137722e6de4b923adf3da681b" kindref="member">gGravity</ref><sp/>=<sp/>{0,<sp/>2};</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/><ref refid="dumb__physics_8c_1a014e115137722e6de4b923adf3da681b" kindref="member">gGravity</ref><sp/>=<sp/>{0,<sp/>2};</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9" refid="dumb__physics_8h_1ae354ed0629e54a219f0a00be20f6e2f0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1ae354ed0629e54a219f0a00be20f6e2f0" kindref="member">RunPhysics</ref>()</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1ae354ed0629e54a219f0a00be20f6e2f0" kindref="member">RunPhysics</ref>()</highlight></codeline>
 <codeline lineno="10"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>j;</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="entity_8h_1a0b7e155f796ed5e7b49b0f44867135ee" kindref="member">MAX_ENTITIES</ref>;<sp/>i++)</highlight></codeline>
@@ -387,7 +340,7 @@
 <codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="55"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57" refid="dumb__physics_8h_1ac2d2a3c3841dcc0533751a2421d21b58" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1ac2d2a3c3841dcc0533751a2421d21b58" kindref="member">CheckCollision</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1ac2d2a3c3841dcc0533751a2421d21b58" kindref="member">CheckCollision</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other)</highlight></codeline>
 <codeline lineno="58"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(self-&gt;mCollisionType<sp/>==<sp/><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aadaf36ae19b0226a720a707942aea87e5" kindref="member">COLLISION_TYPE_CLIP</ref><sp/>||<sp/>other-&gt;<ref refid="structentity__s_1afe71918d74f1053c28126544dce2f32b" kindref="member">mCollisionType</ref><sp/>==<sp/><ref refid="globals_8h_1a09e75d7e17aa0fd73648231363dcc13aadaf36ae19b0226a720a707942aea87e5" kindref="member">COLLISION_TYPE_CLIP</ref>)</highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -405,7 +358,7 @@
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
 <codeline lineno="73"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75" refid="dumb__physics_8h_1a9e6b8c74bb414eeffcbd423e4a40e542" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1a9e6b8c74bb414eeffcbd423e4a40e542" kindref="member">DoCollision</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1a9e6b8c74bb414eeffcbd423e4a40e542" kindref="member">DoCollision</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*other)</highlight></codeline>
 <codeline lineno="76"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>self_min,<sp/>self_max,<sp/>self_res,<sp/>other_min,<sp/>other_max,<sp/>other_res;</highlight></codeline>
 <codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>left,<sp/>right,<sp/>bottom,<sp/>top;</highlight></codeline>
@@ -492,13 +445,13 @@
 <codeline lineno="159"><highlight class="normal"></highlight></codeline>
 <codeline lineno="160"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="161"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162" refid="dumb__physics_8h_1a1605813c3093dd564cd63719073ce122" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1a1605813c3093dd564cd63719073ce122" kindref="member">ApplySpeedLimit</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*<sp/>a)</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1a1605813c3093dd564cd63719073ce122" kindref="member">ApplySpeedLimit</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*<sp/>a)</highlight></codeline>
 <codeline lineno="163"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>=<sp/>abs(a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>)<sp/>&gt;<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref><sp/>?<sp/>(a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>&lt;<sp/>0<sp/>?<sp/>-<ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref><sp/>:<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref>)<sp/>:<sp/>a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>;</highlight></codeline>
 <codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>a-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>=<sp/>abs(a-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>)<sp/>&gt;<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref><sp/>?<sp/>(a-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref><sp/>&lt;<sp/>0<sp/>?<sp/>-<ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref><sp/>:<sp/><ref refid="dumb__physics_8h_1a8a3549fa7a1515ef10a78d6f382fe09ca805eb0202fcd39e9f3cfc8ec39a6c41c" kindref="member">PHYSICS_MAX_SPEED</ref>)<sp/>:<sp/>a-&gt;<ref refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>;</highlight></codeline>
 <codeline lineno="166"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="167"><highlight class="normal"></highlight></codeline>
-<codeline lineno="168" refid="dumb__physics_8h_1aac1300a97cdd2b37a4ddfa316dc92ece" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1aac1300a97cdd2b37a4ddfa316dc92ece" kindref="member">ApplyBounds</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/>ent)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1aac1300a97cdd2b37a4ddfa316dc92ece" kindref="member">ApplyBounds</ref>(<ref refid="structentity__s" kindref="compound">entity_t</ref>*<sp/>ent)</highlight></codeline>
 <codeline lineno="169"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ent-&gt;<ref refid="structentity__s_1af80cb24cef46274686528f461642ba50" kindref="member">mPosition</ref>.<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref><sp/>&lt;<sp/>0)</highlight></codeline>
 <codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -524,7 +477,7 @@
 <codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="192"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="193"><highlight class="normal"></highlight></codeline>
-<codeline lineno="194" refid="dumb__physics_8h_1a04c93e0b3d3d778e28fc804fc52bf88b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1a04c93e0b3d3d778e28fc804fc52bf88b" kindref="member">ApplyFriction</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*<sp/>a)</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dumb__physics_8c_1a04c93e0b3d3d778e28fc804fc52bf88b" kindref="member">ApplyFriction</ref>(<ref refid="structvec2__s" kindref="compound">vec2_t</ref>*<sp/>a)</highlight></codeline>
 <codeline lineno="195"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(abs(a-&gt;<ref refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>))</highlight></codeline>
 <codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>

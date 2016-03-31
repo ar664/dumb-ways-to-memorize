@@ -853,34 +853,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/ai_interpret.h" line="125" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.c" bodystart="261" bodyend="391"/>
-        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
-        <references refid="ai__interpret_8h_1aa438859ab4448dbffef630c7df6fa8da" compoundref="ai__interpret_8h" startline="13">AI_VAR_STR</references>
-        <references refid="ai__interpret_8h_1a8241201468b0b49abac3940cb0527ed7" compoundref="ai__interpret_8h" startline="10">AI_FUNCTION_OBJECT</references>
-        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
-        <references refid="mystrings_8c_1a6466498df69994b55bb62b9b53652142" compoundref="mystrings_8c" startline="10" endline="32">FindKey</references>
-        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
-        <references refid="ai__interpret_8h_1aa3f803bbc58a2e44d676b2d4e0a55e66" compoundref="ai__interpret_8h" startline="26">AI_TYPE_STR</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="ai__interpret_8c_1a4d72b855449c33319a1ad798a9fc3fc7" compoundref="ai__interpret_8c" startline="12">gAI_Variables</references>
-        <references refid="ai__interpret_8c_1a38a992ac4f024da776101ad1a2957ac4" compoundref="ai__interpret_8c" startline="501" endline="547">SetAI_Var</references>
-        <references refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" compoundref="mystrings_8c" startline="92" endline="119">StrToInt</references>
-        <references refid="ai__interpret_8c_1ad51a73747c32e703010066d34b299de2" compoundref="ai__interpret_8c" startline="13">gAI_Actions</references>
-        <references refid="ai__interpret_8c_1a5d87dca860c5320136e684cbe422ca21" compoundref="ai__interpret_8c" startline="549" endline="625">SetAI_Action</references>
-        <references refid="ai__interpret_8h_1a42492ef6b9956883af49be159eb55dffaa8c277933e2d21a6fde065ab745d0fdf" compoundref="ai__interpret_8h" startline="78">AI_ACTION_NOTHING</references>
-        <references refid="ai__interpret_8c_1ab5cd8fb380975357a1de5deae48bf85f" compoundref="ai__interpret_8c" startline="14">gAI_Conditions</references>
-        <references refid="parseobject_8c_1aef0cb86d9b54e11206d154c369cb9a7e" compoundref="parseobject_8c" startline="144" endline="168">CountObjectMembers</references>
-        <references refid="ai__interpret_8c_1a16e24cd82a74fa54781c203aaccec738" compoundref="ai__interpret_8c" startline="627" endline="662">SetAI_Check</references>
-        <references refid="structai__function__s_1ab64996ddf8cd7006232fcb79bc296b03" compoundref="ai__interpret_8h" startline="101">ai_function_s::mFlags</references>
-        <references refid="ai__interpret_8h_1aab487a4dae4d7338733bfd01a5658b23a2d86daab51b8e7812c93f672ebfb6db9" compoundref="ai__interpret_8h" startline="71">AI_FLAG_GRAVITY</references>
-        <references refid="structai__function__s_1af4cc7fbcaa3a1268cb1a174203486a8c" compoundref="ai__interpret_8h" startline="99">ai_function_s::mType</references>
-        <references refid="ai__interpret_8c_1a38d0ac016fd6a956b4fcdd5eefdff0c1" compoundref="ai__interpret_8c" startline="697" endline="707">StrToAI_Type</references>
-        <references refid="structai__function__s_1a7965c244eab12a7cdc29c447b8c76dbc" compoundref="ai__interpret_8h" startline="106">ai_function_s::mLink</references>
-        <references refid="ai__interpret_8h_1aab487a4dae4d7338733bfd01a5658b23a2f4801c84fb1ead492802fc8b93d1619" compoundref="ai__interpret_8h" startline="70">AI_FLAG_CHECK_OBJECT</references>
-        <references refid="ai__interpret_8h_1a20a59586d1951b3e6c3353504b58332b" compoundref="ai__interpret_8h" startline="33">AI_SPECIFY_OBJ_STR</references>
-        <references refid="structai__function__s_1ae9037e9c23c85312470746c5c4379814" compoundref="ai__interpret_8h" startline="105">ai_function_s::mObjectCheck</references>
       </memberdef>
       <memberdef kind="function" id="ai__interpret_8h_1a325c62634a19a96fcd9117b5f59968d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="ai__interpret_8h_1a93e23f66130135adeb83b13c29f36fca" kindref="member">ai_function_t</ref> *</type>
@@ -920,33 +892,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/ai_interpret.h" line="138" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.c" bodystart="393" bodyend="499"/>
-        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
-        <references refid="ai__interpret_8h_1aa438859ab4448dbffef630c7df6fa8da" compoundref="ai__interpret_8h" startline="13">AI_VAR_STR</references>
-        <references refid="ai__interpret_8h_1a8241201468b0b49abac3940cb0527ed7" compoundref="ai__interpret_8h" startline="10">AI_FUNCTION_OBJECT</references>
-        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
-        <references refid="mystrings_8c_1a6466498df69994b55bb62b9b53652142" compoundref="mystrings_8c" startline="10" endline="32">FindKey</references>
-        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
-        <references refid="ai__interpret_8h_1aa3f803bbc58a2e44d676b2d4e0a55e66" compoundref="ai__interpret_8h" startline="26">AI_TYPE_STR</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="ai__interpret_8c_1a4d72b855449c33319a1ad798a9fc3fc7" compoundref="ai__interpret_8c" startline="12">gAI_Variables</references>
-        <references refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" compoundref="mystrings_8c" startline="53" endline="82">FindValue</references>
-        <references refid="ai__interpret_8c_1a38a992ac4f024da776101ad1a2957ac4" compoundref="ai__interpret_8c" startline="501" endline="547">SetAI_Var</references>
-        <references refid="ai__interpret_8c_1ad51a73747c32e703010066d34b299de2" compoundref="ai__interpret_8c" startline="13">gAI_Actions</references>
-        <references refid="ai__interpret_8c_1a5d87dca860c5320136e684cbe422ca21" compoundref="ai__interpret_8c" startline="549" endline="625">SetAI_Action</references>
-        <references refid="ai__interpret_8c_1ab5cd8fb380975357a1de5deae48bf85f" compoundref="ai__interpret_8c" startline="14">gAI_Conditions</references>
-        <references refid="parseobject_8c_1aef0cb86d9b54e11206d154c369cb9a7e" compoundref="parseobject_8c" startline="144" endline="168">CountObjectMembers</references>
-        <references refid="ai__interpret_8c_1a16e24cd82a74fa54781c203aaccec738" compoundref="ai__interpret_8c" startline="627" endline="662">SetAI_Check</references>
-        <references refid="structai__function__s_1ab64996ddf8cd7006232fcb79bc296b03" compoundref="ai__interpret_8h" startline="101">ai_function_s::mFlags</references>
-        <references refid="ai__interpret_8h_1aab487a4dae4d7338733bfd01a5658b23a2d86daab51b8e7812c93f672ebfb6db9" compoundref="ai__interpret_8h" startline="71">AI_FLAG_GRAVITY</references>
-        <references refid="structai__function__s_1af4cc7fbcaa3a1268cb1a174203486a8c" compoundref="ai__interpret_8h" startline="99">ai_function_s::mType</references>
-        <references refid="ai__interpret_8c_1a38d0ac016fd6a956b4fcdd5eefdff0c1" compoundref="ai__interpret_8c" startline="697" endline="707">StrToAI_Type</references>
-        <references refid="structai__function__s_1a7965c244eab12a7cdc29c447b8c76dbc" compoundref="ai__interpret_8h" startline="106">ai_function_s::mLink</references>
-        <references refid="ai__interpret_8h_1aab487a4dae4d7338733bfd01a5658b23a2f4801c84fb1ead492802fc8b93d1619" compoundref="ai__interpret_8h" startline="70">AI_FLAG_CHECK_OBJECT</references>
-        <references refid="ai__interpret_8h_1a20a59586d1951b3e6c3353504b58332b" compoundref="ai__interpret_8h" startline="33">AI_SPECIFY_OBJ_STR</references>
-        <references refid="structai__function__s_1ae9037e9c23c85312470746c5c4379814" compoundref="ai__interpret_8h" startline="105">ai_function_s::mObjectCheck</references>
       </memberdef>
       <memberdef kind="function" id="ai__interpret_8h_1a38a992ac4f024da776101ad1a2957ac4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -996,18 +941,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/ai_interpret.h" line="150" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.c" bodystart="501" bodyend="547"/>
-        <references refid="ai__interpret_8h_1ada4ce31f6b1ccb11b329f13b403fbb5b" compoundref="ai__interpret_8h" startline="18">AI_VAR_SPEED_STR</references>
-        <references refid="ai__interpret_8h_1a0fd706f9f199bde94857277c893baa47a52140aacf61b5d7be0229d847281ad2b" compoundref="ai__interpret_8h" startline="55">AI_VAR_SPEED</references>
-        <references refid="ai__interpret_8h_1a4fd3497e396da261e5049f3125e20d29" compoundref="ai__interpret_8h" startline="38">AI_BASE_SPEED</references>
-        <references refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" compoundref="mystrings_8c" startline="92" endline="119">StrToInt</references>
-        <references refid="ai__interpret_8h_1af77f162f72ac7de280a09bf538af8714" compoundref="ai__interpret_8h" startline="15">AI_VAR_FRAMES_STR</references>
-        <references refid="ai__interpret_8h_1a0fd706f9f199bde94857277c893baa47a0f413fab2c7a95b839d11b5fbc933122" compoundref="ai__interpret_8h" startline="58">AI_VAR_FRAMES</references>
-        <references refid="ai__interpret_8h_1a2072f0a2f2335d17070a938b2b3f378d" compoundref="ai__interpret_8h" startline="39">AI_BASE_THINK_FRAMES</references>
-        <references refid="ai__interpret_8h_1acb5318abad3a57b7184c30bb2c7777c9" compoundref="ai__interpret_8h" startline="16">AI_VAR_TIME_STR</references>
-        <references refid="ai__interpret_8h_1a0fd706f9f199bde94857277c893baa47af143db04baea39ca4ef7d2bfdfd237b1" compoundref="ai__interpret_8h" startline="59">AI_VAR_TIME</references>
-        <references refid="ai__interpret_8h_1a1026f6edc576815f9c9ba6e4da0690a0" compoundref="ai__interpret_8h" startline="17">AI_VAR_DAMAGE_STR</references>
-        <references refid="ai__interpret_8h_1a0fd706f9f199bde94857277c893baa47ac3233de200d915cf261df689ec43ca0c" compoundref="ai__interpret_8h" startline="60">AI_VAR_DAMAGE</references>
-        <references refid="ai__interpret_8h_1a9e473d026b1cb0faf976cd27350420f5" compoundref="ai__interpret_8h" startline="40">AI_BASE_DAMAGE</references>
       </memberdef>
       <memberdef kind="function" id="ai__interpret_8h_1a5d87dca860c5320136e684cbe422ca21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1079,23 +1012,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/ai_interpret.h" line="164" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.c" bodystart="549" bodyend="625"/>
-        <references refid="ai__interpret_8h_1ab18b182365b15628c10327316844aab8" compoundref="ai__interpret_8h" startline="21">AI_ACTION_NOTHING_STR</references>
-        <references refid="ai__interpret_8h_1a42492ef6b9956883af49be159eb55dffaa8c277933e2d21a6fde065ab745d0fdf" compoundref="ai__interpret_8h" startline="78">AI_ACTION_NOTHING</references>
-        <references refid="ai__interpret_8h_1ab64c56f26a1b1a7715487c72b9f28dbd" compoundref="ai__interpret_8h" startline="22">AI_ACTION_MOVE_STR</references>
-        <references refid="ai__interpret_8h_1a0fd706f9f199bde94857277c893baa47a9295d6cb5092cc1a0de936f8abc09619" compoundref="ai__interpret_8h" startline="56">AI_VAR_DIR_X</references>
-        <references refid="ai__interpret_8h_1a0fd706f9f199bde94857277c893baa47a6eede82ca0eb902da5ddc90926776a44" compoundref="ai__interpret_8h" startline="57">AI_VAR_DIR_Y</references>
-        <references refid="parsevariable_8c_1aece06ba78503ca86b77daa6c0f64d01f" compoundref="parsevariable_8c" startline="186" endline="201">ParseToVec2</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="ai__interpret_8h_1a42492ef6b9956883af49be159eb55dffa6b5238de81f107855780253611db0147" compoundref="ai__interpret_8h" startline="79">AI_ACTION_MOVE</references>
-        <references refid="ai__interpret_8h_1abc7fe2d04eb73a338cb3fe88f72844a8" compoundref="ai__interpret_8h" startline="23">AI_ACTION_WALK_STR</references>
-        <references refid="ai__interpret_8h_1a42492ef6b9956883af49be159eb55dffa5a4cdc97564cafbc4ce6b8a11eec0ce4" compoundref="ai__interpret_8h" startline="80">AI_ACTION_WALK</references>
-        <references refid="ai__interpret_8h_1a46d6cd208af1d4bf3095ee3c7a1e739b" compoundref="ai__interpret_8h" startline="24">AI_ACTION_JUMP_STR</references>
-        <references refid="ai__interpret_8h_1aab127305df5b44889696f3220565be08" compoundref="ai__interpret_8h" startline="37">AI_BASE_JUMP</references>
-        <references refid="ai__interpret_8h_1a42492ef6b9956883af49be159eb55dffa10840c0a524082dc68990373e17f2128" compoundref="ai__interpret_8h" startline="81">AI_ACTION_JUMP</references>
-        <references refid="ai__interpret_8h_1adede65c5d71cf37ecdd755a6909f7a81" compoundref="ai__interpret_8h" startline="25">AI_ACTION_ATTACK_STR</references>
-        <references refid="ai__interpret_8h_1a42492ef6b9956883af49be159eb55dffacd9af8f735c788a43a9a38b14748691a" compoundref="ai__interpret_8h" startline="82">AI_ACTION_ATTACK</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
       </memberdef>
       <memberdef kind="function" id="ai__interpret_8h_1a16e24cd82a74fa54781c203aaccec738" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1156,17 +1072,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/ai_interpret.h" line="177" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.c" bodystart="627" bodyend="662"/>
-        <references refid="ai__interpret_8h_1a13cbd28a585c1577751efca68da844fa" compoundref="ai__interpret_8h" startline="34">AI_LINK_ACTION</references>
-        <references refid="ai__interpret_8h_1a0fd706f9f199bde94857277c893baa47a682c194be42cbd5ca0d0deabb0239876" compoundref="ai__interpret_8h" startline="61">AI_VAR_CHECK</references>
-        <references refid="mystrings_8c_1a7847ecf365cd64921278854576e5ddcc" compoundref="mystrings_8c" startline="92" endline="119">StrToInt</references>
-        <references refid="ai__interpret_8h_1a743b388cb87c1457c328fafa797372fe" compoundref="ai__interpret_8h" startline="31">AI_CHECK_PLAYER_STR</references>
-        <references refid="ai__interpret_8h_1aab487a4dae4d7338733bfd01a5658b23a1e62188aa9d46d657686622ed91447e2" compoundref="ai__interpret_8h" startline="69">AI_FLAG_CHECK_PLAYER</references>
-        <references refid="ai__interpret_8h_1ae8363acda061b3665d4092cbb0f860ac" compoundref="ai__interpret_8h" startline="32">AI_CHECK_OBJECT_STR</references>
-        <references refid="ai__interpret_8h_1aab487a4dae4d7338733bfd01a5658b23a2f4801c84fb1ead492802fc8b93d1619" compoundref="ai__interpret_8h" startline="70">AI_FLAG_CHECK_OBJECT</references>
-        <references refid="ai__interpret_8h_1a678f1e1d230bf4bc224407b101e89d30" compoundref="ai__interpret_8h" startline="35">AI_LINK_AI</references>
-        <references refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" compoundref="mystrings_8c" startline="192" endline="261">ConvertFileToUseable</references>
-        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
-        <references refid="ai__interpret_8c_1a487d35ce74f749b0bfb024a900699f37" compoundref="ai__interpret_8c" startline="261" endline="391">ParseAI</references>
       </memberdef>
       <memberdef kind="function" id="ai__interpret_8h_1a766fc5dc0fd99733613cc7a396f6efdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1183,8 +1088,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/ai_interpret.h" line="187" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.c" bodystart="664" bodyend="684"/>
-        <references refid="ai__interpret_8h_1adfd8cb6f070423c4a34b4009b0fb47e3" compoundref="ai__interpret_8h" startline="8">MAX_AI</references>
-        <references refid="ai__interpret_8c_1a7a593ea725968a09171ad562877652a1" compoundref="ai__interpret_8c" startline="686" endline="695">ShutdownAISystem</references>
       </memberdef>
       <memberdef kind="function" id="ai__interpret_8h_1a7a593ea725968a09171ad562877652a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1228,11 +1131,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/ai_interpret.h" line="208" column="1" bodyfile="dumb-ways-to-memorize/ai_interpret.c" bodystart="697" bodyend="707"/>
-        <references refid="ai__interpret_8h_1a81d12be75ce1905126f4e82e9edb951a" compoundref="ai__interpret_8h" startline="27">AI_TYPE_PRESET_STR</references>
-        <references refid="ai__interpret_8h_1a9fc7d2b2756bda7167434e15ddd43159a6122d777385c6b1ae97b800595e46e54" compoundref="ai__interpret_8h" startline="46">AI_TYPE_PRESET</references>
-        <references refid="ai__interpret_8h_1aee545ee676dd6fbcc4ce58b97d821f4e" compoundref="ai__interpret_8h" startline="28">AI_TYPE_VARIABLE_STR</references>
-        <references refid="ai__interpret_8h_1a9fc7d2b2756bda7167434e15ddd43159ac795c273b7af067af5b7fabfa7a711ab" compoundref="ai__interpret_8h" startline="47">AI_TYPE_VARIABLE</references>
-        <references refid="ai__interpret_8h_1a9fc7d2b2756bda7167434e15ddd43159adcedad9c8bae06b1e0a33bf7534bb8be" compoundref="ai__interpret_8h" startline="45">AI_TYPE_NULL</references>
       </memberdef>
       </sectiondef>
     <briefdescription>

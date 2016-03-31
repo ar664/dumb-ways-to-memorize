@@ -120,21 +120,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/quick_controller.h" line="19" column="1" bodyfile="dumb-ways-to-memorize/quick_controller.c" bodystart="7" bodyend="45"/>
-        <references refid="structentity__s_1ad3ee4f856561237cfaeb8af26759aec1" compoundref="entity_8h" startline="37">entity_s::mVelocity</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="player_8h_1a70c671ff041da80a2d89834b31559a3e" compoundref="player_8h" startline="7">PLAYER_BASE_JUMP</references>
-        <references refid="structentity__s_1ab8851adbf3f67db41bcdac86f698b197" compoundref="entity_8h" startline="33">entity_s::mAnimation</references>
-        <references refid="globals_8h_1aa6f86057c10bca778f0390185896f050a536257d8a375b02042100ec9457f25dc" compoundref="globals_8h" startline="75">ANIMATION_JUMP</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structentity__s_1ad454ff27c8d769254a727750ac38592f" compoundref="entity_8h" startline="32">entity_s::mSprites</references>
-        <references refid="structentity__s_1ad1606f41f8e2d6ffa8da068d620a102e" compoundref="entity_8h" startline="42">entity_s::PowerUp</references>
-        <references refid="parsepowerup_8c_1a90fefa2dda0184e13839a0b67950fc88" compoundref="parsepowerup_8c" startline="16">gCurrentPowerUp</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="player_8h_1a8652c9805fbaf4fd5a2ab6943f024510" compoundref="player_8h" startline="8">PLAYER_BASE_SPEED</references>
-        <references refid="globals_8h_1aa6f86057c10bca778f0390185896f050a83054b457d88f8f493483de9ce763359" compoundref="globals_8h" startline="74">ANIMATION_WALK</references>
-        <references refid="structentity__s_1ada44c567bee8dbfa47693d4068507cab" compoundref="entity_8h" startline="29">entity_s::mDirection</references>
-        <references refid="entity_8h_1a06fc171388523b3731c50218617d64b1" compoundref="entity_8h" startline="9">ENTITY_DIR_LEFT</references>
-        <references refid="entity_8h_1a500b112c5fef7d3144b377ab85307075" compoundref="entity_8h" startline="10">ENTITY_DIR_RIGHT</references>
       </memberdef>
       </sectiondef>
     <briefdescription>

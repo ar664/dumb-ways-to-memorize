@@ -342,14 +342,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsepowerup.h" line="64" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="133" bodyend="146"/>
-        <references refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a424e7ac8424cb2b5f8ad421ce7049960" compoundref="parsepowerup_8h" startline="26">INFO_BOTH</references>
-        <references refid="parsefunction_8c_1a0f50ddf2c031233309190bfe8e3f8701" compoundref="parsefunction_8c" startline="59" endline="63">GetXMouse</references>
-        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
-        <references refid="parsepowerup_8c_1abf3c4f267001e0e0f3e5b748b3b1c5e5" compoundref="parsepowerup_8c" startline="18">keyPower</references>
-        <references refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5af4924e029416352949b8726ad12153e1" compoundref="parsepowerup_8h" startline="24">INFO_BUTTON</references>
-        <references refid="parsefunction_8c_1a2f1ce1fc3533578da89e9d9e566769af" compoundref="parsefunction_8c" startline="47" endline="51">GetX</references>
-        <references refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a415d1df754c472023341c16ab6343b4b" compoundref="parsepowerup_8h" startline="25">INFO_MOUSE</references>
-        <references refid="parsefunction_8c_1a9f48ba431a0a1cfb77ac410398303773" compoundref="parsefunction_8c" startline="53" endline="57">GetMousePos</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1abfc420da26ddb1f9d592bf432644c94c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -377,10 +369,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsepowerup.h" line="74" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="90" bodyend="108"/>
-        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
-        <references refid="structpower__s_1a8e7faa42ca042b4df438d3c82427d2ee" compoundref="parsepowerup_8h" startline="43">power_s::GetTarg</references>
-        <references refid="structpower__s_1a6729e2052b01af694ccadb9c401b57a0" compoundref="parsepowerup_8h" startline="48">power_s::target</references>
-        <references refid="structpower__s_1ab8646ebc46bf478ca09510b7a01c7223" compoundref="parsepowerup_8h" startline="46">power_s::uses</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a7ae6cede71041d57a4863372b0f2a43a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -408,9 +396,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsepowerup.h" line="84" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="110" bodyend="113"/>
-        <references refid="structpower__s_1a8e7faa42ca042b4df438d3c82427d2ee" compoundref="parsepowerup_8h" startline="43">power_s::GetTarg</references>
-        <references refid="player_8c_1a39b4143c78f14357b34548d43450c880" compoundref="player_8c" startline="9">gPlayer</references>
-        <references refid="structpower__s_1a6729e2052b01af694ccadb9c401b57a0" compoundref="parsepowerup_8h" startline="48">power_s::target</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a5eacfd4521f47eb6ce756416ed91ffb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -489,35 +474,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsepowerup.h" line="110" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="148" bodyend="253"/>
-        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
-        <references refid="structpower__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parsepowerup_8h" startline="41">power_s::name</references>
-        <references refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" compoundref="mystrings_8c" startline="53" endline="82">FindValue</references>
-        <references refid="parsepowerup_8h_1ae4ff7ab7b5ce057c9af5622a291cc4d1" compoundref="parsepowerup_8h" startline="7">POWER_TARGET_STR</references>
-        <references refid="structpower__s_1a8e7faa42ca042b4df438d3c82427d2ee" compoundref="parsepowerup_8h" startline="43">power_s::GetTarg</references>
-        <references refid="parsefunction_8c_1a3364b018786a8ca3a643e80ee703807f" compoundref="parsefunction_8c" startline="11" endline="23">ParseToFunction</references>
-        <references refid="parsepowerup_8h_1a2939e5dcdb99093d66f2dcf2a9cdcefc" compoundref="parsepowerup_8h" startline="8">POWER_USE_TYPE_STR</references>
-        <references refid="parsepowerup_8c_1a5eacfd4521f47eb6ce756416ed91ffb4" compoundref="parsepowerup_8c" startline="115" endline="131">GetUseType</references>
-        <references refid="structpower__s_1ab8646ebc46bf478ca09510b7a01c7223" compoundref="parsepowerup_8h" startline="46">power_s::uses</references>
-        <references refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4a6a1459101774b7f68e084098fa8bacbb" compoundref="parsepowerup_8h" startline="16">INFINITE</references>
-        <references refid="structpower__s_1a3cad653c3718314662c4a98659778999" compoundref="parsepowerup_8h" startline="44">power_s::UpdateUse</references>
-        <references refid="parsepowerup_8c_1a7ae6cede71041d57a4863372b0f2a43a" compoundref="parsepowerup_8c" startline="110" endline="113">UpdateInfinite</references>
-        <references refid="parsepowerup_8h_1a2231c1a21540cc394825ca5e5df7cab4ae55a36a850c67d46b3b3325de7fce0b8" compoundref="parsepowerup_8h" startline="17">STATIC</references>
-        <references refid="parsepowerup_8c_1abfc420da26ddb1f9d592bf432644c94c" compoundref="parsepowerup_8c" startline="90" endline="108">UpdateNormal</references>
-        <references refid="parsepowerup_8h_1a334dcc2970f95cee54b9ffe8d95b117e" compoundref="parsepowerup_8h" startline="10">POWER_INPUT_TYPE_STR</references>
-        <references refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a424e7ac8424cb2b5f8ad421ce7049960" compoundref="parsepowerup_8h" startline="26">INFO_BOTH</references>
-        <references refid="parsefunction_8c_1a77aa3443e1cc11d1389a851b108f3328" compoundref="parsefunction_8c" startline="8">FunctionNames</references>
-        <references refid="structpower__s_1a92e471ab75337ebde8ffbddf14890542" compoundref="parsepowerup_8h" startline="47">power_s::info_type</references>
-        <references refid="parsepowerup_8h_1a3482867a9df48b02d0dcfe459b6e81c5a4b7dcb53be065c6db542a2de0f0231ca" compoundref="parsepowerup_8h" startline="23">INFO_NONE</references>
-        <references refid="structpower__s_1a99fd6ee1c03eaf0de0f3e2c71237db69" compoundref="parsepowerup_8h" startline="42">power_s::UpdateInput</references>
-        <references refid="parsepowerup_8c_1a4e4cd8f4b3499de1268fd7cf1ed0a790" compoundref="parsepowerup_8c" startline="133" endline="146">CallInfo</references>
-        <references refid="parsepowerup_8c_1abf3c4f267001e0e0f3e5b748b3b1c5e5" compoundref="parsepowerup_8c" startline="18">keyPower</references>
-        <references refid="parsepowerup_8h_1a452f9650ebca3a4bdf7e47196426070b" compoundref="parsepowerup_8h" startline="9">POWER_INTERACTION_STR</references>
-        <references refid="parsepowerup_8c_1a4df04830c86d6dcbd3ef4557df82d9bd" compoundref="parsepowerup_8c" startline="13">InteractionNames</references>
-        <references refid="structpower__s_1a0547996a48a142c5c5006ce1dd3020a5" compoundref="parsepowerup_8h" startline="45">power_s::DoPower</references>
-        <references refid="parsepowerup_8c_1ae5fb8c4f4ec5d863b1344f069b50d8c6" compoundref="parsepowerup_8c" startline="14">InteractionSymbols</references>
-        <references refid="parsepowerup_8h_1ab2ae8695bdfb17d6bb3a797a6416cc13" compoundref="parsepowerup_8h" startline="11">POWER_ENTITY_STR</references>
-        <references refid="entity_8c_1a018dc9e984dbb58b293f263775b528c6" compoundref="entity_8c" startline="301" endline="314">FindCachedEntity</references>
-        <references refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" compoundref="parsepowerup_8h" startline="49">power_s::info</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a94356a5fdd8b29d6a5fa2b730266275e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="parsepowerup_8h_1a5b6034e874b6462f78a13c5202a4d2eb" kindref="member">power_t</ref> *</type>
@@ -546,8 +502,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsepowerup.h" line="122" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="255" bodyend="274"/>
-        <references refid="game_8c_1a3a8af497dc09185b0764ca27f6afff1b" compoundref="game_8c" startline="42">gPowerUps</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a283d180401ea1bf0ee68755d094b275a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -575,11 +529,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsepowerup.h" line="132" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="276" bodyend="295"/>
-        <references refid="structpower__s_1a99fd6ee1c03eaf0de0f3e2c71237db69" compoundref="parsepowerup_8h" startline="42">power_s::UpdateInput</references>
-        <references refid="structpower__s_1a3cad653c3718314662c4a98659778999" compoundref="parsepowerup_8h" startline="44">power_s::UpdateUse</references>
-        <references refid="structpower__s_1a0547996a48a142c5c5006ce1dd3020a5" compoundref="parsepowerup_8h" startline="45">power_s::DoPower</references>
-        <references refid="structpower__s_1a6729e2052b01af694ccadb9c401b57a0" compoundref="parsepowerup_8h" startline="48">power_s::target</references>
-        <references refid="structpower__s_1abdbfaddb317fd1c7b9bdd58ea49d0395" compoundref="parsepowerup_8h" startline="49">power_s::info</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a289b46202a6f305acde1afc2d821207e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -618,7 +567,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsepowerup.h" line="144" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="20" bodyend="28"/>
-        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a6b34755eb80b623ca36505219d6e1012" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -657,7 +605,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsepowerup.h" line="155" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="32" bodyend="38"/>
-        <references refid="entity_8c_1ae27dad323fa0f26748bd2485f5d019e3" compoundref="entity_8c" startline="379" endline="407">FreeEntity</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a050ba84fee976778201dc7aff3e6ff41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -696,9 +643,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsepowerup.h" line="166" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="41" bodyend="57"/>
-        <references refid="entity_8c_1ad5cd21060189ddd8246414069ee01676" compoundref="entity_8c" startline="235" endline="248">InitNewEntity</references>
-        <references refid="globals_8h_1a0b07daa7e4d5ab9bc9842dbd07ffbd1c" compoundref="mymath_8c" startline="20" endline="28">Vec2Add</references>
-        <references refid="structentity__s_1af80cb24cef46274686528f461642ba50" compoundref="entity_8h" startline="38">entity_s::mPosition</references>
       </memberdef>
       <memberdef kind="function" id="parsepowerup_8h_1a288e67be7e4235a802f8f0a779dfa68a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -775,7 +719,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/parsepowerup.h" line="188" column="1" bodyfile="dumb-ways-to-memorize/parsepowerup.c" bodystart="81" bodyend="88"/>
-        <references refid="structentity__s_1ae045b7ba608e955e791f8af8507b78a4" compoundref="entity_8h" startline="39">entity_s::Think</references>
       </memberdef>
       </sectiondef>
     <briefdescription>

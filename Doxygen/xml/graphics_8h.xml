@@ -418,19 +418,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.h" line="49" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="19" bodyend="90"/>
-        <references refid="graphics_8c_1a530fa2ce59634663df7be20316444f8b" compoundref="graphics_8c" startline="17">gScreenHeight</references>
-        <references refid="graphics_8c_1abc330db94c68edccfc134b50a56e134e" compoundref="graphics_8c" startline="16">gScreenWidth</references>
-        <references refid="graphics_8c_1a222f53a6a442d8f716dffd665e83528a" compoundref="graphics_8c" startline="9">gWindow</references>
-        <references refid="graphics_8h_1aed7818555b2da57314243d796315e4e9" compoundref="graphics_8h" startline="7">GAME_NAME</references>
-        <references refid="graphics_8h_1ab4f60dcfaf8e1c328b2862723508d851" compoundref="graphics_8h" startline="9">SCREEN_RES_W</references>
-        <references refid="graphics_8h_1a7a7d00e9da31c5ddbab5d35adab314f6" compoundref="graphics_8h" startline="10">SCREEN_RES_H</references>
-        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
-        <references refid="graphics_8c_1aec8ecf79cbfef975bd1751e8eac92e0a" compoundref="graphics_8c" startline="11">gRedSurface</references>
-        <references refid="graphics_8c_1a324d0637f44d796996709bb187909c0c" compoundref="graphics_8c" startline="13">gRedRenderer</references>
-        <references refid="graphics_8c_1a3b5a0de489d49963cac9fd22f187d813" compoundref="graphics_8c" startline="12">gRedTexture</references>
-        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
-        <references refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" compoundref="graphics_8c" startline="15">gLastSprite</references>
-        <references refid="graphics_8c_1a57deac6adc760a6c690d7c05b1b32b3d" compoundref="graphics_8c" startline="92" endline="105">ShutdownGraphics</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a57deac6adc760a6c690d7c05b1b32b3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -446,8 +433,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.h" line="57" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="92" bodyend="105"/>
-        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
-        <references refid="graphics_8c_1a5668bec74dc06834b3141ac6da4063a2" compoundref="graphics_8c" startline="246" endline="259">FreeSprite</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a9cf2216f8c9099f0767277b29b0b8044" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_frame" kindref="compound">Frame</ref> *</type>
@@ -509,9 +494,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.h" line="72" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="190" bodyend="207"/>
-        <references refid="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" compoundref="graphics_8h" startline="17">Frame::Position</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1af4c49239d2f0e5306964c66be9553832" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
@@ -551,7 +533,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.h" line="85" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="209" bodyend="224"/>
-        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a88a59e4cda72f43e47b635ed6c6a9f95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
@@ -580,8 +561,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.h" line="97" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="226" bodyend="244"/>
-        <references refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" compoundref="graphics_8c" startline="15">gLastSprite</references>
-        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a9ef47fe758affb875f01b07e551513c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="graphics_8h_1a5371414b10358aeda7c6bcec8196342f" kindref="member">sprite_t</ref> *</type>
@@ -621,18 +600,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.h" line="110" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="107" bodyend="150"/>
-        <references refid="graphics_8c_1a3555fbac07f5c5a609c2e9b8c1b81731" compoundref="graphics_8c" startline="15">gLastSprite</references>
-        <references refid="graphics_8h_1aeb21c7ac080eea985b7701df626d9cf4" compoundref="graphics_8h" startline="11">MAX_SPRITES</references>
-        <references refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" compoundref="graphics_8c" startline="209" endline="224">FindSprite</references>
-        <references refid="structsprite__s_1a43ab0d8eafd71383b2233bdee65911de" compoundref="graphics_8h" startline="35">sprite_s::refCount</references>
-        <references refid="graphics_8c_1a88a59e4cda72f43e47b635ed6c6a9f95" compoundref="graphics_8c" startline="226" endline="244">FindFreeSprite</references>
-        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" compoundref="graphics_8h" startline="32">sprite_s::mTexture</references>
-        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
-        <references refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" compoundref="graphics_8h" startline="36">sprite_s::name</references>
-        <references refid="structsprite__s_1acd9c3d76b8dfc0aed0c331ec5f0568f1" compoundref="graphics_8h" startline="34">sprite_s::mFrames</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a17fde33b1d856d825920d633285aec6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -687,15 +654,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.h" line="125" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="152" bodyend="188"/>
-        <references refid="structsprite__s_1acd9c3d76b8dfc0aed0c331ec5f0568f1" compoundref="graphics_8h" startline="34">sprite_s::mFrames</references>
-        <references refid="graphics_8c_1af04a9f3481d89afc13d2e2e0a621fad6" compoundref="graphics_8c" startline="276" endline="282">SDL_SetRect</references>
-        <references refid="structsprite__s_1a8ce6c2916d6244600c434144ed6ac296" compoundref="graphics_8h" startline="31">sprite_s::mAnimations</references>
-        <references refid="struct_frame_1ae69b5c22d5cd3911965dc992d40ba4fc" compoundref="graphics_8h" startline="17">Frame::Position</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="structsprite__s_1a94c822928b0483a24e1f4a176f161954" compoundref="graphics_8h" startline="33">sprite_s::mSize</references>
-        <references refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" compoundref="graphics_8h" startline="32">sprite_s::mTexture</references>
-        <references refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" compoundref="graphics_8h" startline="36">sprite_s::name</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1a5668bec74dc06834b3141ac6da4063a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -723,10 +681,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.h" line="135" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="246" bodyend="259"/>
-        <references refid="graphics_8c_1af4c49239d2f0e5306964c66be9553832" compoundref="graphics_8c" startline="209" endline="224">FindSprite</references>
-        <references refid="structsprite__s_1a5ac083a645d964373f022d03df4849c8" compoundref="graphics_8h" startline="36">sprite_s::name</references>
-        <references refid="structsprite__s_1a43ab0d8eafd71383b2233bdee65911de" compoundref="graphics_8h" startline="35">sprite_s::refCount</references>
-        <references refid="structsprite__s_1a13441ecc6f09930e330ecc4b48189778" compoundref="graphics_8h" startline="32">sprite_s::mTexture</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1aa804be8d810666078d9915033a3d4317" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -744,8 +698,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/graphics.h" line="138" column="1" bodyfile="dumb-ways-to-memorize/graphics.c" bodystart="262" bodyend="274"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structsprite__s_1a8ce6c2916d6244600c434144ed6ac296" compoundref="graphics_8h" startline="31">sprite_s::mAnimations</references>
       </memberdef>
       <memberdef kind="function" id="graphics_8h_1af04a9f3481d89afc13d2e2e0a621fad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

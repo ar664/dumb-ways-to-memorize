@@ -590,23 +590,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="60" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="60" bodyend="94"/>
-        <references refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" compoundref="mystrings_8c" startline="192" endline="261">ConvertFileToUseable</references>
-        <references refid="game_8h_1aae6948b99853ea69a786492d3bb3453c" compoundref="game_8h" startline="7">JSON_FILE</references>
-        <references refid="game_8c_1ae4c70a31e9d973c951caa5d0081f371b" compoundref="game_8c" startline="36">gGameData</references>
-        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
-        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
-        <references refid="graphics_8h_1aa7c5e8a32eb1645ee26fda856b4ca41a" compoundref="graphics_8h" startline="8">SCREEN_STRING</references>
-        <references refid="parsevariable_8c_1aece06ba78503ca86b77daa6c0f64d01f" compoundref="parsevariable_8c" startline="186" endline="201">ParseToVec2</references>
-        <references refid="globals_8h_1abc330db94c68edccfc134b50a56e134e" compoundref="graphics_8c" startline="16">gScreenWidth</references>
-        <references refid="structvec2__s_1a6150e0515f7202e2fb518f7206ed97dc" compoundref="globals_8h" startline="21">vec2_s::x</references>
-        <references refid="globals_8h_1a530fa2ce59634663df7be20316444f8b" compoundref="graphics_8c" startline="17">gScreenHeight</references>
-        <references refid="structvec2__s_1a0a2f84ed7838f07779ae24c5a9086d33" compoundref="globals_8h" startline="22">vec2_s::y</references>
-        <references refid="parseobject_8c_1ae7d41e06515589776dc92961481d56ab" compoundref="parseobject_8c" startline="188" endline="235">PrintObject</references>
-        <references refid="game_8c_1ae41ba571b800cdaf245c2fb320f897c1" compoundref="game_8c" startline="39">gEntitiesFile</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="globals_8h_1ad3f536d6b289b57569cb1a0298059b74" compoundref="globals_8h" startline="106">ENTITIES_FILE_STR</references>
-        <references refid="game_8c_1ad2abc3c2640a4883d78427b9cd1b3b8b" compoundref="game_8c" startline="40">gPowerUpsFile</references>
-        <references refid="globals_8h_1ae3a2e4fbacd8fc047e40bc4dcbe1ed86" compoundref="globals_8h" startline="114">POWER_UPS_STR</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a3c5ed8ec6399e50f714fcdab2e6c070a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -620,21 +603,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="96" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="96" bodyend="138"/>
-        <references refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" compoundref="mystrings_8c" startline="192" endline="261">ConvertFileToUseable</references>
-        <references refid="game_8c_1ae41ba571b800cdaf245c2fb320f897c1" compoundref="game_8c" startline="39">gEntitiesFile</references>
-        <references refid="game_8c_1a2438de532d787b051cc555989e00eaf1" compoundref="game_8c" startline="37">gEntityData</references>
-        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="parseobject_8c_1ae7d41e06515589776dc92961481d56ab" compoundref="parseobject_8c" startline="188" endline="235">PrintObject</references>
-        <references refid="entity_8c_1a4a2a39e414a5c7caa23e9a8faf5b0e7d" compoundref="entity_8c" startline="13">Hazards_str</references>
-        <references refid="parsevariable_8c_1a090f6fa5f93d7a5becca914af766d1d8" compoundref="parsevariable_8c" startline="203" endline="219">ParseToStringArray</references>
-        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
-        <references refid="game_8c_1ae4c70a31e9d973c951caa5d0081f371b" compoundref="game_8c" startline="36">gGameData</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="mystrings_8c_1a6466498df69994b55bb62b9b53652142" compoundref="mystrings_8c" startline="10" endline="32">FindKey</references>
-        <references refid="structobject__s_1a720905251b014f5c9ec82e66e8463f4e" compoundref="parseobject_8h" startline="22">object_s::keys</references>
-        <references refid="parsevariable_8c_1ab44c577d09cbd67632c75301d846676e" compoundref="parsevariable_8c" startline="36" endline="134">ParseToEntity</references>
-        <references refid="entity_8c_1a373409dde746bc4935afd92aa8975f4c" compoundref="entity_8c" startline="250" endline="262">FindNextFreeCachePos</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a80fc9e8ab6c9f36242aca245edee14c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -651,17 +619,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="148" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="148" bodyend="185"/>
-        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
-        <references refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" compoundref="game_8c" startline="24">gLevelsPerGame</references>
-        <references refid="mystrings_8c_1a6466498df69994b55bb62b9b53652142" compoundref="mystrings_8c" startline="10" endline="32">FindKey</references>
-        <references refid="game_8h_1a28d12f0e56f63ba5aebe17c819d95526" compoundref="game_8h" startline="10">LEVELS_NOT_DEFAULT</references>
-        <references refid="game_8c_1ae4c70a31e9d973c951caa5d0081f371b" compoundref="game_8c" startline="36">gGameData</references>
-        <references refid="game_8h_1a603aab592ed467dac063a1cf44a55c49" compoundref="game_8h" startline="12">LEVELS_DEFAULT</references>
-        <references refid="mystrings_8c_1aa5c26c3bf9ec4cf5d58937787db2d415" compoundref="mystrings_8c" startline="84" endline="90">JsmnToInt</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" compoundref="game_8c" startline="26">gLevels</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a8c608fbaa05aed812f106331f8dad649" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -678,16 +635,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="196" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="196" bodyend="240"/>
-        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
-        <references refid="game_8c_1ad2abc3c2640a4883d78427b9cd1b3b8b" compoundref="game_8c" startline="40">gPowerUpsFile</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="game_8c_1ae4c70a31e9d973c951caa5d0081f371b" compoundref="game_8c" startline="36">gGameData</references>
-        <references refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" compoundref="mystrings_8c" startline="192" endline="261">ConvertFileToUseable</references>
-        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structobject__s_1a2746ae4a23a7e9cd4c7d266d32c3f30f" compoundref="parseobject_8h" startline="21">object_s::children</references>
-        <references refid="parsepowerup_8c_1a8d842ada05e7a3a934447d48af492f7f" compoundref="parsepowerup_8c" startline="148" endline="253">ParseToPowerUp</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1abc5753dfa46f96a3f00ce0c228e8e281" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -704,21 +651,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="250" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="250" bodyend="287"/>
-        <references refid="menu_8c_1ac9844c472d09220d402c191e16f6474e" compoundref="menu_8c" startline="12">gMenus</references>
-        <references refid="menu_8c_1a1c427a4122a85bc392880fdcf2a843ce" compoundref="menu_8c" startline="299" endline="314">InitMenuSystem</references>
-        <references refid="parseobject_8c_1a0d7610fbd167c6f81519e6ab3403e3bd" compoundref="parseobject_8c" startline="120" endline="142">FindObject</references>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="structobject__s_1ab74cb2267ebadadd15e6bb59e85cc3f9" compoundref="parseobject_8h" startline="23">object_s::values</references>
-        <references refid="mystrings_8c_1a78d7d9580e10b30e6409ebfeb29e5cfe" compoundref="mystrings_8c" startline="34" endline="51">JsmnToString</references>
-        <references refid="game_8c_1ae4c70a31e9d973c951caa5d0081f371b" compoundref="game_8c" startline="36">gGameData</references>
-        <references refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" compoundref="mystrings_8c" startline="192" endline="261">ConvertFileToUseable</references>
-        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
-        <references refid="parseobject_8c_1ae7d41e06515589776dc92961481d56ab" compoundref="parseobject_8c" startline="188" endline="235">PrintObject</references>
-        <references refid="structobject__s_1a5ac083a645d964373f022d03df4849c8" compoundref="parseobject_8h" startline="24">object_s::name</references>
-        <references refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" compoundref="mystrings_8c" startline="53" endline="82">FindValue</references>
-        <references refid="menu_8c_1a6f4a9eb4cd081c5b7a3e5e0475ed8437" compoundref="menu_8c" startline="478" endline="635">LoadMenu</references>
-        <references refid="globals_8h_1a295e14f293c2d135e244c6b9f417a447" compoundref="mystrings_8c" startline="274" endline="304">StrToGameState</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a13d000b4d7dc70d90239b7430d1eb6b2" compoundref="globals_8h" startline="86">START</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a94f46db60f69856665f7b6fce5db209e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -735,10 +667,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="297" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="297" bodyend="335"/>
-        <references refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" compoundref="game_8c" startline="26">gLevels</references>
-        <references refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" compoundref="game_8c" startline="27">gSelectedLevels</references>
-        <references refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" compoundref="game_8c" startline="24">gLevelsPerGame</references>
-        <references refid="globals_8h_1a4cda7fb3c8f061cba2e2dff0710400ee" compoundref="mymath_8c" startline="77" endline="91">CompareMemToMemArray</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a61420beeaf5d0198b41709412508cfd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -754,11 +682,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="343" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="343" bodyend="377"/>
-        <references refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" compoundref="mymath_8c" startline="51" endline="64">CountMem</references>
-        <references refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" compoundref="game_8c" startline="26">gLevels</references>
-        <references refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" compoundref="game_8c" startline="24">gLevelsPerGame</references>
-        <references refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" compoundref="game_8c" startline="27">gSelectedLevels</references>
-        <references refid="globals_8h_1a4cda7fb3c8f061cba2e2dff0710400ee" compoundref="mymath_8c" startline="77" endline="91">CompareMemToMemArray</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1ae4bccf3c8c8b60d039485212d07c6489" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -788,11 +711,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="390" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="390" bodyend="419"/>
-        <references refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" compoundref="game_8c" startline="27">gSelectedLevels</references>
-        <references refid="mystrings_8c_1a496e2427daae7d276aa1c25bf7173f9b" compoundref="mystrings_8c" startline="192" endline="261">ConvertFileToUseable</references>
-        <references refid="game_8c_1acff6c545ae762a933011c296fda1ead0" compoundref="game_8c" startline="38">gLevelData</references>
-        <references refid="parseobject_8c_1abeb996817aa47a5e463a47275c897483" compoundref="parseobject_8c" startline="8" endline="117">ParseToObject</references>
-        <references refid="parselevel_8c_1ad9ebda29344f8ab359a5630fadc56489" compoundref="parselevel_8c" startline="11" endline="243">LoadLevel</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a28255989d2c8adf3bca455e48b6736c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -808,12 +726,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="427" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="427" bodyend="453"/>
-        <references refid="game_8c_1a66f12a481d172f126a6bf8d3e4a683df" compoundref="game_8c" startline="47">gEventQ</references>
-        <references refid="game_8c_1ace39fee8ad9b40be707e8bb899b4b66e" compoundref="game_8c" startline="48">gController</references>
-        <references refid="game_8c_1a644f3aeee8c48bb2c622244836ef2046" compoundref="game_8c" startline="49">gButtonQ</references>
-        <references refid="quick__controller_8h_1ab7820abcb4653b4fcf13da1a7a724b3f" compoundref="quick__controller_8h" startline="5">BUTTON_NO_INPUT</references>
-        <references refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" compoundref="game_8c" startline="22">exitRequest</references>
-        <references refid="game_8c_1a3ddcf597916a7185f18d493a51684845" compoundref="game_8c" startline="776" endline="780">UpdatePlaying</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a3ddcf597916a7185f18d493a51684845" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -829,8 +741,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="456" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="776" bodyend="780"/>
-        <references refid="entity_8c_1a4804d845517ee1430fc40dfdc3d333df" compoundref="entity_8c" startline="281" endline="299">RunEntities</references>
-        <references refid="dumb__physics_8c_1ae354ed0629e54a219f0a00be20f6e2f0" compoundref="dumb__physics_8c" startline="9" endline="55">RunPhysics</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1aec0783b5a136e042adcc47bae4fe5291" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -844,27 +754,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="458" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="458" bodyend="539"/>
-        <references refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" compoundref="game_8c" startline="50">gCurrentTime</references>
-        <references refid="game_8c_1aafc8457d9121884bb074efeff2941e23" compoundref="game_8c" startline="44">gGameState</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a96a92720d3d9970db2d464166b8a569e" compoundref="globals_8h" startline="85">SPLASH</references>
-        <references refid="mystrings_8c_1ac183085aec4f8b1867b5737aacb9c37f" compoundref="mystrings_8c" startline="53" endline="82">FindValue</references>
-        <references refid="game_8h_1a8e1907a18d4e5313d8fca7fbdec694e0" compoundref="game_8h" startline="9">SPLASH_SCREEN</references>
-        <references refid="game_8c_1ae4c70a31e9d973c951caa5d0081f371b" compoundref="game_8c" startline="36">gGameData</references>
-        <references refid="graphics_8c_1a9ef47fe758affb875f01b07e551513c7" compoundref="graphics_8c" startline="107" endline="150">LoadSprite</references>
-        <references refid="game_8c_1a644f3aeee8c48bb2c622244836ef2046" compoundref="game_8c" startline="49">gButtonQ</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a13d000b4d7dc70d90239b7430d1eb6b2" compoundref="globals_8h" startline="86">START</references>
-        <references refid="menu_8c_1ac9844c472d09220d402c191e16f6474e" compoundref="menu_8c" startline="12">gMenus</references>
-        <references refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" compoundref="game_8c" startline="22">exitRequest</references>
-        <references refid="structmenu__s_1afdc00f47a596fec9f5362aeab002e868" compoundref="menu_8h" startline="72">menu_s::Update</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285ab8c769f7e7a67d0a91a2fe34fdc5dbea" compoundref="globals_8h" startline="87">GUESS</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a58a9a2b13d64bdcda325c28725c1a73f" compoundref="globals_8h" startline="88">CHOOSE</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285af095245f5cebc27a97a124345269fed8" compoundref="globals_8h" startline="89">PLAYING</references>
-        <references refid="game_8c_1a3ddcf597916a7185f18d493a51684845" compoundref="game_8c" startline="776" endline="780">UpdatePlaying</references>
-        <references refid="game_8c_1addfb0717b9d4923ffd6ca6a879a24d8a" compoundref="game_8c" startline="691" endline="701">DrawSplash</references>
-        <references refid="game_8c_1a649bc00af241211bb527b38ea5100f35" compoundref="game_8c" startline="709" endline="719">DrawStart</references>
-        <references refid="game_8c_1a3d1af84dd28675b906294f461ba1eacd" compoundref="game_8c" startline="727" endline="737">DrawGuess</references>
-        <references refid="game_8c_1aa4fdce6f0033a5f2bfc633e9d5edc55a" compoundref="game_8c" startline="745" endline="755">DrawChoose</references>
-        <references refid="game_8c_1a3d331e84879ecaad643c10c9b0a74164" compoundref="game_8c" startline="763" endline="768">DrawPlaying</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1addfb0717b9d4923ffd6ca6a879a24d8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -880,8 +769,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="541" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="691" bodyend="701"/>
-        <references refid="graphics_8c_1a17fde33b1d856d825920d633285aec6e" compoundref="graphics_8c" startline="152" endline="188">DrawSprite</references>
-        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a649bc00af241211bb527b38ea5100f35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -897,9 +784,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="542" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="709" bodyend="719"/>
-        <references refid="menu_8c_1ac9844c472d09220d402c191e16f6474e" compoundref="menu_8c" startline="12">gMenus</references>
-        <references refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" compoundref="game_8c" startline="22">exitRequest</references>
-        <references refid="structmenu__s_1ab0d1e3b40626060280d7a069ef441961" compoundref="menu_8h" startline="73">menu_s::Draw</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a3d1af84dd28675b906294f461ba1eacd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -915,9 +799,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="543" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="727" bodyend="737"/>
-        <references refid="menu_8c_1ac9844c472d09220d402c191e16f6474e" compoundref="menu_8c" startline="12">gMenus</references>
-        <references refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" compoundref="game_8c" startline="22">exitRequest</references>
-        <references refid="structmenu__s_1ab0d1e3b40626060280d7a069ef441961" compoundref="menu_8h" startline="73">menu_s::Draw</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1aa4fdce6f0033a5f2bfc633e9d5edc55a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -933,9 +814,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="544" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="745" bodyend="755"/>
-        <references refid="menu_8c_1ac9844c472d09220d402c191e16f6474e" compoundref="menu_8c" startline="12">gMenus</references>
-        <references refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" compoundref="game_8c" startline="22">exitRequest</references>
-        <references refid="structmenu__s_1ab0d1e3b40626060280d7a069ef441961" compoundref="menu_8h" startline="73">menu_s::Draw</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a3d331e84879ecaad643c10c9b0a74164" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -951,8 +829,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="545" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="763" bodyend="768"/>
-        <references refid="parselevel_8c_1af0b3b2530a9027139729335d90824340" compoundref="parselevel_8c" startline="248" endline="256">DrawLevel</references>
-        <references refid="entity_8c_1a7406ec610d0755cd8022ceea378f83a6" compoundref="entity_8c" startline="264" endline="279">DrawEntities</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a3d5cf0d8d37b6b17224867eb397c9a16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -966,18 +842,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="547" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="547" bodyend="582"/>
-        <references refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" compoundref="graphics_8c" startline="10">gRenderer</references>
-        <references refid="game_8c_1aafc8457d9121884bb074efeff2941e23" compoundref="game_8c" startline="44">gGameState</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a96a92720d3d9970db2d464166b8a569e" compoundref="globals_8h" startline="85">SPLASH</references>
-        <references refid="game_8c_1addfb0717b9d4923ffd6ca6a879a24d8a" compoundref="game_8c" startline="691" endline="701">DrawSplash</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a13d000b4d7dc70d90239b7430d1eb6b2" compoundref="globals_8h" startline="86">START</references>
-        <references refid="game_8c_1a649bc00af241211bb527b38ea5100f35" compoundref="game_8c" startline="709" endline="719">DrawStart</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a58a9a2b13d64bdcda325c28725c1a73f" compoundref="globals_8h" startline="88">CHOOSE</references>
-        <references refid="game_8c_1aa4fdce6f0033a5f2bfc633e9d5edc55a" compoundref="game_8c" startline="745" endline="755">DrawChoose</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285ab8c769f7e7a67d0a91a2fe34fdc5dbea" compoundref="globals_8h" startline="87">GUESS</references>
-        <references refid="game_8c_1a3d1af84dd28675b906294f461ba1eacd" compoundref="game_8c" startline="727" endline="737">DrawGuess</references>
-        <references refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285af095245f5cebc27a97a124345269fed8" compoundref="globals_8h" startline="89">PLAYING</references>
-        <references refid="game_8c_1a3d331e84879ecaad643c10c9b0a74164" compoundref="game_8c" startline="763" endline="768">DrawPlaying</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1a50ac2197010a8cf188eafc647122f1a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -994,17 +858,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="592" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="592" bodyend="656"/>
-        <references refid="game_8c_1a52972542fcf0985d5ee7277513fbc94c" compoundref="game_8c" startline="60" endline="94">LoadGameData</references>
-        <references refid="graphics_8c_1a5a91ce2f20cdb3efdd3a10f8bcd79fe2" compoundref="graphics_8c" startline="19" endline="90">InitGraphics</references>
-        <references refid="entity_8c_1a9aa4a5f113750202be9f45db34908955" compoundref="entity_8c" startline="217" endline="233">InitEntitySystem</references>
-        <references refid="menu_8c_1a1c427a4122a85bc392880fdcf2a843ce" compoundref="menu_8c" startline="299" endline="314">InitMenuSystem</references>
-        <references refid="ai__interpret_8c_1a766fc5dc0fd99733613cc7a396f6efdf" compoundref="ai__interpret_8c" startline="664" endline="684">InitAISystem</references>
-        <references refid="game_8c_1a3c5ed8ec6399e50f714fcdab2e6c070a" compoundref="game_8c" startline="96" endline="138">LoadEntityData</references>
-        <references refid="game_8c_1abc5753dfa46f96a3f00ce0c228e8e281" compoundref="game_8c" startline="250" endline="287">LoadMenuData</references>
-        <references refid="game_8c_1a80fc9e8ab6c9f36242aca245edee14c9" compoundref="game_8c" startline="148" endline="185">LoadLevelData</references>
-        <references refid="game_8c_1a8c608fbaa05aed812f106331f8dad649" compoundref="game_8c" startline="196" endline="240">LoadPowerUpData</references>
-        <references refid="game_8c_1a94f46db60f69856665f7b6fce5db209e" compoundref="game_8c" startline="297" endline="335">SelectLevels</references>
-        <references refid="game_8c_1ace39fee8ad9b40be707e8bb899b4b66e" compoundref="game_8c" startline="48">gController</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1aac704aea738c1edc384a97e51d60662b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1021,13 +874,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="dumb-ways-to-memorize/game.c" line="666" column="1" bodyfile="dumb-ways-to-memorize/game.c" bodystart="666" bodyend="677"/>
-        <references refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" compoundref="game_8c" startline="22">exitRequest</references>
-        <references refid="game_8c_1a28255989d2c8adf3bca455e48b6736c4" compoundref="game_8c" startline="427" endline="453">Poll</references>
-        <references refid="game_8c_1aec0783b5a136e042adcc47bae4fe5291" compoundref="game_8c" startline="458" endline="539">Update</references>
-        <references refid="game_8c_1a3d5cf0d8d37b6b17224867eb397c9a16" compoundref="game_8c" startline="547" endline="582">Draw</references>
-        <references refid="game_8c_1a9736f3ab7bf57237ebee62b9cbd15f13" compoundref="game_8c" startline="23">gDelay</references>
-        <references refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" compoundref="game_8c" startline="50">gCurrentTime</references>
-        <references refid="globals_8h_1a33fabd29c10aabcb416dfbf5c84d3e08" compoundref="globals_8h" startline="135">FRAME_DELAY</references>
       </memberdef>
       <memberdef kind="function" id="game_8c_1ac5f038c2b480cf9ef5e19e3eba8dbaf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1069,37 +915,37 @@
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//All<sp/>char<sp/>**<sp/>should<sp/>be<sp/>size+1,<sp/>and<sp/>ending<sp/>member<sp/>=<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22" refid="globals_8h_1aaaad6d2ffd165538265b1e68f60ab837" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" kindref="member">exitRequest</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="23" refid="game_8c_1a9736f3ab7bf57237ebee62b9cbd15f13" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a9736f3ab7bf57237ebee62b9cbd15f13" kindref="member">gDelay</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="24" refid="globals_8h_1a9527243766b6dbc450b03e44a940e8b4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref><sp/>=<sp/><ref refid="game_8h_1a603aab592ed467dac063a1cf44a55c49" kindref="member">LEVELS_DEFAULT</ref>;</highlight></codeline>
-<codeline lineno="25" refid="globals_8h_1a93e375e494425adf95818f2524f06891" refkind="member"><highlight class="normal"><ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/><ref refid="game_8c_1a93e375e494425adf95818f2524f06891" kindref="member">gParser</ref>;</highlight></codeline>
-<codeline lineno="26" refid="globals_8h_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" kindref="member">gLevels</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="27" refid="globals_8h_1a74afd8193cb4b707d3c1cbe7c6109f7c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" kindref="member">gSelectedLevels</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="28" refid="globals_8h_1a66329b13979a75d803e9f5d705f5a755" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="game_8c_1a66329b13979a75d803e9f5d705f5a755" kindref="member">gSelectedPowerUps</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="29" refid="globals_8h_1a6540f730c8dc68b12d940f68358ca677" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="game_8c_1a6540f730c8dc68b12d940f68358ca677" kindref="member">gUsedPowerUps</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="30" refid="globals_8h_1a141d6ca754370006cba996c9d17ad16e" refkind="member"><highlight class="normal"><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="game_8c_1a141d6ca754370006cba996c9d17ad16e" kindref="member">gGameTokens</ref>;</highlight></codeline>
-<codeline lineno="31" refid="globals_8h_1ae426c13677e3a0be6593f5af1a3995ed" refkind="member"><highlight class="normal"><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="game_8c_1ae426c13677e3a0be6593f5af1a3995ed" kindref="member">gEntityTokens</ref>;</highlight></codeline>
-<codeline lineno="32" refid="globals_8h_1a9f795d64c303e4534a33fa56b0ac3476" refkind="member"><highlight class="normal"><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="game_8c_1a9f795d64c303e4534a33fa56b0ac3476" kindref="member">gLevelTokens</ref>;</highlight></codeline>
-<codeline lineno="33" refid="globals_8h_1a251a8e16ca7c41f1e7a6120dd23cff4a" refkind="member"><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="game_8c_1abf114e18525eeabfe0ba238c1ef5985d" kindref="member">gGameObject</ref>;</highlight></codeline>
-<codeline lineno="34" refid="globals_8h_1ae9a03a398547a2b1de15b7513a1a4ee0" refkind="member"><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="game_8c_1a837b44a004dc14ea18337c23f78a569f" kindref="member">gEntityObject</ref>;</highlight></codeline>
-<codeline lineno="35" refid="globals_8h_1a298cfdaa57c7c170b3e7556a36d4f95b" refkind="member"><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="game_8c_1a161d9225397ace076dabb57b90ff2c1a" kindref="member">gLevelObject</ref>;</highlight></codeline>
-<codeline lineno="36" refid="globals_8h_1ae4c70a31e9d973c951caa5d0081f371b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1ae4c70a31e9d973c951caa5d0081f371b" kindref="member">gGameData</ref>;</highlight></codeline>
-<codeline lineno="37" refid="globals_8h_1a2438de532d787b051cc555989e00eaf1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1a2438de532d787b051cc555989e00eaf1" kindref="member">gEntityData</ref>;</highlight></codeline>
-<codeline lineno="38" refid="globals_8h_1acff6c545ae762a933011c296fda1ead0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1acff6c545ae762a933011c296fda1ead0" kindref="member">gLevelData</ref>;</highlight></codeline>
-<codeline lineno="39" refid="globals_8h_1ae41ba571b800cdaf245c2fb320f897c1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1ae41ba571b800cdaf245c2fb320f897c1" kindref="member">gEntitiesFile</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="40" refid="globals_8h_1ad2abc3c2640a4883d78427b9cd1b3b8b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1ad2abc3c2640a4883d78427b9cd1b3b8b" kindref="member">gPowerUpsFile</ref><sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="41" refid="game_8c_1af8475c9d8ef741632cc7461fec5c0fad" refkind="member"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="game_8c_1af8475c9d8ef741632cc7461fec5c0fad" kindref="member">gEntityDictionary</ref>;</highlight></codeline>
-<codeline lineno="42" refid="parsepowerup_8h_1a3a8af497dc09185b0764ca27f6afff1b" refkind="member"><highlight class="normal"><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*<ref refid="game_8c_1a3a8af497dc09185b0764ca27f6afff1b" kindref="member">gPowerUps</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="43" refid="globals_8h_1a66f3fc97502132ecdb2983351ffed1b5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1a66f3fc97502132ecdb2983351ffed1b5" kindref="member">gCurrentPowerUpName</ref><sp/>=<sp/>NULL;<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="44" refid="globals_8h_1aafc8457d9121884bb074efeff2941e23" refkind="member"><highlight class="normal"><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/><ref refid="game_8c_1aafc8457d9121884bb074efeff2941e23" kindref="member">gGameState</ref><sp/>=<sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a96a92720d3d9970db2d464166b8a569e" kindref="member">SPLASH</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="45" refid="game_8c_1adc658e2e6011d6fb1cdac68634b26a58" refkind="member"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="game_8c_1adc658e2e6011d6fb1cdac68634b26a58" kindref="member">gSplash</ref><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="46" refid="globals_8h_1a6cec6004c302c98221d23e95d2e2dff4" refkind="member"><highlight class="normal"><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/><ref refid="game_8c_1a6cec6004c302c98221d23e95d2e2dff4" kindref="member">gZeroPos</ref><sp/>=<sp/>{0,0};</highlight></codeline>
-<codeline lineno="47" refid="game_8c_1a66f12a481d172f126a6bf8d3e4a683df" refkind="member"><highlight class="normal">SDL_Event<sp/><ref refid="game_8c_1a66f12a481d172f126a6bf8d3e4a683df" kindref="member">gEventQ</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="48" refid="quick__controller_8h_1ace39fee8ad9b40be707e8bb899b4b66e" refkind="member"><highlight class="normal">SDL_GameController<sp/>*<ref refid="game_8c_1ace39fee8ad9b40be707e8bb899b4b66e" kindref="member">gController</ref><sp/>=<sp/>NULL;<sp/></highlight></codeline>
-<codeline lineno="49" refid="quick__controller_8h_1a644f3aeee8c48bb2c622244836ef2046" refkind="member"><highlight class="normal">SDL_GameControllerButton<sp/><ref refid="game_8c_1a644f3aeee8c48bb2c622244836ef2046" kindref="member">gButtonQ</ref>;</highlight></codeline>
-<codeline lineno="50" refid="globals_8h_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" kindref="member">gCurrentTime</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" kindref="member">exitRequest</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a9736f3ab7bf57237ebee62b9cbd15f13" kindref="member">gDelay</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref><sp/>=<sp/><ref refid="game_8h_1a603aab592ed467dac063a1cf44a55c49" kindref="member">LEVELS_DEFAULT</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><ref refid="structjsmn__parser" kindref="compound">jsmn_parser</ref><sp/><ref refid="game_8c_1a93e375e494425adf95818f2524f06891" kindref="member">gParser</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" kindref="member">gLevels</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" kindref="member">gSelectedLevels</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="game_8c_1a66329b13979a75d803e9f5d705f5a755" kindref="member">gSelectedPowerUps</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="game_8c_1a6540f730c8dc68b12d940f68358ca677" kindref="member">gUsedPowerUps</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="game_8c_1a141d6ca754370006cba996c9d17ad16e" kindref="member">gGameTokens</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="game_8c_1ae426c13677e3a0be6593f5af1a3995ed" kindref="member">gEntityTokens</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*<ref refid="game_8c_1a9f795d64c303e4534a33fa56b0ac3476" kindref="member">gLevelTokens</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="game_8c_1abf114e18525eeabfe0ba238c1ef5985d" kindref="member">gGameObject</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="game_8c_1a837b44a004dc14ea18337c23f78a569f" kindref="member">gEntityObject</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*<ref refid="game_8c_1a161d9225397ace076dabb57b90ff2c1a" kindref="member">gLevelObject</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1ae4c70a31e9d973c951caa5d0081f371b" kindref="member">gGameData</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1a2438de532d787b051cc555989e00eaf1" kindref="member">gEntityData</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1acff6c545ae762a933011c296fda1ead0" kindref="member">gLevelData</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1ae41ba571b800cdaf245c2fb320f897c1" kindref="member">gEntitiesFile</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1ad2abc3c2640a4883d78427b9cd1b3b8b" kindref="member">gPowerUpsFile</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*<ref refid="game_8c_1af8475c9d8ef741632cc7461fec5c0fad" kindref="member">gEntityDictionary</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><ref refid="structpower__s" kindref="compound">power_t</ref><sp/>*<ref refid="game_8c_1a3a8af497dc09185b0764ca27f6afff1b" kindref="member">gPowerUps</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="game_8c_1a66f3fc97502132ecdb2983351ffed1b5" kindref="member">gCurrentPowerUpName</ref><sp/>=<sp/>NULL;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285" kindref="member">GameState</ref><sp/><ref refid="game_8c_1aafc8457d9121884bb074efeff2941e23" kindref="member">gGameState</ref><sp/>=<sp/><ref refid="globals_8h_1a7899b65f1ea0f655e4bbf8d2a5714285a96a92720d3d9970db2d464166b8a569e" kindref="member">SPLASH</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><ref refid="structsprite__s" kindref="compound">sprite_t</ref><sp/>*<ref refid="game_8c_1adc658e2e6011d6fb1cdac68634b26a58" kindref="member">gSplash</ref><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/><ref refid="game_8c_1a6cec6004c302c98221d23e95d2e2dff4" kindref="member">gZeroPos</ref><sp/>=<sp/>{0,0};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">SDL_Event<sp/><ref refid="game_8c_1a66f12a481d172f126a6bf8d3e4a683df" kindref="member">gEventQ</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">SDL_GameController<sp/>*<ref refid="game_8c_1ace39fee8ad9b40be707e8bb899b4b66e" kindref="member">gController</ref><sp/>=<sp/>NULL;<sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">SDL_GameControllerButton<sp/><ref refid="game_8c_1a644f3aeee8c48bb2c622244836ef2046" kindref="member">gButtonQ</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" kindref="member">gCurrentTime</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60" refid="game_8c_1a52972542fcf0985d5ee7277513fbc94c" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a52972542fcf0985d5ee7277513fbc94c" kindref="member">LoadGameData</ref>()</highlight></codeline>
+<codeline lineno="60"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a52972542fcf0985d5ee7277513fbc94c" kindref="member">LoadGameData</ref>()</highlight></codeline>
 <codeline lineno="61"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvec2__s" kindref="compound">vec2_t</ref><sp/>*screen;</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*temp_obj;</highlight></codeline>
@@ -1135,7 +981,7 @@
 <codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="94"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96" refid="game_8c_1a3c5ed8ec6399e50f714fcdab2e6c070a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3c5ed8ec6399e50f714fcdab2e6c070a" kindref="member">LoadEntityData</ref>()</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3c5ed8ec6399e50f714fcdab2e6c070a" kindref="member">LoadEntityData</ref>()</highlight></codeline>
 <codeline lineno="97"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>objects;</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity__s" kindref="compound">entity_t</ref><sp/>*temp_ent,<sp/>*pos_ent;</highlight></codeline>
@@ -1179,7 +1025,7 @@
 <codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="138"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="139"><highlight class="normal"></highlight></codeline>
-<codeline lineno="148" refid="game_8c_1a80fc9e8ab6c9f36242aca245edee14c9" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a80fc9e8ab6c9f36242aca245edee14c9" kindref="member">LoadLevelData</ref>()</highlight></codeline>
+<codeline lineno="148"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a80fc9e8ab6c9f36242aca245edee14c9" kindref="member">LoadLevelData</ref>()</highlight></codeline>
 <codeline lineno="149"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*levelObj;</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>lvlInt;</highlight></codeline>
@@ -1218,7 +1064,7 @@
 <codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="185"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="186"><highlight class="normal"></highlight></codeline>
-<codeline lineno="196" refid="game_8c_1a8c608fbaa05aed812f106331f8dad649" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a8c608fbaa05aed812f106331f8dad649" kindref="member">LoadPowerUpData</ref>()</highlight></codeline>
+<codeline lineno="196"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a8c608fbaa05aed812f106331f8dad649" kindref="member">LoadPowerUpData</ref>()</highlight></codeline>
 <codeline lineno="197"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjsmntok__t" kindref="compound">jsmntok_t</ref><sp/>*power_tok;</highlight></codeline>
 <codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structobject__s" kindref="compound">object_t</ref><sp/>*powers,<sp/>*temp_obj;</highlight></codeline>
@@ -1264,7 +1110,7 @@
 <codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="240"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="241"><highlight class="normal"></highlight></codeline>
-<codeline lineno="250" refid="game_8c_1abc5753dfa46f96a3f00ce0c228e8e281" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1abc5753dfa46f96a3f00ce0c228e8e281" kindref="member">LoadMenuData</ref>()</highlight></codeline>
+<codeline lineno="250"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1abc5753dfa46f96a3f00ce0c228e8e281" kindref="member">LoadMenuData</ref>()</highlight></codeline>
 <codeline lineno="251"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>menuCount;</highlight></codeline>
 <codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*menuData,<sp/>*menuLink,<sp/>*temp_str;</highlight></codeline>
@@ -1303,7 +1149,7 @@
 <codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="287"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="288"><highlight class="normal"></highlight></codeline>
-<codeline lineno="297" refid="globals_8h_1a94f46db60f69856665f7b6fce5db209e" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a94f46db60f69856665f7b6fce5db209e" kindref="member">SelectLevels</ref>()</highlight></codeline>
+<codeline lineno="297"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a94f46db60f69856665f7b6fce5db209e" kindref="member">SelectLevels</ref>()</highlight></codeline>
 <codeline lineno="298"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>rand_i,<sp/>*no_repeats,<sp/>type_i;</highlight></codeline>
 <codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>levels<sp/>=<sp/>0;</highlight></codeline>
@@ -1343,31 +1189,31 @@
 <codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="335"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="336"><highlight class="normal"></highlight></codeline>
-<codeline lineno="343" refid="globals_8h_1a61420beeaf5d0198b41709412508cfd8" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a61420beeaf5d0198b41709412508cfd8" kindref="member">RandomizeSelectedLevels</ref>()</highlight></codeline>
+<codeline lineno="343"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a61420beeaf5d0198b41709412508cfd8" kindref="member">RandomizeSelectedLevels</ref>()</highlight></codeline>
 <codeline lineno="344"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>rand_i,<sp/>*no_repeats;</highlight></codeline>
 <codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**slevel_copy;</highlight></codeline>
 <codeline lineno="347"><highlight class="normal"></highlight></codeline>
-<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(<ref refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" kindref="member">gLevels</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*))<sp/>&lt;<sp/><ref refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref>)</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="globals_8h_1ab5272b6a1f2bf961c7534ec91a243715" kindref="member">CountMem</ref>(<ref refid="game_8c_1ad2b9ce520a1c8afb8f8e07fcd4b6e58f" kindref="member">gLevels</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*))<sp/>&lt;<sp/>gLevelsPerGame)</highlight></codeline>
 <codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Levels<sp/>less<sp/>than<sp/>min,<sp/>Easy<sp/>Mode<sp/>-<sp/>No<sp/>Rand&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="353"><highlight class="normal"></highlight></codeline>
 <codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Get<sp/>a<sp/>copy<sp/>of<sp/>gSelected</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/>slevel_copy<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)*(<ref refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref>+1));</highlight></codeline>
-<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(slevel_copy,<sp/><ref refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" kindref="member">gSelectedLevels</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)*<ref refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref>);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/>slevel_copy<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)*(gLevelsPerGame+1));</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(slevel_copy,<sp/><ref refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" kindref="member">gSelectedLevels</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)*gLevelsPerGame);</highlight></codeline>
 <codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/>slevel_copy[<ref refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref>]<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="358"><highlight class="normal"></highlight></codeline>
 <codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//No<sp/>Repeats</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/>no_repeats<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)*<ref refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref>+1);</highlight></codeline>
-<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(no_repeats,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)*(<ref refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref>+1));</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/>no_repeats<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)*gLevelsPerGame+1);</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(no_repeats,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)*(gLevelsPerGame+1));</highlight></codeline>
 <codeline lineno="362"><highlight class="normal"></highlight></codeline>
 <codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Randomize</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/><ref refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" kindref="member">gSelectedLevels</ref>[i];<sp/>i++)</highlight></codeline>
 <codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rand_i<sp/>=<sp/>rand()%<ref refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref>;</highlight></codeline>
-<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(!<ref refid="globals_8h_1a4cda7fb3c8f061cba2e2dff0710400ee" kindref="member">CompareMemToMemArray</ref>(&amp;rand_i,<sp/>no_repeats,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">),<sp/><ref refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref><sp/>))</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(!<ref refid="globals_8h_1a4cda7fb3c8f061cba2e2dff0710400ee" kindref="member">CompareMemToMemArray</ref>(&amp;rand_i,<sp/>no_repeats,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">),<sp/>gLevelsPerGame<sp/>))</highlight></codeline>
 <codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rand_i<sp/>=<sp/>rand()%<ref refid="game_8c_1a9527243766b6dbc450b03e44a940e8b4" kindref="member">gLevelsPerGame</ref>;</highlight></codeline>
 <codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -1379,7 +1225,7 @@
 <codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/>free(slevel_copy);</highlight></codeline>
 <codeline lineno="377"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="378"><highlight class="normal"></highlight></codeline>
-<codeline lineno="390" refid="globals_8h_1ae4bccf3c8c8b60d039485212d07c6489" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1ae4bccf3c8c8b60d039485212d07c6489" kindref="member">LoadSelectedLevel</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>level)</highlight></codeline>
+<codeline lineno="390"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1ae4bccf3c8c8b60d039485212d07c6489" kindref="member">LoadSelectedLevel</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>level)</highlight></codeline>
 <codeline lineno="391"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="game_8c_1a74afd8193cb4b707d3c1cbe7c6109f7c" kindref="member">gSelectedLevels</ref>)</highlight></codeline>
 <codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1410,7 +1256,7 @@
 <codeline lineno="418"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="419"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="420"><highlight class="normal"></highlight></codeline>
-<codeline lineno="427" refid="game_8c_1a28255989d2c8adf3bca455e48b6736c4" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a28255989d2c8adf3bca455e48b6736c4" kindref="member">Poll</ref>()</highlight></codeline>
+<codeline lineno="427"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a28255989d2c8adf3bca455e48b6736c4" kindref="member">Poll</ref>()</highlight></codeline>
 <codeline lineno="428"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="429"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>SDL_PollEvent(&amp;<ref refid="game_8c_1a66f12a481d172f126a6bf8d3e4a683df" kindref="member">gEventQ</ref>)<sp/>)</highlight></codeline>
 <codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1441,7 +1287,7 @@
 <codeline lineno="455"><highlight class="normal"></highlight></codeline>
 <codeline lineno="456"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3ddcf597916a7185f18d493a51684845" kindref="member">UpdatePlaying</ref>();</highlight></codeline>
 <codeline lineno="457"><highlight class="normal"></highlight></codeline>
-<codeline lineno="458" refid="game_8c_1aec0783b5a136e042adcc47bae4fe5291" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1aec0783b5a136e042adcc47bae4fe5291" kindref="member">Update</ref>()</highlight></codeline>
+<codeline lineno="458"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1aec0783b5a136e042adcc47bae4fe5291" kindref="member">Update</ref>()</highlight></codeline>
 <codeline lineno="459"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="460"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*splash;</highlight></codeline>
 <codeline lineno="461"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="game_8c_1a708e57fe7cda9dcf5fc11de7d0ec0e5e" kindref="member">gCurrentTime</ref><sp/>=<sp/>SDL_GetTicks();</highlight></codeline>
@@ -1530,7 +1376,7 @@
 <codeline lineno="544"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1aa4fdce6f0033a5f2bfc633e9d5edc55a" kindref="member">DrawChoose</ref>();</highlight></codeline>
 <codeline lineno="545"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3d331e84879ecaad643c10c9b0a74164" kindref="member">DrawPlaying</ref>();</highlight></codeline>
 <codeline lineno="546"><highlight class="normal"></highlight></codeline>
-<codeline lineno="547" refid="game_8c_1a3d5cf0d8d37b6b17224867eb397c9a16" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3d5cf0d8d37b6b17224867eb397c9a16" kindref="member">Draw</ref>()</highlight></codeline>
+<codeline lineno="547"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3d5cf0d8d37b6b17224867eb397c9a16" kindref="member">Draw</ref>()</highlight></codeline>
 <codeline lineno="548"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="549"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_RenderClear(<ref refid="graphics_8c_1a4735638969a524c4ac90a88f23c59a1f" kindref="member">gRenderer</ref>);</highlight></codeline>
 <codeline lineno="550"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(<ref refid="game_8c_1aafc8457d9121884bb074efeff2941e23" kindref="member">gGameState</ref>)</highlight></codeline>
@@ -1567,7 +1413,7 @@
 <codeline lineno="581"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="582"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="583"><highlight class="normal"></highlight></codeline>
-<codeline lineno="592" refid="game_8h_1a50ac2197010a8cf188eafc647122f1a3" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a50ac2197010a8cf188eafc647122f1a3" kindref="member">Setup</ref>()</highlight></codeline>
+<codeline lineno="592"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a50ac2197010a8cf188eafc647122f1a3" kindref="member">Setup</ref>()</highlight></codeline>
 <codeline lineno="593"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="594"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//sprite_t<sp/>*test_sprite;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="595"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//vec2_t<sp/>test_vec<sp/>=<sp/>{0,0};</highlight><highlight class="normal"></highlight></codeline>
@@ -1633,7 +1479,7 @@
 <codeline lineno="655"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="656"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="657"><highlight class="normal"></highlight></codeline>
-<codeline lineno="666" refid="game_8h_1aac704aea738c1edc384a97e51d60662b" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1aac704aea738c1edc384a97e51d60662b" kindref="member">Run</ref>()</highlight></codeline>
+<codeline lineno="666"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="game_8c_1aac704aea738c1edc384a97e51d60662b" kindref="member">Run</ref>()</highlight></codeline>
 <codeline lineno="667"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="668"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(!<ref refid="game_8c_1aaaad6d2ffd165538265b1e68f60ab837" kindref="member">exitRequest</ref>)</highlight></codeline>
 <codeline lineno="669"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1646,13 +1492,13 @@
 <codeline lineno="676"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="677"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="678"><highlight class="normal"></highlight></codeline>
-<codeline lineno="679" refid="game_8h_1ac5f038c2b480cf9ef5e19e3eba8dbaf9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1ac5f038c2b480cf9ef5e19e3eba8dbaf9" kindref="member">Shutdown</ref>()</highlight></codeline>
+<codeline lineno="679"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1ac5f038c2b480cf9ef5e19e3eba8dbaf9" kindref="member">Shutdown</ref>()</highlight></codeline>
 <codeline lineno="680"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="681"><highlight class="normal"></highlight></codeline>
 <codeline lineno="682"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="683"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="684"><highlight class="normal"></highlight></codeline>
-<codeline lineno="691" refid="game_8c_1addfb0717b9d4923ffd6ca6a879a24d8a" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1addfb0717b9d4923ffd6ca6a879a24d8a" kindref="member">DrawSplash</ref>()</highlight></codeline>
+<codeline lineno="691"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1addfb0717b9d4923ffd6ca6a879a24d8a" kindref="member">DrawSplash</ref>()</highlight></codeline>
 <codeline lineno="692"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="693"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(gSplash)</highlight></codeline>
 <codeline lineno="694"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1664,7 +1510,7 @@
 <codeline lineno="700"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="701"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="702"><highlight class="normal"></highlight></codeline>
-<codeline lineno="709" refid="game_8c_1a649bc00af241211bb527b38ea5100f35" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a649bc00af241211bb527b38ea5100f35" kindref="member">DrawStart</ref>()</highlight></codeline>
+<codeline lineno="709"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a649bc00af241211bb527b38ea5100f35" kindref="member">DrawStart</ref>()</highlight></codeline>
 <codeline lineno="710"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="711"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="menu_8c_1ac9844c472d09220d402c191e16f6474e" kindref="member">gMenus</ref>)</highlight></codeline>
 <codeline lineno="712"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1676,7 +1522,7 @@
 <codeline lineno="718"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="719"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="720"><highlight class="normal"></highlight></codeline>
-<codeline lineno="727" refid="game_8c_1a3d1af84dd28675b906294f461ba1eacd" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3d1af84dd28675b906294f461ba1eacd" kindref="member">DrawGuess</ref>()</highlight></codeline>
+<codeline lineno="727"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3d1af84dd28675b906294f461ba1eacd" kindref="member">DrawGuess</ref>()</highlight></codeline>
 <codeline lineno="728"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="729"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="menu_8c_1ac9844c472d09220d402c191e16f6474e" kindref="member">gMenus</ref>)</highlight></codeline>
 <codeline lineno="730"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1688,7 +1534,7 @@
 <codeline lineno="736"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="737"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="738"><highlight class="normal"></highlight></codeline>
-<codeline lineno="745" refid="game_8c_1aa4fdce6f0033a5f2bfc633e9d5edc55a" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1aa4fdce6f0033a5f2bfc633e9d5edc55a" kindref="member">DrawChoose</ref>()</highlight></codeline>
+<codeline lineno="745"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1aa4fdce6f0033a5f2bfc633e9d5edc55a" kindref="member">DrawChoose</ref>()</highlight></codeline>
 <codeline lineno="746"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="747"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="menu_8c_1ac9844c472d09220d402c191e16f6474e" kindref="member">gMenus</ref>)</highlight></codeline>
 <codeline lineno="748"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1700,14 +1546,14 @@
 <codeline lineno="754"><highlight class="normal"></highlight></codeline>
 <codeline lineno="755"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="756"><highlight class="normal"></highlight></codeline>
-<codeline lineno="763" refid="game_8c_1a3d331e84879ecaad643c10c9b0a74164" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3d331e84879ecaad643c10c9b0a74164" kindref="member">DrawPlaying</ref>()</highlight></codeline>
+<codeline lineno="763"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3d331e84879ecaad643c10c9b0a74164" kindref="member">DrawPlaying</ref>()</highlight></codeline>
 <codeline lineno="764"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="765"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="parselevel_8c_1af0b3b2530a9027139729335d90824340" kindref="member">DrawLevel</ref>();</highlight></codeline>
 <codeline lineno="766"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entity_8c_1a7406ec610d0755cd8022ceea378f83a6" kindref="member">DrawEntities</ref>();</highlight></codeline>
 <codeline lineno="767"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="768"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="769"><highlight class="normal"></highlight></codeline>
-<codeline lineno="776" refid="game_8c_1a3ddcf597916a7185f18d493a51684845" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3ddcf597916a7185f18d493a51684845" kindref="member">UpdatePlaying</ref>()</highlight></codeline>
+<codeline lineno="776"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="game_8c_1a3ddcf597916a7185f18d493a51684845" kindref="member">UpdatePlaying</ref>()</highlight></codeline>
 <codeline lineno="777"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="778"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entity_8c_1a4804d845517ee1430fc40dfdc3d333df" kindref="member">RunEntities</ref>();</highlight></codeline>
 <codeline lineno="779"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dumb__physics_8c_1ae354ed0629e54a219f0a00be20f6e2f0" kindref="member">RunPhysics</ref>();</highlight></codeline>
