@@ -184,8 +184,34 @@ extern int AllocateDynamic(void **dst, void *src, int size_type, int size);
  */
 extern int CompareMemToMemArray(void *mem, void *mem_array, int size_type, int size_array);
 
-//Foward dec of object_s for global objects
+//Foward dec of object_s for global objects & functions
 struct object_s;
+/**
+ * Parse given obj/str to vector 2.
+ *
+ * @param [in,out]	object	If non-null, the object.
+ * @param [in,out]	str   	If non-null, the string.
+ *
+ * @return	null if it fails, else a pointer to a vec2_t.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+extern vec2_t *ParseToVec2(struct object_s *object, char* str);
+
+/**
+ * Parse obj/data to string array.
+ *
+ * @param [in,out]	object	If non-null, the object.
+ * @param [in,out]	str   	If non-null, the string.
+ *
+ * @return	null if it fails, else a handle to a char.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+extern char **ParseToStringArray(struct object_s *object, char* str);
+
 //Prepoccessor defed LINKS and STRICT_MODE
 //JSON Parser
 extern jsmn_parser gParser;								/**< The global jsmn parser */

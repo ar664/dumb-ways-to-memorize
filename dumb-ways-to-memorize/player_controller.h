@@ -1,5 +1,5 @@
-#ifndef __QUICK_CONTROLLER__H
-#define __QUICK_CONTROLLER__H
+#ifndef __PLAYER_CONTROLLER__H
+#define __PLAYER_CONTROLLER__H
 #include <SDL.h>
 
 #define BUTTON_NO_INPUT	-1

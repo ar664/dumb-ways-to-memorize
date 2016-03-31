@@ -1,7 +1,7 @@
 #include "globals.h"
 #include "entity.h"
 #include "graphics.h"
-#include "quick_controller.h"
+#include "player_controller.h"
 #include <stdio.h>
 #include <math.h>
 #include "player.h"

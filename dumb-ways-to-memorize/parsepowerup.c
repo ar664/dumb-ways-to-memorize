@@ -7,7 +7,7 @@
 #include <jsmn.h>
 #include <string.h>
 #include <stdio.h>
-#include "parsevariable.h"
+#include "dumb_physics.h"
 #include "player.h"
 
 char *InteractionNames[] = {"move", "destroy", "spawn", "edit", "nullify", 0};
@@ -54,6 +54,15 @@ void Spawn(entity_t *targ, entity_t *info)
 	}
 	memcpy(spawned, info, sizeof(entity_t));
 	Vec2Add(&targ->mPosition, &spawned->mPosition, &spawned->mPosition);
+	if(targ->mDirection == ENTITY_DIR_RIGHT)
+	{
+		spawned->mPosition.x += targ->mSprites[ANIMATION_IDLE]->mSize.x;
+		spawned->mVelocity.x += PHYSICS_BASE_SPEED_X;
+	} else
+	{
+		spawned->mPosition.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x;
+		spawned->mVelocity.x -= PHYSICS_BASE_SPEED_X;
+	}
 }
 
 void Edit(entity_t *targ, entity_t *info)

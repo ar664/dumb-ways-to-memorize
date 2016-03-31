@@ -1,6 +1,6 @@
 #include "ai_interpret.h"
 #include "entity.h"
-#include "parsevariable.h"
+#include "parseentity.h"
 #include "parsepowerup.h"
 #include "mystrings.h"
 #include <stdio.h>

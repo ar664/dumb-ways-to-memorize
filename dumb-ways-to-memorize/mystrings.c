@@ -381,3 +381,38 @@ entity_state_t StrToEntityState(char *str)
 	}
 	return 0;
 }
+
+vec2_t* ParseToVec2(object_t* object, char* str)
+{
+	vec2_t *retVal;
+	char *temp1, *temp2;
+	retVal = (vec2_t*) malloc(sizeof(vec2_t));
+	if(!retVal || !object || !str)
+	{
+		return NULL;
+	}
+	temp1 = JsmnToString(&object->values[0], str);
+	temp2 = JsmnToString(&object->values[1], str);
+	retVal->x = StrToInt(temp1);
+	retVal->y = StrToInt(temp2);
+	free(temp1); free(temp2);
+	return retVal;
+}
+
+char **ParseToStringArray(object_t* object, char* str)
+{
+	int i, size;
+	char *temp;
+	char **retVal;
+	if(!object || !str)
+		return NULL;
+	size = CountMem(object->values, sizeof(jsmntok_t));
+	retVal = (char**) malloc(sizeof(char*)*(size+1));
+	for(i = 0; i < size; i++)
+	{
+		temp = JsmnToString(&object->values[i], str);
+		retVal[i] = temp;
+	}
+	retVal[size+1] = 0;
+	return retVal;
+}

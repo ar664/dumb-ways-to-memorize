@@ -1,7 +1,7 @@
 #include "entity.h"
 #include "parselevel.h"
 #include "parseobject.h"
-#include "parsevariable.h"
+#include "parseentity.h"
 #include "ai_interpret.h"
 #include "mystrings.h"
 #include <stdio.h>
@@ -154,7 +154,7 @@ int LoadLevel(object_t *level, char *g_str)
 						tempEnt->mData = enemyAI;
 						tempEnt->Think = ThinkEnemy;
 						tempEnt->Draw = DrawGeneric;
-						tempEnt->Touch = TouchEnemy;
+						tempEnt->Touch = TouchGeneric;
 						tempEnt->mWeight = 1;
 						tempEnt->mNextThink = SDL_GetTicks() + 10;
 						tile_pos.x = 0; tile_pos.y = 0;

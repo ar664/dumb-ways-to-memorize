@@ -1,5 +1,5 @@
 #include "globals.h"
-#include "quick_controller.h"
+#include "player_controller.h"
 #include "entity.h"
 #include "parsepowerup.h"
 #include "player.h"

@@ -165,6 +165,15 @@ void RunEntities();
  * @date	3/29/2016
  */
 void DrawEntities();
+
+/**
+ * Prints the entities data, used for debug.
+ *
+ * @param [in,out]	ent	If non-null, the ent.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
 extern void PrintEntity(entity_t *ent);
 
 /**

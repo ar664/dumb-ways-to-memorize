@@ -1,10 +1,10 @@
 <map id="dumb&#45;ways&#45;to&#45;memorize/parselevel.c" name="dumb&#45;ways&#45;to&#45;memorize/parselevel.c">
-<area shape="rect" id="node2" href="$d8/d83/entity_8h.html" title="entity.h" alt="" coords="85,169,150,196"/>
+<area shape="rect" id="node2" href="$d8/d83/entity_8h.html" title="entity.h" alt="" coords="87,169,153,196"/>
 <area shape="rect" id="node6" href="$d5/d82/ai__interpret_8h.html" title="ai_interpret.h" alt="" coords="163,244,261,271"/>
 <area shape="rect" id="node7" href="$d2/dc6/parseobject_8h.html" title="parseobject.h" alt="" coords="285,319,385,345"/>
-<area shape="rect" id="node8" href="$d0/d0a/parselevel_8h.html" title="parselevel.h" alt="" coords="339,95,429,121"/>
-<area shape="rect" id="node9" href="$d9/ded/parsevariable_8h.html" title="parsevariable.h" alt="" coords="206,95,314,121"/>
-<area shape="rect" id="node10" href="$d6/de2/mystrings_8h.html" title="mystrings.h" alt="" coords="504,169,595,196"/>
+<area shape="rect" id="node8" href="$d0/d0a/parselevel_8h.html" title="parselevel.h" alt="" coords="331,95,421,121"/>
+<area shape="rect" id="node9" href="$dd/d14/parseentity_8h.html" title="parseentity.h" alt="" coords="209,95,306,121"/>
+<area shape="rect" id="node10" href="$d6/de2/mystrings_8h.html" title="mystrings.h" alt="" coords="496,169,587,196"/>
 <area shape="rect" id="node3" href="$d5/d87/globals_8h.html" title="globals.h" alt="" coords="149,319,224,345"/>
 <area shape="rect" id="node5" href="$d7/d04/graphics_8h.html" title="graphics.h" alt="" coords="5,244,88,271"/>
 <area shape="rect" id="node4" href="$de/d60/jsmn_8h.html" title="jsmn.h" alt="" coords="304,393,365,420"/>

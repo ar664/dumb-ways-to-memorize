@@ -96,9 +96,9 @@
     <ClCompile Include="parselevel.c" />
     <ClCompile Include="parseobject.c" />
     <ClCompile Include="parsepowerup.c" />
-    <ClCompile Include="parsevariable.c" />
+    <ClCompile Include="parseentity.c" />
     <ClCompile Include="player.c" />
-    <ClCompile Include="quick_controller.c" />
+    <ClCompile Include="player_controller.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ai_interpret.h" />
@@ -114,9 +114,9 @@
     <ClInclude Include="parselevel.h" />
     <ClInclude Include="parseobject.h" />
     <ClInclude Include="parsepowerup.h" />
-    <ClInclude Include="parsevariable.h" />
+    <ClInclude Include="parseentity.h" />
     <ClInclude Include="player.h" />
-    <ClInclude Include="quick_controller.h" />
+    <ClInclude Include="player_controller.h" />
     <ClInclude Include="audio.h" />
   </ItemGroup>
   <ItemGroup>

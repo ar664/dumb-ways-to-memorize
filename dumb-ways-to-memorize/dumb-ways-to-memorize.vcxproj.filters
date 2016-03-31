@@ -48,9 +48,6 @@
     <ClCompile Include="parsepowerup.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="parsevariable.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="parselevel.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -60,10 +57,13 @@
     <ClCompile Include="ai_interpret.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="quick_controller.c">
+    <ClCompile Include="dumb_physics.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dumb_physics.c">
+    <ClCompile Include="parseentity.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player_controller.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,22 +101,22 @@
     <ClInclude Include="parsepowerup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="parsevariable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="parselevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ai_interpret.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="quick_controller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="dumb_physics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="audio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parseentity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="player_controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
