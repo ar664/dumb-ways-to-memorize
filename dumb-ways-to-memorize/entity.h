@@ -24,9 +24,9 @@ struct entity_s
 	int mNextThink;					/**< The next time the entity should think */
 	int mHealth;					/**< The health of the entity, if below zero - destroy this entity*/
 	int mDamage;					/**< The damage the entity should deal to other entities */
-	int mWeight;					/**< The weight boolean of the entity, if gravity affects him*/
 	int mCurrentFrame;				/**< The current frame */
-	int mDirection:1;				/**< The direction entity is facing*/
+	Uint8 mWeight;					/**< The weight boolean of the entity, if gravity affects him*/
+	Uint8 mDirection;				/**< The direction entity is facing*/
 	collision_type_t mCollisionType;	/**< Type of the collision the entity is */
 	entity_state_t mEntityState;	/**< The state of the entity */
 	sprite_t **mSprites;			/**< The sprites of the given entity */
