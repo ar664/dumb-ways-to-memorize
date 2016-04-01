@@ -38,6 +38,10 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 			ent->mDirection = ENTITY_DIR_RIGHT;
 			break;
 		}
+	case(SDL_CONTROLLER_BUTTON_START):
+		{
+			ResetGame();
+		}
 	default:
 		return;
 	}

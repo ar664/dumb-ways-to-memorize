@@ -70,7 +70,7 @@ void AddSpritesToEnt(entity_t *ent, char **files, int size)
 entity_t* ParseToEntity(object_t* object, char* str)
 {
 	int i, j, position, size, heights[MAX_ANIMATIONS] = {0}, widths[MAX_ANIMATIONS] = {0}, frames[MAX_ANIMATIONS] = {0};
-	char **spriteFiles;
+	char **spriteFiles, *temp_str;
 	entity_t *retVal;
 	Frame *checkFrame = NULL;
 	jsmntok_t *checkTok = NULL;
@@ -124,16 +124,16 @@ entity_t* ParseToEntity(object_t* object, char* str)
 					break;
 				}
 			}
-		} else if ( (checkTok = FindKey(object->keys, SimpleVariableNames[i], str)) != NULL)
+		} else if ( (temp_str = FindValue(object, SimpleVariableNames[i], str)) != NULL)
 		{
 			switch(i)
 				{
-				case ENTITY_MEMBER_SPRITE: spriteFiles[0] = JsmnToString(&checkObj->values[0], str); break;
-				case ENTITY_MEMBER_HEALTH: JsmnToInt(checkTok, str, &retVal->mHealth); break;
-				case ENTITY_MEMBER_DAMAGE: JsmnToInt(checkTok, str, &retVal->mDamage); break;
-				case ENTITY_MEMBER_HEIGHT: JsmnToInt(checkTok, str, &heights[0]); break;
-				case ENTITY_MEMBER_WIDTH: JsmnToInt(checkTok, str, &widths[0]); break;
-				case ENTITY_MEMBER_FRAMES: JsmnToInt(checkTok, str, &frames[0]); break;
+				case ENTITY_MEMBER_SPRITE: spriteFiles[0] = temp_str; break;
+				case ENTITY_MEMBER_HEALTH: retVal->mHealth = StrToInt(temp_str); break;
+				case ENTITY_MEMBER_DAMAGE: retVal->mDamage = StrToInt(temp_str); break;
+				case ENTITY_MEMBER_HEIGHT: heights[0] = StrToInt(temp_str); break;
+				case ENTITY_MEMBER_WIDTH: widths[0] = StrToInt(temp_str); break;
+				case ENTITY_MEMBER_FRAMES: frames[0] = StrToInt(temp_str); break;
 				default:
 					break;
 				}
@@ -149,6 +149,8 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			if(!retVal->mSprites[i])
 				break;
 			checkFrame = LoadAnimation(widths[i], heights[i], retVal->mSprites[i]->mSize.x, retVal->mSprites[i]->mSize.y);
+			retVal->mSprites[i]->mSize.x = widths[i];
+			retVal->mSprites[i]->mSize.y = heights[i];
 			retVal->mSprites[i]->mFrames = frames[i] ? frames[i] : 1;
 			memcpy(&retVal->mSprites[i]->mAnimations, checkFrame, sizeof(Frame)*retVal->mSprites[i]->mFrames );
 		}

@@ -137,6 +137,9 @@ extern int gScreenHeight;			/**< Te set Height of the screen */
 extern unsigned int gCurrentTime;   /**< The current time , updated from last update call*/
 extern vec2_t gGravity;				/**< The gravity which affects all the assets */
 
+extern void ResetGame();
+extern void ResetRun();
+
 extern int exitRequest;				/**< The integer to be changed to exit */
 
 //Memory Functions

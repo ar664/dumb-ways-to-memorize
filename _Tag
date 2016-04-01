@@ -62,22 +62,22 @@
       <type>void</type>
       <name>SetAI_Var</name>
       <anchorfile>d2/de7/ai__interpret_8c.html</anchorfile>
-      <anchor>a38a992ac4f024da776101ad1a2957ac4</anchor>
-      <arglist>(ai_function_t *function, char *data_str, char *var_str)</arglist>
+      <anchor>ad92c44a495d72fcacc695531329548d7</anchor>
+      <arglist>(ai_function_t *function, char *data_str, ai_variables_t var_type)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>SetAI_Action</name>
       <anchorfile>d2/de7/ai__interpret_8c.html</anchorfile>
-      <anchor>a5d87dca860c5320136e684cbe422ca21</anchor>
-      <arglist>(ai_function_t *function, object_t *obj, jsmntok_t *tok, char *g_str, char *action_str)</arglist>
+      <anchor>a3a313f5cb5b3cbc61b3e479ef185a0b5</anchor>
+      <arglist>(ai_function_t *function, object_t *obj, jsmntok_t *tok, char *g_str, ai_actions_t action_type)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>SetAI_Check</name>
       <anchorfile>d2/de7/ai__interpret_8c.html</anchorfile>
-      <anchor>a16e24cd82a74fa54781c203aaccec738</anchor>
-      <arglist>(ai_function_t *function, char **variables_str, char *data_str, char *check_str)</arglist>
+      <anchor>a86743612d894c6d9b4ebb191c5d4942c</anchor>
+      <arglist>(ai_function_t *function, char **variables_str, char *data_str, ai_conditions_t condition)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -98,6 +98,27 @@
       <name>StrToAI_Type</name>
       <anchorfile>d2/de7/ai__interpret_8c.html</anchorfile>
       <anchor>a38d0ac016fd6a956b4fcdd5eefdff0c1</anchor>
+      <arglist>(const char *str)</arglist>
+    </member>
+    <member kind="function">
+      <type>ai_actions_t</type>
+      <name>StrToAI_Action</name>
+      <anchorfile>d2/de7/ai__interpret_8c.html</anchorfile>
+      <anchor>aa905cee9ea67faf79f9f5a0024aec57c</anchor>
+      <arglist>(const char *str)</arglist>
+    </member>
+    <member kind="function">
+      <type>ai_conditions_t</type>
+      <name>StrToAI_Condition</name>
+      <anchorfile>d2/de7/ai__interpret_8c.html</anchorfile>
+      <anchor>a5b44dc13ea5f87379949b546737bcbcb</anchor>
+      <arglist>(const char *str)</arglist>
+    </member>
+    <member kind="function">
+      <type>ai_variables_t</type>
+      <name>StrToVariableType</name>
+      <anchorfile>d2/de7/ai__interpret_8c.html</anchorfile>
+      <anchor>a4185a9dcdca07ed7c43c15f52d9be79d</anchor>
       <arglist>(const char *str)</arglist>
     </member>
     <member kind="variable">
@@ -180,90 +201,6 @@
     </member>
     <member kind="define">
       <type>#define</type>
-      <name>AI_RECURSIVE_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a8c4d9e215c2975e145bccbf8f49b4cb3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_VAR_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>aa438859ab4448dbffef630c7df6fa8da</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_VAR_FRAMES_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>af77f162f72ac7de280a09bf538af8714</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_VAR_TIME_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>acb5318abad3a57b7184c30bb2c7777c9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_VAR_DAMAGE_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a1026f6edc576815f9c9ba6e4da0690a0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_VAR_SPEED_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>ada4ce31f6b1ccb11b329f13b403fbb5b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_VAR_GRAVITY_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a70f88dc6c4b3bb3364101130db4b0452</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_ACTION_NOTHING_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>ab18b182365b15628c10327316844aab8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_ACTION_MOVE_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>ab64c56f26a1b1a7715487c72b9f28dbd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_ACTION_WALK_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>abc7fe2d04eb73a338cb3fe88f72844a8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_ACTION_JUMP_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a46d6cd208af1d4bf3095ee3c7a1e739b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_ACTION_ATTACK_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>adede65c5d71cf37ecdd755a6909f7a81</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
       <name>AI_TYPE_STR</name>
       <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
       <anchor>aa3f803bbc58a2e44d676b2d4e0a55e66</anchor>
@@ -285,44 +222,30 @@
     </member>
     <member kind="define">
       <type>#define</type>
+      <name>AI_TYPE_RECURSIVE_STR</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a0798c22bf2111720f0e1fa3afb6e92af</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>AI_VAR_GRAVITY_STR</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a70f88dc6c4b3bb3364101130db4b0452</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>AI_VAR_STR</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>aa438859ab4448dbffef630c7df6fa8da</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
       <name>AI_CHECK_STR</name>
       <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
       <anchor>a359a134c740c26d3f8eb41174d483405</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_CHECK_PLAYER_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a743b388cb87c1457c328fafa797372fe</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_CHECK_OBJECT_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>ae8363acda061b3665d4092cbb0f860ac</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_SPECIFY_OBJ_STR</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a20a59586d1951b3e6c3353504b58332b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_LINK_ACTION</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a13cbd28a585c1577751efca68da844fa</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>AI_LINK_AI</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a678f1e1d230bf4bc224407b101e89d30</anchor>
       <arglist></arglist>
     </member>
     <member kind="define">
@@ -398,18 +321,6 @@
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
-      <name>AI_VAR_DIR_X</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a0fd706f9f199bde94857277c893baa47a9295d6cb5092cc1a0de936f8abc09619</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>AI_VAR_DIR_Y</name>
-      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a0fd706f9f199bde94857277c893baa47a6eede82ca0eb902da5ddc90926776a44</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
       <name>AI_VAR_FRAMES</name>
       <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
       <anchor>a0fd706f9f199bde94857277c893baa47a0f413fab2c7a95b839d11b5fbc933122</anchor>
@@ -425,6 +336,18 @@
       <name>AI_VAR_DAMAGE</name>
       <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
       <anchor>a0fd706f9f199bde94857277c893baa47ac3233de200d915cf261df689ec43ca0c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>AI_VAR_DIR_X</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a0fd706f9f199bde94857277c893baa47a9295d6cb5092cc1a0de936f8abc09619</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>AI_VAR_DIR_Y</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a0fd706f9f199bde94857277c893baa47a6eede82ca0eb902da5ddc90926776a44</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
@@ -507,6 +430,49 @@
       <anchor>a42492ef6b9956883af49be159eb55dffa34da75a350277c5cd7ebfb9cf5fe5655</anchor>
       <arglist></arglist>
     </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>ai_conditions_t</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a8af91f1468f5db98c3e82f6b9d18a618</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>AI_CONDITION_PLAYER_DISTANCE</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a8af91f1468f5db98c3e82f6b9d18a618abd77464bb970bd6743817183f35d3c38</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>AI_CONDITION_OBJECT_DISTANCE</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a8af91f1468f5db98c3e82f6b9d18a618ab8cba79b3029f8bdd46139c4ed3c5cf6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>AI_CONDITION_OBJECT_NAME</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a8af91f1468f5db98c3e82f6b9d18a618ae919e1843bb328c0538d9cee91738612</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>AI_CONDITION_LINK_AI</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a8af91f1468f5db98c3e82f6b9d18a618a982f87ff08bedfb4502e0a23b2aacfcd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>AI_CONDITION_LINK_ACTION</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a8af91f1468f5db98c3e82f6b9d18a618adc9e63995dc0964e7ba235674f43b3b8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>AI_CONDITION_MAX</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a8af91f1468f5db98c3e82f6b9d18a618a2db9fa0bb7ff50b7f04334dd990ec308</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type>ai_function_t *</type>
       <name>ParseAI</name>
@@ -525,22 +491,22 @@
       <type>void</type>
       <name>SetAI_Var</name>
       <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a38a992ac4f024da776101ad1a2957ac4</anchor>
-      <arglist>(ai_function_t *function, char *data_str, char *var_str)</arglist>
+      <anchor>ad92c44a495d72fcacc695531329548d7</anchor>
+      <arglist>(ai_function_t *function, char *data_str, ai_variables_t var_type)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>SetAI_Action</name>
       <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a5d87dca860c5320136e684cbe422ca21</anchor>
-      <arglist>(ai_function_t *function, object_t *obj, jsmntok_t *tok, char *g_str, char *action_str)</arglist>
+      <anchor>a3a313f5cb5b3cbc61b3e479ef185a0b5</anchor>
+      <arglist>(ai_function_t *function, object_t *obj, jsmntok_t *tok, char *g_str, ai_actions_t action_type)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>SetAI_Check</name>
       <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
-      <anchor>a16e24cd82a74fa54781c203aaccec738</anchor>
-      <arglist>(ai_function_t *function, char **variables_str, char *data_str, char *check_str)</arglist>
+      <anchor>a86743612d894c6d9b4ebb191c5d4942c</anchor>
+      <arglist>(ai_function_t *function, char **variables_str, char *data_str, ai_conditions_t condition)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -561,6 +527,27 @@
       <name>StrToAI_Type</name>
       <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
       <anchor>a38d0ac016fd6a956b4fcdd5eefdff0c1</anchor>
+      <arglist>(const char *str)</arglist>
+    </member>
+    <member kind="function">
+      <type>ai_actions_t</type>
+      <name>StrToAI_Action</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>aa905cee9ea67faf79f9f5a0024aec57c</anchor>
+      <arglist>(const char *str)</arglist>
+    </member>
+    <member kind="function">
+      <type>ai_conditions_t</type>
+      <name>StrToAI_Condition</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a5b44dc13ea5f87379949b546737bcbcb</anchor>
+      <arglist>(const char *str)</arglist>
+    </member>
+    <member kind="function">
+      <type>ai_variables_t</type>
+      <name>StrToVariableType</name>
+      <anchorfile>d5/d82/ai__interpret_8h.html</anchorfile>
+      <anchor>a4185a9dcdca07ed7c43c15f52d9be79d</anchor>
       <arglist>(const char *str)</arglist>
     </member>
     <member kind="variable">
@@ -4614,6 +4601,11 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="file">
+    <name>README.md</name>
+    <path>C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/</path>
+    <filename>d9/dd6/_r_e_a_d_m_e_8md</filename>
+  </compound>
   <compound kind="struct">
     <name>ai_function_s</name>
     <filename>dc/da2/structai__function__s.html</filename>
@@ -5222,5 +5214,10 @@
       <anchor>aa91695e583cce2caf43f0272899a1cec</anchor>
       <arglist></arglist>
     </member>
+  </compound>
+  <compound kind="page">
+    <name>md_README</name>
+    <title>dumb-ways-to-memorize</title>
+    <filename>md_README</filename>
   </compound>
 </tagfile>

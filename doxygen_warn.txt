@@ -1,4 +1,10 @@
 C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/ai_interpret.c:58: warning: Found unknown command `\Todo'
+C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/ai_interpret.h:166: warning: argument 'check_str' of command @param is not found in the argument list of SetAI_Check(ai_function_t *function, char **variables_str, char *data_str, ai_conditions_t condition)
+C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/ai_interpret.c:601: warning: The following parameters of SetAI_Check(ai_function_t *function, char **variables_str, char *data_str, ai_conditions_t condition) are not documented:
+  parameter 'condition'
+C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/ai_interpret.h:166: warning: argument 'check_str' of command @param is not found in the argument list of SetAI_Check(ai_function_t *function, char **variables_str, char *data_str, ai_conditions_t condition)
+C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/ai_interpret.h:176: warning: The following parameters of SetAI_Check(ai_function_t *function, char **variables_str, char *data_str, ai_conditions_t condition) are not documented:
+  parameter 'condition'
 C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/External_Libs/simple_logger.h:25: warning: Found unknown command `\license'
 C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/External_Libs/simple_logger.h:32: warning: argument 'msg' of command @param is not found in the argument list of slog(...)
 C:/Users/Junji/Documents/Visual Studio 2010/Projects/dumb-ways-to-memorize/dumb-ways-to-memorize/External_Libs/simple_logger.h:25: warning: Found unknown command `\license'

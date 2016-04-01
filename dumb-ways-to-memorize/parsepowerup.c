@@ -57,11 +57,11 @@ void Spawn(entity_t *targ, entity_t *info)
 	if(targ->mDirection == ENTITY_DIR_RIGHT)
 	{
 		spawned->mPosition.x += targ->mSprites[ANIMATION_IDLE]->mSize.x;
-		spawned->mVelocity.x += PHYSICS_BASE_SPEED_X;
+		spawned->mAccel.x += PHYSICS_BASE_SPEED_X;
 	} else
 	{
 		spawned->mPosition.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x;
-		spawned->mVelocity.x -= PHYSICS_BASE_SPEED_X;
+		spawned->mAccel.x -= PHYSICS_BASE_SPEED_X;
 	}
 }
 

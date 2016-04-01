@@ -778,3 +778,20 @@ void UpdatePlaying()
 	RunEntities();
 	RunPhysics();
 }
+
+void ResetGame()
+{
+	printf("You died, Game over. Start a new game");
+	FreeEntity(gPlayer);
+	FreeNonPlayerEntities();
+	gPlayerLives = PLAYER_LIVES;
+	gGameState = START;
+}
+
+void ResetRun()
+{
+	printf("You died, select your powerups again \n");
+	gPlayerLives--;
+	FreeNonPlayerEntities();
+	gGameState = GUESS;
+}

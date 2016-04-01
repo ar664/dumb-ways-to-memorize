@@ -202,7 +202,7 @@ Frame *LoadAnimation(int frame_width, int frame_height, int width, int height)
 			retVal[i*rows + j].Position.y = i*frame_height;
 		}
 	}
-	memset(&retVal[rows*cols+1], 0, sizeof(Frame));
+	memset(&retVal[rows*cols].Position, 0, sizeof(vec2_t));
 	return retVal;
 }
 

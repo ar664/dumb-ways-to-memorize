@@ -2,16 +2,17 @@
 	"This" : "Is how an entity should be written",
 	"Comment" : "No dynamic sprite, support yet",
 	"Comment 2" : "Only entity objects should be here",
+	"Animation Order" : "Idle, walk, jump, attack, hit/hurt",
 	"Player" : 
 	{
 		"collisionType" : "ragdoll",
 		"hazard(s)" : "0",
 		"entityState" : "alive",
-		"sprite(s)" : "Sprite/Entities/Hero.png",
-		"height" : 32,
-		"width" : 32,
-		"frames" : 1,
-	},
+		"sprite(s)" : ["Sprite/Player/Dumb_Player_Waiting.png", "Sprite/Player/Dumb_Player_Running.png", "Sprite/Player/Dumb_Player_Jumping.png", "Sprite/Player/Dumb_Player_Taunt.png", "Sprite/Player/Dumb_Player_Hurt.png"  ],
+		"height" : [50, 48, 48, 48, 48],
+		"width" : [43, 32, 32, 35, 35 ],
+		"frames" : [5, 8, 2, 3, 3],
+	}
 	
 	"Flying Enemy" :
 	{

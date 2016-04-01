@@ -1,6 +1,5 @@
 #include "ai_interpret.h"
 #include "entity.h"
-#include "parseentity.h"
 #include "parsepowerup.h"
 #include "mystrings.h"
 #include <stdio.h>
@@ -25,7 +24,6 @@ char *gAI_Conditions[] = {"distance_player", "distance_object", "object_check", 
 void NothingAI(entity_t *ent)
 {
 	int flags;
-	vec2_t temp_vec2;
 	if(!ent->mData || !ent)
 	{
 		printf("MoveAI given a null paramerter \n");
@@ -200,7 +198,6 @@ void JumpAI(entity_t *ent)
 void AttackAI(entity_t *ent)
 {
 	int flags;
-	vec2_t temp_vec2;
 	entity_t *temp_ent;
 	if(!ent->mData || !ent)
 	{
@@ -260,9 +257,9 @@ void (*GetFunctionAI(ai_function_t *data))(entity_t *)
 
 ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 {
-	int i, j, k,children, position, variables_i, gravity;
+	int i, j, k,children, variables_i, gravity;
 	ai_function_t *retVal;
-	jsmntok_t *temp_tok, *action_tok;
+	jsmntok_t *action_tok;
 	object_t *temp_obj, *action_obj, *variables_obj;
 	char *temp_str, *type_str, *cond_str,**variables_str;
 	if(!obj || !g_str)
@@ -600,7 +597,6 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 
 void SetAI_Check(ai_function_t* function, char** variables_str, char* data_str, ai_conditions_t condition)
 {
-	ai_function_t *temp_ai;
 	object_t *temp_obj;
 	jsmntok_t *temp_tok;
 	char *temp_str;

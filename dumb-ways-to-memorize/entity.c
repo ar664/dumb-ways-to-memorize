@@ -79,22 +79,19 @@ void ThinkPlayer(entity_t *self)
 				self->PowerUp(gCurrentPowerUp);
 			}
 		}
+	} else
+	{
+		self->mAnimation = self->mSprites[ANIMATION_IDLE];
 	}
 	self->mNextThink = gCurrentTime + 1; //Player always thinks
 	if(self->mHealth < 0)
 	{
 		if(gPlayerLives < 0)
 		{
-			printf("You died, Game over. Start a new game");
-			FreeEntity(gPlayer);
-			gPlayerLives = PLAYER_LIVES;
-			FreeNonPlayerEntities();
-			gGameState = START;
+			ResetGame();
 		} else
 		{
-			printf("You died, select your powerups again \n");
-			gPlayerLives--;
-			gGameState = GUESS;
+			ResetRun();
 		}
 	}
 }
