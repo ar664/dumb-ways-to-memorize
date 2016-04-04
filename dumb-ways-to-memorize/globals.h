@@ -49,6 +49,7 @@ typedef enum
 typedef enum
 {
 	COLLISION_TYPE_STATIC,  /**< An enum constant representing the collision type static - which means it collides, but doesn't move */
+	COLLISION_TYPE_INDEPENDENT,
 	COLLISION_TYPE_RAGDOLL, /**< An enum constant representing the collision type ragdoll - which collides + moves */
 	COLLISION_TYPE_CLIP		/**< An enum constant representing the collision type clip - which means it doesn't collide , but moves. Should be used for particle entities (maybe) */
 }collision_type_t;

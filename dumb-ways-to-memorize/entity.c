@@ -11,7 +11,7 @@
 entity_t *gEntities = NULL;
 int gLastEntity = 0;
 char **Hazards_str = NULL;
-char *Collisions_str[] = {"static", "ragdoll", "clip", 0};
+char *Collisions_str[] = {"static", "independent", "ragdoll", "clip", 0};
 char *EntityStates_str[] = {"alive", "dead", "other", 0};
 
 void DrawGeneric(entity_t *self)
