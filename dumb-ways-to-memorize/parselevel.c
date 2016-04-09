@@ -7,6 +7,10 @@
 #include <stdio.h>
 
 level_t *gCurrentLevel = NULL;  
+char *LevelObjectNames[];
+char *LevelItemNames[];
+char *LevelOptionNames[];
+
 
 int LoadLevel(object_t *level, char *g_str)
 {

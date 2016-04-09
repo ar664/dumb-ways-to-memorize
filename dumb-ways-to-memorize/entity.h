@@ -2,6 +2,7 @@
 #define __ENTITY__H
 
 #include "globals.h"
+#include "audio.h"
 #include "graphics.h"
 #include "ai_interpret.h"
 
@@ -11,6 +12,7 @@
 
 typedef struct entity_s entity_t;
 struct power_s;
+struct sound_s;
 /**
  * The core structure of our our entity system.
  *
@@ -31,6 +33,7 @@ struct entity_s
 	entity_state_t mEntityState;	/**< The state of the entity */
 	sprite_t **mSprites;			/**< The sprites of the given entity */
 	sprite_t *mAnimation;			/**< The current animation, the entity is running */
+	struct sound_s *mSounds;			/**< The sounds that belong to this entity */
 	ai_function_t *mData;			/**< The data that an entity stores for its ai */
 	char *mName;					/**< The name of the entity*/
 	vec2_t mAccel;					/**< The acceleration vector */

@@ -1,6 +1,7 @@
 #include "parseentity.h"
 #include "parseobject.h"
 #include "mystrings.h"
+#include "audio.h"
 #include <jsmn.h>
 
 #include <string.h>
@@ -8,7 +9,7 @@
 #include <stdlib.h>
 
 //Globals
-char *ComplexVariableNames[] = {"hazard(s)", "collisionType", "entityState", 0};
+char *ComplexVariableNames[] = {"hazard(s)", "sound(s)", "collisionType", "entityState", 0};
 char *Vector2VariableNames[] = {"accel", "velocity", "position", 0};
 char *SimpleVariableNames[] = {"sprite(s)", "health", "damage", "height", "width", "frames", 0 };
 
@@ -44,6 +45,17 @@ void AddVector2Entity(entity_t *ent, entity_members_vector2_t member, vec2_t *va
 	default:
 		break;
 	}
+}
+
+void AddSoundsToEnt(entity_t *ent, char **files, int group)
+{
+	sound_t *sound;
+	if(!files || !ent)
+	{
+		return;
+	}
+	sound = LoadSound(files, (sound_mixer_group) group);
+	ent->mSounds = sound;
 }
 
 void AddSpritesToEnt(entity_t *ent, char **files, int size)
@@ -181,7 +193,10 @@ void ParseComplexMember(entity_t *ent, jsmntok_t* token, char *str, entity_membe
 			if(temp) free(temp);
 		}
 		AddComplexMemToEnt(ent, member, (void*)checkInt);
-	}else if(member == ENTITY_MEMBER_COLLISION_TYPE)
+	} else if(member == ENTITY_MEMBER_SOUND)
+	{
+		
+	} else if(member == ENTITY_MEMBER_COLLISION_TYPE)
 	{
 		temp = JsmnToString(token, str);
 		AddComplexMemToEnt(ent, member, (void*)StrToCollisionType(temp));

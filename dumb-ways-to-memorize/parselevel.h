@@ -4,6 +4,10 @@
 #include "parseobject.h"
 #include "entity.h"
 
+extern char *LevelObjectNames[];
+extern char *LevelItemNames[];
+extern char *LevelOptionNames[];
+
 #define LEVEL_BACKGROUND_STR	"Background"
 #define LEVEL_HINT_STR			"Hint"
 #define LEVEL_SPAWN_STR			"Spawn"
@@ -34,6 +38,7 @@ struct level_s
 	char *mName;			/**< The name of the level */
 	char *mHint;			/**< The hint to be given to player if they need it */
 	sprite_t *mBackground;  /**< The background image for the level */
+	struct sound_s *mMusic;	/**< The music to be played for this level*/
 	vec2_t mSpawnPoint;		/**< The spawn point of the player during init load */
 	// Later implement Size
 };

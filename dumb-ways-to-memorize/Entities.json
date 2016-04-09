@@ -8,6 +8,7 @@
 		"collisionType" : "ragdoll",
 		"hazard(s)" : "0",
 		"entityState" : "alive",
+		"sound(s)" : ["sound_player", "crap.wav"],
 		"sprite(s)" : ["Sprite/Player/Dumb_Player_Waiting.png", "Sprite/Player/Dumb_Player_Running.png", "Sprite/Player/Dumb_Player_Jumping.png", "Sprite/Player/Dumb_Player_Taunt.png", "Sprite/Player/Dumb_Player_Hurt.png"  ],
 		"height" : [48, 48, 48, 48, 50],
 		"width" : [33, 34, 32, 35, 32 ],
@@ -18,6 +19,7 @@
 	{
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
+		"sound(s)" : ["sound_enemy", "crap.wav"],
 		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
@@ -28,6 +30,7 @@
 	{
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
+		"sound(s)" : ["sound_enemy", "crap.wav"],
 		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
@@ -38,6 +41,7 @@
 	{
 		"collisionType" : "static",
 		"entityState" : "other",
+		"sound(s)" : ["sound_enemy", "crap.wav"],
 		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
@@ -48,6 +52,7 @@
 	{
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
+		"sound(s)" : ["sound_enemy", "crap.wav"],
 		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
@@ -59,6 +64,7 @@
 		"hazard(s)" : "fire",
 		"collisionType" : "ragdoll",
 		"entityState" : "other",
+		"sound(s)" : ["sound_other", "crap.wav"],
 		"sprite(s)" : "Sprite/Level/Ground.png",
 		"height" : 32,
 		"width" : 32,

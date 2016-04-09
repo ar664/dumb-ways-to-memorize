@@ -8,10 +8,13 @@ extern char *ComplexVariableNames[];	/**< The complex variables which need more 
 extern char *Vector2VariableNames[];	/**< The variables which parse to vectors */
 extern char *SimpleVariableNames[];		/**< The simple variables are there given values*/
 
+#define ENTITY_SOUND_GROUP_STR	"sound_group"
+
 /** Defines the enum for variables in the entity structure */
 typedef enum
 {
 	ENTITY_MEMBER_HAZARDS,  /**< An enum constant representing the entity member hazards */
+	ENTITY_MEMBER_SOUND,  /**< An enum constant representing the entity sound effects, in line with animations*/
 	ENTITY_MEMBER_COLLISION_TYPE,   /**< An enum constant representing the entity member collision type */
 	ENTITY_MEMBER_ENTITY_STATE, /**< An enum constant representing the entity member entity state */
 	ENTITY_MEMBER_MAX
@@ -74,6 +77,20 @@ void ParseComplexMember(entity_t *ent, jsmntok_t* token, char *str, entity_membe
  * @date	3/31/2016
  */
 void AddVector2Entity(entity_t *ent, entity_members_vector2_t member, vec2_t *value);
+
+/**
+ * Adds the sounds to entity to be player, to be played during their respective actions.
+ * @see sound_mixer_effects
+ * 
+ * @param [in,out]	ent  	If non-null, the ent.
+ * @param [in,out]	files	If non-null, the files.
+ * @param	group		 	The group.
+ *
+ * @author	Anthony Rios
+ * @date	4/8/2016
+ */
+
+void AddSoundsToEnt(entity_t *ent, char **files, int group);
 
 /**
  * Loads and adds the sprite files given to the entity.

@@ -5,6 +5,7 @@
 	"Comment" : "Positions are based on pixels, lol",
 	"Comment 2" : "tile-to-x Doesn't work with negative tiling",
 	"Spawn" : [32, 500],
+	"Playlist" : ["crap.wav"],
 	"Enemies" : [
 	{
 		"enemy" : "Flying Enemy",

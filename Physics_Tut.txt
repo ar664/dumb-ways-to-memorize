@@ -1,0 +1,34 @@
+Physics:
+
+How to make it Better:
+1. Limit speed.
+2. Split time segments enough so that fast entities don't skip collisions.
+
+Space-
+Setup a physics space to run your physics in.
+
+Body-
+Mass, Position, Velocity, and other physical properties.
+Types (Free Body + Static Body)
+
+Free Body = Moves freely
+Static Body = Doesn't move 
+
+Shape-
+Determines the volume, and is lines connected to each other. So shapes are a mix of circles, rectangles, and lines.
+
+Bounding Box-
+The area that bodies should not escape from.
+-------------
+'   o   o   '
+-------------
+
+Collisions / Arbiter -
+A callback function to set when two things collide.
+
+Initial Collisions, Continued Collisions, After Collision
+Initial = When they first touch.
+Continued = After they touch, but they are in contact still.
+After = They are no longer in contact, after having being touched.
+
+Physics Specific Order = (Body->Shape)

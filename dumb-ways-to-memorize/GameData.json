@@ -12,6 +12,7 @@
 	"Game Name": "Dumb Ways to Memorize",
 	"Test-Position" : [ [0,0], [1,1] ],
 	"Entities" : ["Entities.json"],
+	"Sound Types" : ["sound_player", "sound_enemy", "sound_music", "sound_other"],
 	"Collision Types" : ["static", "independent", "ragdoll", "clip"],
 	"Entity States" : ["alive", "dead", "other"],
 	"Hazards" : [ 0, "fire", "water", "cold", "spike"],
