@@ -177,33 +177,52 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	return retVal;
 }
 
-void ParseComplexMember(entity_t *ent, jsmntok_t* token, char *str, entity_members_complex_t member, int size)
+void ParseComplexMember(entity_t *ent, jsmntok_t* token, char *g_str, entity_members_complex_t member, int size)
 {
 	int i;
-	char *temp;
+	char *temp, **sound_files;
 	int checkInt = 0;
-	if(!ent || !token || !str)
+	if(!ent || !token || !g_str)
 		return;
 	if(member== ENTITY_MEMBER_HAZARDS)
 	{
 		for(i= 0; i < size; i++)
 		{
-			temp = JsmnToString(&token[i], str);
+			temp = JsmnToString(&token[i], g_str);
 			checkInt += StrToHazard(temp);
 			if(temp) free(temp);
 		}
 		AddComplexMemToEnt(ent, member, (void*)checkInt);
 	} else if(member == ENTITY_MEMBER_SOUND)
 	{
-		
+		//First string in list reserved to sound type
+		temp = JsmnToString(token, g_str);
+		checkInt = StrToSoundType(temp);
+		if(temp) free(temp);
+		if(checkInt != SOUND_GROUP_MAX)
+		{
+			sound_files = (char**) malloc(sizeof(char*)*size);
+			for(i = 1; i < size-1; i++)
+			{
+				temp = JsmnToString(&token[i], g_str);
+				if(!temp)
+				{
+					sound_files[i] = NULL;
+					continue;
+				}
+				sound_files[i] = temp;
+			}
+			sound_files[size-1] = 0;
+			AddSoundsToEnt(ent, sound_files, checkInt);
+		}
 	} else if(member == ENTITY_MEMBER_COLLISION_TYPE)
 	{
-		temp = JsmnToString(token, str);
+		temp = JsmnToString(token, g_str);
 		AddComplexMemToEnt(ent, member, (void*)StrToCollisionType(temp));
 		if(temp) free(temp);
 	} else if (member == ENTITY_MEMBER_ENTITY_STATE)
 	{
-		temp = JsmnToString(token, str);
+		temp = JsmnToString(token, g_str);
 		AddComplexMemToEnt(ent, member, (void*)StrToEntityState(temp));
 		if(temp) free(temp);
 	}

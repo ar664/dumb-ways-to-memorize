@@ -8,7 +8,7 @@
 	"Comment 3" : "Those variables get assigned to placements defined in the ai script",
 	"Comment 4" : "Setting AI is an array of objects",
 	"Comment 5" : "Ex:",
-	"Ex_AI" :
+	"Ex_Ai_def_inside_entity" :
 	[
 	{
 		"name" : "Advanced",

@@ -81,6 +81,37 @@ char* FindValue(struct object_s* obj, char* key, char* g_str)
 	return NULL;
 }
 
+jsmntok_t* FindValueToken(struct object_s* obj, char* key, char* g_str)
+{
+	int i, keys, objects;
+	char *temp_str;
+	jsmntok_t *temp_tok;
+	keys = CountMem(obj->keys, sizeof(jsmntok_t));
+	objects = CountMem(obj->children, sizeof(object_t));
+	//Iterate through keys
+	for(i = 0; i < keys; i++)
+	{
+		temp_str = JsmnToString(&obj->keys[i], g_str);
+		if(!temp_str)
+			continue;
+		if(!strcmp(temp_str, key))
+		{
+			if(temp_str) free(temp_str);
+			return &obj->values[i];
+		}
+		if(temp_str) free(temp_str);
+	}
+	//Iterate through children
+	for(i = 0; i < objects; i++)
+	{
+		if( (temp_tok = FindValueToken(&obj->children[i], key, g_str)) != NULL)
+		{
+			return temp_tok;
+		}
+	}
+	return NULL;
+}
+
 void JsmnToInt(jsmntok_t* token, char* str, int* dst)
 {
 	char *temp;

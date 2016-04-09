@@ -3,7 +3,7 @@
 	"Background" : "Sprite/Level/Background.png",
 	"Hint" : "Testing",
 	"Comment" : "Positions are based on pixels, lol",
-	"Comment 2" : "tile-to-x Doesn't work with negative tiling",
+	"Comment 2" : "tile Doesn't work with negative tiling",
 	"Spawn" : [32, 500],
 	"Playlist" : ["crap.wav"],
 	"Enemies" : [
@@ -34,7 +34,7 @@
 	"Objects" : [
 	{
 		"object" : "Ground",
-		"tile-to-x" : 1280,
+		"tile" : [1280, 0],
 		"position" : [[0,688], [0, 660]],
 		"comment" : "testing"
 	},

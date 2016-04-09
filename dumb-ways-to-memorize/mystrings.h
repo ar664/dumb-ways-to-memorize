@@ -66,6 +66,22 @@ char * JsmnToString(jsmntok_t *token, char *g_str);
 char * FindValue(struct object_s * obj, char *key, char *g_str);
 
 /**
+ * Searches for the first value token that matches the key str given.
+ * Recursive.
+ *
+ * @param [in,out]	obj  	If non-null, the object.
+ * @param [in,out]	key  	If non-null, the key.
+ * @param [in,out]	g_str	If non-null, the string.
+ *
+ * @return	null if it fails, else the found value token.
+ *
+ * @author	Anthony Rios
+ * @date	4/9/2016
+ */
+
+jsmntok_t * FindValueToken(struct object_s * obj, char *key, char *g_str);
+
+/**
  * Jsmn to int.
  *
  * @param [in,out]	token	If non-null, the token.

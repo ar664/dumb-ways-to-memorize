@@ -66,6 +66,9 @@
     <ClCompile Include="player_controller.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="audio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

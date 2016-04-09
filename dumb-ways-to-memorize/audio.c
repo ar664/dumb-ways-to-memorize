@@ -65,6 +65,19 @@ int PlaySound(sound_t* sound, sound_mixer_effects number)
 	return 0;
 }
 
+sound_mixer_group StrToSoundType(const char* str)
+{
+	int i;
+	for(i = SOUND_GROUP_PLAYER; i < SOUND_GROUP_MAX; i++)
+	{
+		if(!strcmp(str, SoundVariableNames[i]))
+		{
+			return (sound_mixer_group) i;
+		}
+	}
+	return SOUND_GROUP_MAX;
+}
+
 void InitAudioSys()
 {
 	int frequency, channels;

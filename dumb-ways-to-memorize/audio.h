@@ -12,7 +12,8 @@ typedef enum
 	SOUND_GROUP_PLAYER,		/**<  Channels 0-4 */
 	SOUND_GROUP_OTHER_ENTS, /**< Channels 5-10 */
 	SOUND_GROUP_MUSIC,		/**< Channels 11-12 */
-	SOUND_GROUP_OTHER = -1  /**< Channels 13-16 */
+	SOUND_GROUP_OTHER,		/**< Channels 13-16 */
+	SOUND_GROUP_MAX
 }sound_mixer_group;
 
 /** Defines an alias representing the enum for different sound effects */
@@ -45,6 +46,8 @@ sound_t *LoadSound(char **files, sound_mixer_group group);
 
 
 int PlaySound(sound_t *sound, sound_mixer_effects number);
+
+sound_mixer_group StrToSoundType(const char *str);
 
 void InitAudioSys();
 void ShutdownAudioSys();
