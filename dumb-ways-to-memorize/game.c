@@ -606,6 +606,11 @@ int Setup()
 		perror("Initializing entity system went wrong");
 		return -1;
 	}
+	if(InitAudio())
+	{
+		perror("Initializing audio went wrong");
+		return -1;
+	}
 	if(InitEntitySystem())
 	{
 		perror("Initializing entity system went wrong");

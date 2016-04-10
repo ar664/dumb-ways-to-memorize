@@ -14,8 +14,8 @@ char *LevelLocalOptionNames[] = {"position", "variables", "ai", "extra", "tile",
 
 int LoadLevel(object_t *level, char *g_str)
 {
-	jsmntok_t *tempTok;
-	object_t *tempObj;
+	jsmntok_t *temp_tok;
+	object_t *temp_obj;
 	int i;
 	char *temp_str = NULL;
 	if(!level || !level->keys)
@@ -28,9 +28,9 @@ int LoadLevel(object_t *level, char *g_str)
 		gCurrentLevel = (level_t*) malloc(sizeof(level_t));
 	} else {
 		FreeNonPlayerEntities();
-		memset(gCurrentLevel, 0, sizeof(level_t));
 	}
-	
+
+	memset(gCurrentLevel, 0, sizeof(level_t));
 	//Assign Name & quit if no name
 	temp_str = FindValue(level, G_NAME_STR, g_str);
 	if(!temp_str)
@@ -42,22 +42,22 @@ int LoadLevel(object_t *level, char *g_str)
 	
 	for(i = 0; i < LEVEL_G_OPTION_MAX; i++)
 	{
-		tempTok = FindValueToken(level, LevelGlobalOptionNames[i], g_str);
-		if(!tempTok)
+		temp_tok = FindValueToken(level, LevelGlobalOptionNames[i], g_str);
+		if(!temp_tok)
 		{
 			continue;
 		}
-		AddGlobalOption(gCurrentLevel, tempTok, g_str, (level_global_option_t) i);
+		AddGlobalOption(gCurrentLevel, temp_tok, g_str, (level_global_option_t) i);
 	}
 
 	for(i = 0; i < LEVEL_G_OBJECT_MAX; i++)
 	{
-		tempObj = FindObject(level, LevelLocalObjectNames[i]);
-		if(!tempObj)
+		temp_obj = FindObject(level, LevelGlobalObjectNames[i]);
+		if(!temp_obj)
 		{
 			continue;
 		}
-		AddGlobalObject(gCurrentLevel, level, g_str, (level_global_object_t)i);
+		AddGlobalObject(gCurrentLevel, temp_obj, g_str, (level_global_object_t)i);
 	}
 
 	return 0;
@@ -297,6 +297,7 @@ void AddLocalObject(level_t* level, object_t* obj, char* g_str, level_local_obje
 			temp_ent->Think = NULL;
 			temp_ent->Touch = NULL;
 			temp_ent->Draw = DrawGeneric;
+			temp_ent->mCollisionType = COLLISION_TYPE_STATIC;
 
 			//Set Extra Options
 			for(i = 0; i < LEVEL_L_OPTION_MAX; i++)

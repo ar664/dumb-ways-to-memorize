@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+SDL_AudioSpec *gAudioSpec = NULL;
 char *SoundVariableNames[] = {"sound_player", "sound_enemy", "sound_music", "sound_other", 0};
 
 sound_t* LoadSound(char** files, sound_mixer_group group)
@@ -35,6 +36,7 @@ sound_t* LoadSound(char** files, sound_mixer_group group)
 			if(!temp_chunk)
 			{
 				printf("Audio File %s could not be loaded \n", files[i]);
+				printf("SDL Error : %s \n", SDL_GetError());
 				continue;
 			}
 			memcpy(&chunks[i], &temp_chunk, sizeof(struct Mix_Chunk));
@@ -78,30 +80,46 @@ sound_mixer_group StrToSoundType(const char* str)
 	return SOUND_GROUP_MAX;
 }
 
-void InitAudioSys()
+int InitAudio()
 {
 	int frequency, channels;
 	Uint16 format;
 	int audio_good;
 
+	//Default values
+	frequency = 44100;
+	format = MIX_DEFAULT_FORMAT;
+	channels = 2;
+
 	if(SDL_Init(SDL_INIT_AUDIO))
 	{
-		printf("SDL can't initialize audio : %s", SDL_GetError());
-		exit(-1);
+		printf("SDL can't initialize audio : %s \n", SDL_GetError());
+		return -1;
 	}
+	audio_good = Mix_Init(MIX_INIT_FLAC | MIX_INIT_MP3 | MIX_INIT_OGG );
+	if(!audio_good)
+	{
+		printf("Mixer could initialize : %s \n", SDL_GetError());
+		return -1;
+	}
+
+	if(Mix_OpenAudio(frequency, format, channels, 1024))
+	{
+		printf("SDL can't initialize audio : %s \n", SDL_GetError());
+		return -1;
+	}
+
 	audio_good = Mix_QuerySpec(&frequency, &format, &channels );
 	if(!audio_good)
 	{
-		printf("SDL can't initialize audio : %s", SDL_GetError());
-		return;
+		printf("SDL can't initialize audio : %s \n", SDL_GetError());
+		return -1;
 	}
-	if(Mix_OpenAudio(frequency, format, channels, 1024))
-	{
-		printf("SDL can't initialize audio : %s", SDL_GetError());
-		exit(-1);
-	}
-
-	printf("There are %d sample chunk deocoders available\n", Mix_GetNumChunkDecoders());
+	printf("Audio Specifications : \n \
+		Frequency : %d \n \
+		Format: %d \n \
+		Channels: %d \n", frequency, format, channels);
+	printf("There are %d sample chunk deocoders available \n", Mix_GetNumChunkDecoders());
 
 
 	Mix_AllocateChannels(16);
@@ -113,6 +131,7 @@ void InitAudioSys()
 
 	
 	atexit(ShutdownAudioSys);
+	return 0;
 }
 
 void ShutdownAudioSys()

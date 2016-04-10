@@ -1,7 +1,8 @@
 #ifndef __AUDIO__H
 #define __AUDIO__H
 
-#include "SDL_mixer.h"
+#include <SDL_mixer.h>
+#include <SDL_audio.h>
 #define MAX_SOUNDS	100
 
 extern char *SoundVariableNames[];
@@ -42,6 +43,7 @@ struct sound_s
 	Mix_Music *music;			/**< The music , limit this to one */
 };
 
+extern SDL_AudioSpec *gAudioSpec;
 sound_t *LoadSound(char **files, sound_mixer_group group);
 
 
@@ -49,7 +51,7 @@ int PlaySound(sound_t *sound, sound_mixer_effects number);
 
 sound_mixer_group StrToSoundType(const char *str);
 
-void InitAudioSys();
+int InitAudio();
 void ShutdownAudioSys();
 void PauseAllSound();
 void ResumeAllSound();

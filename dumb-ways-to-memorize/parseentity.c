@@ -202,9 +202,9 @@ void ParseComplexMember(entity_t *ent, jsmntok_t* token, char *g_str, entity_mem
 		if(checkInt != SOUND_GROUP_MAX)
 		{
 			sound_files = (char**) malloc(sizeof(char*)*size);
-			for(i = 1; i < size-1; i++)
+			for(i = 0; i < size-1; i++)
 			{
-				temp = JsmnToString(&token[i], g_str);
+				temp = JsmnToString(&token[i+1], g_str);
 				if(!temp)
 				{
 					sound_files[i] = NULL;
