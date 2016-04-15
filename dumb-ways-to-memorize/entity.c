@@ -7,6 +7,7 @@
 #include "player.h"
 #include "parselevel.h"
 #include "parsepowerup.h"
+#include "dumb_physics.h"
 
 entity_t *gEntities = NULL;
 int gLastEntity = 0;
@@ -14,8 +15,21 @@ char **Hazards_str = NULL;
 char *Collisions_str[] = {"static", "independent", "ragdoll", "clip", 0};
 char *EntityStates_str[] = {"alive", "dead", "other", 0};
 
+vec2_t entity_s::GetPosition()
+{
+	cpVect position;
+	vec2_t vec_pos;
+	position = cpBodyGetPos(mPhysicsProperties->body);
+	vec_pos.x = position.x;
+	vec_pos.y = position.y;
+
+	return vec_pos;
+}
+
+
 void DrawGeneric(entity_t *self)
 {
+	vec2_t pos_vec;
 	if(!self)
 	{
 		return;
@@ -27,11 +41,13 @@ void DrawGeneric(entity_t *self)
 	if(self->mAnimation)
 	{
 		//IncrementFrame(self->mAnimation);
-		DrawSprite(self->mAnimation, &self->mCurrentFrame, &self->mPosition, gRenderer);
+		pos_vec = self->GetPosition();
+		DrawSprite(self->mAnimation, &self->mCurrentFrame, &pos_vec, gRenderer);
 	} else
 	{
 		//IncrementFrame(self->mSprites[ANIMATION_IDLE]);
-		DrawSprite(self->mSprites[ANIMATION_IDLE], &self->mCurrentFrame, &self->mPosition, gRenderer);
+		pos_vec = self->GetPosition();
+		DrawSprite(self->mSprites[ANIMATION_IDLE], &self->mCurrentFrame, &pos_vec, gRenderer);
 	}
 	
 }
@@ -133,9 +149,9 @@ void ThinkEnemy(entity_t *self)
 
 }
 
-void TouchGeneric(entity_t *self, entity_t *other, int type)
+void TouchGeneric(entity_t *self, entity_t *other)
 {
-	switch(type)
+	switch(other->mCollisionType)
 	{
 	case(COLLISION_TYPE_STATIC):
 		{
@@ -162,9 +178,9 @@ void TouchGeneric(entity_t *self, entity_t *other, int type)
 }
 
 //Touch Functions
-void TouchPlayer(entity_t *self, entity_t *other, int type)
+void TouchPlayer(entity_t *self, entity_t *other)
 {
-	switch(type)
+	switch(other->mCollisionType)
 	{
 	case(COLLISION_TYPE_STATIC):
 		{
@@ -186,11 +202,12 @@ void TouchPlayer(entity_t *self, entity_t *other, int type)
 			}
 			break;
 		}
-		
+	default:
+		break;
 	}
 }
 
-void TouchEnemy(entity_t *self, entity_t *other, int type)
+void TouchEnemy(entity_t *self, entity_t *other)
 {
 	switch(other->mCollisionType)
 	{
@@ -203,7 +220,7 @@ void TouchEnemy(entity_t *self, entity_t *other, int type)
 	}
 }
 
-void TouchGoal(entity_t* self, entity_t* other, int type)
+void TouchGoal(entity_t* self, entity_t* other)
 {
 	if(other == gPlayer)
 	{
@@ -352,12 +369,20 @@ entity_t* FindFreeEntity(int* position)
 entity_t *LookForEntityAtPos(vec2_t position)
 {
 	int i;
+	cpShape *firstShape;
+	cpVect pos;
+	pos.x = position.x;
+	pos.y = position.y;
+	firstShape = cpSpacePointQueryFirst(gSpace, pos, NULL, NULL);
+	if(!firstShape)
+	{
+		return NULL;
+	}
 	for(i = 0; i < MAX_ENTITIES; i++)
 	{
-		if(!gEntities[i].mName)
+		if(!gEntities[i].mPhysicsProperties)
 			continue;
-		if( (gEntities[i].mPosition.x > position.x > gEntities[i].mPosition.x + gEntities[i].mSprites[0]->mSize.x)
-			&& (gEntities[i].mPosition.y > position.y > gEntities[i].mPosition.x + gEntities[i].mSprites[0]->mSize.y))
+		if( (gEntities[i].mPhysicsProperties->shape == firstShape) )
 		{
 			return &gEntities[i];
 		}
@@ -368,8 +393,8 @@ entity_t *LookForEntityAtPos(vec2_t position)
 int Distance2Entity(entity_t* self, entity_t* other)
 {
 	int x, y;
-	x = self->mPosition.x - other->mPosition.x;
-	y = self->mPosition.y - self->mPosition.y;
+	x = self->GetPosition().x - other->GetPosition().x;
+	y = self->GetPosition().y - self->GetPosition().y;
 	return powf(powf(x, 2) + powf(y, 2), (float) 1/2);
 }
 

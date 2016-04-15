@@ -29,6 +29,8 @@ typedef enum
 
 typedef struct power_s power_t;
 
+typedef void (*TargetFunc) (entity_t*, entity_t**);
+
 /**
  * The structure for our power_up system.
  *

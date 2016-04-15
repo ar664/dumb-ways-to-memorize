@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "parsepowerup.h"
 #include "mystrings.h"
+#include "dumb_physics.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -35,7 +36,8 @@ void NothingAI(entity_t *ent)
 	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
-	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
+	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
+		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
 
 	//Check Data
 	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
@@ -60,6 +62,7 @@ void MoveAI(entity_t *ent)
 {
 	int flags;
 	vec2_t temp_vec2;
+	cpVect *cp_temp, cp_vect;
 	if(!ent->mData || !ent)
 	{
 		printf("MoveAI given a null paramerter \n");
@@ -71,14 +74,17 @@ void MoveAI(entity_t *ent)
 	ent->mCollisionType = COLLISION_TYPE_CLIP;
 	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
-	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
-	
+	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
+		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
+
 	//Move
 	temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 	temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
 	//TODO: normalize temp_vec2
 	Vec2MultiplyScalar(&temp_vec2,ent->mData->mVariables[AI_VAR_SPEED],&temp_vec2);
-	Vec2Add(&temp_vec2, &ent->mVelocity, &ent->mVelocity);
+	cp_temp = (cpVect*) Vec2Cp(&temp_vec2);
+	cp_vect = cp_temp ? *cp_temp : cpvzero;
+	cpBodySetVel(ent->mPhysicsProperties->body, cp_vect);
 
 	//Check Data
 	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
@@ -105,6 +111,7 @@ void WalkAI(entity_t *ent)
 {
 	int flags;
 	vec2_t temp_vec2;
+	cpVect *cp_temp, cp_vect;
 	if(!ent->mData || !ent)
 	{
 		printf("MoveAI given a null paramerter \n");
@@ -116,14 +123,17 @@ void WalkAI(entity_t *ent)
 	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
-	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
+	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
+		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
 
 	//Move
 	temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 	temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
 	//TODO: normalize temp_vec2
 	Vec2MultiplyScalar(&temp_vec2,ent->mData->mVariables[AI_VAR_SPEED],&temp_vec2);
-	Vec2Add(&temp_vec2, &ent->mVelocity, &ent->mVelocity);
+	cp_temp = (cpVect*)Vec2Cp(&temp_vec2);
+	cp_vect = cp_temp ? *cp_temp : cpvzero;
+	cpBodySetVel(ent->mPhysicsProperties->body, cp_vect);
 
 	//Check Data
 	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
@@ -131,6 +141,7 @@ void WalkAI(entity_t *ent)
 		ent->mData->mVariables[AI_VAR_TIME] = 1;
 		ent->mData = ent->mData->mLink;
 	}
+	if(cp_temp) free(cp_temp);
 }
 
 /**
@@ -146,6 +157,7 @@ void JumpAI(entity_t *ent)
 {
 	int flags;
 	vec2_t temp_vec2;
+	cpVect *cp_temp, cp_vect;
 	if(!ent->mData || !ent)
 	{
 		printf("MoveAI given a null paramerter \n");
@@ -157,22 +169,19 @@ void JumpAI(entity_t *ent)
 	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
-	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
+	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
+		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
 
 	//Move
-	if(ent->mVelocity.y == 0)
+	if(cpBodyGetVel(ent->mPhysicsProperties->body).y == 0)
 	{
 		temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 		temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
 		//TODO: normalize temp_vec2
 		Vec2MultiplyScalar(&temp_vec2,ent->mData->mVariables[AI_VAR_SPEED],&temp_vec2);
-		if( (ent->mVelocity.x == temp_vec2.x) & (ent->mVelocity.y == temp_vec2.y) )
-		{
-			;
-		} else
-		{
-			Vec2Add(&temp_vec2, &ent->mVelocity, &ent->mVelocity);
-		}
+		cp_temp = (cpVect*) Vec2Cp(&temp_vec2);
+		cp_vect = cp_temp ? *cp_temp : cpvzero;
+		cpBodyApplyImpulse(ent->mPhysicsProperties->body, cp_vect, cpvzero);
 		
 	}
 
@@ -199,26 +208,35 @@ void AttackAI(entity_t *ent)
 {
 	int flags;
 	entity_t *temp_ent;
+	vec2_t temp_vec2;
+	cpVect *cp_temp, cp_vect;
 	if(!ent->mData || !ent)
 	{
 		printf("MoveAI given a null paramerter \n");
 		return;
 	}
+	cp_temp = NULL;
 	flags = ent->mData->mFlags;
 
 	//Standard Vars
 	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 	ent->mNextThink = SDL_GetTicks() + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
-	ent->mWeight = (flags & AI_FLAG_GRAVITY) ? 0 : FindCachedEntity(ent->mName)->mWeight;
+	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
+		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
 
 	if(ent->mData->mObject)
 	{
 		temp_ent = FindCachedEntity(ent->mData->mObject);
 		if(temp_ent)
 		{
-			temp_ent->mVelocity.x = ent->mData->mVariables[AI_VAR_DIR_X];
-			temp_ent->mVelocity.y = ent->mData->mVariables[AI_VAR_DIR_Y];
+			temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
+			temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
+			cp_temp = (cpVect*) Vec2Cp(&temp_vec2);
+			cp_vect = cp_temp ? *cp_temp : cpvzero;
+			AddNewBodyShape(temp_ent);
+			cpBodySetVel(ent->mPhysicsProperties->body, cp_vect);
+			
 			Spawn(ent, temp_ent);
 		}
 		
@@ -230,6 +248,7 @@ void AttackAI(entity_t *ent)
 		ent->mData->mVariables[AI_VAR_TIME] = 1;
 		ent->mData = ent->mData->mLink;
 	}
+	if(cp_temp) free(cp_temp);
 }
 
 void (*GetFunctionAI(ai_function_t *data))(entity_t *)

@@ -18,6 +18,9 @@ typedef struct vec2_s
 	int y;
 }vec2_t;
 
+void *Vec2Cp(vec2_t *vect);
+vec2_t *CpToVect(void *cp);
+
 extern vec2_t gZeroPos;
 
 //Address of a value, basically generic typing int*
@@ -136,6 +139,7 @@ extern int gLevelsPerGame;			/**< The levels per game */
 extern int gScreenWidth;			/**< The set Width of the screen */
 extern int gScreenHeight;			/**< Te set Height of the screen */
 extern unsigned int gCurrentTime;   /**< The current time , updated from last update call*/
+extern float gDeltaTime;		/**< The time since last runs */
 extern vec2_t gGravity;				/**< The gravity which affects all the assets */
 
 extern void ResetGame();

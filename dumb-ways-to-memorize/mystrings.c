@@ -376,7 +376,7 @@ collision_type_t StrToCollisionType(char *str)
 {
 	int i;
 	if(!str)
-		return 0;
+		return (collision_type_t) 0;
 	for(i = 0; i <= COLLISION_TYPE_CLIP; i++)
 	{
 		if(!strcmp(Collisions_str[i], str))
@@ -384,7 +384,7 @@ collision_type_t StrToCollisionType(char *str)
 			return (collision_type_t)i;
 		}
 	}
-	return 0;
+	return (collision_type_t) 0;
 }
 
 /**
@@ -402,7 +402,7 @@ entity_state_t StrToEntityState(char *str)
 {
 	int i;
 	if(!str)
-		return 0;
+		return (entity_state_t) 0;
 	for(i = 0; i <= COLLISION_TYPE_CLIP; i++)
 	{
 		if(!strcmp(EntityStates_str[i], str))
@@ -410,7 +410,7 @@ entity_state_t StrToEntityState(char *str)
 			return (entity_state_t)i;
 		}
 	}
-	return 0;
+	return (entity_state_t) 0;
 }
 
 vec2_t* ParseToVec2(object_t* object, char* str)

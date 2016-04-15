@@ -19,12 +19,20 @@ int *keyPower = NULL;
 
 void Move(entity_t *targ, entity_t *info)
 {
+	cpVect cpPos;
 	if(!targ || !info)
 	{
 		printf("Failed to do move , invalid target/info \n");
 		return;
 	}
-	targ->mPosition = info->mPosition;
+	if(!info->mPhysicsProperties || !targ->mPhysicsProperties)
+	{
+		printf("Failed to do move , no target/info physics properties \n");
+		return;
+	}
+
+	cpPos = cpBodyGetPos(info->mPhysicsProperties->body);
+	cpBodySetPos(targ->mPhysicsProperties->body, cpPos);
 }
 
 
@@ -41,6 +49,7 @@ void Destroy(entity_t *targ, entity_t *info)
 void Spawn(entity_t *targ, entity_t *info)
 {
 	entity_t *spawned;
+	cpVect cpPos, cpSpeed;
 	if(!targ || !info)
 	{
 		printf("Spawn given blank targ/info \n");
@@ -53,15 +62,22 @@ void Spawn(entity_t *targ, entity_t *info)
 		return;
 	}
 	memcpy(spawned, info, sizeof(entity_t));
-	Vec2Add(&targ->mPosition, &spawned->mPosition, &spawned->mPosition);
+	cpPos = cpvadd(cpBodyGetPos(spawned->mPhysicsProperties->body), cpBodyGetPos(targ->mPhysicsProperties->body));
+
 	if(targ->mDirection == ENTITY_DIR_RIGHT)
 	{
-		spawned->mPosition.x += targ->mSprites[ANIMATION_IDLE]->mSize.x;
-		spawned->mAccel.x += PHYSICS_BASE_SPEED_X;
+		cpPos.x += targ->mSprites[ANIMATION_IDLE]->mSize.x;
+		cpBodySetPos(spawned->mPhysicsProperties->body, cpPos);
+		cpSpeed.y = 0;
+		cpSpeed.x = PHYSICS_BASE_SPEED_X;
+		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpPos, cpvzero);
 	} else
 	{
-		spawned->mPosition.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x;
-		spawned->mAccel.x -= PHYSICS_BASE_SPEED_X;
+		cpPos.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x;
+		cpBodySetPos(spawned->mPhysicsProperties->body, cpPos);
+		cpSpeed.y = 0;
+		cpSpeed.x = -PHYSICS_BASE_SPEED_X;
+		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpPos, cpvzero);
 	}
 }
 
@@ -182,7 +198,7 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 
 	if( (temp_str = FindValue(power, POWER_TARGET_STR, g_str)) != NULL )
 	{
-		retVal->GetTarg = ParseToFunction(temp_str);
+		retVal->GetTarg = (TargetFunc) ParseToFunction(temp_str);
 		if(temp_str) free(temp_str);
 	}
 	//Use Type

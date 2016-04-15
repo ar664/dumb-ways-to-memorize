@@ -11,7 +11,7 @@
 #define LIVES_DEFAULT	3
 #define LEVELS_DEFAULT	6
 
-int	mState;
+static int	mState;
 int	Setup();
 int Run();
 void Shutdown();

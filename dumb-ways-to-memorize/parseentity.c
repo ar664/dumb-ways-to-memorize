@@ -3,6 +3,7 @@
 #include "mystrings.h"
 #include "audio.h"
 #include <jsmn.h>
+#include "dumb_physics.h"
 
 #include <string.h>
 #include <stdio.h>
@@ -32,19 +33,33 @@ void AddComplexMemToEnt(entity_t  *ent, entity_members_complex_t member, void *v
 
 void AddVector2Entity(entity_t *ent, entity_members_vector2_t member, vec2_t *value)
 {
+	cpVect *temp_val;
 	if(!value || !ent)
+	{
+		return;
+	}
+	if(!ent->mPhysicsProperties->body)
+	{
+		return;
+	}
+
+	temp_val = (cpVect*)Vec2Cp(value);
+	if(!temp_val)
 	{
 		return;
 	}
 
 	switch(member)
 	{
-	case ENTITY_MEMBER_ACCEL: ent->mAccel = *value; break;
-	case ENTITY_MEMBER_POSITION: ent->mPosition = *value; break;
-	case ENTITY_MEMBER_VELOCITY: ent->mVelocity = *value; break;
+
+	case ENTITY_MEMBER_ACCEL: cpBodyApplyImpulse(ent->mPhysicsProperties->body, *temp_val, cpvzero); break;
+	case ENTITY_MEMBER_POSITION: cpBodySetPos(ent->mPhysicsProperties->body, *temp_val ); break;
+	case ENTITY_MEMBER_VELOCITY: cpBodySetVel(ent->mPhysicsProperties->body, *temp_val ); break;
 	default:
 		break;
 	}
+
+	if(temp_val) free(temp_val);
 }
 
 void AddSoundsToEnt(entity_t *ent, char **files, int group)
@@ -112,14 +127,6 @@ entity_t* ParseToEntity(object_t* object, char* str)
 		}
 	}
 
-	for(i = 0; Vector2VariableNames[i]; i++)
-	{
-		if( (checkObj = FindObject(object, Vector2VariableNames[i])) != NULL)
-		{
-			AddVector2Entity(retVal, (entity_members_vector2_t) i, ParseToVec2(checkObj, str));
-		}
-	}
-
 	for(i = 0; SimpleVariableNames[i]; i++)
 	{
 		if( (checkObj = FindObject(object, SimpleVariableNames[i])) != NULL)
@@ -167,9 +174,27 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			memcpy(&retVal->mSprites[i]->mAnimations, checkFrame, sizeof(Frame)*retVal->mSprites[i]->mFrames );
 		}
 	}
+
+	retVal->mPhysicsProperties = (physics_t*) malloc(sizeof(physics_t));
+	if(!retVal->mPhysicsProperties)
+	{
+		printf("Alloc physics for ent error \n");
+		return NULL;
+	}
+	retVal->mPhysicsProperties->body = cpBodyNew(1, 0);
+	retVal->mPhysicsProperties->shape = cpBoxShapeNew(retVal->mPhysicsProperties->body, retVal->mSprites[0]->mSize.x, retVal->mSprites[0]->mSize.y );
+	
+	for(i = 0; Vector2VariableNames[i]; i++)
+	{
+		if( (checkObj = FindObject(object, Vector2VariableNames[i])) != NULL)
+		{
+			AddVector2Entity(retVal, (entity_members_vector2_t) i, ParseToVec2(checkObj, str));
+		}
+	}
+	AddEntityToPhysics(retVal);
+	
 	retVal->mNextThink = 1;
 	retVal->mCurrentFrame = 0;
-	retVal->mWeight = 1;
 	retVal->Think = ThinkGeneric;
 	retVal->Draw = DrawGeneric;
 	retVal->Touch = TouchGeneric;

@@ -1,0 +1,64 @@
+﻿UI Tut
+
+Widget  - elements/components
+*Labels - text
+*Images - sprite, frame, position
+*Actor - actor action, position
+*Buttons - [ Label | Image | Custom ]
+*Panel - list of widgets, layout style
+	-----------------
+	;	(Label)		;
+	;(Panel 1^ & 2↓);
+	;	(Button)	;
+	-----------------
+
+Button.State
+	The state of the button - nothing, highlighted, pressed, held, released
+
+
+typedef Widget_Structure
+{
+
+id/Name
+position,
+routine,
+draw function*,
+update function*,
+void* Data
+
+}
+
+Update Globally
+Call updates
+	if !NULL
+		if Update()
+			Add Globally
+
+Window
+{
+	position,
+	rectangle,
+	draw function*,
+	update function*,
+		(window *win, Glist *updateList)
+	steal focus,
+	draw generic,
+	GList *Callbacks (defined below ↓)
+}
+
+Draw ↓
+---------------
+;   -----------
+;	;		  ;
+;	;		  ;
+;	-----------
+---------------
+Update ^
+
+_________________________________
+
+Callbacks
+
+void (func*)(void *data),
+void *data
+

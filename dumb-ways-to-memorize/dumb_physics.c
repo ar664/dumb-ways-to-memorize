@@ -2,37 +2,151 @@
 #include "entity.h"
 #include "globals.h"
 #include "player.h"
+#include <chipmunk/chipmunk.h>
 #include <stdio.h>
 
 vec2_t gGravity = {0, 2};
+cpSpace *gSpace = NULL;
+cpArbiter *gArbiter = NULL;
+cpBB *gBoundingBox = NULL;
+
+int InitPhysics()
+{
+	gSpace = cpSpaceNew();
+	cpVect gravity;
+	if(!gSpace)
+	{
+		printf("Initializing Space From Chipmunk went wrong");
+		return -1;
+	}
+	gravity.x = 0;
+	gravity.y = 9;
+	cpSpaceSetGravity( gSpace, gravity);
+	cpSpaceSetIdleSpeedThreshold( gSpace, 20.0);
+
+	return 0;
+}
+
+cpCollisionBeginFunc ExampleCallback()
+{
+	cpSpaceRemoveBody(gSpace, NULL);
+	cpSpaceRemoveShape(gSpace, NULL);
+  
+	cpShapeFree(NULL);
+	cpBodyFree(NULL);
+	return NULL;
+}
+
+void AddCallBackToEntity(entity_t *ent, void *callback)
+{
+	cpSpaceAddCollisionHandler(gSpace, ent->mHazards, ent->mHazards, ExampleCallback, NULL, NULL, NULL, callback);
+	cpSpaceAddPostStepCallback(gSpace, cpPostStepFunc(ExampleCallback), ent->mPhysicsProperties->shape, NULL);
+}
+
+void AddNewBodyShape(entity_t* ent)
+{
+	cpBody *newBody;
+	cpShape *newShape;
+	if(!ent)
+	{
+		return;
+	}
+	if(!ent->mSprites)
+	{
+		return;
+	}
+	if(!ent->mPhysicsProperties)
+	{
+		ent->mPhysicsProperties = (physics_t*) malloc(sizeof(physics_t));
+		if(!ent->mPhysicsProperties)
+		{
+			return;
+		}
+	}
+
+	newBody = cpBodyNew(1, 0);
+	if(!newBody)
+	{
+		printf("Unable to give new body to entity \n");
+		return;
+	}
+	ent->mPhysicsProperties->body = newBody;
+
+	newShape = cpBoxShapeNew(ent->mPhysicsProperties->body, ent->mSprites[0]->mSize.x, ent->mSprites[0]->mSize.y);
+	if(!newShape)
+	{
+		printf("Unable to give new shape to entity \n");
+	}
+	ent->mPhysicsProperties->shape = newShape;
+}
+
+void AddVelocityToEntity(entity_t *ent, float speed, cpVect direction)
+{
+	cpVect temp_vec;
+	if(!ent)
+	{
+		return;
+	}
+	if(!ent->mPhysicsProperties)
+	{
+		return;
+	}
+	temp_vec = cpvmult(direction, speed);
+	cpBodySetVel(ent->mPhysicsProperties->body, temp_vec);
+
+}
+
+void AddForceToEntity(entity_t *ent, float speed, cpVect direction)
+{
+	cpVect temp_vec;
+	if(!ent)
+	{
+		return;
+	}
+	if(!ent->mPhysicsProperties)
+	{
+		return;
+	}
+	temp_vec = cpvmult(direction, speed);
+	cpBodyApplyForce(ent->mPhysicsProperties->body, temp_vec, cpvzero );
+
+}
+
+void AddImpulseToEntity(entity_t *ent, float speed, cpVect direction)
+{
+	cpVect temp_vec;
+	if(!ent)
+	{
+		return;
+	}
+	if(!ent->mPhysicsProperties)
+	{
+		return;
+	}
+	temp_vec = cpvmult(direction, speed);
+	cpBodyApplyImpulse(ent->mPhysicsProperties->body, temp_vec, cpvzero);
+}
+
+void AddEntityToPhysics(entity_t* ent)
+{
+	if(!ent)
+	{
+		return;
+	}
+	if(!ent->mPhysicsProperties)
+	{
+		return;
+	}
+
+	cpSpaceAddBody(gSpace, ent->mPhysicsProperties->body);
+	cpSpaceAddShape(gSpace, ent->mPhysicsProperties->shape);
+}
 
 void RunPhysics()
 {
+	cpSpaceStep((cpSpace*) gSpace, gDeltaTime);
 	int i, j;
-	for(i = 0; i < MAX_ENTITIES; i++)
-	{
-		if(!gEntities[i].mName)
-		{
-			continue;
-		}
-		if(!gEntities[i].mCollisionType == COLLISION_TYPE_STATIC)
-		{
-			ApplyFriction(&gEntities[i].mVelocity);
-			gEntities[i].mPosition.x += gEntities[i].mVelocity.x/PHYSICS_LIMITER;
-			gEntities[i].mPosition.y += gEntities[i].mVelocity.y/PHYSICS_LIMITER;
-			Vec2Add(&gEntities[i].mAccel,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
-			if(gEntities[i].mWeight)
-			{
-				gEntities[i].mAccel.y = gGravity.y;
-			}
-			ApplySpeedLimit(&gEntities[i].mVelocity);
-			ApplySpeedLimit(&gEntities[i].mAccel);
-			ApplyBounds(&gEntities[i]);
-		}
-		
-		//Vec2Add(&friction,&gEntities[i].mVelocity,&gEntities[i].mVelocity);
-		
-	}
+
 	//Collision Check
 	for(i = 0; i < MAX_ENTITIES; i++)
 	{
@@ -56,106 +170,11 @@ void RunPhysics()
 
 int CheckCollision(entity_t *self, entity_t *other)
 {
-	if(self->mCollisionType == COLLISION_TYPE_CLIP || other->mCollisionType == COLLISION_TYPE_CLIP)
-	{
-		return 0;
-	}
-	if(!self->mSprites || !self->mSprites)
-	{
-		return 0;
-	}
-	if(self->mPosition.x + self->mSprites[0]->mSize.x < other->mPosition.x || self->mPosition.y + self->mSprites[0]->mSize.y < other->mPosition.y
-		|| self->mPosition.x > other->mPosition.x + other->mSprites[0]->mSize.x || self->mPosition.y > other->mPosition.y + other->mSprites[0]->mSize.y)
-	{
-		return 0;
-	}
-	return 1;
+	return 0;
 }
 
 void DoCollision(entity_t *self, entity_t *other)
 {
-	vec2_t self_min, self_max, self_res, other_min, other_max, other_res;
-	int left, right, bottom, top;
-	if(self->Touch)
-	{
-		self->Touch(self, other, other->mCollisionType);
-	}
-	if(other->Touch)
-	{
-		other->Touch(other, self, self->mCollisionType);
-	}
-	if(strcmp(self->mName, other->mName))
-	{
-		printf("%s collided with %s \n", self->mName, other->mName);
-	}
-	self_min = self->mPosition;
-	Vec2Add(&self->mPosition, &self->mSprites[0]->mSize, &self_max);
-	other_min = other->mPosition;
-	Vec2Add(&other->mPosition, &other->mSprites[0]->mSize, &other_max);
-
-	left = other_min.x - self_max.x;
-	right = other_max.x - self_min.x;
-	top = other_min.y - self_max.y;
-	bottom = other_max.y - self_min.y;
-	if(abs(left) < right)
-	{
-		self_res.x = left;
-		other_res.x = right;
-	} else
-	{
-		self_res.x = right;
-		other_res.x = left;
-	}
-
-	if(abs(top) < bottom)
-	{
-		self_res.y = top;
-		other_res.y = bottom;
-	} else
-	{
-		self_res.y = bottom;
-		other_res.y = top;
-	}
-	
-	if(abs(self_res.x) < abs(self_res.y))
-	{
-		self_res.y = 0;
-	} else
-	{
-		self_res.x = 0;
-	}
-
-	if(abs(other_res.x) < abs(other_res.y))
-	{
-		other_res.y = 0;
-	} else
-	{
-		other_res.x = 0;
-	}
-
-	if(self->mCollisionType == COLLISION_TYPE_RAGDOLL)
-	{
-		Vec2Add(&self->mPosition, &self_res, &self->mPosition);
-		if(self_res.x)
-		{
-			self->mVelocity.x = -self->mVelocity.x/2;
-		} else
-		{
-			self->mVelocity.y = -self->mVelocity.y/2;
-		}
-	}
-	if(other->mCollisionType == COLLISION_TYPE_RAGDOLL)
-	{
-		Vec2Add(&other->mPosition, &other_res, &other->mPosition);
-		if(other_res.x)
-		{
-			other->mVelocity.x = -self->mVelocity.x/2;
-		} else
-		{
-			other->mVelocity.y = -self->mVelocity.y/2;
-		}
-
-	}
 
 }
 
@@ -167,28 +186,7 @@ void ApplySpeedLimit(vec2_t* a)
 
 void ApplyBounds(entity_t* ent)
 {
-	if(ent->mPosition.x < 0)
-	{
-		ent->mPosition.x = 0;
-		ent->mVelocity.x = 0;
-		ent->mAccel.x = 0;
-	} else if (ent->mPosition.x > gScreenWidth)
-	{
-		ent->mPosition.x = gScreenWidth - PHYSICS_MAX_SPEED;
-		ent->mVelocity.x = 0;
-		ent->mAccel.x = 0;
-	}
-	if(ent->mPosition.y < 0)
-	{
-		ent->mPosition.y = 0;
-		ent->mVelocity.y = 0;
-		ent->mAccel.y = 0;
-	} else if (ent->mPosition.y > gScreenHeight)
-	{
-		ent->mPosition.y = gScreenHeight - PHYSICS_MAX_SPEED;
-		ent->mVelocity.y = 0;
-		ent->mAccel.y = 0;
-	}
+
 }
 
 void ApplyFriction(vec2_t* a)

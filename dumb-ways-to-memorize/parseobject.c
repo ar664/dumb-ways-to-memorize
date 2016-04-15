@@ -90,14 +90,14 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str)
 			currentChild = NULL;
 		} else if(currentKey)
 		{
-			if( AllocateDynamic(&keys_array, currentKey, sizeof(jsmntok_t), keys) == -1 )
+			if( AllocateDynamic((void**) &keys_array, currentKey, sizeof(jsmntok_t), keys) == -1 )
 			{
 				printf("Dynam Alloc eror : parseobj \n");
 			}
 			currentKey = NULL;
 		} else if (currentValue)
 		{
-			if (AllocateDynamic(&values_array, currentValue, sizeof(jsmntok_t), values) == -1 )
+			if (AllocateDynamic( (void**) &values_array, currentValue, sizeof(jsmntok_t), values) == -1 )
 			{
 				printf("Dynam Alloc eror : parseobj \n");
 			}
@@ -257,7 +257,7 @@ int CopyObjectToObjectArray(object_t **dst, object_t *src, int size)
 		count = CountMem(src->keys, sizeof(jsmntok_t));
 		for(i = 0; i < count+1; i++)
 		{
-			if( AllocateDynamic( &((*dst)[size-1]).keys, &src->keys[i], sizeof(jsmntok_t), i+1)  == -1)
+			if( AllocateDynamic( (void**) &((*dst)[size-1]).keys, &src->keys[i], sizeof(jsmntok_t), i+1)  == -1)
 			{
 				return -1;
 			}
@@ -269,7 +269,7 @@ int CopyObjectToObjectArray(object_t **dst, object_t *src, int size)
 		count = CountMem(src->values, sizeof(jsmntok_t));
 		for(i = 0; i < count+1; i++)
 		{
-			if( AllocateDynamic( &((*dst)[size-1]).values, &src->values[i], sizeof(jsmntok_t), i+1)  == -1)
+			if( AllocateDynamic( (void**) &((*dst)[size-1]).values, &src->values[i], sizeof(jsmntok_t), i+1)  == -1)
 			{
 				return -1;
 			}

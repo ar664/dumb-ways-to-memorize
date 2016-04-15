@@ -4,6 +4,7 @@
 #include "player.h"
 #include "parselevel.h"
 #include <stdio.h>
+#include "dumb_physics.h"
 
 char *gPlayerName = PLAYER_NAME;
 entity_t *gPlayer = NULL;
@@ -11,6 +12,7 @@ int gPlayerLives = 0;
 
 void InitPlayer()
 {
+	cpVect *cpPos;
 	if(!gPlayer)
 	{
 		gPlayer = InitNewEntity();
@@ -31,9 +33,17 @@ void InitPlayer()
 	gPlayer->Think = ThinkPlayer;
 	gPlayer->Touch = TouchPlayer;
 	gPlayer->PowerUp = gPowerUps ? UsePower : NULL;
-	gPlayer->mPosition = gCurrentLevel ? gCurrentLevel->mSpawnPoint : gZeroPos;
+	cpPos = gCurrentLevel ? (cpVect*) Vec2Cp(&gCurrentLevel->mSpawnPoint) : (cpVect*)&cpvzero;
+	if(cpPos)
+	{
+		cpBodySetPos(gPlayer->mPhysicsProperties->body, *cpPos);
+	}
+	if(gCurrentLevel && cpPos)
+	{
+		free(cpPos);
+	}
+
 	gPlayer->mHealth = 100;
-	gPlayer->mWeight = 1;
 	gPlayer->mNextThink = gCurrentTime + 2*FRAME_DELAY;
 }
 

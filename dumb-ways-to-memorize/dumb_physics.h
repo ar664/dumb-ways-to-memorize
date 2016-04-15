@@ -2,6 +2,7 @@
 #define __DUMB_PHYSICS__H
 
 #include "entity.h"
+#include "chipmunk/chipmunk.h"
 
 /** Defines the Preset Physics values */
 typedef enum
@@ -14,12 +15,29 @@ typedef enum
 	PHYSICS_MAX
 }physics_laws_t;
 
-//typedef struct physics_s physics_t;
+typedef struct physics_s physics_t;
 
-//struct physics_s
-//{
-//	int dummy_var;
-//};
+extern cpSpace *gSpace;
+extern cpArbiter *gArbiter;
+extern cpBB *gBoundingBox;
+
+int InitPhysics();
+void ShutdownPhysics();
+
+void AddEntityToPhysics(entity_t *ent);
+
+struct physics_s
+{
+	cpBody *body;
+	cpShape *shape;
+};
+
+void AddNewBodyShape(entity_t *ent);
+
+void AddVelocityToEntity(entity_t *ent, float speed, cpVect direction);
+void AddForceToEntity(entity_t *ent, float speed, cpVect direction);
+void AddCallBackToEntity(entity_t *ent, void *callback);
+void AddImpulseToEntity(entity_t *ent, float speed, cpVect direction);
 
 /**
  * Executes physics.

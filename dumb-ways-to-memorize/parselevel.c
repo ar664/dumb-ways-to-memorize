@@ -4,6 +4,7 @@
 #include "parseentity.h"
 #include "ai_interpret.h"
 #include "mystrings.h"
+#include "dumb_physics.h"
 #include <stdio.h>
 
 level_t *gCurrentLevel = NULL;  
@@ -70,6 +71,7 @@ void TileLevelEntity(entity_t* ent, vec2_t* start_position, vec2_t* end_position
 {
 	int x,y;
 	vec2_t *count_pos, new_pos;
+	cpVect cpPos;
 	entity_t *temp_ent;
 	if(!ent || !end_position)
 	{
@@ -104,7 +106,14 @@ void TileLevelEntity(entity_t* ent, vec2_t* start_position, vec2_t* end_position
 			memcpy(temp_ent, ent, sizeof(entity_t));
 			new_pos.x = count_pos->x + x*ent->mSprites[0]->mSize.x;
 			new_pos.y = count_pos->y + y*ent->mSprites[0]->mSize.y;
-			temp_ent->mPosition = new_pos;
+			cpPos.x = new_pos.x;
+			cpPos.y = new_pos.y;
+			AddNewBodyShape(temp_ent);
+			if(!temp_ent->mPhysicsProperties)
+			{
+				return;
+			}
+			cpBodySetPos(temp_ent->mPhysicsProperties->body, cpPos);
 			new_pos.x = 0; new_pos.y = 0;
 		}
 	}
@@ -345,7 +354,8 @@ void AddGlobalOption(level_t* level, jsmntok_t* token, char* g_str, level_global
 void AddLocalOption(entity_t* ent, void* token, char* g_str, level_local_option_t type)
 {
 	int i, count;
-	vec2_t *temp_vec;
+	vec2_t *temp_vec, *pos_vec;
+	cpVect cp_pos, *cp_temp;
 	object_t *temp_obj;
 	jsmntok_t *temp_tok;
 	ai_function_t *temp_ai;
@@ -359,14 +369,15 @@ void AddLocalOption(entity_t* ent, void* token, char* g_str, level_local_option_
 	case(LEVEL_L_OPTION_POSITION):
 		{
 			temp_vec = ParseToVec2((object_t*)token, g_str);
-			if(!temp_vec)
+			cp_temp = (cpVect*) Vec2Cp(temp_vec);
+			if(!temp_vec || !cp_temp)
 			{
-				ent->mPosition.x = 0;
-				ent->mPosition.y = 0;
+				cpBodySetPos(ent->mPhysicsProperties->body, cpvzero);
 				break;
 			}
-			ent->mPosition = *temp_vec;
+			cpBodySetPos(ent->mPhysicsProperties->body, *cp_temp);
 			if(temp_vec) free(temp_vec);
+			if(cp_temp) free(cp_temp);
 			break;
 		}
 	case(LEVEL_L_OPTION_TILE):
@@ -376,8 +387,12 @@ void AddLocalOption(entity_t* ent, void* token, char* g_str, level_local_option_
 			{
 				break;
 			}
-			TileLevelEntity(ent, &ent->mPosition, temp_vec);
+			cp_pos = cpBodyGetPos(ent->mPhysicsProperties->body);
+			cp_temp = &cp_pos;
+			pos_vec = CpToVect(cp_temp);
+			TileLevelEntity(ent, pos_vec, temp_vec);
 			if(temp_vec) free(temp_vec);
+			if(pos_vec) free(pos_vec);
 			break;
 		}
 	case(LEVEL_L_OPTION_VARIABLES):

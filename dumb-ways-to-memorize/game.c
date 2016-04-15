@@ -20,7 +20,6 @@
 //All char ** should be size+1, and ending member = NULL
 
 int exitRequest = 0;
-int gDelay = 0;
 int gLevelsPerGame = LEVELS_DEFAULT;
 jsmn_parser gParser;
 char **gLevels = NULL;
@@ -48,6 +47,7 @@ SDL_Event gEventQ;					/**< The event qeueu update with all SDL_Events */
 SDL_GameController *gController = NULL; 
 SDL_GameControllerButton gButtonQ;
 unsigned int gCurrentTime = 0;
+float gDeltaTime = 0.0;
 
 /**
  * Loads game data from GameData.json, stored in gGameData.
@@ -611,6 +611,11 @@ int Setup()
 		perror("Initializing audio went wrong");
 		return -1;
 	}
+	if(InitPhysics())
+	{
+		perror("Initializing physics went wrong");
+		return -1;
+	}
 	if(InitEntitySystem())
 	{
 		perror("Initializing entity system went wrong");
@@ -675,8 +680,8 @@ int Run()
 		Poll();
 		Update();
 		Draw();
-		gDelay = SDL_GetTicks() - gCurrentTime;
-		SDL_Delay(gDelay > FRAME_DELAY ? 0 : gDelay);
+		gDeltaTime = SDL_GetTicks() - gCurrentTime;
+		SDL_Delay(gDeltaTime > FRAME_DELAY ? 0 : gDeltaTime);
 	}
 	return 0;
 }
