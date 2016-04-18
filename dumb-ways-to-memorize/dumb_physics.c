@@ -2,7 +2,6 @@
 #include "entity.h"
 #include "globals.h"
 #include "player.h"
-#include <chipmunk/chipmunk.h>
 #include <stdio.h>
 
 vec2_t gGravity = {0, 2};
@@ -14,6 +13,7 @@ int InitPhysics()
 {
 	gSpace = cpSpaceNew();
 	cpVect gravity;
+	cpFloat damping = PHYSICS_BASE_FRICTION - 0.1, max_speed = PHYSICS_MAX_SPEED;
 	if(!gSpace)
 	{
 		printf("Initializing Space From Chipmunk went wrong");
@@ -22,7 +22,8 @@ int InitPhysics()
 	gravity.x = 0;
 	gravity.y = 9;
 	cpSpaceSetGravity( gSpace, gravity);
-	cpSpaceSetIdleSpeedThreshold( gSpace, 20.0);
+	cpSpaceSetDamping(gSpace, damping);
+	cpSpaceSetIdleSpeedThreshold( gSpace, max_speed);
 
 	return 0;
 }
@@ -39,7 +40,7 @@ cpCollisionBeginFunc ExampleCallback()
 
 void AddCallBackToEntity(entity_t *ent, void *callback)
 {
-	cpSpaceAddCollisionHandler(gSpace, ent->mHazards, ent->mHazards, ExampleCallback, NULL, NULL, NULL, callback);
+	cpSpaceAddCollisionHandler(gSpace, ent->mHazards, ent->mHazards, ExampleCallback(), NULL, NULL, NULL, callback);
 	cpSpaceAddPostStepCallback(gSpace, cpPostStepFunc(ExampleCallback), ent->mPhysicsProperties->shape, NULL);
 }
 
@@ -139,15 +140,100 @@ void AddEntityToPhysics(entity_t* ent)
 	}
 
 	cpSpaceAddBody(gSpace, ent->mPhysicsProperties->body);
-	cpSpaceAddShape(gSpace, ent->mPhysicsProperties->shape);
+	switch(ent->mCollisionType)
+	{
+	case(COLLISION_TYPE_STATIC):
+		{
+			cpSpaceRemoveBody(gSpace, ent->mPhysicsProperties->body);
+			cpSpaceConvertBodyToStatic(gSpace, ent->mPhysicsProperties->body);
+			cpSpaceAddStaticShape(gSpace, ent->mPhysicsProperties->shape);
+			break;
+		}
+	case(COLLISION_TYPE_INDEPENDENT):
+		{
+			cpSpaceAddShape(gSpace, ent->mPhysicsProperties->shape);
+			break;
+		}
+	case(COLLISION_TYPE_RAGDOLL):
+		{
+			cpSpaceAddShape(gSpace, ent->mPhysicsProperties->shape);
+			break;
+		}
+	case(COLLISION_TYPE_CLIP):
+		{
+			cpSpaceAddShape(gSpace, ent->mPhysicsProperties->shape);
+			break;
+		}
+	default:
+		break;
+	}
+	
+}
+
+void SetCpCollisionType(entity_t *ent)
+{
+	if(!ent)
+	{
+		return;
+	}
+	if(!ent->mPhysicsProperties)
+	{
+		return;
+	}
+	switch(ent->mCollisionType)
+	{
+	case(COLLISION_TYPE_STATIC):
+		{
+			cpSpaceRemoveBody(gSpace, ent->mPhysicsProperties->body);
+			cpSpaceConvertBodyToStatic(gSpace, ent->mPhysicsProperties->body);
+			cpSpaceAddBody(gSpace, ent->mPhysicsProperties->body);
+			break;
+		}
+	case(COLLISION_TYPE_INDEPENDENT):
+		{
+			cpSpaceRemoveShape(gSpace, ent->mPhysicsProperties->shape);
+			cpSpaceRemoveBody(gSpace, ent->mPhysicsProperties->body);
+			break;
+		}
+	case(COLLISION_TYPE_RAGDOLL):
+		{
+			cpSpaceRemoveBody(gSpace, ent->mPhysicsProperties->body);
+			cpSpaceConvertBodyToDynamic(gSpace, ent->mPhysicsProperties->body, 1, cpMomentForBox(1, ent->mSprites[0]->mSize.x, ent->mSprites[0]->mSize.y));
+			cpSpaceAddBody(gSpace, ent->mPhysicsProperties->body);
+			break;
+		}
+	case(COLLISION_TYPE_CLIP):
+		{
+			cpSpaceRemoveShape(gSpace, ent->mPhysicsProperties->shape);
+			cpSpaceRemoveBody(gSpace, ent->mPhysicsProperties->body);
+			break;
+		}
+	default:
+		break;
+	}
+}
+
+void PrePhysics()
+{
+	int i;
+	for(i = 0; i < MAX_ENTITIES; i++)
+	{
+		if(!gEntities[i].mName)
+		{
+			continue;
+		}
+		
+	}
 }
 
 void RunPhysics()
 {
 	cpSpaceStep((cpSpace*) gSpace, gDeltaTime);
-	int i, j;
+	
 
-	//Collision Check
+	// Old Physics Code
+	/*
+	int i, j;
 	for(i = 0; i < MAX_ENTITIES; i++)
 	{
 		if(!gEntities[i].mName)
@@ -166,6 +252,7 @@ void RunPhysics()
 			}
 		}
 	}
+	*/
 }
 
 int CheckCollision(entity_t *self, entity_t *other)
@@ -199,4 +286,23 @@ void ApplyFriction(vec2_t* a)
 	{
 		a->y += a->y < 0 ? PHYSICS_BASE_FRICTION : -PHYSICS_BASE_FRICTION;
 	}
+}
+
+entity_t * AddPhyicsToEntity(entity_t* ent)
+{
+	if(!ent)
+	{
+		return NULL;
+	}
+	ent->mPhysicsProperties = (physics_t*) malloc(sizeof(physics_t));
+	if(!ent->mPhysicsProperties)
+	{
+		printf("Alloc physics for ent error \n");
+		return NULL;
+	}
+
+	ent->mPhysicsProperties->body = cpBodyNew(1, cpMomentForBox(1, ent->mSprites[0]->mSize.x, ent->mSprites[0]->mSize.y));
+	ent->mPhysicsProperties->shape = cpBoxShapeNew(ent->mPhysicsProperties->body, ent->mSprites[0]->mSize.x, ent->mSprites[0]->mSize.y );
+	ent->mPhysicsProperties->shape->bb = cpBBNew(0,gScreenHeight, gScreenWidth, 0);
+	return ent;
 }

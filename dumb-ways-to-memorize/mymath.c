@@ -101,7 +101,7 @@ int AllocateDynamic(void **dst, void *src, int size_type, int size)
 	if(!*dst) return -1;
 	if(old_mem != *dst)
 	{
-		if(old_mem) free(old_mem);
+		//if(old_mem) free(old_mem);
 	}
 	src ? memcpy((int*)(*dst)+(size-1)*offset, src, size_type) : memset((int*)(*dst)+(size-1)*offset, 0, size_type);
 	memset((int*)(*dst)+(size)*offset, 0, size_type);

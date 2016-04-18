@@ -261,6 +261,10 @@ void AddLocalObject(level_t* level, object_t* obj, char* g_str, level_local_obje
 				break;
 			}
 			temp_ent = InitNewEntity();
+			if(!temp_ent)
+			{
+				break;
+			}
 			memcpy(temp_ent, cached_ent, sizeof(entity_t));
 
 			//Set Think Functions
@@ -269,6 +273,8 @@ void AddLocalObject(level_t* level, object_t* obj, char* g_str, level_local_obje
 			temp_ent->Draw = DrawGeneric;
 
 			//Set Extra Options
+			AddPhyicsToEntity(temp_ent);
+
 			for(i = 0; i < LEVEL_L_OPTION_MAX; i++)
 			{
 				temp_tok = FindValueToken(obj, LevelLocalOptionNames[i], g_str);
@@ -284,6 +290,7 @@ void AddLocalObject(level_t* level, object_t* obj, char* g_str, level_local_obje
 				AddLocalOption(temp_ent,temp_tok, g_str, (level_local_option_t) i);
 			}
 
+			AddEntityToPhysics(temp_ent);
 
 			break;
 		}
@@ -300,6 +307,10 @@ void AddLocalObject(level_t* level, object_t* obj, char* g_str, level_local_obje
 				break;
 			}
 			temp_ent = InitNewEntity();
+			if(!temp_ent)
+			{
+				break;
+			}
 			memcpy(temp_ent, cached_ent, sizeof(entity_t));
 
 			//Set Think Functions
@@ -309,6 +320,8 @@ void AddLocalObject(level_t* level, object_t* obj, char* g_str, level_local_obje
 			temp_ent->mCollisionType = COLLISION_TYPE_STATIC;
 
 			//Set Extra Options
+			AddPhyicsToEntity(temp_ent);
+
 			for(i = 0; i < LEVEL_L_OPTION_MAX; i++)
 			{
 				temp_tok = FindValueToken(obj, LevelLocalOptionNames[i], g_str);
@@ -324,6 +337,7 @@ void AddLocalObject(level_t* level, object_t* obj, char* g_str, level_local_obje
 				AddLocalOption(temp_ent,temp_tok, g_str, (level_local_option_t) i);
 			}
 
+			AddEntityToPhysics(temp_ent);
 
 			break;
 		}

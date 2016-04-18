@@ -1,0 +1,28 @@
+Breadth First Search - Checking outward radially
+Depth First Search - Checking furthest down tree
+
+Node - Something that is a starting/end point
+
+B-C-E-----F-H
+| |       |
+A D       G
+
+DFS Order -> ABCDEFHG
+BFS Order -> AB->CDE->FHG->G
+
+Hueristic - Something that effects the algorithm to (possibly) compute faster given
+            some data that is related to the problem.
+Divide & Conquer - Use cells to check
+
+TODO List \ Done List
+[Nodes] \ [Nodes]
+
+Nodes
+{
+	parent id;
+	heuristic wieght;
+}
+
+Queue like implementation of nodes from TODO 2 Done
+Pre-Sorted inserts
+

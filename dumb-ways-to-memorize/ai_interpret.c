@@ -3,6 +3,7 @@
 #include "parsepowerup.h"
 #include "mystrings.h"
 #include "dumb_physics.h"
+#include <chipmunk/chipmunk.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -33,7 +34,11 @@ void NothingAI(entity_t *ent)
 	flags = ent->mData->mFlags;
 
 	//Standard Vars
-	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
+	if(ent->mCollisionType != COLLISION_TYPE_RAGDOLL)
+	{
+		ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
+		SetCpCollisionType(ent);
+	}
 	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
@@ -71,7 +76,11 @@ void MoveAI(entity_t *ent)
 	flags = ent->mData->mFlags;
 
 	//Standard Vars
-	ent->mCollisionType = COLLISION_TYPE_CLIP;
+	if(ent->mCollisionType != COLLISION_TYPE_CLIP)
+	{
+		ent->mCollisionType = COLLISION_TYPE_CLIP;
+		SetCpCollisionType(ent);
+	}
 	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
@@ -120,7 +129,11 @@ void WalkAI(entity_t *ent)
 	flags = ent->mData->mFlags;
 
 	//Standard Vars
-	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
+	if(ent->mCollisionType != COLLISION_TYPE_RAGDOLL)
+	{
+		ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
+		SetCpCollisionType(ent);
+	}
 	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
@@ -166,7 +179,11 @@ void JumpAI(entity_t *ent)
 	flags = ent->mData->mFlags;
 
 	//Standard Vars
-	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
+	if(ent->mCollisionType != COLLISION_TYPE_RAGDOLL)
+	{
+		ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
+		SetCpCollisionType(ent);
+	}
 	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
@@ -219,6 +236,11 @@ void AttackAI(entity_t *ent)
 	flags = ent->mData->mFlags;
 
 	//Standard Vars
+	if(ent->mCollisionType != COLLISION_TYPE_RAGDOLL)
+	{
+		ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
+		SetCpCollisionType(ent);
+	}
 	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 	ent->mNextThink = SDL_GetTicks() + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];

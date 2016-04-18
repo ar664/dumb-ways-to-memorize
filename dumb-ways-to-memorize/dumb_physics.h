@@ -38,6 +38,7 @@ void AddVelocityToEntity(entity_t *ent, float speed, cpVect direction);
 void AddForceToEntity(entity_t *ent, float speed, cpVect direction);
 void AddCallBackToEntity(entity_t *ent, void *callback);
 void AddImpulseToEntity(entity_t *ent, float speed, cpVect direction);
+void SetCpCollisionType(entity_t *ent);
 
 /**
  * Executes physics.
@@ -107,5 +108,15 @@ void ApplyBounds(entity_t * ent);
  */
 void ApplyFriction(vec2_t *a);
 
+/**
+ * Init entity physics properties. By assigning new body and shape.
+ *
+ * @param [in,out]	ent	If non-null, the ent.
+ *
+ * @author	Anthony Rios
+ * @date	4/18/2016
+ */
+
+entity_t * AddPhyicsToEntity(entity_t *ent);
 
 #endif

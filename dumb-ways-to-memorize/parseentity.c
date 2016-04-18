@@ -175,14 +175,10 @@ entity_t* ParseToEntity(object_t* object, char* str)
 		}
 	}
 
-	retVal->mPhysicsProperties = (physics_t*) malloc(sizeof(physics_t));
-	if(!retVal->mPhysicsProperties)
+	if(!AddPhyicsToEntity(retVal))
 	{
-		printf("Alloc physics for ent error \n");
-		return NULL;
+		printf("Could not add entity to physics \n");
 	}
-	retVal->mPhysicsProperties->body = cpBodyNew(1, 0);
-	retVal->mPhysicsProperties->shape = cpBoxShapeNew(retVal->mPhysicsProperties->body, retVal->mSprites[0]->mSize.x, retVal->mSprites[0]->mSize.y );
 	
 	for(i = 0; Vector2VariableNames[i]; i++)
 	{
@@ -191,6 +187,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			AddVector2Entity(retVal, (entity_members_vector2_t) i, ParseToVec2(checkObj, str));
 		}
 	}
+
 	AddEntityToPhysics(retVal);
 	
 	retVal->mNextThink = 1;
