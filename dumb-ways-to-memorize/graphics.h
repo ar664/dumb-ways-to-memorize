@@ -32,7 +32,8 @@ struct sprite_s
 	SDL_Texture *mTexture;				/**< The texture of the sprite */
 	vec2_t mSize;						/**< The size of the sprite width + height */
 	int mFrames;						/**< The number of frames in this sprite */
-	int refCount;						/**< Number of references, in the engine */
+	int mRefCount;						/**< Number of references, in the engine */
+	int mFramesPerSecond;				/**< The frames per second of this sprite */
 	char *name;							/**< The name of the sprite's location */
 
 };

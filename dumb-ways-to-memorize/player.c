@@ -44,7 +44,7 @@ void InitPlayer()
 	}
 
 	gPlayer->mHealth = 100;
-	gPlayer->mNextThink = gCurrentTime + 2*FRAME_DELAY;
+	gPlayer->mNextThink = gCurrentTime + 2*UPDATE_FRAME_DELAY;
 	AddEntityToPhysics(gPlayer);
 }
 

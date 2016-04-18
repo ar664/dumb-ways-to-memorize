@@ -40,14 +40,36 @@ void DrawGeneric(entity_t *self)
 	}
 	if(self->mAnimation)
 	{
-		//IncrementFrame(self->mAnimation);
 		pos_vec = self->GetPosition();
 		DrawSprite(self->mAnimation, &self->mCurrentFrame, &pos_vec, gRenderer);
+		self->mLastFrameChange = SDL_GetTicks() - gCurrentTime;
+		if( (gCurrentTime + 1000/self->mSprites[ANIMATION_IDLE]->mFramesPerSecond) > self->mLastFrameChange)
+		{
+			//Draw Self Increments
+			self->mLastFrameChange = SDL_GetTicks();
+		} else
+		{
+			if(self->mCurrentFrame)
+			{
+				self->mCurrentFrame--;
+			}
+		}
 	} else
 	{
-		//IncrementFrame(self->mSprites[ANIMATION_IDLE]);
 		pos_vec = self->GetPosition();
 		DrawSprite(self->mSprites[ANIMATION_IDLE], &self->mCurrentFrame, &pos_vec, gRenderer);
+		
+		if( (gCurrentTime + 1000/self->mSprites[ANIMATION_IDLE]->mFramesPerSecond) > self->mLastFrameChange)
+		{
+			//Draw() Self Increments
+			self->mLastFrameChange = SDL_GetTicks();
+		} else
+		{
+			if(self->mCurrentFrame)
+			{
+				self->mCurrentFrame--;
+			}
+		}
 	}
 	
 }
@@ -69,7 +91,7 @@ void ThinkGeneric(entity_t *self)
 		self->Think = FreeEntity;
 	}
 
-	self->mNextThink = gCurrentTime + 2*FRAME_DELAY;
+	self->mNextThink = gCurrentTime + 2*UPDATE_FRAME_DELAY;
 }
 
 void ThinkPlayer(entity_t *self)
@@ -166,7 +188,7 @@ void TouchGeneric(entity_t *self, entity_t *other)
 			{
 				self->mHealth -= HAZARD_DAMAGE;
 				self->mAnimation = ANIMATION_HIT >= CountMem(self->mSprites, sizeof(sprite_t*)) ? NULL : self->mSprites[ANIMATION_HIT];
-				self->mNextThink += HAZARD_STUN_FRAMES*FRAME_DELAY;
+				self->mNextThink += HAZARD_STUN_FRAMES*UPDATE_FRAME_DELAY;
 			}
 			break;
 		}
@@ -195,7 +217,7 @@ void TouchPlayer(entity_t *self, entity_t *other)
 			{
 				self->mHealth -= HAZARD_DAMAGE;
 				self->mAnimation = ANIMATION_HIT >= CountMem(self->mSprites, sizeof(sprite_t*)) ? NULL : self->mSprites[ANIMATION_HIT];
-				self->mNextThink += HAZARD_STUN_FRAMES*FRAME_DELAY;
+				self->mNextThink += HAZARD_STUN_FRAMES*UPDATE_FRAME_DELAY;
 			}
 			break;
 		}
@@ -205,7 +227,7 @@ void TouchPlayer(entity_t *self, entity_t *other)
 			{
 				self->mHealth -= HAZARD_DAMAGE;
 				self->mAnimation = ANIMATION_HIT >= CountMem(self->mSprites, sizeof(sprite_t*)) ? NULL : self->mSprites[ANIMATION_HIT];
-				self->mNextThink += HAZARD_STUN_FRAMES*FRAME_DELAY;
+				self->mNextThink += HAZARD_STUN_FRAMES*UPDATE_FRAME_DELAY;
 			}
 			break;
 		}

@@ -273,5 +273,6 @@ entity_t * AddPhyicsToEntity(entity_t* ent)
 	ent->mPhysicsProperties->body = cpBodyNew(1, cpMomentForBox(1, ent->mSprites[0]->mSize.x, ent->mSprites[0]->mSize.y));
 	ent->mPhysicsProperties->shape = cpBoxShapeNew(ent->mPhysicsProperties->body, ent->mSprites[0]->mSize.x, ent->mSprites[0]->mSize.y );
 	ent->mPhysicsProperties->shape->bb = cpBBNew(0,gScreenHeight, gScreenWidth, 0);
+	cpShapeSetFriction(ent->mPhysicsProperties->shape, 0.5);
 	return ent;
 }

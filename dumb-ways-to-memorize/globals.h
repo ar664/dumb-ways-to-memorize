@@ -132,7 +132,8 @@ extern void *gMouse;
 //Game Globals
 #define G_NAME_STR		"Name"
 #define LOC_NAME_STR	"name"
-#define	FRAME_DELAY		13
+#define	UPDATE_FRAME_DELAY		13
+#define DRAW_FRAME_DELAY		20
 #define PHYSICS_LIMITER 2
 extern int gPlayerLives;			/**< The lives of the player */
 extern int gLevelsPerGame;			/**< The levels per game */

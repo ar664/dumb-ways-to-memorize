@@ -681,7 +681,7 @@ int Run()
 		Update();
 		Draw();
 		gDeltaTime = SDL_GetTicks() - gCurrentTime;
-		SDL_Delay(gDeltaTime > FRAME_DELAY ? 0 : gDeltaTime);
+		SDL_Delay(gDeltaTime > UPDATE_FRAME_DELAY ? 0 : gDeltaTime);
 	}
 	return 0;
 }

@@ -24,13 +24,14 @@ struct physics_s;
 
 struct entity_s
 {
-	int mHazards;					/**< The hazards that the entity is immune to / deals*/
-	int mNextThink;					/**< The next time the entity should think */
-	int mHealth;					/**< The health of the entity, if below zero - destroy this entity*/
+	int mHazards;					/**< The hazards that the entity is immune to / deals */
+	int mHealth;					/**< The health of the entity, if below zero - destroy this entity */
 	int mDamage;					/**< The damage the entity should deal to other entities */
-	int mCurrentFrame;				/**< The current frame */
-	//Uint8 mWeight;					/**< The weight boolean of the entity, if gravity affects him*/
-	Uint8 mDirection;				/**< The direction entity is facing*/
+	int mNextThink;					/**< The next time the entity should think */
+	int mCurrentFrame;				/**< The current frame of animation sprite is in */
+	int mLastFrameChange;			/**< The last time the frame was changed for the entity */
+	//Uint8 mWeight;					/**< The weight boolean of the entity, if gravity affects him */
+	Uint8 mDirection;				/**< The direction entity is facing */
 	collision_type_t mCollisionType;	/**< Type of the collision the entity is */
 	entity_state_t mEntityState;	/**< The state of the entity */
 	struct physics_s *mPhysicsProperties;
@@ -38,13 +39,13 @@ struct entity_s
 	sprite_t *mAnimation;			/**< The current animation, the entity is running */
 	struct sound_s *mSounds;			/**< The sounds that belong to this entity */
 	ai_function_t *mData;			/**< The data that an entity stores for its ai */
-	char *mName;					/**< The name of the entity*/
-	//vec2_t mAccel;					/**< The acceleration vector */
-	//vec2_t mVelocity;				/**< The velocity vector */
+	char *mName;					/**< The name of the entity */
+	//vec2_t GetAccel();					/**< The acceleration vector */
+	//vec2_t GetVelocity();				/**< The velocity vector */
 	vec2_t GetPosition();			/**< The position vector, equal to on screen draw position */
-	void (*Think)(entity_t *self);	/**< The think function which gets called to update the entity*/
-	void (*Touch)(entity_t *self, entity_t *other);	/**< The function that gets called when enitities collide*/
-	void (*Draw)(entity_t *self);	/**< The function that gets called every frame to draw the entity*/
+	void (*Think)(entity_t *self);	/**< The think function which gets called to update the entity */
+	void (*Touch)(entity_t *self, entity_t *other);	/**< The function that gets called when enitities collide */
+	void (*Draw)(entity_t *self);	/**< The function that gets called every frame to draw the entity */
 	void (*PowerUp)(struct power_s *info);	/**< The player specific function for power_up useage */
 };
 

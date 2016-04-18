@@ -12,7 +12,7 @@
 //Globals
 char *ComplexVariableNames[] = {"hazard(s)", "sound(s)", "collisionType", "entityState", 0};
 char *Vector2VariableNames[] = {"accel", "velocity", "position", 0};
-char *SimpleVariableNames[] = {"sprite(s)", "health", "damage", "height", "width", "frames", 0 };
+char *SimpleVariableNames[] = {"sprite(s)", "health", "damage", "fps", "height", "width", "frames", 0 };
 
 void AddComplexMemToEnt(entity_t  *ent, entity_members_complex_t member, void *value)
 {
@@ -97,11 +97,13 @@ void AddSpritesToEnt(entity_t *ent, char **files, int size)
 entity_t* ParseToEntity(object_t* object, char* str)
 {
 	int i, j, position, size, heights[MAX_ANIMATIONS] = {0}, widths[MAX_ANIMATIONS] = {0}, frames[MAX_ANIMATIONS] = {0};
+	int frames_per_second;
 	char **spriteFiles, *temp_str;
 	entity_t *retVal;
 	Frame *checkFrame = NULL;
 	jsmntok_t *checkTok = NULL;
 	object_t *checkObj = NULL;
+	frames_per_second = 0;
 	if(!object || !str)
 		return NULL;
 	retVal = (entity_t*) malloc(sizeof(entity_t));
@@ -150,6 +152,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 				case ENTITY_MEMBER_SPRITE: spriteFiles[0] = temp_str; break;
 				case ENTITY_MEMBER_HEALTH: retVal->mHealth = StrToInt(temp_str); break;
 				case ENTITY_MEMBER_DAMAGE: retVal->mDamage = StrToInt(temp_str); break;
+				case ENTITY_MEMBER_FPS: frames_per_second = 24;
 				case ENTITY_MEMBER_HEIGHT: heights[0] = StrToInt(temp_str); break;
 				case ENTITY_MEMBER_WIDTH: widths[0] = StrToInt(temp_str); break;
 				case ENTITY_MEMBER_FRAMES: frames[0] = StrToInt(temp_str); break;
@@ -171,7 +174,8 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			retVal->mSprites[i]->mSize.x = widths[i];
 			retVal->mSprites[i]->mSize.y = heights[i];
 			retVal->mSprites[i]->mFrames = frames[i] ? frames[i] : 1;
-			memcpy(&retVal->mSprites[i]->mAnimations, checkFrame, sizeof(Frame)*retVal->mSprites[i]->mFrames );
+			retVal->mSprites[i]->mFramesPerSecond = frames_per_second ? frames_per_second : DRAW_FRAME_DELAY;
+			memcpy(&retVal->mSprites[i]->mAnimations, checkFrame, sizeof(Frame)*retVal->mSprites[i]->mFrames);
 		}
 	}
 

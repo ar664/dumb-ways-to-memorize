@@ -39,7 +39,7 @@ void NothingAI(entity_t *ent)
 		ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 		SetCpCollisionType(ent);
 	}
-	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
+	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
 		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
@@ -81,7 +81,7 @@ void MoveAI(entity_t *ent)
 		ent->mCollisionType = COLLISION_TYPE_CLIP;
 		SetCpCollisionType(ent);
 	}
-	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
+	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
 		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
@@ -134,7 +134,7 @@ void WalkAI(entity_t *ent)
 		ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 		SetCpCollisionType(ent);
 	}
-	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
+	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
 		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
@@ -184,7 +184,7 @@ void JumpAI(entity_t *ent)
 		ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 		SetCpCollisionType(ent);
 	}
-	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
+	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
 		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
@@ -242,7 +242,7 @@ void AttackAI(entity_t *ent)
 		SetCpCollisionType(ent);
 	}
 	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
-	ent->mNextThink = SDL_GetTicks() + ent->mData->mVariables[AI_VAR_FRAMES]*FRAME_DELAY;
+	ent->mNextThink = SDL_GetTicks() + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
 	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
 	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
 		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);

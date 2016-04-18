@@ -94,7 +94,7 @@ void ShutdownGraphics()
 	int i;
 	for(i = 0; i < MAX_SPRITES; i++)
 	{
-		if(!gSprites[i].refCount)
+		if(!gSprites[i].mRefCount)
 		{
 			continue;
 		}
@@ -124,7 +124,7 @@ sprite_t *LoadSprite(const char *name, int flags)
 	}
 	if( (check = FindSprite(name, NULL)) != NULL)
 	{
-		check->refCount++;
+		check->mRefCount++;
 		return check;
 	}
 	if( (check = FindFreeSprite(&position)) == NULL)
@@ -142,7 +142,7 @@ sprite_t *LoadSprite(const char *name, int flags)
 	check->mSize.y = temp->h;
 	check->mTexture = SDL_CreateTextureFromSurface(gRenderer, temp);
 	check->name = strdup(name);
-	check->refCount = 1;
+	check->mRefCount = 1;
 	check->mFrames = 0;
 	SDL_FreeSurface(temp);
 	gLastSprite = position;
@@ -211,7 +211,7 @@ sprite_t* FindSprite(const char* name, int* position)
 	int i;
 	for(i = 0; i < MAX_SPRITES; i++)
 	{
-		if(gSprites[i].refCount == 0)
+		if(gSprites[i].mRefCount == 0)
 			continue;
 		if(!strcmp(gSprites[i].name, name))
 		{
@@ -228,14 +228,14 @@ sprite_t* FindFreeSprite(int *position)
 	int i;
 	for(i = gLastSprite; i < MAX_SPRITES; i++)
 	{
-		if(gSprites[i].refCount == 0)
+		if(gSprites[i].mRefCount == 0)
 		{
 			return &gSprites[i];
 		}
 	}
 	for(i = 0; i < gLastSprite; i++)
 	{
-		if(gSprites[i].refCount == 0)
+		if(gSprites[i].mRefCount == 0)
 		{
 			return &gSprites[i];
 		}
@@ -248,8 +248,8 @@ void FreeSprite(sprite_t *sprite)
 	int position;
 	if(sprite == FindSprite(sprite->name, &position))
 	{
-		sprite->refCount--;
-		if(sprite->refCount > 0)
+		sprite->mRefCount--;
+		if(sprite->mRefCount > 0)
 			return;
 	}
 	SDL_DestroyTexture(sprite->mTexture);
