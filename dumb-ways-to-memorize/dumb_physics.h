@@ -32,8 +32,6 @@ struct physics_s
 	cpShape *shape;
 };
 
-void AddNewBodyShape(entity_t *ent);
-
 void AddVelocityToEntity(entity_t *ent, float speed, cpVect direction);
 void AddForceToEntity(entity_t *ent, float speed, cpVect direction);
 void AddCallBackToEntity(entity_t *ent, void *callback);

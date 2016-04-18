@@ -422,11 +422,19 @@ vec2_t* ParseToVec2(object_t* object, char* str)
 	{
 		return NULL;
 	}
-	temp1 = JsmnToString(&object->values[0], str);
-	temp2 = JsmnToString(&object->values[1], str);
+	temp1 = strdup("0");
+	temp2 = strdup("0");
+	if(object->values)
+	{
+		temp1 = JsmnToString(&object->values[0], str);
+		temp2 = JsmnToString(&object->values[1], str);
+	}
+
 	retVal->x = StrToInt(temp1);
 	retVal->y = StrToInt(temp2);
-	free(temp1); free(temp2);
+	
+	if(temp1) free(temp1); 
+	if(temp2) free(temp2);
 	return retVal;
 }
 

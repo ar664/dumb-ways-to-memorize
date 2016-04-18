@@ -44,43 +44,6 @@ void AddCallBackToEntity(entity_t *ent, void *callback)
 	cpSpaceAddPostStepCallback(gSpace, cpPostStepFunc(ExampleCallback), ent->mPhysicsProperties->shape, NULL);
 }
 
-void AddNewBodyShape(entity_t* ent)
-{
-	cpBody *newBody;
-	cpShape *newShape;
-	if(!ent)
-	{
-		return;
-	}
-	if(!ent->mSprites)
-	{
-		return;
-	}
-	if(!ent->mPhysicsProperties)
-	{
-		ent->mPhysicsProperties = (physics_t*) malloc(sizeof(physics_t));
-		if(!ent->mPhysicsProperties)
-		{
-			return;
-		}
-	}
-
-	newBody = cpBodyNew(1, 0);
-	if(!newBody)
-	{
-		printf("Unable to give new body to entity \n");
-		return;
-	}
-	ent->mPhysicsProperties->body = newBody;
-
-	newShape = cpBoxShapeNew(ent->mPhysicsProperties->body, ent->mSprites[0]->mSize.x, ent->mSprites[0]->mSize.y);
-	if(!newShape)
-	{
-		printf("Unable to give new shape to entity \n");
-	}
-	ent->mPhysicsProperties->shape = newShape;
-}
-
 void AddVelocityToEntity(entity_t *ent, float speed, cpVect direction)
 {
 	cpVect temp_vec;
@@ -180,6 +143,11 @@ void SetCpCollisionType(entity_t *ent)
 	{
 		return;
 	}
+	if(!ent->mPhysicsProperties->body->space_private)
+	{
+		printf("Entity %s not added to a space! \n", ent->mName);
+		return;
+	}
 	switch(ent->mCollisionType)
 	{
 	case(COLLISION_TYPE_STATIC):
@@ -222,14 +190,15 @@ void PrePhysics()
 		{
 			continue;
 		}
-		
+		printf("Ent %s position: %d %d \n", gEntities[i].mName ,gEntities[i].GetPosition().x, gEntities[i].GetPosition().y);
+
 	}
 }
 
 void RunPhysics()
 {
-	cpSpaceStep((cpSpace*) gSpace, gDeltaTime);
-	
+	cpSpaceStep((cpSpace*) gSpace, 1.0f/60.0f);
+	//PrePhysics();
 
 	// Old Physics Code
 	/*

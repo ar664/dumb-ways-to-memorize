@@ -97,7 +97,14 @@ void ThinkPlayer(entity_t *self)
 		}
 	} else
 	{
-		self->mAnimation = self->mSprites[ANIMATION_IDLE];
+		if(abs(cpBodyGetVel(self->mPhysicsProperties->body).y) < 0.5 && abs(cpBodyGetVel(self->mPhysicsProperties->body).x) < 0.5)
+		{
+			self->mAnimation = self->mSprites[ANIMATION_IDLE];
+		} else
+		{
+			self->mAnimation = self->mSprites[ANIMATION_JUMP];
+		}
+		
 	}
 	self->mNextThink = gCurrentTime + 1; //Player always thinks
 	if(self->mHealth < 0)

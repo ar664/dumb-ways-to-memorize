@@ -34,8 +34,8 @@
 	"Objects" : [
 	{
 		"object" : "Ground",
-		"tile" : [1280, 0],
-		"position" : [[0,688], [0, 660]],
+		"tile" : [1280, 688],
+		"position" : [0,688],
 		"comment" : "testing"
 	},
 	{

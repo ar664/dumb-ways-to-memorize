@@ -256,7 +256,7 @@ void AttackAI(entity_t *ent)
 			temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
 			cp_temp = (cpVect*) Vec2Cp(&temp_vec2);
 			cp_vect = cp_temp ? *cp_temp : cpvzero;
-			AddNewBodyShape(temp_ent);
+			AddPhyicsToEntity(temp_ent);
 			cpBodySetVel(ent->mPhysicsProperties->body, cp_vect);
 			
 			Spawn(ent, temp_ent);

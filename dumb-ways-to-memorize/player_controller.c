@@ -16,9 +16,9 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 			Jump.x = 0;
 			Jump.y = PLAYER_BASE_JUMP;
 			
-			if(ent->mPhysicsProperties->body->v.y == 0)
+			if(cpBodyGetVel(ent->mPhysicsProperties->body).y < 2.0)
 			{
-				cpBodySetVel(ent->mPhysicsProperties->body, Jump);
+				cpBodyApplyImpulse(ent->mPhysicsProperties->body, Jump, cpvzero);
 				ent->mAnimation = ANIMATION_JUMP >= CountMem(ent->mSprites, sizeof(sprite_t*)) ? NULL : ent->mSprites[ANIMATION_JUMP];
 			}
 			
@@ -32,7 +32,7 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 	case(SDL_CONTROLLER_BUTTON_DPAD_LEFT):
 		{
 			Walk.x = -PLAYER_BASE_SPEED;
-			Walk.y = 0;
+			Walk.y = cpBodyGetVel(ent->mPhysicsProperties->body).y;
 			cpBodySetVel(ent->mPhysicsProperties->body, Walk);
 			ent->mAnimation = ANIMATION_WALK >= CountMem(ent->mSprites, sizeof(sprite_t*)) ? NULL : ent->mSprites[ANIMATION_WALK];
 			ent->mDirection = ENTITY_DIR_LEFT;
@@ -41,7 +41,7 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 	case(SDL_CONTROLLER_BUTTON_DPAD_RIGHT):
 		{
 			Walk.x = PLAYER_BASE_SPEED;
-			Walk.y = 0;
+			Walk.y = cpBodyGetVel(ent->mPhysicsProperties->body).y;
 			cpBodySetVel(ent->mPhysicsProperties->body, Walk);
 			ent->mAnimation = ANIMATION_WALK >= CountMem(ent->mSprites, sizeof(sprite_t*)) ? NULL : ent->mSprites[ANIMATION_WALK];;
 			ent->mDirection = ENTITY_DIR_RIGHT;

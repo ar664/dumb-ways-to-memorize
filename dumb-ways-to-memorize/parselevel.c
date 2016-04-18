@@ -85,8 +85,15 @@ void TileLevelEntity(entity_t* ent, vec2_t* start_position, vec2_t* end_position
 
 	count_pos = (vec2_t*) malloc(sizeof(vec2_t));
 	count_pos->x = (end_position->x - start_position->x)/ent->mSprites[0]->mSize.x;
+	if(!count_pos->x)
+	{
+		count_pos->x = 1;
+	}
 	count_pos->y = (end_position->y - start_position->y)/ent->mSprites[0]->mSize.y;
-
+	if(!count_pos->y)
+	{
+		count_pos->y = 1;
+	}
 	for(x = 0; x < count_pos->x; x++)
 	{
 		for(y = 0; y < count_pos->y; y++)
@@ -104,17 +111,18 @@ void TileLevelEntity(entity_t* ent, vec2_t* start_position, vec2_t* end_position
 			}
 			
 			memcpy(temp_ent, ent, sizeof(entity_t));
-			new_pos.x = count_pos->x + x*ent->mSprites[0]->mSize.x;
-			new_pos.y = count_pos->y + y*ent->mSprites[0]->mSize.y;
+			new_pos.x = start_position->x + x*ent->mSprites[0]->mSize.x;
+			new_pos.y = start_position->y + y*ent->mSprites[0]->mSize.y;
 			cpPos.x = new_pos.x;
 			cpPos.y = new_pos.y;
-			AddNewBodyShape(temp_ent);
+			AddPhyicsToEntity(temp_ent);
 			if(!temp_ent->mPhysicsProperties)
 			{
 				return;
 			}
 			cpBodySetPos(temp_ent->mPhysicsProperties->body, cpPos);
 			new_pos.x = 0; new_pos.y = 0;
+			AddEntityToPhysics(temp_ent);
 		}
 	}
 }
@@ -296,7 +304,7 @@ void AddLocalObject(level_t* level, object_t* obj, char* g_str, level_local_obje
 		}
 	case(LEVEL_L_OBJECT_OBJECT):
 		{
-			obj_name = FindValue(obj, LevelLocalObjectNames[LEVEL_L_OBJECT_ENEMY], g_str);
+			obj_name = FindValue(obj, LevelLocalObjectNames[LEVEL_L_OBJECT_OBJECT], g_str);
 			if(!obj_name)
 			{
 				break;

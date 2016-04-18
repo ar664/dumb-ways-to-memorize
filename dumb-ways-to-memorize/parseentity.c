@@ -187,8 +187,6 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			AddVector2Entity(retVal, (entity_members_vector2_t) i, ParseToVec2(checkObj, str));
 		}
 	}
-
-	AddEntityToPhysics(retVal);
 	
 	retVal->mNextThink = 1;
 	retVal->mCurrentFrame = 0;
