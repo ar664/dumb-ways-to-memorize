@@ -9,7 +9,7 @@
 		"frames" : 5
 	},
 	{
-		"jump" : 1,
+		"jump" : -10,
 		"time" : 1,
 	}
 	]

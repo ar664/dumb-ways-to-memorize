@@ -190,7 +190,7 @@ void JumpAI(entity_t *ent)
 		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
 
 	//Move
-	if(cpBodyGetVel(ent->mPhysicsProperties->body).y == 0)
+	if(cpBodyKineticEnergy(ent->mPhysicsProperties->body) < 1 && (ent->GetPosition().y > gScreenHeight-(2*ent->mSprites[0]->mSize.y) ) )
 	{
 		temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 		temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
