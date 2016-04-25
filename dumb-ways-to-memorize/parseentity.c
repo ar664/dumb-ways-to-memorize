@@ -98,6 +98,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 {
 	int i, j, position, size, heights[MAX_ANIMATIONS] = {0}, widths[MAX_ANIMATIONS] = {0}, frames[MAX_ANIMATIONS] = {0};
 	int frames_per_second;
+	cpVect checkVect;
 	char **spriteFiles, *temp_str;
 	entity_t *retVal;
 	Frame *checkFrame = NULL;
@@ -166,6 +167,12 @@ entity_t* ParseToEntity(object_t* object, char* str)
 
 	if(retVal->mSprites)
 	{
+		if(retVal->mSprites[0] && retVal->mPhysicsProperties)
+		{
+			checkVect.x = retVal->mPhysicsProperties->body->p.x + retVal->mSprites[0]->mSize.x/2;
+			checkVect.y = retVal->mPhysicsProperties->body->p.y + retVal->mSprites[0]->mSize.y/2;
+			cpBodySetPos(retVal->mPhysicsProperties->body, checkVect);
+		}
 		for(i = 0; retVal->mSprites[i]; i++)
 		{
 			if(!retVal->mSprites[i])

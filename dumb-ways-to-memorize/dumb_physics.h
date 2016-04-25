@@ -25,6 +25,7 @@ int InitPhysics();
 void ShutdownPhysics();
 
 void AddEntityToPhysics(entity_t *ent);
+void RemoveEntityFromPhysics(entity_t *ent);
 
 struct physics_s
 {

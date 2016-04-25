@@ -28,7 +28,24 @@ int InitPhysics()
 	return 0;
 }
 
-cpCollisionBeginFunc ExampleCallback()
+static cpBool CallbackCallTouchFunctions(cpArbiter *arb, cpSpace *space, void *ptr)
+{
+	entity_t *ent1, *ent2;
+	CP_ARBITER_GET_SHAPES(arb, shape1, shape2);
+	if(!arb || !shape1 || !shape2)
+	{
+		return false;
+	}
+	ent1 = (entity_t*)shape1->data;
+	ent2 = (entity_t*)shape2->data;
+	if(ent1->Touch)
+	{
+		ent1->Touch(ent1, ent2);
+	}
+	return true;
+}
+
+cpCollisionBeginFunc ExampleCallback(entity_t *ent, void *data)
 {
 	cpSpaceRemoveBody(gSpace, NULL);
 	cpSpaceRemoveShape(gSpace, NULL);
@@ -40,8 +57,7 @@ cpCollisionBeginFunc ExampleCallback()
 
 void AddCallBackToEntity(entity_t *ent, void *callback)
 {
-	cpSpaceAddCollisionHandler(gSpace, ent->mHazards, ent->mHazards, ExampleCallback(), NULL, NULL, NULL, callback);
-	cpSpaceAddPostStepCallback(gSpace, cpPostStepFunc(ExampleCallback), ent->mPhysicsProperties->shape, NULL);
+	cpSpaceAddCollisionHandler(gSpace, ent->mHazards, ~ent->mHazards, ExampleCallback(ent, NULL), NULL, NULL, NULL, callback);
 }
 
 void AddVelocityToEntity(entity_t *ent, float speed, cpVect direction)
@@ -133,6 +149,27 @@ void AddEntityToPhysics(entity_t* ent)
 	
 }
 
+void RemoveEntityFromPhysics(entity_t *ent)
+{
+	if(!ent->mPhysicsProperties)
+	{
+		return;
+	}
+	if(!ent->mPhysicsProperties->shape->space_private || !ent->mPhysicsProperties->body->space_private)
+	{
+		return;
+	}
+	cpSpaceRemoveShape(gSpace, ent->mPhysicsProperties->shape);
+	cpSpaceRemoveBody(gSpace, ent->mPhysicsProperties->body);
+	cpShapeFree(ent->mPhysicsProperties->shape);
+	cpBodyFree(ent->mPhysicsProperties->body);
+	if(ent->mPhysicsProperties)
+	{
+		free(ent->mPhysicsProperties);
+		ent->mPhysicsProperties = NULL;
+	}
+}
+
 void SetCpCollisionType(entity_t *ent)
 {
 	if(!ent)
@@ -190,7 +227,7 @@ void PrePhysics()
 		{
 			continue;
 		}
-		printf("Ent %s position: %d %d \n", gEntities[i].mName ,gEntities[i].GetPosition().x, gEntities[i].GetPosition().y);
+		printf("Ent %s position: %d %d \n", gEntities[i].mName ,EntityPosition(&gEntities[i]).x, EntityPosition(&gEntities[i]).y);
 
 	}
 }
@@ -269,10 +306,17 @@ entity_t * AddPhyicsToEntity(entity_t* ent)
 		printf("Alloc physics for ent error \n");
 		return NULL;
 	}
-
+	
 	ent->mPhysicsProperties->body = cpBodyNew(1, cpMomentForBox(1, ent->mSprites[0]->mSize.x, ent->mSprites[0]->mSize.y));
+	cpBodySetAngVelLimit(ent->mPhysicsProperties->body, 0.0);	
 	ent->mPhysicsProperties->shape = cpBoxShapeNew(ent->mPhysicsProperties->body, ent->mSprites[0]->mSize.x, ent->mSprites[0]->mSize.y );
-	ent->mPhysicsProperties->shape->bb = cpBBNew(0,gScreenHeight, gScreenWidth, 0);
+	ent->mPhysicsProperties->shape->bb = cpBBNew(0, ent->mSprites[0]->mSize.y, ent->mSprites[0]->mSize.x, 0);
+
+	cpShapeSetElasticity(ent->mPhysicsProperties->shape, 0);
 	cpShapeSetFriction(ent->mPhysicsProperties->shape, 0.5);
+	//Give shape reference to entity it belongs to
+	cpShapeSetUserData(ent->mPhysicsProperties->shape, ent);
+	cpShapeSetCollisionType(ent->mPhysicsProperties->shape, ent->mHazards);
 	return ent;
 }
+

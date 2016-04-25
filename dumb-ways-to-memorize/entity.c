@@ -15,21 +15,33 @@ char **Hazards_str = NULL;
 char *Collisions_str[] = {"static", "independent", "ragdoll", "clip", 0};
 char *EntityStates_str[] = {"alive", "dead", "other", 0};
 
-vec2_t entity_s::GetPosition()
+vec2_t EntityPosition(entity_t *ent)
 {
 	cpVect position;
 	vec2_t vec_pos;
-	position = cpBodyGetPos(mPhysicsProperties->body);
+	position = cpBodyGetPos(ent->mPhysicsProperties->body);
 	vec_pos.x = position.x;
 	vec_pos.y = position.y;
 
 	return vec_pos;
 }
 
+vec2_t EntityDrawPosition(entity_t *ent)
+{
+	cpVect position;
+	vec2_t vec_pos;
+	position = cpBodyGetPos(ent->mPhysicsProperties->body);
+	vec_pos.x = position.x - ent->mSprites[0]->mSize.x/2;
+	vec_pos.y = position.y - ent->mSprites[0]->mSize.y/2;
+
+	return vec_pos;
+}
 
 void DrawGeneric(entity_t *self)
 {
 	vec2_t pos_vec;
+	SDL_Rect collision_dst, collision_src;
+	cpBB collision_bb;
 	if(!self)
 	{
 		return;
@@ -40,7 +52,7 @@ void DrawGeneric(entity_t *self)
 	}
 	if(self->mAnimation)
 	{
-		pos_vec = self->GetPosition();
+		pos_vec = EntityDrawPosition(self);
 		DrawSprite(self->mAnimation, &self->mCurrentFrame, &pos_vec, gRenderer);
 		self->mLastFrameChange = SDL_GetTicks() - gCurrentTime;
 		if( (gCurrentTime + 1000/self->mSprites[ANIMATION_IDLE]->mFramesPerSecond) > self->mLastFrameChange)
@@ -56,7 +68,7 @@ void DrawGeneric(entity_t *self)
 		}
 	} else
 	{
-		pos_vec = self->GetPosition();
+		pos_vec = EntityDrawPosition(self);
 		DrawSprite(self->mSprites[ANIMATION_IDLE], &self->mCurrentFrame, &pos_vec, gRenderer);
 		
 		if( (gCurrentTime + 1000/self->mSprites[ANIMATION_IDLE]->mFramesPerSecond) > self->mLastFrameChange)
@@ -71,7 +83,16 @@ void DrawGeneric(entity_t *self)
 			}
 		}
 	}
+
 	
+#ifdef __COLLISION_DBG
+#define __COLLISION_DBG
+		collision_bb = cpShapeGetBB( self->mPhysicsProperties->shape);
+		SDL_SetRect(&collision_dst, collision_bb.l, collision_bb.b, collision_bb.r - collision_bb.l, collision_bb.t - collision_bb.b  );
+		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0, 0, 0xDD);
+		SDL_RenderDrawRect(gRenderer, &collision_dst);
+		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+#endif
 }
 
 //Unused for now
@@ -422,31 +443,31 @@ entity_t *LookForEntityAtPos(vec2_t position)
 int Distance2Entity(entity_t* self, entity_t* other)
 {
 	int x, y;
-	x = self->GetPosition().x - other->GetPosition().x;
-	y = self->GetPosition().y - self->GetPosition().y;
+	x = EntityPosition(self).x - EntityPosition(other).x;
+	y = EntityPosition(self).y - EntityPosition(self).y;
 	return powf(powf(x, 2) + powf(y, 2), (float) 1/2);
 }
 
 void FreeEntity(entity_t *ent)
 {
-	int i, isGlobal = 0;
+	int i, j, numSprites, isGlobal = 0;
 	if(!ent)
 		return;
 	i = 0;
-	//if(ent->mSprites)
-	//{
-		//while(ent->mSprites[i])
-		//{
-			//FreeSprite(ent->mSprites[i]);
-			//i++;
-		//}
-		//free(ent->mSprites);
-	//}
 	for(i = 0; i < MAX_ENTITIES; i++)
 	{
 		if(ent == &gEntities[i])
 		{
 			isGlobal = 1;
+			if(ent->mSprites)
+			{
+				numSprites = CountMem(ent->mSprites, sizeof(char*));
+				for(j = 0; j < numSprites; j++)
+				{
+					FreeSprite(ent->mSprites[j]);
+				}
+			}
+			RemoveEntityFromPhysics(ent);
 			memset(ent, 0, sizeof(entity_t));
 		}
 	}

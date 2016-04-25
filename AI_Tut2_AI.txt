@@ -1,0 +1,22 @@
+COgnitive neuroscience - Modeling functions of things
+Ex: Nueral Net 
+Algorithms: 
+Binary Search Partitions,
+Linked List Traversal,
+Hueristic Optimization,
+Machine Learning
+
+Computational biology - Simple ruleset to more than 1 person.
+Ex: Konway's Game of Life
+Skills:
+Nano Programming
+Embeded System Programming
+
+Artificial () - emulation of Human through program
+Knowledge:
+Statistics,
+Psychology,
+Linguistics
+
+Optimal Intelligence Theory - the best way to gather intelligence and get a result
+ALL Algorithms!

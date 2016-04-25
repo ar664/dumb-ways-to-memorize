@@ -5,10 +5,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dumb-ways-to-memorize", "du
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Collision Debug|Win32 = Collision Debug|Win32
 		Debug|Win32 = Debug|Win32
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9FD6909-DD02-42F5-9CF0-B431348D89B5}.Collision Debug|Win32.ActiveCfg = Collision Debug|Win32
+		{A9FD6909-DD02-42F5-9CF0-B431348D89B5}.Collision Debug|Win32.Build.0 = Collision Debug|Win32
 		{A9FD6909-DD02-42F5-9CF0-B431348D89B5}.Debug|Win32.ActiveCfg = Debug|Win32
 		{A9FD6909-DD02-42F5-9CF0-B431348D89B5}.Debug|Win32.Build.0 = Debug|Win32
 		{A9FD6909-DD02-42F5-9CF0-B431348D89B5}.Release|Win32.ActiveCfg = Release|Win32

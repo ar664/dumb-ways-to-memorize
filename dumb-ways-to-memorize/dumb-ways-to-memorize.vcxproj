@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Collision Debug|Win32">
+      <Configuration>Collision Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -21,6 +25,11 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Collision Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -31,6 +40,9 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Collision Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -44,8 +56,19 @@
     <SourcePath>$(CHIPMUNK6)\src;$(ProjectDir)\External_Libs;$(SourcePath)</SourcePath>
     <LibraryPath>$(CHIPMUNK6)\lib\x86;$(SDL2)\lib\x86;$(SDL2_IMAGE)\lib\x86;$(SDL2_MIXER)\lib\x86;$(SDL2_TTF)\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Collision Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(CHIPMUNK6)\include;$(ProjectDir)\External_Libs;$(SDL2)\Include;$(SDL2_IMAGE)\Include;$(SDL2_MIXER)\Include;$(SDL2_TTF)\Include;$(IncludePath)</IncludePath>
+    <ReferencePath>$(ProjectDir)\External_Libs;$(ReferencePath)</ReferencePath>
+    <SourcePath>$(CHIPMUNK6)\src;$(ProjectDir)\External_Libs;$(SourcePath)</SourcePath>
+    <LibraryPath>$(CHIPMUNK6)\lib\x86;$(SDL2)\lib\x86;$(SDL2_IMAGE)\lib\x86;$(SDL2_MIXER)\lib\x86;$(SDL2_TTF)\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(CHIPMUNK6)\include;$(ProjectDir)\External_Libs;$(SDL2)\Include;$(SDL2_IMAGE)\Include;$(SDL2_MIXER)\Include;$(SDL2_TTF)\Include;$(IncludePath)</IncludePath>
+    <ReferencePath>$(ProjectDir)\External_Libs;$(ReferencePath)</ReferencePath>
+    <LibraryPath>$(CHIPMUNK6)\lib\x86;$(SDL2)\lib\x86;$(SDL2_IMAGE)\lib\x86;$(SDL2_MIXER)\lib\x86;$(SDL2_TTF)\lib\x86;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(CHIPMUNK6)\src;$(ProjectDir)\External_Libs;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -54,6 +77,29 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>c99;WIN32;_WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;JSMN_PARENT_LINKS;JSMN_STRICT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>SyncCThrow</ExceptionHandling>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CallingConvention>Cdecl</CallingConvention>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>GLFW.lib;GLFWDLL.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;chipmunk.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Collision Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>__COLLISION_DBG;c99;WIN32;_WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;JSMN_PARENT_LINKS;JSMN_STRICT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>SyncCThrow</ExceptionHandling>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>

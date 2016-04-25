@@ -376,7 +376,7 @@ void DrawMenuByState(menu_t *self)
 
 	for(i = 0; i < self->mItemCount; i++)
 	{
-		if( (self->mItems[i].State & MENU_ITEM_STATE_PICKED) || (&self->mItems[i] == self->mSelectedItem))
+		if( &self->mItems[i] == self->mSelectedItem )
 		{
 			if(DrawSprite(self->mItems[i].Image, NULL , &self->mItems[i].Position, gRenderer))
 			{
@@ -386,8 +386,7 @@ void DrawMenuByState(menu_t *self)
 			selection_rect.x = self->mItems[i].Position.x;
 			selection_rect.y = self->mItems[i].Position.y;
 			SDL_RenderCopy(gRenderer, gRedTexture, &selection_rect,&selection_rect);
-		} 
-		else
+		} else
 		{
 
 			if(DrawSprite(self->mItems[i].Image, NULL , &self->mItems[i].Position, gRenderer))
@@ -395,6 +394,12 @@ void DrawMenuByState(menu_t *self)
 				printf("Failed to draw Menu Item : %d \n", i);
 				return;
 			}
+		}
+		if( self->mItems[i].State & MENU_ITEM_STATE_PICKED )
+		{
+			selection_rect.x = self->mItems[i].Position.x + self->mItems[i].Image->mSize.x;
+			selection_rect.y = self->mItems[i].Position.y;
+			SDL_RenderCopy(gRenderer, gRedTexture, &selection_rect,&selection_rect);
 		}
 	}
 

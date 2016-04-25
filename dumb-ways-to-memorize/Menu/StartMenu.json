@@ -1,5 +1,5 @@
 {
-	"Background": "Sprite/Level/Dumb_Background.png",
+	"Background": "Sprite/UI/Dumb_Background_Select.png",
 	"Type" : "vertical",
 	"link" : "Start",
 	"Test-Position" : [ [0,0], [1,1] ],

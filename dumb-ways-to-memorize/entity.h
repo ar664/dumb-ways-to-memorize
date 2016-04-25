@@ -42,7 +42,6 @@ struct entity_s
 	char *mName;					/**< The name of the entity */
 	//vec2_t GetAccel();					/**< The acceleration vector */
 	//vec2_t GetVelocity();				/**< The velocity vector */
-	vec2_t GetPosition();			/**< The position vector, equal to on screen draw position */
 	void (*Think)(entity_t *self);	/**< The think function which gets called to update the entity */
 	void (*Touch)(entity_t *self, entity_t *other);	/**< The function that gets called when enitities collide */
 	void (*Draw)(entity_t *self);	/**< The function that gets called every frame to draw the entity */
@@ -304,5 +303,9 @@ void TouchEnemy(entity_t *self, entity_t *other);
  */
 void TouchGoal(entity_t *self, entity_t *other);
 
+/**< The position vector, equal to the screen center position of the entity*/
+vec2_t EntityPosition(entity_t *ent);
+/**< The position vector, equal to on screen draw position */
+vec2_t EntityDrawPosition(entity_t *ent);
 
 #endif

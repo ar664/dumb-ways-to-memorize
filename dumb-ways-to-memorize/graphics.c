@@ -166,7 +166,7 @@ int DrawSprite(sprite_t *sprite, int* frame, vec2_t * position, SDL_Renderer * r
 	{
 		*frame = 0;
 	}
-	
+
 	SDL_SetRect(&src, sprite->mAnimations[*frame].Position.x, sprite->mAnimations[*frame].Position.y, sprite->mSize.x, sprite->mSize.y);
 	
 	*frame = *frame+1;
@@ -246,14 +246,18 @@ sprite_t* FindFreeSprite(int *position)
 void FreeSprite(sprite_t *sprite)
 {
 	int position;
+	if(!sprite)
+	{
+		return;
+	}
 	if(sprite == FindSprite(sprite->name, &position))
 	{
 		sprite->mRefCount--;
 		if(sprite->mRefCount > 0)
 			return;
 	}
-	SDL_DestroyTexture(sprite->mTexture);
-	free(sprite->name);
+	if(sprite->mTexture) SDL_DestroyTexture(sprite->mTexture);
+	if(sprite->name) free(sprite->name);
 	memset(&gSprites[position], 0, sizeof(sprite_t) );
 
 }

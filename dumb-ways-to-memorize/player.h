@@ -5,7 +5,7 @@
 #define PLAYER_NAME "Player1"
 #define PLAYER_LIVES 3
 #define PLAYER_BASE_JUMP	-100
-#define PLAYER_BASE_SPEED	5
+#define PLAYER_BASE_SPEED	15
 
 /**
  * Initialize the player entity and variables thereof, also used to reset player.
