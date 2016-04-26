@@ -209,6 +209,14 @@ Frame *LoadAnimation(int frame_width, int frame_height, int width, int height)
 sprite_t* FindSprite(const char* name, int* position)
 {
 	int i;
+	if(!name)
+	{
+		if(position)
+		{
+			*position = 0;
+		}
+		return NULL;
+	}
 	for(i = 0; i < MAX_SPRITES; i++)
 	{
 		if(gSprites[i].mRefCount == 0)
@@ -216,9 +224,15 @@ sprite_t* FindSprite(const char* name, int* position)
 		if(!strcmp(gSprites[i].name, name))
 		{
 			if(position)
+			{
 				*position = i;
+			}
 			return &gSprites[i];
 		}
+	}
+	if(position)
+	{
+		*position = 0;
 	}
 	return NULL;
 }

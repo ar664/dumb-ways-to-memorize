@@ -16,6 +16,16 @@
 		"fps" : 24
 	},
 	
+	"Cursor" :
+	{
+		"collisionType" : "clip"
+		"sprite(s)" : ["Sprite/Player/Dumb_Player_Waiting.png"],
+		"height" : 48,
+		"width" : 33,
+		"frames" : 5,
+		"fps" : 24
+	},
+	
 	"Flying Enemy" :
 	{
 		"collisionType" : "ragdoll",

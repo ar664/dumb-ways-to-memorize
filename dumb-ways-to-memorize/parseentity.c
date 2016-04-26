@@ -190,7 +190,10 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	{
 		printf("Could not add entity to physics \n");
 	}
-	
+	if(retVal->mPhysicsProperties->shape)
+	{
+		AddCollisionHandlerToEntity(retVal);
+	}
 	for(i = 0; Vector2VariableNames[i]; i++)
 	{
 		if( (checkObj = FindObject(object, Vector2VariableNames[i])) != NULL)

@@ -95,12 +95,6 @@ void DrawGeneric(entity_t *self)
 #endif
 }
 
-//Unused for now
-void DrawPlayer(entity_t *self)
-{
-	//DrawSprite(self->mSprites, &self->mPosition, gRenderer);
-}
-
 void ThinkGeneric(entity_t *self)
 {
 	if(!self)
@@ -113,6 +107,24 @@ void ThinkGeneric(entity_t *self)
 	}
 
 	self->mNextThink = gCurrentTime + 2*UPDATE_FRAME_DELAY;
+}
+
+void ThinkCursor(entity_t *self)
+{
+	cpVect pos;
+	int x, y;
+	if(!self)
+	{
+		return;
+	}
+	if(!self->mPhysicsProperties)
+	{
+		return;
+	}
+	SDL_GetMouseState(&x, &y);
+	pos.x = x; pos.y = y;
+	cpBodySetPos(self->mPhysicsProperties->body, pos);
+	self->mNextThink = gCurrentTime + UPDATE_FRAME_DELAY;
 }
 
 void ThinkPlayer(entity_t *self)
@@ -293,6 +305,7 @@ int InitEntitySystem()
 	memset(gEntities, 0, sizeof(entity_t)*MAX_ENTITIES);
 	memset(gEntityDictionary, 0, sizeof(entity_t)*MAX_ENTITIES);
 	gLastEntity = 0;
+	atexit(ShutdownEntitySystem);
 	return 0;
 }
 

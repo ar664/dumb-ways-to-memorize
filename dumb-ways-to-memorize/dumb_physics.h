@@ -35,7 +35,7 @@ struct physics_s
 
 void AddVelocityToEntity(entity_t *ent, float speed, cpVect direction);
 void AddForceToEntity(entity_t *ent, float speed, cpVect direction);
-void AddCallBackToEntity(entity_t *ent, void *callback);
+void AddCollisionHandlerToEntity(entity_t *ent);
 void AddImpulseToEntity(entity_t *ent, float speed, cpVect direction);
 void SetCpCollisionType(entity_t *ent);
 

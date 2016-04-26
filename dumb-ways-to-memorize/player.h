@@ -14,11 +14,13 @@
  * @date	3/30/2016
  */
 void InitPlayer();
+void InitCursor();
 
-//Self explanatory
-void DecrementPlayerLives();
+#define PLAYER_STR "Player"
+#define CURSOR_STR "Cursor"
 
 extern entity_t *gPlayer;   /**< The player entity */
+extern entity_t *gCursor;   /**< The cursor entity corresponding the the sprite of it */
 extern char *gPlayerName;  /**< The name of the player */
 
 #endif

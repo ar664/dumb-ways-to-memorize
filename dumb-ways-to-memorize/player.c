@@ -8,6 +8,7 @@
 
 char *gPlayerName = PLAYER_NAME;
 entity_t *gPlayer = NULL;
+entity_t *gCursor = NULL;
 int gPlayerLives = 0;
 
 void InitPlayer()
@@ -24,7 +25,7 @@ void InitPlayer()
 		exitRequest = 1;
 		return;
 	}
-	memcpy(gPlayer,FindCachedEntity("Player"), sizeof(entity_t));
+	memcpy(gPlayer,FindCachedEntity(PLAYER_STR), sizeof(entity_t));
 	if(!gPlayerLives)
 	{
 		PLAYER_LIVES;
@@ -48,7 +49,25 @@ void InitPlayer()
 	AddEntityToPhysics(gPlayer);
 }
 
-void DecrementPlayerLives()
+void InitCursor()
 {
-	gPlayerLives--;
+	if(!gCursor)
+	{
+		gCursor = InitNewEntity();
+	}
+
+	if(!gCursor)
+	{
+		printf("Could not Init Cursor");
+		exitRequest = 1;
+		return;
+	}
+
+	memcpy(gCursor,FindCachedEntity(CURSOR_STR), sizeof(entity_t));
+
+	gCursor->Think = ThinkCursor;
+	gCursor->Draw = DrawGeneric;
+	gCursor->Touch = NULL;
+	gCursor->mNextThink = gCurrentTime + UPDATE_FRAME_DELAY;
+
 }

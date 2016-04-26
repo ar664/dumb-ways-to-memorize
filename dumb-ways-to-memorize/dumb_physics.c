@@ -36,28 +36,23 @@ static cpBool CallbackCallTouchFunctions(cpArbiter *arb, cpSpace *space, void *p
 	{
 		return false;
 	}
+	
 	ent1 = (entity_t*)shape1->data;
 	ent2 = (entity_t*)shape2->data;
 	if(ent1->Touch)
 	{
 		ent1->Touch(ent1, ent2);
 	}
+	if(ent2->Touch)
+	{
+		ent2->Touch(ent2, ent1);
+	}
 	return true;
 }
 
-cpCollisionBeginFunc ExampleCallback(entity_t *ent, void *data)
+void AddCollisionHandlerToEntity(entity_t *ent)
 {
-	cpSpaceRemoveBody(gSpace, NULL);
-	cpSpaceRemoveShape(gSpace, NULL);
-  
-	cpShapeFree(NULL);
-	cpBodyFree(NULL);
-	return NULL;
-}
-
-void AddCallBackToEntity(entity_t *ent, void *callback)
-{
-	cpSpaceAddCollisionHandler(gSpace, ent->mHazards, ~ent->mHazards, ExampleCallback(ent, NULL), NULL, NULL, NULL, callback);
+	cpSpaceAddCollisionHandler(gSpace, ent->mCollisionType, COLLISION_TYPE_RAGDOLL, CallbackCallTouchFunctions, NULL, NULL, NULL, NULL);
 }
 
 void AddVelocityToEntity(entity_t *ent, float speed, cpVect direction)
@@ -316,7 +311,7 @@ entity_t * AddPhyicsToEntity(entity_t* ent)
 	cpShapeSetFriction(ent->mPhysicsProperties->shape, 0.5);
 	//Give shape reference to entity it belongs to
 	cpShapeSetUserData(ent->mPhysicsProperties->shape, ent);
-	cpShapeSetCollisionType(ent->mPhysicsProperties->shape, ent->mHazards);
+	cpShapeSetCollisionType(ent->mPhysicsProperties->shape, ent->mCollisionType);
 	return ent;
 }
 

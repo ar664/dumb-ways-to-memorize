@@ -221,8 +221,6 @@ void ShutdownEntitySystem();
  * @date	3/29/2016
  */
 void DrawGeneric(entity_t *self);
-//Unused for now
-void DrawPlayer(entity_t *self);
 
 //Think Functions
 /**
@@ -234,6 +232,18 @@ void DrawPlayer(entity_t *self);
  * @date	3/29/2016
  */
 void ThinkGeneric(entity_t *self);
+
+/**
+ * Update the cursors position based on the SDL_GetMouseState function.
+ *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
+ *
+ * @author	Anthony Rios
+ * @date	4/26/2016
+ */
+
+void ThinkCursor(entity_t *self);
+
 
 /**
  * The player think function, handles lives ,gamestate switching , and input.

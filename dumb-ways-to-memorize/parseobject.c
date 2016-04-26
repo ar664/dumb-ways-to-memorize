@@ -289,3 +289,172 @@ int CopyObjectToObjectArray(object_t **dst, object_t *src, int size)
 	memset(&(*dst)[size], 0, sizeof(object_t));
 	return 0;
 }
+
+void AddObject2StrObj(string_object_t *obj, string_object_t *data)
+{
+	int objects;
+	if(!obj || !data)
+	{
+		return;
+	}
+	objects = CountMem(obj->children, sizeof(string_object_t));
+	AllocateDynamic((void**)&obj->children, (void*)data, sizeof(string_object_t), objects);
+}
+
+void AddValue2StrObj(string_object_t *obj, char *data)
+{
+	int items;
+	if(!obj || !data)
+	{
+		return;
+	}
+	items = CountMem(obj->values, sizeof(char*));
+	AllocateDynamic((void**)&obj->values, (void*)&data, sizeof(char*), items);
+}
+
+void AddKVPair2StrObj(string_object_t *obj, char *key, char *data)
+{
+	int check;
+	if(!obj || !key || !data)
+	{
+		return;
+	}
+	check = CountMem(obj->values, sizeof(char*)) + CountMem(obj->keys, sizeof(char*));
+	if( !(check%2) )
+	{
+		AllocateDynamic((void**)&obj->keys, (void*)&key, sizeof(char*), check/2);
+		AllocateDynamic((void**)&obj->values, (void*)&data, sizeof(char*), check/2);
+	}
+
+}
+
+void PrintStringObject(string_object_t* obj)
+{
+	int objects, tempInt, i;
+	if(!obj)
+	{
+		return;
+	}
+	objects = 1 + CountMem(obj->children, sizeof(string_object_t));
+	tempInt = 0;
+	while(tempInt < objects)
+	{
+		if(tempInt == 0)
+		{
+			if(obj->name) 
+			{
+				printf("%s ", obj->name);
+			}
+			printf("{ \n");
+			if(obj->keys && obj->values)
+			{
+				i = 0;
+				while(obj->keys[i] && obj->values[i])
+				{
+					printf("Key : %s \n", obj->keys[i]);
+					printf("Value : %s \n", obj->values[i]);
+					i++;
+				}
+			} else if(obj->values)
+			{
+				i = 0;
+				while(obj->values[i])
+				{
+					printf("Value : %s \n", obj->values[i]);
+					i++;
+				}
+			}
+			tempInt++;
+			continue;
+		}
+		if(&obj->children[tempInt-1] < &obj->children[objects])
+		{
+			PrintStringObject(&obj->children[tempInt-1]);
+		}
+		tempInt++;
+	}
+	printf("} \n\n");
+
+}
+
+void WriteMembersToFile(FILE *file, char *key, char *value, bool comma)
+{
+	if(key)
+	{
+		fprintf(file, "\t%s : ", key);
+	}
+	if(value)
+	{
+		fprintf(file, "%s", value);
+	}
+	if(comma)
+	{
+		fprintf(file, ", \n");
+	} else
+	{
+		fprintf(file, "\n");
+	}
+}
+
+void WriteStringObjectToFile(string_object_t *obj, FILE* file, int depth)
+{
+	int i, j, k, object_count, key_count, value_count, pairs, value_only_count;
+	bool comma;
+	char depth_tab[32];
+	if(!obj)
+	{
+		printf("No obj given to write string object \n");
+		return;
+	}
+	if(!file)
+	{
+		printf("Unable to open file for string object writing \n");
+		return;
+	}
+	object_count = 1+ CountMem(obj->children, sizeof(string_object_t));
+	for(i = 0; i < depth; i++)
+	{
+		depth_tab[i] = '/t';
+	}
+	depth_tab[i] = NULL;
+	for(i = 0; i < object_count; i++)
+	{
+		if(i == 0)
+		{
+			if(depth_tab[0] != NULL)
+			{
+				fprintf(file, depth_tab);
+			}
+			fprintf(file, "{ \n");
+			key_count = CountMem(obj->keys, sizeof(char*));
+			value_count = CountMem(obj->values, sizeof(char*));
+			pairs = key_count - (value_count-key_count);
+			value_only_count = value_count - 2*pairs;
+			
+			//Write Pairs before values
+			for(j = 0; j < pairs; j++)
+			{
+				if(depth_tab[0] != NULL)
+				{
+					fprintf(file, depth_tab);
+				}
+				comma = value_only_count ? 1 : pairs-j-1;
+				WriteMembersToFile(file, obj->keys[j], obj->values[j], comma);
+			}
+
+			//Write values
+			for(j = 0; j < value_only_count; j++)
+			{
+				WriteMembersToFile(file, NULL, obj->values[j+pairs], pairs-j-1);
+			}
+		} else
+		{
+			WriteStringObjectToFile(&obj->children[i-1], file, depth+1);
+		}
+	}
+	if(depth_tab[0] != NULL)
+	{
+		fprintf(file, depth_tab);
+	}
+	fprintf(file, "} \n");
+}

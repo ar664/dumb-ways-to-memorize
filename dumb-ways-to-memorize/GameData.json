@@ -1,6 +1,6 @@
 {
 	"Comment": "Cant begin names with n t or f or  use colon due to parser",
-	"Screen Dimensions" : [1280, 720],
+	"Screen Dimensions" : [640, 480],
 	"Gravity" : 9.8,
 	"LevelsPerGame" : 2,
 	"Input Types" : ["X mouse", "X", "mouse", "none"],

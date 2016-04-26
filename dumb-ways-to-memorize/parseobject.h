@@ -2,9 +2,11 @@
 #define __PARSE_OBJECT_H
 
 #include <jsmn.h>
-
+#ifndef _INC_STDIO
+	#include <stdio.h>
+#endif
 typedef struct object_s object_t;
-
+typedef struct string_object_s string_object_t;
 /**
  * An object structure that is used for a better parsing system taken from jsmn tokens.
  *
@@ -22,6 +24,23 @@ struct object_s
 	jsmntok_t *keys;	/**< Array of keys */
 	jsmntok_t *values;  /**< Array of values related to those keys */
 	char *name;			/**< The name of the object */
+};
+
+/**
+ * A file object structure used for temporary file creation.
+ * These should be freed after used
+ *
+ * @author	Anthony Rios
+ * @date	4/25/2016
+ */
+
+struct string_object_s
+{
+	string_object_s *parent;
+	string_object_s *children;
+	char **keys;
+	char **values;
+	char *name;
 };
 
 /**
@@ -61,5 +80,12 @@ void PrintObject(object_t *obj, char *g_str);
 
 // Copy's object into a object_array ,dynamically allocates if dst not big enough
 int CopyObjectToObjectArray(object_t **dst, object_t *src, int size);
+
+void AddObject2StrObj(string_object_t *obj, string_object_t *data);
+void AddValue2StrObj(string_object_t *obj, char *data);
+void AddKVPair2StrObj(string_object_t *obj, char *key, char *data);
+
+void PrintStringObject(string_object_t* obj);
+void WriteStringObjectToFile(string_object_t *obj, FILE* file, int depth);
 
 #endif
