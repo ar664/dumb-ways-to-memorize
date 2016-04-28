@@ -6,13 +6,6 @@
 #include <jsmn.h>
 struct object_s;
 
-#define GAME_STATE_SPLASH_STR	"Splash"
-#define GAME_STATE_START_STR	"Start"
-#define GAME_STATE_GUESS_STR	"Guess"
-#define GAME_STATE_CHOOSE_STR	"Choose"
-#define GAME_STATE_PLAYING_STR	"Playing"
-#define GAME_STATE_END_STR		"End"
-
 /**
  * Loads string data from a file.
  *

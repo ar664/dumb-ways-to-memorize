@@ -21,6 +21,11 @@ typedef struct vec2_s
 void *Vec2Cp(vec2_t *vect);
 vec2_t *CpToVect(void *cp);
 
+typedef struct area_s
+{
+	float x, y, w, h;
+}area_t;
+
 extern vec2_t gZeroPos;
 
 //Address of a value, basically generic typing int*
@@ -57,6 +62,16 @@ typedef enum
 	COLLISION_TYPE_CLIP		/**< An enum constant representing the collision type clip - which means it doesn't collide , but moves. Should be used for particle entities (maybe) */
 }collision_type_t;
 
+typedef enum
+{
+	UI_NULL,
+	UI_ELEMENT_LABEL,
+	UI_ELEMENT_IMAGE,
+	UI_ELEMENT_BUTTON,
+	UI_PANEL,
+	UI_MAX
+}ui_type_t;
+
 /** Defines the enum for menu item states */
 typedef enum
 {
@@ -88,10 +103,13 @@ typedef enum
 	CHOOSE =	0x8,	/**< An enum constant representing the state in which the player selects a power_up from the chosen power ups in guess */
 	PLAYING =	0x10,   /**< An enum constant representing the playing game state, which is consistent of the level, enemy entities, and the player */
 	END =		0x20,   /**< An enum constant representing the player has chosen to quit the game */
+	MAX =		0x40,   /**< An enum constant representing the maximum states */
 }GameState;
 
 extern GameState gGameState;					/**< State of the game */
 extern GameState StrToGameState(char *str);		/**< Converts a string into a game state*/
+extern char *gGameStateStr[];
+extern char *GameStateToStr(GameState game_state);
 extern int StrToMenuType(char *str);			/**< Converts a string into a menu type*/
 
 //For Hazards

@@ -7,6 +7,8 @@
 #include "mystrings.h"
 #include "parseobject.h"
 
+char *gGameStateStr[] = {"Splash", "Start", "Guess", "Choose", "Playing", "End", 0};
+
 jsmntok_t *FindKey(jsmntok_t *token, char *key, char *g_str)
 {
 	char *str;
@@ -304,34 +306,38 @@ int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStora
 
 GameState StrToGameState(char *str)
 {
+	int i, j;
 	if(!str)
 	{
 		return SPLASH;
 	}
-	else if(!strcmp(str, GAME_STATE_SPLASH_STR))
+	j = 0;
+	for(i = 0; i < GameState::MAX; i <<= 1)
 	{
-		return SPLASH;
-	}
-	else if(!strcmp(str, GAME_STATE_START_STR))
-	{
-		return START;
-	}
-	else if(!strcmp(str, GAME_STATE_GUESS_STR))
-	{
-		return GUESS;
-	} else if(!strcmp(str, GAME_STATE_CHOOSE_STR))
-	{
-		return CHOOSE;
-	}
-	else if(!strcmp(str, GAME_STATE_PLAYING_STR))
-	{
-		return PLAYING;
-	}
-	if(!strcmp(str, GAME_STATE_END_STR))
-	{
-		return END;
+		if(!strcmp(str, gGameStateStr[j]))
+		{
+			return (GameState)i;
+		}
+		j++;
 	}
 	return SPLASH;
+}
+
+char *GameStateToStr(GameState game_state)
+{
+	int i = 0;
+	while(true)
+	{
+		if( 1<<i == game_state)
+		{
+			return gGameStateStr[i];
+		}
+		if( 1<<i == GameState::MAX)
+		{
+			break;
+		}
+	}
+	return NULL;
 }
 
 /**

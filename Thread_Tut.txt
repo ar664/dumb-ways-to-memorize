@@ -1,0 +1,25 @@
+Threads
+
+
+
+t=0	T0		T1		Mem
+	|*H|	|*H|	|H-|
+	|--|	|--|	|--|
+	|--|	|--|	|--|
+t=end
+
+Atomic Operation- Cannot be interrupted by other threads of memory stuff.
+
+So a non-atomic operation would be one thread has a pointer to a hash, 
+and then the oher thread 
+
+Locking is something to psuedo the non-atomic operations by creating a safe 
+space for memory access.
+Locks are atomic numbers in memory.
+
+DeadLock - 2+ threads ask for the same lock and end up corrupting memory.
+
+T1 - [ Lock1, Lock2, Unlock 2, Unlock 1 ]
+T2 - [ Lock2, Lock1, Unlock 1, Unlock 2 ]
+
+Dead things memset 0 after think loop.

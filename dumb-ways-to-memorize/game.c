@@ -10,7 +10,7 @@
 #include "dumb_physics.h"
 #include "player.h"
 #include "graphics.h"
-#include <SDL.h>
+#include <SDL.h>		   
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -677,8 +677,11 @@ int Run()
 {
 	while(!exitRequest)
 	{
+		
 		Poll();
+		//Thread
 		Update();
+		//Thread
 		Draw();
 		gDeltaTime = SDL_GetTicks() - gCurrentTime;
 		SDL_Delay(gDeltaTime > UPDATE_FRAME_DELAY ? 0 : gDeltaTime);

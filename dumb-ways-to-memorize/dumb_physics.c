@@ -52,7 +52,7 @@ static cpBool CallbackCallTouchFunctions(cpArbiter *arb, cpSpace *space, void *p
 
 void AddCollisionHandlerToEntity(entity_t *ent)
 {
-	cpSpaceAddCollisionHandler(gSpace, ent->mCollisionType, COLLISION_TYPE_RAGDOLL, CallbackCallTouchFunctions, NULL, NULL, NULL, NULL);
+	cpSpaceAddCollisionHandler(gSpace, ent->mCollisionType, COLLISION_TYPE_RAGDOLL, CallbackCallTouchFunctions, CallbackCallTouchFunctions, NULL, NULL, NULL);
 }
 
 void AddVelocityToEntity(entity_t *ent, float speed, cpVect direction)

@@ -155,6 +155,8 @@
     <ClCompile Include="ai_interpret.c" />
     <ClCompile Include="audio.c" />
     <ClCompile Include="dumb_physics.c" />
+    <ClCompile Include="dumb_ui.c" />
+    <ClCompile Include="dumb_ui.h" />
     <ClCompile Include="entity.c" />
     <ClCompile Include="External_Libs\jsmn.c" />
     <ClCompile Include="game.c" />

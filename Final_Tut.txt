@@ -1,0 +1,25 @@
+Glib
+Strings, lists, and hashmaps | gtk
+
+Chipmunk
+Spaces, shapes, and bodies
+
+Json
+File parsing , and json types. File IO.
+
+Gui
+Algorithm - Hashing / Graph
+
+Array List vs Linked List
+pro-cons;
+Memory Locality, O(n)?
+
+Pointers
+Static / Function / Scoping
+
+There is no end...
+
+cmake - list files to include.
+
+Fonts 
+Surface->Texture->Render
