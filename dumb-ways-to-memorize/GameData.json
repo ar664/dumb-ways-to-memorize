@@ -23,4 +23,5 @@
 	"Levels" : ["Level/Level01.json" , "Level/Level01.json"],
 	"Menus" : ["Menu/StartMenu.json", "Menu/PowerUpMenu.json", "Menu/ChoosePowerForLevel.json"],
 	"SplashScreen" : "Sprite/Level/Dumb_Background.png",
+	"UI_Lives" : "Sprite/UI/Dumb_Lives.png",
 }

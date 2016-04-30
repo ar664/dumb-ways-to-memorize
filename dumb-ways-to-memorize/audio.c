@@ -37,7 +37,7 @@ sound_t* LoadSound(char** files, sound_mixer_group group)
 			{
 				printf("Audio File %s could not be loaded \n", files[i]);
 				printf("SDL Error : %s \n", SDL_GetError());
-				continue;
+				return NULL;
 			}
 			memcpy(&chunks[i], &temp_chunk, sizeof(struct Mix_Chunk));
 		}

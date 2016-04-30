@@ -3,6 +3,7 @@
 #include "entity.h"
 #include "parsepowerup.h"
 #include "dumb_physics.h"
+#include "parselevel.h"
 #include "player.h"
 
 void DoPlayerThink(void *player, SDL_GameControllerButton button)
@@ -49,6 +50,11 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 		}
 	case(SDL_CONTROLLER_BUTTON_START):
 		{
+			ResetGame();
+		}
+	case(SDL_CONTROLLER_BUTTON_RIGHTSHOULDER):
+		{
+			SaveGameState();
 			ResetGame();
 		}
 	default:

@@ -1,46 +1,46 @@
 {
-	"Name" : "Guns And Roses",
+	"Name" : "Guns_And_Roses",
 	"Background" : "Sprite/Level/Background.png",
 	"Hint" : "Testing",
 	"Comment" : "Positions are based on pixels, lol",
 	"Comment 2" : "tile Doesn't work with negative tiling",
-	"Spawn" : [32, 500],
+	"Spawn" : [32, 400],
 	"Playlist" : ["Audio/Song.mp3"],
 	"Enemies" : [
 	{
 		"enemy" : "Flying Enemy",
 		"ai" : "AI/Dumb.json",
-		"position" : [100, 500]
+		"position" : [100, 400]
 	},
 	
 	{
 		"enemy" : "Gumba Enemy",
 		"ai" : "AI/Dumb.json",
-		"position" : [200, 500]
+		"position" : [150, 400]
 	},
 	
 	{
 		"enemy" : "Gumba Enemy",
 		"ai" : "AI/Dumb.json",
-		"position" : [300, 500]
+		"position" : [250, 500]
 	},
 	{
 		"enemy" : "Thwomp Enemy",
 		"ai" : "AI/Dumb.json",
-		"position" : [400, 500]
+		"position" : [350, 500]
 	}
 	],
 	
 	"Objects" : [
 	{
 		"object" : "Ground",
-		"tile" : [1280, 688],
-		"position" : [0,688],
+		"tile" : [640, 480],
+		"position" : [0, 480],
 		"comment" : "testing"
 	},
 	{
 		"object" : "Ground",
-		"position" : [1200, 500],
+		"position" : [400, 300],
 		"extra" : "goal"
 	}
 	]

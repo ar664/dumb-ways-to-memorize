@@ -18,6 +18,12 @@
 			"sprite" : "Sprite/Power/Dumb_Power_Destroy_All.png",
 			"text" : "End",
 			"link" : "End"
+		},
+		{
+			"sprite" : "Sprite/UI/Dumb_Lives.png",
+			"text" : "Load",
+			"extra" : "Load Level",
+			"link" : "Playing"
 		}
 	
 	]

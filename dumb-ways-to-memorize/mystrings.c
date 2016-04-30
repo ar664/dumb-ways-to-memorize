@@ -312,7 +312,7 @@ GameState StrToGameState(char *str)
 		return SPLASH;
 	}
 	j = 0;
-	for(i = 0; i < GameState::MAX; i <<= 1)
+	for(i = 1; i < GameState::MAX; i <<= 1)
 	{
 		if(!strcmp(str, gGameStateStr[j]))
 		{

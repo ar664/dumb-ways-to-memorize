@@ -102,6 +102,17 @@ void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 	case(SDL_CONTROLLER_BUTTON_A):
 		{
 			gGameState = self->mItems[gCurrentSelectedItem].NextState;
+			if( (gGameState == PLAYING) && self->mSelectedItem[gCurrentSelectedItem].Info)
+			{
+				if(!strcmp((char*)self->mSelectedItem[gCurrentSelectedItem].Info, MENU_EXTRA_LOAD_LEVEL))
+				{
+					printf("Loading save state");
+					if(LoadGameState() == 0)
+					{
+						printf("Game Loaded Successfully! \n");
+					}
+				}
+			}
 			break;
 		}
 	default:
@@ -265,14 +276,17 @@ void UpdatePowerSelectMenu(menu_t* self, SDL_GameControllerButton button)
 			{
 				powerUps = CountMem(gSelectedPowerUps, sizeof(char*));
 				for(i = 0; i < powerUps; i++)
-				{
-					if(!gUsedPowerUps[i])
+				{	
+					if(gUsedPowerUps[i])
 					{
+						if(!strcmp(self->mSelectedItem[i].Name, gUsedPowerUps[i]))
+						{
+							break;
+						}
+					} else
+					{	
 						gUsedPowerUps[i] = self->mSelectedItem[i].Name;
 						usedPower = 0;
-						break;
-					} else if(!strcmp(self->mSelectedItem[i].Name, gUsedPowerUps[i]))
-					{
 						break;
 					}
 				}

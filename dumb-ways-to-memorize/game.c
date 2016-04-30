@@ -8,6 +8,7 @@
 #include "parsepowerup.h"
 #include "parselevel.h"
 #include "dumb_physics.h"
+#include "dumb_ui.h"
 #include "player.h"
 #include "graphics.h"
 #include <SDL.h>		   
@@ -657,6 +658,7 @@ int Setup()
 		return -1;
 	}
 	gController = SDL_GameControllerOpen(0);
+	LoadGUIforGameState((GameState)PLAYING);
 	//PrintObject(gLevelObject, gLevelData);
 	//test_sprite = LoadSprite("Sprite/UI/NESController.png",0);
 	//test_sprite->mCurrentFrame = LoadAnimation(test_sprite->mSize.x, test_sprite->mSize.y, test_sprite->mSize.x, test_sprite->mSize.y);
@@ -777,6 +779,7 @@ void DrawPlaying()
 {
 	DrawLevel();
 	DrawEntities();
+	DrawUI();
 	return;
 }
 

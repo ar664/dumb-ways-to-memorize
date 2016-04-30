@@ -5,6 +5,10 @@
 
 typedef struct element_s element_t;
 typedef struct window_s window_t;
+
+//Hard-coding some shit
+#define UI_PLAYER_STATUS "UI_Lives"
+
 /**
  * An element of the UI for the game.
  *
@@ -42,8 +46,11 @@ int InitGUI();
 void ShutdownGUI();
 
 void LoadGUIforGameState(GameState game_state);
+void DrawUI();
 
-
+extern sprite_t *gUI_Sprite_Health;
+extern vec2_t gUI_Health_Pos;
+extern vec2_t gUI_Power_Pos;
 
 
 #endif

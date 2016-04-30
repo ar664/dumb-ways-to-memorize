@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "player.h"
 #include "parselevel.h"
 #include "parseobject.h"
 #include "parseentity.h"
@@ -6,6 +7,7 @@
 #include "mystrings.h"
 #include "dumb_physics.h"
 #include <stdio.h>
+#include <string.h>
 
 level_t *gCurrentLevel = NULL;  
 char *LevelGlobalObjectNames[] = {"Enemies", "Objects", "Spawn", "Playlist", 0};
@@ -61,6 +63,143 @@ int LoadLevel(object_t *level, char *g_str)
 		AddGlobalObject(gCurrentLevel, temp_obj, g_str, (level_global_object_t)i);
 	}
 
+	return 0;
+}
+
+int LoadGameState()
+{
+	FILE *file;
+	vec2_t player_pos;
+	char buffer[256], level_name[128], *temp_str;
+	int i, j, levels, powers, used_powers;
+	if(!gLevels | !gPowerUpsFile)
+	{
+		return -1;
+	}
+	//Read Position
+	file = fopen(SAVE_FILE, "rb");
+	if(!file)
+	{
+		printf("Could not open save file. \n");
+		return -1;
+	}
+	fread(&player_pos.x, sizeof(int), 1, file);
+	fread(&player_pos.y, sizeof(int), 1, file);
+	if(fgetc(file) != '\n' )
+	{
+		return -1;
+	}
+
+	//Read Levels
+	// Get Level Name
+	i = 0;
+	while( (buffer[i] = fgetc(file)) != ' ')
+	{
+		if(buffer[i] == EOF)
+		{
+			return -1;
+		}
+		i++;
+	}
+	if(i > 128)
+	{
+		return -1;
+	}
+	memcpy(level_name, buffer, sizeof(char)*i);
+	level_name[i] = NULL;
+	memset(buffer, 0, sizeof(char)*255);
+
+	//Get Level Count
+	levels = fgetc(file);
+	if( fgetc(file) != '\n' )
+	{
+		return -1;
+	}
+	gSelectedLevels = (char**) malloc(sizeof(char*)*(levels+1));
+	for(i = 0; i < levels; i++)
+	{
+		j = 0;
+		//Get Level File Locations
+		while( (buffer[j] = fgetc(file)) != '\n' )
+		{
+			if(buffer[j] == EOF || j > 255)
+			{
+				return -1;
+			}
+			j++;
+		}
+		buffer[j] = NULL;
+		temp_str = (char*) malloc(sizeof(char)*(j+1));
+		if(!temp_str)
+		{
+			return -1;
+		}
+		memcpy(temp_str, buffer, sizeof(char*)*j);
+		temp_str[j] = NULL;
+		//Add to selected levels
+		gSelectedLevels[i] = temp_str;
+		memset(buffer, 0, sizeof(char)*255);
+	}
+	gSelectedLevels[i] = NULL;
+
+	powers = fgetc(file);
+	if( fgetc(file) != '\n' )
+	{
+		return -1;
+	}
+
+	used_powers = 0;
+	gSelectedPowerUps = (char**) malloc(sizeof(char*)*(powers+1));
+	for(i = 0; i < powers; i++)
+	{
+		j = 0;
+		while( (buffer[j] = fgetc(file)) != ' ')
+		{
+			if(buffer[j] == EOF || j > 255)
+			{
+				return -1;
+			}
+			j++;
+		}
+		buffer[j] = NULL;
+		temp_str = (char*) malloc(sizeof(char)*(j+1));
+		if(!temp_str)
+		{
+			return -1;
+		}
+		memcpy(temp_str, buffer, sizeof(char*)*j);
+		gSelectedPowerUps[i] = temp_str;
+		memset(buffer, 0, sizeof(char)*255);
+		if(fgetc(file) == '1')
+		{
+			gUsedPowerUps[used_powers] = gSelectedPowerUps[i];
+			used_powers++;
+		}
+		if(fgetc(file) != '\n')
+		{
+			break;
+		}
+
+	}
+
+	for(i = 0; i < levels; i++)
+	{
+		ConvertFileToUseable(gSelectedLevels[i], NULL, &gLevelData, &gLevelTokens);
+		if(!gLevelData || !gLevelTokens )
+		{
+			return -1;
+		}
+		gLevelObject = ParseToObject(gLevelTokens, gLevelData);
+		if(!gLevelObject)
+		{
+			return -1;
+		}
+		LoadLevel(gLevelObject, gLevelData);
+		if(!strcmp(gCurrentLevel->mName, level_name))
+		{
+			break;
+		}
+	}
 	return 0;
 }
 
@@ -167,6 +306,62 @@ void LevelMusicNext()
 	}
 	Mix_PlayMusic(level->mCurrentSong->music, 0);
 	Mix_HookMusicFinished(LevelMusicNext);
+}
+
+int SaveGameState()
+{
+	FILE *file;
+	vec2_t temp_pos;
+	int i, j, levels, power_ups, used_power_ups, used_bool;
+	if(!gCurrentLevel || !gSelectedLevels || !gUsedPowerUps || !gSelectedPowerUps)
+	{
+		return -1;
+	}
+	printf("Saving Current Game State... \n");
+	file = fopen(SAVE_FILE, "wb");
+	if(!file)
+	{
+		printf("Unable to save to file. \n");
+		return -1;
+	}
+	
+	//Write Position
+	fwrite(&temp_pos.x, sizeof(int), 1, file);
+	fwrite(&temp_pos.y, sizeof(int), 1, file);
+	fprintf(file , "\n");
+
+	//Write Level Data
+	levels = CountMem(gSelectedLevels, sizeof(char*));
+	fprintf(file, gCurrentLevel->mName);
+	fprintf(file, " %c\n", levels);
+	for(i = 0; i < levels; i++)
+	{
+		fprintf(file, gSelectedLevels[i]);
+		fprintf(file, "\n");
+	}
+	
+	//Write PowerUp Data
+	power_ups = CountMem(gSelectedPowerUps, sizeof(char*));
+	used_power_ups = CountMem(gUsedPowerUps, sizeof(char*));
+	fprintf(file, "%c\n", power_ups);
+	for(i = 0; i < power_ups; i++)
+	{
+		fprintf(file, gSelectedPowerUps[i]);
+		fprintf(file, " ");
+		used_bool = 0;
+		for(j = 0; j < used_power_ups; j++)
+		{
+			if(strcmp(gSelectedPowerUps[i], gUsedPowerUps[j]))
+			{
+				used_bool = 1;
+				break;
+			}
+		}
+		fprintf(file, "%d\n", used_bool);
+	}
+	fprintf(file, "%c", EOF);
+	fclose(file);
+	return 0;
 }
 
 void DrawLevel()

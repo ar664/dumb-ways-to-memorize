@@ -9,7 +9,7 @@
 char *gPlayerName = PLAYER_NAME;
 entity_t *gPlayer = NULL;
 entity_t *gCursor = NULL;
-int gPlayerLives = 0;
+int gPlayerLives = 3;
 
 void InitPlayer()
 {

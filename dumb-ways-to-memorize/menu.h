@@ -20,6 +20,8 @@
 #define MENU_TYPE_STR_V		"vertical"
 #define MENU_TYPE_STR_GRID	"grid"
 
+#define MENU_EXTRA_LOAD_LEVEL	"Load Level"
+
 /** Defines the enum for what type of menu it is */
 typedef enum
 {

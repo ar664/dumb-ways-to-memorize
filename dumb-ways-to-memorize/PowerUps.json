@@ -20,7 +20,7 @@
 		"damage" : 10
 	},
 	
-	"Telekenisis" : 
+	"Telekinesis" : 
 	{
 		"input-type" : "mouse",
 		"use-type" : "infinite",

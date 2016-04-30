@@ -4,6 +4,8 @@
 #include "parseobject.h"
 #include "entity.h"
 
+#define SAVE_FILE	"save.dat"
+
 extern char *LevelGlobalObjectNames[];
 extern char *LevelLocalObjectNames[];
 extern char *LevelGlobalOptionNames[];
@@ -75,8 +77,19 @@ extern level_t *gCurrentLevel; /**< The current level the game is on */
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-
 int LoadLevel(object_t *level, char *g_str);
+
+int LoadGameState();
+
+/**
+ * Saves the level.
+ *
+ * @return	An int.
+ *
+ * @author	Anthony Rios
+ * @date	4/29/2016
+ */
+int SaveGameState();
 
 /**
  * Draws the background of the level, everything else is cool.
