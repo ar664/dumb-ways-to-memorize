@@ -429,10 +429,13 @@ void Poll()
 {
 	if( SDL_PollEvent(&gEventQ) )
 	{
+		//Check for new controller
 		if(gEventQ.type == SDL_CONTROLLERDEVICEADDED || gEventQ.type == SDL_CONTROLLERDEVICEREMOVED)
 		{
 			gController = SDL_GameControllerOpen(0);
 		}
+
+		//Check for Button from controller
 		if(gEventQ.type == SDL_CONTROLLERBUTTONDOWN)
 		{
 			gButtonQ = (SDL_GameControllerButton) gEventQ.cbutton.button;
@@ -442,6 +445,13 @@ void Poll()
 			gButtonQ = (SDL_GameControllerButton) BUTTON_NO_INPUT;
 		}
 
+		//Check for Button from keyboard, if there was no button from controller
+		if(gButtonQ  == -1)
+		{
+			gButtonQ = GetKeyboardButton();
+		}
+
+		//Check for quit
 		if( gEventQ.type == SDL_QUIT)
 		{
 			exitRequest = 1;

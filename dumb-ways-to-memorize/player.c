@@ -26,9 +26,9 @@ void InitPlayer()
 		return;
 	}
 	memcpy(gPlayer,FindCachedEntity(PLAYER_STR), sizeof(entity_t));
-	if(!gPlayerLives)
+	if(gPlayerLives < 1)
 	{
-		PLAYER_LIVES;
+		gPlayerLives = PLAYER_LIVES;
 	}
 	gPlayer->Draw = DrawGeneric;
 	gPlayer->Think = ThinkPlayer;
