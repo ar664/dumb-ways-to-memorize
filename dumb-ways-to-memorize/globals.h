@@ -102,8 +102,9 @@ typedef enum
 	GUESS =		0x4,	/**< An enum constant representing the first time the player chooses the power_ups */
 	CHOOSE =	0x8,	/**< An enum constant representing the state in which the player selects a power_up from the chosen power ups in guess */
 	PLAYING =	0x10,   /**< An enum constant representing the playing game state, which is consistent of the level, enemy entities, and the player */
-	END =		0x20,   /**< An enum constant representing the player has chosen to quit the game */
-	MAX =		0x40,   /**< An enum constant representing the maximum states */
+	EDITOR =	0x20,   /**< An enum constant representing the editor state, where the player creates a new level */
+	END =		0x40,   /**< An enum constant representing the player has chosen to quit the game */
+	MAX =		0x80,   /**< An enum constant representing the maximum states */
 }GameState;
 
 extern GameState gGameState;					/**< State of the game */

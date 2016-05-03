@@ -5,6 +5,8 @@
 #include <string.h>
 #include <stdio.h>
 
+string_object_t *editor_object = NULL;
+
 object_t *ParseToObject(jsmntok_t *token, char *g_str)
 {
 	int objects, keys, values, size, i;

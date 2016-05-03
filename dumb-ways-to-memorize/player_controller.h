@@ -33,5 +33,6 @@ enum KEYBOARD_BINDINGS
 void DoPlayerThink(void *player, SDL_GameControllerButton button);
 
 SDL_GameControllerButton GetKeyboardButton();
+SDL_GameControllerButton IsKeyPressed(int key);
 
 #endif

@@ -465,6 +465,7 @@ void Poll()
 
 
 void UpdatePlaying();
+void UpdateEditor();
 
 void Update()
 {
@@ -543,6 +544,11 @@ void Update()
 			UpdatePlaying();
 			break;
 		}
+	case(EDITOR):
+		{
+			UpdateEditor();
+			break;
+		}
 	default:
 		break;
 	}
@@ -583,6 +589,11 @@ void Draw()
 	case(PLAYING):
 		{
 			DrawPlaying();
+			break;
+		}
+	case(EDITOR):
+		{
+			DrawEntities();
 			break;
 		}
 	default:
@@ -803,6 +814,58 @@ void UpdatePlaying()
 {
 	RunEntities();
 	RunPhysics();
+}
+
+//Physics doesn't run in editor mode
+void UpdateEditor()
+{
+	vec2_t temp_pos;
+	entity_t *temp_ent;
+	physics_t *temp_physics;
+	switch(gButtonQ)
+	{
+	case(SDL_CONTROLLER_BUTTON_DPAD_LEFT):
+		{
+			gEditorEntity->mPhysicsProperties->body->p.x -= 32;
+			break;
+		}
+	case(SDL_CONTROLLER_BUTTON_DPAD_RIGHT):
+		{
+			gEditorEntity->mPhysicsProperties->body->p.x += 32;
+			break;
+		}
+	case(SDL_CONTROLLER_BUTTON_DPAD_DOWN):
+		{
+			gEditorEntity->mPhysicsProperties->body->p.y += 32;
+			break;
+		}
+	case(SDL_CONTROLLER_BUTTON_DPAD_UP):
+		{
+			gEditorEntity->mPhysicsProperties->body->p.y -= 32;
+			break;
+		}
+	case(SDL_CONTROLLER_BUTTON_A):
+		{
+			temp_pos = EntityPosition(gEditorEntity);
+			if(!LookForEntityAtPos(temp_pos))
+			{
+				temp_ent = InitNewEntity();
+				memcpy(temp_ent, gEditorEntity, sizeof(entity_t));
+				AddPhyicsToEntity(temp_ent);
+				temp_ent->mPhysicsProperties->body->p = *(cpVect*)Vec2Cp(&temp_pos);
+				AddEntityToPhysics(temp_ent);
+			}
+			break;
+		}
+	case(SDL_CONTROLLER_BUTTON_RIGHTSHOULDER):
+		{
+			temp_physics = gEditorEntity->mPhysicsProperties;
+			memcpy(gEditorEntity, NexCachedEntity(), sizeof(entity_t));
+			gEditorEntity->mPhysicsProperties = temp_physics;
+		}
+	default:
+		break;
+	}
 }
 
 void ResetGame()

@@ -52,7 +52,7 @@ static cpBool CallbackCallTouchFunctions(cpArbiter *arb, cpSpace *space, void *p
 
 void AddCollisionHandlerToEntity(entity_t *ent)
 {
-	cpSpaceAddCollisionHandler(gSpace, ent->mCollisionType, COLLISION_TYPE_RAGDOLL, CallbackCallTouchFunctions, CallbackCallTouchFunctions, NULL, NULL, NULL);
+	cpSpaceAddCollisionHandler(gSpace, ent->mCollisionType, COLLISION_TYPE_RAGDOLL, CallbackCallTouchFunctions, NULL, NULL, NULL, NULL);
 }
 
 void AddVelocityToEntity(entity_t *ent, float speed, cpVect direction)
@@ -296,7 +296,7 @@ entity_t * AddPhyicsToEntity(entity_t* ent)
 		return NULL;
 	}
 	ent->mPhysicsProperties = (physics_t*) malloc(sizeof(physics_t));
-	if(!ent->mPhysicsProperties)
+	if(!ent->mPhysicsProperties || !ent->mSprites[0]->name)
 	{
 		printf("Alloc physics for ent error \n");
 		return NULL;

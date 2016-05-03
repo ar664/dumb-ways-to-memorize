@@ -40,6 +40,21 @@
 	},
 	{
 		"object" : "Ground",
+		"tile" : [640, 0],
+		"position" : [0, 0]
+	},
+	{
+		"object" : "Ground",
+		"tile" : [0 , 480],
+		"position" : [0,0]
+	},
+	{
+		"object" : "Ground",
+		"tile" : [640, 480],
+		"position" : [640, 0]
+	},
+	{
+		"object" : "Ground",
 		"position" : [400, 300],
 		"extra" : "goal"
 	}

@@ -108,3 +108,15 @@ SDL_GameControllerButton GetKeyboardButton()
 	last_key_pressed = NULL;
 	return (SDL_GameControllerButton) -1;
 }
+
+
+SDL_GameControllerButton IsKeyPressed(int key)
+{
+	const Uint8 *keys;
+	keys = (Uint8*) SDL_GetKeyboardState(NULL);
+	if(keys[key])
+	{
+		return KeyToButton( (SDL_Scancode)key);
+	}
+	return (SDL_GameControllerButton) -1 ;
+}

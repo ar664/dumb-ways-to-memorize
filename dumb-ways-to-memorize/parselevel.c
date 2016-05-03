@@ -262,6 +262,7 @@ void TileLevelEntity(entity_t* ent, vec2_t* start_position, vec2_t* end_position
 			cpBodySetPos(temp_ent->mPhysicsProperties->body, cpPos);
 			new_pos.x = 0; new_pos.y = 0;
 			AddEntityToPhysics(temp_ent);
+			AddCollisionHandlerToEntity(ent);
 		}
 	}
 }
@@ -477,7 +478,7 @@ void AddLocalObject(level_t* level, object_t* obj, char* g_str, level_local_obje
 
 			//Set Extra Options
 			AddPhyicsToEntity(temp_ent);
-
+			
 			for(i = 0; i < LEVEL_L_OPTION_MAX; i++)
 			{
 				temp_tok = FindValueToken(obj, LevelLocalOptionNames[i], g_str);
@@ -494,7 +495,7 @@ void AddLocalObject(level_t* level, object_t* obj, char* g_str, level_local_obje
 			}
 
 			AddEntityToPhysics(temp_ent);
-
+			AddCollisionHandlerToEntity(temp_ent);
 			break;
 		}
 	case(LEVEL_L_OBJECT_OBJECT):
@@ -541,6 +542,7 @@ void AddLocalObject(level_t* level, object_t* obj, char* g_str, level_local_obje
 			}
 
 			AddEntityToPhysics(temp_ent);
+			AddCollisionHandlerToEntity(temp_ent);
 
 			break;
 		}

@@ -10,7 +10,9 @@
 #include "dumb_physics.h"
 
 entity_t *gEntities = NULL;
+entity_t *gEditorEntity = NULL;
 int gLastEntity = 0;
+int gEditorCount = 0;
 char **Hazards_str = NULL;
 char *Collisions_str[] = {"static", "independent", "ragdoll", "clip", 0};
 char *EntityStates_str[] = {"alive", "dead", "other", 0};
@@ -121,8 +123,18 @@ void ThinkCursor(entity_t *self)
 	{
 		return;
 	}
-	SDL_GetMouseState(&x, &y);
-	pos.x = x; pos.y = y;
+	if(!gController)
+	{
+		SDL_GetMouseState(&x, &y);
+		pos.x = x; pos.y = y;
+	} else
+	{
+		pos = cpBodyGetPos(self->mPhysicsProperties->body);
+		pos.x += SDL_GameControllerGetAxis(gController, SDL_CONTROLLER_AXIS_LEFTX);
+		pos.y += SDL_GameControllerGetAxis(gController, SDL_CONTROLLER_AXIS_LEFTY);
+
+	}
+	
 	cpBodySetPos(self->mPhysicsProperties->body, pos);
 	self->mNextThink = gCurrentTime + UPDATE_FRAME_DELAY;
 }
@@ -131,25 +143,19 @@ void ThinkPlayer(entity_t *self)
 {
 	//Do input control
 	if(!self) return;
+	if(self != gPlayer)
+	{
+		printf("Non player entity thinking as player \n");
+	}
 	if(gButtonQ != BUTTON_NO_INPUT)
 	{
 		DoPlayerThink(self, gButtonQ);
-	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_DPAD_LEFT))
+	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_DPAD_LEFT) || IsKeyPressed(LEFT_BUTTON) == SDL_CONTROLLER_BUTTON_DPAD_LEFT)
 	{
 		DoPlayerThink(self, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
-	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_DPAD_RIGHT))
+	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_DPAD_RIGHT) || IsKeyPressed(RIGHT_BUTTON) == SDL_CONTROLLER_BUTTON_DPAD_RIGHT)
 	{
 		DoPlayerThink(self, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
-	} else if(SDL_GameControllerGetButton(gController, SDL_CONTROLLER_BUTTON_B))
-	{
-		if(gCurrentPowerUp)
-		{
-			//If infinite use
-			if(!gCurrentPowerUp->UpdateUse)
-			{
-				self->PowerUp(gCurrentPowerUp);
-			}
-		}
 	} else
 	{
 		if(abs(cpBodyGetVel(self->mPhysicsProperties->body).y) < 0.5 && abs(cpBodyGetVel(self->mPhysicsProperties->body).x) < 0.5)
@@ -213,6 +219,10 @@ void ThinkEnemy(entity_t *self)
 
 void TouchGeneric(entity_t *self, entity_t *other)
 {
+	if(!other->mName)
+	{
+		return;
+	}
 	switch(other->mCollisionType)
 	{
 	case(COLLISION_TYPE_STATIC):
@@ -242,6 +252,14 @@ void TouchGeneric(entity_t *self, entity_t *other)
 //Touch Functions
 void TouchPlayer(entity_t *self, entity_t *other)
 {
+	if(self != gPlayer)
+	{
+		printf("Non Player entity touching \n");
+	}
+	if(!other->mName)
+	{
+		return;
+	}
 	switch(other->mCollisionType)
 	{
 	case(COLLISION_TYPE_STATIC):
@@ -474,10 +492,13 @@ void FreeEntity(entity_t *ent)
 			isGlobal = 1;
 			if(ent->mSprites)
 			{
-				numSprites = CountMem(ent->mSprites, sizeof(char*));
-				for(j = 0; j < numSprites; j++)
+				if(gGameState == END)
 				{
-					FreeSprite(ent->mSprites[j]);
+					numSprites = CountMem(ent->mSprites, sizeof(char*));
+					for(j = 0; j < numSprites; j++)
+					{
+						FreeSprite(ent->mSprites[j]);
+					}	
 				}
 			}
 			RemoveEntityFromPhysics(ent);
@@ -523,3 +544,14 @@ void ShutdownEntitySystem()
 	free(gEntities);
 }
 
+entity_t *NexCachedEntity()
+{
+	if(!gEntityDictionary[gEditorCount].mName)
+	{
+		gEditorCount = 0;
+		return &gEntityDictionary[gEditorCount];
+	} else
+	{
+		return &gEntityDictionary[gEditorCount];
+	}
+}

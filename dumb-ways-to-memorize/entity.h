@@ -318,4 +318,8 @@ vec2_t EntityPosition(entity_t *ent);
 /**< The position vector, equal to on screen draw position */
 vec2_t EntityDrawPosition(entity_t *ent);
 
+extern entity_t *gEditorEntity;
+//For Editor Use Only!
+entity_t *NexCachedEntity();
+
 #endif

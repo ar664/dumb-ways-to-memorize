@@ -88,4 +88,6 @@ void AddKVPair2StrObj(string_object_t *obj, char *key, char *data);
 void PrintStringObject(string_object_t* obj);
 void WriteStringObjectToFile(string_object_t *obj, FILE* file, int depth);
 
+extern string_object_t *editor_object;
+
 #endif
