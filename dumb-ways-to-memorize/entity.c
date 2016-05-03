@@ -546,6 +546,7 @@ void ShutdownEntitySystem()
 
 entity_t *NexCachedEntity()
 {
+	gEditorCount++;
 	if(!gEntityDictionary[gEditorCount].mName)
 	{
 		gEditorCount = 0;

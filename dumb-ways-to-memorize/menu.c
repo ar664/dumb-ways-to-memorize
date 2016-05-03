@@ -64,6 +64,7 @@ void SelectItemByNum(menu_t *self, int item)
 
 void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 {
+	entity_t *temp_ent;
 	if(!self)
 	{
 		printf("NULL menu updated \n");
@@ -112,6 +113,19 @@ void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 						printf("Game Loaded Successfully! \n");
 					}
 				}
+			}
+			if( gGameState == EDITOR)
+			{
+				gEditorEntity = (entity_t*) malloc(sizeof(entity_t));
+				temp_ent = FindCachedEntity(PLAYER_STR);
+				if(!temp_ent)
+				{
+					printf("No Player entity found, returning to main menu.");
+					gGameState = START;
+					return;
+				}
+				InitCursor();
+				memcpy(gEditorEntity, temp_ent, sizeof(entity_t));
 			}
 			break;
 		}
@@ -300,6 +314,7 @@ void UpdatePowerSelectMenu(menu_t* self, SDL_GameControllerButton button)
 					if(gGameState == PLAYING)
 					{
 						InitPlayer();
+						InitCursor();
 					}
 				}
 			}

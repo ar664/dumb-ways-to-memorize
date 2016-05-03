@@ -34,7 +34,7 @@
 		"sound(s)" : ["sound_enemy", "Audio/SoundEffect.mp3"],
 		"height" : 32,
 		"width" : 32,
-		"frames" : 1,
+		"frames" : 1
 	},
 	
 	"Gumba Enemy" :
@@ -45,7 +45,7 @@
 		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
-		"frames" : 1,
+		"frames" : 1
 	},
 	
 	"Thwomp Enemy" :
@@ -56,7 +56,7 @@
 		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
-		"frames" : 1,
+		"frames" : 1
 	},
 	
 	"Mage Enemy" : 
@@ -67,7 +67,7 @@
 		"sprite(s)" : "Sprite/Entities/BadGuy.png",
 		"height" : 32,
 		"width" : 32,
-		"frames" : 1,
+		"frames" : 1
 	},
 	
 	"Fireball" :
@@ -82,7 +82,7 @@
 		"frames" : 1,
 		"accel" : [0,0],
 		"velocity" : [0,0],
-		"comment" : "position is relative to target"
+		"comment" : "position is relative to target",
 		"comment" : "so this is 5 pixels in front of target"
 	},
 	
@@ -92,6 +92,17 @@
 		"hazard(s)" : "0",
 		"entityState" : "other",
 		"sprite(s)" : "Sprite/Level/Ground.png",
+		"height" : 32,
+		"width" : 32,
+		"frames" : 1
+	},
+	
+	"Ground Win" :
+	{
+		"collisionType" : "static",
+		"hazard(s)" : "0",
+		"entityState" : "other",
+		"sprite(s)" : "Sprite/Level/GroundWin.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,

@@ -7,7 +7,7 @@
 #include "mystrings.h"
 #include "parseobject.h"
 
-char *gGameStateStr[] = {"Splash", "Start", "Guess", "Choose", "Playing", "End", 0};
+char *gGameStateStr[] = {"Splash", "Start", "Guess", "Choose", "Playing", "Editor", "End", 0};
 
 jsmntok_t *FindKey(jsmntok_t *token, char *key, char *g_str)
 {

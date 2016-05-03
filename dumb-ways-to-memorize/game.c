@@ -593,6 +593,10 @@ void Draw()
 		}
 	case(EDITOR):
 		{
+			if(gEditorEntity->Draw)
+			{
+				gEditorEntity->Draw(gEditorEntity);
+			}
 			DrawEntities();
 			break;
 		}
@@ -817,43 +821,85 @@ void UpdatePlaying()
 }
 
 //Physics doesn't run in editor mode
+//Have to create EditorEdity
+//Initialize it with first entity
 void UpdateEditor()
 {
 	vec2_t temp_pos;
-	entity_t *temp_ent;
+	entity_t *temp_ent, *found_ent;
 	physics_t *temp_physics;
 	switch(gButtonQ)
 	{
 	case(SDL_CONTROLLER_BUTTON_DPAD_LEFT):
 		{
+			if(gEditorEntity->mPhysicsProperties->body->p.x <= 0)
+			{
+				break;
+			}
 			gEditorEntity->mPhysicsProperties->body->p.x -= 32;
 			break;
 		}
 	case(SDL_CONTROLLER_BUTTON_DPAD_RIGHT):
 		{
+			if(gEditorEntity->mPhysicsProperties->body->p.x >= gScreenWidth)
+			{
+				break;
+			}
 			gEditorEntity->mPhysicsProperties->body->p.x += 32;
 			break;
 		}
 	case(SDL_CONTROLLER_BUTTON_DPAD_DOWN):
 		{
+			if(gEditorEntity->mPhysicsProperties->body->p.y >= gScreenHeight)
+			{
+				break;
+			}
 			gEditorEntity->mPhysicsProperties->body->p.y += 32;
 			break;
 		}
 	case(SDL_CONTROLLER_BUTTON_DPAD_UP):
 		{
+			if(gEditorEntity->mPhysicsProperties->body->p.y <= 0)
+			{
+				break;
+			}
 			gEditorEntity->mPhysicsProperties->body->p.y -= 32;
 			break;
 		}
 	case(SDL_CONTROLLER_BUTTON_A):
 		{
 			temp_pos = EntityPosition(gEditorEntity);
-			if(!LookForEntityAtPos(temp_pos))
+
+			//Set Player SpawnPoint
+			if(gEditorEntity->mName)
+			{
+				if(!strcmp(PLAYER_STR, gEditorEntity->mName))
+				{
+					if(!gCurrentLevel)
+					{
+						gCurrentLevel = (level_t*) malloc(sizeof(level_t));
+						memset(gCurrentLevel, 0, sizeof(level_t));
+					}
+					gCurrentLevel->mSpawnPoint = temp_pos;
+					if(gCursor)
+					{
+						if(gCursor->mPhysicsProperties)
+						{
+							gCursor->mPhysicsProperties->body->p.x = temp_pos.x;
+							gCursor->mPhysicsProperties->body->p.y = temp_pos.y;
+						}
+					}
+					break;
+				}
+			}
+			//Check if there's an entity there already
+			found_ent = LookForEntityAtPos(temp_pos);
+			if(!found_ent)
 			{
 				temp_ent = InitNewEntity();
 				memcpy(temp_ent, gEditorEntity, sizeof(entity_t));
 				AddPhyicsToEntity(temp_ent);
 				temp_ent->mPhysicsProperties->body->p = *(cpVect*)Vec2Cp(&temp_pos);
-				AddEntityToPhysics(temp_ent);
 			}
 			break;
 		}
@@ -862,6 +908,11 @@ void UpdateEditor()
 			temp_physics = gEditorEntity->mPhysicsProperties;
 			memcpy(gEditorEntity, NexCachedEntity(), sizeof(entity_t));
 			gEditorEntity->mPhysicsProperties = temp_physics;
+			break;
+		}
+	case(SDL_CONTROLLER_BUTTON_LEFTSHOULDER):
+		{
+			break;
 		}
 	default:
 		break;

@@ -280,7 +280,7 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 power_t* FindPower(char* str)
 {
 	int i, count;
-	if(!gPowerUps)
+	if(!gPowerUps || !str)
 	{
 		printf("No PowerUps Loaded");
 		return NULL;

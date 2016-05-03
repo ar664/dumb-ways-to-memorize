@@ -92,7 +92,7 @@ SDL_GameControllerButton GetKeyboardButton()
 	KEYBOARD_BINDINGS binds[] = { LEFT_BUTTON, RIGHT_BUTTON, A_BUTTON, B_BUTTON, START_BUTTON, DOWN_BUTTON, UP_BUTTON, SAVE_BUTTON};
 	keys = (Uint8*) SDL_GetKeyboardState(NULL);
 	j = 0;
-	for( i = binds[j]; j < 7; i =binds[j])
+	for( i = binds[j]; j < 8; i =binds[j])
 	{
 		if(keys[i])
 		{

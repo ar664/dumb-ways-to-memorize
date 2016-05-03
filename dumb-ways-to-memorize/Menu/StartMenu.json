@@ -24,6 +24,11 @@
 			"text" : "Load",
 			"extra" : "Load Level",
 			"link" : "Playing"
+		},
+		{
+			"sprite" : "Sprite/UI/NESController.png",
+			"text" : "Level Editor",
+			"link" : "Editor"
 		}
 	
 	]
