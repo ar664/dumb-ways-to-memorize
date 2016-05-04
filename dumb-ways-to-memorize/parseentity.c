@@ -12,7 +12,7 @@
 //Globals
 char *ComplexVariableNames[] = {"hazard(s)", "sound(s)", "collisionType", "entityState", 0};
 char *Vector2VariableNames[] = {"accel", "velocity", "position", 0};
-char *SimpleVariableNames[] = {"sprite(s)", "health", "damage", "fps", "height", "width", "frames", 0 };
+char *SimpleVariableNames[] = {"sprite(s)", "health", "fps", "damage", "height", "width", "frames", 0 };
 
 void AddComplexMemToEnt(entity_t  *ent, entity_members_complex_t member, void *value)
 {
@@ -153,7 +153,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 				case ENTITY_MEMBER_SPRITE: spriteFiles[0] = temp_str; break;
 				case ENTITY_MEMBER_HEALTH: retVal->mHealth = StrToInt(temp_str); break;
 				case ENTITY_MEMBER_DAMAGE: retVal->mDamage = StrToInt(temp_str); break;
-				case ENTITY_MEMBER_FPS: frames_per_second = 24;
+				case ENTITY_MEMBER_FPS: frames_per_second = StrToInt(temp_str); break;
 				case ENTITY_MEMBER_HEIGHT: heights[0] = StrToInt(temp_str); break;
 				case ENTITY_MEMBER_WIDTH: widths[0] = StrToInt(temp_str); break;
 				case ENTITY_MEMBER_FRAMES: frames[0] = StrToInt(temp_str); break;
@@ -181,7 +181,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			retVal->mSprites[i]->mSize.x = widths[i];
 			retVal->mSprites[i]->mSize.y = heights[i];
 			retVal->mSprites[i]->mFrames = frames[i] ? frames[i] : 1;
-			retVal->mSprites[i]->mFramesPerSecond = frames_per_second ? frames_per_second : DRAW_FRAME_DELAY;
+			retVal->mSprites[i]->mMillisecondsPerFrame = frames_per_second ? 1000/frames_per_second : 1000/DRAW_FRAME_DELAY;
 			memset(&retVal->mSprites[i]->mAnimations[0], 0, sizeof(Frame)*MAX_ANIMATIONS);
 			if(checkFrame)
 			{

@@ -42,8 +42,9 @@ vec2_t EntityDrawPosition(entity_t *ent)
 void DrawGeneric(entity_t *self)
 {
 	vec2_t pos_vec;
-	SDL_Rect collision_dst, collision_src;
+	SDL_Rect collision_dst;
 	cpBB collision_bb;
+	int time;
 	if(!self)
 	{
 		return;
@@ -56,12 +57,10 @@ void DrawGeneric(entity_t *self)
 	{
 		pos_vec = EntityDrawPosition(self);
 		DrawSprite(self->mAnimation, self->mCurrentFrame, &pos_vec, gRenderer);
-		self->mNextFrameChange = SDL_GetTicks() - gCurrentTime;
 		if( SDL_GetTicks() > self->mNextFrameChange )
 		{
-			//Draw() Self Increments
 			self->mCurrentFrame = self->mCurrentFrame >= self->mAnimation->mFrames ? 0 : self->mCurrentFrame+1;
-			self->mNextFrameChange = SDL_GetTicks() + 1000/self->mSprites[ANIMATION_IDLE]->mFramesPerSecond;
+			self->mNextFrameChange = SDL_GetTicks() + self->mSprites[ANIMATION_IDLE]->mMillisecondsPerFrame;
 		}
 	} else
 	{
@@ -69,9 +68,8 @@ void DrawGeneric(entity_t *self)
 		DrawSprite(self->mSprites[ANIMATION_IDLE], self->mCurrentFrame, &pos_vec, gRenderer);
 		if( SDL_GetTicks() > self->mNextFrameChange )
 		{
-			//Draw() Self Increments
 			self->mCurrentFrame = self->mCurrentFrame >= self->mSprites[ANIMATION_IDLE]->mFrames ? 0 : self->mCurrentFrame+1;
-			self->mNextFrameChange = SDL_GetTicks() + 1000/self->mSprites[ANIMATION_IDLE]->mFramesPerSecond;
+			self->mNextFrameChange = SDL_GetTicks() + self->mSprites[ANIMATION_IDLE]->mMillisecondsPerFrame;
 		}
 	}
 

@@ -34,7 +34,7 @@ struct sprite_s
 	vec2_t mRawSize;					/**< The size of the image */
 	int mFrames;						/**< The number of frames in this sprite */
 	int mRefCount;						/**< Number of references, in the engine */
-	int mFramesPerSecond;				/**< The frames per second of this sprite */
+	int mMillisecondsPerFrame;				/**< The frames per second of this sprite */
 	char *name;							/**< The name of the sprite's location */
 
 };
