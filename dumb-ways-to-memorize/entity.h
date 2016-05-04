@@ -323,4 +323,6 @@ extern entity_t *gEditorEntity;
 entity_t *NexCachedEntity();
 //
 
+extern void SetAnimation(entity_t *ent, int animation);
+
 #endif

@@ -147,10 +147,10 @@ void ThinkPlayer(entity_t *self)
 	{
 		if(abs(cpBodyGetVel(self->mPhysicsProperties->body).y) < 0.5 && abs(cpBodyGetVel(self->mPhysicsProperties->body).x) < 0.5)
 		{
-			self->mAnimation = self->mSprites[ANIMATION_IDLE];
+			SetAnimation(self, ANIMATION_IDLE);
 		} else
 		{
-			self->mAnimation = self->mSprites[ANIMATION_JUMP];
+			SetAnimation(self, ANIMATION_JUMP);
 		}
 		
 	}
@@ -542,4 +542,25 @@ entity_t *NexCachedEntity()
 	{
 		return &gEntityDictionary[gEditorCount];
 	}
+}
+
+void SetAnimation(entity_t* ent, int animation)
+{
+	int temp_int;
+	if(!ent)
+	{
+		return;
+	}
+	if(!ent->mSprites || animation > MAX_ANIMATIONS)
+	{
+		return;
+	}
+	temp_int = CountMem(ent->mSprites, sizeof(char*));
+	if(ent->mSprites[animation] == ent->mAnimation || animation >= temp_int)
+	{
+		return;
+	}
+
+	ent->mAnimation = ent->mSprites[animation];
+	ent->mCurrentFrame = 0;
 }
