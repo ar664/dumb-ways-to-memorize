@@ -29,7 +29,7 @@ struct entity_s
 	int mDamage;					/**< The damage the entity should deal to other entities */
 	int mNextThink;					/**< The next time the entity should think */
 	int mCurrentFrame;				/**< The current frame of animation sprite is in */
-	int mLastFrameChange;			/**< The last time the frame was changed for the entity */
+	int mNextFrameChange;			/**< The last time the frame was changed for the entity */
 	//Uint8 mWeight;					/**< The weight boolean of the entity, if gravity affects him */
 	Uint8 mDirection;				/**< The direction entity is facing */
 	collision_type_t mCollisionType;	/**< Type of the collision the entity is */

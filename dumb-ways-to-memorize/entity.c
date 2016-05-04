@@ -56,11 +56,11 @@ void DrawGeneric(entity_t *self)
 	{
 		pos_vec = EntityDrawPosition(self);
 		DrawSprite(self->mAnimation, &self->mCurrentFrame, &pos_vec, gRenderer);
-		self->mLastFrameChange = SDL_GetTicks() - gCurrentTime;
-		if( (gCurrentTime + 1000/self->mSprites[ANIMATION_IDLE]->mFramesPerSecond) > self->mLastFrameChange)
+		self->mNextFrameChange = SDL_GetTicks() - gCurrentTime;
+		if( (gCurrentTime + 1000/self->mSprites[ANIMATION_IDLE]->mFramesPerSecond) > self->mNextFrameChange)
 		{
 			//Draw Self Increments
-			self->mLastFrameChange = SDL_GetTicks();
+			self->mNextFrameChange = SDL_GetTicks();
 		} else
 		{
 			if(self->mCurrentFrame)
@@ -72,11 +72,10 @@ void DrawGeneric(entity_t *self)
 	{
 		pos_vec = EntityDrawPosition(self);
 		DrawSprite(self->mSprites[ANIMATION_IDLE], &self->mCurrentFrame, &pos_vec, gRenderer);
-		
-		if( (gCurrentTime + 1000/self->mSprites[ANIMATION_IDLE]->mFramesPerSecond) > self->mLastFrameChange)
+		if( SDL_GetTicks() > self->mNextFrameChange )
 		{
 			//Draw() Self Increments
-			self->mLastFrameChange = SDL_GetTicks();
+			self->mNextFrameChange = SDL_GetTicks() + 1000/self->mSprites[ANIMATION_IDLE]->mFramesPerSecond;
 		} else
 		{
 			if(self->mCurrentFrame)
