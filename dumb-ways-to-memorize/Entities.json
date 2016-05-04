@@ -76,7 +76,7 @@
 		"collisionType" : "ragdoll",
 		"entityState" : "other",
 		"sound(s)" : ["sound_other", "Audio/SoundEffect.mp3"],
-		"sprite(s)" : "Sprite/Level/Ground.png",
+		"sprite(s)" : "Sprite/Power/Fireball.png",
 		"height" : 32,
 		"width" : 32,
 		"frames" : 1,

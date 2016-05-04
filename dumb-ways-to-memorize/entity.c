@@ -454,7 +454,7 @@ entity_t *LookForEntityAtPos(vec2_t position)
 	cpVect pos;
 	pos.x = position.x;
 	pos.y = position.y;
-	firstShape = cpSpacePointQueryFirst(gSpace, pos, NULL, NULL);
+	firstShape = cpSpacePointQueryFirst(gSpace, pos, 0xFFFFFFFF, NULL);
 	if(!firstShape)
 	{
 		return NULL;

@@ -36,11 +36,11 @@ struct object_s
 
 struct string_object_s
 {
+	char *name;
 	string_object_s *parent;
 	string_object_s *children;
 	char **keys;
 	char **values;
-	char *name;
 };
 
 /**

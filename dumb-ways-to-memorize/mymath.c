@@ -95,14 +95,10 @@ int CountMem(void *src, int size_type)
 int AllocateDynamic(void **dst, void *src, int size_type, int size)
 {
 	int offset = size_type/sizeof(int);
-	void *old_mem = *dst;
 	if(!dst) return -1;
+	//Realloc frees old memory
 	*dst = realloc(*dst, size_type*(size+1));
 	if(!*dst) return -1;
-	if(old_mem != *dst)
-	{
-		//if(old_mem) free(old_mem);
-	}
 	src ? memcpy((int*)(*dst)+(size-1)*offset, src, size_type) : memset((int*)(*dst)+(size-1)*offset, 0, size_type);
 	memset((int*)(*dst)+(size)*offset, 0, size_type);
 	return 0;

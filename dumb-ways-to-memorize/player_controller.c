@@ -78,6 +78,7 @@ SDL_GameControllerButton KeyToButton(SDL_Scancode key)
 	case(RIGHT_BUTTON): return SDL_CONTROLLER_BUTTON_DPAD_RIGHT; 
 	case(START_BUTTON): return SDL_CONTROLLER_BUTTON_START; 
 	case(SAVE_BUTTON): return SDL_CONTROLLER_BUTTON_RIGHTSHOULDER; 
+	case(LTRIG_BUTTON): return SDL_CONTROLLER_BUTTON_LEFTSHOULDER;
 	default:
 		break;
 	}
@@ -89,10 +90,10 @@ SDL_GameControllerButton GetKeyboardButton()
 	const Uint8 *keys;
 	int j;
 	KEYBOARD_BINDINGS i;
-	KEYBOARD_BINDINGS binds[] = { LEFT_BUTTON, RIGHT_BUTTON, A_BUTTON, B_BUTTON, START_BUTTON, DOWN_BUTTON, UP_BUTTON, SAVE_BUTTON};
+	KEYBOARD_BINDINGS binds[] = { LEFT_BUTTON, RIGHT_BUTTON, A_BUTTON, B_BUTTON, START_BUTTON, DOWN_BUTTON, UP_BUTTON, SAVE_BUTTON, LTRIG_BUTTON};
 	keys = (Uint8*) SDL_GetKeyboardState(NULL);
 	j = 0;
-	for( i = binds[j]; j < 8; i =binds[j])
+	for( i = binds[j]; j < 9; i =binds[j])
 	{
 		if(keys[i])
 		{

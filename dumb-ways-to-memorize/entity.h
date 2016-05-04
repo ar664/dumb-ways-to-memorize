@@ -321,5 +321,6 @@ vec2_t EntityDrawPosition(entity_t *ent);
 extern entity_t *gEditorEntity;
 //For Editor Use Only!
 entity_t *NexCachedEntity();
+//
 
 #endif

@@ -1,3 +1,4 @@
+#include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
@@ -50,6 +51,32 @@ char * JsmnToString(jsmntok_t *token, char *g_str)
 	strncpy( retVal, &g_str[token->start], size);
 	retVal[size] = 0;
 	return retVal;
+}
+
+char *Ints2Str(int num_ints, ...)
+{
+	va_list args;
+	int i;
+	char temp_str[32];
+	char *ret_str = (char*)malloc(sizeof(char)*256);
+	memset(ret_str, 0, sizeof(char)*256);
+	memset(temp_str, 0, sizeof(char)*32);
+	va_start(args, num_ints);
+	ret_str[0] = '['; ret_str[1] = NULL;
+	for(i = 0; i < num_ints; i++)
+	{
+		sprintf(temp_str, "%d", va_arg(args, int));
+		strcat(ret_str, temp_str);
+		if(i == (num_ints-1))
+		{
+			continue;
+		}
+		strcat(ret_str, ",");
+	}
+	va_end(args);
+	strcat(ret_str, "]");
+	return ret_str;
+
 }
 
 char* FindValue(struct object_s* obj, char* key, char* g_str)

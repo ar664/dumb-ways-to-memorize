@@ -299,7 +299,7 @@ void AddObject2StrObj(string_object_t *obj, string_object_t *data)
 	{
 		return;
 	}
-	objects = CountMem(obj->children, sizeof(string_object_t));
+	objects = CountMem(obj->children, sizeof(string_object_t)) + 1;
 	AllocateDynamic((void**)&obj->children, (void*)data, sizeof(string_object_t), objects);
 }
 
@@ -310,7 +310,7 @@ void AddValue2StrObj(string_object_t *obj, char *data)
 	{
 		return;
 	}
-	items = CountMem(obj->values, sizeof(char*));
+	items = CountMem(obj->values, sizeof(char*)) + 1;
 	AllocateDynamic((void**)&obj->values, (void*)&data, sizeof(char*), items);
 }
 
@@ -321,7 +321,7 @@ void AddKVPair2StrObj(string_object_t *obj, char *key, char *data)
 	{
 		return;
 	}
-	check = CountMem(obj->values, sizeof(char*)) + CountMem(obj->keys, sizeof(char*));
+	check = CountMem(obj->values, sizeof(char*)) + CountMem(obj->keys, sizeof(char*)) + 2;
 	if( !(check%2) )
 	{
 		AllocateDynamic((void**)&obj->keys, (void*)&key, sizeof(char*), check/2);
@@ -414,9 +414,10 @@ void WriteStringObjectToFile(string_object_t *obj, FILE* file, int depth)
 		return;
 	}
 	object_count = 1+ CountMem(obj->children, sizeof(string_object_t));
+	memset(depth_tab, 0, sizeof(char)*32);
 	for(i = 0; i < depth; i++)
 	{
-		depth_tab[i] = '/t';
+		depth_tab[i] = '\t';
 	}
 	depth_tab[i] = NULL;
 	for(i = 0; i < object_count; i++)
@@ -458,5 +459,12 @@ void WriteStringObjectToFile(string_object_t *obj, FILE* file, int depth)
 	{
 		fprintf(file, depth_tab);
 	}
-	fprintf(file, "} \n");
+	if(depth != 0)
+	{
+		fprintf(file, "}, \n");
+	}else
+	{
+		fprintf(file, "} \n");
+	}
+	
 }

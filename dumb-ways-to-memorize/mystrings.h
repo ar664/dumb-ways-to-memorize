@@ -140,4 +140,10 @@ jsmntok_t * FindKey(jsmntok_t *token, char *key, char *g_str);
  */
 int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStorage, jsmntok_t **jsmnStorage);
 
+//For Saving Level Editor
+//Returns str = "[x1,x2,...]"
+//Max characters = 256
+char *Ints2Str(int num_ints, ...);
+
+
 #endif

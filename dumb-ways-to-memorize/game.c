@@ -825,9 +825,13 @@ void UpdatePlaying()
 //Initialize it with first entity
 void UpdateEditor()
 {
+	int i, x, y;
 	vec2_t temp_pos;
 	entity_t *temp_ent, *found_ent;
 	physics_t *temp_physics;
+	string_object_t *temp_str_obj, *ent_str_obj;
+	FILE *file;
+	char *temp_str;
 	switch(gButtonQ)
 	{
 	case(SDL_CONTROLLER_BUTTON_DPAD_LEFT):
@@ -900,6 +904,7 @@ void UpdateEditor()
 				memcpy(temp_ent, gEditorEntity, sizeof(entity_t));
 				AddPhyicsToEntity(temp_ent);
 				temp_ent->mPhysicsProperties->body->p = *(cpVect*)Vec2Cp(&temp_pos);
+				AddEntityToPhysics(temp_ent);
 			}
 			break;
 		}
@@ -912,6 +917,49 @@ void UpdateEditor()
 		}
 	case(SDL_CONTROLLER_BUTTON_LEFTSHOULDER):
 		{
+			temp_str_obj = (string_object_t*) malloc(sizeof(string_object_t));
+			memset(temp_str_obj, 0, sizeof(string_object_t));
+			file = fopen("auto_level.txt", "w");
+			AddKVPair2StrObj(temp_str_obj, G_NAME_STR, "Auto Created Level" );
+			if(gCurrentLevel)
+			{
+				temp_str = Ints2Str(2, gCurrentLevel->mSpawnPoint.x, gCurrentLevel->mSpawnPoint.y );
+				if(temp_str)
+				{
+					AddKVPair2StrObj(temp_str_obj, LevelGlobalObjectNames[LEVEL_G_OBJECT_SPAWN], temp_str);
+				}
+
+			}
+			for(i = 0; i < MAX_ENTITIES; i++)
+			{
+				if(!gEntities[i].mName || !gEntities[i].mPhysicsProperties)
+				{
+					continue;
+				}
+				ent_str_obj = (string_object_t*) malloc(sizeof(string_object_t));
+				if(!ent_str_obj)
+				{
+					printf("Failure to record %s in level editor. Malloc error. \n", gEntities[i].mName);
+					continue;
+				}
+				memset(ent_str_obj, 0, sizeof(string_object_t));
+				ent_str_obj->name = gEntities[i].mName;
+				AddKVPair2StrObj(ent_str_obj, LevelLocalObjectNames[LEVEL_L_OBJECT_OBJECT], gEntities[i].mName );
+				x = gEntities[i].mPhysicsProperties->body->p.x;
+				y = gEntities[i].mPhysicsProperties->body->p.y;
+				temp_str = Ints2Str(2, x, y);
+				if(!temp_str)
+				{
+					printf("Failure to record %s's position in level editor. \n", gEntities[i].mName);
+					continue;
+				}
+				AddKVPair2StrObj(ent_str_obj, LevelLocalOptionNames[LEVEL_L_OPTION_POSITION], temp_str);
+				AddObject2StrObj(temp_str_obj, ent_str_obj);
+			}
+
+			WriteStringObjectToFile(temp_str_obj, file, 0);
+			fclose(file);
+			ResetGame();
 			break;
 		}
 	default:
