@@ -108,7 +108,7 @@ int CompareMemToMemArray(void *mem, void *mem_array, int size_type, int size_arr
 {
 	int i, offset;
 	int *memory = (int*) mem_array;
-	offset = size_type;
+	offset = size_type/sizeof(int);
 	for(i = 0; i < size_array; i++)
 	{
 		if(!memcmp(mem, memory, size_type))

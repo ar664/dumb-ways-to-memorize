@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#include "dumb_physics.h"
 #include "parsepowerup.h"
 #include "parselevel.h"
 #include "player.h"

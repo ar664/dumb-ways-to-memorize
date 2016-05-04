@@ -83,6 +83,10 @@ char* FindValue(struct object_s* obj, char* key, char* g_str)
 {
 	int i, keys, objects;
 	char *temp_str;
+	if(!obj || !key || !g_str)
+	{
+		return NULL;
+	}
 	keys = CountMem(obj->keys, sizeof(jsmntok_t));
 	objects = CountMem(obj->children, sizeof(object_t));
 	//Iterate through keys
@@ -381,7 +385,7 @@ char *GameStateToStr(GameState game_state)
 int StrToHazard(char *str)
 {
 	int i, length;
-	if(!str)
+	if(!str || !Hazards_str)
 		return 0;
 	length = CountMem(Hazards_str, sizeof(char*));
 	for(i = 0; i < length; i++)

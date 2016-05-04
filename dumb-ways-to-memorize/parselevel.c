@@ -76,13 +76,15 @@ int LoadGameState()
 	{
 		return -1;
 	}
-	//Read Position
+	//Open File
 	file = fopen(SAVE_FILE, "rb");
 	if(!file)
 	{
 		printf("Could not open save file. \n");
 		return -1;
 	}
+
+	//Read Position
 	fread(&player_pos.x, sizeof(int), 1, file);
 	fread(&player_pos.y, sizeof(int), 1, file);
 	if(fgetc(file) != '\n' )
@@ -93,21 +95,23 @@ int LoadGameState()
 	//Read Levels
 	// Get Level Name
 	i = 0;
-	while( (buffer[i] = fgetc(file)) != ' ')
+	while( !feof(file) )
 	{
-		if(buffer[i] == EOF)
+		buffer[i] = fgetc(file);
+		if(i > 127)
 		{
 			return -1;
 		}
+		if(buffer[i] == ' ')
+		{
+			break;
+		}
 		i++;
 	}
-	if(i > 128)
-	{
-		return -1;
-	}
+
 	memcpy(level_name, buffer, sizeof(char)*i);
 	level_name[i] = NULL;
-	memset(buffer, 0, sizeof(char)*255);
+	memset(buffer, 0, sizeof(char)*256);
 
 	//Get Level Count
 	levels = fgetc(file);
@@ -120,27 +124,33 @@ int LoadGameState()
 	{
 		j = 0;
 		//Get Level File Locations
-		while( (buffer[j] = fgetc(file)) != '\n' )
+		while( !feof(file) )
 		{
-			if(buffer[j] == EOF || j > 255)
+			buffer[j] = fgetc(file);
+			if(j > 255)
 			{
 				return -1;
+			}
+			if(buffer[j] == '\n')
+			{
+				break;
 			}
 			j++;
 		}
 		buffer[j] = NULL;
 		temp_str = (char*) malloc(sizeof(char)*(j+1));
+		memset(temp_str, 0, sizeof(char)*j);
 		if(!temp_str)
 		{
 			return -1;
 		}
-		memcpy(temp_str, buffer, sizeof(char*)*j);
+		memcpy(temp_str, buffer, sizeof(char)*j);
 		temp_str[j] = NULL;
 		//Add to selected levels
 		gSelectedLevels[i] = temp_str;
-		memset(buffer, 0, sizeof(char)*255);
+		memset(buffer, 0, sizeof(char)*256);
 	}
-	gSelectedLevels[i] = NULL;
+	gSelectedLevels[levels] = NULL;
 
 	powers = fgetc(file);
 	if( fgetc(file) != '\n' )
@@ -150,26 +160,33 @@ int LoadGameState()
 
 	used_powers = 0;
 	gSelectedPowerUps = (char**) malloc(sizeof(char*)*(powers+1));
+	gUsedPowerUps = (char**) malloc(sizeof(char*)*(powers+1));
 	for(i = 0; i < powers; i++)
 	{
 		j = 0;
-		while( (buffer[j] = fgetc(file)) != ' ')
+		while( !feof(file) )
 		{
-			if(buffer[j] == EOF || j > 255)
+			buffer[j] = fgetc(file);
+			if(j > 255)
 			{
 				return -1;
+			}
+			if(buffer[j] == ' ')
+			{
+				break;
 			}
 			j++;
 		}
 		buffer[j] = NULL;
-		temp_str = (char*) malloc(sizeof(char)*(j+1));
+		temp_str = (char*) malloc(sizeof(char)*j);
+		memset(temp_str, 0, sizeof(char)*j);
 		if(!temp_str)
 		{
 			return -1;
 		}
-		memcpy(temp_str, buffer, sizeof(char*)*j);
+		memcpy(temp_str, buffer, sizeof(char)*(j-1));
 		gSelectedPowerUps[i] = temp_str;
-		memset(buffer, 0, sizeof(char)*255);
+		memset(buffer, 0, sizeof(char)*256);
 		if(fgetc(file) == '1')
 		{
 			gUsedPowerUps[used_powers] = gSelectedPowerUps[i];
@@ -181,6 +198,7 @@ int LoadGameState()
 		}
 
 	}
+	gUsedPowerUps[powers] = NULL;
 
 	for(i = 0; i < levels; i++)
 	{
@@ -200,6 +218,15 @@ int LoadGameState()
 			break;
 		}
 	}
+	//Add in the player
+	InitPlayer();
+	InitCursor();
+	if(!gPlayer || !gCursor)
+	{
+		return -1;
+	}
+	gPlayer->mPhysicsProperties->body->p.x = player_pos.x;
+	gPlayer->mPhysicsProperties->body->p.y = player_pos.y;
 	return 0;
 }
 
@@ -314,7 +341,8 @@ int SaveGameState()
 	FILE *file;
 	vec2_t temp_pos;
 	int i, j, levels, power_ups, used_power_ups, used_bool;
-	if(!gCurrentLevel || !gSelectedLevels || !gUsedPowerUps || !gSelectedPowerUps)
+	char buffer_int[32];
+	if(!gCurrentLevel || !gSelectedLevels || !gUsedPowerUps || !gSelectedPowerUps || !gPlayer)
 	{
 		return -1;
 	}
@@ -326,7 +354,15 @@ int SaveGameState()
 		return -1;
 	}
 	
+	//Get Position
+	temp_pos.x = gPlayer->mPhysicsProperties->body->p.x;
+	temp_pos.y = gPlayer->mPhysicsProperties->body->p.y;
+
 	//Write Position
+	/* Could be useable code
+	memset(buffer_int, 0, sizeof(char)*32);
+	sprintf(buffer_int, "%d", temp_pos.x);
+	*/
 	fwrite(&temp_pos.x, sizeof(int), 1, file);
 	fwrite(&temp_pos.y, sizeof(int), 1, file);
 	fprintf(file , "\n");

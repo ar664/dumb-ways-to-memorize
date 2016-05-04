@@ -297,7 +297,7 @@ int LoadMenuData()
  */
 int SelectLevels()
 {
-	int i, rand_i, *no_repeats, type_i;
+	int i, rand_i, *no_repeats;
 	int levels = 0;
 
 	//Count 
@@ -305,24 +305,19 @@ int SelectLevels()
 	{
 		levels++;
 	}
-	type_i = sizeof(int);
 
 	//Alloc
-	gSelectedLevels = (char**) malloc(sizeof(char*)*levels+1);
+	gSelectedLevels = (char**) malloc(sizeof(char*)*(levels+1));
 	no_repeats = (int*) malloc(sizeof(int)*(levels+1));
 	if(!gSelectedLevels) return -1;
 	if(!no_repeats) return -1;
 	
 	//Select
-	memset(no_repeats, 0, sizeof(int));
-	for (i = 0; i < gLevelsPerGame; i++)
+	memset(no_repeats, -1, sizeof(int)*levels);
+	for (i = 0; i < levels; i++)
 	{
 		rand_i = rand()%levels;
-		if(i >= levels)
-		{
-			break;
-		}
-		while(!CompareMemToMemArray(&rand_i, no_repeats, type_i, levels ))
+		while(!CompareMemToMemArray(&rand_i, no_repeats, sizeof(int), levels ))
 		{
 			rand_i = rand()%levels;
 		}
