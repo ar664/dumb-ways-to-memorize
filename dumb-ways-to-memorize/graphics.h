@@ -30,7 +30,8 @@ struct sprite_s
 {
 	Frame mAnimations[MAX_ANIMATIONS];  /**< The animation positions of the given sprite*/
 	SDL_Texture *mTexture;				/**< The texture of the sprite */
-	vec2_t mSize;						/**< The size of the sprite width + height */
+	vec2_t mSize;						/**< The size of the sprite frames */
+	vec2_t mRawSize;					/**< The size of the image */
 	int mFrames;						/**< The number of frames in this sprite */
 	int mRefCount;						/**< Number of references, in the engine */
 	int mFramesPerSecond;				/**< The frames per second of this sprite */

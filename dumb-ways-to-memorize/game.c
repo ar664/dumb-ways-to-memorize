@@ -122,6 +122,11 @@ int LoadEntityData()
 			if(!temp_ent) continue;
 
 			pos_ent = FindNextFreeCachePos();
+			if(!pos_ent)
+			{
+				printf("Out of Cache Positions for ents");
+				break;
+			}
 			memcpy(pos_ent, temp_ent, sizeof(entity_t));
 
 			//if(temp) free(temp);
@@ -131,6 +136,11 @@ int LoadEntityData()
 			if(!temp_ent) continue;
 
 			pos_ent = FindNextFreeCachePos();
+			if(!pos_ent)
+			{
+				printf("Out of Cache Positions for ents");
+				break;
+			}
 			memcpy(pos_ent, temp_ent, sizeof(entity_t));
 			//if(temp) free(temp);
 		}

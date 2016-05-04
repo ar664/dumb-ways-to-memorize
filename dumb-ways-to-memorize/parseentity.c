@@ -177,12 +177,17 @@ entity_t* ParseToEntity(object_t* object, char* str)
 		{
 			if(!retVal->mSprites[i])
 				break;
-			checkFrame = LoadAnimation(widths[i], heights[i], retVal->mSprites[i]->mSize.x, retVal->mSprites[i]->mSize.y);
+			checkFrame = LoadAnimation(widths[i], heights[i], retVal->mSprites[i]->mRawSize.x, retVal->mSprites[i]->mRawSize.y);
 			retVal->mSprites[i]->mSize.x = widths[i];
 			retVal->mSprites[i]->mSize.y = heights[i];
 			retVal->mSprites[i]->mFrames = frames[i] ? frames[i] : 1;
 			retVal->mSprites[i]->mFramesPerSecond = frames_per_second ? frames_per_second : DRAW_FRAME_DELAY;
-			memcpy(&retVal->mSprites[i]->mAnimations, checkFrame, sizeof(Frame)*retVal->mSprites[i]->mFrames);
+			memset(&retVal->mSprites[i]->mAnimations[0], 0, sizeof(Frame)*MAX_ANIMATIONS);
+			if(checkFrame)
+			{
+				memcpy(&retVal->mSprites[i]->mAnimations[0], checkFrame, sizeof(Frame)*(retVal->mSprites[i]->mFrames+1));
+			}
+			if(checkFrame) free(checkFrame);
 		}
 	}
 

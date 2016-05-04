@@ -14,6 +14,7 @@ int gPlayerLives = 3;
 void InitPlayer()
 {
 	cpVect *cpPos;
+	entity_t *ent;
 	if(!gPlayer)
 	{
 		gPlayer = InitNewEntity();
@@ -25,7 +26,14 @@ void InitPlayer()
 		exitRequest = 1;
 		return;
 	}
-	memcpy(gPlayer,FindCachedEntity(PLAYER_STR), sizeof(entity_t));
+	ent = FindCachedEntity(PLAYER_STR);
+	if(!ent)
+	{
+		printf("Could not Init Player");
+		exitRequest = 1;
+		return;
+	}
+	memcpy(gPlayer, ent, sizeof(entity_t));
 	if(gPlayerLives < 1)
 	{
 		gPlayerLives = PLAYER_LIVES;
@@ -53,6 +61,7 @@ void InitPlayer()
 
 void InitCursor()
 {
+	entity_t *ent;
 	if(!gCursor)
 	{
 		gCursor = InitNewEntity();
@@ -65,7 +74,13 @@ void InitCursor()
 		return;
 	}
 
-	memcpy(gCursor,FindCachedEntity(CURSOR_STR), sizeof(entity_t));
+	SDL_ShowCursor(false);
+	ent = FindCachedEntity(CURSOR_STR);
+	if(!ent)
+	{
+		return;
+	}
+	memcpy(gCursor, ent, sizeof(entity_t));
 
 	cpBodySetPos(gCursor->mPhysicsProperties->body, cpvzero);
 	gCursor->Think = ThinkCursor;

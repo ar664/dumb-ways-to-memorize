@@ -138,8 +138,8 @@ sprite_t *LoadSprite(const char *name, int flags)
 		printf("Could not load image : %s \n", name);
 		return NULL;
 	}
-	check->mSize.x = temp->w;
-	check->mSize.y = temp->h;
+	check->mRawSize.x = temp->w;
+	check->mRawSize.y = temp->h;
 	check->mTexture = SDL_CreateTextureFromSurface(gRenderer, temp);
 	check->name = strdup(name);
 	check->mRefCount = 1;
