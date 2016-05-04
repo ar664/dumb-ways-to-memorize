@@ -152,7 +152,7 @@ sprite_t *LoadSprite(const char *name, int flags)
 	return check;
 }
 
-int DrawSprite(sprite_t *sprite, int* frame, vec2_t * position, SDL_Renderer * renderer)
+int DrawSprite(sprite_t *sprite, int frame, vec2_t * position, SDL_Renderer * renderer)
 {
 	SDL_Rect src, dst;
 	int zero = 0;
@@ -161,18 +161,8 @@ int DrawSprite(sprite_t *sprite, int* frame, vec2_t * position, SDL_Renderer * r
 		printf("Null sprite given \n");
 		return -1;
 	}
-	if(!frame)
-	{
-		frame = &zero;
-	}
-	if( *frame >= sprite->mFrames )
-	{
-		*frame = 0;
-	}
 
-	SDL_SetRect(&src, sprite->mAnimations[*frame].Position.x, sprite->mAnimations[*frame].Position.y, sprite->mSize.x, sprite->mSize.y);
-	
-	*frame = *frame+1;
+	SDL_SetRect(&src, sprite->mAnimations[frame].Position.x, sprite->mAnimations[frame].Position.y, sprite->mSize.x, sprite->mSize.y);
 
 	if(!position)
 	{
