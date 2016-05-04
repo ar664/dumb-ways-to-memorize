@@ -974,7 +974,14 @@ void UpdateEditor()
 
 void ResetGame()
 {
-	printf("You died, Game over. Start a new game");
+	if(gPlayerLives < 1)
+	{
+		printf("You died, Game over. Start a new game \n");
+	} else
+	{
+		printf("Returning to main menu... \n");
+	}
+	
 	FreeEntity(gPlayer);
 	FreeNonPlayerEntities();
 	gPlayerLives = PLAYER_LIVES;

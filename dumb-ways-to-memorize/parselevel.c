@@ -161,6 +161,8 @@ int LoadGameState()
 	used_powers = 0;
 	gSelectedPowerUps = (char**) malloc(sizeof(char*)*(powers+1));
 	gUsedPowerUps = (char**) malloc(sizeof(char*)*(powers+1));
+	memset(gSelectedPowerUps, 0, sizeof(char*)*(powers+1));
+	memset(gUsedPowerUps, 0, sizeof(char*)*(powers+1));
 	for(i = 0; i < powers; i++)
 	{
 		j = 0;

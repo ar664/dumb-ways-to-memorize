@@ -108,10 +108,15 @@ void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 			{
 				if(!strcmp((char*)self->mSelectedItem[gCurrentSelectedItem].Info, MENU_EXTRA_LOAD_LEVEL))
 				{
-					printf("Loading save state");
+					printf("Loading save state \n");
 					if(LoadGameState() == 0)
 					{
 						printf("Game Loaded Successfully! \n");
+					} else
+					{
+						printf("Game could not be successfully loaded \n");
+						gGameState = START;
+						return;
 					}
 				}
 			}
