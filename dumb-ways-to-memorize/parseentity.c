@@ -12,7 +12,7 @@
 //Globals
 char *ComplexVariableNames[] = {"hazard(s)", "sound(s)", "collisionType", "entityState", 0};
 char *Vector2VariableNames[] = {"accel", "velocity", "position", 0};
-char *SimpleVariableNames[] = {"sprite(s)", "health", "fps", "damage", "height", "width", "frames", 0 };
+char *SimpleVariableNames[] = {"sprite(s)", "health", "weight", "fps", "damage", "height", "width", "frames", 0 };
 
 void AddComplexMemToEnt(entity_t  *ent, entity_members_complex_t member, void *value)
 {
@@ -97,7 +97,7 @@ void AddSpritesToEnt(entity_t *ent, char **files, int size)
 entity_t* ParseToEntity(object_t* object, char* str)
 {
 	int i, j, position, size, heights[MAX_ANIMATIONS] = {0}, widths[MAX_ANIMATIONS] = {0}, frames[MAX_ANIMATIONS] = {0};
-	int frames_per_second;
+	int frames_per_second, weight;
 	cpVect checkVect;
 	char **spriteFiles, *temp_str;
 	entity_t *retVal;
@@ -105,6 +105,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	jsmntok_t *checkTok = NULL;
 	object_t *checkObj = NULL;
 	frames_per_second = 0;
+	weight = 0;
 	if(!object || !str)
 		return NULL;
 	retVal = (entity_t*) malloc(sizeof(entity_t));
@@ -152,6 +153,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 				{
 				case ENTITY_MEMBER_SPRITE: spriteFiles[0] = temp_str; break;
 				case ENTITY_MEMBER_HEALTH: retVal->mHealth = StrToInt(temp_str); break;
+				case ENTITY_MEMBER_WEIGHT: weight = StrToInt(temp_str); break;
 				case ENTITY_MEMBER_DAMAGE: retVal->mDamage = StrToInt(temp_str); break;
 				case ENTITY_MEMBER_FPS: frames_per_second = StrToInt(temp_str); break;
 				case ENTITY_MEMBER_HEIGHT: heights[0] = StrToInt(temp_str); break;
@@ -165,36 +167,35 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	
 	AddSpritesToEnt(retVal, spriteFiles, CountMem(spriteFiles, sizeof(char*)));
 
-	if(retVal->mSprites)
+	if(!retVal->mSprites || !retVal->mSprites[0])
 	{
-		if(retVal->mSprites[0] && retVal->mPhysicsProperties)
+		printf("Could not load sprites for entity: %s \n", retVal->mName);
+		return NULL;
+	}
+
+	for(i = 0; retVal->mSprites[i]; i++)
+	{
+		if(!retVal->mSprites[i])
+			break;
+		checkFrame = LoadAnimation(widths[i], heights[i], retVal->mSprites[i]->mRawSize.x, retVal->mSprites[i]->mRawSize.y);
+		retVal->mSprites[i]->mSize.x = widths[i] ? widths[i] : retVal->mSprites[i]->mRawSize.y;
+		retVal->mSprites[i]->mSize.y = heights[i] ? heights[i] : retVal->mSprites[i]->mRawSize.y;
+		retVal->mSprites[i]->mFrames = frames[i] ? frames[i] : 1;
+		retVal->mSprites[i]->mMillisecondsPerFrame = frames_per_second ? 1000/frames_per_second : 1000/DRAW_FRAME_DELAY;
+		memset(&retVal->mSprites[i]->mAnimations[0], 0, sizeof(Frame)*MAX_ANIMATIONS);
+		if(checkFrame)
 		{
-			checkVect.x = retVal->mPhysicsProperties->body->p.x + retVal->mSprites[0]->mSize.x/2;
-			checkVect.y = retVal->mPhysicsProperties->body->p.y + retVal->mSprites[0]->mSize.y/2;
-			cpBodySetPos(retVal->mPhysicsProperties->body, checkVect);
+			memcpy(&retVal->mSprites[i]->mAnimations[0], checkFrame, sizeof(Frame)*(retVal->mSprites[i]->mFrames+1));
 		}
-		for(i = 0; retVal->mSprites[i]; i++)
-		{
-			if(!retVal->mSprites[i])
-				break;
-			checkFrame = LoadAnimation(widths[i], heights[i], retVal->mSprites[i]->mRawSize.x, retVal->mSprites[i]->mRawSize.y);
-			retVal->mSprites[i]->mSize.x = widths[i];
-			retVal->mSprites[i]->mSize.y = heights[i];
-			retVal->mSprites[i]->mFrames = frames[i] ? frames[i] : 1;
-			retVal->mSprites[i]->mMillisecondsPerFrame = frames_per_second ? 1000/frames_per_second : 1000/DRAW_FRAME_DELAY;
-			memset(&retVal->mSprites[i]->mAnimations[0], 0, sizeof(Frame)*MAX_ANIMATIONS);
-			if(checkFrame)
-			{
-				memcpy(&retVal->mSprites[i]->mAnimations[0], checkFrame, sizeof(Frame)*(retVal->mSprites[i]->mFrames+1));
-			}
-			if(checkFrame) free(checkFrame);
-		}
+		if(checkFrame) free(checkFrame);
 	}
 
 	if(!AddPhyicsToEntity(retVal))
 	{
-		printf("Could not add entity to physics \n");
+		printf("Could not add entity %s to physics \n", retVal->mName);
+		return NULL;
 	}
+	cpBodySetMass(retVal->mPhysicsProperties->body, (float) (weight ? weight : 1));
 
 	for(i = 0; Vector2VariableNames[i]; i++)
 	{

@@ -33,6 +33,8 @@ void NothingAI(entity_t *ent)
 	}
 	flags = ent->mData->mFlags;
 
+	EntitySetAnimation(ent, ANIMATION_IDLE);
+
 	//Standard Vars
 	if(ent->mCollisionType != COLLISION_TYPE_RAGDOLL)
 	{
@@ -194,11 +196,11 @@ void JumpAI(entity_t *ent)
 	{
 		temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 		temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
-		//TODO: normalize temp_vec2
 		Vec2MultiplyScalar(&temp_vec2,ent->mData->mVariables[AI_VAR_SPEED],&temp_vec2);
 		cp_temp = (cpVect*) Vec2Cp(&temp_vec2);
 		cp_vect = cp_temp ? *cp_temp : cpvzero;
 		cpBodyApplyImpulse(ent->mPhysicsProperties->body, cp_vect, cpvzero);
+		if(cp_temp) free(cp_temp);
 		
 	}
 
@@ -452,7 +454,7 @@ ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
 		{
 			temp_str = FindValue(&temp_obj->children[i], gAI_Variables[j] ,g_str);
 			
-			SetAI_Var(&retVal[i], temp_str, (ai_variables_t)j );
+			SetAI_Var(&retVal[i], temp_str, (ai_variables_t)(j+1) );
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
 		}

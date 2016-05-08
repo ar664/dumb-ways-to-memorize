@@ -1,6 +1,7 @@
+#include "dumb_ui.h"
 #include "parseobject.h"
 #include "mystrings.h"
-#include "dumb_ui.h"
+
 
 sprite_t *gUI_Sprite_Health;
 vec2_t gUI_Health_Pos = {0,0};

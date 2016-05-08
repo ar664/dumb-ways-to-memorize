@@ -294,6 +294,12 @@ void UpdatePowerSelectMenu(menu_t* self, SDL_GameControllerButton button)
 		{
 			if(self->mSelectedItem->State != MENU_ITEM_STATE_NULL)
 			{
+				if(!gSelectedPowerUps)
+				{
+					printf("No power ups selected \n" );
+					gGameState = GUESS;
+					break;
+				}
 				powerUps = CountMem(gSelectedPowerUps, sizeof(char*));
 				for(i = 0; i < powerUps; i++)
 				{	
@@ -620,12 +626,17 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	//Load extra items
 	if(!strcmp(type_str, MENU_TYPE_STR_CHOOSE))
 	{
-		
+		if(!gSelectedPowerUps)
+		{
+			printf("Trouble loading choose menu, no power ups selected \n");
+			return NULL;
+		}
 		choose_i = CountMem(gSelectedPowerUps, sizeof(char*));
 		ref_menu = FindMenuFromGameState(GUESS);
 		if(!ref_menu)
 		{
 			printf("Trouble loading choose menu , no GUESS menu found \n");
+			return NULL;
 		}
 		else
 		{
@@ -634,6 +645,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 				ref_menu_item = FindMenuItem(ref_menu, gSelectedPowerUps[i]);
 				if(!ref_menu_item)
 				{
+					printf("Could not load powerup : %s \n", gSelectedPowerUps[i]);
 					continue;
 				}
 				memcpy(&menu->mItems[menu->mItemCount+i], ref_menu_item, sizeof(menu_item_t));
@@ -705,21 +717,27 @@ menu_t* FindFreeMenu()
 		return NULL;
 	}
 	menuCmp = (int*) malloc(sizeof(menu_t));
+	if(!menuCmp)
+	{
+		return NULL;
+	}
 	memset(menuCmp, 0, sizeof(menu_t));
 	for(i = 0; i < MAX_MENUS; i++)
 	{
 		if(!memcmp(menuCmp, &gMenus[i], sizeof(menu_t)))
 		{
+			if(menuCmp) free(menuCmp);
 			return &gMenus[i];
 		}
 	}
+	if(menuCmp) free(menuCmp);
 	return NULL;
 }
 
 menu_item_t* FindMenuItem(menu_t* menu, char* item)
 {
 	int i, items;
-	items = CountMem(menu->mItems, sizeof(menu_item_t));
+	items = menu->mItemCount;
 	for(i = 0; i < items; i++)
 	{
 		if(!menu->mItems[i].Name)

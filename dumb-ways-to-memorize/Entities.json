@@ -29,42 +29,46 @@
 	"Flying Enemy" :
 	{
 		"health" : 50,
+		"hazard(s)" : "flying",
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
-		"sprite(s)" : "Sprite/Entities/BadGuy.png",
+		"sprite(s)" : ["Sprite/Entities/Dumb_Enemy_Flying_Idle.png", "Sprite/Entities/Dumb_Enemy_Flying_Walking.png"],
 		"sound(s)" : ["sound_enemy", "Audio/SoundEffect.mp3"],
-		"height" : 32,
-		"width" : 32,
-		"frames" : 1
+		"height" : [68, 64],
+		"width" : [50, 60],
+		"frames" : [3, 2]
 	},
 	
 	"Gumba Enemy" :
 	{
 		"health" : 20,
+		"hazard(s)" : "0",
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
+		"sprite(s)" : ["Sprite/Entities/Dumb_Enemy_Standard_Idle.png", "Sprite/Entities/Dumb_Enemy_Standard_Idle_2.png", "Sprite/Entities/Dumb_Enemy_Standard_Idle_2.png",  "Sprite/Entities/Dumb_Enemy_Standard_Attack.png", "Sprite/Entities/Dumb_Enemy_Standard_Hurt.png"],
 		"sound(s)" : ["sound_enemy", "Audio/SoundEffect.mp3"],
-		"sprite(s)" : "Sprite/Entities/BadGuy.png",
-		"height" : 32,
-		"width" : 32,
-		"frames" : 1
+		"height" : [42, 40, 40, 42, 36],
+		"width" : [32, 32, 32, 32, 32],
+		"frames" : [1, 1, 1, 4, 1]
 	},
 	
 	"Thwomp Enemy" :
 	{
 		"health" : 1000,
-		"collisionType" : "static",
+		"hazard(s)" : "spike",
+		"collisionType" : "ragdoll",
 		"entityState" : "other",
 		"sound(s)" : ["sound_enemy", "Audio/SoundEffect.mp3"],
-		"sprite(s)" : "Sprite/Entities/BadGuy.png",
-		"height" : 32,
-		"width" : 32,
-		"frames" : 1
+		"sprite(s)" : ["Sprite/Entities/Dumb_Enemy_Tank_Idle.png", "Sprite/Entities/Dumb_Enemy_Tank_Walking.png"],
+		"height" : [72, 72],
+		"width" : [116, 67],
+		"frames" : [1, 6]
 	},
 	
 	"Mage Enemy" : 
 	{
 		"health" : 75,
+		"hazard(s)" : "0",
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
 		"sound(s)" : ["sound_enemy", "Audio/SoundEffect.mp3"],
@@ -89,6 +93,60 @@
 		"velocity" : [0,0],
 		"comment" : "position is relative to target",
 		"comment" : "so this is 5 pixels in front of target"
+	},
+	
+	"Flat Left":
+	{
+		"collisionType" : "static",
+		"hazard(s)" : "0",
+		"entityState" : "other",
+		"sprite(s)" : "Sprite/Level/Dumb_Flat_Left.png",
+		"frames" : 1
+	},
+	
+	"Flat Right" :
+	{
+		"collisionType" : "static",
+		"hazard(s)" : "0",
+		"entityState" : "other",
+		"sprite(s)" : "Sprite/Level/Dumb_Flat_Right.png",
+		"frames" : 1
+	},
+	
+	"Flat Improved" :
+	{
+		"collisionType" : "static",
+		"hazard(s)" : "0",
+		"entityState" : "other",
+		"sprite(s)" : "Sprite/Level/Dumb_Flat.png",
+		"frames" : 1
+	},
+	
+	"Flat Triangle" : 
+	{
+		"collisionType" : "static",
+		"hazard(s)" : "0",
+		"entityState" : "other",
+		"sprite(s)" : "Sprite/Level/Dumb_Triangle.png",
+		"frames" : 1
+	}
+	
+	"Flat Floating 1" :
+	{
+		"collisionType" : "static",
+		"hazard(s)" : "0",
+		"entityState" : "other",
+		"sprite(s)" : "Sprite/Level/Dumb_Floating_Platform_1.png",
+		"frames" : 1
+	},
+	
+	"Flat Floating 2" :
+	{
+		"collisionType" : "static",
+		"hazard(s)" : "0",
+		"entityState" : "other",
+		"sprite(s)" : "Sprite/Level/Dumb_Floating_Platform_2.png",
+		"frames" : 1
 	},
 	
 	"Ground" :

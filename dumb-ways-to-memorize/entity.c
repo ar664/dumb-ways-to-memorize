@@ -147,10 +147,10 @@ void ThinkPlayer(entity_t *self)
 	{
 		if(abs(cpBodyGetVel(self->mPhysicsProperties->body).y) < 0.5 && abs(cpBodyGetVel(self->mPhysicsProperties->body).x) < 0.5)
 		{
-			SetAnimation(self, ANIMATION_IDLE);
+			EntitySetAnimation(self, ANIMATION_IDLE);
 		} else
 		{
-			SetAnimation(self, ANIMATION_JUMP);
+			EntitySetAnimation(self, ANIMATION_JUMP);
 		}
 		
 	}
@@ -217,8 +217,8 @@ void TouchGeneric(entity_t *self, entity_t *other)
 			if(! (other->mHazards & self->mHazards) )
 			{
 				self->mHealth -= HAZARD_DAMAGE;
-				self->mAnimation = ANIMATION_HIT >= CountMem(self->mSprites, sizeof(sprite_t*)) ? NULL : self->mSprites[ANIMATION_HIT];
 				self->mNextThink += HAZARD_STUN_FRAMES*UPDATE_FRAME_DELAY;
+				EntitySetAnimation(self, ANIMATION_HIT );
 			}
 			break;
 		}
@@ -228,7 +228,8 @@ void TouchGeneric(entity_t *self, entity_t *other)
 			{
 				self->mHealth -= HAZARD_DAMAGE;
 				other->mHealth -= HAZARD_DAMAGE;
-				self->mAnimation = ANIMATION_HIT >= CountMem(self->mSprites, sizeof(sprite_t*)) ? NULL : self->mSprites[ANIMATION_HIT];
+				EntitySetAnimation(self, ANIMATION_HIT );
+				EntitySetAnimation(other, ANIMATION_HIT );
 			}
 		}
 	default:
@@ -254,7 +255,7 @@ void TouchPlayer(entity_t *self, entity_t *other)
 			if(! (other->mHazards & self->mHazards) )
 			{
 				self->mHealth -= HAZARD_DAMAGE;
-				self->mAnimation = ANIMATION_HIT >= CountMem(self->mSprites, sizeof(sprite_t*)) ? NULL : self->mSprites[ANIMATION_HIT];
+				EntitySetAnimation(self, ANIMATION_HIT );
 				self->mNextThink += HAZARD_STUN_FRAMES*UPDATE_FRAME_DELAY;
 			}
 			break;
@@ -264,7 +265,7 @@ void TouchPlayer(entity_t *self, entity_t *other)
 			if(! (other->mHazards & self->mHazards) )
 			{
 				self->mHealth -= HAZARD_DAMAGE;
-				self->mAnimation = ANIMATION_HIT >= CountMem(self->mSprites, sizeof(sprite_t*)) ? NULL : self->mSprites[ANIMATION_HIT];
+				EntitySetAnimation(self, ANIMATION_HIT );
 				self->mNextThink += HAZARD_STUN_FRAMES*UPDATE_FRAME_DELAY;
 			}
 			break;
@@ -292,6 +293,7 @@ void TouchGoal(entity_t* self, entity_t* other)
 	if(other == gPlayer)
 	{
 		gGameState = CountMem(gUsedPowerUps, sizeof(char*)) >= CountMem(gSelectedPowerUps, sizeof(char*)) ? START : CHOOSE;
+		GameNextLevel();
 	}
 }
 
@@ -419,6 +421,7 @@ entity_t* FindFreeEntity(int* position)
 		{
 			if(position)
 				*position = i;
+			gLastEntity = i;
 			return &gEntities[i];
 		}
 	}
@@ -428,6 +431,7 @@ entity_t* FindFreeEntity(int* position)
 		{
 			if(position)
 				*position = i;
+			gLastEntity = i;
 			return &gEntities[i];
 		}
 	}
@@ -544,19 +548,19 @@ entity_t *NexCachedEntity()
 	}
 }
 
-void SetAnimation(entity_t* ent, int animation)
+void EntitySetAnimation(entity_t* ent, int animation)
 {
-	int temp_int;
+	int anim_count;
 	if(!ent)
 	{
 		return;
 	}
-	if(!ent->mSprites || animation > MAX_ANIMATIONS)
+	if( !ent->mSprites || !ent->mSprites[0] || animation > MAX_ANIMATIONS)
 	{
 		return;
 	}
-	temp_int = CountMem(ent->mSprites, sizeof(char*));
-	if(ent->mSprites[animation] == ent->mAnimation || animation >= temp_int)
+	anim_count = CountMem(ent->mSprites, sizeof(char*));
+	if(ent->mSprites[animation] == ent->mAnimation || animation >= anim_count)
 	{
 		return;
 	}

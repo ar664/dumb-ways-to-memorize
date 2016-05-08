@@ -3,6 +3,7 @@
 #include "globals.h"
 #include "player.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 vec2_t gGravity = {0, 2};
 cpSpace *gSpace = NULL;

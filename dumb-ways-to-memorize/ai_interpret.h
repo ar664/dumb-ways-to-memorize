@@ -40,7 +40,8 @@ typedef enum
 /** Defines the enum for the variables in mVariables */
 typedef enum
 {
-	AI_VAR_SPEED,   /**< An enum constant representing the ai variable speed option */
+	AI_VAR_NULL,	
+	AI_VAR_SPEED,	/**< An enum constant representing the ai variable speed */
 	AI_VAR_FRAMES,  /**< An enum constant representing the ai variable for the amount of frames this action happens*/
 	AI_VAR_TIME,	/**< An enum constant representing the ai variable for the amount of times to repeat this action */
 	AI_VAR_DAMAGE,  /**< An enum constant representing the ai variable for the damage this action should be */

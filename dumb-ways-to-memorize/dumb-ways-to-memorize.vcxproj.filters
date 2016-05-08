@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Chipmunk">
-      <UniqueIdentifier>{cc17529d-cafd-4156-b5da-a94c49723971}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.c">
@@ -72,65 +69,65 @@
     <ClCompile Include="audio.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\chipmunk.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpArbiter.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpArray.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpBB.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpBBTree.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpBody.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpCollision.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpHashSet.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpPolyShape.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpShape.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpace.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceComponent.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceHash.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceQuery.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceStep.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpatialIndex.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSweep1D.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpVect.c">
-      <Filter>Source Files\Chipmunk</Filter>
-    </ClCompile>
     <ClCompile Include="dumb_ui.h">
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="dumb_ui.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\chipmunk.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpArbiter.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpArray.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpBB.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpBBTree.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpBody.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpCollision.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpHashSet.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpPolyShape.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpShape.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpace.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceComponent.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceHash.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceQuery.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceStep.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpatialIndex.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSweep1D.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpVect.c">
+      <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,13 +182,16 @@
     <ClInclude Include="player_controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\prime.h">
-      <Filter>Source Files\Chipmunk</Filter>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Lib\Chipmunk6\src\prime.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\CMakeLists.txt">
-      <Filter>Source Files\Chipmunk</Filter>
+    <None Include="D:\Lib\Chipmunk6\src\CMakeLists.txt">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
 </Project>

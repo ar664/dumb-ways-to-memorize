@@ -34,6 +34,7 @@ typedef enum
 {
 	ENTITY_MEMBER_SPRITE, /**< An enum constant representing the sprite file names */
 	ENTITY_MEMBER_HEALTH, /**< An enum constant representing the default health of the entity */
+	ENTITY_MEMBER_WEIGHT, /**< An enum constant representing the weight of the entity */
 	ENTITY_MEMBER_FPS,  /**< An enum constant representing the FPS of the sprites*/
 	ENTITY_MEMBER_DAMAGE, /**< An enum constant representing the damage the entity deals on collision */
 	ENTITY_MEMBER_HEIGHT, /**< An enum constant representing the heights of the sprites */

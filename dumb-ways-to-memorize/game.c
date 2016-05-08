@@ -1000,12 +1000,18 @@ void ResetGame()
 	{
 		gCurrentPowerUp = NULL;
 	}
+	//Reseting power select
+	memset(&gMenus[2], 0, sizeof(menu_t));
 }
 
 void ResetRun()
 {
-	printf("You died, select your powerups again \n");
-	gPlayerLives--;
+	if(gPlayer->mHealth < 1)
+	{
+		printf("You died, select your powerups again \n");
+		gPlayerLives--;
+	}
+	
 	FreeNonPlayerEntities();
 	gGameState = GUESS;
 	if(gCurrentPowerUp)
@@ -1014,7 +1020,20 @@ void ResetRun()
 	}
 	if(gCurrentPowerUpName)
 	{
-		free(gCurrentPowerUpName);
 		gCurrentPowerUpName = NULL;
 	}
+}
+
+void GameNextLevel()
+{
+	FreeNonPlayerEntities();
+	if(gCurrentPowerUp)
+	{
+		gCurrentPowerUp = NULL;
+	}
+	if(gCurrentPowerUpName)
+	{
+		gCurrentPowerUpName = NULL;
+	}
+
 }

@@ -52,7 +52,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(CHIPMUNK6)\include;$(ProjectDir)\External_Libs;$(SDL2)\Include;$(SDL2_IMAGE)\Include;$(SDL2_MIXER)\Include;$(SDL2_TTF)\Include;$(IncludePath)</IncludePath>
-    <ReferencePath>$(ProjectDir)\External_Libs;$(ReferencePath)</ReferencePath>
+    <ReferencePath>$(CHIPMUNK6)\src;$(ProjectDir)\External_Libs;$(ReferencePath)</ReferencePath>
     <SourcePath>$(CHIPMUNK6)\src;$(ProjectDir)\External_Libs;$(SourcePath)</SourcePath>
     <LibraryPath>$(CHIPMUNK6)\lib\x86;$(SDL2)\lib\x86;$(SDL2_IMAGE)\lib\x86;$(SDL2_MIXER)\lib\x86;$(SDL2_TTF)\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -134,26 +134,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\chipmunk.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpArbiter.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpArray.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpBB.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpBBTree.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpBody.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpCollision.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpHashSet.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpPolyShape.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpShape.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpace.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceComponent.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceHash.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceQuery.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceStep.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpatialIndex.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSweep1D.c" />
-    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpVect.c" />
     <ClCompile Include="ai_interpret.c" />
     <ClCompile Include="audio.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\chipmunk.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpArbiter.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpArray.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpBB.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpBBTree.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpBody.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpCollision.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpHashSet.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpPolyShape.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpShape.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpace.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceComponent.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceHash.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceQuery.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceStep.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpatialIndex.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSweep1D.c" />
+    <ClCompile Include="D:\Lib\Chipmunk6\src\cpVect.c" />
     <ClCompile Include="dumb_physics.c" />
     <ClCompile Include="dumb_ui.c" />
     <ClCompile Include="dumb_ui.h" />
@@ -174,8 +174,8 @@
     <ClCompile Include="player_controller.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\prime.h" />
     <ClInclude Include="ai_interpret.h" />
+    <ClInclude Include="D:\Lib\Chipmunk6\src\prime.h" />
     <ClInclude Include="dumb_physics.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="game.h" />
@@ -192,6 +192,7 @@
     <ClInclude Include="player.h" />
     <ClInclude Include="player_controller.h" />
     <ClInclude Include="audio.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -201,7 +202,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\CMakeLists.txt" />
+    <None Include="D:\Lib\Chipmunk6\src\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -167,6 +167,7 @@ extern vec2_t gGravity;				/**< The gravity which affects all the assets */
 
 extern void ResetGame();
 extern void ResetRun();
+extern void GameNextLevel();
 
 extern int exitRequest;				/**< The integer to be changed to exit */
 

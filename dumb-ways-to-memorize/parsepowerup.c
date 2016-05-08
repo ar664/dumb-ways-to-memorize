@@ -285,7 +285,7 @@ power_t* FindPower(char* str)
 	int i, count;
 	if(!gPowerUps || !str)
 	{
-		printf("No PowerUps Loaded");
+		printf("ERROR: No PowerUps Loaded \n");
 		return NULL;
 	}
 	count = CountMem(gPowerUps, sizeof(power_t));
