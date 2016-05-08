@@ -410,7 +410,7 @@ void DrawLevel()
 		printf("Level not loaded, unable to print");
 		return;
 	}
-	DrawSprite(gCurrentLevel->mBackground, NULL , NULL, gRenderer);
+	DrawSprite(gCurrentLevel->mBackground, NULL , NULL, gRenderer, 0);
 }
 
 void AddGlobalObject(level_t* level, object_t* obj, char* g_str, level_global_object_t type)

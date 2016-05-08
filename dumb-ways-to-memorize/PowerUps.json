@@ -22,7 +22,7 @@
 	
 	"Telekinesis" : 
 	{
-		"input-type" : "mouse",
+		"input-type" : "X mouse",
 		"use-type" : "infinite",
 		"interaction" : "move",
 		"target" : "at-point",

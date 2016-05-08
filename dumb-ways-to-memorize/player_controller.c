@@ -39,7 +39,7 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 			Walk.y = cpBodyGetVel(ent->mPhysicsProperties->body).y;
 			cpBodySetVel(ent->mPhysicsProperties->body, Walk);
 			SetAnimation(ent, ANIMATION_WALK);
-			ent->mDirection = ENTITY_DIR_LEFT;
+			ent->mDirection = DIR_LEFT;
 			break;
 		}
 	case(SDL_CONTROLLER_BUTTON_DPAD_RIGHT):
@@ -48,7 +48,7 @@ void DoPlayerThink(void *player, SDL_GameControllerButton button)
 			Walk.y = cpBodyGetVel(ent->mPhysicsProperties->body).y;
 			cpBodySetVel(ent->mPhysicsProperties->body, Walk);
 			SetAnimation(ent, ANIMATION_WALK);
-			ent->mDirection = ENTITY_DIR_RIGHT;
+			ent->mDirection = DIR_RIGHT;
 			break;
 		}
 	case(SDL_CONTROLLER_BUTTON_START):

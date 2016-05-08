@@ -737,7 +737,7 @@ void DrawSplash()
 {
 	if(gSplash)
 	{
-		if(DrawSprite(gSplash, NULL, &gZeroPos, gRenderer))
+		if(DrawSprite(gSplash, NULL, &gZeroPos, gRenderer, 0))
 		{
 			printf("Couldn't draw splash: %s \n", SDL_GetError());
 		}
@@ -986,6 +986,20 @@ void ResetGame()
 	FreeNonPlayerEntities();
 	gPlayerLives = PLAYER_LIVES;
 	gGameState = START;
+	if(gCurrentPowerUpName)
+	{
+		free(gCurrentPowerUpName);
+		gCurrentPowerUpName = NULL;
+	}
+	if(gSelectedPowerUps)
+	{
+		free(gSelectedPowerUps);
+		gSelectedPowerUps = NULL;
+	}
+	if(gCurrentPowerUp)
+	{
+		gCurrentPowerUp = NULL;
+	}
 }
 
 void ResetRun()
@@ -994,4 +1008,13 @@ void ResetRun()
 	gPlayerLives--;
 	FreeNonPlayerEntities();
 	gGameState = GUESS;
+	if(gCurrentPowerUp)
+	{
+		gCurrentPowerUp = NULL;
+	}
+	if(gCurrentPowerUpName)
+	{
+		free(gCurrentPowerUpName);
+		gCurrentPowerUpName = NULL;
+	}
 }

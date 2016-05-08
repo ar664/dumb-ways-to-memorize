@@ -56,7 +56,7 @@ void DrawGeneric(entity_t *self)
 	if(self->mAnimation)
 	{
 		pos_vec = EntityDrawPosition(self);
-		DrawSprite(self->mAnimation, self->mCurrentFrame, &pos_vec, gRenderer);
+		DrawSprite(self->mAnimation, self->mCurrentFrame, &pos_vec, gRenderer, self->mDirection);
 		if( SDL_GetTicks() > self->mNextFrameChange )
 		{
 			self->mCurrentFrame = self->mCurrentFrame >= self->mAnimation->mFrames ? 0 : self->mCurrentFrame+1;
@@ -65,7 +65,7 @@ void DrawGeneric(entity_t *self)
 	} else
 	{
 		pos_vec = EntityDrawPosition(self);
-		DrawSprite(self->mSprites[ANIMATION_IDLE], self->mCurrentFrame, &pos_vec, gRenderer);
+		DrawSprite(self->mSprites[ANIMATION_IDLE], self->mCurrentFrame, &pos_vec, gRenderer, self->mDirection);
 		if( SDL_GetTicks() > self->mNextFrameChange )
 		{
 			self->mCurrentFrame = self->mCurrentFrame >= self->mSprites[ANIMATION_IDLE]->mFrames ? 0 : self->mCurrentFrame+1;

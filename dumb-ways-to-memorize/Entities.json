@@ -28,6 +28,7 @@
 	
 	"Flying Enemy" :
 	{
+		"health" : 50,
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
 		"sprite(s)" : "Sprite/Entities/BadGuy.png",
@@ -39,6 +40,7 @@
 	
 	"Gumba Enemy" :
 	{
+		"health" : 20,
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
 		"sound(s)" : ["sound_enemy", "Audio/SoundEffect.mp3"],
@@ -50,6 +52,7 @@
 	
 	"Thwomp Enemy" :
 	{
+		"health" : 1000,
 		"collisionType" : "static",
 		"entityState" : "other",
 		"sound(s)" : ["sound_enemy", "Audio/SoundEffect.mp3"],
@@ -61,6 +64,7 @@
 	
 	"Mage Enemy" : 
 	{
+		"health" : 75,
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
 		"sound(s)" : ["sound_enemy", "Audio/SoundEffect.mp3"],
@@ -72,6 +76,7 @@
 	
 	"Fireball" :
 	{
+		"health" : 1,
 		"hazard(s)" : "fire",
 		"collisionType" : "ragdoll",
 		"entityState" : "other",

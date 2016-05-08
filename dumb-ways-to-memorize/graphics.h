@@ -125,7 +125,7 @@ sprite_t *LoadSprite(const char *name, int flags);
  * @author	Anthony Rios
  * @date	3/16/2016
  */
-int DrawSprite(sprite_t *sprite, int frame, vec2_t * position, SDL_Renderer * renderer);
+int DrawSprite(sprite_t *sprite, int frame, vec2_t * position, SDL_Renderer * renderer, int flags);
 
 /**
  * Free the sprite memory, if recfcount - 1 > 0 nothing happens.

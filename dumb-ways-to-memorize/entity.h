@@ -7,8 +7,6 @@
 #include "ai_interpret.h"
 
 #define MAX_ENTITIES 250
-#define ENTITY_DIR_LEFT 0
-#define ENTITY_DIR_RIGHT 1
 
 typedef struct entity_s entity_t;
 struct power_s;

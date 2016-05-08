@@ -62,23 +62,26 @@ void Spawn(entity_t *targ, entity_t *info)
 		return;
 	}
 	memcpy(spawned, info, sizeof(entity_t));
+	AddPhyicsToEntity(spawned);
+	spawned->mPhysicsProperties->body->p = info->mPhysicsProperties->body->p;
 	cpPos = cpvadd(cpBodyGetPos(spawned->mPhysicsProperties->body), cpBodyGetPos(targ->mPhysicsProperties->body));
 
-	if(targ->mDirection == ENTITY_DIR_RIGHT)
+	if(targ->mDirection == DIR_RIGHT)
 	{
-		cpPos.x += targ->mSprites[ANIMATION_IDLE]->mSize.x;
+		cpPos.x += targ->mSprites[ANIMATION_IDLE]->mSize.x + 10;
 		cpBodySetPos(spawned->mPhysicsProperties->body, cpPos);
 		cpSpeed.y = 0;
 		cpSpeed.x = PHYSICS_BASE_SPEED_X;
-		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpPos, cpvzero);
+		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpSpeed, cpvzero);
 	} else
 	{
-		cpPos.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x;
+		cpPos.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x + 10;
 		cpBodySetPos(spawned->mPhysicsProperties->body, cpPos);
 		cpSpeed.y = 0;
 		cpSpeed.x = -PHYSICS_BASE_SPEED_X;
-		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpPos, cpvzero);
+		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpSpeed, cpvzero);
 	}
+	AddEntityToPhysics(spawned);
 }
 
 void Edit(entity_t *targ, entity_t *info)
@@ -141,11 +144,11 @@ int GetUseType(const char *var, int *useType)
 {
 	if(!strcmp("infinite", var))
 	{
-		*useType = -1;
+		*useType = -2;
 		return 0;
 	} else if(!strcmp("static", var))
 	{
-		*useType = 0;
+		*useType = -1;
 		return 0;
 	} else if(strpbrk(var, "-0123456789"))
 	{

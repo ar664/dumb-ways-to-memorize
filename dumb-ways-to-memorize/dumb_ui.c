@@ -55,7 +55,7 @@ void DrawUI()
 				{
 					temp_pos.x = gUI_Health_Pos.x + i*32;
 					temp_pos.y = gUI_Health_Pos.y;
-					DrawSprite(gUI_Sprite_Health, NULL, &temp_pos, gRenderer);
+					DrawSprite(gUI_Sprite_Health, NULL, &temp_pos, gRenderer, 0);
 				}
 				
 

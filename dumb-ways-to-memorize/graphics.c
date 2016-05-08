@@ -152,7 +152,7 @@ sprite_t *LoadSprite(const char *name, int flags)
 	return check;
 }
 
-int DrawSprite(sprite_t *sprite, int frame, vec2_t * position, SDL_Renderer * renderer)
+int DrawSprite(sprite_t *sprite, int frame, vec2_t * position, SDL_Renderer * renderer, int flags)
 {
 	SDL_Rect src, dst;
 	int zero = 0;
@@ -172,11 +172,20 @@ int DrawSprite(sprite_t *sprite, int frame, vec2_t * position, SDL_Renderer * re
 		SDL_SetRect(&dst, position->x, position->y, sprite->mSize.x, sprite->mSize.y);
 	}
 
-
-	if( SDL_RenderCopy(renderer, sprite->mTexture, &src, &dst) )
+	if(flags == DIR_LEFT)
 	{
-		printf("Could not draw sprite %s : %s", sprite->name, SDL_GetError());
+		if( SDL_RenderCopyEx(renderer, sprite->mTexture, &src, &dst, NULL, NULL, SDL_FLIP_HORIZONTAL) )
+		{
+			printf("Could not draw sprite %s : %s", sprite->name, SDL_GetError());
+		}
+	} else
+	{
+		if( SDL_RenderCopy(renderer, sprite->mTexture, &src, &dst) )
+		{
+			printf("Could not draw sprite %s : %s", sprite->name, SDL_GetError());
+		}
 	}
+	
 	return 0;
 }
 
