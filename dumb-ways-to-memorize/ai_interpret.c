@@ -13,6 +13,7 @@ ai_function_t * gPresetAIs = NULL;
 char *gAI_Variables[] = {"speed", "frames", "time", "damage", 0};
 char *gAI_Actions[] = {"nothing", "move", "walk", "jump", "attack", 0};
 char *gAI_Conditions[] = {"distance_player", "distance_object", "object_check", "link_ai", "link_action", 0};
+int gAI_BaseValues[] = {0, 5, 1, 1, 5, 0, 0, 0, 0};
 
 
 //Run After All Think Functions
@@ -20,6 +21,7 @@ char *gAI_Conditions[] = {"distance_player", "distance_object", "object_check", 
 void StandarAI_Think(entity_t *ent)
 {
 	entity_t *cache_ref;
+	cpVect temp_cp;
 	int flags;
 	flags = ent->mData->mFlags;
 	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
@@ -31,10 +33,9 @@ void StandarAI_Think(entity_t *ent)
 	{
 		if(flags & AI_FLAG_GRAVITY)
 		{
-			cpBodySetMass(ent->mPhysicsProperties->body, 0);
-		} else
-		{
-			cpBodySetMass(ent->mPhysicsProperties->body, cache_ref->mPhysicsProperties->body->m);
+			temp_cp.x = ent->mPhysicsProperties->body->v.x;
+			temp_cp.y = 0;
+			cpBodySetVel(ent->mPhysicsProperties->body, temp_cp);
 		}
 		
 	}
@@ -293,31 +294,28 @@ void (*GetFunctionAI(ai_function_t *data))(entity_t *)
 
 ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 {
-	int i, j, k,children, variables_i, gravity;
+	int i, j, k,children, child_vars, gravity;
+	int preset_flag, temp_x, temp_y, var_count;
 	ai_function_t *retVal;
 	jsmntok_t *action_tok;
 	object_t *temp_obj, *action_obj, *variables_obj;
-	char *temp_str, *type_str, *cond_str,**variables_str;
+	char *temp_str, *temp_str2, *type_str, *cond_str,**variables_str;
 	if(!obj || !g_str)
 	{
 		return NULL;
 	}
-	
-	if(FindObject(obj, AI_VAR_STR))
-	{
-		gravity = 1;
-	} else
-	{
-		gravity = 0;
-	}
+	//If Variables present , the only supported flag is gravity
+	gravity = FindObject(obj, AI_VAR_STR) ? 1 : 0;
 
+	//Find the actual functions
 	temp_obj = FindObject(obj, AI_FUNCTION_OBJECT);
 	if(!temp_obj)
 	{
 		printf("No thinks in ai : %s \n", obj->name);
 		return NULL;
 	}
-
+	
+	//Find the type of AI it is
 	type_str = FindValue(obj, AI_TYPE_STR, g_str);
 	if(!type_str)
 	{
@@ -328,25 +326,98 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 	children = CountMem(temp_obj->children, sizeof(object_t));
 	retVal = (ai_function_t*) malloc(sizeof(ai_function_t)*(children+1));
 	memset(retVal, 0, sizeof(ai_function_t)*(children+1));
+
+	//Set preset flag based on if variables is null
+	preset_flag = variables ? 0 : 1;
+	var_count = 0;
+
+	if(!preset_flag)
+	{
+		var_count = CountMem(variables, sizeof(char*));
+	}
+
 	for(i = 0; i < children; i++)
 	{
 		for(j = 0; gAI_Variables[j]; j++ )
 		{
 			temp_str = FindValue(&temp_obj->children[i], gAI_Variables[j], g_str);
-			SetAI_Var(&retVal[i], variables[StrToInt(temp_str)], (ai_variables_t)j );
+			if(!temp_str)
+			{
+				SetAI_Var(&retVal[i], NULL, (ai_variables_t)j);
+			} else
+			{
+				if(preset_flag)
+				{
+					SetAI_Var(&retVal[i], temp_str, (ai_variables_t)j );
+				} else
+				{
+					temp_x = StrToInt(temp_str);
+					if(temp_x > var_count)
+					{
+						printf("ERROR: AI Var %d not set. Variable above variable count. \n", j);
+						SetAI_Var(&retVal[i], NULL, (ai_variables_t)j );
+					} else
+					{
+						SetAI_Var(&retVal[i], variables[temp_x], (ai_variables_t)j );
+					}
+				}
+			}
+			
 			if(temp_str) free(temp_str);
 			temp_str = NULL;
 		}
 		for(j = 0; gAI_Actions[j]; j++ )
 		{	
 			action_obj = FindObject(&temp_obj->children[i], gAI_Actions[j]);
-			action_tok = FindKey(temp_obj->children[i].keys, gAI_Actions[j], g_str);
-			if(!action_obj && !action_tok)
+			if(action_obj)
 			{
-				continue;
+				temp_str = JsmnToString(&action_obj->values[0], g_str);
+				temp_str2 = JsmnToString(&action_obj->values[1], g_str);
+				if(preset_flag)
+				{
+					SetAI_Action(&retVal[i], (ai_actions_t)j,  temp_str , temp_str2 );
+				} else
+				{
+					temp_x = StrToInt(temp_str);
+					temp_y = StrToInt(temp_str2);
+					if(temp_x > var_count || temp_y > var_count)
+					{
+						printf("ERROR: AI Action %d not set. Variables above variable count. \n", j);
+						SetAI_Action(&retVal[i], (ai_actions_t)j,  NULL , NULL );
+					} else
+					{
+						SetAI_Action(&retVal[i], (ai_actions_t)j,  variables[temp_x] , variables[temp_y] );
+					}
+				}
+				
+				if(temp_str) free(temp_str);
+				if(temp_str2) free(temp_str2);
+				break;
+			}
+			action_tok = FindKey(temp_obj->children[i].keys, gAI_Actions[j], g_str);
+			if(action_tok)
+			{
+				temp_str = JsmnToString(action_tok, g_str);
+				if(preset_flag)
+				{
+					SetAI_Action(&retVal[i], (ai_actions_t)j,  temp_str , NULL );
+				} else
+				{
+
+					temp_x = StrToInt(temp_str);
+					if(temp_x > var_count)
+					{
+						printf("ERROR: AI Action %d not set. Variables above variable count. \n", j);
+						SetAI_Action(&retVal[i], (ai_actions_t)j,  NULL , NULL );
+					} else
+					{
+						SetAI_Action(&retVal[i], (ai_actions_t)j,  variables[temp_x] , NULL );
+					}
+				}
+				if(temp_str) free(temp_str);
+				break;
 			}
 
-			SetAI_Action(&retVal[i],action_obj, action_tok, g_str, (ai_actions_t)j );
 		}
 		for(j = 0; gAI_Conditions[j]; j++)
 		{
@@ -361,19 +432,48 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 				variables_str = NULL;
 			} else
 			{
-				variables_i = CountObjectMembers(variables_obj, g_str);
-				variables_str = (char**) malloc(sizeof(char*)*(variables_i+1));
-				variables_str[variables_i] = NULL;
-				for(k = 0; k < variables_i; k++)
+				child_vars = CountObjectMembers(variables_obj, g_str);
+				variables_str = (char**) malloc(sizeof(char*)*(child_vars+1));
+				variables_str[child_vars] = NULL;
+				for(k = 0; k < child_vars; k++)
 				{
 					temp_str = JsmnToString(&variables_obj->values[k], g_str);
-					variables_str[k] = temp_str ? variables[StrToInt(temp_str)] : NULL;
+					if(preset_flag)
+					{
+						variables_str[k] = temp_str ? temp_str : NULL;
+					} else
+					{
+						temp_x = StrToInt(temp_str);
+						if(temp_x > var_count)
+						{
+							printf("ERROR: AI Condition %d not set. Variables above variable count. \n", j);
+							variables_str[k] = NULL;
+						} else
+						{
+							variables_str[k] = variables[temp_x];
+						}
+					}
+					
 					if(temp_str) free(temp_str);
 					temp_str = NULL;
 				}
 			}
+			if(preset_flag)
+			{
+				SetAI_Check(&retVal[i], variables_str, cond_str, (ai_conditions_t)j );
+			} else
+			{
+				temp_x = StrToInt(cond_str);
+				if(temp_x > var_count)
+				{
+					printf("ERROR: AI Condition %d not set. Variables above variable count. \n", j);
+					SetAI_Check(&retVal[i], variables_str, NULL, (ai_conditions_t)j );
+				} else
+				{
+					SetAI_Check(&retVal[i], variables_str, variables[temp_x], (ai_conditions_t)j );
+				}
+			}
 
-			SetAI_Check(&retVal[i], variables_str, variables[StrToInt(cond_str)], (ai_conditions_t)j );
 			if(cond_str) free(cond_str);
 			cond_str = NULL;
 		}
@@ -404,149 +504,17 @@ ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
 	return retVal;
 }
 
-ai_function_t* ParsePresetAI(object_t* obj, char* g_str)
-{
-	int i, j, k,children, position, variables, gravity;
-	ai_function_t *retVal;
-	jsmntok_t *temp_tok, *action_tok;
-	object_t *temp_obj, *action_obj, *variables_obj;
-	char *temp_str, *type_str, **variables_str;
-	if(!obj || !g_str)
-	{
-		return NULL;
-	}
-	
-	if(FindObject(obj, AI_VAR_STR))
-	{
-		gravity = 1;
-	} else
-	{
-		gravity = 0;
-	}
-	temp_obj = FindObject(obj, AI_FUNCTION_OBJECT);
-	if(!temp_obj)
-	{
-		printf("No thinks in ai : %s \n", obj->name);
-		return NULL;
-	}
-	temp_tok = FindKey(obj->keys, AI_TYPE_STR, g_str);
-	if(!temp_tok)
-	{
-		printf("No types in ai : %s \n", obj->name);
-		return NULL;
-	}
-	position = temp_tok - obj->keys;
-	type_str = JsmnToString(&obj->values[position], g_str);
-	
-	children = CountMem(temp_obj->children, sizeof(object_t));
-	retVal = (ai_function_t*) malloc(sizeof(ai_function_t)*(children+1));
-	memset(retVal, 0, sizeof(ai_function_t)*(children+1));
-	for(i = 0; i < children; i++)
-	{
-		for(j = 0; gAI_Variables[j]; j++ )
-		{
-			temp_str = FindValue(&temp_obj->children[i], gAI_Variables[j] ,g_str);
-			
-			SetAI_Var(&retVal[i], temp_str, (ai_variables_t)(j+1) );
-			if(temp_str) free(temp_str);
-			temp_str = NULL;
-		}
-		for(j = 0; gAI_Actions[j]; j++ )
-		{	
-			action_obj = FindObject(&temp_obj->children[i], gAI_Actions[j]);
-			action_tok = FindKey(temp_obj->children[i].keys, gAI_Actions[j], g_str);
-			if(!action_obj && !action_tok)
-			{
-				continue;
-			}
-			SetAI_Action(&retVal[i],action_obj, action_tok, g_str, (ai_actions_t)j );
-		}
-		for(j = 0; gAI_Conditions[j]; j++)
-		{
-			temp_str = FindValue(&temp_obj->children[i], gAI_Conditions[j] ,g_str);
-			if(!temp_str)
-			{
-				continue;
-			}
-			variables_obj = FindObject(&temp_obj->children[i], AI_VAR_STR);
-			if(!variables_obj)
-			{
-				variables_str = NULL;
-			} else
-			{
-				variables = CountObjectMembers(variables_obj, g_str);
-				variables_str = (char**) malloc(sizeof(char*)*(variables+1));
-				variables_str[variables] = NULL;
-				for(k = 0; k < variables; k++)
-				{
-					variables_str[k] = JsmnToString(&variables_obj->values[k],g_str);
-				}
-			}
-
-			SetAI_Check(&retVal[i], variables_str, temp_str, (ai_conditions_t)j );
-			if(temp_str) free(temp_str);
-			temp_str = NULL;
-		}
-		retVal[i].mFlags |= gravity ? AI_FLAG_GRAVITY : 0;
-		retVal[i].mType = StrToAI_Type(type_str);
-	}
-
-	//Linking and conditionals
-	for(i = 0; i < children; i++)
-	{
-		if(!retVal[i].mLink)
-		{
-			retVal[i].mLink = (i+1 == children) ? retVal: &retVal[i+1];
-		}
-		if(retVal[i].mFlags & AI_FLAG_CHECK_OBJECT)
-		{
-			temp_str = FindValue(&temp_obj->children[i], gAI_Conditions[AI_CONDITION_OBJECT_NAME], g_str);
-			if(!temp_str)
-			{
-				continue;
-			}
-			retVal[i].mObjectCheck = temp_str;
-		}
-	}
-	return retVal;
-}
-
 void SetAI_Var(ai_function_t* function, char* data_str, ai_variables_t var_type)
 {
-	if(!var_type)
+	if(!var_type || !function)
 	{
 		return;
 	}
 
-	switch(var_type)
-	{
-	case AI_VAR_SPEED:
-		{
-			function->mVariables[AI_VAR_SPEED] = data_str ? StrToInt(data_str) : AI_BASE_SPEED;
-			break;
-		}
-	case AI_VAR_FRAMES:
-		{
-			function->mVariables[AI_VAR_FRAMES] = data_str ? StrToInt(data_str) : AI_BASE_THINK_FRAMES;
-			break;
-		}
-	case AI_VAR_TIME:
-		{
-			function->mVariables[AI_VAR_TIME] = data_str ? StrToInt(data_str) : 1;
-			break;
-		}
-	case AI_VAR_DAMAGE:
-		{
-			function->mVariables[AI_VAR_DAMAGE] = data_str ? StrToInt(data_str) : AI_BASE_DAMAGE;
-			break;
-		}
-	default:
-		break;
-	}
-
+	function->mVariables[var_type] = data_str ? StrToInt(data_str) : gAI_BaseValues[var_type];
 }
 
-void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* g_str, ai_actions_t action_type)
+void SetAI_Action(ai_function_t* function, ai_actions_t action_type, char * x, char * y)
 {
 	vec2_t *temp_vec2;
 	int temp_int;
@@ -556,79 +524,25 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 	}
 	switch(action_type)
 	{
-	case AI_ACTION_NOTHING:
+	case AI_ACTION_ATTACK:
 		{
-			function->mAction = AI_ACTION_NOTHING;
-			break;
-		}
-	case AI_ACTION_MOVE:
-		{
-			if(!obj)
-			{
-				function->mVariables[AI_VAR_DIR_X] = 0;
-				function->mVariables[AI_VAR_DIR_Y] = 0;
-			
-			} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
-			{
-				function->mVariables[AI_VAR_DIR_X] = temp_vec2->x;
-				function->mVariables[AI_VAR_DIR_X] = temp_vec2->y;
-			} else
-			{
-				function->mVariables[AI_VAR_DIR_X] = 0;
-				function->mVariables[AI_VAR_DIR_Y] = 0;
-			}
-
-			function->mAction = AI_ACTION_MOVE;
-				break;
-			}
-	case AI_ACTION_WALK:
-		{
-			if(!obj)
-			{
-				function->mVariables[AI_VAR_DIR_X] = 0;
-				function->mVariables[AI_VAR_DIR_Y] = 0;
-			
-			} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
-			{
-				function->mVariables[AI_VAR_DIR_X] = temp_vec2->x;
-				function->mVariables[AI_VAR_DIR_Y] = temp_vec2->y;
-			} else
-			{
-				function->mVariables[AI_VAR_DIR_X] = 0;
-				function->mVariables[AI_VAR_DIR_Y] = 0;
-			}
-
-			function->mAction = AI_ACTION_WALK;
+			function->mAction = AI_ACTION_ATTACK;
+			function->mObject = x;
 			break;
 		}
 	case AI_ACTION_JUMP:
 		{
-			if(!obj || !tok)
-			{
-				function->mVariables[AI_VAR_DIR_X] = 0;
-				function->mVariables[AI_VAR_DIR_Y] = AI_BASE_JUMP;
-			
-			} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
-			{
-				function->mVariables[AI_VAR_DIR_X] = temp_vec2->x;
-				function->mVariables[AI_VAR_DIR_X] = temp_vec2->y;
-			} else 
-			{
-				JsmnToInt(tok, g_str, &temp_int);
-				function->mVariables[AI_VAR_DIR_X] = 0;
-				function->mVariables[AI_VAR_DIR_Y] = temp_int ? temp_int : AI_BASE_JUMP;
-			}
-
-			function->mAction = AI_ACTION_JUMP;
-			break;
-		}
-	case AI_ACTION_ATTACK:
-		{
-			function->mAction = AI_ACTION_ATTACK;
-			function->mObject = JsmnToString(tok, g_str);
+			function->mVariables[AI_VAR_DIR_X] = x ? StrToInt(x) : gAI_BaseValues[AI_VAR_DIR_X];
+			function->mVariables[AI_VAR_DIR_Y] = y ? StrToInt(y) : gAI_BaseValues[AI_VAR_DIR_Y] - 5;
+			function->mAction = action_type;
 			break;
 		}
 	default:
+		{
+			function->mVariables[AI_VAR_DIR_X] = x ? StrToInt(x) : gAI_BaseValues[AI_VAR_DIR_X];
+			function->mVariables[AI_VAR_DIR_Y] = y ? StrToInt(y) : gAI_BaseValues[AI_VAR_DIR_Y];
+			function->mAction = action_type;
+		}
 		break;
 	}
 }

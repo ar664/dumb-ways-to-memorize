@@ -305,24 +305,24 @@ void UpdatePowerSelectMenu(menu_t* self, SDL_GameControllerButton button)
 				{	
 					if(gUsedPowerUps[i])
 					{
-						if(!strcmp(self->mSelectedItem[i].Name, gUsedPowerUps[i]))
+						if(!strcmp(self->mSelectedItem->Name, gUsedPowerUps[i]))
 						{
 							break;
 						}
 					} else
 					{	
-						gUsedPowerUps[i] = self->mSelectedItem[i].Name;
+						gUsedPowerUps[i] = self->mSelectedItem->Name;
 						usedPower = 0;
 						break;
 					}
 				}
 				if(!usedPower)
 				{
-					gCurrentPowerUpName = self->mSelectedItem[i].Name;
+					gCurrentPowerUpName = self->mSelectedItem->Name;
 					gCurrentPowerUp = FindPower(gCurrentPowerUpName);
 					
 					LoadSelectedLevel(i);
-					gGameState = self->mSelectedItem[i].NextState;
+					gGameState = self->mSelectedItem->NextState;
 					if(gGameState == PLAYING)
 					{
 						InitPlayer();

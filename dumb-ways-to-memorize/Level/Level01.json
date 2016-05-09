@@ -10,7 +10,7 @@
 	{
 		"enemy" : "Flying Enemy",
 		"ai" : "AI/2PointPatrol.json",
-		"variables" : [-5, 0, 5, 0],
+		"variables" : [-1, 0, 5, 100, 1, 0, 5, 100],
 		"position" : [100, 400]
 	},
 	
@@ -23,12 +23,12 @@
 	{
 		"enemy" : "Gumba Enemy",
 		"ai" : "AI/Dumb.json",
-		"position" : [250, 500]
+		"position" : [250, 400]
 	},
 	{
 		"enemy" : "Thwomp Enemy",
 		"ai" : "AI/Dumb.json",
-		"position" : [350, 500]
+		"position" : [350, 400]
 	}
 	],
 	

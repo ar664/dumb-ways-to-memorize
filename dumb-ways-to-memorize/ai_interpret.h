@@ -23,10 +23,7 @@ extern char *gAI_Actions[];		/**< The actions that are related to ai functions *
 #define AI_CHECK_STR			"condition"
 extern char *gAI_Conditions[];  /**< The conditions for the ai function to be executed */
 
-#define AI_BASE_JUMP			-5
-#define AI_BASE_SPEED			1
-#define AI_BASE_THINK_FRAMES	1
-#define AI_BASE_DAMAGE			5
+extern int gAI_BaseValues[];	/**< The base values for the defined gAI_Variables */
 
 /** Defines the enum for ai_types*/
 typedef enum
@@ -161,7 +158,7 @@ void SetAI_Var(ai_function_t* function, char * data_str, ai_variables_t var_type
  * @author	Anthony Rios
  * @date	3/29/2016
  */
-void SetAI_Action(ai_function_t* function, object_t * obj, jsmntok_t* tok, char* g_str, ai_actions_t action_type);
+void SetAI_Action(ai_function_t* function, ai_actions_t action_type, char * x, char * y);
 
 /**
  * Sets checks that need to occur for the ai_function to be called.

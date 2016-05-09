@@ -1,6 +1,7 @@
 #include "dumb_ui.h"
 #include "parseobject.h"
 #include "mystrings.h"
+#include "parsepowerup.h"
 
 
 sprite_t *gUI_Sprite_Health;
@@ -61,6 +62,20 @@ void DrawUI()
 				
 
 			}
+			if(gCurrentPowerUp)
+			{
+				if(gCurrentPowerUp->info)
+				{
+					if(gCurrentPowerUp->info->mSprites[0] )
+					{
+						temp_pos.x = gUI_Power_Pos.x;
+						temp_pos.y = gUI_Power_Pos.y;
+						DrawSprite(gCurrentPowerUp->info->mSprites[0], NULL, &temp_pos, gRenderer, 0);
+					}
+				}
+				
+			}
+			
 			break;
 		}
 	default:

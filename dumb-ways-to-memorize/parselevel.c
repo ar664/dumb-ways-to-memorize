@@ -660,7 +660,7 @@ void AddLocalOption(entity_t* ent, void* token, char* g_str, level_local_option_
 			memset(temp_str_array, 0, sizeof(char*)*(count+1));
 			for(i = 0; i < count; i++)
 			{
-				temp_str = JsmnToString(temp_obj->values, g_str);
+				temp_str = JsmnToString(&temp_obj->values[i], g_str);
 				if(!temp_str)
 				{
 					continue;
@@ -677,25 +677,42 @@ void AddLocalOption(entity_t* ent, void* token, char* g_str, level_local_option_
 			temp_str = JsmnToString( (jsmntok_t*)token, g_str);
 			if(!temp_str)
 			{
+				if(temp_str) free(temp_str);
 				break;
 			}
 			ConvertFileToUseable(temp_str, NULL, &store_str, &temp_tok );
 			if(!store_str || !temp_tok)
 			{
+				if(temp_str) free(temp_str);
+				if(temp_tok) free(temp_tok);
+				if(store_str) free(store_str);
 				break;
 			}
 			temp_obj = ParseToObject(temp_tok, store_str);
 			if(!temp_obj)
 			{
+				if(temp_str) free(temp_str);
+				if(temp_tok) free(temp_tok);
+				if(store_str) free(store_str);
 				break;
 			}
-			temp_ai = ent->mCurrentFrame ? ParseAI(temp_obj, store_str, (char**)ent->mCurrentFrame) : ParsePresetAI(temp_obj, store_str);
+			temp_ai = ent->mCurrentFrame ? ParseAI(temp_obj, store_str, (char**)ent->mCurrentFrame) : ParseAI(temp_obj, store_str, NULL);
+			if(ent->mCurrentFrame)
+			{
+				free((char**)ent->mCurrentFrame);
+				ent->mCurrentFrame = 0;
+			}
 			if(!temp_ai)
 			{
+				if(temp_str) free(temp_str);
+				if(temp_tok) free(temp_tok);
+				if(store_str) free(store_str);
 				break;
 			}
 			ent->mData = temp_ai;
-			ent->mCurrentFrame = 0;
+			if(temp_str) free(temp_str);
+			if(temp_tok) free(temp_tok);
+			if(store_str) free(store_str);
 			break;
 		}
 	case(LEVEL_L_OPTION_EXTRA):

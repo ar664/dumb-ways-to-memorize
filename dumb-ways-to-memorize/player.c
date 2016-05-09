@@ -43,7 +43,9 @@ void InitPlayer()
 	gPlayer->Touch = TouchPlayer;
 	gPlayer->PowerUp = gPowerUps ? UsePower : NULL;
 	cpPos = gCurrentLevel ? (cpVect*) Vec2Cp(&gCurrentLevel->mSpawnPoint) : (cpVect*)&cpvzero;
+
 	AddPhyicsToEntity(gPlayer);
+	
 	if(cpPos)
 	{
 		cpBodySetPos(gPlayer->mPhysicsProperties->body, *cpPos);
@@ -57,6 +59,7 @@ void InitPlayer()
 	gPlayer->mNextThink = gCurrentTime + 2*UPDATE_FRAME_DELAY;
 	AddEntityToPhysics(gPlayer);
 	AddCollisionHandlerToEntity(gPlayer);
+	
 }
 
 void InitCursor()
@@ -66,6 +69,7 @@ void InitCursor()
 	{
 		gCursor = InitNewEntity();
 	}
+		
 
 	if(!gCursor)
 	{

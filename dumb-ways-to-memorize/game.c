@@ -1052,6 +1052,7 @@ void ResetRun()
 
 void GameNextLevel()
 {
+	FreeEntity(gPlayer);
 	FreeNonPlayerEntities();
 	if(gCurrentPowerUp)
 	{
@@ -1061,5 +1062,4 @@ void GameNextLevel()
 	{
 		gCurrentPowerUpName = NULL;
 	}
-
 }
