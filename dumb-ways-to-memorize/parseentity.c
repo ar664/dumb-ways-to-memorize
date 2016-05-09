@@ -19,6 +19,8 @@ char *Vector2VariableNames[] = {"accel", "velocity", "position", 0};
 char *SimpleVariableNames[] = {"health", "weight", "fps", "damage", "height", "width", "frames",  0 };
 //StrToInt
 
+void *EntityAddFunctions[] = {0};
+
 void AddDynamicMemToEnt(entity_t  *ent, entity_members_dynamic_t member, int value)
 {
 	if(!value || !ent)
@@ -43,20 +45,15 @@ void AddVector2Entity(entity_t *ent, entity_members_vector2_t member, vec2_t *va
 	{
 		return;
 	}
-	if(!ent->mPhysicsProperties->body)
-	{
-		return;
-	}
 
 	temp_val = (cpVect*)Vec2Cp(value);
-	if(!temp_val)
+	if(!ent->mPhysicsProperties->body || !temp_val)
 	{
 		return;
 	}
 
 	switch(member)
 	{
-
 	case ENTITY_MEMBER_ACCEL: cpBodyApplyImpulse(ent->mPhysicsProperties->body, *temp_val, cpvzero); break;
 	case ENTITY_MEMBER_POSITION: cpBodySetPos(ent->mPhysicsProperties->body, *temp_val ); break;
 	case ENTITY_MEMBER_VELOCITY: cpBodySetVel(ent->mPhysicsProperties->body, *temp_val ); break;
@@ -65,6 +62,25 @@ void AddVector2Entity(entity_t *ent, entity_members_vector2_t member, vec2_t *va
 	}
 
 	if(temp_val) free(temp_val);
+}
+
+void AddSimpleMemToEnt(entity_t *ent, entity_members_simple_t member, int value)
+{
+	if(!ent)
+	{
+		return;
+	}
+
+	switch(member)
+	{
+	case ENTITY_MEMBER_HEALTH: ent->mHealth = value; break;
+	case ENTITY_MEMBER_WEIGHT: ent->mPhysicsProperties ? cpBodySetMass(ent->mPhysicsProperties->body, value) : NULL; break;
+	case ENTITY_MEMBER_FPS: ent->mSprites ? ent->mSprites[0]->mMillisecondsPerFrame = 1000/(value+1) : NULL; break;
+	case ENTITY_MEMBER_DAMAGE: ent->mDamage = value;
+
+	default:
+			break;
+	}
 }
 
 void AddSoundsToEnt(entity_t *ent, char **files, int group)
