@@ -511,7 +511,7 @@ void FreeEntity(entity_t *ent)
 
 void FreeNonPlayerEntities()
 {
-	int i , entities;
+	int i;
 	if(!gEntities)
 	{
 		return;
@@ -524,6 +524,27 @@ void FreeNonPlayerEntities()
 			continue;
 		}
 		FreeEntity(&gEntities[i]);
+	}
+}
+
+void FreeEnemyEntities()
+{
+	int i;
+	if(!gEntities)
+	{
+		return;
+	}
+
+	for(i = 0; i < MAX_ENTITIES; i++)
+	{
+		if(&gEntities[i] == (entity_t*) gPlayer)
+		{
+			continue;
+		}
+		if(gEntities[i].Think == ThinkEnemy)
+		{
+			FreeEntity(&gEntities[i]);
+		}
 	}
 }
 

@@ -44,7 +44,15 @@ void Move(entity_t *targ, entity_t **info, void *extra)
 //No other access necessary
 void Destroy(entity_t *targ, entity_t **info, void *extra)
 {
-	if(targ)
+	int world = 0;
+	if(extra)
+	{
+		world = *( (int*) extra);
+	}
+	if(targ && world)
+	{
+		FreeEnemyEntities();
+	} else
 	{
 		FreeEntity(targ);
 	}
@@ -72,6 +80,7 @@ void Spawn(entity_t *targ, entity_t **info, void *extra)
 		printf("Max entities reached can't spawn any more \n");
 		return;
 	}
+
 	memcpy(spawned, *info, sizeof(entity_t));
 	AddPhyicsToEntity(spawned);
 	if(!spawned->mPhysicsProperties)

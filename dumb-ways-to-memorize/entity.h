@@ -194,12 +194,20 @@ extern void PrintEntity(entity_t *ent);
 void FreeEntity(entity_t *ent);
 
 /**
- * Frees the non player entities, use for Destroy World.
+ * Frees the non player entities.	
  *
  * @author	Anthony Rios
  * @date	3/29/2016
  */
 void FreeNonPlayerEntities();
+
+/**
+ * Frees the non player entities that have enemy think, use for Destroy World.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+void FreeEnemyEntities();
 
 /**
  * Shutdown entity system, frees all the entities.
