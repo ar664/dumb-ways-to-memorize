@@ -16,7 +16,7 @@ void (*ParseToFunction(const char *name));
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void GetWorld(entity_t *self, entity_t **targ);
+void GetWorld(entity_t *self, entity_t **targ, void *extra);
 
 /**
  * Gets the entity at the point specified by the mouse.
@@ -27,7 +27,7 @@ void GetWorld(entity_t *self, entity_t **targ);
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void GetAtPoint(entity_t *self, entity_t **targ);
+void GetAtPoint(entity_t *self, entity_t **targ, void *extra);
 
 /**
  * Gets self and makes it targ.
@@ -38,41 +38,7 @@ void GetAtPoint(entity_t *self, entity_t **targ);
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void GetSelf(entity_t *self, entity_t **targ);
-
-/**
- * Get the status of the button of the power_up.
- *
- * @param [in,out]	self  	If non-null, the class instance that this method operates on.
- * @param [in,out]	button	If non-null, the button.
- *
- * @author	Anthony Rios
- * @date	3/30/2016
- */
-void GetX(entity_t *self, int * button);
-
-/**
- * Gets mouse position.
- *
- * @param [in,out]	self	If non-null, the class instance that this method operates on.
- * @param [in,out]	pos 	If non-null, the position.
- *
- * @author	Anthony Rios
- * @date	3/30/2016
- */
-void GetMousePos(entity_t *self, vec2_t *pos);
-
-/**
- * Gets status of button and mouse position.
- *
- * @param [in,out]	self  	If non-null, the class instance that this method operates on.
- * @param [in,out]	button	If non-null, the button.
- * @param [in,out]	pos   	If non-null, the position.
- *
- * @author	Anthony Rios
- * @date	3/30/2016
- */
-void GetXMouse(entity_t *self, int * button, vec2_t *pos);
+void GetSelf(entity_t *self, entity_t **targ, void *extra);
 
 //Functions array
 extern char *FunctionNames[];

@@ -316,9 +316,13 @@ entity_t * AddPhyicsToEntity(entity_t* ent)
 		return NULL;
 	}
 	ent->mPhysicsProperties = (physics_t*) malloc(sizeof(physics_t));
-	if(!ent->mPhysicsProperties || !ent->mSprites[0]->name)
+	if(!ent->mPhysicsProperties || !ent->mSprites)
 	{
 		printf("Alloc physics for ent error \n");
+		if(ent->mPhysicsProperties)
+		{
+			free(ent->mPhysicsProperties);
+		}
 		return NULL;
 	}
 	

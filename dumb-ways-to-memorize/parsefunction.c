@@ -5,8 +5,8 @@
 #include <stdio.h>
 
 //Function Globals
-char *FunctionNames[] = {"X mouse", "X", "mouse", "self", "at-point", "world" , 0};
-void (*FunctionSymbols[]) = {GetXMouse, GetX, GetMousePos, GetSelf, GetAtPoint, GetWorld, 0 };
+char *FunctionNames[] = {"self", "at-point", "world" , 0};
+void (*FunctionSymbols[]) = {GetSelf, GetAtPoint, GetWorld, 0 };
 
 void (*ParseToFunction(const char *name))
 {
@@ -22,41 +22,40 @@ void (*ParseToFunction(const char *name))
 	return NULL;
 }
 
-void GetWorld(entity_t *self, entity_t **targ)
+void GetWorld(entity_t *self, entity_t **targ, void *extra)
 {
 	*targ = gEntities;
+	extra = NULL;
 }
 
-void GetAtPoint(entity_t *self, entity_t **targ)
+void GetAtPoint(entity_t *self, entity_t **targ, void *extra)
 {
-	vec2_t *temp = (vec2_t*) malloc(sizeof(vec2_t));
-	if(!temp)
+	entity_t *temp_ent;
+	vec2_t temp_pos;
+	vec2_t *temp_vec = (vec2_t*) malloc(sizeof(vec2_t));
+	if(!temp_vec)
 	{
 		return;
 	}
-	GetMousePos(self, temp);
-	*targ = LookForEntityAtPos(*temp);
-	if(temp) free(temp);
+	temp_ent = FindEntity("Cursor");
+	temp_pos = EntityPosition(temp_ent);
+	if(extra)
+	{
+		memcpy(extra, &temp_pos, sizeof(vec2_t));
+	}
+	*targ = LookForEntityAtPos(*temp_vec);
+	if(temp_vec) free(temp_vec);
 }
 
-void GetSelf(entity_t *self, entity_t **targ)
+void GetSelf(entity_t *self, entity_t **targ, void *extra)
 {
+	entity_t *temp_ent;
+	vec2_t temp_pos;
 	*targ = self;
-}
-
-
-void GetX(entity_t *self, int *button)
-{
-	*button = SDL_CONTROLLER_BUTTON_B;
-}
-
-void GetMousePos(entity_t *self, vec2_t *pos)
-{
-	SDL_GetRelativeMouseState( &pos->x, &pos->y);
-}
-
-void GetXMouse(entity_t *self, int * button, vec2_t *pos)
-{
-	GetX(self, button);
-	GetMousePos(self, pos);
+	temp_ent = FindEntity("Cursor");
+	temp_pos = EntityPosition(temp_ent);
+	if(extra)
+	{
+		memcpy(extra, &temp_pos, sizeof(vec2_t));
+	}
 }

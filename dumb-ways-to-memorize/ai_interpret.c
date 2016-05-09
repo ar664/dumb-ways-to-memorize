@@ -260,7 +260,7 @@ void AttackAI(entity_t *ent)
 			AddPhyicsToEntity(temp_ent);
 			cpBodySetVel(ent->mPhysicsProperties->body, cp_vect);
 			
-			Spawn(ent, temp_ent);
+			Spawn(ent, &temp_ent, NULL);
 		}
 		
 	}

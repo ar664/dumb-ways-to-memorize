@@ -17,27 +17,32 @@ power_t *gCurrentPowerUp = NULL;
 vec2_t *mousePos  = NULL;
 int *keyPower = NULL;
 
-void Move(entity_t *targ, entity_t *info)
+void Move(entity_t *targ, entity_t **info, void *extra)
 {
-	cpVect cpPos;
-	if(!targ || !info)
+	cpVect *cpPos;
+	if(!targ || !extra)
 	{
 		printf("Failed to do move , invalid target/info \n");
 		return;
 	}
-	if(!info->mPhysicsProperties || !targ->mPhysicsProperties)
+	if(!targ->mPhysicsProperties)
 	{
 		printf("Failed to do move , no target/info physics properties \n");
 		return;
 	}
+	cpPos = (cpVect*)Vec2Cp((vec2_t*)extra);
+	if(cpPos)
+	{
+		cpBodySetPos(targ->mPhysicsProperties->body, *cpPos);
+		free(cpPos);
+	}
+	
 
-	cpPos = cpBodyGetPos(info->mPhysicsProperties->body);
-	cpBodySetPos(targ->mPhysicsProperties->body, cpPos);
 }
 
 
 //No other access necessary
-void Destroy(entity_t *targ, entity_t *info)
+void Destroy(entity_t *targ, entity_t **info, void *extra)
 {
 	if(targ)
 	{
@@ -46,7 +51,7 @@ void Destroy(entity_t *targ, entity_t *info)
 }
 
 //Needs access to parseEntity
-void Spawn(entity_t *targ, entity_t *info)
+void Spawn(entity_t *targ, entity_t **info, void *extra)
 {
 	entity_t *spawned;
 	cpVect cpPos, cpSpeed;
@@ -55,7 +60,7 @@ void Spawn(entity_t *targ, entity_t *info)
 		printf("Spawn given blank targ/info \n");
 		return;
 	}
-	if(!targ->mPhysicsProperties || !info->mPhysicsProperties)
+	if(!targ->mPhysicsProperties || !(*info)->mPhysicsProperties)
 	{
 		printf("Spawn given info without physics \n");
 		return;
@@ -67,9 +72,14 @@ void Spawn(entity_t *targ, entity_t *info)
 		printf("Max entities reached can't spawn any more \n");
 		return;
 	}
-	memcpy(spawned, info, sizeof(entity_t));
+	memcpy(spawned, *info, sizeof(entity_t));
 	AddPhyicsToEntity(spawned);
-	spawned->mPhysicsProperties->body->p = info->mPhysicsProperties->body->p;
+	if(!spawned->mPhysicsProperties)
+	{
+		printf("Unable to spawn entity, physics could not be added. \n");
+		return;
+	}
+	spawned->mPhysicsProperties->body->p = (*info)->mPhysicsProperties->body->p;
 	cpPos = cpvadd(cpBodyGetPos(spawned->mPhysicsProperties->body), cpBodyGetPos(targ->mPhysicsProperties->body));
 
 	if(targ->mDirection == DIR_RIGHT)
@@ -90,11 +100,11 @@ void Spawn(entity_t *targ, entity_t *info)
 	AddEntityToPhysics(spawned);
 }
 
-void Edit(entity_t *targ, entity_t *info)
+void Edit(entity_t *targ, entity_t **info, void *extra)
 {
 	int i, entity_size;
 	int *dst = (int*) targ;
-	int *value = (int*) info;
+	int *value = (int*) *info;
 	if(!targ || !info)
 	{
 		printf("Null edit, not doing \n");
@@ -112,13 +122,41 @@ void Edit(entity_t *targ, entity_t *info)
 	
 }
 
-void Nullify(entity_t *targ, entity_t *info)
+void Nullify(entity_t *targ, entity_t **info, void *extra)
 {
 	if(!targ)
 	{
 		printf("Null given null target \n");
 	}
 	targ->Think = NULL;
+}
+
+void* GetExtraMem(int interaction)
+{
+	void *mem;
+	switch(interaction)
+	{
+	case 0:
+		{
+			mem = malloc(sizeof(vec2_t));
+			if(!mem)
+			{
+				printf("ERROR: Allocation of memory for power up gone wrong. \n");
+			}
+			memset(mem, 0, sizeof(vec2_t));
+			return mem;
+			break;
+		}
+	case 2:
+		{
+			break;
+		}
+	default:
+		{
+			break;
+		}
+	}
+	return NULL;
 }
 
 void UpdateNormal(power_t* power)
@@ -133,7 +171,7 @@ void UpdateNormal(power_t* power)
 		printf("power not set \n");
 		return;
 	}
-	power->GetTarg((entity_t*) gPlayer, &power->target);
+	power->GetTarg((entity_t*) gPlayer, &power->target, power->extra);
 	power->uses--;
 	if(power->uses == 0)
 	{
@@ -143,49 +181,48 @@ void UpdateNormal(power_t* power)
 
 void UpdateInfinite(power_t* power)
 {
-	power->GetTarg( (entity_t*) gPlayer, &power->target);
+	power->GetTarg( (entity_t*) gPlayer, &power->target, power->extra);
 }
 
-int GetUseType(const char *var, int *useType)
+int GetUseType(power_t *power, const char *var)
 {
 	if(!strcmp("infinite", var))
 	{
-		*useType = -2;
+		power->uses = -2;
+		power->UpdateUse = UpdateInfinite;
 		return 0;
 	} else if(!strcmp("static", var))
 	{
-		*useType = -1;
+		power->uses = -1;
 		return 0;
 	} else if(strpbrk(var, "-0123456789"))
 	{
-		sscanf(var, "%d", useType);
+		sscanf(var, "%d", &power->uses);
+		power->UpdateUse = UpdateNormal;
 		return 0;
 	}
 	return -1;
 }
 
-void CallInfo(power_t *self)
-{
-	switch (self->info_type)
-	{
-	case INFO_BOTH:
-		GetXMouse((entity_t*) gPlayer, keyPower, mousePos); break;
-	case INFO_BUTTON:
-		GetX((entity_t*) gPlayer, keyPower); break;
-	case INFO_MOUSE:
-		GetMousePos((entity_t*) gPlayer, mousePos); break;
-	default:
-		break;
-	}
-}
-
-power_t* ParseToPowerUp(object_t* power, char* g_str)
+power_t* ParseToPowerUp(object_t* power_obj, char* g_str)
 {
 	int i;
 	char *temp_str;
-	jsmntok_t *temp_tok;
 	entity_t *temp_ent;
 	power_t *retVal;
+	
+	if(!power_obj || !g_str)
+	{
+		printf("Power Up tried to parse NULL \n");
+		return NULL;
+	}
+	if (!power_obj->name)
+	{
+		printf("Tried to parse Power Up with No Name");
+		return NULL;
+	}
+
+	//Allocate for powerup
 	retVal = (power_t*) malloc(sizeof(power_t));
 	if(!retVal)
 	{
@@ -193,73 +230,31 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 		return NULL;
 	}
 	memset(retVal, 0, sizeof(power_t));
-	if(!power || !g_str)
-	{
-		printf("Power Up tried to parse NULL \n");
-		return NULL;
-	}
-	if (!power->name)
-	{
-		printf("Tried to parse Power Up with No Name");
-		return NULL;
-	}
-	retVal->name = power->name;
+	retVal->name = power_obj->name;
 
-	if( (temp_str = FindValue(power, POWER_TARGET_STR, g_str)) != NULL )
+	//Target Matching Function
+	if( (temp_str = FindValue(power_obj, POWER_TARGET_STR, g_str)) != NULL )
 	{
-		retVal->GetTarg = (TargetFunc) ParseToFunction(temp_str);
-		if(temp_str) free(temp_str);
-	}
-	//Use Type
-	if( (temp_str = FindValue(power, POWER_USE_TYPE_STR, g_str)) != NULL )
-	{
-		GetUseType(temp_str, &retVal->uses);
-		if(temp_str) free(temp_str);
-	}
-	switch(retVal->uses)
-	{
-	case INFINITE:
-		retVal->UpdateUse = UpdateInfinite;
-		break;
-	case STATIC:
-		retVal->UpdateUse = NULL;
-		break;
-	default:
-		retVal->UpdateUse = UpdateNormal;
-	}
-
-	//Input Type
-	if( (temp_str = FindValue(power, POWER_INPUT_TYPE_STR, g_str)) != NULL )
-	{
-		for(i = 0; i < INFO_BOTH; i++ )
-		{
-			if(!strcmp(FunctionNames[i], temp_str))
-			{
-				retVal->info_type = (info_type_t) (INFO_BOTH - i);
-				break;
-			}
-			retVal->info_type = INFO_NONE;
-		}
+		retVal->GetTarg = (CustomFunc) ParseToFunction(temp_str);
 		if(temp_str) free(temp_str);
 	}
 
-	if(retVal->info_type)
+	//Get How the power up is used
+	if( (temp_str = FindValue(power_obj, POWER_USE_TYPE_STR, g_str)) != NULL )
 	{
-		retVal->UpdateInput = CallInfo;
-		keyPower = (int*) malloc(sizeof(int));
-		memset(keyPower,0, sizeof(int));
-		mousePos = (vec2_t*) malloc(sizeof(vec2_t));
-		memset(mousePos,0, sizeof(vec2_t));
+		GetUseType(retVal, temp_str);
+		if(temp_str) free(temp_str);
 	}
 
 	//Interaction
-	if( (temp_str = FindValue(power, POWER_INTERACTION_STR, g_str)) != NULL )
+	if( (temp_str = FindValue(power_obj, POWER_INTERACTION_STR, g_str)) != NULL )
 	{
 		for(i = 0; InteractionNames[i]; i++ )
 		{
 			if(!strcmp(InteractionNames[i], temp_str))
 			{
-				retVal->DoPower = (void(*)(entity_t *targ, entity_t *info)) InteractionSymbols[i];
+				retVal->DoPower = (CustomFunc)InteractionSymbols[i];
+				retVal->extra = GetExtraMem(i);
 				break;
 			}
 			retVal->DoPower = NULL;
@@ -267,17 +262,18 @@ power_t* ParseToPowerUp(object_t* power, char* g_str)
 		if(temp_str) free(temp_str);
 	}
 	
-	//Info
-	if( (temp_str = FindValue(power, POWER_ENTITY_STR, g_str)) != NULL )
+	//The target's information if needed
+	if( (temp_str = FindValue(power_obj, POWER_ENTITY_STR, g_str)) != NULL )
 	{
 		if( (temp_ent = FindCachedEntity( temp_str )) != NULL )
 		{
 			retVal->info = temp_ent;
 		} else
 		{
-			printf("Failed to identify/find entity in power : %s \n", power->name);
+			printf("Failed to identify/find entity in power : %s \n", power_obj->name);
 			retVal->info = NULL;
 		}
+		if(temp_str) free(temp_str);
 	} else
 	{
 		retVal->info = NULL;//ParseToEntity(power, g_str);
@@ -313,17 +309,13 @@ void UsePower(power_t* power)
 	{
 		return;
 	}
-	if(power->UpdateInput)
-	{
-		power->UpdateInput(power);
-	}
 	if(power->UpdateUse)
 	{
 		power->UpdateUse(power);
 	}
 	if(power->DoPower)
 	{
-		power->DoPower(power->target, power->info);
+		power->DoPower(power->target, &power->info, power->extra);
 	}
 	
 }

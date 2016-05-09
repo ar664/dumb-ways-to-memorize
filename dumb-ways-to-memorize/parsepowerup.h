@@ -29,7 +29,7 @@ typedef enum
 
 typedef struct power_s power_t;
 
-typedef void (*TargetFunc) (entity_t*, entity_t**);
+typedef void (*CustomFunc) (entity_t*, entity_t**, void *extra);
 
 /**
  * The structure for our power_up system.
@@ -41,12 +41,11 @@ typedef void (*TargetFunc) (entity_t*, entity_t**);
 struct power_s
 {	
 	char *name;											/**< The name of the power up */
-	void (*UpdateInput)(power_t *self);					/**< The function to update the input for the power_up  */
-	void (*GetTarg)(entity_t *self, entity_t **targ);	/**< The function which calculates who or what is the specified target */
+	void *extra;										/**< The extra var to use when using power up, allocated on load */
+	CustomFunc GetTarg;									/**< The function which calculates who or what is the specified target */
 	void (*UpdateUse)(power_t *power);					/**< The function which updates the power_up */
-	void (*DoPower)(entity_t *targ, entity_t *info);	/**< The function which does the power_up , called after all the updates */
+	CustomFunc DoPower;	/**< The function which does the power_up , called after all the updates */
 	int uses;											/**< The number of times this power can get used - @see use_type_t*/
-	info_type_t info_type;								/**< The type of info the powe up needs*/
 	entity_t *target;									/**< Target for the power_up */
 	entity_t *info;										/**< The information that the power_up uses*/
 
@@ -54,16 +53,6 @@ struct power_s
 extern power_t *gPowerUps;			/**< The loaded power ups */
 extern power_t *gCurrentPowerUp;	/**< The currently loaded power_up */
 
-//Power Specific
-/**
- * Call information functions for the power_up.
- *
- * @param [in,out]	self	If non-null, the class instance that this method operates on.
- *
- * @author	Anthony Rios
- * @date	3/30/2016
- */
-void CallInfo(power_t *self);
 
 /**
  * Updates a normal use power_up, with uses > 0.
@@ -96,7 +85,7 @@ void UpdateInfinite(power_t *power);
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-int GetUseType(const char *var, int *useType);
+int GetUseType(power_t *power, int *useType);
 
 /**
  * Parses object/str data to a power up.
@@ -143,7 +132,7 @@ void UsePower(power_t *power);
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void Move(entity_t *targ, entity_t *info);
+void Move(entity_t *targ, entity_t **info, void *extra);
 
 /**
  * Destroys target.
@@ -154,7 +143,7 @@ void Move(entity_t *targ, entity_t *info);
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void Destroy(entity_t *targ, entity_t *info);
+void Destroy(entity_t *targ, entity_t **info, void *extra);
 
 /**
  * Spawns entity from info to position of targ.
@@ -165,7 +154,7 @@ void Destroy(entity_t *targ, entity_t *info);
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void Spawn(entity_t *targ, entity_t *info);
+void Spawn(entity_t *targ, entity_t **info, void *extra);
 
 /**
  * Edits the target with values from info.
@@ -176,7 +165,7 @@ void Spawn(entity_t *targ, entity_t *info);
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void Edit(entity_t *targ, entity_t *info);
+void Edit(entity_t *targ, entity_t **info, void *extra);
 
 /**
  * Nullifies the entity by removing the think function of targ.
@@ -187,7 +176,10 @@ void Edit(entity_t *targ, entity_t *info);
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void Nullify(entity_t *targ, entity_t *info);
+void Nullify(entity_t *targ, entity_t **info, void *extra);
+
+
+void *GetExtraMem(int interaction);
 
 //Interactions Array
 extern char *InteractionNames[];	/**< The interaction names, which deal with what function power does */
