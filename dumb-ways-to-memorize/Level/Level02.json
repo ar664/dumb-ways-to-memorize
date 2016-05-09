@@ -1,0 +1,29 @@
+{ 
+	"Name" : "Move_Baby",
+	"Background" : "Sprite/Level/Background.png",
+	"Spawn" : [96,352],
+	"Playlist" : ["Audio/Song.mp3"],
+	"Objects" : { 
+		{ 
+			"object" : "Flat Left", 
+			"position" : [64,416]
+		}, 
+		{ 
+			"object" : "Flat Improved", 
+			"position" : [192,416]
+		}, 
+		{ 
+			"object" : "Flat Right", 
+			"position" : [320,416]
+		}, 
+		{ 
+			"object" : "Flat Floating 1", 
+			"position" : [480,128] 
+		}, 
+		{ 
+			"object" : "Ground Win",
+			"extra" : "win",
+			"position" : [480,64] 
+		} 
+	}
+} 

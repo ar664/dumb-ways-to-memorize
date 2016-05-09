@@ -20,7 +20,7 @@
 	"Animation Order" : ["Idle", "Walk", "Jump", "Attack", "Hit", "extra animations up to 20"],
 	"PowerUps" : ["PowerUps.json"],
 	"AI_Enemies" : ["AI/Dumb.json", "AI/WalkDir.json", "AI/FlyDir.json", "AI/PatrolXPoints.json", "AI/2PointPatrol.json"],
-	"Levels" : ["Level/Level01.json" , "Level/Level01.json"],
+	"Levels" : ["Level/Level01.json" , "Level/Level02.json"],
 	"Menus" : ["Menu/StartMenu.json", "Menu/PowerUpMenu.json", "Menu/ChoosePowerForLevel.json"],
 	"SplashScreen" : "Sprite/Level/Dumb_Background.png",
 	"UI_Lives" : "Sprite/UI/Dumb_Lives.png",

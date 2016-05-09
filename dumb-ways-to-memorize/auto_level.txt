@@ -1,56 +1,36 @@
 { 
 	Name : Auto Created Level, 
-	Spawn : [64,352], 
+	Spawn : [32,320], 
 	Enemies : { 
+		{ 
+			object : Thwomp Enemy, 
+			position : [384,192], 
+		}, 
 	}, 
 	Objects : { 
 		{ 
 			object : Cursor, 
-			position : [64,352], 
+			position : [32,320], 
 		}, 
 		{ 
 			object : Flat Left, 
 			position : [64,448], 
 		}, 
 		{ 
-			object : Flat Right, 
-			position : [128,448], 
-		}, 
-		{ 
-			object : Flat Right, 
+			object : Flat Improved, 
 			position : [192,448], 
 		}, 
 		{ 
-			object : Flat Right, 
-			position : [256,448], 
-		}, 
-		{ 
-			object : Flat Right, 
+			object : Flat Improved, 
 			position : [320,448], 
 		}, 
 		{ 
-			object : Flat Right, 
-			position : [384,448], 
-		}, 
-		{ 
-			object : Flat Right, 
-			position : [448,448], 
-		}, 
-		{ 
-			object : Flat Floating 1, 
-			position : [320,352], 
-		}, 
-		{ 
-			object : Flat Floating 1, 
+			object : Flat Left, 
 			position : [384,288], 
 		}, 
 		{ 
-			object : Flat Floating 1, 
-			position : [448,224], 
-		}, 
-		{ 
 			object : Ground Win, 
-			position : [480,160], 
+			position : [544,128], 
 		}, 
 	}, 
 } 

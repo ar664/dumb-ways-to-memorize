@@ -300,6 +300,10 @@ void TouchGoal(entity_t* self, entity_t* other)
 	if(other == gPlayer)
 	{
 		gGameState = CountMem(gUsedPowerUps, sizeof(char*)) >= CountMem(gSelectedPowerUps, sizeof(char*)) ? START : CHOOSE;
+		if(gGameState == START)
+		{
+			ResetGame();
+		}
 		GameNextLevel();
 	}
 }

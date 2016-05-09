@@ -75,58 +75,58 @@
     <ClCompile Include="dumb_ui.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\chipmunk.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\chipmunk.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpArbiter.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpArbiter.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpArray.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpArray.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpBB.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpBB.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpBBTree.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpBBTree.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpBody.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpBody.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpCollision.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpCollision.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpHashSet.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpHashSet.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpPolyShape.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpPolyShape.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpShape.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpShape.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpace.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpace.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceComponent.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceComponent.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceHash.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceHash.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceQuery.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceQuery.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpaceStep.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpaceStep.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSpatialIndex.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSpatialIndex.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpSweep1D.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpSweep1D.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Lib\Chipmunk6\src\cpVect.c">
+    <ClCompile Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\cpVect.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -185,12 +185,12 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Lib\Chipmunk6\src\prime.h">
+    <ClInclude Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\prime.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="D:\Lib\Chipmunk6\src\CMakeLists.txt">
+    <None Include="..\..\..\..\..\..\..\Lib\Chipmunk6\src\CMakeLists.txt">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

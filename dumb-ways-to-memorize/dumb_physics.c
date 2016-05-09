@@ -153,8 +153,18 @@ void SafeRemovePhysics(cpSpace *space, void *key, void *data)
 	{
 		return;
 	}
-	cpSpaceRemoveShape(space, (cpShape*) key);
-	cpSpaceRemoveBody(space, (cpBody*) data);
+	if(!cpBodyIsStatic((cpBody*) key))
+	{
+		cpSpaceRemoveShape(space, (cpShape*) key);
+		cpSpaceRemoveBody(space, (cpBody*) data);
+	} else
+	{
+		cpSpaceRemoveStaticShape(space, (cpShape*) key);
+		cpSpaceRemoveBody(space, (cpBody*) key);
+	}
+	
+	
+	
 	cpShapeFree( (cpShape*) key);
 	cpBodyFree( (cpBody*) data);
 }
