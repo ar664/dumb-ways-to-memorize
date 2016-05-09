@@ -41,10 +41,11 @@ typedef void (*CustomFunc) (entity_t*, entity_t**, void *extra);
 struct power_s
 {	
 	char *name;											/**< The name of the power up */
+	sprite_t *icon;										/**< Icon of the power up */
 	void *extra;										/**< The extra var to use when using power up, allocated on load */
 	CustomFunc GetTarg;									/**< The function which calculates who or what is the specified target */
 	void (*UpdateUse)(power_t *power);					/**< The function which updates the power_up */
-	CustomFunc DoPower;	/**< The function which does the power_up , called after all the updates */
+	CustomFunc DoPower;									/**< The function which does the power_up , called after all the updates */
 	int uses;											/**< The number of times this power can get used - @see use_type_t*/
 	entity_t *target;									/**< Target for the power_up */
 	entity_t *info;										/**< The information that the power_up uses*/

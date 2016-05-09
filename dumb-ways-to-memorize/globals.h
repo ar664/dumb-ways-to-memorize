@@ -128,6 +128,7 @@ extern char *Collisions_str[];						/**< The collisions type strings for parsing
 extern char *EntityStates_str[];					/**< The entity state strings for parsing */
 collision_type_t StrToCollisionType(char *str);		/**< Converts a string into a entity collision type */
 entity_state_t StrToEntityState(char *str);			/**< Converts a string into an entity state */
+int StrToSpriteType(char *str);
 
 //For PowerUps
 #define POWER_UPS_STR	"PowerUps"

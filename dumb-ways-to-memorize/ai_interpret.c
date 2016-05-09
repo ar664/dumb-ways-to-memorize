@@ -7,12 +7,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//Forward Declare AI's to put into function list
+void NothingAI(entity_t *ent); 
+void MoveAI(entity_t *ent);
+void WalkAI(entity_t *ent);
+void JumpAI(entity_t *ent);
+void AttackAI(entity_t *ent);
+
 ai_function_t * gVariableAIs = NULL;
 ai_function_t * gPresetAIs = NULL;
 
 char *gAI_Variables[] = {"speed", "frames", "time", "damage", 0};
 char *gAI_Actions[] = {"nothing", "move", "walk", "jump", "attack", 0};
 char *gAI_Conditions[] = {"distance_player", "distance_object", "object_check", "link_ai", "link_action", 0};
+void *gAI_Functions[] = {NothingAI, MoveAI, WalkAI, JumpAI, AttackAI, 0};
 int gAI_BaseValues[] = {0, 5, 1, 1, 5, 0, 0, 0, 0};
 
 
@@ -184,7 +192,6 @@ void WalkAI(entity_t *ent)
 
 void JumpAI(entity_t *ent)
 {
-	int flags;
 	vec2_t temp_vec2;
 	cpVect *cp_temp, cp_vect;
 	if(!ent->mData || !ent)
@@ -275,21 +282,11 @@ void (*GetFunctionAI(ai_function_t *data))(entity_t *)
 	{
 		return NULL;
 	}
-	switch(data->mAction)
+	if(data->mType > AI_ACTION_MAX)
 	{
-	case(AI_ACTION_NOTHING) : 
-		return NothingAI;
-	case(AI_ACTION_MOVE):
-		return MoveAI;
-	case(AI_ACTION_WALK): 
-		return WalkAI;
-	case(AI_ACTION_JUMP):
-		return JumpAI;
-	case(AI_ACTION_ATTACK):
-		return AttackAI;
-	default:
 		return NULL;
 	}
+	return (void(*)(entity_t*))gAI_Functions[data->mType];
 }
 
 ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)

@@ -450,6 +450,11 @@ entity_state_t StrToEntityState(char *str)
 	return (entity_state_t) 0;
 }
 
+int StrToSpriteType(char *str)
+{
+	return 0;
+}
+
 vec2_t* ParseToVec2(object_t* object, char* str)
 {
 	vec2_t *retVal;

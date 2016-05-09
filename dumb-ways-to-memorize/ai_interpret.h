@@ -19,6 +19,7 @@
 extern char *gAI_Variables[];   /**< The variables to be parsed for ai data */
 
 extern char *gAI_Actions[];		/**< The actions that are related to ai functions */
+extern void *gAI_Functions[];
 
 #define AI_CHECK_STR			"condition"
 extern char *gAI_Conditions[];  /**< The conditions for the ai function to be executed */
@@ -209,5 +210,7 @@ ai_actions_t StrToAI_Action(const char *str);
 ai_conditions_t StrToAI_Condition(const char *str);
 
 ai_variables_t StrToVariableType(const char *str);
+
+
 
 #endif
