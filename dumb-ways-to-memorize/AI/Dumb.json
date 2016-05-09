@@ -9,7 +9,8 @@
 		"frames" : 5
 	},
 	{
-		"jump" : -10,
+		"jump" : 1,
+		"speed" : 20,
 		"time" : 1,
 	}
 	]

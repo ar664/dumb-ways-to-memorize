@@ -14,6 +14,45 @@ char *gAI_Variables[] = {"speed", "frames", "time", "damage", 0};
 char *gAI_Actions[] = {"nothing", "move", "walk", "jump", "attack", 0};
 char *gAI_Conditions[] = {"distance_player", "distance_object", "object_check", "link_ai", "link_action", 0};
 
+
+//Run After All Think Functions
+//This is very generic
+void StandarAI_Think(entity_t *ent)
+{
+	entity_t *cache_ref;
+	int flags;
+	flags = ent->mData->mFlags;
+	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
+	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
+	cache_ref = FindCachedEntity(ent->mName);
+
+	//Checks are right to left
+	if(cache_ref->mPhysicsProperties && cache_ref)
+	{
+		if(flags & AI_FLAG_GRAVITY)
+		{
+			cpBodySetMass(ent->mPhysicsProperties->body, 0);
+		} else
+		{
+			cpBodySetMass(ent->mPhysicsProperties->body, cache_ref->mPhysicsProperties->body->m);
+		}
+		
+	}
+	
+	//Check Data
+	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
+	{
+		ent->mData->mVariables[AI_VAR_TIME] = 1;
+		ent->mData = ent->mData->mLink;
+	}
+	
+	//Kill ent if dead
+	if(ent->mHealth <= 0)
+	{
+		FreeEntity(ent);
+	}
+}
+
 /**
  * AI that does nothing for its think, except make sure values are set.
  *
@@ -25,14 +64,12 @@ char *gAI_Conditions[] = {"distance_player", "distance_object", "object_check", 
 
 void NothingAI(entity_t *ent)
 {
-	int flags;
 	if(!ent->mData || !ent)
 	{
 		printf("MoveAI given a null paramerter \n");
 		return;
 	}
-	flags = ent->mData->mFlags;
-
+	
 	EntitySetAnimation(ent, ANIMATION_IDLE);
 
 	//Standard Vars
@@ -41,17 +78,8 @@ void NothingAI(entity_t *ent)
 		ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 		SetCpCollisionType(ent);
 	}
-	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
-	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
-	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
-		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
 
-	//Check Data
-	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
-	{
-		ent->mData->mVariables[AI_VAR_TIME] = 1;
-		ent->mData = ent->mData->mLink;
-	}
+	StandarAI_Think(ent);
 }
 
 /**
@@ -67,7 +95,6 @@ void NothingAI(entity_t *ent)
 
 void MoveAI(entity_t *ent)
 {
-	int flags;
 	vec2_t temp_vec2;
 	cpVect *cp_temp, cp_vect;
 	if(!ent->mData || !ent)
@@ -75,7 +102,6 @@ void MoveAI(entity_t *ent)
 		printf("MoveAI given a null paramerter \n");
 		return;
 	}
-	flags = ent->mData->mFlags;
 
 	//Standard Vars
 	if(ent->mCollisionType != COLLISION_TYPE_CLIP)
@@ -83,28 +109,22 @@ void MoveAI(entity_t *ent)
 		ent->mCollisionType = COLLISION_TYPE_CLIP;
 		SetCpCollisionType(ent);
 	}
-	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
-	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
-	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
-		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
-
-	//Move
+	
+	//Set direction vector
 	temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 	temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
-	//TODO: normalize temp_vec2
-	Vec2MultiplyScalar(&temp_vec2,ent->mData->mVariables[AI_VAR_SPEED],&temp_vec2);
 	cp_temp = (cpVect*) Vec2Cp(&temp_vec2);
 	cp_vect = cp_temp ? *cp_temp : cpvzero;
+
+	//Normalize & Mult speed
+	cp_vect = cpvnormalize(cp_vect);
+	cp_vect = cpvmult(cp_vect, ent->mData->mVariables[AI_VAR_SPEED]);
+
+	//Set Velocity
 	cpBodySetVel(ent->mPhysicsProperties->body, cp_vect);
-
-	//Check Data
-	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
-	{
-		ent->mData->mVariables[AI_VAR_TIME] = 1;
-		ent->mData = ent->mData->mLink;
-	}
+	if(cp_temp) free(cp_temp);
 	
-
+	StandarAI_Think(ent);
 }
 
 /**
@@ -120,7 +140,6 @@ void MoveAI(entity_t *ent)
 
 void WalkAI(entity_t *ent)
 {
-	int flags;
 	vec2_t temp_vec2;
 	cpVect *cp_temp, cp_vect;
 	if(!ent->mData || !ent)
@@ -128,7 +147,6 @@ void WalkAI(entity_t *ent)
 		printf("MoveAI given a null paramerter \n");
 		return;
 	}
-	flags = ent->mData->mFlags;
 
 	//Standard Vars
 	if(ent->mCollisionType != COLLISION_TYPE_RAGDOLL)
@@ -136,27 +154,22 @@ void WalkAI(entity_t *ent)
 		ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 		SetCpCollisionType(ent);
 	}
-	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
-	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
-	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
-		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
 
-	//Move
+	//Set direction vector
 	temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 	temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
-	//TODO: normalize temp_vec2
-	Vec2MultiplyScalar(&temp_vec2,ent->mData->mVariables[AI_VAR_SPEED],&temp_vec2);
 	cp_temp = (cpVect*)Vec2Cp(&temp_vec2);
 	cp_vect = cp_temp ? *cp_temp : cpvzero;
-	cpBodySetVel(ent->mPhysicsProperties->body, cp_vect);
 
-	//Check Data
-	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
-	{
-		ent->mData->mVariables[AI_VAR_TIME] = 1;
-		ent->mData = ent->mData->mLink;
-	}
+	//Normalize & Multiply by speed
+	cp_vect = cpvnormalize(cp_vect);
+	cp_vect = cpvmult(cp_vect, ent->mData->mVariables[AI_VAR_SPEED]);
+
+	//Set Velocity
+	cpBodySetVel(ent->mPhysicsProperties->body, cp_vect);
 	if(cp_temp) free(cp_temp);
+
+	StandarAI_Think(ent);
 }
 
 /**
@@ -178,7 +191,6 @@ void JumpAI(entity_t *ent)
 		printf("MoveAI given a null paramerter \n");
 		return;
 	}
-	flags = ent->mData->mFlags;
 
 	//Standard Vars
 	if(ent->mCollisionType != COLLISION_TYPE_RAGDOLL)
@@ -186,30 +198,23 @@ void JumpAI(entity_t *ent)
 		ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 		SetCpCollisionType(ent);
 	}
-	ent->mNextThink = gCurrentTime + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
-	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
-	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
-		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
 
 	//Move
 	if(cpBodyKineticEnergy(ent->mPhysicsProperties->body) < 1 )
 	{
 		temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 		temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
-		Vec2MultiplyScalar(&temp_vec2,ent->mData->mVariables[AI_VAR_SPEED],&temp_vec2);
 		cp_temp = (cpVect*) Vec2Cp(&temp_vec2);
 		cp_vect = cp_temp ? *cp_temp : cpvzero;
+		cp_vect = cpvnormalize(cp_vect);
+		cp_vect = cpvmult(cp_vect, ent->mData->mVariables[AI_VAR_SPEED]);
+
 		cpBodyApplyImpulse(ent->mPhysicsProperties->body, cp_vect, cpvzero);
 		if(cp_temp) free(cp_temp);
 		
 	}
 
-	//Check Data
-	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
-	{
-		ent->mData->mVariables[AI_VAR_TIME] = 1;
-		ent->mData = ent->mData->mLink;
-	}
+	StandarAI_Think(ent);
 }
 
 /**
@@ -225,7 +230,6 @@ void JumpAI(entity_t *ent)
 
 void AttackAI(entity_t *ent)
 {
-	int flags;
 	entity_t *temp_ent;
 	vec2_t temp_vec2;
 	cpVect *cp_temp, cp_vect;
@@ -235,7 +239,6 @@ void AttackAI(entity_t *ent)
 		return;
 	}
 	cp_temp = NULL;
-	flags = ent->mData->mFlags;
 
 	//Standard Vars
 	if(ent->mCollisionType != COLLISION_TYPE_RAGDOLL)
@@ -243,12 +246,7 @@ void AttackAI(entity_t *ent)
 		ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
 		SetCpCollisionType(ent);
 	}
-	ent->mCollisionType = COLLISION_TYPE_RAGDOLL;
-	ent->mNextThink = SDL_GetTicks() + ent->mData->mVariables[AI_VAR_FRAMES]*UPDATE_FRAME_DELAY;
-	ent->mDamage = ent->mData->mVariables[AI_VAR_DAMAGE];
-	(flags & AI_FLAG_GRAVITY) ? cpBodySetMass(ent->mPhysicsProperties->body, 0) : 
-		cpBodySetMass(ent->mPhysicsProperties->body, FindCachedEntity(ent->mName)->mPhysicsProperties->body->m);
-
+	
 	if(ent->mData->mObject)
 	{
 		temp_ent = FindCachedEntity(ent->mData->mObject);
@@ -265,14 +263,9 @@ void AttackAI(entity_t *ent)
 		}
 		
 	}
-
-	//Check Data
-	if( --ent->mData->mVariables[AI_VAR_TIME] == 0)
-	{
-		ent->mData->mVariables[AI_VAR_TIME] = 1;
-		ent->mData = ent->mData->mLink;
-	}
 	if(cp_temp) free(cp_temp);
+
+	StandarAI_Think(ent);
 }
 
 void (*GetFunctionAI(ai_function_t *data))(entity_t *)
@@ -556,6 +549,7 @@ void SetAI_Var(ai_function_t* function, char* data_str, ai_variables_t var_type)
 void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* g_str, ai_actions_t action_type)
 {
 	vec2_t *temp_vec2;
+	int temp_int;
 	if(!action_type || !function)
 	{
 		return;
@@ -597,7 +591,7 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 			} else if( (temp_vec2 = ParseToVec2(obj, g_str)) != NULL)
 			{
 				function->mVariables[AI_VAR_DIR_X] = temp_vec2->x;
-				function->mVariables[AI_VAR_DIR_X] = temp_vec2->y;
+				function->mVariables[AI_VAR_DIR_Y] = temp_vec2->y;
 			} else
 			{
 				function->mVariables[AI_VAR_DIR_X] = 0;
@@ -609,7 +603,7 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 		}
 	case AI_ACTION_JUMP:
 		{
-			if(!obj)
+			if(!obj || !tok)
 			{
 				function->mVariables[AI_VAR_DIR_X] = 0;
 				function->mVariables[AI_VAR_DIR_Y] = AI_BASE_JUMP;
@@ -618,10 +612,11 @@ void SetAI_Action(ai_function_t* function, object_t* obj, jsmntok_t* tok, char* 
 			{
 				function->mVariables[AI_VAR_DIR_X] = temp_vec2->x;
 				function->mVariables[AI_VAR_DIR_X] = temp_vec2->y;
-			} else
+			} else 
 			{
+				JsmnToInt(tok, g_str, &temp_int);
 				function->mVariables[AI_VAR_DIR_X] = 0;
-				function->mVariables[AI_VAR_DIR_Y] = AI_BASE_JUMP;
+				function->mVariables[AI_VAR_DIR_Y] = temp_int ? temp_int : AI_BASE_JUMP;
 			}
 
 			function->mAction = AI_ACTION_JUMP;
@@ -681,6 +676,9 @@ void SetAI_Check(ai_function_t* function, char** variables_str, char* data_str, 
 		break;
 	}
 }
+
+
+
 
 int InitAISystem()
 {

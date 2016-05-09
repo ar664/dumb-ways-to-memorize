@@ -834,7 +834,7 @@ void UpdateEditor()
 	vec2_t temp_pos;
 	entity_t *temp_ent, *found_ent;
 	physics_t *temp_physics;
-	string_object_t *temp_str_obj, *ent_str_obj;
+	string_object_t *file_obj, *temp_obj,*ent_obj, *static_obj;
 	FILE *file;
 	char *temp_str;
 	switch(gButtonQ)
@@ -922,16 +922,33 @@ void UpdateEditor()
 		}
 	case(SDL_CONTROLLER_BUTTON_LEFTSHOULDER):
 		{
-			temp_str_obj = (string_object_t*) malloc(sizeof(string_object_t));
-			memset(temp_str_obj, 0, sizeof(string_object_t));
+			file_obj = (string_object_t*) malloc(sizeof(string_object_t));
+			ent_obj = (string_object_t*) malloc(sizeof(string_object_t));
+			static_obj = (string_object_t*) malloc(sizeof(string_object_t));
+			if(!file_obj || !ent_obj || !static_obj)
+			{
+				return;
+			}
+			memset(file_obj, 0, sizeof(string_object_t));
+			memset(ent_obj, 0, sizeof(string_object_t));
+			memset(static_obj, 0, sizeof(string_object_t));
 			file = fopen("auto_level.txt", "w");
-			AddKVPair2StrObj(temp_str_obj, G_NAME_STR, "Auto Created Level" );
+			if(!file)
+			{
+				return;
+			}
+
+			//Set Some Variables to Make file loadable
+			AddKVPair2StrObj(file_obj, G_NAME_STR, "Auto Created Level" );
+			ent_obj->name = LevelGlobalObjectNames[LEVEL_G_OBJECT_ENEMIES];
+			static_obj->name = LevelGlobalObjectNames[LEVEL_G_OBJECT_OBJECTS];
+
 			if(gCurrentLevel)
 			{
 				temp_str = Ints2Str(2, gCurrentLevel->mSpawnPoint.x, gCurrentLevel->mSpawnPoint.y );
 				if(temp_str)
 				{
-					AddKVPair2StrObj(temp_str_obj, LevelGlobalObjectNames[LEVEL_G_OBJECT_SPAWN], temp_str);
+					AddKVPair2StrObj(file_obj, LevelGlobalObjectNames[LEVEL_G_OBJECT_SPAWN], temp_str);
 				}
 
 			}
@@ -941,15 +958,15 @@ void UpdateEditor()
 				{
 					continue;
 				}
-				ent_str_obj = (string_object_t*) malloc(sizeof(string_object_t));
-				if(!ent_str_obj)
+				temp_obj = (string_object_t*) malloc(sizeof(string_object_t));
+				if(!temp_obj)
 				{
 					printf("Failure to record %s in level editor. Malloc error. \n", gEntities[i].mName);
 					continue;
 				}
-				memset(ent_str_obj, 0, sizeof(string_object_t));
-				ent_str_obj->name = gEntities[i].mName;
-				AddKVPair2StrObj(ent_str_obj, LevelLocalObjectNames[LEVEL_L_OBJECT_OBJECT], gEntities[i].mName );
+				memset(temp_obj, 0, sizeof(string_object_t));
+				temp_obj->name = gEntities[i].mName;
+				AddKVPair2StrObj(temp_obj, LevelLocalObjectNames[LEVEL_L_OBJECT_OBJECT], gEntities[i].mName );
 				x = gEntities[i].mPhysicsProperties->body->p.x;
 				y = gEntities[i].mPhysicsProperties->body->p.y;
 				temp_str = Ints2Str(2, x, y);
@@ -958,12 +975,21 @@ void UpdateEditor()
 					printf("Failure to record %s's position in level editor. \n", gEntities[i].mName);
 					continue;
 				}
-				AddKVPair2StrObj(ent_str_obj, LevelLocalOptionNames[LEVEL_L_OPTION_POSITION], temp_str);
-				AddObject2StrObj(temp_str_obj, ent_str_obj);
+				AddKVPair2StrObj(temp_obj, LevelLocalOptionNames[LEVEL_L_OPTION_POSITION], temp_str);
+				if(gEntities[i].mHealth)
+				{
+					AddObject2StrObj(ent_obj, temp_obj);
+				} else
+				{
+					AddObject2StrObj(static_obj, temp_obj);
+				}
+				
 			}
-
-			WriteStringObjectToFile(temp_str_obj, file, 0);
+			AddObject2StrObj(file_obj, ent_obj);
+			AddObject2StrObj(file_obj, static_obj);
+			WriteStringObjectToFile(file_obj, file, 0);
 			fclose(file);
+			printf("Saved created level to 'auto_level.txt' \n" );
 			ResetGame();
 			break;
 		}

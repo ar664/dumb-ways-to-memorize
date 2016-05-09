@@ -18,7 +18,7 @@
 	
 	"Cursor" :
 	{
-		"collisionType" : "clip"
+		"collisionType" : "clip",
 		"sprite(s)" : ["Sprite/Player/Dumb_Player_Waiting.png"],
 		"height" : 48,
 		"width" : 33,
@@ -29,7 +29,8 @@
 	"Flying Enemy" :
 	{
 		"health" : 50,
-		"hazard(s)" : "flying",
+		"weight" : 0,
+		"hazard(s)" : ["0","flying"],
 		"collisionType" : "ragdoll",
 		"entityState" : "alive",
 		"sprite(s)" : ["Sprite/Entities/Dumb_Enemy_Flying_Idle.png", "Sprite/Entities/Dumb_Enemy_Flying_Walking.png"],
@@ -55,7 +56,7 @@
 	"Thwomp Enemy" :
 	{
 		"health" : 1000,
-		"hazard(s)" : "spike",
+		"hazard(s)" : ["0","spike"],
 		"collisionType" : "ragdoll",
 		"entityState" : "other",
 		"sound(s)" : ["sound_enemy", "Audio/SoundEffect.mp3"],
@@ -129,7 +130,7 @@
 		"entityState" : "other",
 		"sprite(s)" : "Sprite/Level/Dumb_Triangle.png",
 		"frames" : 1
-	}
+	},
 	
 	"Flat Floating 1" :
 	{

@@ -187,6 +187,9 @@ void ThinkEnemy(entity_t *self)
 		}
 	} else if (self->mData->mFlags & AI_FLAG_CHECK_PLAYER)
 	{
+		//Later program player search
+		//if(self->mData->mAction == AI_ACTION_MOVE || self->mData->mAction == AI_ACTION_WALK)
+		
 		if(Distance2Entity(self, (entity_t*)gPlayer) < self->mData->mVariables[AI_VAR_CHECK])
 		{
 			if(GetFunctionAI(self->mData))
@@ -240,10 +243,6 @@ void TouchGeneric(entity_t *self, entity_t *other)
 //Touch Functions
 void TouchPlayer(entity_t *self, entity_t *other)
 {
-	if(self != gPlayer)
-	{
-		printf("Non Player entity touching \n");
-	}
 	if(!other->mName)
 	{
 		return;
@@ -277,12 +276,20 @@ void TouchPlayer(entity_t *self, entity_t *other)
 
 void TouchEnemy(entity_t *self, entity_t *other)
 {
+	if(!other->mName)
+	{
+		return;
+	}
 	switch(other->mCollisionType)
 	{
-	case COLLISION_TYPE_STATIC:
-		break;
-	case COLLISION_TYPE_RAGDOLL:
-		break;
+	case(COLLISION_TYPE_STATIC):
+		{
+			break;
+		}
+	case(COLLISION_TYPE_RAGDOLL):
+		{
+			break;
+		}
 	default:
 		break;
 	}
@@ -472,7 +479,7 @@ int Distance2Entity(entity_t* self, entity_t* other)
 
 void FreeEntity(entity_t *ent)
 {
-	int i, j, numSprites, isGlobal = 0;
+	int i, j, numSprites;
 	if(!ent)
 		return;
 	i = 0;
@@ -480,7 +487,6 @@ void FreeEntity(entity_t *ent)
 	{
 		if(ent == &gEntities[i])
 		{
-			isGlobal = 1;
 			if(ent->mSprites)
 			{
 				if(gGameState == END)
@@ -495,10 +501,6 @@ void FreeEntity(entity_t *ent)
 			RemoveEntityFromPhysics(ent);
 			memset(ent, 0, sizeof(entity_t));
 		}
-	}
-	if(!isGlobal)
-	{
-		free(ent);
 	}
 
 }

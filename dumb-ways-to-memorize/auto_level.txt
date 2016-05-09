@@ -1,44 +1,56 @@
 { 
 	Name : Auto Created Level, 
-	Spawn : [32,352], 
-	{ 
-		object : Cursor, 
-		position : [32,352], 
+	Spawn : [64,352], 
+	Enemies : { 
 	}, 
-	{ 
-		object : Ground, 
-		position : [32,448], 
-	}, 
-	{ 
-		object : Ground, 
-		position : [64,448], 
-	}, 
-	{ 
-		object : Ground, 
-		position : [96,448], 
-	}, 
-	{ 
-		object : Ground, 
-		position : [128,448], 
-	}, 
-	{ 
-		object : Ground, 
-		position : [160,448], 
-	}, 
-	{ 
-		object : Ground, 
-		position : [192,448], 
-	}, 
-	{ 
-		object : Ground, 
-		position : [224,448], 
-	}, 
-	{ 
-		object : Ground, 
-		position : [256,448], 
-	}, 
-	{ 
-		object : Ground Win, 
-		position : [288,416], 
+	Objects : { 
+		{ 
+			object : Cursor, 
+			position : [64,352], 
+		}, 
+		{ 
+			object : Flat Left, 
+			position : [64,448], 
+		}, 
+		{ 
+			object : Flat Right, 
+			position : [128,448], 
+		}, 
+		{ 
+			object : Flat Right, 
+			position : [192,448], 
+		}, 
+		{ 
+			object : Flat Right, 
+			position : [256,448], 
+		}, 
+		{ 
+			object : Flat Right, 
+			position : [320,448], 
+		}, 
+		{ 
+			object : Flat Right, 
+			position : [384,448], 
+		}, 
+		{ 
+			object : Flat Right, 
+			position : [448,448], 
+		}, 
+		{ 
+			object : Flat Floating 1, 
+			position : [320,352], 
+		}, 
+		{ 
+			object : Flat Floating 1, 
+			position : [384,288], 
+		}, 
+		{ 
+			object : Flat Floating 1, 
+			position : [448,224], 
+		}, 
+		{ 
+			object : Ground Win, 
+			position : [480,160], 
+		}, 
 	}, 
 } 

@@ -145,6 +145,20 @@ void AddEntityToPhysics(entity_t* ent)
 	
 }
 
+//Key = Shape
+//Data = Body
+void SafeRemovePhysics(cpSpace *space, void *key, void *data)
+{
+	if(!space || !key || !data)
+	{
+		return;
+	}
+	cpSpaceRemoveShape(space, (cpShape*) key);
+	cpSpaceRemoveBody(space, (cpBody*) data);
+	cpShapeFree( (cpShape*) key);
+	cpBodyFree( (cpBody*) data);
+}
+
 void RemoveEntityFromPhysics(entity_t *ent)
 {
 	if(!ent->mPhysicsProperties)
@@ -155,10 +169,15 @@ void RemoveEntityFromPhysics(entity_t *ent)
 	{
 		return;
 	}
-	cpSpaceRemoveShape(gSpace, ent->mPhysicsProperties->shape);
-	cpSpaceRemoveBody(gSpace, ent->mPhysicsProperties->body);
-	cpShapeFree(ent->mPhysicsProperties->shape);
-	cpBodyFree(ent->mPhysicsProperties->body);
+	if(cpSpaceIsLocked(gSpace))
+	{
+		cpSpaceAddPostStepCallback(gSpace, SafeRemovePhysics, ent->mPhysicsProperties->shape, ent->mPhysicsProperties->body);
+	} else
+	{
+		SafeRemovePhysics(gSpace, ent->mPhysicsProperties->shape, ent->mPhysicsProperties->body);
+	}
+	
+	
 	if(ent->mPhysicsProperties)
 	{
 		free(ent->mPhysicsProperties);

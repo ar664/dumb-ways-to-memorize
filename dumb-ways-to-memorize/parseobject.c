@@ -428,7 +428,14 @@ void WriteStringObjectToFile(string_object_t *obj, FILE* file, int depth)
 			{
 				fprintf(file, depth_tab);
 			}
-			fprintf(file, "{ \n");
+			if(obj->name && depth < 2)
+			{
+				fprintf(file, "%s : { \n", obj->name);
+			} else
+			{
+				fprintf(file, "{ \n");
+			}
+			
 			key_count = CountMem(obj->keys, sizeof(char*));
 			value_count = CountMem(obj->values, sizeof(char*));
 			pairs = key_count - (value_count-key_count);

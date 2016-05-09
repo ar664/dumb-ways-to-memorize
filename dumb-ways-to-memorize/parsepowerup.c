@@ -55,6 +55,12 @@ void Spawn(entity_t *targ, entity_t *info)
 		printf("Spawn given blank targ/info \n");
 		return;
 	}
+	if(!targ->mPhysicsProperties || !info->mPhysicsProperties)
+	{
+		printf("Spawn given info without physics \n");
+		return;
+	}
+
 	spawned = InitNewEntity();
 	if (!spawned)
 	{

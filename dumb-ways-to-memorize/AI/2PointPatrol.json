@@ -1,0 +1,15 @@
+{
+	"Name" : "2PointPatrol"
+	"AI_Type" : "variable",
+	"Comment" : "This guy moves in directions given, but doesn't clip",
+	"Think" : 
+	[
+	{
+		"walk" : [1,2],
+	},
+	{
+		"walk" : [3, 4]
+	}
+	]
+
+}
