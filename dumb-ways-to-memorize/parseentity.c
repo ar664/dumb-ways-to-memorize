@@ -11,76 +11,51 @@
 
 //Globals
 char *FileVariableNames[] = {  "sound(s)", "sprite(s)",  0};
-
-char *DynamicVariableNames[] = { "soundType", "spriteType", "hazard(s)", "collisionType", "entityState", 0};
-void *DynamicFunctions[] = { StrToSoundType, StrToSpriteType ,StrToHazard, StrToCollisionType, StrToEntityState, 0};
-char *Vector2VariableNames[] = {"accel", "velocity", "position", 0};
-//ParseToVec
-char *SimpleVariableNames[] = {"health", "weight", "fps", "damage", "height", "width", "frames",  0 };
+void *FileSetFunctions[] = { AddSoundsToEnt, AddSpritesToEnt, 0};
+char *DirectVariableNames[] = { "soundType", "spriteType", "hazard(s)", "collisionType", "entityState", "health", "damage", 0};
+void *DirectConFunctions[] = { StrToSoundType, StrToSpriteType ,StrToHazard, StrToCollisionType, StrToEntityState, StrToInt, StrToInt, 0};
+char *PhysicsVariableNames[] = { "weight", "accel", "velocity", "position", 0};
+int PhysicsVariableSizes[] = { sizeof(int), sizeof(vec2_t), sizeof(vec2_t), sizeof(vec2_t), 0};
+void *PhysicsConFunctions[] = { StrToInt, StrToInt, StrToInt, StrToInt, 0};
+void *PhysicsSetFunctions[] = { cpBodySetMass, cpBodySetVelocity, cpBodySetVelocity, cpBodySetPosition, 0};
+char *SpriteVariableNames[] = { "fps", "height", "width", "frames", 0};
 //StrToInt
 
 void *EntityAddFunctions[] = {0};
 
-void AddDynamicMemToEnt(entity_t  *ent, entity_members_dynamic_t member, int value)
+void AddSpriteMem(sprite_t *sprite, entity_members_sprite_t member, int value)
 {
-	if(!value || !ent)
+	int *var_to_edit;
+	if(!sprite)
 	{
 		return;
 	}
+	var_to_edit = (int*) ((char*)sprite + SpriteVariableOffsets[member] );
+	*var_to_edit = value;
 
-	switch(member)
-	{
-	case ENTITY_MEMBER_HAZARDS: ent->mHazards = value; break;
-	case ENTITY_MEMBER_COLLISION_TYPE: ent->mCollisionType = (collision_type_t) value; break;
-	case ENTITY_MEMBER_ENTITY_STATE: ent->mEntityState = (entity_state_t) value; break;
-	default:
-		break;
-	}
 }
 
-void AddVector2Entity(entity_t *ent, entity_members_vector2_t member, vec2_t *value)
+//BOOM Bitch
+void AddDirectMemToEnt(entity_t *ent, entity_members_direct_t member, int value)
 {
-	cpVect *temp_val;
-	if(!value || !ent)
-	{
-		return;
-	}
-
-	temp_val = (cpVect*)Vec2Cp(value);
-	if(!ent->mPhysicsProperties->body || !temp_val)
-	{
-		return;
-	}
-
-	switch(member)
-	{
-	case ENTITY_MEMBER_ACCEL: cpBodyApplyImpulse(ent->mPhysicsProperties->body, *temp_val, cpvzero); break;
-	case ENTITY_MEMBER_POSITION: cpBodySetPos(ent->mPhysicsProperties->body, *temp_val ); break;
-	case ENTITY_MEMBER_VELOCITY: cpBodySetVel(ent->mPhysicsProperties->body, *temp_val ); break;
-	default:
-		break;
-	}
-
-	if(temp_val) free(temp_val);
-}
-
-void AddSimpleMemToEnt(entity_t *ent, entity_members_simple_t member, int value)
-{
+	int *var_to_edit;
 	if(!ent)
 	{
 		return;
 	}
+	var_to_edit = (int*) ((char*)ent + DirectVariableOffsets[member] );
+	*var_to_edit = value;
 
-	switch(member)
+}
+
+//Assuming pre-converted
+void AddPhysicsMemToEnt(entity_t *ent, entity_members_physics_t member, void *value)
+{
+	if(!ent || !value)
 	{
-	case ENTITY_MEMBER_HEALTH: ent->mHealth = value; break;
-	case ENTITY_MEMBER_WEIGHT: ent->mPhysicsProperties ? cpBodySetMass(ent->mPhysicsProperties->body, value) : NULL; break;
-	case ENTITY_MEMBER_FPS: ent->mSprites ? ent->mSprites[0]->mMillisecondsPerFrame = 1000/(value+1) : NULL; break;
-	case ENTITY_MEMBER_DAMAGE: ent->mDamage = value;
-
-	default:
-			break;
+		return;
 	}
+	((void(*)(void*, void*))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, value);
 }
 
 void AddSoundsToEnt(entity_t *ent, char **files, int group)
@@ -118,15 +93,11 @@ void AddSpritesToEnt(entity_t *ent, char **files, int flags)
 
 entity_t* ParseToEntity(object_t* object, char* str)
 {
-	int i, j, array_count, heights[MAX_ANIMATIONS] = {0}, widths[MAX_ANIMATIONS] = {0}, frames[MAX_ANIMATIONS] = {0};
-
-	//Members
-	int dynamic_members[ENTITY_MEMBER_DYNAMIC_MAX] = {0}, simple_members[ENTITY_MEMBER_SIMPLE_MAX] = {0};
-	vec2_t vector_members[ENTITY_MEMBER_VECTOR_MAX] = {0};
+	int i, j, array_count;
+	int temp_int, *temp_loc;
 
 	//Files
-	char **spriteFiles, **soundFiles, *temp_str;
-	void *file_members[ENTITY_MEMBER_FILE_MAX] = { spriteFiles, soundFiles};
+	char **temp_array, *temp_str, *temp_arg;
 	
 	//Used Vars
 	vec2_t *temp_vec;
@@ -140,51 +111,27 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	memset(retVal, 0, sizeof(entity_t));
 	retVal->mName = object->name;
 
-	for(i = 0; SimpleVariableNames[i]; i++)
+	//Do Direct first for Compatibility with different file loading
+	for(i = 0; DirectVariableNames[i]; i++)
 	{
-		temp_str = FindValue(object, SimpleVariableNames[i], str);
-		if ( temp_str )
-		{
-			simple_members[i] = StrToInt(temp_str);
-		}
-		else
-		{
-			checkObj = FindObject(object, SimpleVariableNames[i]);
-			if(checkObj)
-			{
-				for(j = 0; checkObj->values[j].type; j++)
-				{
-					switch(i)
-					{
-					case ENTITY_MEMBER_HEIGHT: JsmnToInt(&checkObj->values[j], str, &heights[j]); break;
-					case ENTITY_MEMBER_WIDTH: JsmnToInt(&checkObj->values[j], str, &widths[j]); break;
-					case ENTITY_MEMBER_FRAMES: JsmnToInt(&checkObj->values[j], str, &frames[j]); break;
-					default:
-						break;
-					}
-				}
-			}
-			
-		}
+		temp_str = FindValue(object, DirectVariableNames[i], str);
 
+		//Cast To Int returning Function
+		temp_int =  ( (int(*)(char *))DirectConFunctions[i] )(temp_str);
+
+		AddDirectMemToEnt(retVal, (entity_members_direct_t) i, temp_int);
 		if(temp_str) free(temp_str);
 	}
 
-	for(i = 0; DynamicVariableNames[i]; i++)
-	{
-		temp_str = FindValue(object, DynamicVariableNames[i], str);
-		dynamic_members[i] =  ((int(*)(char *))DynamicFunctions[i])(temp_str);
-		if(temp_str) free(temp_str);
-	}
-
+	//Load Files to Ent
 	for(i = 0; FileVariableNames[i]; i++)
 	{
 		temp_str = FindValue(object, FileVariableNames[i], str);
 		if(temp_str)
 		{
-			file_members[i] = malloc(sizeof(char*)*2);
-			memset(file_members[i], 0, sizeof(char*)*2);
-			file_members[0] = temp_str;
+			temp_array = (char**) malloc(sizeof(char*)*2);
+			memset(temp_array, 0, sizeof(char*)*2);
+			temp_array[0] = temp_str;
 		} else
 		{
 			checkObj = FindObject(object, FileVariableNames[i]);
@@ -193,40 +140,64 @@ entity_t* ParseToEntity(object_t* object, char* str)
 				continue;
 			}
 			array_count = CountMem(object->values, sizeof(jsmntok_t));
-			file_members[i] = malloc(sizeof(char*)*(array_count+1));
-			memset(file_members[i], 0, sizeof(char*)*(array_count+1));
+			temp_array = (char**) malloc(sizeof(char*)*(array_count+1));
+			memset(temp_array, 0, sizeof(char*)*(array_count+1));
 			for(j = 0; j < array_count; j++)
 			{
-				file_members[i] = JsmnToString(&object->values[j], str);
+				temp_array[i] = JsmnToString(&object->values[j], str);
 			}
+		}
+		if(temp_array)
+		{
+			//Get the flags we need from the entity
+			temp_int = *(int*)( (char*) retVal  + DirectVariableOffsets[i]);
+
+			//Load the files in with casted function
+			( (void(*)(entity_t*, char**, int))FileSetFunctions[i] )(retVal, temp_array, temp_int);
+
+			free(temp_array);
 		}
 	}
 
-
-	AddSpritesToEnt(retVal, (char**) file_members[i], 0);
-	AddSoundsToEnt(retVal, (char**) file_members[i], 0);
-
+	// TODO: Process frame data after the loading of extra data
 	if(!retVal->mSprites || !retVal->mSprites[0])
 	{
 		printf("Could not load sprites for entity: %s \n", retVal->mName);
 		return NULL;
 	}
-
+	
+	//Iteratre Through Sprites
 	for(i = 0; retVal->mSprites[i]; i++)
 	{
-		if(!retVal->mSprites[i])
-			break;
-		checkFrame = LoadAnimation(widths[i], heights[i], retVal->mSprites[i]->mRawSize.x, retVal->mSprites[i]->mRawSize.y);
-		retVal->mSprites[i]->mSize.x = widths[i] ? widths[i] : retVal->mSprites[i]->mRawSize.y;
-		retVal->mSprites[i]->mSize.y = heights[i] ? heights[i] : retVal->mSprites[i]->mRawSize.y;
-		retVal->mSprites[i]->mFrames = frames[i] ? frames[i] : 1;
-		retVal->mSprites[i]->mMillisecondsPerFrame = simple_members[ENTITY_MEMBER_FPS] ? 1000/simple_members[ENTITY_MEMBER_FPS]  : 1000/DRAW_FRAME_DELAY;
-		memset(&retVal->mSprites[i]->mAnimations[0], 0, sizeof(Frame)*MAX_ANIMATIONS);
-		if(checkFrame)
+			
+		//Iterate through members
+		for(j = 0; SpriteVariableNames[j]; j++)
 		{
-			memcpy(&retVal->mSprites[i]->mAnimations[0], checkFrame, sizeof(Frame)*(retVal->mSprites[i]->mFrames+1));
+			temp_str = FindValue(object, SpriteVariableNames[j], str);
+			if ( temp_str )
+			{
+				temp_int = StrToInt(temp_str);
+				AddSpriteMem(retVal->mSprites[i], (entity_members_sprite_t) j, temp_int);
+			}
+			else
+			{
+				checkObj = FindObject(object, SpriteVariableNames[j]);
+				if(checkObj)
+				{
+					//Check if member value is set for current sprite
+					if(i < CountMem(checkObj->values, sizeof(jsmntok_t)))
+					{
+						temp_arg = JsmnToString(&checkObj->values[i], str);
+						temp_int = StrToInt(temp_arg);
+						AddSpriteMem(retVal->mSprites[i], (entity_members_sprite_t) j, temp_int);
+						if(temp_arg) free(temp_arg);
+					}
+				}
+			
+			}
+
+			if(temp_str) free(temp_str);
 		}
-		if(checkFrame) free(checkFrame);
 	}
 
 	if(!AddPhyicsToEntity(retVal))
@@ -234,15 +205,16 @@ entity_t* ParseToEntity(object_t* object, char* str)
 		printf("Could not add entity %s to physics \n", retVal->mName);
 		return NULL;
 	}
-	cpBodySetMass(retVal->mPhysicsProperties->body, (float) (simple_members[ENTITY_MEMBER_WEIGHT]  ? simple_members[ENTITY_MEMBER_WEIGHT] : 1));
 
-	for(i = 0; Vector2VariableNames[i]; i++)
+	for(i = 0; PhysicsVariableNames[i]; i++)
 	{
-		if( (checkObj = FindObject(object, Vector2VariableNames[i])) != NULL)
+		temp_str = FindValue(object, PhysicsVariableNames[i], str);
+		if(temp_str)
 		{
-			temp_vec = ParseToVec2(checkObj, str);
-			AddVector2Entity(retVal, (entity_members_vector2_t) i, temp_vec);
-			if(temp_vec) free(temp_vec);
+			//Stuff
+		} else
+		{
+			//Other Stuff
 		}
 	}
 	
@@ -295,9 +267,10 @@ void EntityMemberSetType(entity_member_t *member, int type)
 {
 	switch(member->member_type)
 	{
-	case MEMBER_COMPLEX: member->types.complex = (entity_members_file_t)type; break;
-	case MEMBER_VECTOR: member->types.vector = (entity_members_vector2_t)type; break;
-	case MEMBER_SIMPLE: member->types.simple = (entity_members_simple_t)type; break;
+	case MEMBER_FILE: member->types.file = (entity_members_file_t)type; break;
+	case MEMBER_PHYSICS: member->types.physics = (entity_members_physics_t)type; break;
+	case MEMBER_SPRITE: member->types.sprite = (entity_members_sprite_t)type; break;
+	case MEMBER_DIRECT: member->types.direct = (entity_members_direct_t)type; break;
 	default:
 		break;
 	}
@@ -311,18 +284,8 @@ void *ConvertType(int var_type, int num_type, char *var)
 	}
 	switch(var_type)
 	{
-	case MEMBER_COMPLEX:
-		{
-			break;
-		}
-	case MEMBER_VECTOR:
-		{
-			break;
-		}
-	case MEMBER_SIMPLE:
-		{
-			break;
-		}
+	default:
+		break;
 	}
 
 	return NULL;
@@ -332,7 +295,7 @@ entity_member_t* GetEntityMembers(object_t* object, char* str)
 {
 	int i, j, k, count, hit, hit_count;
 	char *temp_str, **hit_values, **current_array;
-	void *variable_arrays[] = { FileVariableNames, Vector2VariableNames, SimpleVariableNames, 0};
+	void *variable_arrays[] = { FileVariableNames, PhysicsVariableNames, SimpleVariableNames, 0};
 	entity_member_t *members;
 	if(!object || !str)
 	{

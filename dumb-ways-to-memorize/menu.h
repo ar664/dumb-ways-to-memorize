@@ -26,11 +26,11 @@
 typedef enum
 {
 	MENU_TYPE_NULL = 0x0,
-	MENU_TYPE_H = 0x1,		/**< An enum constant representing the menu type - horizontal */
-	MENU_TYPE_V = 0x2,		/**< An enum constant representing the menu type - vertical */
-	MENU_TYPE_GRID = 0x4,   /**< An enum constant representing the menu type - grid */
-	MENU_TYPE_POWER = 0x8,  /**< An enum constant representing the menu type - half circle for power selection*/
-	MENU_TYPE_CHOOSE = 0x10,	/**< An enum constant representing the menu - same as power, but used to differ the menu operations */
+	MENU_TYPE_H = 0x1,		/**<  menu type - horizontal */
+	MENU_TYPE_V = 0x2,		/**<  menu type - vertical */
+	MENU_TYPE_GRID = 0x4,   /**<  menu type - grid */
+	MENU_TYPE_POWER = 0x8,  /**<  menu type - half circle for power selection*/
+	MENU_TYPE_CHOOSE = 0x10,	/**<  menu - same as power, but used to differ the menu operations */
 	MENU_TYPE_MAX = 0x20
 
 }menu_type_t;

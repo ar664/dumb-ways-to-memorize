@@ -48,18 +48,18 @@ extern int LargestDivisor(int num);
 /** Defines the enum relating to entity states */
 typedef enum
 {
-	ENTITY_STATE_DEAD,  /**< An enum constant representing the entity state dead */
-	ENTITY_STATE_ALIVE, /**< An enum constant representing the entity state alive option */
-	ENTITY_STATE_OTHER  /**< An enum constant representing the entity state other, which is used for non-health based entities */
+	ENTITY_STATE_DEAD,  /**<  entity state dead */
+	ENTITY_STATE_ALIVE, /**<  entity state alive option */
+	ENTITY_STATE_OTHER  /**<  entity state other, which is used for non-health based entities */
 }entity_state_t;
 
 /** Defines the enum which are the collision types for the physics engine */
 typedef enum
 {
-	COLLISION_TYPE_STATIC,  /**< An enum constant representing the collision type static - which means it collides, but doesn't move */
+	COLLISION_TYPE_STATIC,  /**<  collision type static - which means it collides, but doesn't move */
 	COLLISION_TYPE_INDEPENDENT,
-	COLLISION_TYPE_RAGDOLL, /**< An enum constant representing the collision type ragdoll - which collides + moves */
-	COLLISION_TYPE_CLIP		/**< An enum constant representing the collision type clip - which means it doesn't collide , but moves. Should be used for particle entities (maybe) */
+	COLLISION_TYPE_RAGDOLL, /**<  collision type ragdoll - which collides + moves */
+	COLLISION_TYPE_CLIP		/**<  collision type clip - which means it doesn't collide , but moves. Should be used for particle entities (maybe) */
 }collision_type_t;
 
 typedef enum
@@ -76,35 +76,35 @@ typedef enum
 typedef enum
 {
 	MENU_ITEM_STATE_NULL,
-	MENU_ITEM_STATE_SELECTED = 0x1,		/**< An enum constant representing the menu item state selected - which means the player is hovering over this now */
-	MENU_ITEM_STATE_NOT_SELECTED = 0x2, /**< An enum constant representing the menu item state not selected */
-	MENU_ITEM_STATE_PICKED = 0x4,		/**< An enum constant representing the menu item state picked - which is a option that is checked */
+	MENU_ITEM_STATE_SELECTED = 0x1,		/**<  menu item state selected - which means the player is hovering over this now */
+	MENU_ITEM_STATE_NOT_SELECTED = 0x2, /**<  menu item state not selected */
+	MENU_ITEM_STATE_PICKED = 0x4,		/**<  menu item state picked - which is a option that is checked */
 	MENU_ITEM_STATE_MAX = 0x8
 }menu_item_state_t;
 
 /** Defines an enum for animation states in mSprites array */
 typedef enum
 {
-	ANIMATION_IDLE,		/**< An enum constant representing the idle animation */
-	ANIMATION_WALK,		/**< An enum constant representing the walk animation*/
-	ANIMATION_JUMP,		/**< An enum constant representing the jump animation */
-	ANIMATION_ATTACK,   /**< An enum constant representing the attack animation */
-	ANIMATION_HIT,		/**< An enum constant representing the hit animation */
-	ANIMATION_MAX = 20  /**< An enum constant representing the maximum animations */
+	ANIMATION_IDLE,		/**<  idle animation */
+	ANIMATION_WALK,		/**<  walk animation*/
+	ANIMATION_JUMP,		/**<  jump animation */
+	ANIMATION_ATTACK,   /**<  attack animation */
+	ANIMATION_HIT,		/**<  hit animation */
+	ANIMATION_MAX = 20  /**<  maximum animations */
 
 }animation_state_t;
 
 /** Defines the enum for the game states */
 typedef enum
 {
-	SPLASH =	0x1,	/**< An enum constant representing the splash screen game state */
-	START =		0x2,	/**< An enum constant representing the start screen game state */
-	GUESS =		0x4,	/**< An enum constant representing the first time the player chooses the power_ups */
-	CHOOSE =	0x8,	/**< An enum constant representing the state in which the player selects a power_up from the chosen power ups in guess */
-	PLAYING =	0x10,   /**< An enum constant representing the playing game state, which is consistent of the level, enemy entities, and the player */
-	EDITOR =	0x20,   /**< An enum constant representing the editor state, where the player creates a new level */
-	END =		0x40,   /**< An enum constant representing the player has chosen to quit the game */
-	MAX =		0x80,   /**< An enum constant representing the maximum states */
+	SPLASH =	0x1,	/**<  splash screen game state */
+	START =		0x2,	/**<  start screen game state */
+	GUESS =		0x4,	/**<  first time the player chooses the power_ups */
+	CHOOSE =	0x8,	/**<  state in which the player selects a power_up from the chosen power ups in guess */
+	PLAYING =	0x10,   /**<  playing game state, which is consistent of the level, enemy entities, and the player */
+	EDITOR =	0x20,   /**<  editor state, where the player creates a new level */
+	END =		0x40,   /**<  player has chosen to quit the game */
+	MAX =		0x80,   /**<  maximum states */
 }GameState;
 
 extern GameState gGameState;					/**< State of the game */

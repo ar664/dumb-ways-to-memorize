@@ -22,6 +22,8 @@ struct physics_s;
 
 struct entity_s
 {
+	int mSoundType;
+	int mSpriteType;
 	int mHazards;					/**< The hazards that the entity is immune to / deals */
 	int mHealth;					/**< The health of the entity, if below zero - destroy this entity */
 	int mDamage;					/**< The damage the entity should deal to other entities */
@@ -32,10 +34,10 @@ struct entity_s
 	Uint8 mDirection;				/**< The direction entity is facing */
 	collision_type_t mCollisionType;	/**< Type of the collision the entity is */
 	entity_state_t mEntityState;	/**< The state of the entity */
-	struct physics_s *mPhysicsProperties;
 	sprite_t **mSprites;			/**< The sprites of the given entity */
-	sprite_t *mAnimation;			/**< The current animation, the entity is running */
 	struct sound_s *mSounds;			/**< The sounds that belong to this entity */
+	struct physics_s *mPhysicsProperties;
+	sprite_t *mAnimation;			/**< The current animation, the entity is running */
 	ai_function_t *mData;			/**< The data that an entity stores for its ai */
 	char *mName;					/**< The name of the entity */
 	//vec2_t GetAccel();					/**< The acceleration vector */

@@ -30,22 +30,22 @@ extern int gAI_BaseValues[];	/**< The base values for the defined gAI_Variables 
 typedef enum
 {
 	AI_TYPE_NULL,
-	AI_TYPE_PRESET = 0x1,   /**< An enum constant representing the ai type preset option */
-	AI_TYPE_VARIABLE,   /**< An enum constant representing the ai type variable , which states there needs to be more values given */
-	AI_TYPE_RECURSIVE   /**< An enum constant representing the ai type recursive option, which values turn into more functions */
+	AI_TYPE_PRESET = 0x1,   /**<  ai type preset option */
+	AI_TYPE_VARIABLE,   /**<  ai type variable , which states there needs to be more values given */
+	AI_TYPE_RECURSIVE   /**<  ai type recursive option, which values turn into more functions */
 }ai_type_t;
 
 /** Defines the enum for the variables in mVariables */
 typedef enum
 {
 	AI_VAR_NULL,	
-	AI_VAR_SPEED,	/**< An enum constant representing the ai variable speed */
-	AI_VAR_FRAMES,  /**< An enum constant representing the ai variable for the amount of frames this action happens*/
-	AI_VAR_TIME,	/**< An enum constant representing the ai variable for the amount of times to repeat this action */
-	AI_VAR_DAMAGE,  /**< An enum constant representing the ai variable for the damage this action should be */
-	AI_VAR_DIR_X,   /**< An enum constant representing the ai variable for the x direction */
-	AI_VAR_DIR_Y,   /**< An enum constant representing the ai variable for the y direction */
-	AI_VAR_CHECK,   /**< An enum constant representing the ai variable for whether there is a condition that needs to be met b4 the action can be done */
+	AI_VAR_SPEED,	/**<  ai variable speed */
+	AI_VAR_FRAMES,  /**<  ai variable for the amount of frames this action happens*/
+	AI_VAR_TIME,	/**<  ai variable for the amount of times to repeat this action */
+	AI_VAR_DAMAGE,  /**<  ai variable for the damage this action should be */
+	AI_VAR_DIR_X,   /**<  ai variable for the x direction */
+	AI_VAR_DIR_Y,   /**<  ai variable for the y direction */
+	AI_VAR_CHECK,   /**<  ai variable for whether there is a condition that needs to be met b4 the action can be done */
 	AI_VAR_MAX
 
 }ai_variables_t;
