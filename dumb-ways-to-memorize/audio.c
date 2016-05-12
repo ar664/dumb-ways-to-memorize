@@ -70,6 +70,10 @@ int PlaySound(sound_t* sound, sound_mixer_effects number)
 sound_mixer_group StrToSoundType(const char* str)
 {
 	int i;
+	if(!str)
+	{
+		return SOUND_GROUP_MAX;
+	}
 	for(i = SOUND_GROUP_PLAYER; i < SOUND_GROUP_MAX; i++)
 	{
 		if(!strcmp(str, SoundVariableNames[i]))

@@ -11,6 +11,8 @@ extern char *SpriteVariableNames[];		/**< The simple variables are there given v
 
 #define ENTITY_SOUND_GROUP_STR	"sound_group"
 
+typedef int (*StrConFunc)(char*);
+
 static const size_t DirectVariableOffsets[] = 
 {
 	offsetof(entity_t, mSoundType),

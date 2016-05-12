@@ -278,19 +278,28 @@ void FreeSprite(sprite_t *sprite)
 
 }
 
-//Unused for now
-void IncrementFrame(sprite_t* sprite)
+void UpdateSprite(sprite_t *sprite)
 {
-	int frames;
+	Frame *temp_animation;
+	int size;
 	if(!sprite)
 	{
 		return;
 	}
-	frames = CountMem(&sprite->mAnimations[0], sizeof(Frame));
-	if(!frames)
+	temp_animation = LoadAnimation(sprite->mSize.x, sprite->mSize.y, sprite->mRawSize.x, sprite->mRawSize.y);
+	if(temp_animation)
 	{
-		return;
+		size = CountMem(temp_animation, sizeof(Frame));
+		if(size > MAX_ANIMATIONS)
+		{
+			free(temp_animation);
+			return;
+		}
+		memset(sprite->mAnimations, 0, sizeof(Frame)*MAX_ANIMATIONS);
+		memcpy(sprite->mAnimations, temp_animation, sizeof(Frame)*size );
+		free(temp_animation);
 	}
+
 }
 
 void SDL_SetRect(SDL_Rect* rect, int x, int y, int w, int h)

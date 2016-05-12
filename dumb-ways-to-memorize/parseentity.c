@@ -15,8 +15,6 @@ void *FileSetFunctions[] = { AddSoundsToEnt, AddSpritesToEnt, 0};
 char *DirectVariableNames[] = { "soundType", "spriteType", "hazard(s)", "collisionType", "entityState", "health", "damage", 0};
 void *DirectConFunctions[] = { StrToSoundType, StrToSpriteType ,StrToHazard, StrToCollisionType, StrToEntityState, StrToInt, StrToInt, 0};
 char *PhysicsVariableNames[] = { "weight", "accel", "velocity", "position", 0};
-int PhysicsVariableSizes[] = { sizeof(int), sizeof(vec2_t), sizeof(vec2_t), sizeof(vec2_t), 0};
-void *PhysicsConFunctions[] = { StrToInt, StrToInt, StrToInt, StrToInt, 0};
 void *PhysicsSetFunctions[] = { cpBodySetMass, cpBodySetVelocity, cpBodySetVelocity, cpBodySetPosition, 0};
 char *SpriteVariableNames[] = { "fps", "height", "width", "frames", 0};
 //StrToInt
@@ -51,11 +49,29 @@ void AddDirectMemToEnt(entity_t *ent, entity_members_direct_t member, int value)
 //Assuming pre-converted
 void AddPhysicsMemToEnt(entity_t *ent, entity_members_physics_t member, void *value)
 {
+	int size;
+	cpFloat *temp_val;
 	if(!ent || !value)
 	{
 		return;
 	}
-	((void(*)(void*, void*))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, value);
+	temp_val = (cpFloat*)value;
+	size = CountMem(value, sizeof(cpFloat));
+
+	switch(size)
+	{
+	case(1):
+		{
+			((void(*)(void*, cpFloat))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, *temp_val);
+		}
+	case(2):
+		{
+			((void(*)(void*, cpVect))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, *(cpVect*)temp_val);
+		}
+	default:
+		break;
+	}
+	
 }
 
 void AddSoundsToEnt(entity_t *ent, char **files, int group)
@@ -95,6 +111,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 {
 	int i, j, array_count;
 	int temp_int, *temp_loc;
+	cpFloat temp_float[3] = {0};
 
 	//Files
 	char **temp_array, *temp_str, *temp_arg;
@@ -117,7 +134,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 		temp_str = FindValue(object, DirectVariableNames[i], str);
 
 		//Cast To Int returning Function
-		temp_int =  ( (int(*)(char *))DirectConFunctions[i] )(temp_str);
+		temp_int =  ( (StrConFunc)DirectConFunctions[i] )(temp_str);
 
 		AddDirectMemToEnt(retVal, (entity_members_direct_t) i, temp_int);
 		if(temp_str) free(temp_str);
@@ -130,6 +147,10 @@ entity_t* ParseToEntity(object_t* object, char* str)
 		if(temp_str)
 		{
 			temp_array = (char**) malloc(sizeof(char*)*2);
+			if(!temp_array)
+			{
+				continue;
+			}
 			memset(temp_array, 0, sizeof(char*)*2);
 			temp_array[0] = temp_str;
 		} else
@@ -141,6 +162,10 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			}
 			array_count = CountMem(object->values, sizeof(jsmntok_t));
 			temp_array = (char**) malloc(sizeof(char*)*(array_count+1));
+			if(!temp_array)
+			{
+				continue;
+			}
 			memset(temp_array, 0, sizeof(char*)*(array_count+1));
 			for(j = 0; j < array_count; j++)
 			{
@@ -198,6 +223,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 
 			if(temp_str) free(temp_str);
 		}
+		UpdateSprite(retVal->mSprites[i]);
 	}
 
 	if(!AddPhyicsToEntity(retVal))
@@ -211,11 +237,27 @@ entity_t* ParseToEntity(object_t* object, char* str)
 		temp_str = FindValue(object, PhysicsVariableNames[i], str);
 		if(temp_str)
 		{
-			//Stuff
+			temp_float[0] = (cpFloat) StrToInt(temp_str);
+			AddPhysicsMemToEnt(retVal, (entity_members_physics_t) i, temp_float);
+
 		} else
 		{
-			//Other Stuff
+			checkObj = FindObject(object, PhysicsVariableNames[i]);
+			if(checkObj)
+			{
+				temp_int = CountMem(checkObj->values, sizeof(jsmntok_t));
+				for(j = 0; j < temp_int; j++)
+				{
+					temp_str = JsmnToString(&checkObj->values[i], str);
+					temp_float[j] = (cpFloat)StrToInt(temp_str);
+					if(temp_str) free(temp_str);
+				}
+				AddPhysicsMemToEnt(retVal, (entity_members_physics_t)i, temp_float);
+			}
 		}
+		//Reset float values
+		memset(temp_float, 0, sizeof(cpFloat)*3);
+		if(temp_str) free(temp_str);
 	}
 	
 	retVal->mNextThink = 1;
@@ -295,7 +337,7 @@ entity_member_t* GetEntityMembers(object_t* object, char* str)
 {
 	int i, j, k, count, hit, hit_count;
 	char *temp_str, **hit_values, **current_array;
-	void *variable_arrays[] = { FileVariableNames, PhysicsVariableNames, SimpleVariableNames, 0};
+	void *variable_arrays[] = { FileVariableNames, PhysicsVariableNames, DirectVariableNames, 0};
 	entity_member_t *members;
 	if(!object || !str)
 	{

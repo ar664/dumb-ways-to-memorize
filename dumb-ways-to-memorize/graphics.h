@@ -137,8 +137,7 @@ int DrawSprite(sprite_t *sprite, int frame, vec2_t * position, SDL_Renderer * re
  */
 void FreeSprite(sprite_t *sprite);
 
-//Unused
-void IncrementFrame(sprite_t *sprite);
+void UpdateSprite(sprite_t *sprite);
 
 /**
  * Sdl set rectangle dimensions.
