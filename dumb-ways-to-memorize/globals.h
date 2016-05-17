@@ -18,15 +18,17 @@ typedef struct vec2_s
 	int y;
 }vec2_t;
 
-void *Vec2Cp(vec2_t *vect);
-vec2_t *CpToVect(void *cp);
+
+struct cpVect;
+cpVect Vec2Cp(vec2_t *vect);
+vec2_t CpToVect(cpVect * cp);
 
 typedef struct area_s
 {
 	float x, y, w, h;
 }area_t;
 
-extern vec2_t gZeroPos;
+extern vec2_t gZeroVect;
 
 //Address of a value, basically generic typing int*
 typedef unsigned int address_t;

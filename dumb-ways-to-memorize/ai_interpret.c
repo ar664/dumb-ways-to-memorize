@@ -105,7 +105,7 @@ void NothingAI(entity_t *ent)
 void MoveAI(entity_t *ent)
 {
 	vec2_t temp_vec2;
-	cpVect *cp_temp, cp_vect;
+	cpVect cp_vect;
 	if(!ent->mData || !ent)
 	{
 		printf("MoveAI given a null paramerter \n");
@@ -122,8 +122,7 @@ void MoveAI(entity_t *ent)
 	//Set direction vector
 	temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 	temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
-	cp_temp = (cpVect*) Vec2Cp(&temp_vec2);
-	cp_vect = cp_temp ? *cp_temp : cpvzero;
+	cp_vect = Vec2Cp(&temp_vec2);
 
 	//Normalize & Mult speed
 	cp_vect = cpvnormalize(cp_vect);
@@ -131,7 +130,6 @@ void MoveAI(entity_t *ent)
 
 	//Set Velocity
 	cpBodySetVel(ent->mPhysicsProperties->body, cp_vect);
-	if(cp_temp) free(cp_temp);
 	
 	StandarAI_Think(ent);
 }
@@ -150,7 +148,7 @@ void MoveAI(entity_t *ent)
 void WalkAI(entity_t *ent)
 {
 	vec2_t temp_vec2;
-	cpVect *cp_temp, cp_vect;
+	cpVect cp_vect;
 	if(!ent->mData || !ent)
 	{
 		printf("MoveAI given a null paramerter \n");
@@ -167,8 +165,7 @@ void WalkAI(entity_t *ent)
 	//Set direction vector
 	temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 	temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
-	cp_temp = (cpVect*)Vec2Cp(&temp_vec2);
-	cp_vect = cp_temp ? *cp_temp : cpvzero;
+	cp_vect = Vec2Cp(&temp_vec2);
 
 	//Normalize & Multiply by speed
 	cp_vect = cpvnormalize(cp_vect);
@@ -176,7 +173,6 @@ void WalkAI(entity_t *ent)
 
 	//Set Velocity
 	cpBodySetVel(ent->mPhysicsProperties->body, cp_vect);
-	if(cp_temp) free(cp_temp);
 
 	StandarAI_Think(ent);
 }
@@ -193,7 +189,7 @@ void WalkAI(entity_t *ent)
 void JumpAI(entity_t *ent)
 {
 	vec2_t temp_vec2;
-	cpVect *cp_temp, cp_vect;
+	cpVect cp_temp;
 	if(!ent->mData || !ent)
 	{
 		printf("MoveAI given a null paramerter \n");
@@ -212,13 +208,11 @@ void JumpAI(entity_t *ent)
 	{
 		temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 		temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
-		cp_temp = (cpVect*) Vec2Cp(&temp_vec2);
-		cp_vect = cp_temp ? *cp_temp : cpvzero;
-		cp_vect = cpvnormalize(cp_vect);
-		cp_vect = cpvmult(cp_vect, ent->mData->mVariables[AI_VAR_SPEED]);
+		cp_temp = Vec2Cp(&temp_vec2);
+		cp_temp = cpvnormalize(cp_temp);
+		cp_temp = cpvmult(cp_temp, ent->mData->mVariables[AI_VAR_SPEED]);
 
-		cpBodyApplyImpulse(ent->mPhysicsProperties->body, cp_vect, cpvzero);
-		if(cp_temp) free(cp_temp);
+		cpBodyApplyImpulse(ent->mPhysicsProperties->body, cp_temp, cpvzero);
 		
 	}
 
@@ -240,13 +234,13 @@ void AttackAI(entity_t *ent)
 {
 	entity_t *temp_ent;
 	vec2_t temp_vec2;
-	cpVect *cp_temp, cp_vect;
+	cpVect cp_temp;
 	if(!ent->mData || !ent)
 	{
 		printf("MoveAI given a null paramerter \n");
 		return;
 	}
-	cp_temp = NULL;
+	cp_temp = cpvzero;
 
 	//Standard Vars
 	if(ent->mCollisionType != COLLISION_TYPE_RAGDOLL)
@@ -262,16 +256,14 @@ void AttackAI(entity_t *ent)
 		{
 			temp_vec2.x = ent->mData->mVariables[AI_VAR_DIR_X];
 			temp_vec2.y = ent->mData->mVariables[AI_VAR_DIR_Y];
-			cp_temp = (cpVect*) Vec2Cp(&temp_vec2);
-			cp_vect = cp_temp ? *cp_temp : cpvzero;
+			cp_temp = Vec2Cp(&temp_vec2);
 			AddPhyicsToEntity(temp_ent);
-			cpBodySetVel(ent->mPhysicsProperties->body, cp_vect);
+			cpBodySetVel(ent->mPhysicsProperties->body, cp_temp);
 			
 			Spawn(ent, &temp_ent, NULL);
 		}
 		
 	}
-	if(cp_temp) free(cp_temp);
 
 	StandarAI_Think(ent);
 }

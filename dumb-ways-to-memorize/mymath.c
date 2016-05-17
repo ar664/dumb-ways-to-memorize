@@ -18,30 +18,28 @@ int LargestDivisor(int num)
 	return hit;
 }
 
-void *Vec2Cp(vec2_t* vect)
+cpVect Vec2Cp(vec2_t* vect)
 {
-	cpVect *cp = (cpVect*) malloc(sizeof(cpVect));
+	cpVect cp;
 	if(!vect)
 	{
-		if(cp) free(cp);
-		return NULL;
+		return cpvzero;
 	}
-	cp->x = vect->x;
-	cp->y = vect->y;
+	cp.x = (cpFloat) vect->x;
+	cp.y = (cpFloat) vect->y;
 
 	return cp;
 }
 
-vec2_t *CpToVect(void *cp)
+vec2_t CpToVect(cpVect *cp)
 {
-	vec2_t *vect = (vec2_t*) malloc(sizeof(vec2_t));
-	if(!cp || !vect)
+	vec2_t vect;
+	if(!cp)
 	{
-		if(vect) free(vect);
-		return NULL;
+		return gZeroVect;
 	}
-	vect->x = ((cpVect*)cp)->x;
-	vect->y = ((cpVect*)cp)->y;
+	vect.x = (int) cp->x;
+	vect.y = (int) cp->y;
 
 	return vect;
 }

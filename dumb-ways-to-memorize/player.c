@@ -13,7 +13,7 @@ int gPlayerLives = 3;
 
 void InitPlayer()
 {
-	cpVect *cpPos;
+	cpVect cpPos;
 	entity_t *ent;
 	if(!gPlayer)
 	{
@@ -42,18 +42,11 @@ void InitPlayer()
 	gPlayer->Think = ThinkPlayer;
 	gPlayer->Touch = TouchPlayer;
 	gPlayer->PowerUp = gPowerUps ? UsePower : NULL;
-	cpPos = gCurrentLevel ? (cpVect*) Vec2Cp(&gCurrentLevel->mSpawnPoint) : (cpVect*)&cpvzero;
+	cpPos = gCurrentLevel ? Vec2Cp(&gCurrentLevel->mSpawnPoint) : cpvzero;
 
 	AddPhyicsToEntity(gPlayer);
 	
-	if(cpPos)
-	{
-		cpBodySetPos(gPlayer->mPhysicsProperties->body, *cpPos);
-	}
-	if(gCurrentLevel && cpPos)
-	{
-		free(cpPos);
-	}
+	cpBodySetPos(gPlayer->mPhysicsProperties->body, cpPos);
 
 	gPlayer->mHealth = 100;
 	gPlayer->mNextThink = gCurrentTime + 2*UPDATE_FRAME_DELAY;

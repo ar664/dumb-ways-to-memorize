@@ -611,8 +611,8 @@ void AddGlobalOption(level_t* level, jsmntok_t* token, char* g_str, level_global
 void AddLocalOption(entity_t* ent, void* token, char* g_str, level_local_option_t type)
 {
 	int i, count;
-	vec2_t *temp_vec, *pos_vec;
-	cpVect cp_pos, *cp_temp;
+	vec2_t *temp_vec, pos_vec;
+	cpVect cp_pos, cp_temp;
 	object_t *temp_obj;
 	jsmntok_t *temp_tok;
 	ai_function_t *temp_ai;
@@ -626,15 +626,14 @@ void AddLocalOption(entity_t* ent, void* token, char* g_str, level_local_option_
 	case(LEVEL_L_OPTION_POSITION):
 		{
 			temp_vec = ParseToVec2((object_t*)token, g_str);
-			cp_temp = (cpVect*) Vec2Cp(temp_vec);
-			if(!temp_vec || !cp_temp)
+			cp_temp = Vec2Cp(temp_vec);
+			if(!temp_vec)
 			{
 				cpBodySetPos(ent->mPhysicsProperties->body, cpvzero);
 				break;
 			}
-			cpBodySetPos(ent->mPhysicsProperties->body, *cp_temp);
+			cpBodySetPos(ent->mPhysicsProperties->body, cp_temp);
 			if(temp_vec) free(temp_vec);
-			if(cp_temp) free(cp_temp);
 			break;
 		}
 	case(LEVEL_L_OPTION_TILE):
@@ -645,11 +644,10 @@ void AddLocalOption(entity_t* ent, void* token, char* g_str, level_local_option_
 				break;
 			}
 			cp_pos = cpBodyGetPos(ent->mPhysicsProperties->body);
-			cp_temp = &cp_pos;
-			pos_vec = CpToVect(cp_temp);
-			TileLevelEntity(ent, pos_vec, temp_vec);
+			cp_temp = cp_pos;
+			pos_vec = CpToVect(&cp_temp);
+			TileLevelEntity(ent, &pos_vec, temp_vec);
 			if(temp_vec) free(temp_vec);
-			if(pos_vec) free(pos_vec);
 			break;
 		}
 	case(LEVEL_L_OPTION_VARIABLES):

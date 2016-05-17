@@ -29,7 +29,7 @@ typedef enum
 
 typedef struct power_s power_t;
 
-typedef void (*CustomFunc) (entity_t*, entity_t**, void *extra);
+typedef void (*PowerFunc) (entity_t*, entity_t**, void *extra);
 
 /**
  * The structure for our power_up system.
@@ -43,9 +43,9 @@ struct power_s
 	char *name;											/**< The name of the power up */
 	sprite_t *icon;										/**< Icon of the power up */
 	void *extra;										/**< The extra var to use when using power up, allocated on load */
-	CustomFunc GetTarg;									/**< The function which calculates who or what is the specified target */
+	void (*IterateThroughTargets)(power_t *power);		/**< The function which calculates who or what is the specified target, and iterates through them */
 	void (*UpdateUse)(power_t *power);					/**< The function which updates the power_up */
-	CustomFunc DoPower;									/**< The function which does the power_up , called after all the updates */
+	PowerFunc DoPower;									/**< The function which does the power_up , called during iterate through targets */
 	int uses;											/**< The number of times this power can get used - @see use_type_t*/
 	entity_t *target;									/**< Target for the power_up */
 	entity_t *info;										/**< The information that the power_up uses*/
@@ -86,7 +86,7 @@ void UpdateInfinite(power_t *power);
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-int GetUseType(power_t *power, int *useType);
+int GetUseType(power_t *power, const char *useType);
 
 /**
  * Parses object/str data to a power up.
@@ -123,67 +123,43 @@ power_t *FindPower(char *str);
  */
 void UsePower(power_t *power);
 
-//Interactions
+void (*ParseToIterator( char *str));
+
 /**
- * Moves the target to position given by info.
+ * Gets the world entities.
  *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
  * @param [in,out]	targ	If non-null, the targ.
- * @param [in,out]	info	If non-null, the information.
  *
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void Move(entity_t *targ, entity_t **info, void *extra);
+void IterateThroughWorld(power_t *power);
 
 /**
- * Destroys target.
+ * Gets the entity at the point specified by the mouse.
  *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
  * @param [in,out]	targ	If non-null, the targ.
- * @param [in,out]	info	If non-null, the information.
  *
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void Destroy(entity_t *targ, entity_t **info, void *extra);
+void IterateAtPoint(power_t *power);
 
 /**
- * Spawns entity from info to position of targ.
+ * Gets self and makes it targ.
  *
+ * @param [in,out]	self	If non-null, the class instance that this method operates on.
  * @param [in,out]	targ	If non-null, the targ.
- * @param [in,out]	info	If non-null, the information.
  *
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void Spawn(entity_t *targ, entity_t **info, void *extra);
-
-/**
- * Edits the target with values from info.
- *
- * @param [in,out]	targ	If non-null, the targ.
- * @param [in,out]	info	If non-null, the information.
- *
- * @author	Anthony Rios
- * @date	3/30/2016
- */
-void Edit(entity_t *targ, entity_t **info, void *extra);
-
-/**
- * Nullifies the entity by removing the think function of targ.
- *
- * @param [in,out]	targ	If non-null, the targ.
- * @param [in,out]	info	If non-null, the information.
- *
- * @author	Anthony Rios
- * @date	3/30/2016
- */
-void Nullify(entity_t *targ, entity_t **info, void *extra);
-
-
-void *GetExtraMem(int interaction);
+void IterateSelf(power_t *power);
 
 //Interactions Array
-extern char *InteractionNames[];	/**< The interaction names, which deal with what function power does */
-extern void (*InteractionSymbols[]);	/**< The interaction symbol for the functions */
+extern char *IterationNames[];	/**< The interaction names, which deal with what function power does */
+extern void (*IterationSymbols[]);	/**< The interaction symbol for the functions */
 
 #endif

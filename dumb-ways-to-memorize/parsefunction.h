@@ -6,39 +6,62 @@
 
 void (*ParseToFunction(const char *name));
 
-//Functions to Parse to
+//Interactions
 /**
- * Gets the world entities.
+ * Moves the target to position given by info.
  *
- * @param [in,out]	self	If non-null, the class instance that this method operates on.
  * @param [in,out]	targ	If non-null, the targ.
+ * @param [in,out]	info	If non-null, the information.
  *
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void GetWorld(entity_t *self, entity_t **targ, void *extra);
+void Move(entity_t *targ, entity_t **info, void *extra);
 
 /**
- * Gets the entity at the point specified by the mouse.
+ * Destroys target.
  *
- * @param [in,out]	self	If non-null, the class instance that this method operates on.
  * @param [in,out]	targ	If non-null, the targ.
+ * @param [in,out]	info	If non-null, the information.
  *
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void GetAtPoint(entity_t *self, entity_t **targ, void *extra);
+void Destroy(entity_t *targ, entity_t **info, void *extra);
 
 /**
- * Gets self and makes it targ.
+ * Spawns entity from info to position of targ.
  *
- * @param [in,out]	self	If non-null, the class instance that this method operates on.
  * @param [in,out]	targ	If non-null, the targ.
+ * @param [in,out]	info	If non-null, the information.
  *
  * @author	Anthony Rios
  * @date	3/30/2016
  */
-void GetSelf(entity_t *self, entity_t **targ, void *extra);
+void Spawn(entity_t *targ, entity_t **info, void *extra);
+
+/**
+ * Edits the target with values from info.
+ *
+ * @param [in,out]	targ	If non-null, the targ.
+ * @param [in,out]	info	If non-null, the information.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+void Edit(entity_t *targ, entity_t **info, void *extra);
+
+/**
+ * Nullifies the entity by removing the think function of targ.
+ *
+ * @param [in,out]	targ	If non-null, the targ.
+ * @param [in,out]	info	If non-null, the information.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+void Nullify(entity_t *targ, entity_t **info, void *extra);
+
 
 //Functions array
 extern char *FunctionNames[];

@@ -4,7 +4,7 @@
 		"use-type" : 2,
 		"interaction" : "move",
 		"target" : "self",
-		"position" : "at-point"
+		"place" : "at-point"
 
 	},
 	
@@ -13,7 +13,7 @@
 		"use-type" : 5,
 		"interaction" : "spawn",
 		"target" : "self",
-		"position" : "self",
+		"place" : "self",
 		"entity" : "Fireball",
 		"damage" : 10
 	},
@@ -23,7 +23,7 @@
 		"use-type" : "infinite",
 		"interaction" : "move",
 		"target" : "at-point",
-		"position" : "at-point"
+		"place" : "at-point"
 	},
 	
 	"Flight" :

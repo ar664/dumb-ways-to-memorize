@@ -43,7 +43,7 @@ power_t *gPowerUps;
 char *gCurrentPowerUpName = NULL;   
 GameState gGameState = SPLASH;		
 sprite_t *gSplash = NULL;			/**< The splash screen sprite*/
-vec2_t gZeroPos = {0,0};
+vec2_t gZeroVect = {0,0};
 SDL_Event gEventQ;					/**< The event qeueu update with all SDL_Events */
 SDL_GameController *gController = NULL; 
 SDL_GameControllerButton gButtonQ;
@@ -737,7 +737,7 @@ void DrawSplash()
 {
 	if(gSplash)
 	{
-		if(DrawSprite(gSplash, NULL, &gZeroPos, gRenderer, 0))
+		if(DrawSprite(gSplash, NULL, &gZeroVect, gRenderer, 0))
 		{
 			printf("Couldn't draw splash: %s \n", SDL_GetError());
 		}
@@ -908,7 +908,7 @@ void UpdateEditor()
 				temp_ent = InitNewEntity();
 				memcpy(temp_ent, gEditorEntity, sizeof(entity_t));
 				AddPhyicsToEntity(temp_ent);
-				temp_ent->mPhysicsProperties->body->p = *(cpVect*)Vec2Cp(&temp_pos);
+				temp_ent->mPhysicsProperties->body->p = Vec2Cp(&temp_pos);
 				AddEntityToPhysics(temp_ent);
 			}
 			break;

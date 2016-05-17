@@ -11,145 +11,66 @@
 #include "dumb_physics.h"
 #include "player.h"
 
-char *InteractionNames[] = {"move", "destroy", "spawn", "edit", "nullify", 0};
-void (*InteractionSymbols[]) =  {Move, Destroy, Spawn, Edit, Nullify, 0};
+char *IterationNames[] = {"self", "at-point", "world" , 0};
+void (*IterationSymbols[]) =  {IterateSelf, IterateAtPoint, IterateThroughWorld, 0 };
 
 power_t *gCurrentPowerUp = NULL;
 vec2_t *mousePos  = NULL;
 int *keyPower = NULL;
 
-void Move(entity_t *targ, entity_t **info, void *extra)
+
+void (*ParseToIterator( char *str))
 {
-	cpVect *cpPos;
-	if(!targ || !extra)
+	int i;
+	if(!str)
 	{
-		printf("Failed to do move , invalid target/info \n");
-		return;
+		return NULL;
 	}
-	if(!targ->mPhysicsProperties)
+	for(i = 0; IterationSymbols[i]; i++)
 	{
-		printf("Failed to do move , no target/info physics properties \n");
-		return;
-	}
-	cpPos = (cpVect*)Vec2Cp((vec2_t*)extra);
-	if(cpPos)
-	{
-		cpBodySetPos(targ->mPhysicsProperties->body, *cpPos);
-		free(cpPos);
-	}
-	
-
-}
-
-
-//No other access necessary
-void Destroy(entity_t *targ, entity_t **info, void *extra)
-{
-	if(!targ)
-	{
-		return;
-	}
-	FreeEntity(targ);
-}
-
-//Needs access to parseEntity
-void Spawn(entity_t *targ, entity_t **info, void *extra)
-{
-	entity_t *spawned;
-	cpVect cpPos, cpSpeed;
-	if(!targ || !info)
-	{
-		printf("Spawn given blank targ/info \n");
-		return;
-	}
-	if(!targ->mPhysicsProperties || !(*info)->mPhysicsProperties)
-	{
-		printf("Spawn given info without physics \n");
-		return;
-	}
-
-	spawned = InitNewEntity();
-	if (!spawned)
-	{
-		printf("Max entities reached can't spawn any more \n");
-		return;
-	}
-
-	memcpy(spawned, *info, sizeof(entity_t));
-	AddPhyicsToEntity(spawned);
-	if(!spawned->mPhysicsProperties)
-	{
-		printf("Unable to spawn entity, physics could not be added. \n");
-		return;
-	}
-	spawned->mPhysicsProperties->body->p = (*info)->mPhysicsProperties->body->p;
-	cpPos = cpvadd(cpBodyGetPos(spawned->mPhysicsProperties->body), cpBodyGetPos(targ->mPhysicsProperties->body));
-
-	if(targ->mDirection == DIR_RIGHT)
-	{
-		cpPos.x += targ->mSprites[ANIMATION_IDLE]->mSize.x + 10;
-		cpBodySetPos(spawned->mPhysicsProperties->body, cpPos);
-		cpSpeed.y = 0;
-		cpSpeed.x = PHYSICS_BASE_SPEED_X;
-		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpSpeed, cpvzero);
-	} else
-	{
-		cpPos.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x + 10;
-		cpBodySetPos(spawned->mPhysicsProperties->body, cpPos);
-		cpSpeed.y = 0;
-		cpSpeed.x = -PHYSICS_BASE_SPEED_X;
-		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpSpeed, cpvzero);
-	}
-	AddEntityToPhysics(spawned);
-}
-
-void Edit(entity_t *targ, entity_t **info, void *extra)
-{
-	entity_member_t *member;
-	if(!targ || !extra)
-	{
-		printf("Null edit, not doing \n");
-		return;
-	}
-	member = (entity_member_t*) extra;
-	ApplyEntityMember(targ, member);
-	
-}
-
-void Nullify(entity_t *targ, entity_t **info, void *extra)
-{
-	if(!targ)
-	{
-		printf("Null given null target \n");
-	}
-	targ->Think = NULL;
-}
-
-void* GetExtraMem(int interaction)
-{
-	void *mem;
-	switch(interaction)
-	{
-	case 0:
+		if(!strcmp(str, IterationNames[i]))
 		{
-			mem = malloc(sizeof(vec2_t));
-			if(!mem)
-			{
-				printf("ERROR: Allocation of memory for power up gone wrong. \n");
-			}
-			memset(mem, 0, sizeof(vec2_t));
-			return mem;
-		}
-	case 2:
-		{
-			break;
-		}
-	default:
-		{
-			break;
+			return IterationSymbols[i];
 		}
 	}
 	return NULL;
+}
+
+void IterateThroughWorld(power_t *power)
+{
+
+}
+
+void IterateAtPoint(power_t *power)
+{
+	entity_t *temp_ent;
+	vec2_t temp_pos;
+	vec2_t *temp_vec = (vec2_t*) malloc(sizeof(vec2_t));
+	if(!temp_vec)
+	{
+		return;
+	}
+	temp_ent = FindEntity("Cursor");
+	temp_pos = EntityPosition(temp_ent);
+	if(extra)
+	{
+		memcpy(extra, &temp_pos, sizeof(vec2_t));
+	}
+	*targ = LookForEntityAtPos(*temp_vec);
+	if(temp_vec) free(temp_vec);
+}
+
+void IterateSelf(power_t *power)
+{
+	entity_t *temp_ent;
+	vec2_t temp_pos;
+	*targ = self;
+	temp_ent = FindEntity("Cursor");
+	temp_pos = EntityPosition(temp_ent);
+	if(extra)
+	{
+		memcpy(extra, &temp_pos, sizeof(vec2_t));
+	}
 }
 
 void UpdateNormal(power_t* power)
@@ -164,7 +85,7 @@ void UpdateNormal(power_t* power)
 		printf("power not set \n");
 		return;
 	}
-	power->GetTarg((entity_t*) gPlayer, &power->target, power->extra);
+	power->IterateThroughTargets(power);
 	power->uses--;
 	if(power->uses == 0)
 	{
@@ -174,7 +95,7 @@ void UpdateNormal(power_t* power)
 
 void UpdateInfinite(power_t* power)
 {
-	power->GetTarg( (entity_t*) gPlayer, &power->target, power->extra);
+	power->IterateThroughTargets( power );
 }
 
 int GetUseType(power_t *power, const char *var)
@@ -184,11 +105,13 @@ int GetUseType(power_t *power, const char *var)
 		power->uses = -2;
 		power->UpdateUse = UpdateInfinite;
 		return 0;
-	} else if(!strcmp("static", var))
+	} 
+	if(!strcmp("static", var))
 	{
 		power->uses = -1;
 		return 0;
-	} else if(strpbrk(var, "-0123456789"))
+	} 
+	if(strpbrk(var, "-0123456789"))
 	{
 		sscanf(var, "%d", &power->uses);
 		power->UpdateUse = UpdateNormal;
@@ -229,8 +152,9 @@ power_t* ParseToPowerUp(object_t* obj, char* g_str)
 	//Target Matching Function
 	if( (temp_str = FindValue(obj, POWER_TARGET_STR, g_str)) != NULL )
 	{
-		retVal->GetTarg = (CustomFunc) ParseToFunction(temp_str);
+		retVal->DoPower = (PowerFunc) ParseToFunction(temp_str);
 		if(temp_str) free(temp_str);
+		
 	}
 
 	//Get How the power up is used
@@ -243,20 +167,25 @@ power_t* ParseToPowerUp(object_t* obj, char* g_str)
 	//Interaction
 	if( (temp_str = FindValue(obj, POWER_INTERACTION_STR, g_str)) != NULL )
 	{
-		for(i = 0; InteractionNames[i]; i++ )
-		{
-			if(!strcmp(InteractionNames[i], temp_str))
-			{
-				retVal->DoPower = (CustomFunc)InteractionSymbols[i];
-				retVal->extra = GetExtraMem(i);
-				break;
-			}
-			retVal->DoPower = NULL;
-		}
+		retVal->IterateThroughTargets = (void(*)(power_t*)) ParseToIterator(temp_str);
 		if(temp_str) free(temp_str);
 	}
 	
+	//Assign Extra Values
+	//Move Only Assigns Position
+	if(retVal->DoPower == Move)
+	{
+		retVal->extra = malloc(sizeof(vec2_t));
+	} else
+	{
+		if( (members = FindEntityMembers(obj, g_str)) != NULL)
+		{
+			retVal->extra = members;
+		}
+	}
+
 	//The target's information if needed
+	//For use with Spawn
 	if( (temp_str = FindValue(obj, POWER_ENTITY_STR, g_str)) != NULL )
 	{
 		if( (temp_ent = FindCachedEntity( temp_str )) != NULL )
@@ -268,12 +197,6 @@ power_t* ParseToPowerUp(object_t* obj, char* g_str)
 			retVal->info = NULL;
 		}
 		if(temp_str) free(temp_str);
-	} else if( !retVal->extra)
-	{
-		if( (members = FindEntityMembers(obj, g_str)) != NULL )
-		{
-			retVal->extra = members;
-		}
 	} else
 	{
 		retVal->info = NULL;//ParseToEntity(power, g_str);
@@ -313,9 +236,14 @@ void UsePower(power_t* power)
 	{
 		power->UpdateUse(power);
 	}
-	if(power->DoPower)
-	{
-		power->DoPower(power->target, &power->info, power->extra);
-	}
 	
+}
+
+void FreePower(power_t *power)
+{
+	if(!power)
+	{
+		return;
+	}
+
 }
