@@ -15,11 +15,11 @@ void *FileSetFunctions[] = { AddSoundsToEnt, AddSpritesToEnt, 0};
 char *DirectVariableNames[] = { "soundType", "spriteType", "hazard(s)", "collisionType", "entityState", "health", "damage", 0};
 void *DirectConFunctions[] = { StrToSoundType, StrToSpriteType ,StrToHazard, StrToCollisionType, StrToEntityState, StrToInt, StrToInt, 0};
 char *PhysicsVariableNames[] = { "weight", "accel", "velocity", "position", 0};
-void *PhysicsSetFunctions[] = { cpBodySetMass, cpBodySetVelocity, cpBodySetVelocity, cpBodySetPosition, 0};
+void *PhysicsSetFunctions[] = { cpBodySetMass, cpBodySetVel, cpBodySetVel, cpBodySetPos, 0};
 char *SpriteVariableNames[] = { "fps", "height", "width", "frames", 0};
 //StrToInt
 
-void *EntityAddFunctions[] = {0};
+void *EntityAddFunctions[] = {AddDirectMemToEnt, AddPhysicsMemToEnt, 0};
 
 void AddSpriteMem(sprite_t *sprite, entity_members_sprite_t member, int value)
 {
@@ -33,7 +33,6 @@ void AddSpriteMem(sprite_t *sprite, entity_members_sprite_t member, int value)
 
 }
 
-//BOOM Bitch
 void AddDirectMemToEnt(entity_t *ent, entity_members_direct_t member, int value)
 {
 	int *var_to_edit;
@@ -62,11 +61,11 @@ void AddPhysicsMemToEnt(entity_t *ent, entity_members_physics_t member, void *va
 	{
 	case(1):
 		{
-			((void(*)(void*, cpFloat))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, *temp_val);
+			((void(*)(cpBody*, cpFloat))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, *temp_val);
 		}
 	case(2):
 		{
-			((void(*)(void*, cpVect))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, *(cpVect*)temp_val);
+			((void(*)(cpBody*, cpVect))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, *(cpVect*)temp_val);
 		}
 	default:
 		break;
@@ -117,8 +116,6 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	char **temp_array, *temp_str, *temp_arg;
 	
 	//Used Vars
-	vec2_t *temp_vec;
-	Frame *checkFrame = NULL;
 	object_t *checkObj = NULL;
 	entity_t *retVal;
 
@@ -184,7 +181,6 @@ entity_t* ParseToEntity(object_t* object, char* str)
 		}
 	}
 
-	// TODO: Process frame data after the loading of extra data
 	if(!retVal->mSprites || !retVal->mSprites[0])
 	{
 		printf("Could not load sprites for entity: %s \n", retVal->mName);
@@ -320,12 +316,47 @@ void EntityMemberSetType(entity_member_t *member, int type)
 
 void *ConvertType(int var_type, int num_type, char *var)
 {
+	int *retVal;
 	if(!var)
 	{
 		return NULL;
 	}
 	switch(var_type)
 	{
+	case MEMBER_FILE:
+		{
+			return var;
+		}
+	case MEMBER_PHYSICS:
+		{
+			retVal = (int*) malloc(sizeof(int));
+			if(!retVal)
+			{
+				return NULL;
+			}
+			*retVal = (cpFloat)StrToInt(var);
+			return retVal;
+		}
+	case MEMBER_SPRITE:
+		{
+			retVal = (int*) malloc(sizeof(int));
+			if(!retVal)
+			{
+				return NULL;
+			}
+			*retVal = StrToInt(var);
+			return retVal;
+		}
+	case MEMBER_DIRECT:
+		{
+			retVal = (int*) malloc(sizeof(int));
+			if(!retVal)
+			{
+				return NULL;
+			}
+			*retVal = ( ( int(*)(char*) ) DirectConFunctions[num_type]) (var);
+			return retVal;
+		}
 	default:
 		break;
 	}
@@ -333,10 +364,10 @@ void *ConvertType(int var_type, int num_type, char *var)
 	return NULL;
 }
 
-entity_member_t* GetEntityMembers(object_t* object, char* str)
+entity_member_t* FindEntityMembers(object_t* object, char* str)
 {
-	int i, j, k, count, hit, hit_count;
-	char *temp_str, **hit_values, **current_array;
+	int i, j, k, x, count, hit, hit_count, array_count;
+	char *temp_str, *value_string, **current_array, **temp_array;
 	void *variable_arrays[] = { FileVariableNames, PhysicsVariableNames, DirectVariableNames, 0};
 	entity_member_t *members;
 	if(!object || !str)
@@ -348,15 +379,20 @@ entity_member_t* GetEntityMembers(object_t* object, char* str)
 		return NULL;
 	}
 
-	//Count Objects and Prepare to Collect Hits
+	//Count KV Pairs and Prepare to Collect Hits
 	count = CountMem(object->keys, sizeof(jsmntok_t));
-	hit_values = (char**) malloc(sizeof(char*)*(count+1));
-	memset(hit_values, 0, sizeof(char*)*(count+1));
 	members = (entity_member_t*) malloc(sizeof(entity_member_t)*(count+1));
+	if(!members)
+	{
+		return NULL;
+	}
+
 	memset(members, 0, sizeof(entity_member_t)*(count+1));
 	
 	hit = 0; hit_count = 0;
+	value_string = NULL;
 
+	//Iterate through single value keys
 	for(i = 0; i < count; i++)
 	{
 		temp_str = JsmnToString(&object->keys[i], str);
@@ -366,16 +402,72 @@ entity_member_t* GetEntityMembers(object_t* object, char* str)
 		}
 
 		//Iterate through variable names
-
 		for(j = 0; variable_arrays[j]; j++)
 		{
-			current_array = (char**) variable_arrays;
+			current_array = (char**) variable_arrays[j];
 			for(k = 0; current_array[k]; k++)
 			{
 				if(!strcmp(temp_str, current_array[k]))
 				{
 					hit = 1;
-					hit_values[i] = JsmnToString(&object->keys[i], str);
+					value_string = JsmnToString(&object->values[i], str);
+					members[hit_count].data = ConvertType( j, k,  value_string );
+					members[hit_count].member_type = j;
+					EntityMemberSetType(&members[hit_count], k);
+					break;
+				}
+			}
+
+			if(hit)
+			{
+				hit = 0;
+				hit_count++;
+				if(value_string) free(value_string);
+				if(temp_str) free(temp_str);
+				break;
+			}
+		}
+
+	}
+
+	count = CountMem(object->children, sizeof(object_t));
+	members = (entity_member_t*) realloc(members, sizeof(entity_member_t)*(hit_count+count+1));
+	if(!members)
+	{
+		return NULL;
+	}
+
+	for(i = 0; i < count; i++)
+	{
+		temp_str = object->children[i].name;
+		if(!temp_str)
+		{
+			continue;
+		}
+
+		for(j = 0; variable_arrays[j]; j++)
+		{
+			current_array = (char**) variable_arrays[j];
+			for(k = 0; current_array[k]; k++)
+			{
+				if(!strcmp(temp_str, current_array[k]))
+				{
+					hit = 1;
+					array_count = CountMem(object->children[i].values, sizeof(jsmntok_t));
+					temp_array = (char**) malloc(sizeof(char*)*(array_count+1));
+					if(!temp_array)
+					{
+						hit = 0;
+						break;
+					}
+					for(x = 0; x < array_count; x++)
+					{
+						value_string = JsmnToString(&object->children[i].values[x], str);
+						temp_array[x] = (char*) ConvertType(j, k, value_string );
+						if(value_string) free(value_string);
+					}
+					temp_array[array_count] = NULL;
+					members[hit_count].data = temp_array;
 					members[hit_count].member_type = j;
 					EntityMemberSetType(&members[hit_count], k);
 					break;
@@ -390,9 +482,44 @@ entity_member_t* GetEntityMembers(object_t* object, char* str)
 				break;
 			}
 		}
+	}
+	memset(&members[hit_count], 0, sizeof(entity_member_t));
 
+	return members;
+}
+
+void ApplyEntityMember(entity_t *ent, entity_member_t *member)
+{
+	
+	if(!member || !ent)
+	{
+		return;
+	}
+	if(!member->data)
+	{
+		return;
 	}
 
+	if(member->member_type == MEMBER_PHYSICS)
+	{
+		AddPhysicsMemToEnt(ent, member->types.physics, member->data);
+	} else if (member->member_type == MEMBER_DIRECT)
+	{
+		AddDirectMemToEnt(ent, member->types.direct, *(int*)member->data);
+	}
+}
 
-	return NULL;
+//@todo		See if this is going to be useable
+void ApplyEntityMembers(entity_t *ent, entity_member_t* member)
+{
+	int i, count;
+	if(!ent || !member)
+	{
+		return;
+	}
+	count = CountMem(member, sizeof(entity_member_t));
+	for(i = 0; i < count; i++)
+	{
+		ApplyEntityMember(ent, &member[i]);
+	}
 }

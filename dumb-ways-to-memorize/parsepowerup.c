@@ -1,7 +1,8 @@
-#include "globals.h"
+ #include "globals.h"
 #include "parsefunction.h"
 #include "parsepowerup.h"
 #include "parseobject.h"
+#include "parseentity.h"
 #include "entity.h"
 #include "mystrings.h"
 #include <jsmn.h>
@@ -44,18 +45,11 @@ void Move(entity_t *targ, entity_t **info, void *extra)
 //No other access necessary
 void Destroy(entity_t *targ, entity_t **info, void *extra)
 {
-	int world = 0;
-	if(extra)
+	if(!targ)
 	{
-		world = *( (int*) extra);
+		return;
 	}
-	if(targ && world)
-	{
-		FreeEnemyEntities();
-	} else
-	{
-		FreeEntity(targ);
-	}
+	FreeEntity(targ);
 }
 
 //Needs access to parseEntity
@@ -111,23 +105,14 @@ void Spawn(entity_t *targ, entity_t **info, void *extra)
 
 void Edit(entity_t *targ, entity_t **info, void *extra)
 {
-	int i, entity_size;
-	int *dst = (int*) targ;
-	int *value = (int*) *info;
-	if(!targ || !info)
+	entity_member_t *member;
+	if(!targ || !extra)
 	{
 		printf("Null edit, not doing \n");
 		return;
 	}
-	entity_size = sizeof(entity_t)/sizeof(int);
-	//iterate through members
-	for(i = 0; i < entity_size; i++)
-	{
-		if(*&value[i] && (*&dst[i] != *&value[i]))
-		{
-			*&dst[i] = *&value[i];
-		}
-	}
+	member = (entity_member_t*) extra;
+	ApplyEntityMember(targ, member);
 	
 }
 
@@ -154,7 +139,6 @@ void* GetExtraMem(int interaction)
 			}
 			memset(mem, 0, sizeof(vec2_t));
 			return mem;
-			break;
 		}
 	case 2:
 		{
@@ -213,19 +197,20 @@ int GetUseType(power_t *power, const char *var)
 	return -1;
 }
 
-power_t* ParseToPowerUp(object_t* power_obj, char* g_str)
+power_t* ParseToPowerUp(object_t* obj, char* g_str)
 {
 	int i;
 	char *temp_str;
 	entity_t *temp_ent;
+	entity_member_t *members;
 	power_t *retVal;
 	
-	if(!power_obj || !g_str)
+	if(!obj || !g_str)
 	{
 		printf("Power Up tried to parse NULL \n");
 		return NULL;
 	}
-	if (!power_obj->name)
+	if (!obj->name)
 	{
 		printf("Tried to parse Power Up with No Name");
 		return NULL;
@@ -239,24 +224,24 @@ power_t* ParseToPowerUp(object_t* power_obj, char* g_str)
 		return NULL;
 	}
 	memset(retVal, 0, sizeof(power_t));
-	retVal->name = power_obj->name;
+	retVal->name = obj->name;
 
 	//Target Matching Function
-	if( (temp_str = FindValue(power_obj, POWER_TARGET_STR, g_str)) != NULL )
+	if( (temp_str = FindValue(obj, POWER_TARGET_STR, g_str)) != NULL )
 	{
 		retVal->GetTarg = (CustomFunc) ParseToFunction(temp_str);
 		if(temp_str) free(temp_str);
 	}
 
 	//Get How the power up is used
-	if( (temp_str = FindValue(power_obj, POWER_USE_TYPE_STR, g_str)) != NULL )
+	if( (temp_str = FindValue(obj, POWER_USE_TYPE_STR, g_str)) != NULL )
 	{
 		GetUseType(retVal, temp_str);
 		if(temp_str) free(temp_str);
 	}
 
 	//Interaction
-	if( (temp_str = FindValue(power_obj, POWER_INTERACTION_STR, g_str)) != NULL )
+	if( (temp_str = FindValue(obj, POWER_INTERACTION_STR, g_str)) != NULL )
 	{
 		for(i = 0; InteractionNames[i]; i++ )
 		{
@@ -272,17 +257,23 @@ power_t* ParseToPowerUp(object_t* power_obj, char* g_str)
 	}
 	
 	//The target's information if needed
-	if( (temp_str = FindValue(power_obj, POWER_ENTITY_STR, g_str)) != NULL )
+	if( (temp_str = FindValue(obj, POWER_ENTITY_STR, g_str)) != NULL )
 	{
 		if( (temp_ent = FindCachedEntity( temp_str )) != NULL )
 		{
 			retVal->info = temp_ent;
 		} else
 		{
-			printf("Failed to identify/find entity in power : %s \n", power_obj->name);
+			printf("Failed to identify/find entity in power : %s \n", obj->name);
 			retVal->info = NULL;
 		}
 		if(temp_str) free(temp_str);
+	} else if( !retVal->extra)
+	{
+		if( (members = FindEntityMembers(obj, g_str)) != NULL )
+		{
+			retVal->extra = members;
+		}
 	} else
 	{
 		retVal->info = NULL;//ParseToEntity(power, g_str);

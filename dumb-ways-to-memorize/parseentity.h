@@ -86,6 +86,7 @@ typedef struct entity_member_s entity_member_t;
 
 struct entity_member_s
 {
+	void *data;
 	int member_type;
 	union Types
 	{
@@ -94,8 +95,11 @@ struct entity_member_s
 		entity_members_sprite_t sprite;
 		entity_members_direct_t direct;
 	}types;
-	void *data;
 };
+
+void AddSpriteMem(sprite_t *sprite, entity_members_sprite_t member, int value);
+void AddDirectMemToEnt(entity_t *ent, entity_members_direct_t member, int value);
+void AddPhysicsMemToEnt(entity_t *ent, entity_members_physics_t member, void *value);
 
 /**
  * Adds the sounds to entity to be player, to be played during their respective actions.
@@ -139,6 +143,8 @@ void AddSpritesToEnt(entity_t *ent, char **files, int flags);
 extern entity_t *ParseToEntity(object_t *object, char* str);
 
 
-extern entity_member_t *GetEntityMembers(object_t *object, char *str);
+extern entity_member_t *FindEntityMembers(object_t *object, char *str);
+
+void ApplyEntityMember(entity_t *ent, entity_member_t *member);
 
 #endif
