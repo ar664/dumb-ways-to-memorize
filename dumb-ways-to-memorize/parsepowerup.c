@@ -13,6 +13,7 @@
 
 char *IterationNames[] = {"self", "at-point", "world" , 0};
 void (*IterationSymbols[]) =  {IterateSelf, IterateAtPoint, IterateThroughWorld, 0 };
+void (*LocationSymbols[]) = {GetSelf, GetPoint, GetPoint, 0};
 
 power_t *gCurrentPowerUp = NULL;
 vec2_t *mousePos  = NULL;
@@ -26,7 +27,7 @@ void (*ParseToIterator( char *str))
 	{
 		return NULL;
 	}
-	for(i = 0; IterationSymbols[i]; i++)
+	for(i = 0; IterationNames[i]; i++)
 	{
 		if(!strcmp(str, IterationNames[i]))
 		{
@@ -36,42 +37,158 @@ void (*ParseToIterator( char *str))
 	return NULL;
 }
 
+//////////////
+//Iterators 
+
 void IterateThroughWorld(power_t *power)
 {
+	int i;
+	if(!power)
+	{
+		return;
+	}
+	if(!power->DoPower)
+	{
+		return;
+	}
 
+	for(i = 0; i < MAX_ENTITIES; i++)
+	{
+		if(!gEntities[i].Think)
+		{
+			continue;
+		}
+		if(&gEntities[i] == gPlayer || &gEntities[i] == gCursor)
+		{
+			continue;
+		}
+		if(power->DoPower == Move || power->DoPower == Spawn)
+		{
+			power->DoPower(&gEntities[i], &power->info, power->location);
+		} else
+		{
+			power->DoPower(&gEntities[i], &power->info, power->members);
+		}
+	}
 }
 
 void IterateAtPoint(power_t *power)
 {
 	entity_t *temp_ent;
 	vec2_t temp_pos;
-	vec2_t *temp_vec = (vec2_t*) malloc(sizeof(vec2_t));
-	if(!temp_vec)
+	if(!power)
+	{
+		return;
+	}
+	if(!power->location || !power->DoPower)
 	{
 		return;
 	}
 	temp_ent = FindEntity("Cursor");
 	temp_pos = EntityPosition(temp_ent);
-	if(extra)
+	//TODO LookForEntity Doesn't hit Cursor
+	power->target = LookForEntityAtPos(temp_pos);
+	if(power->DoPower == Move || power->DoPower == Spawn)
 	{
-		memcpy(extra, &temp_pos, sizeof(vec2_t));
+		power->DoPower(power->target, &power->info, power->location);
+	} else
+	{
+		power->DoPower(power->target, &power->info, power->members);
 	}
-	*targ = LookForEntityAtPos(*temp_vec);
-	if(temp_vec) free(temp_vec);
+
 }
 
 void IterateSelf(power_t *power)
 {
-	entity_t *temp_ent;
-	vec2_t temp_pos;
-	*targ = self;
-	temp_ent = FindEntity("Cursor");
-	temp_pos = EntityPosition(temp_ent);
-	if(extra)
+	vec2_t *loc;
+	if(!power)
 	{
-		memcpy(extra, &temp_pos, sizeof(vec2_t));
+		return;
+	}
+	if(!power->DoPower)
+	{
+		return;
+	}
+	power->target = gPlayer;
+
+	if(power->DoPower == Move || power->DoPower == Spawn)
+	{
+		power->DoPower(power->target, &power->info, power->location);
+	} else
+	{
+		power->DoPower(power->target, &power->info, power->members);
 	}
 }
+
+LocationFunc ParseToLocation(char* str)
+{
+	int i;
+	if(!str)
+	{
+		return NULL;
+	}
+	for(i = 0; IterationNames[i]; i++)
+	{
+		if(!strcmp(str, IterationNames[i]))
+		{
+			return (LocationFunc) LocationSymbols[i];
+		}
+	}
+	return NULL;
+}
+
+//////////////////////
+//Location Functions
+
+vec2_t GetSelf(entity_t *ent)
+{
+	vec2_t temp_vect;
+	if(!ent)
+	{
+		return gZeroVect;
+	}
+
+	if(!gPlayer)
+	{
+		return gZeroVect;
+	}
+
+	if(!gPlayer->mPhysicsProperties)
+	{
+		return gZeroVect;
+	}
+
+	temp_vect = CpToVect(&gPlayer->mPhysicsProperties->body->p);
+	return temp_vect;
+}
+
+vec2_t GetPoint(entity_t *ent)
+{
+	entity_t *temp_ent;
+	vec2_t temp_vect;
+	if(!ent)
+	{
+		return gZeroVect;
+	}
+
+	if(!ent->mPhysicsProperties)
+	{
+		return gZeroVect;
+	}
+
+	temp_ent = FindEntity("Cursor");
+
+	if(!temp_ent)
+	{
+		return gZeroVect;
+	}
+
+	temp_vect = EntityPosition(temp_ent);
+	return temp_vect;
+}
+
+////////////////////////
+//Update Functions
 
 void UpdateNormal(power_t* power)
 {
@@ -89,7 +206,7 @@ void UpdateNormal(power_t* power)
 	power->uses--;
 	if(power->uses == 0)
 	{
-		//free(power); Destroy Power
+		//power->UpdateUse = NULL;
 	}
 }
 
@@ -119,6 +236,9 @@ int GetUseType(power_t *power, const char *var)
 	}
 	return -1;
 }
+
+/////////////////
+// Actual Parsing
 
 power_t* ParseToPowerUp(object_t* obj, char* g_str)
 {
@@ -152,7 +272,7 @@ power_t* ParseToPowerUp(object_t* obj, char* g_str)
 	//Target Matching Function
 	if( (temp_str = FindValue(obj, POWER_TARGET_STR, g_str)) != NULL )
 	{
-		retVal->DoPower = (PowerFunc) ParseToFunction(temp_str);
+		retVal->IterateThroughTargets = (void(*)(power_t*)) ParseToIterator(temp_str);
 		if(temp_str) free(temp_str);
 		
 	}
@@ -167,21 +287,21 @@ power_t* ParseToPowerUp(object_t* obj, char* g_str)
 	//Interaction
 	if( (temp_str = FindValue(obj, POWER_INTERACTION_STR, g_str)) != NULL )
 	{
-		retVal->IterateThroughTargets = (void(*)(power_t*)) ParseToIterator(temp_str);
+		retVal->DoPower = (PowerFunc) ParseToFunction(temp_str);
 		if(temp_str) free(temp_str);
 	}
-	
-	//Assign Extra Values
-	//Move Only Assigns Position
-	if(retVal->DoPower == Move)
+
+	//Assign Location Value (If any)
+	if( (temp_str = FindValue(obj, POWER_PLACE_STR, g_str)) != NULL )
 	{
-		retVal->extra = malloc(sizeof(vec2_t));
-	} else
+		retVal->location = ParseToLocation(temp_str);
+		if(temp_str) free(temp_str);
+	}
+
+	//Assign Member Value(s) (If any)
+	if( (members = FindEntityMembers(obj, g_str)) != NULL)
 	{
-		if( (members = FindEntityMembers(obj, g_str)) != NULL)
-		{
-			retVal->extra = members;
-		}
+		retVal->members = members;
 	}
 
 	//The target's information if needed
@@ -245,5 +365,18 @@ void FreePower(power_t *power)
 	{
 		return;
 	}
+	if(power->members)
+	{
+		FreeEntityMembers((entity_member_t*)power->members);
+	}
+	if(power->location)
+	{
+		free(power->location);
+	}
+	if(power->icon)
+	{
+		FreeSprite(power->icon);
+	}
+	free(power);
 
 }

@@ -4,6 +4,8 @@
 #include "entity.h"
 #include "SDL.h"
 
+#define SPAWN_OFFSET 10
+
 void (*ParseToFunction(const char *name));
 
 //Interactions

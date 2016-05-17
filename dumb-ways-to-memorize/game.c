@@ -540,7 +540,7 @@ void Update()
 			}
 			if(gButtonQ != -1)
 			{
-				gMenus[2].Update(&gMenus[2], gButtonQ);
+				FindMenuFromGameState(CHOOSE)->Update(&gMenus[2], gButtonQ);
 			}
 			break;
 		}

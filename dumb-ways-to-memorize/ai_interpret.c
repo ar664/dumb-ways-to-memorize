@@ -6,6 +6,7 @@
 #include <chipmunk/chipmunk.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "parsefunction.h"
 
 //Forward Declare AI's to put into function list
 void NothingAI(entity_t *ent); 

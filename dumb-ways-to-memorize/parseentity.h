@@ -12,6 +12,7 @@ extern char *SpriteVariableNames[];		/**< The simple variables are there given v
 #define ENTITY_SOUND_GROUP_STR	"sound_group"
 
 typedef int (*StrConFunc)(char*);
+typedef void (*FileSetFunc)(entity_t*, char**, int);
 
 static const size_t DirectVariableOffsets[] = 
 {
@@ -145,6 +146,26 @@ extern entity_t *ParseToEntity(object_t *object, char* str);
 
 extern entity_member_t *FindEntityMembers(object_t *object, char *str);
 
+
+/**
+ * Sets one value of the given entity with the member
+ * @param	ent		Entity to edit.
+ * @param	member	Member to assign / apply.
+ */
 void ApplyEntityMember(entity_t *ent, entity_member_t *member);
+
+/**
+ * Sets all values of the given entity with the member(s)
+ * @param	ent		Entity to edit.
+ * @param	member	Member to assign / apply.
+ */
+void ApplyEntityMembers(entity_t *ent, entity_member_t *member);
+
+/**
+ * Frees the member(s) given. So if this is given an array of members all the data will be free'd and nulled.
+ * And also the member will be free'd.
+ *
+ */
+void FreeEntityMembers(entity_member_t *member);
 
 #endif

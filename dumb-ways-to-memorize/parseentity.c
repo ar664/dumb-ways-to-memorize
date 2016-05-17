@@ -16,7 +16,7 @@ char *DirectVariableNames[] = { "soundType", "spriteType", "hazard(s)", "collisi
 void *DirectConFunctions[] = { StrToSoundType, StrToSpriteType ,StrToHazard, StrToCollisionType, StrToEntityState, StrToInt, StrToInt, 0};
 char *PhysicsVariableNames[] = { "weight", "accel", "velocity", "position", 0};
 void *PhysicsSetFunctions[] = { cpBodySetMass, cpBodySetVel, cpBodySetVel, cpBodySetPos, 0};
-char *SpriteVariableNames[] = { "fps", "height", "width", "frames", 0};
+char *SpriteVariableNames[] = { "mpf", "height", "width", "frames", 0};
 //StrToInt
 
 void *EntityAddFunctions[] = {AddDirectMemToEnt, AddPhysicsMemToEnt, 0};
@@ -48,27 +48,30 @@ void AddDirectMemToEnt(entity_t *ent, entity_members_direct_t member, int value)
 //Assuming pre-converted
 void AddPhysicsMemToEnt(entity_t *ent, entity_members_physics_t member, void *value)
 {
-	int size;
 	cpFloat *temp_val;
 	if(!ent || !value)
 	{
 		return;
 	}
 	temp_val = (cpFloat*)value;
-	size = CountMem(value, sizeof(cpFloat));
 
-	switch(size)
+	switch(member)
 	{
-	case(1):
+	case(ENTITY_MEMBER_WEIGHT):
 		{
+			if(*temp_val == 0)
+			{
+				break;
+			}
 			((void(*)(cpBody*, cpFloat))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, *temp_val);
-		}
-	case(2):
-		{
-			((void(*)(cpBody*, cpVect))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, *(cpVect*)temp_val);
+			break;
 		}
 	default:
-		break;
+		{
+			((void(*)(cpBody*, cpVect))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, *(cpVect*)temp_val);
+			break;
+		}
+		
 	}
 	
 }
@@ -150,6 +153,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			}
 			memset(temp_array, 0, sizeof(char*)*2);
 			temp_array[0] = temp_str;
+			array_count = 1;
 		} else
 		{
 			checkObj = FindObject(object, FileVariableNames[i]);
@@ -157,7 +161,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			{
 				continue;
 			}
-			array_count = CountMem(object->values, sizeof(jsmntok_t));
+			array_count = CountMem(checkObj->values, sizeof(jsmntok_t));
 			temp_array = (char**) malloc(sizeof(char*)*(array_count+1));
 			if(!temp_array)
 			{
@@ -166,18 +170,24 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			memset(temp_array, 0, sizeof(char*)*(array_count+1));
 			for(j = 0; j < array_count; j++)
 			{
-				temp_array[i] = JsmnToString(&object->values[j], str);
+				temp_array[j] = JsmnToString(&checkObj->values[j], str);
 			}
 		}
 		if(temp_array)
 		{
 			//Get the flags we need from the entity
-			temp_int = *(int*)( (char*) retVal  + DirectVariableOffsets[i]);
+			temp_int = *(int*) ( (char*) retVal  + DirectVariableOffsets[i]);
 
 			//Load the files in with casted function
-			( (void(*)(entity_t*, char**, int))FileSetFunctions[i] )(retVal, temp_array, temp_int);
+			( ( FileSetFunc ) FileSetFunctions[i] )(retVal, temp_array, temp_int);
 
+			for(j = 0; j < array_count; j++)
+			{
+				if(temp_array[j]) free(temp_array[j]);
+				temp_array[j] = NULL;
+			}
 			free(temp_array);
+			temp_array = NULL;
 		}
 	}
 
@@ -202,7 +212,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 			}
 			else
 			{
-				checkObj = FindObject(object, SpriteVariableNames[j]);
+				checkObj = FindObject(object->children, SpriteVariableNames[j]);
 				if(checkObj)
 				{
 					//Check if member value is set for current sprite
@@ -247,6 +257,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 					temp_str = JsmnToString(&checkObj->values[i], str);
 					temp_float[j] = (cpFloat)StrToInt(temp_str);
 					if(temp_str) free(temp_str);
+					temp_str = NULL;
 				}
 				AddPhysicsMemToEnt(retVal, (entity_members_physics_t)i, temp_float);
 			}
@@ -292,10 +303,10 @@ void PrintEntity(entity_t *ent)
 		printf("No Sprites loaded \n");
 		return;
 	}
-	printf("Entity Sprites : %s \n", ent->mSprites[0]->name);
+	printf("Entity Sprites : \n %s \n", ent->mSprites[0]->name);
 	for(i = 1; ent->mSprites[i]; i++)
 	{
-		printf(" %s ", ent->mSprites[i]->name);
+		printf(" %s \n", ent->mSprites[i]->name);
 	}
 	printf(" Entity > \n");
 
@@ -431,6 +442,14 @@ entity_member_t* FindEntityMembers(object_t* object, char* str)
 	}
 
 	count = CountMem(object->children, sizeof(object_t));
+
+	//Check if no valueable targets
+	if( (hit_count + count) == 0)
+	{
+		if(members) free(members);
+		return NULL;
+	}
+
 	members = (entity_member_t*) realloc(members, sizeof(entity_member_t)*(hit_count+count+1));
 	if(!members)
 	{
@@ -483,8 +502,15 @@ entity_member_t* FindEntityMembers(object_t* object, char* str)
 			}
 		}
 	}
-	memset(&members[hit_count], 0, sizeof(entity_member_t));
 
+	//Check if we never hit a value
+	if(hit_count == 0)
+	{
+		if(members) free(members);
+		return NULL;
+	}
+
+	memset(&members[hit_count], 0, sizeof(entity_member_t));
 	return members;
 }
 
@@ -509,7 +535,6 @@ void ApplyEntityMember(entity_t *ent, entity_member_t *member)
 	}
 }
 
-//@todo		See if this is going to be useable
 void ApplyEntityMembers(entity_t *ent, entity_member_t* member)
 {
 	int i, count;
@@ -522,4 +547,24 @@ void ApplyEntityMembers(entity_t *ent, entity_member_t* member)
 	{
 		ApplyEntityMember(ent, &member[i]);
 	}
+}
+
+void FreeEntityMembers(entity_member_t *member)
+{
+	int i, count;
+	if(!member)
+	{
+		return;
+	}
+	count = CountMem(member, sizeof(entity_member_t));
+	for(i = 0; i < count; i++)
+	{
+		if(member[i].data)
+		{
+			free(member[i].data);
+			member[i].data = NULL;
+		}
+	}
+
+	free(member);
 }

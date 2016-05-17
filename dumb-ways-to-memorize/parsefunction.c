@@ -6,6 +6,7 @@
 #include "parseentity.h"
 #include "dumb_physics.h"
 #include <chipmunk\chipmunk.h>
+#include "parsepowerup.h"
 
 //Function Globals
 char *FunctionNames[] = {"move", "destroy", "spawn", "edit", "nullify", 0};
@@ -25,10 +26,11 @@ void (*ParseToFunction(const char *name))
 	return NULL;
 }
 
-void Move(entity_t *targ, entity_t **info, void *extra)
+void Move(entity_t *targ, entity_t **info, void *location)
 {
+	vec2_t temp_vect;
 	cpVect cpPos;
-	if(!targ || !extra)
+	if(!targ || !location)
 	{
 		printf("Failed to do move , invalid target/info \n");
 		return;
@@ -38,8 +40,9 @@ void Move(entity_t *targ, entity_t **info, void *extra)
 		printf("Failed to do move , no target/info physics properties \n");
 		return;
 	}
-	cpPos = Vec2Cp((vec2_t*)extra);
-	if(extra)
+	temp_vect = ((LocationFunc) location)(targ);
+	cpPos = Vec2Cp(&temp_vect);
+	if(location)
 	{
 		cpBodySetPos(targ->mPhysicsProperties->body, cpPos);
 	}
@@ -56,9 +59,10 @@ void Destroy(entity_t *targ, entity_t **info, void *extra)
 	FreeEntity(targ);
 }
 
-void Spawn(entity_t *targ, entity_t **info, void *extra)
+void Spawn(entity_t *targ, entity_t **info, void *location)
 {
 	entity_t *spawned;
+	vec2_t temp_vect;
 	cpVect cpPos, cpSpeed;
 	if(!targ || !info)
 	{
@@ -86,36 +90,53 @@ void Spawn(entity_t *targ, entity_t **info, void *extra)
 		return;
 	}
 	spawned->mPhysicsProperties->body->p = (*info)->mPhysicsProperties->body->p;
-	cpPos = cpvadd(cpBodyGetPos(spawned->mPhysicsProperties->body), cpBodyGetPos(targ->mPhysicsProperties->body));
+	
+	//Set Location based on either target or location
+	if(location)
+	{
+		temp_vect = ((LocationFunc) location)(targ);
+		cpPos = Vec2Cp( &temp_vect );
+	} else
+	{
+		cpPos = cpvadd(cpBodyGetPos(spawned->mPhysicsProperties->body), cpBodyGetPos(targ->mPhysicsProperties->body));
+		if(targ->mDirection)
+		{
+			cpPos.x += targ->mSprites[ANIMATION_IDLE]->mSize.x + SPAWN_OFFSET;
+		} else
+		{
+			cpPos.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x + SPAWN_OFFSET;
+		}
+		
+	}
 
+	//Set Velocity Based on Direction
+	//TODO: Get Velocity from User
 	if(targ->mDirection == DIR_RIGHT)
 	{
-		cpPos.x += targ->mSprites[ANIMATION_IDLE]->mSize.x + 10;
+		
 		cpBodySetPos(spawned->mPhysicsProperties->body, cpPos);
 		cpSpeed.y = 0;
 		cpSpeed.x = PHYSICS_BASE_SPEED_X;
 		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpSpeed, cpvzero);
 	} else
 	{
-		cpPos.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x + 10;
 		cpBodySetPos(spawned->mPhysicsProperties->body, cpPos);
 		cpSpeed.y = 0;
 		cpSpeed.x = -PHYSICS_BASE_SPEED_X;
 		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpSpeed, cpvzero);
 	}
+
 	AddEntityToPhysics(spawned);
 }
 
-void Edit(entity_t *targ, entity_t **info, void *extra)
+void Edit(entity_t *targ, entity_t **info, void *member)
 {
-	entity_member_t *member;
-	if(!targ || !extra)
+	if(!targ || !member)
 	{
 		printf("Null edit, not doing \n");
 		return;
 	}
-	member = (entity_member_t*) extra;
-	ApplyEntityMember(targ, member);
+	ApplyEntityMembers(targ, (entity_member_t*)member);
 	
 }
 

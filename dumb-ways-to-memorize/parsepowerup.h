@@ -7,6 +7,7 @@
 #define POWER_TARGET_STR "target"
 #define POWER_USE_TYPE_STR "use-type"
 #define POWER_INTERACTION_STR "interaction"
+#define POWER_PLACE_STR "place"
 #define POWER_INPUT_TYPE_STR "input-type"
 #define POWER_ENTITY_STR "entity"
 
@@ -30,6 +31,7 @@ typedef enum
 typedef struct power_s power_t;
 
 typedef void (*PowerFunc) (entity_t*, entity_t**, void *extra);
+typedef vec2_t (*LocationFunc) (entity_t *);
 
 /**
  * The structure for our power_up system.
@@ -42,7 +44,8 @@ struct power_s
 {	
 	char *name;											/**< The name of the power up */
 	sprite_t *icon;										/**< Icon of the power up */
-	void *extra;										/**< The extra var to use when using power up, allocated on load */
+	void *members;										/**< The members to use when using power up, allocated on load */
+	LocationFunc location;								/**< The location where to put said target */
 	void (*IterateThroughTargets)(power_t *power);		/**< The function which calculates who or what is the specified target, and iterates through them */
 	void (*UpdateUse)(power_t *power);					/**< The function which updates the power_up */
 	PowerFunc DoPower;									/**< The function which does the power_up , called during iterate through targets */
@@ -123,6 +126,8 @@ power_t *FindPower(char *str);
  */
 void UsePower(power_t *power);
 
+void FreePower(power_t *power);
+
 void (*ParseToIterator( char *str));
 
 /**
@@ -157,6 +162,11 @@ void IterateAtPoint(power_t *power);
  * @date	3/30/2016
  */
 void IterateSelf(power_t *power);
+
+
+LocationFunc ParseToLocation(char *str);
+vec2_t GetSelf(entity_t *ent);
+vec2_t GetPoint(entity_t *ent);
 
 //Interactions Array
 extern char *IterationNames[];	/**< The interaction names, which deal with what function power does */

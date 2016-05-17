@@ -14,8 +14,7 @@
 		"interaction" : "spawn",
 		"target" : "self",
 		"place" : "self",
-		"entity" : "Fireball",
-		"damage" : 10
+		"entity" : "Fireball"
 	},
 	
 	"Telekinesis" : 
