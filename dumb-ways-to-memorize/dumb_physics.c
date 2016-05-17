@@ -286,39 +286,6 @@ void RunPhysics()
 	*/
 }
 
-int CheckCollision(entity_t *self, entity_t *other)
-{
-	return 0;
-}
-
-void DoCollision(entity_t *self, entity_t *other)
-{
-
-}
-
-void ApplySpeedLimit(vec2_t* a)
-{
-	a->x = abs(a->x) > PHYSICS_MAX_SPEED ? (a->x < 0 ? -PHYSICS_MAX_SPEED : PHYSICS_MAX_SPEED) : a->x;
-	a->y = abs(a->y) > PHYSICS_MAX_SPEED ? (a->y < 0 ? -PHYSICS_MAX_SPEED : PHYSICS_MAX_SPEED) : a->y;
-}
-
-void ApplyBounds(entity_t* ent)
-{
-
-}
-
-void ApplyFriction(vec2_t* a)
-{
-	if(abs(a->x))
-	{
-		a->x += a->x < 0 ? PHYSICS_BASE_FRICTION : -PHYSICS_BASE_FRICTION;
-	}
-	if(abs(a->y))
-	{
-		a->y += a->y < 0 ? PHYSICS_BASE_FRICTION : -PHYSICS_BASE_FRICTION;
-	}
-}
-
 entity_t * AddPhyicsToEntity(entity_t* ent)
 {
 	if(!ent)

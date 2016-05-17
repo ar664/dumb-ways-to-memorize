@@ -281,8 +281,8 @@ void TileLevelEntity(entity_t* ent, vec2_t* start_position, vec2_t* end_position
 			memcpy(temp_ent, ent, sizeof(entity_t));
 			new_pos.x = start_position->x + x*ent->mSprites[0]->mSize.x;
 			new_pos.y = start_position->y + y*ent->mSprites[0]->mSize.y;
-			cpPos.x = new_pos.x;
-			cpPos.y = new_pos.y;
+			cpPos.x = (cpFloat) new_pos.x;
+			cpPos.y = (cpFloat) new_pos.y;
 			AddPhyicsToEntity(temp_ent);
 			if(!temp_ent->mPhysicsProperties)
 			{
@@ -357,8 +357,8 @@ int SaveGameState()
 	}
 	
 	//Get Position
-	temp_pos.x = gPlayer->mPhysicsProperties->body->p.x;
-	temp_pos.y = gPlayer->mPhysicsProperties->body->p.y;
+	temp_pos.x = (int) gPlayer->mPhysicsProperties->body->p.x;
+	temp_pos.y = (int) gPlayer->mPhysicsProperties->body->p.y;
 
 	//Write Position
 	/* Could be useable code

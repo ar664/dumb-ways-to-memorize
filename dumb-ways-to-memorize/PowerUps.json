@@ -13,7 +13,6 @@
 		"use-type" : 5,
 		"interaction" : "spawn",
 		"target" : "self",
-		"place" : "self",
 		"entity" : "Fireball"
 	},
 	

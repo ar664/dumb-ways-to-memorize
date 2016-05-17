@@ -16,7 +16,7 @@ char *DirectVariableNames[] = { "soundType", "spriteType", "hazard(s)", "collisi
 void *DirectConFunctions[] = { StrToSoundType, StrToSpriteType ,StrToHazard, StrToCollisionType, StrToEntityState, StrToInt, StrToInt, 0};
 char *PhysicsVariableNames[] = { "weight", "accel", "velocity", "position", 0};
 void *PhysicsSetFunctions[] = { cpBodySetMass, cpBodySetVel, cpBodySetVel, cpBodySetPos, 0};
-char *SpriteVariableNames[] = { "mpf", "height", "width", "frames", 0};
+char *SpriteVariableNames[] = { "mpf", "width", "height", "frames", 0};
 //StrToInt
 
 void *EntityAddFunctions[] = {AddDirectMemToEnt, AddPhysicsMemToEnt, 0};
@@ -53,6 +53,17 @@ void AddPhysicsMemToEnt(entity_t *ent, entity_members_physics_t member, void *va
 	{
 		return;
 	}
+
+	if(!ent->mPhysicsProperties)
+	{
+		return;
+	}
+
+	if(!ent->mPhysicsProperties->body)
+	{
+		return;
+	}
+
 	temp_val = (cpFloat*)value;
 
 	switch(member)
