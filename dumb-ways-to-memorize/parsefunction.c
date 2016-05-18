@@ -101,10 +101,10 @@ void Spawn(entity_t *targ, entity_t **info, void *location)
 		cpPos = cpvadd(cpBodyGetPos(spawned->mPhysicsProperties->body), cpBodyGetPos(targ->mPhysicsProperties->body));
 		if(targ->mDirection)
 		{
-			cpPos.x += targ->mSprites[ANIMATION_IDLE]->mSize.x + SPAWN_OFFSET;
+			cpPos.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x + SPAWN_OFFSET;
 		} else
 		{
-			cpPos.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x + SPAWN_OFFSET;
+			cpPos.x += targ->mSprites[ANIMATION_IDLE]->mSize.x + SPAWN_OFFSET;
 		}
 		
 	}
@@ -113,7 +113,6 @@ void Spawn(entity_t *targ, entity_t **info, void *location)
 	//TODO: Get Velocity from User
 	if(targ->mDirection == DIR_RIGHT)
 	{
-		
 		cpBodySetPos(spawned->mPhysicsProperties->body, cpPos);
 		cpSpeed.y = 0;
 		cpSpeed.x = PHYSICS_BASE_SPEED_X;

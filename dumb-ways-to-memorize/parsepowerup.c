@@ -199,7 +199,7 @@ void UpdateNormal(power_t* power)
 	}
 	if(!power)
 	{
-		printf("power not set \n");
+		printf("Power not set \n");
 		return;
 	}
 	power->IterateThroughTargets(power);
@@ -212,6 +212,14 @@ void UpdateNormal(power_t* power)
 
 void UpdateInfinite(power_t* power)
 {
+	if(!gPlayer)
+	{
+		return;
+	}
+	if(!power)
+	{
+		return;
+	}
 	power->IterateThroughTargets( power );
 }
 

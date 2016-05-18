@@ -8,6 +8,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <malloc.h>
 
 //Globals
 char *FileVariableNames[] = {  "sound(s)", "sprite(s)",  0};
@@ -49,6 +50,7 @@ void AddDirectMemToEnt(entity_t *ent, entity_members_direct_t member, int value)
 void AddPhysicsMemToEnt(entity_t *ent, entity_members_physics_t member, void *value)
 {
 	cpFloat *temp_val;
+	cpVect *temp_vect;
 	if(!ent || !value)
 	{
 		return;
@@ -64,7 +66,8 @@ void AddPhysicsMemToEnt(entity_t *ent, entity_members_physics_t member, void *va
 		return;
 	}
 
-	temp_val = (cpFloat*)value;
+	temp_val = (cpFloat*) value;
+	temp_vect = (cpVect*) value;
 
 	switch(member)
 	{
@@ -79,7 +82,7 @@ void AddPhysicsMemToEnt(entity_t *ent, entity_members_physics_t member, void *va
 		}
 	default:
 		{
-			((void(*)(cpBody*, cpVect))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, *(cpVect*)temp_val);
+			((void(*)(cpBody*, cpVect))PhysicsSetFunctions[member])(ent->mPhysicsProperties->body, *temp_vect);
 			break;
 		}
 		
@@ -339,6 +342,7 @@ void EntityMemberSetType(entity_member_t *member, int type)
 void *ConvertType(int var_type, int num_type, char *var)
 {
 	int *retVal;
+	cpFloat *otherVal;
 	if(!var)
 	{
 		return NULL;
@@ -351,13 +355,13 @@ void *ConvertType(int var_type, int num_type, char *var)
 		}
 	case MEMBER_PHYSICS:
 		{
-			retVal = (int*) malloc(sizeof(int));
-			if(!retVal)
+			otherVal = (cpFloat*) malloc(sizeof(cpFloat));
+			if(!otherVal)
 			{
 				return NULL;
 			}
-			*retVal = (cpFloat)StrToInt(var);
-			return retVal;
+			*otherVal = (cpFloat)StrToInt(var);
+			return otherVal;
 		}
 	case MEMBER_SPRITE:
 		{
@@ -389,8 +393,9 @@ void *ConvertType(int var_type, int num_type, char *var)
 entity_member_t* FindEntityMembers(object_t* object, char* str)
 {
 	int i, j, k, x, count, hit, hit_count, array_count;
-	char *temp_str, *value_string, **current_array, **temp_array;
+	char *temp_str, *value_string, **current_array;
 	void *variable_arrays[] = { FileVariableNames, PhysicsVariableNames, DirectVariableNames, 0};
+	void *temp_test, **temp_array;
 	entity_member_t *members;
 	if(!object || !str)
 	{
@@ -484,19 +489,75 @@ entity_member_t* FindEntityMembers(object_t* object, char* str)
 				{
 					hit = 1;
 					array_count = CountMem(object->children[i].values, sizeof(jsmntok_t));
-					temp_array = (char**) malloc(sizeof(char*)*(array_count+1));
-					if(!temp_array)
+
+					//Test for variable size to adjust our array
+					value_string = JsmnToString(&object->children[i].values[0], str);
+					temp_test = ConvertType(j, k, value_string );
+					if(value_string) free(value_string);
+#ifdef _WIN32
+					x = _msize(temp_test);
+#elif _LINUX
+					x = malloc_size(temp_test);
+#endif
+
+					//Assign Values Accordingly
+					if(x == sizeof(char*))
 					{
-						hit = 0;
+						temp_array = (void**) malloc(sizeof(char*)*(array_count+1));
+						if(!temp_array)
+						{
+							hit = 0;
+							break;
+						}
+
+						((char**)temp_array)[0] = (char*) temp_test;
+						if(temp_test) free(temp_test);
+
+						for(x = 1; x < array_count; x++)
+						{
+							value_string = JsmnToString(&object->children[i].values[x], str);
+							temp_test =  ConvertType(j, k, value_string );
+							((char**)temp_array)[x] = (char*) temp_test;
+								
+							if(value_string) free(value_string);
+						}
+
+						((char**)temp_array)[array_count] = NULL;
+
+					} else if( x == sizeof(cpFloat) )
+					{
+						temp_array = (void**) malloc(sizeof(cpFloat)*(array_count+1));
+						if(!temp_array)
+						{
+							hit = 0;
+							break;
+						}
+						((cpFloat*)temp_array)[0] = *(cpFloat*) temp_test;
+						if(temp_test) free(temp_test);
+
+						for(x = 1; x < array_count; x++)
+						{
+							value_string = JsmnToString(&object->children[i].values[x], str);
+							temp_test = ConvertType(j, k, value_string );
+							if(temp_test)
+							{
+								((cpFloat*)temp_array)[x] = *(cpFloat*) temp_test;
+								free(temp_test);
+							}
+							
+							if(value_string) free(value_string);
+						}
+
+						((cpFloat*)temp_array)[x] = NULL;
+
+					} else
+					{
+						if(temp_test) free(temp_test);
 						break;
 					}
-					for(x = 0; x < array_count; x++)
-					{
-						value_string = JsmnToString(&object->children[i].values[x], str);
-						temp_array[x] = (char*) ConvertType(j, k, value_string );
-						if(value_string) free(value_string);
-					}
-					temp_array[array_count] = NULL;
+					
+					
+					
 					members[hit_count].data = temp_array;
 					members[hit_count].member_type = j;
 					EntityMemberSetType(&members[hit_count], k);
