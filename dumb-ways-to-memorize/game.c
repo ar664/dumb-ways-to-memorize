@@ -1008,13 +1008,14 @@ void ResetGame()
 		printf("Returning to main menu... \n");
 	}
 	
-	FreeEntity(gPlayer);
 	FreeNonPlayerEntities();
+	FreeEntity(gPlayer);
 	gPlayerLives = PLAYER_LIVES;
 	gGameState = START;
+
 	if(gCurrentPowerUpName)
 	{
-		free(gCurrentPowerUpName);
+		//Gets freed in free menu
 		gCurrentPowerUpName = NULL;
 	}
 	if(gSelectedPowerUps)
@@ -1022,12 +1023,18 @@ void ResetGame()
 		free(gSelectedPowerUps);
 		gSelectedPowerUps = NULL;
 	}
+	if(gUsedPowerUps)
+	{
+		free(gUsedPowerUps);
+		gUsedPowerUps = NULL;
+	}
+
 	if(gCurrentPowerUp)
 	{
 		gCurrentPowerUp = NULL;
 	}
 	//Reseting power select
-	memset(&gMenus[2], 0, sizeof(menu_t));
+	FreeMenu( FindMenuFromGameState(CHOOSE) );
 }
 
 void ResetRun()
@@ -1037,23 +1044,40 @@ void ResetRun()
 		printf("You died, select your powerups again \n");
 		gPlayerLives--;
 	}
-	
 	FreeNonPlayerEntities();
+	FreeEntity(gPlayer);
+
 	gGameState = GUESS;
 	if(gCurrentPowerUp)
 	{
 		gCurrentPowerUp = NULL;
 	}
+
+	if(gSelectedPowerUps)
+	{
+		free(gSelectedPowerUps);
+		gSelectedPowerUps = NULL;
+	}
+
+	if(gUsedPowerUps)
+	{
+		free(gUsedPowerUps);
+		gUsedPowerUps = NULL;
+	}
+
 	if(gCurrentPowerUpName)
 	{
 		gCurrentPowerUpName = NULL;
 	}
+	//Reset powers 
+	FreeMenu( FindMenuFromGameState(CHOOSE) );
 }
 
 void GameNextLevel()
 {
-	FreeEntity(gPlayer);
 	FreeNonPlayerEntities();
+	FreeEntity(gPlayer);
+
 	if(gCurrentPowerUp)
 	{
 		gCurrentPowerUp = NULL;

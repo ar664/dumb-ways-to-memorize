@@ -149,42 +149,66 @@ void AddEntityToPhysics(entity_t* ent)
 //Data = Body
 void SafeRemovePhysics(cpSpace *space, void *key, void *data)
 {
-	if(!space || !key || !data)
+	cpShape *shape;
+	cpBody *body;
+	entity_t *ent;
+	if(!key || !data)
 	{
 		return;
 	}
-	if(!cpBodyIsStatic((cpBody*) key))
+	shape = (cpShape*) key;
+	body = (cpBody*) data;
+	ent = (entity_t*) shape->data;
+	if(space)
 	{
-		cpSpaceRemoveShape(space, (cpShape*) key);
-		cpSpaceRemoveBody(space, (cpBody*) data);
-	} else
-	{
-		cpSpaceRemoveStaticShape(space, (cpShape*) key);
-		cpSpaceRemoveBody(space, (cpBody*) key);
+		if( !cpBodyIsStatic(body) )
+		{
+			cpSpaceRemoveShape(space, shape);
+			cpSpaceRemoveBody(space, body);
+		} else
+		{
+			cpSpaceRemoveStaticShape(space, shape);
+			cpSpaceRemoveBody(space, body);
+		}
 	}
 	
 	
 	
-	cpShapeFree( (cpShape*) key);
-	cpBodyFree( (cpBody*) data);
+	
+	cpShapeFree( shape );
+	cpBodyFree( body );
 }
 
 void RemoveEntityFromPhysics(entity_t *ent)
 {
+	cpSpace *space;
+	if(!ent)
+	{
+		return;
+	}
 	if(!ent->mPhysicsProperties)
 	{
 		return;
 	}
 	if(!ent->mPhysicsProperties->shape->space_private || !ent->mPhysicsProperties->body->space_private)
 	{
-		return;
-	}
-	if(cpSpaceIsLocked(gSpace))
-	{
-		cpSpaceAddPostStepCallback(gSpace, SafeRemovePhysics, ent->mPhysicsProperties->shape, ent->mPhysicsProperties->body);
+		space = NULL;
 	} else
 	{
-		SafeRemovePhysics(gSpace, ent->mPhysicsProperties->shape, ent->mPhysicsProperties->body);
+		space = gSpace;
+	}
+	if(space)
+	{
+		if(cpSpaceIsLocked(space))
+		{
+			cpSpaceAddPostStepCallback(space, SafeRemovePhysics, ent->mPhysicsProperties->shape, ent->mPhysicsProperties->body);
+		} else
+		{
+			SafeRemovePhysics(space, ent->mPhysicsProperties->shape, ent->mPhysicsProperties->body);
+		}
+	} else
+	{
+		SafeRemovePhysics(space, ent->mPhysicsProperties->shape, ent->mPhysicsProperties->body);
 	}
 	
 	

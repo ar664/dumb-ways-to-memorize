@@ -475,3 +475,9 @@ void WriteStringObjectToFile(string_object_t *obj, FILE* file, int depth)
 	}
 	
 }
+
+void FreeObject(object_t *object)
+{
+	
+
+}

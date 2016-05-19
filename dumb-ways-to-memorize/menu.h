@@ -22,6 +22,13 @@
 
 #define MENU_EXTRA_LOAD_LEVEL	"Load Level"
 
+enum
+{
+	MENU_START,
+	MENU_GUESS,
+	MENU_CHOOSE
+};
+
 /** Defines the enum for what type of menu it is */
 typedef enum
 {
@@ -134,5 +141,7 @@ menu_t *FindFreeMenu();
  * @date	3/30/2016
  */
 menu_item_t *FindMenuItem(menu_t *menu, char *item);
+
+void FreeMenu(menu_t *menu);
 
 #endif

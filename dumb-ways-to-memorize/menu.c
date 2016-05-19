@@ -13,6 +13,8 @@
 menu_t *gMenus = NULL;
 int gCurrentSelectedItem = 0;
 
+
+//TODO: Choose One main way to do item selection
 /**
  * Deselect item by number.
  *
@@ -156,9 +158,9 @@ void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 {
 	int i, powerUps, selected_power_ups;
-	object_t *temp, *choose_obj;
+	object_t *temp_obj, *choose_obj;
 	jsmntok_t *choose_tok;
-	char *choose_data;
+	char *choose_data, *temp_str;
 	if(!self)
 	{
 		printf("NULL menu updated \n");
@@ -204,7 +206,13 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 			} else
 			{
 				powerUps = CountMem(gPowerUps, sizeof(power_t));
+
+				//Get the currently chosen power ups.
 				gSelectedPowerUps = (char**) malloc(sizeof(char*)*(powerUps+1));
+				if(!gSelectedPowerUps)
+				{
+					break;
+				}
 				memset(gSelectedPowerUps, 0, sizeof(char*)*(powerUps+1));
 				selected_power_ups = 0;
 				for(i = 0; i < powerUps; i++)
@@ -215,6 +223,8 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 						selected_power_ups++;
 					}
 				}
+
+				//Check if they correspond to the set amount of levels.
 				if(selected_power_ups != gLevelsPerGame)
 				{
 					printf("Too many or not enough power_ups selected");
@@ -225,23 +235,52 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 					if(gSelectedPowerUps) free(gSelectedPowerUps);
 					break;
 				}
+
+				//Allocate Memory for the Choose PowerUps Menu
 				gUsedPowerUps = (char**) malloc(sizeof(char*)*(selected_power_ups+1));
+				if(!gUsedPowerUps)
+				{
+					if(gSelectedPowerUps) free(gSelectedPowerUps);
+					gSelectedPowerUps = NULL;
+					break;
+				}
 				memset(gUsedPowerUps, 0, sizeof(char*)*(selected_power_ups+1));
 				gSelectedPowerUps[selected_power_ups] = NULL;
-				temp = FindObject(gGameObject, "Menus");
-				ConvertFileToUseable(JsmnToString(&temp->values[2], gGameData), NULL, &choose_data, &choose_tok);
+
+				//Load the Choose Power Ups Menu
+				temp_obj = FindObject(gGameObject, "Menus");
+				if(!temp_obj)
+				{
+					if(gUsedPowerUps) free(gUsedPowerUps);
+					gUsedPowerUps = NULL;
+					if(gSelectedPowerUps) free(gSelectedPowerUps);
+					gSelectedPowerUps = NULL;
+					printf("Could not find menus in GameData \n");
+					break;
+				}
+				temp_str = JsmnToString(&temp_obj->values[MENU_CHOOSE], gGameData);
+				ConvertFileToUseable(temp_str, NULL, &choose_data, &choose_tok);
 				choose_obj = ParseToObject(choose_tok, choose_data);
 				if(!LoadMenu(choose_obj, choose_data, CHOOSE, GUESS))
 				{
 					printf("Failure to load Choose Menu \n");
 					return;
 				}
+
+				//Reset the Power Up Menu
 				for(i = 0; i < self->mItemCount; i++)
 				{
 					self->mItems[i].State = MENU_ITEM_STATE_NOT_SELECTED;
 				}
 				self->mSelectedItem = NULL;
+
 				gGameState = CHOOSE;
+
+				//Deallocation
+				if(temp_str) free(temp_str);
+				if(choose_data) free(choose_data);
+				if(choose_tok) free(choose_tok);
+				if(choose_obj) free(choose_obj);
 			}
 			break;
 		}
@@ -307,6 +346,7 @@ void UpdatePowerSelectMenu(menu_t* self, SDL_GameControllerButton button)
 					{
 						if(!strcmp(self->mSelectedItem->Name, gUsedPowerUps[i]))
 						{
+							printf("Power Up already used, choose another one. \n");
 							break;
 						}
 					} else
@@ -320,7 +360,11 @@ void UpdatePowerSelectMenu(menu_t* self, SDL_GameControllerButton button)
 				{
 					gCurrentPowerUpName = self->mSelectedItem->Name;
 					gCurrentPowerUp = FindPower(gCurrentPowerUpName);
-					
+					if(!gCurrentPowerUp)
+					{
+						printf("Could not find power up with name: %s. Please try again. \n");
+						break;
+					}
 					LoadSelectedLevel(i);
 					gGameState = self->mSelectedItem->NextState;
 					if(gGameState == PLAYING)
@@ -536,13 +580,27 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 		return NULL;
 	}
 
-	//Look for free menu slot
-	menu = FindFreeMenu();
-	if(!menu)
+	//Look if this menu type was already loaded
+	menu = FindMenuFromGameState(curr_state);
+	if(menu)
 	{
-		printf("Could not find free menu \n");
-		return NULL;
+		FreeMenu(menu);
+	} 
+	else
+	//Look for free menu slot if not found
+	{
+
+		menu = FindFreeMenu();
+		if(!menu)
+		{
+			printf("Could not find free menu \n");
+			return NULL;
+		}
+		//Setting to Zero just in case
+		memset(menu, 0, sizeof(menu_t));
 	}
+	
+	
 
 	menu->mPreviousState = previous_state;
 	menu->mCurrentState = curr_state;
@@ -568,7 +626,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	type_str = FindValue(object, MENU_TYPE, g_str);
 	if(!type_str)
 	{
-		printf("Not found menu layout type for %s. Switching to default vertical layout", object->name);
+		printf("Not found menu layout type for %s. Switching to default vertical layout \n", object->name);
 		type_str = strdup(MENU_TYPE_STR_V);
 	}
 
@@ -590,6 +648,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 		if(temp_str)
 		{
 			menu->mItems[i].Image = LoadSprite(temp_str, 0);
+			if(temp_str) free(temp_str);
 		}
 
 		temp_str = FindValue(&temp_obj->children[i], MENU_ITEM_TEXT, g_str);
@@ -612,10 +671,6 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 		if(temp_str)
 		{
 			menu->mItems[i].Info = temp_str;
-			if(!menu->mItems[i].Name)
-			{
-				menu->mItems[i].Name = temp_str;
-			}
 		} else
 		{
 			menu->mItems[i].Info = NULL;
@@ -649,6 +704,8 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 					continue;
 				}
 				memcpy(&menu->mItems[menu->mItemCount+i], ref_menu_item, sizeof(menu_item_t));
+				menu->mItems[menu->mItemCount+i].Name = strdup(ref_menu_item->Name);
+				menu->mItems[menu->mItemCount+i].Info = strdup((char*)ref_menu_item->Info);
 				menu->mItems[menu->mItemCount+i].State = MENU_ITEM_STATE_NOT_SELECTED;
 				menu->mItems[menu->mItemCount+i].NextState = PLAYING;
 			}
@@ -750,6 +807,45 @@ menu_item_t* FindMenuItem(menu_t* menu, char* item)
 		}
 	}
 	return NULL;
+}
+
+void FreeMenu(menu_t *menu)
+{
+	int i;
+	if(!menu)
+	{
+		return;
+	}
+	if(menu->mBackground)
+	{
+		FreeSprite(menu->mBackground);
+		menu->mBackground = NULL;
+	}
+	for(i = 0; i < MENU_ITEM_MAX; i++)
+	{
+		if(menu->mItems[i].Image)
+		{
+			if(gGameState == END)
+			{
+				FreeSprite(menu->mItems[i].Image);
+			}
+			menu->mItems[i].Image = NULL;
+		}
+
+		if(menu->mItems[i].Name)
+		{
+			free(menu->mItems[i].Name);
+			menu->mItems[i].Name = NULL;
+		}
+
+		if(menu->mItems[i].Info)
+		{
+			free(menu->mItems[i].Info);
+			menu->mItems[i].Info = NULL;
+		}
+
+	}
+	memset(menu, 0, sizeof(menu_t));
 }
 
 int StrToMenuType(char *str)

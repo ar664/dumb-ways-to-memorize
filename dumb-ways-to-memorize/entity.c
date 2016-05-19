@@ -303,8 +303,11 @@ void TouchGoal(entity_t* self, entity_t* other)
 		if(gGameState == START)
 		{
 			ResetGame();
+		} else
+		{
+			GameNextLevel();
 		}
-		GameNextLevel();
+		
 	}
 }
 
@@ -483,30 +486,23 @@ int Distance2Entity(entity_t* self, entity_t* other)
 
 void FreeEntity(entity_t *ent)
 {
-	int i, j, numSprites;
+	int i, numSprites;
 	if(!ent)
 		return;
-	i = 0;
-	for(i = 0; i < MAX_ENTITIES; i++)
+	if(ent->mSprites)
 	{
-		if(ent == &gEntities[i])
+		if(gGameState == END)
 		{
-			if(ent->mSprites)
+			numSprites = CountMem(ent->mSprites, sizeof(char*));
+			for(i = 0; i < numSprites; i++)
 			{
-				if(gGameState == END)
-				{
-					numSprites = CountMem(ent->mSprites, sizeof(char*));
-					for(j = 0; j < numSprites; j++)
-					{
-						FreeSprite(ent->mSprites[j]);
-					}	
-				}
-			}
-			RemoveEntityFromPhysics(ent);
-			memset(ent, 0, sizeof(entity_t));
+				FreeSprite(ent->mSprites[i]);
+			}	
 		}
 	}
-
+	RemoveEntityFromPhysics(ent);
+	memset(ent, 0, sizeof(entity_t));
+			
 }
 
 void FreeNonPlayerEntities()

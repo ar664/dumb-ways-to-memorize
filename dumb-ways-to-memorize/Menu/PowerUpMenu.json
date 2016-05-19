@@ -6,26 +6,31 @@
 	"link" : "Guess",
 	"Items" : [
 	{
+		"text" : "Teleport",
 		"extra" : "Teleport",
 		"sprite" : "Sprite/Power/Dumb_Power_Teleport.png"
 	},
 	
 	{
+		"text" : "Fireball",
 		"extra" : "Fireball",
 		"sprite" : "Sprite/UI/Dumb_UI_Options.png"
 	},
 	
 	{
+		"text" : "Telekinesis",
 		"extra" : "Telekinesis",
 		"sprite" : "Sprite/Power/Dumb_Power_Telekenisis.png"
 	},
 	
 	{
+		"text" : "Flight",
 		"extra" : "Flight",
 		"sprite" : "Sprite/Power/Dumb_Power_Flight.png"
 	},
 	
 	{
+		"text" : "OverPowered",
 		"extra" : "OverPowered",
 		"sprite" : "Sprite/Power/Dumb_Power_Destroy_All.png"
 	},
