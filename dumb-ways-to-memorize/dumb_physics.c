@@ -173,8 +173,6 @@ void SafeRemovePhysics(cpSpace *space, void *key, void *data)
 	}
 	
 	
-	
-	
 	cpShapeFree( shape );
 	cpBodyFree( body );
 }

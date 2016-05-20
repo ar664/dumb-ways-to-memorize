@@ -574,6 +574,9 @@ void SetAI_Check(ai_function_t* function, char** variables_str, char* data_str, 
 			}
 			temp_obj = ParseToObject(temp_tok, temp_str);
 			function->mLink = ParseAI(temp_obj, temp_str, variables_str);
+			if(temp_str) free(temp_str);
+			if(temp_tok) free(temp_tok);
+			if(temp_obj) FreeObject(temp_obj);
 			break;
 		}
 	default:

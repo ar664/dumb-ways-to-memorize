@@ -163,7 +163,6 @@ void IterateAtPoint(power_t *power);
  */
 void IterateSelf(power_t *power);
 
-
 LocationFunc ParseToLocation(char *str);
 vec2_t GetSelf(entity_t *ent);
 vec2_t GetPoint(entity_t *ent);

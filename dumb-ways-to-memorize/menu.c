@@ -280,7 +280,7 @@ void UpdatePowerUpMenu(menu_t *self, SDL_GameControllerButton button)
 				if(temp_str) free(temp_str);
 				if(choose_data) free(choose_data);
 				if(choose_tok) free(choose_tok);
-				if(choose_obj) free(choose_obj);
+				if(choose_obj) FreeObject(choose_obj);
 			}
 			break;
 		}
@@ -704,8 +704,15 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 					continue;
 				}
 				memcpy(&menu->mItems[menu->mItemCount+i], ref_menu_item, sizeof(menu_item_t));
-				menu->mItems[menu->mItemCount+i].Name = strdup(ref_menu_item->Name);
-				menu->mItems[menu->mItemCount+i].Info = strdup((char*)ref_menu_item->Info);
+				if(ref_menu_item->Name)
+				{
+					menu->mItems[menu->mItemCount+i].Name = strdup(ref_menu_item->Name);
+				}
+				if(ref_menu_item->Info)
+				{
+					menu->mItems[menu->mItemCount+i].Info = strdup((char*)ref_menu_item->Info);
+				}
+				
 				menu->mItems[menu->mItemCount+i].State = MENU_ITEM_STATE_NOT_SELECTED;
 				menu->mItems[menu->mItemCount+i].NextState = PLAYING;
 			}

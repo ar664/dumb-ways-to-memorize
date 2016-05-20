@@ -239,27 +239,33 @@ void PrintObject(object_t* obj, char *g_str)
 int CopyObjectToObjectArray(object_t **dst, object_t *src, int size)
 {
 	int count, i;
+	object_t *new_object;
 	if(!dst || !src)
 	{
 		return -1;
 	}
+	
 	*dst = (object_t*) realloc(*dst, sizeof(object_t)*(size+1));
 	if(!*dst)
 	{
 		return -1;
 	}
+
+	new_object = *dst;
+
 	if(size == 1)
 	{
-		memset(*dst, 0, sizeof(object_t));
+		memset(new_object, 0, sizeof(object_t));
 	}
-	((*dst)[size-1]).name = src->name;
-	((*dst)[size-1]).parent = src->parent;
+
+	new_object[size-1].name = src->name;
+	new_object[size-1].parent = src->parent;
 	if(src->keys)
 	{
 		count = CountMem(src->keys, sizeof(jsmntok_t));
-		for(i = 0; i < count+1; i++)
+		for(i = 0; i < count; i++)
 		{
-			if( AllocateDynamic( (void**) &((*dst)[size-1]).keys, &src->keys[i], sizeof(jsmntok_t), i+1)  == -1)
+			if( AllocateDynamic( (void**) &new_object[size-1].keys, &src->keys[i], sizeof(jsmntok_t), i+1)  == -1)
 			{
 				return -1;
 			}
@@ -269,9 +275,9 @@ int CopyObjectToObjectArray(object_t **dst, object_t *src, int size)
 	if(src->values)
 	{
 		count = CountMem(src->values, sizeof(jsmntok_t));
-		for(i = 0; i < count+1; i++)
+		for(i = 0; i < count; i++)
 		{
-			if( AllocateDynamic( (void**) &((*dst)[size-1]).values, &src->values[i], sizeof(jsmntok_t), i+1)  == -1)
+			if( AllocateDynamic( (void**) &new_object[size-1].values, &src->values[i], sizeof(jsmntok_t), i+1)  == -1)
 			{
 				return -1;
 			}
@@ -280,15 +286,15 @@ int CopyObjectToObjectArray(object_t **dst, object_t *src, int size)
 	if(src->children)
 	{
 		count = CountMem(src->children, sizeof(object_t ));
-		for(i = 0; i < count+1; i++)
+		for(i = 0; i < count; i++)
 		{
-			if( CopyObjectToObjectArray( &((*dst)[size-1]).children, &src->children[i], i+1)  == -1)
+			if( CopyObjectToObjectArray( &new_object[size-1].children, &src->children[i], i+1)  == -1)
 			{
 				return -1;
 			}
 		}
 	}
-	memset(&(*dst)[size], 0, sizeof(object_t));
+	memset(&new_object[size], 0, sizeof(object_t));
 	return 0;
 }
 
@@ -478,6 +484,41 @@ void WriteStringObjectToFile(string_object_t *obj, FILE* file, int depth)
 
 void FreeObject(object_t *object)
 {
+	int i, objects;
+	if(!object)
+	{
+		return;
+	}
 	
+	objects = 1 + CountMem(object->children, sizeof(object_t));
 
+	for(i = 0; i < objects; i++)
+	{
+		if(i == 0)
+		{
+			if(object->name)
+			{
+				free(object->name);
+				object->name = NULL;
+			}
+			if(object->keys)
+			{
+				free(object->keys);
+				object->keys = NULL;
+			}
+			if(object->values)
+			{
+				free(object->values);
+				object->values = NULL;
+			}
+		} else
+		{
+			FreeObject(&object->children[i-1]);	
+		}
+	}
+	if(!object->parent)
+	{
+		free(object);
+	}
+	
 }

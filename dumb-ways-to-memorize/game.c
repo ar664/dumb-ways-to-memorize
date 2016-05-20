@@ -207,7 +207,7 @@ int LoadLevelData()
 int LoadPowerUpData()
 {
 	jsmntok_t *power_tok;
-	object_t *powers, *temp_obj;
+	object_t *power_obj, *temp_obj;
 	power_t *temp_power;
 	char *power_str;
 	int powerCount, i;
@@ -226,8 +226,8 @@ int LoadPowerUpData()
 		printf("Could not load power ups file : %s \n", gPowerUpsFile );
 	}
 
-	powers = ParseToObject(power_tok, power_str);
-	powerCount = CountMem(powers->children, sizeof(object_t));
+	power_obj = ParseToObject(power_tok, power_str);
+	powerCount = CountMem(power_obj->children, sizeof(object_t));
 	gPowerUps = (power_t*) malloc(sizeof(power_t)*( powerCount+1 ));
 	if(!gPowerUps)
 	{
@@ -237,7 +237,7 @@ int LoadPowerUpData()
 
 	for(i = 0; i < powerCount; i++)
 	{
-		temp_power = ParseToPowerUp(&powers->children[i], power_str);
+		temp_power = ParseToPowerUp(&power_obj->children[i], power_str);
 		if(!temp_power)
 		{
 			printf("Power up %d could not be loaded \n", i);
@@ -247,6 +247,11 @@ int LoadPowerUpData()
 		if(temp_power) free(temp_power);
 	}
 	memset(&gPowerUps[powerCount], 0, sizeof(power_t));
+
+	if(power_str) free(power_str);
+	if(power_tok) free(power_tok);
+	if(power_obj) FreeObject(power_obj);
+
 	return 0;
 }
 
@@ -281,18 +286,22 @@ int LoadMenuData()
 		menuObj = ParseToObject(menuTok, menuData);
 		if(!menuObj)
 		{
-			free(temp_str);
+			if(temp_str) free(temp_str);
+			if(menuData) free(menuData);
+			if(menuTok) free(menuTok);
 			continue;
 		}
 		PrintObject(menuObj, menuData);
-		menuObj->name = temp_str;
+		menuObj->name = strdup(temp_str);
 		menuLink = FindValue(menuObj, "link", menuData);
-		if(!menuLink)
-		{
-			continue;
-		}
 		
 		LoadMenu(menuObj, menuData, StrToGameState(menuLink), START);
+
+		//Deallocate
+		if(menuLink) free(menuLink);
+		if(menuData) free(menuData);
+		if(menuTok) free(menuTok);
+		if(menuObj) FreeObject(menuObj);
 	}
 	return 0;
 }
@@ -409,15 +418,22 @@ int LoadSelectedLevel(int level)
 	if(!gLevelData || !gLevelTokens)
 	{
 		printf("Unable to parse level %s \n", gSelectedLevels[level]);
+		return -1;
 	}
 	gLevelObject = ParseToObject(gLevelTokens, gLevelData);
 	if(!gLevelObject)
 	{
+		if(gLevelData) free(gLevelData);
+		if(gLevelTokens) free(gLevelTokens);
 		printf("Unable to parse level %s to object \n", gSelectedLevels[level]);
+		return -1;
 	}
 
 	if(LoadLevel(gLevelObject, gLevelData))
 	{
+		if(gLevelData) free(gLevelData);
+		if(gLevelTokens) free(gLevelTokens);
+		if(gLevelObject) free(gLevelObject);
 		perror("Unable to Load level \n");
 		return -1;
 	}
@@ -998,6 +1014,25 @@ void UpdateEditor()
 	}
 }
 
+void FreeLevelData()
+{
+	if(gLevelData)
+	{
+		free(gLevelData);
+		gLevelData = NULL;
+	}
+	if(gLevelTokens)
+	{
+		free(gLevelTokens);
+		gLevelTokens = NULL;
+	}
+	if(gLevelObject)
+	{
+		FreeObject(gLevelObject);
+		gLevelObject = NULL;
+	}
+}
+
 void ResetGame()
 {
 	if(gPlayerLives < 1)
@@ -1013,6 +1048,7 @@ void ResetGame()
 	gPlayerLives = PLAYER_LIVES;
 	gGameState = START;
 
+	//Reset Power Up Globals
 	if(gCurrentPowerUpName)
 	{
 		//Gets freed in free menu
@@ -1033,8 +1069,12 @@ void ResetGame()
 	{
 		gCurrentPowerUp = NULL;
 	}
-	//Reseting power select
+
+	//Reseting power select menu
 	FreeMenu( FindMenuFromGameState(CHOOSE) );
+
+	//Reset Level Objects
+	FreeLevelData();
 }
 
 void ResetRun()
@@ -1069,8 +1109,12 @@ void ResetRun()
 	{
 		gCurrentPowerUpName = NULL;
 	}
+
 	//Reset powers 
 	FreeMenu( FindMenuFromGameState(CHOOSE) );
+
+	//Reset Level Objects
+	FreeLevelData();
 }
 
 void GameNextLevel()
@@ -1086,4 +1130,7 @@ void GameNextLevel()
 	{
 		gCurrentPowerUpName = NULL;
 	}
+
+	//Reset Level Objects
+	FreeLevelData();
 }

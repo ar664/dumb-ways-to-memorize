@@ -69,6 +69,10 @@ object_t *ParseToObject(jsmntok_t *token, char *g_str);
  */
 object_t *FindObject(object_t *obj, char *name);
 
+//Free object from memory
+void FreeObject(object_t *object);
+
+
 //Recursive Member Count
 int CountObjectMembers(object_t *obj, char *g_str);
 

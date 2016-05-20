@@ -275,7 +275,7 @@ power_t* ParseToPowerUp(object_t* obj, char* g_str)
 		return NULL;
 	}
 	memset(retVal, 0, sizeof(power_t));
-	retVal->name = obj->name;
+	retVal->name = strdup(obj->name);
 
 	//Target Matching Function
 	if( (temp_str = FindValue(obj, POWER_TARGET_STR, g_str)) != NULL )
@@ -376,15 +376,22 @@ void FreePower(power_t *power)
 	if(power->members)
 	{
 		FreeEntityMembers((entity_member_t*)power->members);
+		power->members = NULL;
 	}
 	if(power->location)
 	{
 		free(power->location);
+		power->location = NULL;
 	}
 	if(power->icon)
 	{
-		FreeSprite(power->icon);
+		if(gGameState == END)
+		{
+			FreeSprite(power->icon);
+		}
+		power->icon = NULL;
 	}
-	free(power);
+	
+	//free(power);
 
 }

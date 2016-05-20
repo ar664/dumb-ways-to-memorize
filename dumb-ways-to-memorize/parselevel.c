@@ -212,19 +212,36 @@ int LoadGameState()
 		gLevelObject = ParseToObject(gLevelTokens, gLevelData);
 		if(!gLevelObject)
 		{
+			if(gLevelData) free(gLevelData);
+			gLevelData = NULL;
+			if(gLevelTokens) free(gLevelTokens);
+			gLevelTokens = NULL;
 			return -1;
 		}
 		LoadLevel(gLevelObject, gLevelData);
 		if(!strcmp(gCurrentLevel->mName, level_name))
 		{
+			if(gLevelData) free(gLevelData);
+			gLevelData = NULL;
+			if(gLevelTokens) free(gLevelTokens);
+			gLevelTokens = NULL;
+			if(gLevelObject) free(gLevelObject);
+			gLevelObject = NULL;
 			break;
 		}
+		if(gLevelData) free(gLevelData);
+		gLevelData = NULL;
+		if(gLevelTokens) free(gLevelTokens);
+		gLevelTokens = NULL;
+		if(gLevelObject) free(gLevelObject);
+		gLevelObject = NULL;
 	}
 	//Add in the player
 	InitPlayer();
 	InitCursor();
 	if(!gPlayer || !gCursor)
 	{
+		printf("Could not initialize player / Cursor \n");
 		return -1;
 	}
 	gPlayer->mPhysicsProperties->body->p.x = player_pos.x;
