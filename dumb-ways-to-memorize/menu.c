@@ -362,7 +362,7 @@ void UpdatePowerSelectMenu(menu_t* self, SDL_GameControllerButton button)
 					gCurrentPowerUp = FindPower(gCurrentPowerUpName);
 					if(!gCurrentPowerUp)
 					{
-						printf("Could not find power up with name: %s. Please try again. \n");
+						printf("Could not find power up with name: %s. Please try again. \n", self->mSelectedItem->Name);
 						break;
 					}
 					LoadSelectedLevel(i);
@@ -584,6 +584,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	menu = FindMenuFromGameState(curr_state);
 	if(menu)
 	{
+		printf("Free menu has ben called \n");
 		FreeMenu(menu);
 	} 
 	else
@@ -627,7 +628,7 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 	if(!type_str)
 	{
 		printf("Not found menu layout type for %s. Switching to default vertical layout \n", object->name);
-		type_str = strdup(MENU_TYPE_STR_V);
+		type_str = _strdup(MENU_TYPE_STR_V);
 	}
 
 	//Load Items
@@ -706,11 +707,11 @@ menu_t *LoadMenu(object_t* object, char *g_str ,GameState curr_state, GameState 
 				memcpy(&menu->mItems[menu->mItemCount+i], ref_menu_item, sizeof(menu_item_t));
 				if(ref_menu_item->Name)
 				{
-					menu->mItems[menu->mItemCount+i].Name = strdup(ref_menu_item->Name);
+					menu->mItems[menu->mItemCount+i].Name = _strdup(ref_menu_item->Name);
 				}
 				if(ref_menu_item->Info)
 				{
-					menu->mItems[menu->mItemCount+i].Info = strdup((char*)ref_menu_item->Info);
+					menu->mItems[menu->mItemCount+i].Info = NULL;//_strdup((char*)ref_menu_item->Info);
 				}
 				
 				menu->mItems[menu->mItemCount+i].State = MENU_ITEM_STATE_NOT_SELECTED;

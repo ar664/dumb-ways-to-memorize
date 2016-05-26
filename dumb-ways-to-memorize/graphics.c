@@ -144,7 +144,7 @@ sprite_t *LoadSprite(const char *name, int flags)
 	check->mRawSize.x = temp->w;
 	check->mRawSize.y = temp->h;
 	check->mTexture = SDL_CreateTextureFromSurface(gRenderer, temp);
-	check->name = strdup(name);
+	check->name = _strdup(name);
 	check->mRefCount = 1;
 	check->mFrames = 0;
 	SDL_FreeSurface(temp);
@@ -155,7 +155,6 @@ sprite_t *LoadSprite(const char *name, int flags)
 int DrawSprite(sprite_t *sprite, int frame, vec2_t * position, SDL_Renderer * renderer, int flags)
 {
 	SDL_Rect src, dst;
-	int zero = 0;
 	if(!sprite)
 	{
 		printf("Null sprite given \n");

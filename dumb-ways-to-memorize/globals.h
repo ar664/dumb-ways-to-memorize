@@ -99,6 +99,7 @@ typedef enum
 /** Defines the enum for the game states */
 typedef enum
 {
+	DEBUG =		0x0,
 	SPLASH =	0x1,	/**<  splash screen game state */
 	START =		0x2,	/**<  start screen game state */
 	GUESS =		0x4,	/**<  first time the player chooses the power_ups */

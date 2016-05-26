@@ -1,7 +1,6 @@
 #include "dumb_physics.h"
 #include "entity.h"
 #include "globals.h"
-#include "player.h"
 #include <stdio.h>
 #include <stdlib.h>
 

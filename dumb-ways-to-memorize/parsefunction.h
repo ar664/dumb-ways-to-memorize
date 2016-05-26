@@ -2,7 +2,6 @@
 #define __PARSE_FUNCTION_H
 
 #include "entity.h"
-#include "SDL.h"
 
 #define SPAWN_OFFSET 10
 

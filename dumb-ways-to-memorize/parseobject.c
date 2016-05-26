@@ -145,7 +145,7 @@ object_t *FindObject(object_t *obj, char *name)
 
 int CountObjectMembers(object_t* obj, char* g_str)
 {
-	int objects, objCount, retVal, i;
+	int objects, objCount, retVal;
 	if(!obj || !g_str)
 	{
 		return 0;
@@ -190,6 +190,7 @@ int CountObjectChildren(object_t *obj)
 void PrintObject(object_t* obj, char *g_str)
 {
 	int objects, tempInt, i;
+	char *temp_str;
 	if(!obj || !g_str)
 	{
 		return;
@@ -210,8 +211,20 @@ void PrintObject(object_t* obj, char *g_str)
 				i = 0;
 				while(obj->keys[i].type && obj->values[i].type)
 				{
-					printf("Key : %s \n", JsmnToString(&obj->keys[i], g_str));
-					printf("Value : %s \n", JsmnToString(&obj->values[i], g_str));
+					temp_str =  JsmnToString(&obj->keys[i], g_str);
+					if(temp_str)
+					{
+						printf("Key : %s \n", temp_str);
+						free(temp_str);
+					}
+					temp_str = JsmnToString(&obj->values[i], g_str);
+					if(temp_str)
+					{
+						printf("Value : %s \n", temp_str);
+						free(temp_str);
+					}
+					
+					
 					i++;
 				}
 			} else if(obj->values)
@@ -219,7 +232,13 @@ void PrintObject(object_t* obj, char *g_str)
 				i = 0;
 				while(obj->values[i].type)
 				{
-					printf("Value : %s \n", JsmnToString(&obj->values[i], g_str));
+					temp_str = JsmnToString(&obj->values[i], g_str);
+					if(temp_str)
+					{
+						printf("Value : %s \n", temp_str);
+						free(temp_str);
+					}
+					
 					i++;
 				}
 			}
@@ -406,7 +425,7 @@ void WriteMembersToFile(FILE *file, char *key, char *value, bool comma)
 
 void WriteStringObjectToFile(string_object_t *obj, FILE* file, int depth)
 {
-	int i, j, k, object_count, key_count, value_count, pairs, value_only_count;
+	int i, j, object_count, key_count, value_count, pairs, value_only_count;
 	bool comma;
 	char depth_tab[32];
 	if(!obj)

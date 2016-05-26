@@ -506,8 +506,6 @@ void SetAI_Var(ai_function_t* function, char* data_str, ai_variables_t var_type)
 
 void SetAI_Action(ai_function_t* function, ai_actions_t action_type, char * x, char * y)
 {
-	vec2_t *temp_vec2;
-	int temp_int;
 	if(!action_type || !function)
 	{
 		return;

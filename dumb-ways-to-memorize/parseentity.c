@@ -126,7 +126,7 @@ void AddSpritesToEnt(entity_t *ent, char **files, int flags)
 entity_t* ParseToEntity(object_t* object, char* str)
 {
 	int i, j, array_count;
-	int temp_int, *temp_loc;
+	int temp_int;
 	cpFloat temp_float[3] = {0};
 
 	//Files

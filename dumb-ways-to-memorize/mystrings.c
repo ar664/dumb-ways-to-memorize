@@ -317,7 +317,6 @@ int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStora
 	memset( &(*jsmnStorage)[num_tokens], 0, sizeof(jsmntok_t));
 
 	//Freeing if necessary
-	if(varsToFree & PARSER) ;
 	if(varsToFree & STRING) free(*stringStorage);
 	if(varsToFree & TOKEN) free(*jsmnStorage);
 
@@ -363,7 +362,7 @@ char *GameStateToStr(GameState game_state)
 		{
 			return gGameStateStr[i];
 		}
-		if( 1<<i == GameState::MAX)
+		if( 1<<i == MAX)
 		{
 			break;
 		}
@@ -464,8 +463,8 @@ vec2_t* ParseToVec2(object_t* object, char* str)
 	{
 		return NULL;
 	}
-	temp1 = strdup("0");
-	temp2 = strdup("0");
+	temp1 = _strdup("0");
+	temp2 = _strdup("0");
 	if(object->values)
 	{
 		if(temp1) free(temp1);

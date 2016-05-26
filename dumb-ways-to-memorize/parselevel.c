@@ -360,7 +360,6 @@ int SaveGameState()
 	FILE *file;
 	vec2_t temp_pos;
 	int i, j, levels, power_ups, used_power_ups, used_bool;
-	char buffer_int[32];
 	if(!gCurrentLevel || !gSelectedLevels || !gUsedPowerUps || !gSelectedPowerUps || !gPlayer)
 	{
 		return -1;

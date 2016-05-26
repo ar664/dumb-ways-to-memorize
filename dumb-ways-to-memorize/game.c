@@ -15,7 +15,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "menu.h"
 
 //All char ** should be size+1, and ending member = NULL
@@ -292,7 +291,7 @@ int LoadMenuData()
 			continue;
 		}
 		PrintObject(menuObj, menuData);
-		menuObj->name = strdup(temp_str);
+		menuObj->name = _strdup(temp_str);
 		menuLink = FindValue(menuObj, "link", menuData);
 		
 		LoadMenu(menuObj, menuData, StrToGameState(menuLink), START);

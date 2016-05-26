@@ -100,7 +100,6 @@ void IterateAtPoint(power_t *power)
 
 void IterateSelf(power_t *power)
 {
-	vec2_t *loc;
 	if(!power)
 	{
 		return;
@@ -250,7 +249,6 @@ int GetUseType(power_t *power, const char *var)
 
 power_t* ParseToPowerUp(object_t* obj, char* g_str)
 {
-	int i;
 	char *temp_str;
 	entity_t *temp_ent;
 	entity_member_t *members;
@@ -275,7 +273,7 @@ power_t* ParseToPowerUp(object_t* obj, char* g_str)
 		return NULL;
 	}
 	memset(retVal, 0, sizeof(power_t));
-	retVal->name = strdup(obj->name);
+	retVal->name = _strdup(obj->name);
 
 	//Target Matching Function
 	if( (temp_str = FindValue(obj, POWER_TARGET_STR, g_str)) != NULL )

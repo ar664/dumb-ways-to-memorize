@@ -42,9 +42,11 @@ vec2_t EntityDrawPosition(entity_t *ent)
 void DrawGeneric(entity_t *self)
 {
 	vec2_t pos_vec;
+#ifdef __COLLISION_DBG
+#define __COLLISION_DBG
 	SDL_Rect collision_dst;
 	cpBB collision_bb;
-	int time;
+#endif
 	if(!self)
 	{
 		return;
@@ -379,10 +381,12 @@ void DrawEntities()
 void RunEntities()
 {
 	int i;
+	GameState currState;
 	if(!gEntities)
 	{
 		return;
 	}
+	currState = gGameState;
 	for(i = 0; i < MAX_ENTITIES; i++)
 	{
 		if(!gEntities[i].Think || !gEntities[i].mName)
@@ -392,6 +396,12 @@ void RunEntities()
 		if( gCurrentTime > gEntities[i].mNextThink)
 		{
 			gEntities[i].Think(&gEntities[i]);
+		}
+		
+		//Check if a game state change has occured
+		if(currState != gGameState)
+		{
+			break;
 		}
 	}
 }
