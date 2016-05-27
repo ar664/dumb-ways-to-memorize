@@ -1,12 +1,11 @@
 #include "globals.h"
 #include "entity.h"
 #include "graphics.h"
-#include "player_controller.h"
+#include "controller.h"
 #include <stdio.h>
 #include <math.h>
 #include "player.h"
 #include "parselevel.h"
-#include "parsepowerup.h"
 #include "dumb_physics.h"
 
 entity_t *gEntities = NULL;
@@ -510,7 +509,11 @@ void FreeEntity(entity_t *ent)
 			}	
 		}
 	}
-	RemoveEntityFromPhysics(ent);
+	if(ent->mPhysicsProperties)
+	{
+		RemoveEntityFromPhysics(ent);
+	}
+	
 	memset(ent, 0, sizeof(entity_t));
 			
 }
@@ -588,12 +591,22 @@ void EntitySetAnimation(entity_t* ent, int animation)
 	{
 		return;
 	}
-	if( !ent->mSprites || !ent->mSprites[0] || animation > MAX_ANIMATIONS)
+	if( !ent->mSprites || animation > MAX_ANIMATIONS)
 	{
 		return;
 	}
-	anim_count = CountMem(ent->mSprites, sizeof(char*));
-	if(ent->mSprites[animation] == ent->mAnimation || animation >= anim_count)
+	if( !ent->mSprites[0] )
+	{
+		return;
+	}
+	anim_count = CountMem(ent->mSprites, sizeof(sprite_t**));
+	//Check if we have the sprite for that animation
+	if( animation >= anim_count )
+	{
+		return;
+	}
+	//Check if is the current animation already
+	if(ent->mSprites[animation] == ent->mAnimation )
 	{
 		return;
 	}

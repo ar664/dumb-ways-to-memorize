@@ -1,6 +1,10 @@
 #include "audio.h"
 #include "globals.h"
-#include <SDL.h>
+#ifdef __WIN32
+	#include <SDL.h>
+#else
+	#include <SDL2/SDL.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -20,8 +24,8 @@ sound_t* LoadSound(char** files, sound_mixer_group group)
 	{
 		return NULL;
 	}
-	sound = (sound_t*) malloc(sizeof(sound));
-	memset(sound, 0, sizeof(sound));
+	sound = (sound_t*) malloc(sizeof(sound_t));
+	memset(sound, 0, sizeof(sound_t));
 	if(group == SOUND_GROUP_MUSIC)
 	{
 		sound->music = Mix_LoadMUS(files[0]);

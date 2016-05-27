@@ -1,15 +1,48 @@
-#ifndef __PARSE_POWER_UP_H
-#define __PARSE_POWER_UP_H
+#ifndef __PLAYER_H
+#define __PLAYER_H
 
-#include "parseobject.h"
 #include "entity.h"
-
+#define PLAYER_NAME "Player1"
+#define PLAYER_LIVES 3
+#define PLAYER_BASE_JUMP	-100
+#define PLAYER_BASE_SPEED	15
 #define POWER_TARGET_STR "target"
 #define POWER_USE_TYPE_STR "use-type"
 #define POWER_INTERACTION_STR "interaction"
 #define POWER_PLACE_STR "place"
 #define POWER_INPUT_TYPE_STR "input-type"
 #define POWER_ENTITY_STR "entity"
+
+#define SPAWN_OFFSET 10
+
+/**
+ * Initialize the player entity and variables thereof, also used to reset player.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+void InitPlayer();
+
+/**
+ * Executes the player think operation for player input.
+ *
+ * @param [in,out]	player	If non-null, the player.
+ * @param	button		  	The button.
+ *
+ * @author	Anthony Rios
+ * @date	3/29/2016
+ */
+void DoPlayerThink(void *player, SDL_GameControllerButton button);
+
+void InitCursor();
+
+#define PLAYER_STR "Player"
+#define CURSOR_STR "Cursor"
+
+extern entity_t *gPlayer;   /**< The player entity */
+extern entity_t *gCursor;   /**< The cursor entity corresponding the the sprite of it */
+extern char *gPlayerName;  /**< The name of the player */
+
 
 /** Values that represent use types for power_ups */
 enum use_type_t
@@ -22,7 +55,7 @@ enum use_type_t
 typedef enum 
 {
 	INFO_NONE	= 0x0,
-	INFO_BUTTON = 0x1,
+	INFO_BUTTON 	= 0x1,
 	INFO_MOUSE	= 0x2,
 	INFO_BOTH	= INFO_MOUSE | INFO_BUTTON
 
@@ -30,8 +63,8 @@ typedef enum
 
 typedef struct power_s power_t;
 
-typedef void (*PowerFunc) (entity_t*, entity_t**, void *extra);
-typedef vec2_t (*LocationFunc) (entity_t *);
+typedef void (*PowerFunc) (entity_t*, entity_t**, void *extra);	/**< The functions that actually do the actions */
+typedef vec2_t (*LocationFunc) (entity_t *);	/**< The location function for power ups that returns the position to do the power */
 
 /**
  * The structure for our power_up system.
@@ -54,9 +87,8 @@ struct power_s
 	entity_t *info;										/**< The information that the power_up uses*/
 
 };
-extern power_t *gPowerUps;			/**< The loaded power ups */
+extern power_t *gPowerUps;		/**< The loaded power ups */
 extern power_t *gCurrentPowerUp;	/**< The currently loaded power_up */
-
 
 /**
  * Updates a normal use power_up, with uses > 0.
@@ -163,12 +195,74 @@ void IterateAtPoint(power_t *power);
  */
 void IterateSelf(power_t *power);
 
+void (*ParseToFunction(const char *name));
+
+//Interactions
+/**
+ * Moves the target to position given by info.
+ *
+ * @param [in,out]	targ	If non-null, the targ.
+ * @param [in,out]	info	If non-null, the information.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+void Move(entity_t *targ, entity_t **info, void *extra);
+
+/**
+ * Destroys target.
+ *
+ * @param [in,out]	targ	If non-null, the targ.
+ * @param [in,out]	info	If non-null, the information.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+void Destroy(entity_t *targ, entity_t **info, void *extra);
+
+/**
+ * Spawns entity from info to position of targ.
+ *
+ * @param [in,out]	targ	If non-null, the targ.
+ * @param [in,out]	info	If non-null, the information.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+void Spawn(entity_t *targ, entity_t **info, void *extra);
+
+/**
+ * Edits the target with values from info.
+ *
+ * @param [in,out]	targ	If non-null, the targ.
+ * @param [in,out]	info	If non-null, the information.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+void Edit(entity_t *targ, entity_t **info, void *extra);
+
+/**
+ * Nullifies the entity by removing the think function of targ.
+ *
+ * @param [in,out]	targ	If non-null, the targ.
+ * @param [in,out]	info	If non-null, the information.
+ *
+ * @author	Anthony Rios
+ * @date	3/30/2016
+ */
+void Nullify(entity_t *targ, entity_t **info, void *extra);
+
 LocationFunc ParseToLocation(char *str);
 vec2_t GetSelf(entity_t *ent);
 vec2_t GetPoint(entity_t *ent);
 
 //Interactions Array
-extern char *IterationNames[];	/**< The interaction names, which deal with what function power does */
+extern char *IterationNames[];		/**< The interaction names, which deal with what function power does */
 extern void (*IterationSymbols[]);	/**< The interaction symbol for the functions */
+
+//Functions array
+extern char *FunctionNames[];
+extern void (*FunctionSymbols[]);
 
 #endif

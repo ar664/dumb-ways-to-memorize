@@ -479,7 +479,7 @@ entity_member_t* FindEntityMembers(object_t* object, char* str)
 		{
 			continue;
 		}
-
+	
 		for(j = 0; variable_arrays[j]; j++)
 		{
 			current_array = (char**) variable_arrays[j];
@@ -511,7 +511,6 @@ entity_member_t* FindEntityMembers(object_t* object, char* str)
 						}
 
 						((char**)temp_array)[0] = (char*) temp_test;
-						if(temp_test) free(temp_test);
 
 						for(x = 1; x < array_count; x++)
 						{
@@ -548,7 +547,7 @@ entity_member_t* FindEntityMembers(object_t* object, char* str)
 							if(value_string) free(value_string);
 						}
 
-						((cpFloat*)temp_array)[x] = NULL;
+						((cpFloat*)temp_array)[array_count] = NULL;
 
 					} else
 					{
@@ -569,7 +568,6 @@ entity_member_t* FindEntityMembers(object_t* object, char* str)
 			{
 				hit = 0;
 				hit_count++;
-				if(temp_str) free(temp_str);
 				break;
 			}
 		}

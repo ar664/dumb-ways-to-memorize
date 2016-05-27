@@ -1,21 +1,18 @@
-#include "globals.h"
-#include "player_controller.h"
+#include "globals.h"m
+#include "controller.h"
 #include "game.h"
 #include "entity.h"
 #include "mystrings.h"
 #include "parseobject.h"
 #include "parseentity.h"
-#include "parsepowerup.h"
 #include "parselevel.h"
 #include "dumb_physics.h"
 #include "dumb_ui.h"
 #include "player.h"
-#include "graphics.h"
-#include <SDL.h>		   
+#include "graphics.h"		   
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "menu.h"
 
 //All char ** should be size+1, and ending member = NULL
 
@@ -41,7 +38,7 @@ entity_t *gEntityDictionary;
 power_t *gPowerUps;					
 char *gCurrentPowerUpName = NULL;   
 GameState gGameState = SPLASH;		
-sprite_t *gSplash = NULL;			/**< The splash screen sprite*/
+sprite_t *gSplash = NULL;				/**< The splash screen sprite*/
 vec2_t gZeroVect = {0,0};
 SDL_Event gEventQ;					/**< The event qeueu update with all SDL_Events */
 SDL_GameController *gController = NULL; 
@@ -291,7 +288,7 @@ int LoadMenuData()
 			continue;
 		}
 		PrintObject(menuObj, menuData);
-		menuObj->name = _strdup(temp_str);
+		menuObj->name = strdup(temp_str);
 		menuLink = FindValue(menuObj, "link", menuData);
 		
 		LoadMenu(menuObj, menuData, StrToGameState(menuLink), START);
@@ -704,10 +701,6 @@ int Setup()
 	}
 	gController = SDL_GameControllerOpen(0);
 	LoadGUIforGameState((GameState)PLAYING);
-	//PrintObject(gLevelObject, gLevelData);
-	//test_sprite = LoadSprite("Sprite/UI/NESController.png",0);
-	//test_sprite->mCurrentFrame = LoadAnimation(test_sprite->mSize.x, test_sprite->mSize.y, test_sprite->mSize.x, test_sprite->mSize.y);
-	//FreeSprite(test_sprite);
 
 	return 0;
 }
@@ -731,7 +724,7 @@ int Run()
 		//Thread
 		Draw();
 		gDeltaTime = SDL_GetTicks() - gCurrentTime;
-		SDL_Delay(gDeltaTime > UPDATE_FRAME_DELAY ? 0 : gDeltaTime);
+		SDL_Delay(gDeltaTime > UPDATE_FRAME_DELAY ? 0 : UPDATE_FRAME_DELAY - gDeltaTime);
 	}
 	return 0;
 }
@@ -757,7 +750,6 @@ void DrawSplash()
 			printf("Couldn't draw splash: %s \n", SDL_GetError());
 		}
 	}
-	return;
 }
 
 /**
@@ -775,7 +767,6 @@ void DrawStart()
 		return;
 	}
 	gMenus[0].Draw(&gMenus[0]);
-	return;
 }
 
 /**
@@ -793,7 +784,6 @@ void DrawGuess()
 		return;
 	}
 	gMenus[1].Draw(&gMenus[1]);
-	return;
 }
 
 /**
@@ -825,7 +815,6 @@ void DrawPlaying()
 	DrawLevel();
 	DrawEntities();
 	DrawUI();
-	return;
 }
 
 /**

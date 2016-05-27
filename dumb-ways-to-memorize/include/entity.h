@@ -2,8 +2,8 @@
 #define __ENTITY__H
 
 #include "globals.h"
-#include "audio.h"
 #include "graphics.h"
+#include "audio.h"
 #include "ai_interpret.h"
 
 #define MAX_ENTITIES 250

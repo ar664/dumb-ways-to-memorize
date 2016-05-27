@@ -1,8 +1,15 @@
 #ifndef __AUDIO__H
 #define __AUDIO__H
 
-#include <SDL_mixer.h>
-#include <SDL_audio.h>
+#ifdef __WIN32
+	#include <SDL.h>
+	#include <SDL_mixer.h>
+	#include <SDL_audio.h>
+#else
+	#include <SDL2/SDL.h>
+	#include <SDL2/SDL_mixer.h>
+	#include <SDL2/SDL_audio.h>
+#endif
 #define MAX_SOUNDS	100
 
 extern char *SoundVariableNames[];

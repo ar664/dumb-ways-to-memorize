@@ -1,24 +1,170 @@
- #include "globals.h"
-#include "parsefunction.h"
-#include "parsepowerup.h"
+#include "globals.h"
 #include "parseobject.h"
 #include "parseentity.h"
 #include "entity.h"
+#include "player.h"
+#include "parselevel.h"
+#include <stdio.h>
+#include "dumb_physics.h"
 #include "mystrings.h"
 #include <jsmn.h>
 #include <string.h>
-#include <stdio.h>
-#include "dumb_physics.h"
-#include "player.h"
+
+char *gPlayerName = PLAYER_NAME;
+entity_t *gPlayer = NULL;
+entity_t *gCursor = NULL;
+int gPlayerLives = 3;
 
 char *IterationNames[] = {"self", "at-point", "world" , 0};
 void (*IterationSymbols[]) =  {IterateSelf, IterateAtPoint, IterateThroughWorld, 0 };
+char *FunctionNames[] = {"move", "destroy", "spawn", "edit", "nullify", 0};
+void (*FunctionSymbols[]) = {Move, Destroy, Spawn, Edit, Nullify, 0};
 void (*LocationSymbols[]) = {GetSelf, GetPoint, GetPoint, 0};
 
 power_t *gCurrentPowerUp = NULL;
 vec2_t *mousePos  = NULL;
 int *keyPower = NULL;
 
+
+void InitPlayer()
+{
+	cpVect cpPos;
+	entity_t *ent;
+	if(!gPlayer)
+	{
+		gPlayer = InitNewEntity();
+	}
+
+	if(!gPlayer)
+	{
+		printf("Could not Init Player");
+		exitRequest = 1;
+		return;
+	}
+	ent = FindCachedEntity(PLAYER_STR);
+	if(!ent)
+	{
+		printf("Could not Init Player");
+		exitRequest = 1;
+		return;
+	}
+	memcpy(gPlayer, ent, sizeof(entity_t));
+	if(gPlayerLives < 1)
+	{
+		gPlayerLives = PLAYER_LIVES;
+	}
+	gPlayer->Draw = DrawGeneric;
+	gPlayer->Think = ThinkPlayer;
+	gPlayer->Touch = TouchPlayer;
+	gPlayer->PowerUp = gPowerUps ? UsePower : NULL;
+	cpPos = gCurrentLevel ? Vec2Cp(&gCurrentLevel->mSpawnPoint) : cpvzero;
+
+	AddPhyicsToEntity(gPlayer);
+	
+	cpBodySetPos(gPlayer->mPhysicsProperties->body, cpPos);
+
+	gPlayer->mHealth = 100;
+	gPlayer->mNextThink = gCurrentTime + 2*UPDATE_FRAME_DELAY;
+	AddEntityToPhysics(gPlayer);
+	AddCollisionHandlerToEntity(gPlayer);
+	
+}
+
+void InitCursor()
+{
+	entity_t *ent;
+	if(!gCursor)
+	{
+		gCursor = InitNewEntity();
+	}
+		
+	if(!gCursor)
+	{
+		printf("Could not Init Cursor");
+		exitRequest = 1;
+		return;
+	}
+
+	SDL_ShowCursor(false);
+	ent = FindCachedEntity(CURSOR_STR);
+	if(!ent)
+	{
+		return;
+	}
+	memcpy(gCursor, ent, sizeof(entity_t));
+	
+	AddPhyicsToEntity(gCursor);
+	if(!gCursor->mPhysicsProperties)
+	{
+		printf("Could not Init Cursor");
+		exitRequest = 1;
+		return;
+	}
+
+	cpBodySetPos(gCursor->mPhysicsProperties->body, cpvzero);
+	gCursor->Think = ThinkCursor;
+	gCursor->Draw = DrawGeneric;
+	gCursor->Touch = NULL;
+	gCursor->mNextThink = gCurrentTime + UPDATE_FRAME_DELAY;
+
+}
+
+void DoPlayerThink(void *player, SDL_GameControllerButton button)
+{
+	entity_t *ent = (entity_t*) player;
+	cpVect Walk, Jump;
+	switch(button)
+	{
+	case(SDL_CONTROLLER_BUTTON_A):
+		{
+			Jump.x = 0;
+			Jump.y = PLAYER_BASE_JUMP;
+			
+			if(cpBodyGetVel(ent->mPhysicsProperties->body).y < 2.0)
+			{
+				cpBodyApplyImpulse(ent->mPhysicsProperties->body, Jump, cpvzero);
+				EntitySetAnimation(ent, ANIMATION_JUMP);
+			}
+			
+			break;
+		}
+	case(SDL_CONTROLLER_BUTTON_B):
+		{
+			ent->PowerUp(gCurrentPowerUp);
+			break;
+		}
+	case(SDL_CONTROLLER_BUTTON_DPAD_LEFT):
+		{
+			Walk.x = -PLAYER_BASE_SPEED;
+			Walk.y = cpBodyGetVel(ent->mPhysicsProperties->body).y;
+			cpBodySetVel(ent->mPhysicsProperties->body, Walk);
+			EntitySetAnimation(ent, ANIMATION_WALK);
+			ent->mDirection = DIR_LEFT;
+			break;
+		}
+	case(SDL_CONTROLLER_BUTTON_DPAD_RIGHT):
+		{
+			Walk.x = PLAYER_BASE_SPEED;
+			Walk.y = cpBodyGetVel(ent->mPhysicsProperties->body).y;
+			cpBodySetVel(ent->mPhysicsProperties->body, Walk);
+			EntitySetAnimation(ent, ANIMATION_WALK);
+			ent->mDirection = DIR_RIGHT;
+			break;
+		}
+	case(SDL_CONTROLLER_BUTTON_START):
+		{
+			ResetGame();
+		}
+	case(SDL_CONTROLLER_BUTTON_RIGHTSHOULDER):
+		{
+			SaveGameState();
+			ResetGame();
+		}
+	default:
+		return;
+	}
+
+}
 
 void (*ParseToIterator( char *str))
 {
@@ -35,6 +181,142 @@ void (*ParseToIterator( char *str))
 		}
 	}
 	return NULL;
+}
+
+void (*ParseToFunction(const char *name))
+{
+	int i;
+
+	for(i = 0; FunctionNames[i]; i++)
+	{
+		if(!strcmp(FunctionNames[i], name))
+		{
+			return FunctionSymbols[i];
+		}
+	}
+	return NULL;
+}
+
+void Move(entity_t *targ, entity_t **info, void *location)
+{
+	vec2_t temp_vect;
+	cpVect cpPos;
+	if(!targ || !location)
+	{
+		printf("Failed to do move , invalid target/info \n");
+		return;
+	}
+	if(!targ->mPhysicsProperties)
+	{
+		printf("Failed to do move , no target/info physics properties \n");
+		return;
+	}
+	temp_vect = ((LocationFunc) location)(targ);
+	cpPos = Vec2Cp(&temp_vect);
+	if(location)
+	{
+		cpBodySetPos(targ->mPhysicsProperties->body, cpPos);
+	}
+	
+
+}
+
+void Destroy(entity_t *targ, entity_t **info, void *extra)
+{
+	if(!targ)
+	{
+		return;
+	}
+	FreeEntity(targ);
+}
+
+void Spawn(entity_t *targ, entity_t **info, void *location)
+{
+	entity_t *spawned;
+	vec2_t temp_vect;
+	cpVect cpPos, cpSpeed;
+	if(!targ || !info)
+	{
+		printf("Spawn given blank targ/info \n");
+		return;
+	}
+	if(!targ->mPhysicsProperties || !(*info)->mPhysicsProperties)
+	{
+		printf("Spawn given info without physics \n");
+		return;
+	}
+
+	spawned = InitNewEntity();
+	if (!spawned)
+	{
+		printf("Max entities reached can't spawn any more \n");
+		return;
+	}
+
+	memcpy(spawned, *info, sizeof(entity_t));
+	AddPhyicsToEntity(spawned);
+	if(!spawned->mPhysicsProperties)
+	{
+		printf("Unable to spawn entity, physics could not be added. \n");
+		return;
+	}
+	spawned->mPhysicsProperties->body->p = (*info)->mPhysicsProperties->body->p;
+	
+	//Set Location based on either target or location
+	if(location)
+	{
+		temp_vect = ((LocationFunc) location)(targ);
+		cpPos = Vec2Cp( &temp_vect );
+	} else
+	{
+		cpPos = cpvadd(cpBodyGetPos(spawned->mPhysicsProperties->body), cpBodyGetPos(targ->mPhysicsProperties->body));
+		if(targ->mDirection)
+		{
+			cpPos.x -= targ->mSprites[ANIMATION_IDLE]->mSize.x + SPAWN_OFFSET;
+		} else
+		{
+			cpPos.x += targ->mSprites[ANIMATION_IDLE]->mSize.x + SPAWN_OFFSET;
+		}
+		
+	}
+
+	//Set Velocity Based on Direction
+	//TODO: Get Velocity from User
+	if(targ->mDirection == DIR_RIGHT)
+	{
+		cpBodySetPos(spawned->mPhysicsProperties->body, cpPos);
+		cpSpeed.y = 0;
+		cpSpeed.x = PHYSICS_BASE_SPEED_X;
+		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpSpeed, cpvzero);
+	} else
+	{
+		cpBodySetPos(spawned->mPhysicsProperties->body, cpPos);
+		cpSpeed.y = 0;
+		cpSpeed.x = -PHYSICS_BASE_SPEED_X;
+		cpBodyApplyForce( spawned->mPhysicsProperties->body, cpSpeed, cpvzero);
+	}
+
+	AddEntityToPhysics(spawned);
+}
+
+void Edit(entity_t *targ, entity_t **info, void *member)
+{
+	if(!targ || !member)
+	{
+		printf("Null edit, not doing \n");
+		return;
+	}
+	ApplyEntityMembers(targ, (entity_member_t*)member);
+	
+}
+
+void Nullify(entity_t *targ, entity_t **info, void *extra)
+{
+	if(!targ)
+	{
+		printf("Null given null target \n");
+	}
+	targ->Think = NULL;
 }
 
 //////////////
@@ -273,7 +555,7 @@ power_t* ParseToPowerUp(object_t* obj, char* g_str)
 		return NULL;
 	}
 	memset(retVal, 0, sizeof(power_t));
-	retVal->name = _strdup(obj->name);
+	retVal->name = strdup(obj->name);
 
 	//Target Matching Function
 	if( (temp_str = FindValue(obj, POWER_TARGET_STR, g_str)) != NULL )

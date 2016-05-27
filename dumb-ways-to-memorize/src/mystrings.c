@@ -233,7 +233,7 @@ char * FileToString(char *fileName)
 		return NULL;
 	}
 	size = st.st_size;
-	string = ALLOC_STR(size);
+	string = ALLOC_STR(size+1);
 	if(!string)
 	{
 		printf("Could not allocate memory");
@@ -268,7 +268,7 @@ int ConvertFileToUseable(char *fileName, jsmn_parser *parser, char **stringStora
 	//Init parser, if not given
 	if(!parser)
 	{
-		tempPars = (jsmn_parser*) malloc(sizeof(parser));
+		tempPars = (jsmn_parser*) malloc(sizeof(jsmn_parser));
 		if(!tempPars) return -1;
 		parser = tempPars;
 		varsToFree |= PARSER;
@@ -342,7 +342,7 @@ GameState StrToGameState(char *str)
 		return SPLASH;
 	}
 	j = 0;
-	for(i = 1; i < GameState::MAX; i <<= 1)
+	for(i = 1; i < MAX; i <<= 1)
 	{
 		if(!strcmp(str, gGameStateStr[j]))
 		{
@@ -463,8 +463,8 @@ vec2_t* ParseToVec2(object_t* object, char* str)
 	{
 		return NULL;
 	}
-	temp1 = _strdup("0");
-	temp2 = _strdup("0");
+	temp1 = strdup("0");
+	temp2 = strdup("0");
 	if(object->values)
 	{
 		if(temp1) free(temp1);
@@ -495,6 +495,6 @@ char **ParseToStringArray(object_t* object, char* str)
 		temp = JsmnToString(&object->values[i], str);
 		retVal[i] = temp;
 	}
-	retVal[size+1] = 0;
+	retVal[size] = 0;
 	return retVal;
 }

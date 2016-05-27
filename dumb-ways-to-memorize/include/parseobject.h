@@ -37,8 +37,8 @@ struct object_s
 struct string_object_s
 {
 	char *name;
-	string_object_s *parent;
-	string_object_s *children;
+	string_object_t *parent;
+	string_object_t *children;
 	char **keys;
 	char **values;
 };

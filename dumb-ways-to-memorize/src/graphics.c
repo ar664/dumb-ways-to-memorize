@@ -1,7 +1,14 @@
 #include "globals.h"
 #include "graphics.h"
-#include <SDL.h>
-#include <SDL_image.h>
+
+#ifdef __WIN32
+	#include <SDL.h>
+	#include <SDL_image.h>
+#else
+	#include <SDL2/SDL.h>
+	#include <SDL2/SDL_image.h>
+#endif
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -144,7 +151,7 @@ sprite_t *LoadSprite(const char *name, int flags)
 	check->mRawSize.x = temp->w;
 	check->mRawSize.y = temp->h;
 	check->mTexture = SDL_CreateTextureFromSurface(gRenderer, temp);
-	check->name = _strdup(name);
+	check->name = strdup(name);
 	check->mRefCount = 1;
 	check->mFrames = 0;
 	SDL_FreeSurface(temp);

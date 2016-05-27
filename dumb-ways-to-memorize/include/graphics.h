@@ -1,7 +1,11 @@
 #ifndef __GRAPHICS_H
 #define __GRAPHICS_H
 
-#include <SDL.h>
+#ifdef __WIN32
+	#include <SDL.h>
+#else
+	#include <SDL2/SDL.h>
+#endif
 #include "globals.h"
 
 #define GAME_NAME "Dumb Ways to Memorize"

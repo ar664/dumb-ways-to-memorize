@@ -162,18 +162,18 @@ void SafeRemovePhysics(cpSpace *space, void *key, void *data)
 	{
 		if( !cpBodyIsStatic(body) )
 		{
-			cpSpaceRemoveShape(space, shape);
-			cpSpaceRemoveBody(space, body);
+			if(shape) cpSpaceRemoveShape(space, shape);
+			if(body) cpSpaceRemoveBody(space, body);
 		} else
 		{
-			cpSpaceRemoveStaticShape(space, shape);
-			cpSpaceRemoveBody(space, body);
+			if(shape) cpSpaceRemoveStaticShape(space, shape);
+			if(body) cpSpaceRemoveBody(space, body);
 		}
 	}
 	
 	
-	cpShapeFree( shape );
-	cpBodyFree( body );
+	if(shape) cpShapeFree( shape );
+	if(body) cpBodyFree( body );
 }
 
 void RemoveEntityFromPhysics(entity_t *ent)
@@ -208,7 +208,8 @@ void RemoveEntityFromPhysics(entity_t *ent)
 		SafeRemovePhysics(space, ent->mPhysicsProperties->shape, ent->mPhysicsProperties->body);
 	}
 	
-	
+	ent->mPhysicsProperties->body = NULL;
+	ent->mPhysicsProperties->shape = NULL;
 	if(ent->mPhysicsProperties)
 	{
 		free(ent->mPhysicsProperties);
@@ -280,31 +281,12 @@ void PrePhysics()
 
 void RunPhysics()
 {
-	cpSpaceStep((cpSpace*) gSpace, 1.0f/60.0f);
-	//PrePhysics();
-
-	// Old Physics Code
-	/*
-	int i, j;
-	for(i = 0; i < MAX_ENTITIES; i++)
+	if(!gSpace)
 	{
-		if(!gEntities[i].mName)
-		{
-			continue;
-		}
-		for(j = i; j < MAX_ENTITIES; j++)
-		{
-			if(i == j || !gEntities[j].mName)
-			{
-				continue;
-			}
-			if(CheckCollision(&gEntities[i], &gEntities[j]))
-			{
-				DoCollision(&gEntities[i], &gEntities[j]);
-			}
-		}
+		return;
 	}
-	*/
+	cpSpaceStep((cpSpace*) gSpace, 1.0f/60.0f);
+
 }
 
 entity_t * AddPhyicsToEntity(entity_t* ent)

@@ -1,12 +1,12 @@
+#include <chipmunk/chipmunk.h>
+#include "globals.h"
 #include "ai_interpret.h"
 #include "entity.h"
-#include "parsepowerup.h"
+#include "player.h"
 #include "mystrings.h"
 #include "dumb_physics.h"
-#include <chipmunk/chipmunk.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "parsefunction.h"
 
 //Forward Declare AI's to put into function list
 void NothingAI(entity_t *ent); 
