@@ -31,22 +31,37 @@ int InitPhysics()
 static cpBool CallbackCallTouchFunctions(cpArbiter *arb, cpSpace *space, void *ptr)
 {
 	entity_t *ent1, *ent2;
+	GameState curr_state;
 	CP_ARBITER_GET_SHAPES(arb, shape1, shape2);
 	if(!arb || !shape1 || !shape2)
 	{
 		return false;
 	}
-	
+	curr_state = gGameState;
 	ent1 = (entity_t*)shape1->data;
 	ent2 = (entity_t*)shape2->data;
 	if(ent1->Touch)
 	{
 		ent1->Touch(ent1, ent2);
 	}
+	
+	//Check failsafe	
+	if(curr_state != gGameState)
+	{
+		return false;
+	}
+	
 	if(ent2->Touch)
 	{
 		ent2->Touch(ent2, ent1);
 	}
+	
+	//Failsafe
+	if(curr_state != gGameState)
+	{
+		return false;
+	}
+
 	return true;
 }
 
