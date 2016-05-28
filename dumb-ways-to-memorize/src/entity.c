@@ -122,8 +122,10 @@ void ThinkCursor(entity_t *self)
 		pos.y += SDL_GameControllerGetAxis(gController, SDL_CONTROLLER_AXIS_LEFTY);
 
 	}
-	
-	cpBodySetPos(self->mPhysicsProperties->body, pos);
+	if(!cpSpaceIsLocked(gSpace))
+	{
+		cpBodySetPos(self->mPhysicsProperties->body, pos);
+	}
 	self->mNextThink = gCurrentTime + UPDATE_FRAME_DELAY;
 }
 
@@ -170,7 +172,10 @@ void ThinkPlayer(entity_t *self)
 
 void ThinkEnemy(entity_t *self)
 {
-	if(!self) return;
+	if(!self || gGameState != PLAYING) 
+	{
+		return;
+	}
 	if(!self->mData) return;
 	if(self->mData->mFlags & AI_FLAG_CHECK_OBJECT)
 	{
@@ -298,6 +303,10 @@ void TouchEnemy(entity_t *self, entity_t *other)
 
 void TouchGoal(entity_t* self, entity_t* other)
 {
+	if(gGameState != PLAYING)
+	{
+		return;
+	}	
 	if(other == gPlayer)
 	{
 		gGameState = CountMem(gUsedPowerUps, sizeof(char*)) >= CountMem(gSelectedPowerUps, sizeof(char*)) ? START : CHOOSE;

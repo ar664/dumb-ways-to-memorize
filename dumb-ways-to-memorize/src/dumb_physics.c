@@ -158,7 +158,7 @@ void SafeRemovePhysics(cpSpace *space, void *key, void *data)
 	shape = (cpShape*) key;
 	body = (cpBody*) data;
 	ent = (entity_t*) shape->data;
-	if(space)
+	if(space && !cpBodyIsRogue(body) )
 	{
 		if( !cpBodyIsStatic(body) )
 		{
