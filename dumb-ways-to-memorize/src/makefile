@@ -1,6 +1,6 @@
 IDIR=../include
 CC=g++
-CFLAGS=-I$(IDIR) -fpermissive -g
+CFLAGS=-I$(IDIR) -fpermissive -g3
 
 ODIR=../obj
 LDIR=../lib

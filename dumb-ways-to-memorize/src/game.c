@@ -1,4 +1,4 @@
-#include "globals.h"m
+#include "globals.h"
 #include "controller.h"
 #include "game.h"
 #include "entity.h"
@@ -13,6 +13,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <chipmunk/chipmunk.h>
 
 //All char ** should be size+1, and ending member = NULL
 
@@ -1063,6 +1064,8 @@ void ResetGame()
 
 	//Reset Level Objects
 	FreeLevelData();
+
+	UpdatePhysics();	
 }
 
 void ResetRun()
@@ -1103,6 +1106,8 @@ void ResetRun()
 
 	//Reset Level Objects
 	FreeLevelData();
+
+	UpdatePhysics();
 }
 
 void GameNextLevel()
@@ -1121,4 +1126,6 @@ void GameNextLevel()
 
 	//Reset Level Objects
 	FreeLevelData();
+
+	UpdatePhysics();
 }

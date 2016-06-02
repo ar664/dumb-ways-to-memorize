@@ -41,7 +41,6 @@ void SetCpCollisionType(entity_t *ent);
 
 /**
  * Executes physics.
- * RunTime O( n(n+1)/2 )
  * Applies velocity, acceleration, gravity, and friction.
  * Limits velocity, acceleration, and sets bounds.
  * 
@@ -49,6 +48,13 @@ void SetCpCollisionType(entity_t *ent);
  * @date	3/20/2016
  */
 void RunPhysics(); 
+
+
+/**
+ * To be used when leaving a level. It reindex's the current shapes in the space.
+ * This is to prevent chipmunk from keeping the static shapes in its cache.
+ */
+void UpdatePhysics();
 
 /**
  * Check collision between entities. (AABB)

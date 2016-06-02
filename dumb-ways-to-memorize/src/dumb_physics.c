@@ -187,8 +187,8 @@ void SafeRemovePhysics(cpSpace *space, void *key, void *data)
 	}
 	
 	
-	if(shape) cpShapeFree( shape );
-	if(body) cpBodyFree( body );
+	if(shape) cpShapeDestroy( shape );
+	if(body) cpBodyDestroy( body );
 }
 
 void RemoveEntityFromPhysics(entity_t *ent)
@@ -202,7 +202,7 @@ void RemoveEntityFromPhysics(entity_t *ent)
 	{
 		return;
 	}
-	if(!ent->mPhysicsProperties->shape->space_private || !ent->mPhysicsProperties->body->space_private)
+	if( cpBodyIsRogue( ent->mPhysicsProperties->body )  )
 	{
 		space = NULL;
 	} else
@@ -229,6 +229,31 @@ void RemoveEntityFromPhysics(entity_t *ent)
 	{
 		free(ent->mPhysicsProperties);
 		ent->mPhysicsProperties = NULL;
+	}
+}
+
+void SafeUpdatePhysics(cpSpace *space, void *key, void *data)
+{
+	if(!space)
+	{
+		return;
+	}
+
+	cpSpaceReindexStatic(space);
+}
+
+void UpdatePhysics()
+{
+	if(!gSpace)
+	{
+		return;
+	}
+	if( cpSpaceIsLocked(gSpace) )
+	{
+		cpSpaceAddPostStepCallback( gSpace, SafeUpdatePhysics, NULL, NULL );
+	} else
+	{
+		SafeUpdatePhysics(gSpace, NULL, NULL);
 	}
 }
 

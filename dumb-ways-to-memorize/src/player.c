@@ -660,7 +660,6 @@ void FreePower(power_t *power)
 	}
 	if(power->location)
 	{
-		free(power->location);
 		power->location = NULL;
 	}
 	if(power->icon)

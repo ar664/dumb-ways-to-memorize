@@ -139,6 +139,10 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	if(!object || !str)
 		return NULL;
 	retVal = (entity_t*) malloc(sizeof(entity_t));
+	if(!retVal)
+	{
+		return NULL;
+	}
 	memset(retVal, 0, sizeof(entity_t));
 	retVal->mName = object->name;
 
