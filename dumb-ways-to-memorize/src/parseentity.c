@@ -290,7 +290,7 @@ entity_t* ParseToEntity(object_t* object, char* str)
 	retVal->Think = ThinkGeneric;
 	retVal->Draw = DrawGeneric;
 	retVal->Touch = TouchGeneric;
-	PrintEntity(retVal);
+	//PrintEntity(retVal);
 	return retVal;
 }
 
@@ -551,7 +551,7 @@ entity_member_t* FindEntityMembers(object_t* object, char* str)
 							if(value_string) free(value_string);
 						}
 
-						((cpFloat*)temp_array)[array_count] = NULL;
+						((cpFloat*)temp_array)[array_count] = (cpFloat) 0;
 
 					} else
 					{

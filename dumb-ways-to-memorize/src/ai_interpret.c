@@ -279,7 +279,7 @@ void (*GetFunctionAI(ai_function_t *data))(entity_t *)
 	{
 		return NULL;
 	}
-	return (void(*)(entity_t*))gAI_Functions[data->mType];
+	return (void(*)(entity_t*))gAI_Functions[data->mAction];
 }
 
 ai_function_t *ParseAI(object_t *obj, char *g_str, char **variables)
@@ -506,7 +506,7 @@ void SetAI_Var(ai_function_t* function, char* data_str, ai_variables_t var_type)
 
 void SetAI_Action(ai_function_t* function, ai_actions_t action_type, char * x, char * y)
 {
-	if(!action_type || !function)
+	if( (action_type > AI_ACTION_MAX) || (action_type < 0) || (!function) )
 	{
 		return;
 	}

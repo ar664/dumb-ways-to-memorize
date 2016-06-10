@@ -1,17 +1,17 @@
 {
-	"Name" : "2PointPatrol"
+	"Name" : "2PointPatrol",
 	"AI_Type" : "variable",
 	"variables" : ["gravity"],
 	"Comment" : "This guy moves in directions given, but doesn't clip",
 	"Think" : 
 	[
 	{
-		"walk" : [0,1],
+		"move" : [0,1],
 		"speed" : 2,
 		"frames" : 3
 	},
 	{
-		"walk" : [4, 5],
+		"move" : [4, 5],
 		"speed" : 6,
 		"frames" : 7
 	}

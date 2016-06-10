@@ -84,7 +84,7 @@ int LoadGameData()
 		printf("New Screen resolution : %d %d \n", gScreenWidth, gScreenHeight);
 		free(screen);
 	}
-	PrintObject(gGameObject, gGameData);
+	//PrintObject(gGameObject, gGameData);
 	gEntitiesFile = JsmnToString(FindObject(gGameObject, ENTITIES_FILE_STR)->values, gGameData );
 	gPowerUpsFile = JsmnToString(FindObject(gGameObject, POWER_UPS_STR)->values, gGameData);
 
@@ -104,7 +104,7 @@ int LoadEntityData()
 	}
 	gEntityObject = ParseToObject(gEntityTokens, gEntityData);
 	printf("Size of Entity tokens: %d \n", CountMem(gEntityTokens, sizeof(jsmntok_t)));
-	PrintObject(gEntityObject, gEntityData);
+	//PrintObject(gEntityObject, gEntityData);
 	Hazards_str = ParseToStringArray(FindObject(gGameObject, "Hazards"), gGameData);
 	
 	//Set Entity Dictionary
@@ -288,7 +288,7 @@ int LoadMenuData()
 			if(menuTok) free(menuTok);
 			continue;
 		}
-		PrintObject(menuObj, menuData);
+		//PrintObject(menuObj, menuData);
 		menuObj->name = strdup(temp_str);
 		menuLink = FindValue(menuObj, "link", menuData);
 		

@@ -172,6 +172,7 @@ void ThinkPlayer(entity_t *self)
 
 void ThinkEnemy(entity_t *self)
 {
+	void (*ai)(entity_t *ent);	
 	if(!self || gGameState != PLAYING) 
 	{
 		return;
@@ -186,9 +187,10 @@ void ThinkEnemy(entity_t *self)
 		}
 		if( Distance2Entity(self, FindEntity(self->mData->mObjectCheck)) < self->mData->mVariables[AI_VAR_CHECK])
 		{
-			if(GetFunctionAI(self->mData))
+			ai = GetFunctionAI(self->mData);
+			if(ai)
 			{
-				GetFunctionAI(self->mData)(self);
+				ai(self);
 			}
 		}
 	} else if (self->mData->mFlags & AI_FLAG_CHECK_PLAYER)
@@ -198,16 +200,18 @@ void ThinkEnemy(entity_t *self)
 		
 		if(Distance2Entity(self, (entity_t*)gPlayer) < self->mData->mVariables[AI_VAR_CHECK])
 		{
-			if(GetFunctionAI(self->mData))
+			ai = GetFunctionAI(self->mData);
+			if(ai)
 			{
-				GetFunctionAI(self->mData)(self);
+				ai(self);
 			}
 		}
 	} else
 	{
-		if(GetFunctionAI(self->mData))
+		ai = GetFunctionAI(self->mData);
+		if(ai)
 		{
-			GetFunctionAI(self->mData)(self);
+			ai(self);
 		}
 	}
 
