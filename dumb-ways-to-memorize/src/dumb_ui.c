@@ -15,47 +15,6 @@ vec2_t gUI_Power_Pos = {0,32};
 menu_t *gMenus = NULL;
 int gCurrentSelectedItem = 0;
 
-//TODO: Choose One main way to do item selection
-/**
- * Deselect item by number.
- *
- * @param [in,out]	self	If non-null, the class instance that this method operates on.
- * @param	item			The item number to deselect.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
-
-void DeselectItemByNum(menu_t *self, int item)
-{
-	if(!self)
-	{
-		printf("Deselect item not given menu");
-		return;
-	}
-	self->mItems[item].State = MENU_ITEM_STATE_NOT_SELECTED;
-}
-
-/**
- * Select item by number.
- *
- * @param [in,out]	self	If non-null, the class instance that this method operates on.
- * @param	item			The item number to select.
- *
- * @author	Anthony Rios
- * @date	3/29/2016
- */
-
-void SelectItemByNum(menu_t *self, int item)
-{
-	if(!self)
-	{
-		printf("Select item not given menu");
-		return;
-	}
-	self->mItems[item].State = MENU_ITEM_STATE_SELECTED;
-}
-
 /**
  * Uses gSelectedItem. Updates input and state of menu items.
  *
@@ -78,38 +37,47 @@ void UpdateVerticalMenu(menu_t *self, SDL_GameControllerButton button)
 	{
 	case(SDL_CONTROLLER_BUTTON_DPAD_UP):
 		{
-			if(!gCurrentSelectedItem)
+			if(!self->mSelectedItem)
 			{
+				self->mSelectedItem = self->mItems;
 				break;
 			}
-			DeselectItemByNum(self, gCurrentSelectedItem);
-			if(gCurrentSelectedItem-1 < 0)
+			if(self->mSelectedItem <= self->mItems)
 			{
-				SelectItemByNum(self, gCurrentSelectedItem);
+				self->mSelectedItem = self->mItems;
 				break;
+			} else {
+				self->mSelectedItem--;
 			}
-			gCurrentSelectedItem--;
-			SelectItemByNum(self, gCurrentSelectedItem);
 			break;
 		}
 	case(SDL_CONTROLLER_BUTTON_DPAD_DOWN):
 		{
-			DeselectItemByNum(self, gCurrentSelectedItem);
-			if(gCurrentSelectedItem+1 == CountMem(self->mItems, sizeof(menu_item_t)))
+			if(!self->mSelectedItem)
 			{
-				SelectItemByNum(self, gCurrentSelectedItem);
+				self->mSelectedItem = self->mItems;
 				break;
 			}
-			gCurrentSelectedItem++;
-			SelectItemByNum(self, gCurrentSelectedItem);
+			if(self->mSelectedItem >= &self->mItems[self->mItemCount] ){
+				self->mSelectedItem = &self->mItems[self->mItemCount];
+				break;
+			} else
+			{
+				self->mSelectedItem++; 
+			}
 			break;
 		}
 	case(SDL_CONTROLLER_BUTTON_A):
 		{
-			gGameState = self->mItems[gCurrentSelectedItem].NextState;
-			if( (gGameState == PLAYING) && self->mSelectedItem[gCurrentSelectedItem].Info)
+			if(!self->mSelectedItem)
 			{
-				if(!strcmp((char*)self->mSelectedItem[gCurrentSelectedItem].Info, MENU_EXTRA_LOAD_LEVEL))
+				self->mSelectedItem = self->mItems;
+			}
+			gGameState = self->mItems - &self->mSelectedItem[self->mItemCount];
+
+			if( (gGameState == PLAYING) && self->mSelectedItem->Info)
+			{
+				if(!strcmp((char*)self->mSelectedItem->Info, MENU_EXTRA_LOAD_LEVEL))
 				{
 					printf("Loading save state \n");
 					if(LoadGameState() == 0)
